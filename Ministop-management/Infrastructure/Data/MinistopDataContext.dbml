@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MinistopManagement" Class="MinistopDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-3M1QM2P;Initial Catalog=MinistopManagement;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="Infrastructure.Properties.Settings" SettingsPropertyName="MinistopManagementConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Absence" Member="Absences">
+    <Type Name="Absence">
+      <Column Name="AbsenceID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ShiftID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="IsLeaveOfAbsence" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsPaid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ShiftAssignment_Absence" Member="ShiftAssignment" ThisKey="EmployeeID,ShiftID,WorkDate" OtherKey="EmployeeID,ShiftID,WorkDate" Type="ShiftAssignment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Allowances" Member="Allowances">
+    <Type Name="Allowance">
+      <Column Name="AllowanceID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AllowanceName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="DefaultAmount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Allowance_SalaryContract_Allowance" Member="SalaryContract_Allowances" ThisKey="AllowanceID" OtherKey="AllowanceID" Type="SalaryContract_Allowance" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="BirthDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmploymentType" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Employee_Invoice" Member="Invoices" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Invoice" />
+      <Association Name="Employee_PriceProposal" Member="PriceProposals" ThisKey="EmployeeID" OtherKey="ApprovedBy" Type="PriceProposal" />
+      <Association Name="Employee_PriceProposal1" Member="PriceProposals1" ThisKey="EmployeeID" OtherKey="ManagerID" Type="PriceProposal" />
+      <Association Name="Employee_ReturnProduct" Member="ReturnProducts" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="ReturnProduct" />
+      <Association Name="Employee_SalaryContract" Member="SalaryContracts" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="SalaryContract" />
+      <Association Name="Employee_ShiftAssignment" Member="ShiftAssignments" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="ShiftAssignment" />
+      <Association Name="Employee_StockCheck" Member="StockChecks" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="StockCheck" />
+      <Association Name="Employee_StockExport" Member="StockExports" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="StockExport" />
+      <Association Name="Employee_StockImport" Member="StockImports" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="StockImport" />
+      <Association Name="Store_Employee" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Invoice" Member="Invoices">
+    <Type Name="Invoice">
+      <Column Name="InvoiceID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FinalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="Invoice_InvoiceDetail" Member="InvoiceDetails" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="InvoiceDetail" />
+      <Association Name="Invoice_ReturnProduct" Member="ReturnProducts" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="ReturnProduct" />
+      <Association Name="Employee_Invoice" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Store_Invoice" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InvoiceDetails" Member="InvoiceDetails">
+    <Type Name="InvoiceDetail">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InvoiceID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Invoice_InvoiceDetail" Member="Invoice" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="Invoice" IsForeignKey="true" />
+      <Association Name="Product_InvoiceDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PriceProposal" Member="PriceProposals">
+    <Type Name="PriceProposal">
+      <Column Name="ProposalID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ManagerID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="OldPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="NewPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProposalDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ApprovedBy" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Employee_PriceProposal" Member="Employee" ThisKey="ApprovedBy" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Employee_PriceProposal1" Member="Employee1" ThisKey="ManagerID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Product_PriceProposal" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="Store_PriceProposal" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductCategory" Member="ProductCategories">
+    <Type Name="ProductCategory">
+      <Column Name="CategoryID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ProductCategory_Product" Member="Products" ThisKey="CategoryID" OtherKey="CategoryID" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="StandardPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Product_InvoiceDetail" Member="InvoiceDetails" ThisKey="ProductID" OtherKey="ProductID" Type="InvoiceDetail" />
+      <Association Name="Product_PriceProposal" Member="PriceProposals" ThisKey="ProductID" OtherKey="ProductID" Type="PriceProposal" />
+      <Association Name="Product_Promotion_Product" Member="Promotion_Products" ThisKey="ProductID" OtherKey="ProductID" Type="Promotion_Product" />
+      <Association Name="Product_ReturnDetail" Member="ReturnDetails" ThisKey="ProductID" OtherKey="ProductID" Type="ReturnDetail" />
+      <Association Name="Product_StockCheckDetail" Member="StockCheckDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockCheckDetail" />
+      <Association Name="Product_StockDetail" Member="StockDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockDetail" />
+      <Association Name="Product_StockExportDetail" Member="StockExportDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockExportDetail" />
+      <Association Name="Product_StockImportDetail" Member="StockImportDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockImportDetail" />
+      <Association Name="Product_SupplierProduct" Member="SupplierProducts" ThisKey="ProductID" OtherKey="ProductID" Type="SupplierProduct" />
+      <Association Name="ProductCategory_Product" Member="ProductCategory" ThisKey="CategoryID" OtherKey="CategoryID" Type="ProductCategory" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Promotion" Member="Promotions">
+    <Type Name="Promotion">
+      <Column Name="PromotionID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PromotionName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Promotion_Promotion_Product" Member="Promotion_Products" ThisKey="PromotionID" OtherKey="PromotionID" Type="Promotion_Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Promotion_Products" Member="Promotion_Products">
+    <Type Name="Promotion_Product">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PromotionID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="DiscountAmount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="MinQuantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="Product_Promotion_Product" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="Promotion_Promotion_Product" Member="Promotion" ThisKey="PromotionID" OtherKey="PromotionID" Type="Promotion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReturnDetails" Member="ReturnDetails">
+    <Type Name="ReturnDetail">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ReturnID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RefundAmount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Product_ReturnDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="ReturnProduct_ReturnDetail" Member="ReturnProduct" ThisKey="ReturnID" OtherKey="ReturnID" Type="ReturnProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReturnProduct" Member="ReturnProducts">
+    <Type Name="ReturnProduct">
+      <Column Name="ReturnID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="InvoiceID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ReturnProduct_ReturnDetail" Member="ReturnDetails" ThisKey="ReturnID" OtherKey="ReturnID" Type="ReturnDetail" />
+      <Association Name="Employee_ReturnProduct" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Invoice_ReturnProduct" Member="Invoice" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="Invoice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Salary" Member="Salaries">
+    <Type Name="Salary">
+      <Column Name="SalaryID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContractID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="MonthYear" Type="System.String" DbType="Char(7) NOT NULL" CanBeNull="false" />
+      <Column Name="Bonus" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Deduction" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Association Name="SalaryContract_Salary" Member="SalaryContract" ThisKey="ContractID" OtherKey="ContractID" Type="SalaryContract" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SalaryContract_Allowances" Member="SalaryContract_Allowances">
+    <Type Name="SalaryContract_Allowance">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContractID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="AllowanceID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="Allowance_SalaryContract_Allowance" Member="Allowance" ThisKey="AllowanceID" OtherKey="AllowanceID" Type="Allowance" IsForeignKey="true" />
+      <Association Name="SalaryContract_SalaryContract_Allowance" Member="SalaryContract" ThisKey="ContractID" OtherKey="ContractID" Type="SalaryContract" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SalaryContract" Member="SalaryContracts">
+    <Type Name="SalaryContract">
+      <Column Name="ContractID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="BasicSalary" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="HourlyRate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="SalaryContract_Salary" Member="Salaries" ThisKey="ContractID" OtherKey="ContractID" Type="Salary" />
+      <Association Name="SalaryContract_SalaryContract_Allowance" Member="SalaryContract_Allowances" ThisKey="ContractID" OtherKey="ContractID" Type="SalaryContract_Allowance" />
+      <Association Name="Employee_SalaryContract" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ShiftAssignment" Member="ShiftAssignments">
+    <Type Name="ShiftAssignment">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ShiftID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ShiftAssignment_Absence" Member="Absences" ThisKey="EmployeeID,ShiftID,WorkDate" OtherKey="EmployeeID,ShiftID,WorkDate" Type="Absence" />
+      <Association Name="Employee_ShiftAssignment" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Shift_ShiftAssignment" Member="Shift" ThisKey="ShiftID" OtherKey="ShiftID" Type="Shift" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Shifts" Member="Shifts">
+    <Type Name="Shift">
+      <Column Name="ShiftID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShiftName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StartTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="Shift_ShiftAssignment" Member="ShiftAssignments" ThisKey="ShiftID" OtherKey="ShiftID" Type="ShiftAssignment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockCheckDetails" Member="StockCheckDetails">
+    <Type Name="StockCheckDetail">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CheckID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="QuantitySystem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QuantityActual" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="Product_StockCheckDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="StockCheck_StockCheckDetail" Member="StockCheck" ThisKey="CheckID" OtherKey="CheckID" Type="StockCheck" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockCheck" Member="StockChecks">
+    <Type Name="StockCheck">
+      <Column Name="CheckID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="CheckDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="StockCheck_StockCheckDetail" Member="StockCheckDetails" ThisKey="CheckID" OtherKey="CheckID" Type="StockCheckDetail" />
+      <Association Name="Employee_StockCheck" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Store_StockCheck" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockExport" Member="StockExports">
+    <Type Name="StockExport">
+      <Column Name="ExportID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="TypeExport" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ExportDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Association Name="StockExport_StockExportDetail" Member="StockExportDetails" ThisKey="ExportID" OtherKey="ExportID" Type="StockExportDetail" />
+      <Association Name="Employee_StockExport" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Store_StockExport" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockDetail" Member="StockDetails">
+    <Type Name="StockDetail">
+      <Column Name="StockDetailID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="LastUpdate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="StockDetail_StockHistory" Member="StockHistories" ThisKey="StockDetailID" OtherKey="StockDetailID" Type="StockHistory" />
+      <Association Name="Product_StockDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="Store_StockDetail" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockHistory" Member="StockHistories">
+    <Type Name="StockHistory">
+      <Column Name="StockHistoryID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StockDetailID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ChangeDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ChangeType" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="QuantityChange" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RefID" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="StockDetail_StockHistory" Member="StockDetail" ThisKey="StockDetailID" OtherKey="StockDetailID" Type="StockDetail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockExportDetails" Member="StockExportDetails">
+    <Type Name="StockExportDetail">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ExportID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="StockExport_StockExportDetail" Member="StockExport" ThisKey="ExportID" OtherKey="ExportID" Type="StockExport" IsForeignKey="true" />
+      <Association Name="Product_StockExportDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockImportDetails" Member="StockImportDetails">
+    <Type Name="StockImportDetail">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ImportID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Product_StockImportDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="StockImport_StockImportDetail" Member="StockImport" ThisKey="ImportID" OtherKey="ImportID" Type="StockImport" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockImport" Member="StockImports">
+    <Type Name="StockImport">
+      <Column Name="ImportID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ImportDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="StockImport_StockImportDetail" Member="StockImportDetails" ThisKey="ImportID" OtherKey="ImportID" Type="StockImportDetail" />
+      <Association Name="Employee_StockImport" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Store_StockImport" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
+      <Association Name="Supplier_StockImport" Member="Supplier" ThisKey="SupplierID" OtherKey="SupplierID" Type="Supplier" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Store" Member="Stores">
+    <Type Name="Store">
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Store_Employee" Member="Employees" ThisKey="StoreID" OtherKey="StoreID" Type="Employee" />
+      <Association Name="Store_Invoice" Member="Invoices" ThisKey="StoreID" OtherKey="StoreID" Type="Invoice" />
+      <Association Name="Store_PriceProposal" Member="PriceProposals" ThisKey="StoreID" OtherKey="StoreID" Type="PriceProposal" />
+      <Association Name="Store_StockCheck" Member="StockChecks" ThisKey="StoreID" OtherKey="StoreID" Type="StockCheck" />
+      <Association Name="Store_StockExport" Member="StockExports" ThisKey="StoreID" OtherKey="StoreID" Type="StockExport" />
+      <Association Name="Store_StockDetail" Member="StockDetails" ThisKey="StoreID" OtherKey="StoreID" Type="StockDetail" />
+      <Association Name="Store_StockImport" Member="StockImports" ThisKey="StoreID" OtherKey="StoreID" Type="StockImport" />
+      <Association Name="Store_StoreFixedExpense" Member="StoreFixedExpenses" ThisKey="StoreID" OtherKey="StoreID" Type="StoreFixedExpense" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StoreFixedExpenses" Member="StoreFixedExpenses">
+    <Type Name="StoreFixedExpense">
+      <Column Name="ExpenseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="MonthYear" Type="System.String" DbType="Char(7) NOT NULL" CanBeNull="false" />
+      <Column Name="RentCost" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ElectricityCost" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WaterCost" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Store_StoreFixedExpense" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SupplierProduct" Member="SupplierProducts">
+    <Type Name="SupplierProduct">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="Product_SupplierProduct" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="Supplier_SupplierProduct" Member="Supplier" ThisKey="SupplierID" OtherKey="SupplierID" Type="Supplier" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Supplier" Member="Suppliers">
+    <Type Name="Supplier">
+      <Column Name="SupplierID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Supplier_StockImport" Member="StockImports" ThisKey="SupplierID" OtherKey="SupplierID" Type="StockImport" />
+      <Association Name="Supplier_SupplierProduct" Member="SupplierProducts" ThisKey="SupplierID" OtherKey="SupplierID" Type="SupplierProduct" />
+    </Type>
+  </Table>
+</Database>

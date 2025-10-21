@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{204B809A-D027-406F-8529-2193211726EE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTO\AbsenceDto.cs" />
+    <Compile Include="DTO\AllowanceDto.cs" />
+    <Compile Include="DTO\BaseAuditLog.cs" />
+    <Compile Include="DTO\EmployeeDto.cs" />
+    <Compile Include="DTO\InvoiceDto.cs" />
+    <Compile Include="DTO\InvoiceDetail.cs" />
+    <Compile Include="DTO\PriceProposalDto.cs" />
+    <Compile Include="DTO\ProductDto.cs" />
+    <Compile Include="DTO\ProductCategoryDto.cs" />
+    <Compile Include="DTO\PromotionDto.cs" />
+    <Compile Include="DTO\PromotionProductDto.cs" />
+    <Compile Include="DTO\ReturnDetailDto.cs" />
+    <Compile Include="DTO\ReturnProductDto.cs" />
+    <Compile Include="DTO\SalaryDto.cs" />
+    <Compile Include="DTO\SalaryContractDto.cs" />
+    <Compile Include="DTO\SalaryContractAllowanceDto.cs" />
+    <Compile Include="DTO\ShiftDto.cs" />
+    <Compile Include="DTO\ShiftAssignmentDto.cs" />
+    <Compile Include="DTO\StockCheckDto.cs" />
+    <Compile Include="DTO\StockCheckDetailDto.cs" />
+    <Compile Include="DTO\StockDetailDto.cs" />
+    <Compile Include="DTO\StockExportDto.cs" />
+    <Compile Include="DTO\StockExportDetail.cs" />
+    <Compile Include="DTO\StockHistoryDto.cs" />
+    <Compile Include="DTO\StockImportDto.cs" />
+    <Compile Include="DTO\StockImportDetailDto.cs" />
+    <Compile Include="DTO\StoreDto.cs" />
+    <Compile Include="DTO\StoreFixedExpenseDto.cs" />
+    <Compile Include="DTO\SupplierDto.cs" />
+    <Compile Include="DTO\SupplierProductDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

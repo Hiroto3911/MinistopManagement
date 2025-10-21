@@ -1,0 +1,25 @@
+# Build results
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Packages
+packages/
+*.nupkg
+*.snupkg
+
+# Others
+*.userosscache
+*.sln.docstates
+
+# Config files (local only)
+appsettings.Development.json
