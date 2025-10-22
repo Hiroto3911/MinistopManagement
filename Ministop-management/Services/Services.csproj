@@ -57,6 +57,7 @@
     <Compile Include="Interfaces\IShiftService.cs" />
     <Compile Include="Mapping\AllowanceMapping.cs" />
     <Compile Include="Mapping\EmployeeMapping.cs" />
+    <Compile Include="Mapping\ShiftMapping.cs" />
     <Compile Include="ServicesRegistration.cs" />
     <Compile Include="Interfaces\IDateTimeService.cs" />
     <Compile Include="Interfaces\IIdentityService.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Services\AllowanceService.cs" />
     <Compile Include="Services\DateTimeService.cs" />
     <Compile Include="Services\IdentityService.cs" />
+    <Compile Include="Services\ShiftService.cs" />
     <Compile Include="Services\StoreService.cs" />
   </ItemGroup>
   <ItemGroup>

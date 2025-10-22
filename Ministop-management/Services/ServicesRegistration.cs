@@ -23,6 +23,7 @@ namespace Services
             container.RegisterType<IIdentityService, IdentityService>();
             container.RegisterType<IStoreService, StoreService>(new PerResolveLifetimeManager());
             container.RegisterType<IAllowanceService, AllowanceService>(new PerResolveLifetimeManager());
+            container.RegisterType<IShiftService, ShiftService>(new PerResolveLifetimeManager());
             Infrastructure.ServicesRegistration.AddInfrastructureTier(container);
         }
     }
