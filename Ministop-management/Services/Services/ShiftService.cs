@@ -60,14 +60,14 @@ namespace Services.Services
                 throw ex;
             }
         }
-        //public PagedResult<IReadOnlyList<ShiftDto>> GetShift(int pageNumber, int pageSize)
-        //{
-        //    var totalCount = _ministopUnitOfWork.ShiftRepository.GetCount();
-        //    var ShiftsEntity = _ministopUnitOfWork.ShiftRepository.GetPagedResponse(pageNumber, pageSize);
-        //    var ShiftsDto = _mapper.Map<IReadOnlyList<ShiftDto>>(ShiftsEntity);
+        public PagedResult<IReadOnlyList<ShiftDto>> GetShift(int pageNumber, int pageSize)
+        {
+            var totalCount = _ministopUnitOfWork.ShiftRepository.GetCount();
+            var ShiftsEntity = _ministopUnitOfWork.ShiftRepository.GetPagedResponse(pageNumber, pageSize);
+            var ShiftsDto = _mapper.Map<IReadOnlyList<ShiftDto>>(ShiftsEntity);
 
-        //    return new PagedResult<IReadOnlyList<ShiftDto>>(ShiftsDto, pageNumber, pageSize, totalCount);
-        //}
+            return new PagedResult<IReadOnlyList<ShiftDto>>(ShiftsDto, pageNumber, pageSize, totalCount);
+        }
 
         public Result<bool> CreateShift(ShiftDto ShiftDto)
         {
