@@ -1,4 +1,6 @@
-﻿using Shared.Security;
+﻿using Services.Interfaces;
+using Services.Services;
+using Shared.Security;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,21 +10,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using Unity;
 
 namespace Presentation
 {
     public partial class frmHienThi_NhanVien : Form
     {
+        private readonly IStoreService _storeService;
+        private readonly IUnityContainer _container;
         private readonly IUserSession _userSession;
+        private long _totalPage = 1;
 
-        public frmHienThi_NhanVien(IUserSession userSession)
+        public frmHienThi_NhanVien(IStoreService storeService, IUnityContainer container, IUserSession userSession)
         {
             InitializeComponent();
+            _storeService = storeService;
+            _container = container;
             _userSession = userSession;
             LoadData();
         }
-
-        
 
        
         private void LoadData()
@@ -46,56 +53,56 @@ namespace Presentation
             dt.Rows.Add("NV004", "Phạm Duy D", "Nam", new DateTime(1995, 5, 10), "0988777666", "Admin", "Ministop Quận 1", new DateTime(2020, 8, 12));
             dt.Rows.Add("NV005", "Hoàng Ngọc E", "Nữ", new DateTime(1997, 9, 28), "0911999888", "Nhân Viên", "Ministop Bình Thạnh", new DateTime(2024, 4, 15));
 
-            guna2DataGridView6.DataSource = dt;
-            guna2DataGridView6.AllowUserToAddRows = false;
-            guna2DataGridView6.ReadOnly = true;
-            guna2DataGridView6.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDuLieu_NhanVien.DataSource = dt;
+            dgvDuLieu_NhanVien.AllowUserToAddRows = false;
+            dgvDuLieu_NhanVien.ReadOnly = true;
+            dgvDuLieu_NhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // ===== 2️⃣ Thêm hai cột nút =====
-            if (guna2DataGridView6.Columns["Edit"] == null)
+            if (dgvDuLieu_NhanVien.Columns["Edit"] == null)
             {
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Edit";
                 btnEdit.HeaderText = "Edit";
                 btnEdit.Text = "Edit";
                 btnEdit.UseColumnTextForButtonValue = true;
-                guna2DataGridView6.Columns.Add(btnEdit);
+                dgvDuLieu_NhanVien.Columns.Add(btnEdit);
             }
 
-            if (guna2DataGridView6.Columns["Delete"] == null)
+            if (dgvDuLieu_NhanVien.Columns["Delete"] == null)
             {
                 DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
                 btnDelete.Name = "Delete";
                 btnDelete.HeaderText = "Delete";
                 btnDelete.Text = "Delete";
                 btnDelete.UseColumnTextForButtonValue = true;
-                guna2DataGridView6.Columns.Add(btnDelete);
+                dgvDuLieu_NhanVien.Columns.Add(btnDelete);
             }
 
             // ===== 3️⃣ Chỉnh style chung cho bảng =====
-            guna2DataGridView6.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
-            guna2DataGridView6.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
-            guna2DataGridView6.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            guna2DataGridView6.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            guna2DataGridView6.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
-            guna2DataGridView6.RowTemplate.Height = 40;
+            dgvDuLieu_NhanVien.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
+            dgvDuLieu_NhanVien.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvDuLieu_NhanVien.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvDuLieu_NhanVien.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvDuLieu_NhanVien.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
+            dgvDuLieu_NhanVien.RowTemplate.Height = 40;
 
             // ===== 4️⃣ Đổi màu nút Edit/Delete =====
-            guna2DataGridView6.CellPainting += (s, e) =>
+            dgvDuLieu_NhanVien.CellPainting += (s, e) =>
             {
-                if (e.RowIndex >= 0 && (guna2DataGridView6.Columns[e.ColumnIndex].Name == "Edit" ||
-                                        guna2DataGridView6.Columns[e.ColumnIndex].Name == "Delete"))
+                if (e.RowIndex >= 0 && (dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name == "Edit" ||
+                                        dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name == "Delete"))
                 {
                     e.PaintBackground(e.CellBounds, true);
 
-                    Color backColor = guna2DataGridView6.Columns[e.ColumnIndex].Name == "Edit"
+                    Color backColor = dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name == "Edit"
                         ? Color.SeaGreen
                         : Color.IndianRed;
 
                     using (Brush b = new SolidBrush(backColor))
                         e.Graphics.FillRectangle(b, e.CellBounds);
 
-                    string text = guna2DataGridView6.Columns[e.ColumnIndex].Name;
+                    string text = dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name;
                     TextRenderer.DrawText(
                         e.Graphics,
                         text,
@@ -130,5 +137,12 @@ namespace Presentation
                 
             }
         }
+
+        #region Quản lý phụ cấp
+        private void LoadData_PhuCap()
+        {
+
+        }
+        #endregion
     }
 }

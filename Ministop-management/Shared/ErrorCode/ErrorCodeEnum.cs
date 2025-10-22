@@ -45,5 +45,20 @@ namespace Shared.ErrorCode
         [Description(@"Bị trùng dữ liệu cửa hàng.")]
         STR_ERR_006,
         #endregion
+
+        #region Allowance
+        [Description(@"Không tìm thấy phụ cấp.")]
+        ALL_ERR_001,
+        [Description(@"Phụ cấp đã tồn tại.")]
+        ALL_ERR_002,
+        [Description(@"Tạo phụ cấp thất bại.")]
+        ALL_ERR_003,
+        [Description(@"Sửa phụ cấp thất bại.")]
+        ALL_ERR_004,
+        [Description(@"Xóa phụ cấp thất bại.")]
+        ALl_ERR_005,
+        [Description(@"Bị trùng dữ liệu phụ cấp.")]
+        ALL_ERR_006,
+        #endregion
     }
 }

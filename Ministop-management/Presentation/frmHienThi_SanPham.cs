@@ -62,56 +62,56 @@ namespace Presentation
             dt.Rows.Add("P009", "C007", "Kem Merino Vani", "Cây", 8000, 1);
             dt.Rows.Add("P010", "C002", "Mì Omachi Sườn Hầm Ngũ Quả", "Gói", 5500, 1);
 
-            dgvDuLieu.DataSource = dt;
-            dgvDuLieu.AllowUserToAddRows = false;
-            dgvDuLieu.ReadOnly = true;
-            dgvDuLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDuLieu_SanPham.DataSource = dt;
+            dgvDuLieu_SanPham.AllowUserToAddRows = false;
+            dgvDuLieu_SanPham.ReadOnly = true;
+            dgvDuLieu_SanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // ===== 2️⃣ Thêm hai cột nút =====
-            if (dgvDuLieu.Columns["Edit"] == null)
+            if (dgvDuLieu_SanPham.Columns["Edit"] == null)
             {
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                 btnEdit.Name = "Edit";
                 btnEdit.HeaderText = "Edit";
                 btnEdit.Text = "Edit";
                 btnEdit.UseColumnTextForButtonValue = true;
-                dgvDuLieu.Columns.Add(btnEdit);
+                dgvDuLieu_SanPham.Columns.Add(btnEdit);
             }
 
-            if (dgvDuLieu.Columns["Delete"] == null)
+            if (dgvDuLieu_SanPham.Columns["Delete"] == null)
             {
                 DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
                 btnDelete.Name = "Delete";
                 btnDelete.HeaderText = "Delete";
                 btnDelete.Text = "Delete";
                 btnDelete.UseColumnTextForButtonValue = true;
-                dgvDuLieu.Columns.Add(btnDelete);
+                dgvDuLieu_SanPham.Columns.Add(btnDelete);
             }
 
             // ===== 3️⃣ Chỉnh style chung cho bảng =====
-            dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
-            dgvDuLieu.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
-            dgvDuLieu.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvDuLieu.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvDuLieu.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
-            dgvDuLieu.RowTemplate.Height = 40;
+            dgvDuLieu_SanPham.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
+            dgvDuLieu_SanPham.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvDuLieu_SanPham.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvDuLieu_SanPham.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvDuLieu_SanPham.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
+            dgvDuLieu_SanPham.RowTemplate.Height = 40;
 
             // ===== 4️⃣ Đổi màu nút Edit/Delete =====
-            dgvDuLieu.CellPainting += (s, e) =>
+            dgvDuLieu_SanPham.CellPainting += (s, e) =>
             {
-                if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
-                                        dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
+                if (e.RowIndex >= 0 && (dgvDuLieu_SanPham.Columns[e.ColumnIndex].Name == "Edit" ||
+                                        dgvDuLieu_SanPham.Columns[e.ColumnIndex].Name == "Delete"))
                 {
                     e.PaintBackground(e.CellBounds, true);
 
-                    Color backColor = dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit"
+                    Color backColor = dgvDuLieu_SanPham.Columns[e.ColumnIndex].Name == "Edit"
                         ? Color.SeaGreen
                         : Color.IndianRed;
 
                     using (Brush b = new SolidBrush(backColor))
                         e.Graphics.FillRectangle(b, e.CellBounds);
 
-                    string text = dgvDuLieu.Columns[e.ColumnIndex].Name;
+                    string text = dgvDuLieu_SanPham.Columns[e.ColumnIndex].Name;
                     TextRenderer.DrawText(
                         e.Graphics,
                         text,
@@ -132,22 +132,22 @@ namespace Presentation
         {
             if (e.RowIndex < 0) return;
 
-            string productId = dgvDuLieu.Rows[e.RowIndex].Cells["ProductID"].Value.ToString();
+            string productId = dgvDuLieu_SanPham.Rows[e.RowIndex].Cells["ProductID"].Value.ToString();
 
-            if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_SanPham.Columns[e.ColumnIndex].Name == "Edit")
             {
                 //MessageBox.Show($"Edit sản phẩm: {productId}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 frmChucNang_SanPham chucNang = new frmChucNang_SanPham();
                 chucNang.Show();
             }
-            else if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_SanPham.Columns[e.ColumnIndex].Name == "Delete")
             {
                 DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa sản phẩm {productId}?",
                     "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
-                    dgvDuLieu.Rows.RemoveAt(e.RowIndex);
+                    dgvDuLieu_SanPham.Rows.RemoveAt(e.RowIndex);
                 }
             }
         }

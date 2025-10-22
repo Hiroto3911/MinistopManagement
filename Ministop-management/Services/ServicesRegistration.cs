@@ -22,6 +22,7 @@ namespace Services
             container.RegisterSingleton<IDateTimeService, DateTimeService>();
             container.RegisterType<IIdentityService, IdentityService>();
             container.RegisterType<IStoreService, StoreService>(new PerResolveLifetimeManager());
+            container.RegisterType<IAllowanceService, AllowanceService>(new PerResolveLifetimeManager());
             Infrastructure.ServicesRegistration.AddInfrastructureTier(container);
         }
     }
