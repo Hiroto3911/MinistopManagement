@@ -24,7 +24,7 @@ namespace Infrastructure
             // DBML DataContext (Transient)
             container.RegisterFactory<MinistopDataContextDataContext>(c =>
             {
-                var connectionString = "Data Source=DESKTOP-3M1QM2P;Initial Catalog=MinistopManagement;Integrated Security=True;";
+                var connectionString = "Data Source=LATI7480\\SQLEXPRESS;Initial Catalog=MinistopManagement;Integrated Security=True;";
                 return new MinistopDataContextDataContext(connectionString);
             },new PerResolveLifetimeManager() );
 
@@ -35,8 +35,11 @@ namespace Infrastructure
 
             // Repository
             container.RegisterType<IStoreRepository, StoreRepository>(new PerResolveLifetimeManager());
-            container.RegisterType<IEmployeeRepository, EmployeeRepository>();
+            container.RegisterType<IEmployeeRepository, EmployeeRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IStoreFixedExpenseRepository, StoreFixedExpenseRepository>();
+            container.RegisterType<IAllowanceRepository, AllowanceRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IShiftRepository, ShiftRepository>(new PerResolveLifetimeManager());
+
         }
     }
 }

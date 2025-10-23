@@ -291,6 +291,18 @@
     <Compile Include="frmThungRac_CuaHang.Designer.cs">
       <DependentUpon>frmThungRac_CuaHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThungRac_NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThungRac_NhanVien.Designer.cs">
+      <DependentUpon>frmThungRac_NhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThungRac_PhuCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThungRac_PhuCap.Designer.cs">
+      <DependentUpon>frmThungRac_PhuCap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -406,6 +418,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmThungRac_CuaHang.resx">
       <DependentUpon>frmThungRac_CuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThungRac_NhanVien.resx">
+      <DependentUpon>frmThungRac_NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThungRac_PhuCap.resx">
+      <DependentUpon>frmThungRac_PhuCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

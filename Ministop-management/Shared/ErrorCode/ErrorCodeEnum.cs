@@ -45,5 +45,50 @@ namespace Shared.ErrorCode
         [Description(@"Bị trùng dữ liệu cửa hàng.")]
         STR_ERR_006,
         #endregion
+
+        #region Allowance
+        [Description(@"Không tìm thấy phụ cấp.")]
+        ALL_ERR_001,
+        [Description(@"Phụ cấp đã tồn tại.")]
+        ALL_ERR_002,
+        [Description(@"Tạo phụ cấp thất bại.")]
+        ALL_ERR_003,
+        [Description(@"Sửa phụ cấp thất bại.")]
+        ALL_ERR_004,
+        [Description(@"Xóa phụ cấp thất bại.")]
+        ALl_ERR_005,
+        [Description(@"Bị trùng dữ liệu phụ cấp.")]
+        ALL_ERR_006,
+        #endregion
+
+        #region Shift
+        [Description(@"Không tìm thấy ca làm.")]
+        SFT_ERR_001,
+        [Description(@"Ca làm đã tồn tại.")]
+        SFT_ERR_002,
+        [Description(@"Tạo ca làm thất bại.")]
+        SFT_ERR_003,
+        [Description(@"Sửa ca làm thất bại.")]
+        SFT_ERR_004,
+        [Description(@"Xóa ca làm thất bại.")]
+        SFT_ERR_005,
+        [Description(@"Bị trùng dữ liệu ca làm.")]
+        SFT_ERR_006,
+        #endregion
+
+        #region Employee
+        [Description(@"Không tìm thấy nhân viên.")]
+        EMP_ERR_001,
+        [Description(@"nhân viên đã tồn tại.")]
+        EMP_ERR_002,
+        [Description(@"Tạo nhân viên thất bại.")]
+        EMP_ERR_003,
+        [Description(@"Sửa nhân viên thất bại.")]
+        EMP_ERR_004,
+        [Description(@"Xóa nhân viên thất bại.")]
+        EMP_ERR_005,
+        [Description(@"Bị trùng dữ liệu nhân viên.")]
+        EMP_ERR_006,
+        #endregion
     }
 }

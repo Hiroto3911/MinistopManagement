@@ -15,17 +15,25 @@ namespace Infrastructure.UnitOfWorks
             MinistopDataContextDataContext context,
             IStoreRepository storeRepository,
             IStoreFixedExpenseRepository storeFixedExpenseRepository,
-            IEmployeeRepository employeeRepository
+            IEmployeeRepository employeeRepository,
+            IAllowanceRepository allowanceRepository,
+            IShiftRepository shiftRepository
             ) : base(context)
         {
             StoreRepository = storeRepository;
             FixedExpenseRepository = storeFixedExpenseRepository;
             EmployeeRepository = employeeRepository;
+            AllowanceRepository = allowanceRepository;
+            ShiftRepository = shiftRepository;
         }
         public IStoreRepository StoreRepository { get; private set; }
 
         public IStoreFixedExpenseRepository FixedExpenseRepository { get; private set; }
 
         public IEmployeeRepository EmployeeRepository { get; private set; }
+
+        public IAllowanceRepository AllowanceRepository { get; private set; }
+
+        public IShiftRepository ShiftRepository { get; private set; }
     }
 }

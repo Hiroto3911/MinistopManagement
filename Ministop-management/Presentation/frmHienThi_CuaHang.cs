@@ -30,7 +30,7 @@ namespace Presentation
             _storeService = storeService;
             _container = container;
             _userSession = userSession;
-            LoadData();
+            LoadData_CuaHang();
         }
         private void frmHienThi_CuaHang_Load(object sender, EventArgs e)
         {
@@ -55,11 +55,9 @@ namespace Presentation
                 frmChucNangCH.DataChanged += (s, ev) =>
                 {
 
-                    LoadData();
+                    LoadData_CuaHang();
                 };
                 frmChucNangCH.ShowDialog();
-
-
 
             }
             else if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete")
@@ -71,11 +69,11 @@ namespace Presentation
                 {
                     _storeService.RemoveStore(storeId);
                     MessageBox.Show("Xóa thành công!");
-                    LoadData(); // tải lại dữ liệu
+                    LoadData_CuaHang(); // tải lại dữ liệu
                 }
             }
         }
-        private void LoadData(int pageNumber = 1, int pageSize = 20)
+        private void LoadData_CuaHang(int pageNumber = 1, int pageSize = 20)
         {
             // ===== 1️⃣ Tạo DataTable cho danh sách cửa hàng =====
             DataTable dt = new DataTable();
@@ -131,10 +129,8 @@ namespace Presentation
         private void btnThemCuaHang_Click(object sender, EventArgs e)
         {
             var frmChucNangCH = _container.Resolve<frmChucNang_CuaHang>();
-            frmChucNangCH.DataChanged += (s, ev) => LoadData();
+            frmChucNangCH.DataChanged += (s, ev) => LoadData_CuaHang();
             frmChucNangCH.ShowDialog();
-
-
         }
 
         private void btnTrangSauCH_Click(object sender, EventArgs e)
@@ -146,7 +142,7 @@ namespace Presentation
             {
                 var pageNumber = ++number;
                 txtSoTrangCH.Text = pageNumber.ToString();
-                LoadData(pageNumber);
+                LoadData_CuaHang(pageNumber);
             }
 
 
@@ -160,7 +156,7 @@ namespace Presentation
 
                 var pageNumber = --number;
                 txtSoTrangCH.Text = pageNumber.ToString();
-                LoadData(pageNumber);
+                LoadData_CuaHang(pageNumber);
 
             }
             else
@@ -217,7 +213,7 @@ namespace Presentation
         private void ibtnDuLieuBiXoa_Click(object sender, EventArgs e)
         {
             var frmThungRac = _container.Resolve<frmThungRac_CuaHang>();
-            frmThungRac.datachanged += (s, ev) => LoadData();
+            frmThungRac.datachanged += (s, ev) => LoadData_CuaHang();
             frmThungRac.ShowDialog();
         }
     }

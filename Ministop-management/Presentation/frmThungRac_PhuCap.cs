@@ -12,125 +12,126 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using Unity;
-using Unity.Resolution;
 
 namespace Presentation
 {
-    public partial class frmThungRac_CuaHang : Form
+    public partial class frmThungRac_PhuCap : Form
     {
-
-        private readonly IStoreService _storeService;
+        private readonly IAllowanceService _allowanceService;
         private readonly IUnityContainer _container;
         private readonly IUserSession _userSession;
+
         public event EventHandler datachanged;
-        public frmThungRac_CuaHang(IStoreService storeService, IUnityContainer container, IUserSession userSession)
+        public frmThungRac_PhuCap(IAllowanceService allowanceService, IUnityContainer container, IUserSession userSession)
         {
             InitializeComponent();
-            _storeService = storeService;
+            _allowanceService = allowanceService;
             _container = container;
             _userSession = userSession;
+
             LoadData();
         }
+
         private void LoadData()
         {
-            // ===== 1️⃣ Tạo dữ liệu mẫu =====
+            // ===== 1️⃣ Tạo cấu trúc DataTable =====
             DataTable dt = new DataTable();
-            dt.Columns.Add("MaCuaHang");
-            dt.Columns.Add("TenCuaHang");
-            dt.Columns.Add("DiaChi");
-            dt.Columns.Add("SoDienThoai");
+            dt.Columns.Add("MaPhuCap");
+            dt.Columns.Add("TenPhuCap");
+            dt.Columns.Add("MucMacDinh");
+
             using (var childContainer = _container.CreateChildContainer())
             {
-                var storeService = childContainer.Resolve<IStoreService>();
+                var allowanceService = childContainer.Resolve<IAllowanceService>();
 
+                var list = allowanceService.GetAllAllowanceIsDelete();
+                if (list.Succeeded == false || list.Data == null)
+                    return;
 
-                var list = storeService.GetAllStoreIsDelete();
-                if (list.Succeeded == false && list.Data == null) { return; }
                 foreach (var item in list.Data)
                 {
-                    dt.Rows.Add(item.StoreId, item.StoreName, item.Address, item.Phone);
+                    dt.Rows.Add(item.AllowanceId, item.AllowanceName, item.DefaultAmount);
                 }
             }
 
+            // ===== 2️⃣ Gán dữ liệu lên DataGridView =====
             dgvDuLieu.DataSource = dt;
             dgvDuLieu.AllowUserToAddRows = false;
             dgvDuLieu.ReadOnly = false;
             dgvDuLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // ===== 2️⃣ Thêm hai cột nút =====
+            // ===== 3️⃣ Thêm cột checkbox (nếu chưa có) =====
             if (dgvDuLieu.Columns["chkSelect"] == null)
             {
-
-
                 DataGridViewCheckBoxColumn chk = new DataGridViewCheckBoxColumn();
                 chk.HeaderText = "Chọn";
                 chk.Name = "chkSelect";
-                chk.Width = 50;
+                chk.Width = 60;
                 dgvDuLieu.Columns.Add(chk);
             }
+
+            // ===== 4️⃣ Chỉ cho phép tick cột chọn =====
             foreach (DataGridViewColumn col in dgvDuLieu.Columns)
             {
                 if (col.Name != "chkSelect")
                     col.ReadOnly = true;
             }
-            // ===== 3️⃣ Chỉnh style chung cho bảng =====
+
+            // ===== 5️⃣ Style đẹp =====
             dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
             dgvDuLieu.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
             dgvDuLieu.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dgvDuLieu.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvDuLieu.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
             dgvDuLieu.RowTemplate.Height = 40;
-
         }
-        private List<string> GetSelectedStore()
+
+        private List<string> GetSelectedAllowances()
         {
             var list = new List<string>();
             foreach (DataGridViewRow row in dgvDuLieu.Rows)
             {
-                var ischecked = Convert.ToBoolean(row.Cells["chkSelect"].Value);
-                if(ischecked == true)
-                {
-                    list.Add(row.Cells["MaCuaHang"].Value.ToString());
-                }
-            }    
+                bool isChecked = Convert.ToBoolean(row.Cells["chkSelect"].Value);
+                if (isChecked)
+                    list.Add(row.Cells["MaPhuCap"].Value.ToString());
+            }
             return list;
         }
+
         private void dgvDuLieu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            string storeId = dgvDuLieu.Rows[e.RowIndex].Cells["MaCuaHang"].Value.ToString();
-
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "chkSelect")
             {
-
                 dgvDuLieu.CommitEdit(DataGridViewDataErrorContexts.Commit);
             }
-            
         }
+
         private void itbnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();   
+            this.Close();
         }
 
         private void btnKhoiPhuc_Click(object sender, EventArgs e)
         {
-            var list = GetSelectedStore();
+            var list = GetSelectedAllowances();
             if (list == null || list.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn ít nhất một cửa hàng để khôi phục.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Vui lòng chọn ít nhất một phụ cấp để khôi phục.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            var result =  _storeService.RestoreStore(list);
+
+            var result = _allowanceService.RestoreAllowance(list);
             if (result.Succeeded == false)
             {
                 MessageBox.Show($"Khôi phục thất bại: {result.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             datachanged?.Invoke(this, EventArgs.Empty);
             this.Close();
-
         }
     }
 }
