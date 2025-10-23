@@ -75,5 +75,20 @@ namespace Shared.ErrorCode
         [Description(@"Bị trùng dữ liệu ca làm.")]
         SFT_ERR_006,
         #endregion
+
+        #region Employee
+        [Description(@"Không tìm thấy nhân viên.")]
+        EMP_ERR_001,
+        [Description(@"nhân viên đã tồn tại.")]
+        EMP_ERR_002,
+        [Description(@"Tạo nhân viên thất bại.")]
+        EMP_ERR_003,
+        [Description(@"Sửa nhân viên thất bại.")]
+        EMP_ERR_004,
+        [Description(@"Xóa nhân viên thất bại.")]
+        EMP_ERR_005,
+        [Description(@"Bị trùng dữ liệu nhân viên.")]
+        EMP_ERR_006,
+        #endregion
     }
 }

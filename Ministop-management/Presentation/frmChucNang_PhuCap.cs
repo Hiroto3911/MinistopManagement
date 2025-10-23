@@ -46,50 +46,86 @@ namespace Presentation
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            // Kiểm tra dữ liệu hợp lệ
-            if (string.IsNullOrWhiteSpace(txtTenPhuCap.Text))
+            // === 1️⃣ Kiểm tra tên phụ cấp ===
+            string tenPhuCap = txtTenPhuCap.Text.Trim();
+            if (string.IsNullOrWhiteSpace(tenPhuCap))
             {
-                MessageBox.Show("Vui lòng nhập tên phụ cấp!", "Thông báo");
+                MessageBox.Show("Vui lòng nhập tên phụ cấp!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenPhuCap.Focus();
                 return;
             }
 
-            if (!decimal.TryParse(txtMucTroCap.Text, out decimal amount) || amount < 0)
+            if (tenPhuCap.Length > 100)
             {
-                MessageBox.Show("Mức phụ cấp không hợp lệ!", "Thông báo");
+                MessageBox.Show("Tên phụ cấp không được vượt quá 100 ký tự!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenPhuCap.Focus();
                 return;
             }
 
+            // Kiểm tra trùng tên (chỉ khi thêm mới)
+            if (string.IsNullOrEmpty(_allowanceId))
+            {
+                var existing = _allowanceService.GetAll()
+                                                .Data
+                                                .FirstOrDefault(a => a.AllowanceName.Equals(tenPhuCap, StringComparison.OrdinalIgnoreCase) && a.IsDeleted == false);
+                if (existing != null)
+                {
+                    MessageBox.Show("Tên phụ cấp đã tồn tại, vui lòng nhập tên khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtTenPhuCap.Focus();
+                    return;
+                }
+            }
+
+            // === 2️⃣ Kiểm tra mức trợ cấp ===
+            if (!decimal.TryParse(txtMucTroCap.Text.Trim(), out decimal amount))
+            {
+                MessageBox.Show("Vui lòng nhập mức phụ cấp hợp lệ (chỉ số)!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMucTroCap.Focus();
+                return;
+            }
+
+            if (amount < 0)
+            {
+                MessageBox.Show("Mức phụ cấp không được âm!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMucTroCap.Focus();
+                return;
+            }
+
+            if (amount > 10000000) // ví dụ giới hạn 10 triệu
+            {
+                MessageBox.Show("Mức phụ cấp vượt quá giới hạn cho phép (10,000,000)!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMucTroCap.Focus();
+                return;
+            }
+
+            // === 3️⃣ Chuẩn bị dữ liệu DTO ===
             var allowanceDto = new AllowanceDto()
             {
-                AllowanceName = txtTenPhuCap.Text.Trim(),
+                AllowanceId = _allowanceId,
+                AllowanceName = tenPhuCap,
                 DefaultAmount = amount
             };
 
+            // === 4️⃣ Gọi service ===
             Result<bool> result;
 
             if (string.IsNullOrEmpty(_allowanceId))
-            {
-                // Thêm mới
                 result = _allowanceService.CreateAllowance(allowanceDto);
-                DataChanged?.Invoke(this, EventArgs.Empty);
-            }
             else
-            {
-                // Cập nhật
-                allowanceDto.AllowanceId = _allowanceId;
                 result = _allowanceService.UpdateAllowance(allowanceDto);
-                DataChanged?.Invoke(this, EventArgs.Empty);
-            }
 
-            if (result.Succeeded == false)
+            if (!result.Succeeded)
             {
-                MessageBox.Show($"{result.Message}", "Lỗi");
+                MessageBox.Show($"{result.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("Lưu thành công!", "Thông báo");
+            // === 5️⃣ Sau khi lưu ===
+            DataChanged?.Invoke(this, EventArgs.Empty);
+            MessageBox.Show("Lưu phụ cấp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
+
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
