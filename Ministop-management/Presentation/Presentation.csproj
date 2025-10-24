@@ -291,6 +291,18 @@
     <Compile Include="frmThungRac_CuaHang.Designer.cs">
       <DependentUpon>frmThungRac_CuaHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThungRac_LSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThungRac_LSP.Designer.cs">
+      <DependentUpon>frmThungRac_LSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThungRac_NCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThungRac_NCC.Designer.cs">
+      <DependentUpon>frmThungRac_NCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThungRac_NhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,6 +314,12 @@
     </Compile>
     <Compile Include="frmThungRac_PhuCap.Designer.cs">
       <DependentUpon>frmThungRac_PhuCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmThungRac_SP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThungRac_SP.Designer.cs">
+      <DependentUpon>frmThungRac_SP.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -419,11 +437,20 @@
     <EmbeddedResource Include="frmThungRac_CuaHang.resx">
       <DependentUpon>frmThungRac_CuaHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmThungRac_LSP.resx">
+      <DependentUpon>frmThungRac_LSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThungRac_NCC.resx">
+      <DependentUpon>frmThungRac_NCC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThungRac_NhanVien.resx">
       <DependentUpon>frmThungRac_NhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThungRac_PhuCap.resx">
       <DependentUpon>frmThungRac_PhuCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThungRac_SP.resx">
+      <DependentUpon>frmThungRac_SP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

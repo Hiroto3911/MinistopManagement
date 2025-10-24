@@ -25,6 +25,7 @@ namespace Presentation
             InitializeComponent();
             _identityServices = identityServices;
             _container = container;
+           
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
@@ -42,6 +43,23 @@ namespace Presentation
             var frmMain = _container.Resolve<frmMain>();
             this.Hide();
             frmMain.ShowDialog();
+            this.Show();
+        }
+
+        private void chkHienThiMatKhau_CheckedChanged(object sender, EventArgs e)
+        {
+            var hienThiPass = txtMatKhau.UseSystemPasswordChar == true ? txtMatKhau.UseSystemPasswordChar = false : txtMatKhau.UseSystemPasswordChar = true;
+        }
+
+        private void frmDangNhap_Load(object sender, EventArgs e)
+        {
+            txtMaNhanVien.Clear();
+            txtMatKhau.Clear();
+            txtMatKhau.UseSystemPasswordChar = true;
+        }
+
+        private void ibtnThoat_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }

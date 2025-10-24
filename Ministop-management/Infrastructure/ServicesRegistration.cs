@@ -36,9 +36,12 @@ namespace Infrastructure
             // Repository
             container.RegisterType<IStoreRepository, StoreRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IEmployeeRepository, EmployeeRepository>(new PerResolveLifetimeManager());
-            container.RegisterType<IStoreFixedExpenseRepository, StoreFixedExpenseRepository>();
+            container.RegisterType<IStoreFixedExpenseRepository, StoreFixedExpenseRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IAllowanceRepository, AllowanceRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IShiftRepository, ShiftRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IProductCategoryRepository, ProductCategoryRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IProductRepository, ProductRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<ISupplierRepository, SupplierRepository>(new PerResolveLifetimeManager());
 
         }
     }

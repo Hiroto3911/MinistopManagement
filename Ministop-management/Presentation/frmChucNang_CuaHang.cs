@@ -9,6 +9,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
@@ -57,7 +58,51 @@ namespace Presentation
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            var storeDto = new StoreDto() { StoreName = txtTenCH.Text, Address = rtxtDiaChi.Text, Phone = txtSDT.Text };
+            string maCH = txtMaCH.Text.Trim();
+            string tenCH = txtTenCH.Text.Trim();
+            string diaChi = rtxtDiaChi.Text.Trim();
+            string soDT = txtSDT.Text.Trim();
+            if (string.IsNullOrWhiteSpace(tenCH))
+            {
+                MessageBox.Show("Tên cửa hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenCH.Focus();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(diaChi))
+            {
+                MessageBox.Show("Địa chỉ không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                rtxtDiaChi.Focus();
+                return;
+            }
+
+            // Kiểm tra số điện thoại
+            if (string.IsNullOrWhiteSpace(soDT))
+            {
+                MessageBox.Show("Số điện thoại không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSDT.Focus();
+                return;
+            }
+            if (!Regex.IsMatch(soDT, @"^\d{10}$")) // Ví dụ: chỉ cho phép đúng 10 số
+            {
+                MessageBox.Show("Số điện thoại phải gồm đúng 10 chữ số!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSDT.Focus();
+                return;
+            }
+            if (Regex.IsMatch(tenCH, @"[^a-zA-Z0-9\s\u00C0-\u1EF9]"))
+            {
+                MessageBox.Show("Tên cửa hàng không được chứa ký tự đặc biệt!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenCH.Focus();
+                return;
+            }
+
+            if (Regex.IsMatch(diaChi, @"[^a-zA-Z0-9\s\u00C0-\u1EF9,./-]"))
+            {
+                MessageBox.Show("Địa chỉ không được chứa ký tự đặc biệt lạ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                rtxtDiaChi.Focus();
+                return;
+            }
+            var storeDto = new StoreDto() { StoreName = tenCH, Address = diaChi, Phone = soDT };
             Result<bool> result;
             if (string.IsNullOrEmpty(_storeId))
             {
@@ -78,6 +123,20 @@ namespace Presentation
             
             MessageBox.Show($"Luu thanh cong", "Thong bao");
             this.Close();
+        }
+
+        private void txtSDT_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // chặn ký tự không hợp lệ
+            }
+
+            // Giới hạn độ dài (VD: 10 ký tự)
+            if (txtSDT.Text.Length >= 10 && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

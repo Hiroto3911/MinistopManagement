@@ -26,6 +26,9 @@ namespace Presentation
         private readonly IShiftService _shiftService;
         private readonly IUnityContainer _container;
         private readonly IUserSession _userSession;
+        private long _totalPage_NV = 1;
+        private long _totalPage_PC = 1;
+        private long _totalPage_CL = 1;
         private long _totalPage = 1;
 
         public frmHienThi_NhanVien(IEmployeeService employeeService, IAllowanceService allowanceService, IShiftService shiftService, IUnityContainer container, IUserSession userSession)
@@ -42,9 +45,45 @@ namespace Presentation
         {
             LoadDanhSachCuaHang();
             LoadData_NhanVien();
+
+            // Di chuyển xử lý theo Role vào sau khi combobox đã binding xong
+            cboChonCuaHang_NV.SelectedIndexChanged -= cboChonCuaHang_NV_SelectedIndexChanged; // tạm ngắt event
+
+            if (_userSession.Role == "Quản lý cửa hàng")
+            {
+                tabControlNV.TabPages.Remove(tabCaLam);
+                tabControlNV.TabPages.Remove(tabPhuCap);
+                cboChonCuaHang_NV.SelectedValue = _userSession.IdStore;
+                cboChonCuaHang_NV.Enabled = false;
+
+                string storeId = _userSession.IdStore; // dùng trực tiếp thay vì SelectedValue
+                LoadData_NhanVienTheoCuaHang(storeId);
+            }
+            else if (_userSession.Role == "Admin")
+            {
+                cboChonCuaHang_NV.Enabled = true;
+            }
+            else if (_userSession.Role == "Nhân viên")
+            {
+                tabControlNV.TabPages.Remove(tabCaLam);
+                tabControlNV.TabPages.Remove(tabPhuCap);
+                tabControlNV.TabPages.Remove(tabTinhLuong);
+                tabControlNV.TabPages.Remove(tabHopDong);
+                tabControlNV.TabPages.Remove(tabChamCongVang);
+                tabControlNV.TabPages.Remove(tabNhanVien);
+                cboChonCuaHang_NV.SelectedValue = _userSession.IdStore;
+                cboChonCuaHang_NV.Enabled = false;
+
+                string storeId = _userSession.IdStore;
+                LoadData_NhanVienTheoCuaHang(storeId);
+            }
+          
+            cboChonCuaHang_NV.SelectedIndexChanged += cboChonCuaHang_NV_SelectedIndexChanged;
+
             LoadData_PhuCap();
             LoadData_CaLam();
         }
+
 
         #region Lọc nhân viên
         private void LoadDanhSachCuaHang()
@@ -58,10 +97,10 @@ namespace Presentation
 
                     if (result != null && result.Succeeded && result.Data != null)
                     {
-                        cboChonCuaHang_NV.DataSource = result.Data.ToList(); // ⚡ Quan trọng: ToList()
+                        cboChonCuaHang_NV.DataSource = result.Data.ToList();
                         cboChonCuaHang_NV.DisplayMember = "StoreName";
                         cboChonCuaHang_NV.ValueMember = "StoreId";
-                        cboChonCuaHang_NV.SelectedIndex = -1; // chưa chọn gì
+                        //cboChonCuaHang_NV.SelectedIndex = -1; // chưa chọn gì
                     }
                     else
                     {
@@ -107,7 +146,7 @@ namespace Presentation
 
                 if (list.Succeeded == false || list.Data == null) return;
 
-                _totalPage = (long)Math.Ceiling((double)list.TotalCount / pageSize);
+                _totalPage_NV = (long)Math.Ceiling((double)list.TotalCount / pageSize);
 
                 foreach (var item in list.Data)
                 {
@@ -153,7 +192,7 @@ namespace Presentation
                 if (list.Succeeded == false || list.Data == null) { return; }
 
                 // Tính tổng số trang
-                _totalPage = (long)Math.Ceiling((double)list.TotalCount / pageSize);
+                _totalPage_NV = (long)Math.Ceiling((double)list.TotalCount / pageSize);
 
                 // Thêm từng dòng dữ liệu vào DataTable
                 foreach (var item in list.Data)
@@ -207,7 +246,7 @@ namespace Presentation
 
             // ===== 5️⃣ Kích hoạt hoặc vô hiệu hoá nút phân trang =====
             btnTrangTruocNV.Enabled = pageNumber > 1;
-            btnTrangSauNV.Enabled = pageNumber < _totalPage;
+            btnTrangSauNV.Enabled = pageNumber < _totalPage_NV;
         }
 
         private void dgvDuLieu_NhanVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -244,18 +283,38 @@ namespace Presentation
         }
 
         private void btnThemNhanVien_Click(object sender, EventArgs e)
+{
+    using (var childContainer = _container.CreateChildContainer())
+    {
+        var frmChucNangNV = childContainer.Resolve<frmChucNang_NhanVien>(
+            new ParameterOverride("employeeId", null) // Thêm mới thì để null
+        );
+
+        frmChucNangNV.DataChanged += (s, ev) =>
         {
-            var frmChucNangNV = _container.Resolve<frmChucNang_NhanVien>();
-            frmChucNangNV.DataChanged += (s, ev) => LoadData_NhanVien();
-            frmChucNangNV.ShowDialog();
-        }
+            // 🔹 Kiểm tra quyền người dùng để reload dữ liệu phù hợp
+            if (_userSession.Role == "Admin")
+            {
+                LoadData_NhanVien();
+            }
+            else if (_userSession.Role == "Quản lý cửa hàng" || _userSession.Role == "Nhân viên")
+            {
+                string storeId = _userSession.IdStore;
+                LoadData_NhanVienTheoCuaHang(storeId);
+            }
+        };
+
+        frmChucNangNV.ShowDialog();
+    }
+}
+
 
         private void btnTrangSauNV_Click(object sender, EventArgs e)
         {
             int number = Convert.ToInt32(txtSoTrangNV.Text);
             btnTrangTruocNV.Enabled = true;
 
-            if (number <= _totalPage)
+            if (number <= _totalPage_NV)
             {
                 var pageNumber = ++number;
                 txtSoTrangNV.Text = pageNumber.ToString();
@@ -299,7 +358,7 @@ namespace Presentation
                 if (list.Succeeded == false || list.Data == null) { return; }
 
                 // Tính tổng số trang
-                _totalPage = (long)Math.Ceiling((double)list.TotalCount / pageSize);
+                _totalPage_PC = (long)Math.Ceiling((double)list.TotalCount / pageSize);
 
                 // Thêm từng dòng dữ liệu vào DataTable
                 foreach (var item in list.Data)
@@ -339,7 +398,7 @@ namespace Presentation
 
             // ===== 5️⃣ Kích hoạt hoặc vô hiệu hoá nút phân trang =====
             btnTrangTruocPK.Enabled = pageNumber > 1;
-            btnTrangSauPK.Enabled = pageNumber < _totalPage;
+            btnTrangSauPK.Enabled = pageNumber < _totalPage_PC;
         }
 
         private void dgvDuLieu_PhuCap_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -389,7 +448,7 @@ namespace Presentation
             int number = Convert.ToInt32(txtSoTrangPK.Text);
             btnTrangTruocPK.Enabled = true;
 
-            if (number <= _totalPage)
+            if (number <= _totalPage_PC)
             {
                 var pageNumber = ++number;
                 txtSoTrangPK.Text = pageNumber.ToString();
@@ -434,7 +493,7 @@ namespace Presentation
                 if (list.Succeeded == false || list.Data == null) { return; }
 
                 // Tính tổng số trang
-                _totalPage = (long)Math.Ceiling((double)list.TotalCount / pageSize);
+                _totalPage_CL = (long)Math.Ceiling((double)list.TotalCount / pageSize);
 
                 // Thêm từng dòng dữ liệu vào DataTable
                 foreach (var item in list.Data)
@@ -474,7 +533,7 @@ namespace Presentation
 
             // ===== 5️⃣ Kích hoạt hoặc vô hiệu hoá nút phân trang =====
             btnTrangTruocCL.Enabled = pageNumber > 1;
-            btnTrangSauCL.Enabled = pageNumber < _totalPage;
+            btnTrangSauCL.Enabled = pageNumber < _totalPage_CL;
         }
 
         private void dgvDuLieu_CaLam_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -525,7 +584,7 @@ namespace Presentation
             int number = Convert.ToInt32(txtSoTrangCL.Text);
             btnTrangTruocCL.Enabled = true;
 
-            if (number <= _totalPage)
+            if (number <= _totalPage_CL)
             {
                 var pageNumber = ++number;
                 txtSoTrangCL.Text = pageNumber.ToString();

@@ -61,7 +61,7 @@ namespace Presentation
 
             if (result.Succeeded && result.Data != null)
             {
-                cbTenCuaHang.DataSource = result.Data.ToList(); // ⚡ Quan trọng: phải là danh sách
+                cbTenCuaHang.DataSource = result.Data.ToList(); //danh sách
                 cbTenCuaHang.DisplayMember = "StoreName";
                 cbTenCuaHang.ValueMember = "StoreId";
             }
@@ -73,10 +73,10 @@ namespace Presentation
 
             // ===== Load chức vụ và loại nhân viên =====
             cbChucVu.Items.Clear();
-            cbChucVu.Items.AddRange(new string[] { "Nhân viên", "Quản lý", "Admin" });
+            cbChucVu.Items.AddRange(new string[] { "Nhân viên", "Quản lý cửa hàng", "Admin" });
 
             cbLoaiNhanVien.Items.Clear();
-            cbLoaiNhanVien.Items.AddRange(new string[] { "Toàn thời gian", "Bán thời gian" });
+            cbLoaiNhanVien.Items.AddRange(new string[] { "Fulltime", "Partime" });
         }
 
 
@@ -95,7 +95,7 @@ namespace Presentation
                 cbChucVu.Text = emp.Position;
                 cbLoaiNhanVien.Text = emp.EmploymentType;
                 dtpNgaySinh.Value = emp.BirthDate;
-
+                txtMatKhau.PlaceholderText = "*";
                 if (emp.Gender) rdNam.Checked = true;
                 else rdNu.Checked = true;
             }
@@ -127,6 +127,15 @@ namespace Presentation
             if (!rdNam.Checked && !rdNu.Checked)
             {
                 MessageBox.Show("Vui lòng chọn giới tính!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            DateTime birthDate = dtpNgaySinh.Value;
+            int age = DateTime.Today.Year - birthDate.Year;
+            if (birthDate > DateTime.Today.AddYears(-age)) age--; // nếu chưa tới sinh nhật năm nay thì trừ 1
+
+            if (age < 18 || age > 60)
+            {
+                MessageBox.Show("Độ tuổi nhân viên phải từ 18 đến 60 tuổi!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (cbChucVu.SelectedIndex < 0)
@@ -165,9 +174,7 @@ namespace Presentation
                     Phone = txtSoDienThoai.Text.Trim(),
                     Position = cbChucVu.Text,
                     EmploymentType = cbLoaiNhanVien.Text,
-                    PasswordHash = string.IsNullOrEmpty(_employeeId)
-                        ? HashPasswordSHA256.Hash(txtMatKhau.Text)
-                        : txtMatKhau.Text // nếu đang sửa mà không thay mật khẩu thì giữ nguyên
+                    PasswordHash = HashPasswordSHA256.Hash(txtMatKhau.Text)
                 };
 
                 var result = string.IsNullOrEmpty(_employeeId)

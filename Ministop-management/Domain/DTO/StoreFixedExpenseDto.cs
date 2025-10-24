@@ -9,7 +9,7 @@ namespace Domain.DTO
 {
     public class StoreFixedExpenseDto : BaseAuditLog
     {
-        public int ExpenseId { get; set; }
+        public string ExpenseId { get; set; }
         public string StoreId { get; set; }
         public string MonthYear { get; set; }
         public decimal? RentCost { get; set; }
