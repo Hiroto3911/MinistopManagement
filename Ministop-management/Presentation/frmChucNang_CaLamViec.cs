@@ -1,15 +1,9 @@
 ﻿using Domain.DTO;
 using Services.Interfaces;
-using Services.Services;
 using Shared.Wrappers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentation
@@ -26,7 +20,6 @@ namespace Presentation
             InitializeComponent();
             _shiftService = shiftService;
             _shiftId = shiftId;
-
         }
 
         private void guna2ImageButton4_Click(object sender, EventArgs e)
@@ -55,24 +48,12 @@ namespace Presentation
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            // === 1️⃣ Kiểm tra mã ca ===
+            // === 1️⃣ Lấy dữ liệu cơ bản ===
             string maCa = txtMaCa.Text.Trim();
-            //if (string.IsNullOrWhiteSpace(maCa))
-            //{
-            //    MessageBox.Show("Vui lòng nhập mã ca!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    txtMaCa.Focus();
-            //    return;
-            //}
-
-            //if (maCa.Length > 50)
-            //{
-            //    MessageBox.Show("Mã ca không được vượt quá 50 ký tự!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //    txtMaCa.Focus();
-            //    return;
-            //}
-
-            // === 2️⃣ Kiểm tra tên ca ===
             string tenCa = txtTenCa.Text.Trim();
+
+            // === 2️⃣ Validate dữ liệu ===
+
             if (string.IsNullOrWhiteSpace(tenCa))
             {
                 MessageBox.Show("Vui lòng nhập tên ca!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -87,23 +68,15 @@ namespace Presentation
                 return;
             }
 
-            // === 3️⃣ Kiểm tra trùng mã ca khi thêm mới ===
-            if (string.IsNullOrEmpty(_shiftId))
-            {
-                var existing = _shiftService.GetAll()
-                                            .Data
-                                            .FirstOrDefault(x => x.ShiftId.Equals(maCa, StringComparison.OrdinalIgnoreCase));
-                if (existing != null)
-                {
-                    MessageBox.Show("Mã ca đã tồn tại, vui lòng nhập mã khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtMaCa.Focus();
-                    return;
-                }
-            }
-
-            // === 4️⃣ Kiểm tra giờ bắt đầu và kết thúc ===
-            DateTime gioBatDau = dtpGioBatDau.Value;
-            DateTime gioKetThuc = dtpGioKetThuc.Value;
+            // === 3️⃣ Chuẩn hóa giờ bắt đầu và kết thúc (loại bỏ giây) ===
+            DateTime gioBatDau = new DateTime(
+                DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day,
+                dtpGioBatDau.Value.Hour, dtpGioBatDau.Value.Minute, 0
+            );
+            DateTime gioKetThuc = new DateTime(
+                DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day,
+                dtpGioKetThuc.Value.Hour, dtpGioKetThuc.Value.Minute, 0
+            );
 
             if (gioKetThuc <= gioBatDau)
             {
@@ -112,7 +85,34 @@ namespace Presentation
                 return;
             }
 
-            // === 5️⃣ Tạo DTO ===
+            // === 4️⃣ Kiểm tra trùng mã ca khi thêm mới ===
+            var allShifts = _shiftService.GetAll().Data;
+            if (string.IsNullOrEmpty(_shiftId))
+            {
+                if (allShifts.Any(x => x.ShiftId.Equals(maCa, StringComparison.OrdinalIgnoreCase)))
+                {
+                    MessageBox.Show("Mã ca đã tồn tại, vui lòng nhập mã khác!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtMaCa.Focus();
+                    return;
+                }
+            }
+
+            // === 5️⃣ Kiểm tra trùng thời gian với ca khác ===
+            bool trungThoiGian = allShifts.Any(x =>
+                !x.ShiftId.Equals(_shiftId, StringComparison.OrdinalIgnoreCase) && // bỏ qua ca hiện tại khi sửa
+                x.StartTime.Hours == gioBatDau.Hour &&
+                x.StartTime.Minutes == gioBatDau.Minute &&
+                x.EndTime.Hours == gioKetThuc.Hour &&
+                x.EndTime.Minutes == gioKetThuc.Minute
+            );
+
+            if (trungThoiGian)
+            {
+                MessageBox.Show("Đã tồn tại ca làm có cùng thời gian bắt đầu và kết thúc!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // === 6️⃣ Tạo DTO ===
             var shiftDto = new ShiftDto()
             {
                 ShiftId = maCa,
@@ -121,9 +121,8 @@ namespace Presentation
                 EndTime = gioKetThuc.TimeOfDay
             };
 
-            // === 6️⃣ Gọi service ===
+            // === 7️⃣ Gọi service ===
             Result<bool> result;
-
             if (string.IsNullOrEmpty(_shiftId))
                 result = _shiftService.CreateShift(shiftDto);
             else
@@ -135,11 +134,10 @@ namespace Presentation
                 return;
             }
 
-            // === 7️⃣ Hoàn tất ===
+            // === 8️⃣ Thành công ===
             DataChanged?.Invoke(this, EventArgs.Empty);
             MessageBox.Show("Lưu ca làm việc thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
-
     }
 }

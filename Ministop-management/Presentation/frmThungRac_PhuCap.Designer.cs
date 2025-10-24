@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDuLieu = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblThungRac = new System.Windows.Forms.Label();
+            this.itbnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnKhoiPhuc = new Guna.UI2.WinForms.Guna2Button();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.itbnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -46,29 +46,29 @@
             // 
             // dgvDuLieu
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.dgvDuLieu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dgvDuLieu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDuLieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDuLieu.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDuLieu.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDuLieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDuLieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDuLieu.ColumnHeadersHeight = 36;
             this.dgvDuLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDuLieu.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDuLieu.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDuLieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDuLieu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDuLieu.Location = new System.Drawing.Point(0, 52);
@@ -123,6 +123,23 @@
             this.lblThungRac.TabIndex = 8;
             this.lblThungRac.Text = "Thùng rác - Danh sách phụ cấp";
             // 
+            // itbnThoat
+            // 
+            this.itbnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.itbnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.itbnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.itbnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.itbnThoat.ImageRotate = 0F;
+            this.itbnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.itbnThoat.Location = new System.Drawing.Point(758, 5);
+            this.itbnThoat.Name = "itbnThoat";
+            this.itbnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.Size = new System.Drawing.Size(36, 35);
+            this.itbnThoat.TabIndex = 7;
+            this.itbnThoat.Click += new System.EventHandler(this.itbnThoat_Click);
+            // 
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -160,23 +177,6 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // itbnThoat
-            // 
-            this.itbnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.itbnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.itbnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.itbnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.itbnThoat.ImageRotate = 0F;
-            this.itbnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.itbnThoat.Location = new System.Drawing.Point(758, 5);
-            this.itbnThoat.Name = "itbnThoat";
-            this.itbnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.Size = new System.Drawing.Size(36, 35);
-            this.itbnThoat.TabIndex = 7;
-            this.itbnThoat.Click += new System.EventHandler(this.itbnThoat_Click);
-            // 
             // frmThungRac_PhuCap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -187,6 +187,7 @@
             this.Controls.Add(this.guna2Panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmThungRac_PhuCap";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmThungRac_PhuCap";
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu)).EndInit();
             this.guna2Panel1.ResumeLayout(false);

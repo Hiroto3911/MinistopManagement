@@ -55,10 +55,18 @@
   <ItemGroup>
     <Compile Include="Interfaces\IAllowanceService.cs" />
     <Compile Include="Interfaces\IEmployeeService.cs" />
+    <Compile Include="Interfaces\IProductCategoryService.cs" />
+    <Compile Include="Interfaces\IProductService.cs" />
     <Compile Include="Interfaces\IShiftService.cs" />
+    <Compile Include="Interfaces\IStoreFixedExpenseServices.cs" />
+    <Compile Include="Interfaces\ISupplierService.cs" />
     <Compile Include="Mapping\AllowanceMapping.cs" />
     <Compile Include="Mapping\EmployeeMapping.cs" />
+    <Compile Include="Mapping\ProductCategoryMapping.cs" />
+    <Compile Include="Mapping\ProductMapping.cs" />
     <Compile Include="Mapping\ShiftMapping.cs" />
+    <Compile Include="Mapping\StoreFixedExpenseMapping.cs" />
+    <Compile Include="Mapping\SupplierMapping.cs" />
     <Compile Include="ServicesRegistration.cs" />
     <Compile Include="Interfaces\IDateTimeService.cs" />
     <Compile Include="Interfaces\IIdentityService.cs" />
@@ -69,8 +77,12 @@
     <Compile Include="Services\DateTimeService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\IdentityService.cs" />
+    <Compile Include="Services\ProductCategoryService.cs" />
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\ShiftService.cs" />
+    <Compile Include="Services\StoreFixedExpenseServices.cs" />
     <Compile Include="Services\StoreService.cs" />
+    <Compile Include="Services\SupplierService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">

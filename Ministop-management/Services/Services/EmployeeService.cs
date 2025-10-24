@@ -70,6 +70,19 @@ namespace Services.Services
                 throw ex;
             }
         }
+        public Result<bool> AnyStore(string storeId)
+        {
+            try
+            {
+                var isChecked = _ministopUnitOfWork.EmployeeRepository.Any(x => x.StoreID == storeId && !x.IsDeleted);
+                
+                return new Result<bool>(isChecked);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public PagedResult<IReadOnlyList<EmployeeDto>> GetEmployee(int pageNumber, int pageSize)
         {
             var totalCount = _ministopUnitOfWork.EmployeeRepository.GetCount(x => !x.IsDeleted);

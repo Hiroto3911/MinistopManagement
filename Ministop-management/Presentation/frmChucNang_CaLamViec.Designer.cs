@@ -163,7 +163,7 @@
             this.dtpGioKetThuc.ShowUpDown = true;
             this.dtpGioKetThuc.Size = new System.Drawing.Size(327, 55);
             this.dtpGioKetThuc.TabIndex = 132;
-            this.dtpGioKetThuc.Value = new System.DateTime(2025, 10, 1, 8, 48, 24, 373);
+            this.dtpGioKetThuc.Value = new System.DateTime(2025, 10, 1, 0, 0, 0, 0);
             // 
             // dtpGioBatDau
             // 
@@ -182,7 +182,7 @@
             this.dtpGioBatDau.ShowUpDown = true;
             this.dtpGioBatDau.Size = new System.Drawing.Size(327, 55);
             this.dtpGioBatDau.TabIndex = 133;
-            this.dtpGioBatDau.Value = new System.DateTime(2025, 10, 1, 8, 48, 24, 373);
+            this.dtpGioBatDau.Value = new System.DateTime(2025, 10, 1, 0, 0, 0, 0);
             // 
             // directorySearcher1
             // 
