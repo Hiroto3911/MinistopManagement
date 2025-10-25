@@ -33,7 +33,7 @@ namespace Services.Services
         public Result<IReadOnlyList<StoreDto>> GetAll()
         {
             // Lấy danh sách từ DBML (entity của LINQ to SQL)
-            var dbList = _ministopUnitOfWork.StoreRepository.GetAll();
+            var dbList = _ministopUnitOfWork.StoreRepository.GetAll(x => !x.IsDeleted);
 
             // Map sang Domain.Entity.Store
             var list = _mapper.Map<IReadOnlyList<StoreDto>>(dbList);
@@ -176,14 +176,28 @@ namespace Services.Services
             {
 
                 var currentUserId = _userSession.UserId;
-                var storeEntity = _ministopUnitOfWork.StoreRepository.Find(x => x.StoreID == storeId);
+                var storeEntity = _ministopUnitOfWork.StoreRepository.Find(x => x.StoreID == storeId&& !x.IsDeleted);
                 if (storeEntity == null)
                 {
                     return new Result<bool>(ErrorCodeEnum.STR_ERR_001);
                 }
+                var emp = _ministopUnitOfWork.EmployeeRepository.GetAll(x => x.StoreID == storeId && !x.IsDeleted);
+                
                 storeEntity.LastModified = _dateTimeService.NowUtc;
                 storeEntity.LastModifiedBy = currentUserId;
                 _ministopUnitOfWork.StoreRepository.SoftDelete(storeEntity, true);
+                if (emp != null && emp.Count > 0)
+                {
+                    var listEmp = emp.ToList();
+                    foreach (var item in listEmp)
+                    {
+
+                        item.LastModified = _dateTimeService.NowUtc;
+                        item.LastModifiedBy = currentUserId;
+                    }
+
+                    _ministopUnitOfWork.EmployeeRepository.SoftDeleteRange(listEmp, true);
+                }
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);
 

@@ -43,7 +43,7 @@ namespace Infrastructure.Repositories
         {
             var table = _context.GetTable<Store>();
 
-      
+
             var existing = table.SingleOrDefault(s => s.StoreID == entity.StoreID);
             if (existing == null) return;
 

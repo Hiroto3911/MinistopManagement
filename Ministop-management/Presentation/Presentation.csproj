@@ -75,16 +75,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmChucNang_HopDongLuong_PhuCap.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_HopDongLuong_PhuCap.Designer.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.Designer.cs">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_PhieuTraHang.cs">
+    <Compile Include="Sales\Dialogs\frmChucNang_PhieuTraHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_PhieuTraHang.Designer.cs">
+    <Compile Include="Sales\Dialogs\frmChucNang_PhieuTraHang.Designer.cs">
       <DependentUpon>frmChucNang_PhieuTraHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDangNhap.cs">
@@ -93,190 +93,184 @@
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHienThi_DanhSachSanPhamDeXuat.cs">
+    <Compile Include="Stocks\frmHienThi_LichSuKho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHienThi_DanhSachSanPhamDeXuat.Designer.cs">
-      <DependentUpon>frmHienThi_DanhSachSanPhamDeXuat.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmHienThi_LichSuKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmHienThi_LichSuKho.Designer.cs">
+    <Compile Include="Stocks\frmHienThi_LichSuKho.Designer.cs">
       <DependentUpon>frmHienThi_LichSuKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHienThi_CuaHang.cs">
+    <Compile Include="Stores\frmHienThi_CuaHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHienThi_CuaHang.Designer.cs">
+    <Compile Include="Stores\frmHienThi_CuaHang.Designer.cs">
       <DependentUpon>frmHienThi_CuaHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHienThi_DanhSachNhapHang.cs">
+    <Compile Include="Stocks\Dialogs\frmHienThi_DanhSachNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHienThi_DanhSachNhapHang.Designer.cs">
+    <Compile Include="Stocks\Dialogs\frmHienThi_DanhSachNhapHang.Designer.cs">
       <DependentUpon>frmHienThi_DanhSachNhapHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHienThi_KhoHang.cs">
+    <Compile Include="Stocks\frmHienThi_KhoHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHienThi_KhoHang.Designer.cs">
+    <Compile Include="Stocks\frmHienThi_KhoHang.Designer.cs">
       <DependentUpon>frmHienThi_KhoHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHienThi_BanHang.cs">
+    <Compile Include="Sales\frmHienThi_BanHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHienThi_BanHang.Designer.cs">
+    <Compile Include="Sales\frmHienThi_BanHang.Designer.cs">
       <DependentUpon>frmHienThi_BanHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHienThi_NhanVien.cs">
+    <Compile Include="Employees\frmHienThi_NhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHienThi_NhanVien.Designer.cs">
+    <Compile Include="Employees\frmHienThi_NhanVien.Designer.cs">
       <DependentUpon>frmHienThi_NhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHienThi_SanPham.cs">
+    <Compile Include="Products\frmHienThi_SanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHienThi_SanPham.Designer.cs">
+    <Compile Include="Products\frmHienThi_SanPham.Designer.cs">
       <DependentUpon>frmHienThi_SanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_CaLamViec.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_CaLamViec.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_CaLamViec.Designer.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_CaLamViec.Designer.cs">
       <DependentUpon>frmChucNang_CaLamViec.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_ChamCongVang.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_ChamCongVang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_ChamCongVang.Designer.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_ChamCongVang.Designer.cs">
       <DependentUpon>frmChucNang_ChamCongVang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_ChiPhiCuaHang.cs">
+    <Compile Include="Stores\Dialogs\frmChucNang_ChiPhiCuaHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_ChiPhiCuaHang.Designer.cs">
+    <Compile Include="Stores\Dialogs\frmChucNang_ChiPhiCuaHang.Designer.cs">
       <DependentUpon>frmChucNang_ChiPhiCuaHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_ChiTietHoaDon.cs">
+    <Compile Include="Sales\Dialogs\frmChucNang_ChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_ChiTietHoaDon.Designer.cs">
+    <Compile Include="Sales\Dialogs\frmChucNang_ChiTietHoaDon.Designer.cs">
       <DependentUpon>frmChucNang_ChiTietHoaDon.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_ChiTietKiemKho.cs">
+    <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietKiemKho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_ChiTietKiemKho.Designer.cs">
+    <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietKiemKho.Designer.cs">
       <DependentUpon>frmChucNang_ChiTietKiemKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_ChiTietNhapKho.cs">
+    <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietNhapKho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_ChiTietNhapKho.Designer.cs">
+    <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietNhapKho.Designer.cs">
       <DependentUpon>frmChucNang_ChiTietNhapKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_ChiTietPhieuTraHang.cs">
+    <Compile Include="Sales\Dialogs\frmChucNang_ChiTietPhieuTraHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_ChiTietPhieuTraHang.Designer.cs">
+    <Compile Include="Sales\Dialogs\frmChucNang_ChiTietPhieuTraHang.Designer.cs">
       <DependentUpon>frmChucNang_ChiTietPhieuTraHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_ChiTietXuatKho.cs">
+    <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietXuatKho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_ChiTietXuatKho.Designer.cs">
+    <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietXuatKho.Designer.cs">
       <DependentUpon>frmChucNang_ChiTietXuatKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_CuaHang.cs">
+    <Compile Include="Stores\Dialogs\frmChucNang_CuaHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_CuaHang.Designer.cs">
+    <Compile Include="Stores\Dialogs\frmChucNang_CuaHang.Designer.cs">
       <DependentUpon>frmChucNang_CuaHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_DeXuatGia.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_DeXuatGia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_DeXuatGia.Designer.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_DeXuatGia.Designer.cs">
       <DependentUpon>frmChucNang_DeXuatGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_GiamGiaSP.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_GiamGiaSP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_GiamGiaSP.Designer.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_GiamGiaSP.Designer.cs">
       <DependentUpon>frmChucNang_GiamGiaSP.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_HopDongLuong.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_HopDongLuong.Designer.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong.Designer.cs">
       <DependentUpon>frmChucNang_HopDongLuong.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_LoaiSanPham.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_LoaiSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_LoaiSanPham.Designer.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_LoaiSanPham.Designer.cs">
       <DependentUpon>frmChucNang_LoaiSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_NhaCungCap.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_NhaCungCap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_NhaCungCap.Designer.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_NhaCungCap.Designer.cs">
       <DependentUpon>frmChucNang_NhaCungCap.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_NhaCungCapSanPham.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_NhaCungCapSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_NhaCungCapSanPham.Designer.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_NhaCungCapSanPham.Designer.cs">
       <DependentUpon>frmChucNang_NhaCungCapSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_NhanVien.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_NhanVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_NhanVien.Designer.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_NhanVien.Designer.cs">
       <DependentUpon>frmChucNang_NhanVien.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_NhapKho.cs">
+    <Compile Include="Stocks\Dialogs\frmChucNang_NhapKho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_NhapKho.Designer.cs">
+    <Compile Include="Stocks\Dialogs\frmChucNang_NhapKho.Designer.cs">
       <DependentUpon>frmChucNang_NhapKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_PhanCaLam.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_PhanCaLam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_PhanCaLam.Designer.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_PhanCaLam.Designer.cs">
       <DependentUpon>frmChucNang_PhanCaLam.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_PhieuGiamGia.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_PhieuGiamGia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_PhieuGiamGia.Designer.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_PhieuGiamGia.Designer.cs">
       <DependentUpon>frmChucNang_PhieuGiamGia.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_PhuCap.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_PhuCap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_PhuCap.Designer.cs">
+    <Compile Include="Employees\Dialogs\frmChucNang_PhuCap.Designer.cs">
       <DependentUpon>frmChucNang_PhuCap.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_SanPham.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_SanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_SanPham.Designer.cs">
+    <Compile Include="Products\Dialogs\frmChucNang_SanPham.Designer.cs">
       <DependentUpon>frmChucNang_SanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmChucNang_XuatKho.cs">
+    <Compile Include="Stocks\Dialogs\frmChucNang_XuatKho.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmChucNang_XuatKho.Designer.cs">
+    <Compile Include="Stocks\Dialogs\frmChucNang_XuatKho.Designer.cs">
       <DependentUpon>frmChucNang_XuatKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmHienThi_ThongKe.cs">
+    <Compile Include="Statistics\frmHienThi_ThongKe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmHienThi_ThongKe.Designer.cs">
+    <Compile Include="Statistics\frmHienThi_ThongKe.Designer.cs">
       <DependentUpon>frmHienThi_ThongKe.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -285,11 +279,41 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThungRac_CuaHang.cs">
+    <Compile Include="Stores\Dialogs\frmThungRac_CuaHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmThungRac_CuaHang.Designer.cs">
+    <Compile Include="Stores\Dialogs\frmThungRac_CuaHang.Designer.cs">
       <DependentUpon>frmThungRac_CuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_LSP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_LSP.Designer.cs">
+      <DependentUpon>frmThungRac_LSP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_NCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_NCC.Designer.cs">
+      <DependentUpon>frmThungRac_NCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\Dialogs\frmThungRac_NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\Dialogs\frmThungRac_NhanVien.Designer.cs">
+      <DependentUpon>frmThungRac_NhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\Dialogs\frmThungRac_PhuCap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\Dialogs\frmThungRac_PhuCap.Designer.cs">
+      <DependentUpon>frmThungRac_PhuCap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_SP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_SP.Designer.cs">
+      <DependentUpon>frmThungRac_SP.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -299,113 +323,125 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Validations\StoreValidator.cs" />
-    <EmbeddedResource Include="frmChucNang_HopDongLuong_PhuCap.resx">
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.resx">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_PhieuTraHang.resx">
+    <EmbeddedResource Include="Sales\Dialogs\frmChucNang_PhieuTraHang.resx">
       <DependentUpon>frmChucNang_PhieuTraHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHienThi_DanhSachNhapHang.resx">
+    <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_DanhSachNhapHang.resx">
       <DependentUpon>frmHienThi_DanhSachNhapHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHienThi_DanhSachSanPhamDeXuat.resx">
-      <DependentUpon>frmHienThi_DanhSachSanPhamDeXuat.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmHienThi_LichSuKho.resx">
+    <EmbeddedResource Include="Stocks\frmHienThi_LichSuKho.resx">
       <DependentUpon>frmHienThi_LichSuKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHienThi_CuaHang.resx">
+    <EmbeddedResource Include="Stores\frmHienThi_CuaHang.resx">
       <DependentUpon>frmHienThi_CuaHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHienThi_KhoHang.resx">
+    <EmbeddedResource Include="Stocks\frmHienThi_KhoHang.resx">
       <DependentUpon>frmHienThi_KhoHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHienThi_BanHang.resx">
+    <EmbeddedResource Include="Sales\frmHienThi_BanHang.resx">
       <DependentUpon>frmHienThi_BanHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHienThi_NhanVien.resx">
+    <EmbeddedResource Include="Employees\frmHienThi_NhanVien.resx">
       <DependentUpon>frmHienThi_NhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHienThi_SanPham.resx">
+    <EmbeddedResource Include="Products\frmHienThi_SanPham.resx">
       <DependentUpon>frmHienThi_SanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_CaLamViec.resx">
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_CaLamViec.resx">
       <DependentUpon>frmChucNang_CaLamViec.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_ChamCongVang.resx">
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_ChamCongVang.resx">
       <DependentUpon>frmChucNang_ChamCongVang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_ChiPhiCuaHang.resx">
+    <EmbeddedResource Include="Stores\Dialogs\frmChucNang_ChiPhiCuaHang.resx">
       <DependentUpon>frmChucNang_ChiPhiCuaHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_ChiTietHoaDon.resx">
+    <EmbeddedResource Include="Sales\Dialogs\frmChucNang_ChiTietHoaDon.resx">
       <DependentUpon>frmChucNang_ChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_ChiTietKiemKho.resx">
+    <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_ChiTietKiemKho.resx">
       <DependentUpon>frmChucNang_ChiTietKiemKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_ChiTietNhapKho.resx">
+    <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_ChiTietNhapKho.resx">
       <DependentUpon>frmChucNang_ChiTietNhapKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_ChiTietPhieuTraHang.resx">
+    <EmbeddedResource Include="Sales\Dialogs\frmChucNang_ChiTietPhieuTraHang.resx">
       <DependentUpon>frmChucNang_ChiTietPhieuTraHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_ChiTietXuatKho.resx">
+    <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_ChiTietXuatKho.resx">
       <DependentUpon>frmChucNang_ChiTietXuatKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_CuaHang.resx">
+    <EmbeddedResource Include="Stores\Dialogs\frmChucNang_CuaHang.resx">
       <DependentUpon>frmChucNang_CuaHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_DeXuatGia.resx">
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_DeXuatGia.resx">
       <DependentUpon>frmChucNang_DeXuatGia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_GiamGiaSP.resx">
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_GiamGiaSP.resx">
       <DependentUpon>frmChucNang_GiamGiaSP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_HopDongLuong.resx">
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_HopDongLuong.resx">
       <DependentUpon>frmChucNang_HopDongLuong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_LoaiSanPham.resx">
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_LoaiSanPham.resx">
       <DependentUpon>frmChucNang_LoaiSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_NhaCungCap.resx">
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_NhaCungCap.resx">
       <DependentUpon>frmChucNang_NhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_NhaCungCapSanPham.resx">
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_NhaCungCapSanPham.resx">
       <DependentUpon>frmChucNang_NhaCungCapSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_NhanVien.resx">
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_NhanVien.resx">
       <DependentUpon>frmChucNang_NhanVien.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_NhapKho.resx">
+    <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_NhapKho.resx">
       <DependentUpon>frmChucNang_NhapKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_PhanCaLam.resx">
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_PhanCaLam.resx">
       <DependentUpon>frmChucNang_PhanCaLam.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_PhieuGiamGia.resx">
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_PhieuGiamGia.resx">
       <DependentUpon>frmChucNang_PhieuGiamGia.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_PhuCap.resx">
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_PhuCap.resx">
       <DependentUpon>frmChucNang_PhuCap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_SanPham.resx">
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_SanPham.resx">
       <DependentUpon>frmChucNang_SanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmChucNang_XuatKho.resx">
+    <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_XuatKho.resx">
       <DependentUpon>frmChucNang_XuatKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmHienThi_ThongKe.resx">
+    <EmbeddedResource Include="Statistics\frmHienThi_ThongKe.resx">
       <DependentUpon>frmHienThi_ThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmThungRac_CuaHang.resx">
+    <EmbeddedResource Include="Stores\Dialogs\frmThungRac_CuaHang.resx">
       <DependentUpon>frmThungRac_CuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmThungRac_LSP.resx">
+      <DependentUpon>frmThungRac_LSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmThungRac_NCC.resx">
+      <DependentUpon>frmThungRac_NCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmThungRac_NhanVien.resx">
+      <DependentUpon>frmThungRac_NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmThungRac_PhuCap.resx">
+      <DependentUpon>frmThungRac_PhuCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmThungRac_SP.resx">
+      <DependentUpon>frmThungRac_SP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -477,6 +513,9 @@
       <Project>{36b44f87-d9ad-403c-ace4-a02a0c415e22}</Project>
       <Name>Shared</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\Forms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
