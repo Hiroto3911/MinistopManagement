@@ -43,6 +43,7 @@ namespace Presentation
             var frmMain = _container.Resolve<frmMain>();
             this.Hide();
             frmMain.ShowDialog();
+
             this.Show();
         }
 
@@ -53,8 +54,8 @@ namespace Presentation
 
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
-            txtMaNhanVien.Clear();
-            txtMatKhau.Clear();
+            //txtMaNhanVien.Clear();
+            //txtMatKhau.Clear();
             txtMatKhau.UseSystemPasswordChar = true;
         }
 

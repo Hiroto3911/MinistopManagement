@@ -10,7 +10,7 @@ namespace Services.Interfaces
 {
     public interface IStoreFixedExpenseServices
     {
-        Result<bool> CreateStoreFixedExpense(StoreFixedExpenseDto expenseDto);
+        Result<string> CreateStoreFixedExpense(StoreFixedExpenseDto expenseDto);
         Result<IReadOnlyList<StoreFixedExpenseDto>> GetAll();
         Result<IReadOnlyList<StoreFixedExpenseDto>> GetAllStoreFixedExpenseIsDelete();
         PagedResult<IReadOnlyList<StoreFixedExpenseDto>> GetStoreFixedExpense(int pageNumber, int pageSize);
@@ -18,6 +18,6 @@ namespace Services.Interfaces
         Result<StoreFixedExpenseDto> GetStoreFixedExpenseByID(string id);
         Result<bool> RemoveStoreFixedExpense(string expenseId);
         Result<bool> RestoreStoreFixedExpense(List<string> listRestoreId);
-        Result<bool> UpdateStoreFixedExpense(StoreFixedExpenseDto expenseEdit);
+        Result<string> UpdateStoreFixedExpense(StoreFixedExpenseDto expenseEdit);
     }
 }
