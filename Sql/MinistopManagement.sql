@@ -24,7 +24,7 @@ GO
 
 
 CREATE TABLE StoreFixedExpenses (
-    ExpenseID INT IDENTITY(1,1) PRIMARY KEY,
+    ExpenseID NVARCHAR(200) PRIMARY KEY NOT NULL,
     StoreID NVARCHAR(200) NOT NULL,
     MonthYear CHAR(7) NOT NULL,
     RentCost DECIMAL(18,2) NULL,
@@ -72,7 +72,7 @@ GO
 
 CREATE TABLE Employee (
     EmployeeID NVARCHAR(200) PRIMARY KEY,
-    StoreID NVARCHAR(200) NOT NULL,
+    StoreID NVARCHAR(200) NULL,
     FullName NVARCHAR(100) NOT NULL,
     Gender BIT NOT NULL ,
     BirthDate DATE NOT NULL,
@@ -159,9 +159,9 @@ CREATE TABLE Absence (
     EmployeeID NVARCHAR(200) NOT NULL,
     ShiftID NVARCHAR(200) NOT NULL,
     WorkDate DATE NOT NULL,
-	IsLeaveOfAbsence BIT NOT NULL DEFAULT 0  ,
+    IsLeaveOfAbsence BIT NOT NULL DEFAULT 0  ,
     Reason NVARCHAR (MAX),
-	IsPaid BIT	NOT NULL,
+    IsPaid BIT	NOT NULL,
     CONSTRAINT UQ_Absence_shiftAssignment UNIQUE (EmployeeID, ShiftID, WorkDate),
     FOREIGN KEY (EmployeeID, ShiftID, WorkDate) 
         REFERENCES ShiftAssignment(EmployeeID, ShiftID, WorkDate)

@@ -60,11 +60,11 @@ namespace Infrastructure.Repositories
 
         public void SoftDeleteRange(IList<Employee> entities, bool hasTransaction = false)
         {
-            var table = _context.GetTable<Employee>();
+           
             foreach (var entity in entities)
             {
                 entity.IsDeleted = true;
-                table.Attach(entity, true);
+                
             }
             if (!hasTransaction)
             {
