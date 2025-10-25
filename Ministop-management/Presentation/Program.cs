@@ -36,17 +36,20 @@ namespace Presentation
             container.RegisterType<frmHienThi_BanHang>();
             container.RegisterType<frmHienThi_KhoHang>();
             container.RegisterType<frmHienThi_ThongKe>();
+
             // frm Thung rac
             container.RegisterType<frmThungRac_CuaHang>();
             // frm chuc nang
             container.RegisterType<frmChucNang_CuaHang>();
+            container.RegisterType<frmChucNang_PhuCap>();
+
             // frm dang nhap 
             container.RegisterType<frmDangNhap>();
             #endregion
             var frmDangNhap = container.Resolve<frmDangNhap>();
             Application.Run(frmDangNhap);
         }
-        //Thêm j j đó lmao
+        //Thêm Dll để hiện thị chương trình full DPI
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
     }

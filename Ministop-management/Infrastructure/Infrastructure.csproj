@@ -57,6 +57,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MinistopDataContext.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IAllowanceRepository.cs" />
+    <Compile Include="Interfaces\IProductCategoryRepository.cs" />
+    <Compile Include="Interfaces\IProductRepository.cs" />
+    <Compile Include="Interfaces\IShiftRepository.cs" />
+    <Compile Include="Interfaces\ISupplierRepository.cs" />
+    <Compile Include="Repositories\AllowanceRepository.cs" />
+    <Compile Include="Repositories\ProductCategoryRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ShiftRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
     <Compile Include="ServicesRegistration.cs" />
     <Compile Include="Interfaces\IEmployeeRepository.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />

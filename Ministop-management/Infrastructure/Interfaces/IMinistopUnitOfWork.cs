@@ -11,5 +11,10 @@ namespace Infrastructure.Interfaces
         IStoreRepository StoreRepository { get; }
         IStoreFixedExpenseRepository FixedExpenseRepository { get; }
         IEmployeeRepository EmployeeRepository { get; }
+        IAllowanceRepository AllowanceRepository { get; }
+        IShiftRepository ShiftRepository { get; }
+        IProductCategoryRepository ProductCategoryRepository { get; }
+        IProductRepository ProductRepository { get; }
+        ISupplierRepository SupplierRepository { get; }
     }
 }
