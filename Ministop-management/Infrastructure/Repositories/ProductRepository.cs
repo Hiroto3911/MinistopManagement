@@ -42,15 +42,11 @@ namespace Infrastructure.Repositories
         public void SoftDelete(Product entity, bool hasTransaction = false)
         {
             var table = _context.GetTable<Product>();
-
-
             var existing = table.SingleOrDefault(s => s.ProductID == entity.ProductID);
             if (existing == null) return;
-
             existing.IsDeleted = true;
             existing.LastModified = entity.LastModified;
             existing.LastModifiedBy = entity.LastModifiedBy;
-
             if (!hasTransaction)
             {
                 _context.SubmitChanges();

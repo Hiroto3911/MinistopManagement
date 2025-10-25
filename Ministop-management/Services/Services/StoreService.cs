@@ -182,16 +182,22 @@ namespace Services.Services
                     return new Result<bool>(ErrorCodeEnum.STR_ERR_001);
                 }
                 var emp = _ministopUnitOfWork.EmployeeRepository.GetAll(x => x.StoreID == storeId && !x.IsDeleted);
-                var listEmp = emp.ToList();
+                
                 storeEntity.LastModified = _dateTimeService.NowUtc;
                 storeEntity.LastModifiedBy = currentUserId;
                 _ministopUnitOfWork.StoreRepository.SoftDelete(storeEntity, true);
-                foreach (var item in listEmp) {
+                if (emp != null && emp.Count > 0)
+                {
+                    var listEmp = emp.ToList();
+                    foreach (var item in listEmp)
+                    {
 
-                    item.LastModified = _dateTimeService.NowUtc;
-                    item.LastModifiedBy = currentUserId;
+                        item.LastModified = _dateTimeService.NowUtc;
+                        item.LastModifiedBy = currentUserId;
+                    }
+
+                    _ministopUnitOfWork.EmployeeRepository.SoftDeleteRange(listEmp, true);
                 }
-                _ministopUnitOfWork.EmployeeRepository.SoftDeleteRange(listEmp,true);
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);
 

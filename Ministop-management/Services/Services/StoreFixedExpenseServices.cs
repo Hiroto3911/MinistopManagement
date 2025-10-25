@@ -84,15 +84,15 @@ namespace Services.Services
 
             return new PagedResult<IReadOnlyList<StoreFixedExpenseDto>>(storesDto, pageNumber, pageSize, totalCount);
         }
-        public Result<bool> CreateStoreFixedExpense(StoreFixedExpenseDto expenseDto)
+        public Result<string> CreateStoreFixedExpense(StoreFixedExpenseDto expenseDto)
         {
             try
             {
-                if (_userSession.Role != "Quản lý cửa hàng") return new Result<bool>(ErrorCodeEnum.SFE_ERR_007);
+                if (_userSession.Role != "Quản lý cửa hàng") return new Result<string>(ErrorCodeEnum.SFE_ERR_007);
                 var isDuplicated = _ministopUnitOfWork.FixedExpenseRepository.Any(x => x.MonthYear == expenseDto.MonthYear && x.StoreID == expenseDto.StoreId);
                 if (isDuplicated)
                 {
-                    return new Result<bool>(ErrorCodeEnum.SFE_ERR_008);
+                    return new Result<string>(ErrorCodeEnum.SFE_ERR_008);
                 }
                 var expenseId = IdGenerator.CreateID("SFE");
                 var currentUserId = _userSession.UserId;
@@ -104,9 +104,9 @@ namespace Services.Services
                 var succeeded = _ministopUnitOfWork.FixedExpenseRepository.Add(expenseEntity);
                 if (succeeded == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.SFE_ERR_003);
+                    return new Result<string>(ErrorCodeEnum.SFE_ERR_003);
                 }
-                return new Result<bool>(true);
+                return new Result<string>(succeeded.ExpenseID);
 
             }
             catch (Exception ex)
@@ -146,17 +146,17 @@ namespace Services.Services
                 throw ex;
             }
         }
-        public Result<bool> UpdateStoreFixedExpense(StoreFixedExpenseDto expenseEdit)
+        public Result<string> UpdateStoreFixedExpense(StoreFixedExpenseDto expenseEdit)
         {
             _ministopUnitOfWork.BeginTransaction();
             try
             {
 
                 var currentUserId = _userSession.UserId;
-                var expenseEntity = _ministopUnitOfWork.FixedExpenseRepository.Find(x => x.StoreID == expenseEdit.StoreId);
+                var expenseEntity = _ministopUnitOfWork.FixedExpenseRepository.Find(x => x.ExpenseID == expenseEdit.ExpenseId);
                 if (expenseEntity == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.STR_ERR_001);
+                    return new Result<string>(ErrorCodeEnum.STR_ERR_001);
                 }
                 expenseEntity.RentCost = expenseEdit.RentCost;
                 expenseEntity.ElectricityCost = expenseEdit.ElectricityCost;
@@ -166,7 +166,7 @@ namespace Services.Services
                 expenseEntity.LastModifiedBy = currentUserId;
                 _ministopUnitOfWork.FixedExpenseRepository.Update(expenseEntity, true);
                 _ministopUnitOfWork.Commit();
-                return new Result<bool>(true);
+                return new Result<string>(expenseEntity.ExpenseID);
 
             }
             catch (Exception ex)

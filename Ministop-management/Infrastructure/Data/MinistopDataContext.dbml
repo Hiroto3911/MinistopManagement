@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MinistopManagement" Class="MinistopDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LATI7480\SQLEXPRESS;Initial Catalog=MinistopManagement;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="Infrastructure.Properties.Settings" SettingsPropertyName="MinistopManagementConnectionString1" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-3M1QM2P;Initial Catalog=MinistopManagement;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="Infrastructure.Properties.Settings" SettingsPropertyName="MinistopManagementConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Absence" Member="Absences">
     <Type Name="Absence">
       <Column Name="AbsenceID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -95,6 +95,19 @@
       <Association Name="Store_PriceProposal" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ProductCategory" Member="ProductCategories">
+    <Type Name="ProductCategory">
+      <Column Name="CategoryID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="ProductCategory_Product" Member="Products" ThisKey="CategoryID" OtherKey="CategoryID" Type="Product" />
+    </Type>
+  </Table>
   <Table Name="dbo.Products" Member="Products">
     <Type Name="Product">
       <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -112,25 +125,12 @@
       <Association Name="Product_PriceProposal" Member="PriceProposals" ThisKey="ProductID" OtherKey="ProductID" Type="PriceProposal" />
       <Association Name="Product_Promotion_Product" Member="Promotion_Products" ThisKey="ProductID" OtherKey="ProductID" Type="Promotion_Product" />
       <Association Name="Product_ReturnDetail" Member="ReturnDetails" ThisKey="ProductID" OtherKey="ProductID" Type="ReturnDetail" />
-      <Association Name="Product_StockDetail" Member="StockDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockDetail" />
       <Association Name="Product_StockCheckDetail" Member="StockCheckDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockCheckDetail" />
+      <Association Name="Product_StockDetail" Member="StockDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockDetail" />
       <Association Name="Product_StockExportDetail" Member="StockExportDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockExportDetail" />
       <Association Name="Product_StockImportDetail" Member="StockImportDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockImportDetail" />
       <Association Name="Product_SupplierProduct" Member="SupplierProducts" ThisKey="ProductID" OtherKey="ProductID" Type="SupplierProduct" />
       <Association Name="ProductCategory_Product" Member="ProductCategory" ThisKey="CategoryID" OtherKey="CategoryID" Type="ProductCategory" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ProductCategory" Member="ProductCategories">
-    <Type Name="ProductCategory">
-      <Column Name="CategoryID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="ProductCategory_Product" Member="Products" ThisKey="CategoryID" OtherKey="CategoryID" Type="Product" />
     </Type>
   </Table>
   <Table Name="dbo.Promotion" Member="Promotions">
@@ -259,6 +259,18 @@
       <Association Name="Store_StockCheck" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.StockCheckDetails" Member="StockCheckDetails">
+    <Type Name="StockCheckDetail">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CheckID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="QuantitySystem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QuantityActual" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="StockCheck_StockCheckDetail" Member="StockCheck" ThisKey="CheckID" OtherKey="CheckID" Type="StockCheck" IsForeignKey="true" />
+      <Association Name="Product_StockCheckDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.StockDetail" Member="StockDetails">
     <Type Name="StockDetail">
       <Column Name="StockDetailID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -270,6 +282,17 @@
       <Association Name="StockDetail_StockHistory" Member="StockHistories" ThisKey="StockDetailID" OtherKey="StockDetailID" Type="StockHistory" />
       <Association Name="Product_StockDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
       <Association Name="Store_StockDetail" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockExportDetails" Member="StockExportDetails">
+    <Type Name="StockExportDetail">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ExportID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Association Name="Product_StockExportDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="StockExport_StockExportDetail" Member="StockExport" ThisKey="ExportID" OtherKey="ExportID" Type="StockExport" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.StockExport" Member="StockExports">
@@ -284,29 +307,6 @@
       <Association Name="StockExport_StockExportDetail" Member="StockExportDetails" ThisKey="ExportID" OtherKey="ExportID" Type="StockExportDetail" />
       <Association Name="Employee_StockExport" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
       <Association Name="Store_StockExport" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.StockCheckDetails" Member="StockCheckDetails">
-    <Type Name="StockCheckDetail">
-      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="CheckID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="QuantitySystem" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="QuantityActual" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Association Name="StockCheck_StockCheckDetail" Member="StockCheck" ThisKey="CheckID" OtherKey="CheckID" Type="StockCheck" IsForeignKey="true" />
-      <Association Name="Product_StockCheckDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.StockExportDetails" Member="StockExportDetails">
-    <Type Name="StockExportDetail">
-      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ExportID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Association Name="StockExport_StockExportDetail" Member="StockExport" ThisKey="ExportID" OtherKey="ExportID" Type="StockExport" IsForeignKey="true" />
-      <Association Name="Product_StockExportDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.StockHistory" Member="StockHistories">

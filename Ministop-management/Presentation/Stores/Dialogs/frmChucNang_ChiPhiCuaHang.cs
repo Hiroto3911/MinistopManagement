@@ -18,7 +18,7 @@ namespace Presentation
 {
     public partial class frmChucNang_ChiPhiCuaHang : Form
     {
-        public event EventHandler dataChanged;
+        public event EventHandler<string> dataChanged;
         public readonly IStoreFixedExpenseServices _storeFixedExpenseServices;
         public readonly IUserSession _userSession;
         public string _expenseID;
@@ -97,6 +97,7 @@ namespace Presentation
 
             var expenseDto = new StoreFixedExpenseDto()
             {
+          
                 StoreId = storeId,
                 RentCost = rentCost,          // giá trị có thể là 0 nếu trống
                 WaterCost = waterCost,
@@ -105,18 +106,18 @@ namespace Presentation
                 Note = note
             };
 
-            // Phần lưu dữ liệu như cũ
-            Result<bool> result;
+            Result<string> result;
 
             if (string.IsNullOrEmpty(_expenseID))
             {
                 result = _storeFixedExpenseServices.CreateStoreFixedExpense(expenseDto);
-                dataChanged?.Invoke(this, EventArgs.Empty);
+                dataChanged?.Invoke(this, result.Data);
             }
             else
             {
+                expenseDto.ExpenseId = _expenseID;
                 result = _storeFixedExpenseServices.UpdateStoreFixedExpense(expenseDto);
-                dataChanged?.Invoke(this, EventArgs.Empty);
+                dataChanged?.Invoke(this, result.Data);
             }
 
             if (!result.Succeeded)
