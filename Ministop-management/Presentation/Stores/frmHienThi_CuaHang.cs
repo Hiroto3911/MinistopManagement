@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -39,9 +40,6 @@ namespace Presentation
             _userSession = userSession;
             _employeeService = employeeService;
             LoadDataCH();
-
-
-
         }
         private void frmHienThi_CuaHang_Load(object sender, EventArgs e)
         {
@@ -60,6 +58,7 @@ namespace Presentation
             }
             LoadDataCP(cboCuaHang.SelectedValue.ToString());
         }
+
         #region ChucNangCuaHang
         private void dgvDuLieu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -91,15 +90,14 @@ namespace Presentation
                     var isChecked = _employeeService.AnyStore(storeId);
                     if (isChecked.Data == true)
                     {
-                        DialogResult resultCon = MessageBox.Show($"cửa hàng {storeId} hiện đã có dữ liệu nếu bạn tiếp tục xoá thì các dữ liệu liên quan sẽ bị xoá?",
+                        DialogResult resultCon = MessageBox.Show($"Cửa hàng {storeId} hiện đang còn dữ liệu và tài khoản hoạt động.\n Nếu bạn xác nhận xoá, hệ thống sẽ ngưng kích hoạt cửa hàng và các dữ liệu liên quan, thay vì xoá vĩnh viễn.",
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (resultCon == DialogResult.Yes)
-                        {
-                            _storeService.RemoveStore(storeId);
-                            MessageBox.Show("Xóa thành công!");
-                            LoadDataCH(); // tải lại dữ liệu
-                            return;
-                        }
+                        if (resultCon != DialogResult.Yes) return;
+                        _storeService.RemoveStore(storeId);
+                        MessageBox.Show("Xóa thành công!");
+                        LoadDataCH(); // tải lại dữ liệu
+                        return;
+
                     }
                     _storeService.RemoveStore(storeId);
                     MessageBox.Show("Xóa thành công!");
@@ -255,9 +253,11 @@ namespace Presentation
 
         #endregion
 
-
-
         #region Chi phi co dinh cua hang
+        private void cboCuaHang_SelectedValueChanged(object sender, EventArgs e)
+        {
+            LoadDataCP(cboCuaHang.SelectedValue.ToString());
+        }
         private void LoadCboCuaHang()
         {
             using (var childContainer = _container.CreateChildContainer())
@@ -423,6 +423,8 @@ namespace Presentation
                 {
                     _storeFixedExpenseServices.RemoveStoreFixedExpense(expenseID);
                     MessageBox.Show("Xóa thành công!");
+                    _isEditable = false;
+                    btnHoanTatCP.Enabled = false;
                     LoadDataCP(cboCuaHang.SelectedValue.ToString()); // tải lại dữ liệu
                 }
             }
@@ -470,14 +472,16 @@ namespace Presentation
         }
         private void btnHoanTatCP_Click(object sender, EventArgs e)
         {
-            _isEditable = false;
-            LoadDataCP(cboCuaHang.SelectedValue.ToString());
+            DialogResult result = MessageBox.Show($"Bạn có chắc muốn hoàn tất  phiếu chi phi cửa hàng {_expenseId}?\n Cảnh báo nếu hoàn tất thì bạn sẽ không được phép chỉnh sửa nữa !",
+                   "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                _isEditable = false;
+                LoadDataCP(cboCuaHang.SelectedValue.ToString());
+            }
         }
         #endregion
 
-        private void cboCuaHang_SelectedValueChanged(object sender, EventArgs e)
-        {
-            LoadDataCP(cboCuaHang.SelectedValue.ToString());
-        }
+
     }
 }

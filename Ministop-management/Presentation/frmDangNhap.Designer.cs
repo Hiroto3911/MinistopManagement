@@ -126,6 +126,7 @@
             this.txtMaNhanVien.SelectedText = "";
             this.txtMaNhanVien.Size = new System.Drawing.Size(219, 36);
             this.txtMaNhanVien.TabIndex = 156;
+            this.txtMaNhanVien.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMaNhanVien_KeyDown);
             // 
             // txtMatKhau
             // 
@@ -147,6 +148,7 @@
             this.txtMatKhau.SelectedText = "";
             this.txtMatKhau.Size = new System.Drawing.Size(219, 36);
             this.txtMatKhau.TabIndex = 157;
+            this.txtMatKhau.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtMatKhau_KeyDown);
             // 
             // label1
             // 
