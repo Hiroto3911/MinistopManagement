@@ -92,5 +92,10 @@ namespace Presentation
                 e.SuppressKeyPress = true;
             }
         }
+
+        private void frmDangNhap_Shown(object sender, EventArgs e)
+        {
+            txtMaNhanVien.Focus();
+        }
     }
 }

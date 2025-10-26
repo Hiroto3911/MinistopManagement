@@ -477,6 +477,8 @@ namespace Presentation
             if (result == DialogResult.Yes)
             {
                 _isEditable = false;
+                _expenseId = null;
+                btnHoanTatCP.Enabled = false;
                 LoadDataCP(cboCuaHang.SelectedValue.ToString());
             }
         }
