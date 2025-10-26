@@ -33,7 +33,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.cbTenCuaHang = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtTenNhanVien = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMatKhau = new Guna.UI2.WinForms.Guna2TextBox();
@@ -54,7 +55,6 @@
             this.cbLoaiNhanVien = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtMaNhanVien = new Guna.UI2.WinForms.Guna2TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.btnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             this.label6.Location = new System.Drawing.Point(615, 142);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 23);
+            this.label6.Size = new System.Drawing.Size(90, 28);
             this.label6.TabIndex = 198;
             this.label6.Text = "Chức vụ:";
             // 
@@ -76,7 +76,7 @@
             this.label5.Location = new System.Drawing.Point(614, 78);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 23);
+            this.label5.Size = new System.Drawing.Size(138, 28);
             this.label5.TabIndex = 197;
             this.label5.Text = "Số điện thoại:";
             // 
@@ -98,29 +98,46 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Location = new System.Drawing.Point(26, 9);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(213, 28);
+            this.label11.Size = new System.Drawing.Size(256, 32);
             this.label11.TabIndex = 2;
             this.label11.Text = "Thông Tin Nhân Viên";
             // 
-            // guna2Button3
+            // btnThoat
             // 
-            this.guna2Button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2Button3.BorderColor = System.Drawing.Color.DimGray;
-            this.guna2Button3.BorderRadius = 10;
-            this.guna2Button3.BorderThickness = 3;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(513, 409);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(140, 45);
-            this.guna2Button3.TabIndex = 196;
-            this.guna2Button3.Text = "Lưu";
-            this.guna2Button3.Click += new System.EventHandler(this.btnLuu_Click);
+            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.btnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.btnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnThoat.ImageRotate = 0F;
+            this.btnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnThoat.Location = new System.Drawing.Point(1118, 9);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.Size = new System.Drawing.Size(36, 35);
+            this.btnThoat.TabIndex = 1;
+            this.btnThoat.Click += new System.EventHandler(this.btnDong_Click);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLuu.BorderColor = System.Drawing.Color.DimGray;
+            this.btnLuu.BorderRadius = 10;
+            this.btnLuu.BorderThickness = 3;
+            this.btnLuu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLuu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLuu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
+            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.Color.White;
+            this.btnLuu.Location = new System.Drawing.Point(513, 409);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(140, 45);
+            this.btnLuu.TabIndex = 196;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // cbTenCuaHang
             // 
@@ -189,7 +206,7 @@
             this.label8.Location = new System.Drawing.Point(615, 268);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 23);
+            this.label8.Size = new System.Drawing.Size(103, 28);
             this.label8.TabIndex = 186;
             this.label8.Text = "Mật khẩu:";
             // 
@@ -200,7 +217,7 @@
             this.label2.Location = new System.Drawing.Point(27, 268);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 23);
+            this.label2.Size = new System.Drawing.Size(108, 28);
             this.label2.TabIndex = 185;
             this.label2.Text = "Ngày sinh:";
             // 
@@ -211,7 +228,7 @@
             this.label4.Location = new System.Drawing.Point(27, 334);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 23);
+            this.label4.Size = new System.Drawing.Size(95, 28);
             this.label4.TabIndex = 184;
             this.label4.Text = "Giới tính:";
             // 
@@ -222,7 +239,7 @@
             this.label1.Location = new System.Drawing.Point(27, 78);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 23);
+            this.label1.Size = new System.Drawing.Size(138, 28);
             this.label1.TabIndex = 188;
             this.label1.Text = "Tên cửa hàng:";
             // 
@@ -233,7 +250,7 @@
             this.label7.Location = new System.Drawing.Point(614, 205);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(126, 23);
+            this.label7.Size = new System.Drawing.Size(150, 28);
             this.label7.TabIndex = 183;
             this.label7.Text = "Loại nhân viên:";
             // 
@@ -244,7 +261,7 @@
             this.label3.Location = new System.Drawing.Point(27, 205);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 23);
+            this.label3.Size = new System.Drawing.Size(145, 28);
             this.label3.TabIndex = 187;
             this.label3.Text = "Tên nhân viên:";
             // 
@@ -296,7 +313,7 @@
             this.label9.Location = new System.Drawing.Point(289, 338);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 23);
+            this.label9.Size = new System.Drawing.Size(55, 28);
             this.label9.TabIndex = 184;
             this.label9.Text = "Nam";
             // 
@@ -307,7 +324,7 @@
             this.label10.Location = new System.Drawing.Point(463, 338);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(34, 23);
+            this.label10.Size = new System.Drawing.Size(39, 28);
             this.label10.TabIndex = 184;
             this.label10.Text = "Nữ";
             // 
@@ -414,26 +431,9 @@
             this.label13.Location = new System.Drawing.Point(27, 142);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(120, 23);
+            this.label13.Size = new System.Drawing.Size(141, 28);
             this.label13.TabIndex = 203;
             this.label13.Text = "Mã nhân viên:";
-            // 
-            // btnThoat
-            // 
-            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.btnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.btnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnThoat.ImageRotate = 0F;
-            this.btnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnThoat.Location = new System.Drawing.Point(1118, 9);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.Size = new System.Drawing.Size(36, 35);
-            this.btnThoat.TabIndex = 1;
-            this.btnThoat.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // frmChucNang_NhanVien
             // 
@@ -448,7 +448,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpNgaySinh);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.guna2Button3);
+            this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.cbLoaiNhanVien);
             this.Controls.Add(this.cbChucVu);
             this.Controls.Add(this.cbTenCuaHang);
@@ -483,7 +483,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2ImageButton btnThoat;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
+        private Guna.UI2.WinForms.Guna2Button btnLuu;
         private Guna.UI2.WinForms.Guna2ComboBox cbTenCuaHang;
         private Guna.UI2.WinForms.Guna2TextBox txtTenNhanVien;
         private Guna.UI2.WinForms.Guna2TextBox txtMatKhau;

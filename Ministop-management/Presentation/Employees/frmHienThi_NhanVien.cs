@@ -77,7 +77,7 @@ namespace Presentation
                 string storeId = _userSession.IdStore;
                 LoadData_NhanVienTheoCuaHang(storeId);
             }
-          
+
             cboChonCuaHang_NV.SelectedIndexChanged += cboChonCuaHang_NV_SelectedIndexChanged;
 
             LoadData_PhuCap();
@@ -144,7 +144,11 @@ namespace Presentation
                 var employeeService = childContainer.Resolve<IEmployeeService>();
                 var list = employeeService.GetEmployeeByStore(storeId, pageNumber, pageSize);
 
-                if (list.Succeeded == false || list.Data == null) return;
+                if (list.Succeeded == false || list.Data == null)
+                {
+                    MessageBox.Show("Không thể tải danh sách nhân viên theo cửa hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 _totalPage_NV = (long)Math.Ceiling((double)list.TotalCount / pageSize);
 
@@ -181,7 +185,6 @@ namespace Presentation
             dt.Columns.Add("SoDienThoai");      // Phone
             dt.Columns.Add("ChucVu");           // Position
             dt.Columns.Add("LoaiNhanVien");     // EmploymentType
-            dt.Columns.Add("MatKhau");          // PasswordHash (ẩn, chỉ để debug nếu cần)
 
             using (var childContainer = _container.CreateChildContainer())
             {
@@ -189,7 +192,11 @@ namespace Presentation
                 var list = employeeService.GetEmployee(pageNumber, pageSize);
 
                 // Nếu lấy dữ liệu thất bại hoặc không có dữ liệu
-                if (list.Succeeded == false || list.Data == null) { return; }
+                if (list.Succeeded == false || list.Data == null)
+                {
+                    MessageBox.Show("Không thể tải danh sách nhân viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 // Tính tổng số trang
                 _totalPage_NV = (long)Math.Ceiling((double)list.TotalCount / pageSize);
@@ -205,8 +212,7 @@ namespace Presentation
                                 item.BirthDate.ToString("dd/MM/yyyy"),
                                 item.Phone,
                                 item.Position,
-                                item.EmploymentType,
-                                item.PasswordHash);
+                                item.EmploymentType);
                 }
             }
 
@@ -215,10 +221,6 @@ namespace Presentation
             dgvDuLieu_NhanVien.AllowUserToAddRows = false;
             dgvDuLieu_NhanVien.ReadOnly = true;
             dgvDuLieu_NhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // Ẩn cột mật khẩu (vì chỉ để lưu, không hiển thị)
-            if (dgvDuLieu_NhanVien.Columns["MatKhau"] != null)
-                dgvDuLieu_NhanVien.Columns["MatKhau"].Visible = false;
 
             // ===== 3️⃣ Thêm hai cột nút (Edit/Delete) nếu chưa có =====
             if (dgvDuLieu_NhanVien.Columns["Edit"] == null)
@@ -260,10 +262,16 @@ namespace Presentation
             {
                 // ===== 1️⃣ Mở form chỉnh sửa nhân viên =====
                 var frmChucNangNhanVien = _container.Resolve<frmChucNang_NhanVien>(
-                    new ParameterOverride("employeeId", employeeId));
+                    new ParameterOverride("employeeId", employeeId),
+                    new ParameterOverride("currentUserRole", _userSession.Role),
+                    new ParameterOverride("currentStoreId", _userSession.IdStore));
 
                 // Khi dữ liệu thay đổi, tự động load lại danh sách
-                frmChucNangNhanVien.DataChanged += (s, ev) => LoadData_NhanVien();
+                frmChucNangNhanVien.DataChanged += (s, ev) =>
+                {
+                    int currentPage = int.TryParse(txtSoTrangNV.Text, out int page) ? page : 1;
+                    ReloadEmployeeData(currentPage);
+                };
 
                 frmChucNangNhanVien.ShowDialog();
             }
@@ -275,68 +283,81 @@ namespace Presentation
 
                 if (result == DialogResult.Yes)
                 {
-                    _employeeService.RemoveEmployee(employeeId);
-                    MessageBox.Show("Xóa nhân viên thành công!");
-                    LoadData_NhanVien(); // Tải lại dữ liệu sau khi xóa
+                    var removeResult = _employeeService.RemoveEmployee(employeeId);
+                    if (removeResult.Succeeded)
+                    {
+                        MessageBox.Show("Xóa nhân viên thành công!");
+                        int currentPage = int.TryParse(txtSoTrangNV.Text, out int page) ? page : 1;
+                        ReloadEmployeeData(currentPage); // Tải lại dữ liệu sau khi xóa
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa nhân viên thất bại: {removeResult.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
 
         private void btnThemNhanVien_Click(object sender, EventArgs e)
-{
-    using (var childContainer = _container.CreateChildContainer())
-    {
-        var frmChucNangNV = childContainer.Resolve<frmChucNang_NhanVien>(
-            new ParameterOverride("employeeId", null) // Thêm mới thì để null
-        );
-
-        frmChucNangNV.DataChanged += (s, ev) =>
         {
-            // 🔹 Kiểm tra quyền người dùng để reload dữ liệu phù hợp
-            if (_userSession.Role == "Admin")
+            using (var childContainer = _container.CreateChildContainer())
             {
-                LoadData_NhanVien();
-            }
-            else if (_userSession.Role == "Quản lý cửa hàng" || _userSession.Role == "Nhân viên")
-            {
-                string storeId = _userSession.IdStore;
-                LoadData_NhanVienTheoCuaHang(storeId);
-            }
-        };
+                var frmChucNangNV = childContainer.Resolve<frmChucNang_NhanVien>(
+                    new ParameterOverride("employeeId", null), // Thêm mới thì để null
+                    new ParameterOverride("currentUserRole", _userSession.Role),
+                    new ParameterOverride("currentStoreId", _userSession.IdStore)
+                );
 
-        frmChucNangNV.ShowDialog();
-    }
-}
+                frmChucNangNV.DataChanged += (s, ev) =>
+                {
+                    int currentPage = int.TryParse(txtSoTrangNV.Text, out int page) ? page : 1;
+                    ReloadEmployeeData(currentPage);
+                };
+
+                frmChucNangNV.ShowDialog();
+            }
+        }
 
 
         private void btnTrangSauNV_Click(object sender, EventArgs e)
         {
             int number = Convert.ToInt32(txtSoTrangNV.Text);
-            btnTrangTruocNV.Enabled = true;
-
-            if (number <= _totalPage_NV)
+            if (number < _totalPage_NV)
             {
-                var pageNumber = ++number;
+                var pageNumber = number + 1;
                 txtSoTrangNV.Text = pageNumber.ToString();
                 LoadData_NhanVien(pageNumber);
             }
+            btnTrangTruocNV.Enabled = number + 1 > 1;
+            btnTrangSauNV.Enabled = number + 1 < _totalPage_NV;
         }
 
         private void btnTrangTruocNV_Click(object sender, EventArgs e)
         {
             int number = Convert.ToInt32(txtSoTrangNV.Text);
-
             if (number > 1)
             {
-                var pageNumber = --number;
+                var pageNumber = number - 1;
                 txtSoTrangNV.Text = pageNumber.ToString();
                 LoadData_NhanVien(pageNumber);
             }
-            else
+            btnTrangTruocNV.Enabled = number - 1 > 1;
+            btnTrangSauNV.Enabled = number - 1 < _totalPage_NV;
+        }
+
+        private void ReloadEmployeeData(int pageNumber = 1, int pageSize = 20)
+        {
+            if (_userSession.Role == "Admin")
             {
-                btnTrangTruocNV.Enabled = false;
+                LoadData_NhanVien(pageNumber, pageSize);
+            }
+            else if (_userSession.Role == "Quản lý cửa hàng" || _userSession.Role == "Nhân viên")
+            {
+                string storeId = _userSession.IdStore;
+                LoadData_NhanVienTheoCuaHang(storeId, pageNumber, pageSize);
             }
         }
+
         #endregion
 
 
@@ -355,7 +376,11 @@ namespace Presentation
                 var list = allowanceService.GetAllowance(pageNumber, pageSize);
 
                 // Nếu lấy dữ liệu thất bại hoặc không có dữ liệu
-                if (list.Succeeded == false || list.Data == null) { return; }
+                if (list.Succeeded == false || list.Data == null)
+                {
+                    MessageBox.Show("Không thể tải danh sách phụ cấp!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 // Tính tổng số trang
                 _totalPage_PC = (long)Math.Ceiling((double)list.TotalCount / pageSize);
@@ -416,7 +441,8 @@ namespace Presentation
                 // Khi dữ liệu thay đổi, tự động load lại danh sách
                 frmChucNangPhuCap.DataChanged += (s, ev) =>
                 {
-                    LoadData_PhuCap(); 
+                    int currentPage = int.TryParse(txtSoTrangPK.Text, out int page) ? page : 1;
+                    LoadData_PhuCap(currentPage);
                 };
 
                 frmChucNangPhuCap.ShowDialog();
@@ -429,9 +455,17 @@ namespace Presentation
 
                 if (result == DialogResult.Yes)
                 {
-                    _allowanceService.RemoveAllowance(allowanceId);
-                    MessageBox.Show("Xóa thành công!");
-                    LoadData_PhuCap(); // tải lại dữ liệu sau khi xóa
+                    var removeResult = _allowanceService.RemoveAllowance(allowanceId);
+                    if (removeResult.Succeeded)
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        int currentPage = int.TryParse(txtSoTrangPK.Text, out int page) ? page : 1;
+                        LoadData_PhuCap(currentPage); // tải lại dữ liệu sau khi xóa
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa phụ cấp thất bại: {removeResult.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -439,37 +473,38 @@ namespace Presentation
         private void btnThemPhuCap_Click(object sender, EventArgs e)
         {
             var frmChucNangPK = _container.Resolve<frmChucNang_PhuCap>();
-            frmChucNangPK.DataChanged += (s, ev) => LoadData_PhuCap();
-            frmChucNangPK.ShowDialog();
-        }
-
-        private void btnTrangTruocPK_Click(object sender, EventArgs e)
-        {
-            int number = Convert.ToInt32(txtSoTrangPK.Text);
-            btnTrangTruocPK.Enabled = true;
-
-            if (number <= _totalPage_PC)
+            frmChucNangPK.DataChanged += (s, ev) =>
             {
-                var pageNumber = ++number;
-                txtSoTrangPK.Text = pageNumber.ToString();
-                LoadData_PhuCap(pageNumber);
-            }
+                int currentPage = int.TryParse(txtSoTrangPK.Text, out int page) ? page : 1;
+                LoadData_PhuCap(currentPage);
+            };
+            frmChucNangPK.ShowDialog();
         }
 
         private void btnTrangSauPK_Click(object sender, EventArgs e)
         {
             int number = Convert.ToInt32(txtSoTrangPK.Text);
-
-            if (number > 1)
+            if (number < _totalPage_PC)
             {
-                var pageNumber = --number;
+                var pageNumber = number + 1;
                 txtSoTrangPK.Text = pageNumber.ToString();
                 LoadData_PhuCap(pageNumber);
             }
-            else
+            btnTrangTruocPK.Enabled = number + 1 > 1;
+            btnTrangSauPK.Enabled = number + 1 < _totalPage_PC;
+        }
+
+        private void btnTrangTruocPK_Click(object sender, EventArgs e)
+        {
+            int number = Convert.ToInt32(txtSoTrangPK.Text);
+            if (number > 1)
             {
-                btnTrangTruocPK.Enabled = false;
+                var pageNumber = number - 1;
+                txtSoTrangPK.Text = pageNumber.ToString();
+                LoadData_PhuCap(pageNumber);
             }
+            btnTrangTruocPK.Enabled = number - 1 > 1;
+            btnTrangSauPK.Enabled = number - 1 < _totalPage_PC;
         }
 
         #endregion
@@ -490,7 +525,11 @@ namespace Presentation
                 var list = shiftService.GetShift(pageNumber, pageSize);
 
                 // Nếu lấy dữ liệu thất bại hoặc không có dữ liệu
-                if (list.Succeeded == false || list.Data == null) { return; }
+                if (list.Succeeded == false || list.Data == null)
+                {
+                    MessageBox.Show("Không thể tải danh sách ca làm!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 // Tính tổng số trang
                 _totalPage_CL = (long)Math.Ceiling((double)list.TotalCount / pageSize);
@@ -552,7 +591,8 @@ namespace Presentation
                 // Khi dữ liệu thay đổi, tự động load lại danh sách
                 frmChucNangCaLam.DataChanged += (s, ev) =>
                 {
-                    LoadData_CaLam();
+                    int currentPage = int.TryParse(txtSoTrangCL.Text, out int page) ? page : 1;
+                    LoadData_CaLam(currentPage);
                 };
 
                 frmChucNangCaLam.ShowDialog();
@@ -565,9 +605,17 @@ namespace Presentation
 
                 if (result == DialogResult.Yes)
                 {
-                    _shiftService.RemoveShift(shiftId);
-                    MessageBox.Show("Xóa thành công!");
-                    LoadData_CaLam(); // tải lại dữ liệu sau khi xóa
+                    var removeResult = _shiftService.RemoveShift(shiftId);
+                    if (removeResult.Succeeded)
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        int currentPage = int.TryParse(txtSoTrangCL.Text, out int page) ? page : 1;
+                        LoadData_CaLam(currentPage); // tải lại dữ liệu sau khi xóa
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa ca làm thất bại: {removeResult.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -575,37 +623,38 @@ namespace Presentation
         private void btnThemCaLam_Click(object sender, EventArgs e)
         {
             var frmChucNangCL = _container.Resolve<frmChucNang_CaLamViec>();
-            frmChucNangCL.DataChanged += (s, ev) => LoadData_CaLam();
-            frmChucNangCL.ShowDialog();
-        }
-
-        private void btnTrangTruocCL_Click(object sender, EventArgs e)
-        {
-            int number = Convert.ToInt32(txtSoTrangCL.Text);
-            btnTrangTruocCL.Enabled = true;
-
-            if (number <= _totalPage_CL)
+            frmChucNangCL.DataChanged += (s, ev) =>
             {
-                var pageNumber = ++number;
-                txtSoTrangCL.Text = pageNumber.ToString();
-                LoadData_CaLam(pageNumber);
-            }
+                int currentPage = int.TryParse(txtSoTrangCL.Text, out int page) ? page : 1;
+                LoadData_CaLam(currentPage);
+            };
+            frmChucNangCL.ShowDialog();
         }
 
         private void btnTrangSauCL_Click(object sender, EventArgs e)
         {
             int number = Convert.ToInt32(txtSoTrangCL.Text);
-
-            if (number > 1)
+            if (number < _totalPage_CL)
             {
-                var pageNumber = --number;
+                var pageNumber = number + 1;
                 txtSoTrangCL.Text = pageNumber.ToString();
                 LoadData_CaLam(pageNumber);
             }
-            else
+            btnTrangTruocCL.Enabled = number + 1 > 1;
+            btnTrangSauCL.Enabled = number + 1 < _totalPage_CL;
+        }
+
+        private void btnTrangTruocCL_Click(object sender, EventArgs e)
+        {
+            int number = Convert.ToInt32(txtSoTrangCL.Text);
+            if (number > 1)
             {
-                btnTrangTruocCL.Enabled = false;
+                var pageNumber = number - 1;
+                txtSoTrangCL.Text = pageNumber.ToString();
+                LoadData_CaLam(pageNumber);
             }
+            btnTrangTruocCL.Enabled = number - 1 > 1;
+            btnTrangSauCL.Enabled = number - 1 < _totalPage_CL;
         }
         #endregion
 
@@ -658,17 +707,25 @@ namespace Presentation
         private void ibtnThungRac_NV_Click(object sender, EventArgs e)
         {
             var frmThungRac = _container.Resolve<frmThungRac_NhanVien>();
-            frmThungRac.datachanged += (s, ev) => LoadData_NhanVien();
+            frmThungRac.datachanged += (s, ev) =>
+            {
+                int currentPage = int.TryParse(txtSoTrangNV.Text, out int page) ? page : 1;
+                ReloadEmployeeData(currentPage);
+            };
             frmThungRac.ShowDialog();
         }
 
         private void ibtnThungRac_PC_Click(object sender, EventArgs e)
         {
             var frmThungRac = _container.Resolve<frmThungRac_PhuCap>();
-            frmThungRac.datachanged += (s, ev) => LoadData_NhanVien();
+            frmThungRac.datachanged += (s, ev) =>
+            {
+                int currentPage = int.TryParse(txtSoTrangPK.Text, out int page) ? page : 1;
+                LoadData_PhuCap(currentPage);
+            };
             frmThungRac.ShowDialog();
         }
 
-        
+
     }
 }
