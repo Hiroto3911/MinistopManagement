@@ -111,7 +111,7 @@
             this.txtMaNhanVien.BorderRadius = 2;
             this.txtMaNhanVien.BorderThickness = 2;
             this.txtMaNhanVien.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtMaNhanVien.DefaultText = "E001";
+            this.txtMaNhanVien.DefaultText = "EMP202510262000007c0";
             this.txtMaNhanVien.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtMaNhanVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtMaNhanVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));

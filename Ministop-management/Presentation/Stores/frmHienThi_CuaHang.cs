@@ -281,6 +281,7 @@ namespace Presentation
             dt.Columns.Add("TienThueMatBang");
             dt.Columns.Add("TienDien");
             dt.Columns.Add("TienNuoc");
+            dt.Columns.Add("GhiChu");
 
             using (var childContainer = _container.CreateChildContainer())
             {
@@ -290,7 +291,7 @@ namespace Presentation
                 _totalPageCP = (long)Math.Ceiling((double)(list.TotalCount / pageSize));
                 foreach (var item in list.Data)
                 {
-                    dt.Rows.Add(item.ExpenseId, item.StoreId, item.RentCost, item.ElectricityCost, item.WaterCost);
+                    dt.Rows.Add(item.ExpenseId, item.StoreId, item.RentCost, item.ElectricityCost, item.WaterCost,item.Note);
                 }
             }
             // ===== 2️⃣ Dữ liệu mẫu (có thể thay bằng dữ liệu trong DB sau này) =====
