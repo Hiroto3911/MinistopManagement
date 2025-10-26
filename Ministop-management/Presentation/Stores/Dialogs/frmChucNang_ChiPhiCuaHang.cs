@@ -129,5 +129,42 @@ namespace Presentation
             MessageBox.Show("Lưu chi phí cửa hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
+
+        private void txtTienMatBang_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down || e.KeyCode == Keys.Enter)
+            {
+                txtTienDien.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void txtTienDien_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up) { txtTienMatBang.Focus(); }
+            else if (e.KeyCode == Keys.Down || e.KeyCode == Keys.Enter) { txtTienNuoc.Focus(); }
+            else return;
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+        }
+
+        private void txtTienNuoc_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up) { txtTienDien.Focus(); }
+            else if (e.KeyCode == Keys.Down || e.KeyCode == Keys.Enter) { rtxtGhiChu.Focus(); }
+            else return;
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+        }
+
+        private void rtxtGhiChu_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up) { txtTienNuoc.Focus(); }
+            else if ( e.KeyCode == Keys.Enter) { btnLuu_Click(sender, e); }
+            else return;
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+        }
     }
 }

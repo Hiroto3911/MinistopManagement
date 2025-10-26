@@ -114,6 +114,7 @@
             this.txtSDT.SelectedText = "";
             this.txtSDT.Size = new System.Drawing.Size(219, 36);
             this.txtSDT.TabIndex = 119;
+            this.txtSDT.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSDT_KeyDown);
             this.txtSDT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSDT_KeyPress);
             // 
             // txtTenCH
@@ -136,6 +137,7 @@
             this.txtTenCH.SelectedText = "";
             this.txtTenCH.Size = new System.Drawing.Size(219, 36);
             this.txtTenCH.TabIndex = 120;
+            this.txtTenCH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTenCH_KeyDown);
             // 
             // label7
             // 
@@ -196,6 +198,7 @@
             this.rtxtDiaChi.Size = new System.Drawing.Size(220, 94);
             this.rtxtDiaChi.TabIndex = 125;
             this.rtxtDiaChi.Text = "";
+            this.rtxtDiaChi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rtxtDiaChi_KeyDown);
             // 
             // txtMaCH
             // 
@@ -249,6 +252,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCapNhat_CuaHang";
             this.Load += new System.EventHandler(this.frmChucNang_CuaHang_Load);
+            this.Shown += new System.EventHandler(this.frmChucNang_CuaHang_Shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

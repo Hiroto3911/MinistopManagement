@@ -19,7 +19,7 @@ namespace Presentation
 {
     public partial class frmChucNang_CuaHang : Form
     {
-        public event EventHandler DataChanged; 
+        public event EventHandler DataChanged;
         private readonly IStoreService _storeService;
         private readonly string _storeId;
 
@@ -32,6 +32,7 @@ namespace Presentation
 
         private void frmChucNang_CuaHang_Load(object sender, EventArgs e)
         {
+           
             //cboTrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
             if (!string.IsNullOrEmpty(_storeId))
             {
@@ -120,7 +121,7 @@ namespace Presentation
                 MessageBox.Show($"{result.Message}", "Lỗi");
                 return;
             }
-            
+
             MessageBox.Show($"Luu thanh cong", "Thong bao");
             this.Close();
         }
@@ -137,6 +138,40 @@ namespace Presentation
             {
                 e.Handled = true;
             }
+
+        }
+
+        private void txtTenCH_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down || e.KeyCode == Keys.Enter)
+            {
+                rtxtDiaChi.Focus();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void rtxtDiaChi_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up) { txtTenCH.Focus(); }
+            else if (e.KeyCode == Keys.Down || e.KeyCode == Keys.Enter) { txtSDT.Focus(); }
+            else return;
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+        }
+
+        private void txtSDT_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up) { rtxtDiaChi.Focus(); }
+            else if (e.KeyCode == Keys.Enter) { btnLuu_Click(sender, e); }
+            else return;
+            e.Handled = true;
+            e.SuppressKeyPress = true;
+        }
+
+        private void frmChucNang_CuaHang_Shown(object sender, EventArgs e)
+        {
+           
         }
     }
 }

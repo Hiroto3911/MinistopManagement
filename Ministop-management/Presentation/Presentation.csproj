@@ -75,6 +75,47 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalReport\DataSets\EmployeeReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmployeeReportDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport\DataSets\ProductReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProductReportDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport\DataSets\SaleReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaleReportDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport\DataSets\StockReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockReportDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport\DataSets\StoreReportDataset.cs">
+      <DependentUpon>StoreReportDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport\DataSets\StoreReportDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreReportDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachCuaHangTheoKhuVuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachCuaHangTheoKhuVuc.Designer.cs">
+      <DependentUpon>frmHienThi_DanhSachCuaHangTheoKhuVuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport\Report\StoreReports\Rpt_DanhSachCuaHangTheoKhuVuc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_DanhSachCuaHangTheoKhuVuc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +364,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Validations\StoreValidator.cs" />
+    <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_DanhSachCuaHangTheoKhuVuc.resx">
+      <DependentUpon>frmHienThi_DanhSachCuaHangTheoKhuVuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="CrystalReport\Report\StoreReports\Rpt_DanhSachCuaHangTheoKhuVuc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_DanhSachCuaHangTheoKhuVuc.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.resx">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </EmbeddedResource>
@@ -448,6 +497,61 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="CrystalReport\DataSets\EmployeeReportDataset.xsc">
+      <DependentUpon>EmployeeReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReport\DataSets\EmployeeReportDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EmployeeReportDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReport\DataSets\EmployeeReportDataset.xss">
+      <DependentUpon>EmployeeReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReport\DataSets\ProductReportDataset.xsc">
+      <DependentUpon>ProductReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReport\DataSets\ProductReportDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProductReportDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReport\DataSets\ProductReportDataset.xss">
+      <DependentUpon>ProductReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReport\DataSets\SaleReportDataset.xsc">
+      <DependentUpon>SaleReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReport\DataSets\SaleReportDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SaleReportDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReport\DataSets\SaleReportDataset.xss">
+      <DependentUpon>SaleReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReport\DataSets\StockReportDataset.xsc">
+      <DependentUpon>StockReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReport\DataSets\StockReportDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StockReportDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReport\DataSets\StockReportDataset.xss">
+      <DependentUpon>StockReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReport\DataSets\StoreReportDataset.xsc">
+      <DependentUpon>StoreReportDataset.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalReport\DataSets\StoreReportDataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StoreReportDataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalReport\DataSets\StoreReportDataset.xss">
+      <DependentUpon>StoreReportDataset.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -515,7 +619,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Reports\Forms\" />
+    <Folder Include="CrystalReport\Report\EmployeeReports\" />
+    <Folder Include="CrystalReport\Report\ProductReports\" />
+    <Folder Include="CrystalReport\Report\SaleReports\" />
+    <Folder Include="CrystalReport\Report\StockReports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
