@@ -1,15 +1,8 @@
 ﻿using Domain.DTO;
 using Services.Interfaces;
-using Services.Services;
 using Shared.Helpers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Presentation
@@ -18,15 +11,25 @@ namespace Presentation
     {
         private readonly IEmployeeService _employeeService;
         private readonly IStoreService _storeService;
-        private readonly string _employeeId; // null = thêm mới
+        private readonly string _employeeId;
+        private readonly string _currentUserRole;
+        private readonly string _currentStoreId;
+
         public event EventHandler DataChanged;
 
-        public frmChucNang_NhanVien(IEmployeeService employeeService, IStoreService storeService, string employeeId = null)
+        public frmChucNang_NhanVien(
+            IEmployeeService employeeService,
+            IStoreService storeService,
+            string employeeId = null,
+            string currentUserRole = "Admin",
+            string currentStoreId = null)
         {
             InitializeComponent();
-            _employeeService = employeeService;
-            _storeService = storeService;
+            _employeeService = employeeService ?? throw new ArgumentNullException(nameof(employeeService));
+            _storeService = storeService ?? throw new ArgumentNullException(nameof(storeService));
             _employeeId = employeeId;
+            _currentUserRole = currentUserRole;
+            _currentStoreId = currentStoreId;
         }
 
         #region Form Load
@@ -34,189 +37,341 @@ namespace Presentation
         {
             try
             {
-                LoadComboBoxData();
-
+                InitializeFormControls();
                 if (!string.IsNullOrEmpty(_employeeId))
                 {
                     LoadEmployeeData();
                 }
                 else
                 {
-                    cbChucVu.SelectedIndex = 0;
-                    cbLoaiNhanVien.SelectedIndex = 0;
+                    SetDefaultControlValues();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowErrorMessage($"Lỗi khi tải dữ liệu: {ex.Message}");
             }
         }
         #endregion
 
-        #region Load Data
-        private void LoadComboBoxData()
+        #region Initialize Controls
+        private void InitializeFormControls()
         {
-            // ===== Load danh sách cửa hàng =====
-            var result = _storeService.GetAll();
+            LoadStoreComboBox();
+            InitializeRoleComboBox();
+            InitializeEmploymentTypeComboBox();
+            ConfigureRoleBasedRestrictions();
+            AttachEventHandlers();
+        }
 
-            if (result.Succeeded && result.Data != null)
+        private void LoadStoreComboBox()
+        {
+            var result = _storeService.GetAll();
+            if (result.Succeeded && result.Data != null && result.Data.Any())
             {
-                cbTenCuaHang.DataSource = result.Data.ToList(); //danh sách
+                cbTenCuaHang.DataSource = result.Data.ToList();
                 cbTenCuaHang.DisplayMember = "StoreName";
                 cbTenCuaHang.ValueMember = "StoreId";
             }
             else
             {
-                MessageBox.Show("Không thể tải danh sách cửa hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowErrorMessage("Không thể tải danh sách cửa hàng!");
                 cbTenCuaHang.DataSource = null;
+                btnLuu.Enabled = false; // Vô hiệu hóa nút Lưu nếu không có cửa hàng
             }
-
-            // ===== Load chức vụ và loại nhân viên =====
-            cbChucVu.Items.Clear();
-            cbChucVu.Items.AddRange(new string[] { "Nhân viên", "Quản lý cửa hàng", "Admin" });
-
-            cbLoaiNhanVien.Items.Clear();
-            cbLoaiNhanVien.Items.AddRange(new string[] { "Fulltime", "Partime" });
         }
 
-
-        private void LoadEmployeeData()
+        private void InitializeRoleComboBox()
         {
-            var result = _employeeService.GetEmployeeByID(_employeeId);
-            if (result.Succeeded && result.Data != null)
-            {
-                var emp = result.Data;
+            cbChucVu.Items.AddRange(new[] { "Nhân viên", "Quản lý cửa hàng", "Admin" });
+        }
 
-                // Gán giá trị
-                cbTenCuaHang.SelectedValue = emp.StoreId;
-                txtMaNhanVien.Text = emp.EmployeeId;
-                txtTenNhanVien.Text = emp.FullName;
-                txtSoDienThoai.Text = emp.Phone;
-                cbChucVu.Text = emp.Position;
-                cbLoaiNhanVien.Text = emp.EmploymentType;
-                dtpNgaySinh.Value = emp.BirthDate;
-                txtMatKhau.PlaceholderText = "*";
-                if (emp.Gender) rdNam.Checked = true;
-                else rdNu.Checked = true;
-            }
-            else
+        private void InitializeEmploymentTypeComboBox()
+        {
+            cbLoaiNhanVien.Items.AddRange(new[] { "Fulltime", "Parttime" });
+        }
+
+        private void ConfigureRoleBasedRestrictions()
+        {
+            if (_currentUserRole == "Quản lý cửa hàng")
             {
-                MessageBox.Show("Không tìm thấy dữ liệu nhân viên!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbTenCuaHang.SelectedValue = _currentStoreId;
+                cbTenCuaHang.Enabled = false;
+                cbChucVu.Items.Remove("Admin");
+                cbChucVu.Items.Remove("Quản lý cửa hàng");
             }
+            else if (_currentUserRole == "Nhân viên")
+            {
+                cbTenCuaHang.SelectedValue = _currentStoreId;
+                cbTenCuaHang.Enabled = false;
+                cbChucVu.Items.Remove("Admin");
+                cbChucVu.Items.Remove("Quản lý cửa hàng");
+                btnLuu.Enabled = false; // Nhân viên không được tạo/sửa
+            }
+            // Admin có quyền đầy đủ, không cần remove
+        }
+
+        private void AttachEventHandlers()
+        {
+            cbChucVu.SelectedIndexChanged += RoleChanged_DisableEmploymentType;
+            txtSoDienThoai.KeyPress += ValidatePhoneInput;
+        }
+
+        private void SetDefaultControlValues()
+        {
+            if (cbChucVu.Items.Count > 0)
+                cbChucVu.SelectedIndex = 0;
+            if (cbLoaiNhanVien.Items.Count > 0)
+                cbLoaiNhanVien.SelectedIndex = 0;
         }
         #endregion
 
-        #region Validate Input
+        #region Load Employee Data
+        private void LoadEmployeeData()
+        {
+            if (string.IsNullOrEmpty(_employeeId))
+            {
+                ShowWarningMessage("Mã nhân viên không hợp lệ!");
+                return;
+            }
+
+            var result = _employeeService.GetEmployeeByID(_employeeId);
+            if (result.Succeeded && result.Data != null)
+            {
+                PopulateEmployeeData(result.Data);
+            }
+            else
+            {
+                ShowWarningMessage("Không tìm thấy dữ liệu nhân viên!");
+            }
+        }
+
+        private void PopulateEmployeeData(EmployeeDto employee)
+        {
+            cbTenCuaHang.SelectedValue = employee.StoreId;
+            txtMaNhanVien.Text = employee.EmployeeId;
+            txtTenNhanVien.Text = employee.FullName;
+            txtSoDienThoai.Text = employee.Phone;
+            cbChucVu.Text = employee.Position;
+            cbLoaiNhanVien.Text = employee.EmploymentType;
+            dtpNgaySinh.Value = employee.BirthDate;
+            txtMatKhau.PlaceholderText = "*";
+            rdNam.Checked = employee.Gender;
+            rdNu.Checked = !employee.Gender;
+
+            RoleChanged_DisableEmploymentType(null, null);
+        }
+        #endregion
+
+        #region Input Validation
         private bool ValidateInput()
         {
             if (cbTenCuaHang.SelectedValue == null)
             {
-                MessageBox.Show("Vui lòng chọn cửa hàng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage("Vui lòng chọn cửa hàng!");
                 return false;
             }
+
             if (string.IsNullOrWhiteSpace(txtTenNhanVien.Text))
             {
-                MessageBox.Show("Vui lòng nhập tên nhân viên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage("Vui lòng nhập tên nhân viên!");
                 return false;
             }
-            if (string.IsNullOrWhiteSpace(txtSoDienThoai.Text))
+
+            if (string.IsNullOrWhiteSpace(txtSoDienThoai.Text) || txtSoDienThoai.Text.Length != 10 || !txtSoDienThoai.Text.StartsWith("0"))
             {
-                MessageBox.Show("Vui lòng nhập số điện thoại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage("Số điện thoại phải đúng 10 chữ số và bắt đầu bằng 0!");
                 return false;
             }
+
             if (!rdNam.Checked && !rdNu.Checked)
             {
-                MessageBox.Show("Vui lòng chọn giới tính!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage("Vui lòng chọn giới tính!");
                 return false;
             }
-            DateTime birthDate = dtpNgaySinh.Value;
-            int age = DateTime.Today.Year - birthDate.Year;
-            if (birthDate > DateTime.Today.AddYears(-age)) age--; // nếu chưa tới sinh nhật năm nay thì trừ 1
 
+            int age = CalculateAge(dtpNgaySinh.Value);
             if (age < 18 || age > 60)
             {
-                MessageBox.Show("Độ tuổi nhân viên phải từ 18 đến 60 tuổi!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage("Độ tuổi nhân viên phải từ 18 đến 60!");
                 return false;
             }
+
             if (cbChucVu.SelectedIndex < 0)
             {
-                MessageBox.Show("Vui lòng chọn chức vụ!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage("Vui lòng chọn chức vụ!");
                 return false;
             }
+
+            // Kiểm tra chức vụ không cao hơn hoặc bằng người dùng
+            string selectedPosition = cbChucVu.Text;
+            int userLevel = GetRoleLevel(_currentUserRole);
+            int selectedLevel = GetRoleLevel(selectedPosition);
+            if (selectedLevel >= userLevel)
+            {
+                ShowWarningMessage("Bạn không thể tạo nhân viên có chức vụ bằng hoặc cao hơn bạn!");
+                return false;
+            }
+
+            if (_currentUserRole == "Quản lý cửa hàng" && cbTenCuaHang.SelectedValue?.ToString() != _currentStoreId)
+            {
+                ShowWarningMessage("Bạn không có quyền sửa nhân viên của cửa hàng khác!");
+                return false;
+            }
+
             if (cbLoaiNhanVien.SelectedIndex < 0)
             {
-                MessageBox.Show("Vui lòng chọn loại nhân viên!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage("Vui lòng chọn loại nhân viên!");
                 return false;
             }
+
             if (string.IsNullOrWhiteSpace(txtMatKhau.Text) && string.IsNullOrEmpty(_employeeId))
             {
-                MessageBox.Show("Vui lòng nhập mật khẩu!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage("Vui lòng nhập mật khẩu!");
                 return false;
             }
+
             return true;
+        }
+
+        private int CalculateAge(DateTime birthDate)
+        {
+            int age = DateTime.Today.Year - birthDate.Year;
+            if (birthDate > DateTime.Today.AddYears(-age)) age--;
+            return age;
+        }
+
+        private int GetRoleLevel(string role)
+        {
+            switch (role)
+            {
+                case "Admin": return 3;
+                case "Quản lý cửa hàng": return 2;
+                case "Nhân viên": return 1;
+                default: return 0;
+            }
         }
         #endregion
 
-        #region Button: Lưu
+        #region Event Handlers
+        private void RoleChanged_DisableEmploymentType(object sender, EventArgs e)
+        {
+            if (cbChucVu.SelectedItem == null) return;
+
+            string role = cbChucVu.SelectedItem.ToString();
+            bool isRestrictedRole = role == "Quản lý cửa hàng" || role == "Admin";
+
+            cbLoaiNhanVien.SelectedIndex = isRestrictedRole ? 0 : cbLoaiNhanVien.SelectedIndex;
+            cbLoaiNhanVien.Enabled = !isRestrictedRole;
+        }
+
+        private void ValidatePhoneInput(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+
+            if (txtSoDienThoai.Text.Length >= 10 && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+        }
+        #endregion
+
+        #region Button Handlers
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (!ValidateInput()) return;
 
             try
             {
-                var emp = new EmployeeDto
-                {
-                    EmployeeId = txtMaNhanVien.Text.Trim(),
-                    StoreId = cbTenCuaHang.SelectedValue.ToString(),
-                    FullName = txtTenNhanVien.Text.Trim(),
-                    Gender = rdNam.Checked,
-                    BirthDate = dtpNgaySinh.Value,
-                    Phone = txtSoDienThoai.Text.Trim(),
-                    Position = cbChucVu.Text,
-                    EmploymentType = cbLoaiNhanVien.Text,
-                    PasswordHash = HashPasswordSHA256.Hash(txtMatKhau.Text)
-                };
-
+                var employee = CreateEmployeeDto();
                 var result = string.IsNullOrEmpty(_employeeId)
-                    ? _employeeService.CreateEmployee(emp)
-                    : _employeeService.UpdateEmployee(emp);
+                    ? _employeeService.CreateEmployee(employee)
+                    : _employeeService.UpdateEmployee(employee);
 
                 if (result.Succeeded)
                 {
-                    MessageBox.Show(string.IsNullOrEmpty(_employeeId)
+                    ShowSuccessMessage(string.IsNullOrEmpty(_employeeId)
                         ? "Thêm nhân viên thành công!"
-                        : "Cập nhật nhân viên thành công!", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        : "Cập nhật nhân viên thành công!");
                     DataChanged?.Invoke(this, EventArgs.Empty);
-                    this.Close();
+                    Close();
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi: " + result.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowErrorMessage($"Lỗi: {result.Message}");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowErrorMessage($"Đã xảy ra lỗi: {ex.Message}");
             }
         }
-        #endregion
 
-        #region Button: Đóng
+        private EmployeeDto CreateEmployeeDto()
+        {
+            var employee = new EmployeeDto
+            {
+                EmployeeId = txtMaNhanVien.Text.Trim(),
+                StoreId = cbTenCuaHang.SelectedValue.ToString(),
+                FullName = txtTenNhanVien.Text.Trim(),
+                Gender = rdNam.Checked,
+                BirthDate = dtpNgaySinh.Value,
+                Phone = txtSoDienThoai.Text.Trim(),
+                Position = cbChucVu.Text,
+                EmploymentType = cbLoaiNhanVien.Text
+            };
+
+            if (!string.IsNullOrWhiteSpace(txtMatKhau.Text))
+            {
+                employee.PasswordHash = HashPasswordSHA256.Hash(txtMatKhau.Text);
+            }
+            else if (!string.IsNullOrEmpty(_employeeId))
+            {
+                var existingEmployee = _employeeService.GetEmployeeByID(_employeeId);
+                if (existingEmployee.Succeeded && existingEmployee.Data != null)
+                {
+                    employee.PasswordHash = existingEmployee.Data.PasswordHash;
+                }
+            }
+
+            return employee;
+        }
+
         private void btnDong_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
-        #endregion
 
         #region Chuyển sang hợp đồng lương
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frmChucNang_HopDongLuong hopDongForm = new frmChucNang_HopDongLuong();
-            hopDongForm.ShowDialog();
-            this.Show();
+            Hide();
+            using (var hopDongForm = new frmChucNang_HopDongLuong())
+            {
+                hopDongForm.ShowDialog();
+            }
+            Show();
+        }
+        #endregion
+        #endregion
+
+        #region Message Helpers
+        private void ShowErrorMessage(string message)
+        {
+            MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void ShowWarningMessage(string message)
+        {
+            MessageBox.Show(message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void ShowSuccessMessage(string message)
+        {
+            MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
     }
