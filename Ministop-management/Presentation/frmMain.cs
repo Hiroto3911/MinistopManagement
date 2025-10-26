@@ -1,4 +1,5 @@
-﻿using Services.Interfaces;
+﻿using Presentation.CrystalReport.FormShow;
+using Services.Interfaces;
 using Services.Services;
 using Shared.Security;
 using System;
@@ -301,5 +302,11 @@ namespace Presentation
             OpenChildForm(frmCuaHang);
         }
         #endregion
+
+        private void danhSáchCửaHàngTheoKhuVựcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_DanhSachCuaHangTheoKhuVuc>();
+            OpenChildForm(report);
+        }
     }
 }
