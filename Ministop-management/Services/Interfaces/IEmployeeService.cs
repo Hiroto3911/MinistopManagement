@@ -21,5 +21,6 @@ namespace Services.Interfaces
         Result<bool> RestoreEmployee(List<string> listRestoreId);
         PagedResult<IReadOnlyList<EmployeeDto>> GetEmployeeByStore(string storeId, int pageNumber, int pageSize);
         Result<bool> AnyStore(string storeId);
+
     }
 }
