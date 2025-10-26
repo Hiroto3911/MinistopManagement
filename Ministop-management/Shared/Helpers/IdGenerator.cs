@@ -12,7 +12,7 @@ namespace Shared.Helpers
         {
             var now = DateTime.UtcNow;
             string datePart = now.ToString("yyyyMMddHHmmss"); // chuẩn định dạng
-            string randomPart = Guid.NewGuid().ToString("N").Substring(0,4); // 4 ký tự ngẫu nhiên
+            string randomPart = Guid.NewGuid().ToString("N").Substring(0,3); // 4 ký tự ngẫu nhiên
             return $"{prefix}{datePart}{randomPart}";
         }
     }
