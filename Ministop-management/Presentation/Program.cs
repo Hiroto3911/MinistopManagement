@@ -1,4 +1,5 @@
-﻿using Services;
+﻿using Presentation.CrystalReport.FormShow;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,8 @@ namespace Presentation
             // frm chuc nang
             container.RegisterType<frmChucNang_CuaHang>();
             container.RegisterType<frmChucNang_PhuCap>();
-
+            //frm Report 
+            container.RegisterType<frmHienThi_DanhSachCuaHangTheoKhuVuc>();
             // frm dang nhap 
             container.RegisterType<frmDangNhap>();
             #endregion

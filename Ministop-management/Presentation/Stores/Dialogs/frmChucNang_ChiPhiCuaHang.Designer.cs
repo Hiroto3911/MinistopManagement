@@ -186,6 +186,7 @@
             this.rtxtGhiChu.Size = new System.Drawing.Size(219, 52);
             this.rtxtGhiChu.TabIndex = 192;
             this.rtxtGhiChu.Text = "";
+            this.rtxtGhiChu.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rtxtGhiChu_KeyDown);
             // 
             // txtTenCuaHang
             // 
@@ -248,6 +249,7 @@
             this.txtTienDien.SelectedText = "";
             this.txtTienDien.Size = new System.Drawing.Size(219, 36);
             this.txtTienDien.TabIndex = 187;
+            this.txtTienDien.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTienDien_KeyDown);
             // 
             // txtTienMatBang
             // 
@@ -269,6 +271,7 @@
             this.txtTienMatBang.SelectedText = "";
             this.txtTienMatBang.Size = new System.Drawing.Size(219, 36);
             this.txtTienMatBang.TabIndex = 188;
+            this.txtTienMatBang.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTienMatBang_KeyDown);
             // 
             // txtTienNuoc
             // 
@@ -290,6 +293,7 @@
             this.txtTienNuoc.SelectedText = "";
             this.txtTienNuoc.Size = new System.Drawing.Size(219, 36);
             this.txtTienNuoc.TabIndex = 189;
+            this.txtTienNuoc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTienNuoc_KeyDown);
             // 
             // frmChucNang_ChiPhiCuaHang
             // 
