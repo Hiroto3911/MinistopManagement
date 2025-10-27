@@ -21,5 +21,11 @@ namespace Infrastructure.Repositories
         {
             return _context.SP_DanhSachCuaHangTheoThanhPho(region).ToList();
         }
+        public List<SP_GetEmployeesByStoreResult> GetEmployeesByStore(string store)
+        {
+            return _context.SP_GetEmployeesByStore(store).ToList();
+        }
+
+
     }
 }

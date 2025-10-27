@@ -306,7 +306,13 @@ namespace Presentation
         private void danhSáchCửaHàngTheoKhuVựcToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var report = _container.Resolve<frmHienThi_DanhSachCuaHangTheoKhuVuc>();
-            OpenChildForm(report);
+            report.Show();
+        }
+
+        private void danhSáchNhânViênTheoCửaHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_DanhSachNhanVienTheoCuaHang>();
+            report.Show();
         }
     }
 }
