@@ -48,8 +48,8 @@ namespace Infrastructure.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LATI7480\\SQLEXPRESS;Initial Catalog=MinistopManagement;Integrated Sec" +
-            "urity=True;Encrypt=True;TrustServerCertificate=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-3M1QM2P;Initial Catalog=MinistopManagement;Integrated Securit" +
+            "y=True;Encrypt=True;TrustServerCertificate=True")]
         public string MinistopManagementConnectionString2 {
             get {
                 return ((string)(this["MinistopManagementConnectionString2"]));

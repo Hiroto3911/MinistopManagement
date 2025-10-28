@@ -42,12 +42,12 @@ VALUES
 (N'ALL20251026204207c4e', N'Tiền hỗ trợ ca đêm', 80000, 0, N'EMP202510262000007c0', GETDATE(), NULL, NULL);
 Go
 INSERT INTO StoreFixedExpenses
-(ExpenseID, StoreID, MonthYear, RentCost, ElectricityCost, WaterCost, Note, IsDeleted, CreatedBy, Created, LastModifiedBy, LastModified)
+(ExpenseID, StoreID, MonthYear, RentCost, ElectricityCost, WaterCost, Note, Status , IsDeleted, CreatedBy, Created, LastModifiedBy, LastModified)
 VALUES
 -- Tháng 09/2025
-('EXP202510262042404e0', 'STR20251026202700739', '2025-09', 35000000, 4200000, 850000, N'Chi phí tháng 9', 0, N'E002', GETDATE(), NULL, NULL),
-('EXP20251026204247047', 'STR20251026202746e23', '2025-09', 30000000, 3800000, 700000, N'Chi phí tháng 9', 0, N'E003', GETDATE(), NULL, NULL),
-('EXP20251026204253cd0', 'STR202510262028021ac', '2025-09', 27000000, 3100000, 650000, N'Chi phí tháng 9', 0, N'E004', GETDATE(), NULL, NULL);
+('EXP202510262042404e0', 'STR20251026202700739', '2025-09', 35000000, 4200000, 850000, N'Chi phí tháng 9',1, 0, N'E002', GETDATE(), NULL, NULL),
+('EXP20251026204247047', 'STR20251026202746e23', '2025-09', 30000000, 3800000, 700000, N'Chi phí tháng 9',1, 0, N'E003', GETDATE(), NULL, NULL),
+('EXP20251026204253cd0', 'STR202510262028021ac', '2025-09', 27000000, 3100000, 650000, N'Chi phí tháng 9',1, 0, N'E004', GETDATE(), NULL, NULL);
 GO
 INSERT INTO ProductCategory (CategoryID, CategoryName, Description, IsDeleted, CreatedBy, Created)
 VALUES
@@ -80,6 +80,75 @@ VALUES
 ('PRD2025102620553238f', 'PCT20251026205217006', N'Nước tăng lực Red Bull', N'Chai', 12000, 1, 0, N'EMP202510262000007c0', GETDATE()),
 ('PRD20251026205537182', 'PCT20251026205217006', N'Nước chanh muối', N'Chai', 9000, 1, 0, N'EMP202510262000007c0', GETDATE());
 GO
+INSERT INTO Supplier (SupplierID,SupplierName,Phone,Address,IsDeleted,CreatedBy, Created, LastModifiedBy, LastModified)
+VALUES
+('SLE202510281014051de', N'Công Ty Thực Phẩm ABC', '0933000001', N'1 Nguyễn Văn Cừ, Q1', 0, N'EMP202510262000007c0', GETDATE(), NULL, NULL),
+('SLE20251028101414739', N'Công Ty Bánh Kẹo A', '0933000002', N'22 Lê Lợi, Q1', 0, N'EMP202510262000007c0', GETDATE(), NULL, NULL),
+('SLE202510281014200cb', N'Công Ty Nước Giải Khát B', '0933000003', N'3 CMT8, Q3', 0, N'EMP202510262000007c0', GETDATE(), NULL, NULL),
+('SLE2025102810142530f', N'Công Ty Vinamilk', '0933000004', N'4 Phổ Quang, Q.Tân Bình', 0, N'EMP202510262000007c0', GETDATE(), NULL, NULL),
+('SLE2025102810142982d', N'Công Ty TH True Milk', '0933000005', N'5 Điện Biên Phủ, Q.BT', 0, N'EMP202510262000007c0', GETDATE(), NULL, NULL),
+('SLE20251028101434d2f', N'Công Ty PepsiCo VN', '0933000006', N'6 Nguyễn Văn Linh, Q7', 0, N'EMP202510262000007c0', GETDATE(), NULL, NULL),
+('SLE202510281014394cd', N'Công Ty Nestle', '0933000007', N'7 Nguyễn Thị Minh Khai', 0, N'EMP202510262000007c0', GETDATE(), NULL, NULL),
+('SLE20251028101445d89', N'Công Ty Acecook', '0933000008', N'8 Trường Chinh, Q12', 0, N'EMP202510262000007c0', GETDATE(), NULL, NULL),
+('SLE20251028101449f93', N'Công Ty Trung Nguyên', '0933000009', N'9 Phan Xích Long, Q.PN', 0, N'EMP202510262000007c0', GETDATE(), NULL, NULL),
+('SLE202510281014544b2', N'Công Ty Hải Sản Biển Đông', '0933000010', N'10 Lê Văn Việt, Q9', 0, N'EMP202510262000007c0', GETDATE(), NULL, NULL);
+GO
 
+-- SLE202510281014051de: Công Ty Thực Phẩm ABC → Đồ hộp (Thịt hộp Tulip, Cá hộp 3 Cô Gái)
+-- SLE20251028101414739: Công Ty Bánh Kẹo A → Bánh kẹo (Alpenliebe, Oreo, Doublemint)
+-- SLE202510281014200cb: Công Ty Nước Giải Khát B → Nước giải khát (Aquafina, Coca-Cola, Sting, Red Bull, Nước chanh muối)
+-- SLE2025102810142530f: Công Ty Vinamilk → Sữa (Vinamilk, Dutch Lady, Milo, TH True Yogurt)
+-- SLE2025102810142982d: Công Ty TH True Milk → Sữa & sữa đậu nành (Fami, TH True)
+-- SLE20251028101434d2f: Công Ty PepsiCo VN → Nước giải khát (Pepsi)
+-- SLE202510281014394cd: Công Ty Nestle → Sữa (Milo, Dutch Lady)
+-- SLE20251028101445d89: Công Ty Acecook → Mì gói (Hảo Hảo, Cung Đình)
+-- SLE20251028101449f93: Công Ty Trung Nguyên → Chưa có sản phẩm (dự kiến cà phê lon)
+-- SLE202510281014544b2: Công Ty Hải Sản Biển Đông → Đồ hộp hải sản (Cá hộp 3 Cô Gái)
+
+INSERT INTO SupplierProduct (Id, SupplierID, ProductID, SupplyPrice, Status)
+VALUES
+-- 🥫 NCC001 - Công Ty Thực Phẩm ABC → cung cấp ĐỒ HỘP
+('SPP2025102810245017c', 'SLE202510281014051de', 'PRD20251026205450219', 38000, 1), -- Thịt hộp Tulip
+('SPP20251028102458482', 'SLE202510281014051de', 'PRD202510262054565b3', 29000, 1), -- Cá hộp 3 Cô Gái
+
+-- 🍬 NCC002 - Công Ty Bánh Kẹo A → cung cấp BÁNH KẸO
+('SPP2025102810250233f', 'SLE20251028101414739', 'PRD20251026205423353', 5500, 1), -- Kẹo Alpenliebe
+('SPP20251028102506704', 'SLE20251028101414739', 'PRD202510262054283a5', 7200, 1), -- Bánh Oreo
+('SPP20251028102510f9e', 'SLE20251028101414739', 'PRD20251026205522f8b', 3200, 1), -- Kẹo cao su Doublemint
+
+-- 🧃 NCC003 - Công Ty Nước Giải Khát B → cung cấp NƯỚC GIẢI KHÁT
+('SPP20251028102514bfb', 'SLE202510281014200cb', 'PRD20251026205354a1d', 6500, 1), -- Nước suối Aquafina
+('SPP20251028102526dcf', 'SLE202510281014200cb', 'PRD2025102620540050b', 8000, 1), -- Coca-Cola 500ml
+('SPP20251028102532bee', 'SLE202510281014200cb', 'PRD202510262054065a9', 7200, 1), -- Sting dâu
+('SPP202510281025373e0', 'SLE202510281014200cb', 'PRD2025102620553238f', 9500, 1), -- Red Bull
+('SPP20251028102541a60', 'SLE202510281014200cb', 'PRD20251026205537182', 7500, 1), -- Nước chanh muối
+
+-- 🥛 NCC004 - Công Ty Vinamilk → cung cấp SỮA
+('SPP20251028102556bce', 'SLE2025102810142530f', 'PRD20251026205434447', 5200, 1), -- Sữa Vinamilk 180ml
+('SPP20251028102602d42', 'SLE2025102810142530f', 'PRD20251026205516e40', 5200, 1), -- Sữa Dutch Lady
+('SPP202510281026062e7', 'SLE2025102810142530f', 'PRD20251026205501d51', 5600, 1), -- Sữa Milo
+('SPP20251028102612e4b', 'SLE2025102810142530f', 'PRD202510262054458e3', 6400, 1), -- Sữa chua TH True Yogurt
+
+-- 🥛 NCC005 - Công Ty TH True Milk → cung cấp SỮA & SỮA ĐẬU NÀNH
+('SPP20251028102617630', 'SLE2025102810142982d', 'PRD2025102620544041d', 4300, 1), -- Sữa Fami
+('SPP20251028102622dcc', 'SLE2025102810142982d', 'PRD20251026205506976', 4000, 1), -- Sữa đậu nành TH True
+
+-- 🥤 NCC006 - Công Ty PepsiCo VN → cung cấp NƯỚC GIẢI KHÁT (Pepsi)
+('SPP2025102810262964a', 'SLE20251028101434d2f', 'PRD20251026205511947', 8000, 1), -- Pepsi 330ml
+
+-- ☕ NCC007 - Công Ty Nestle → cung cấp SỮA (và sản phẩm dinh dưỡng)
+('SPP20251028102633429', 'SLE202510281014394cd', 'PRD20251026205501d51', 5600, 1), -- Sữa Milo
+('SPP20251028102643193', 'SLE202510281014394cd', 'PRD20251026205516e40', 5200, 1), -- Sữa Dutch Lady
+
+-- 🍜 NCC008 - Công Ty Acecook → cung cấp MÌ GÓI
+('SPP20251028102638797', 'SLE20251028101445d89', 'PRD2025102620541236a', 3000, 1), -- Mì Hảo Hảo
+('SPP20251028102648b52', 'SLE20251028101445d89', 'PRD20251026205527da0', 4500, 1), -- Mì Cung Đình
+
+-- ☕ NCC009 - Công Ty Trung Nguyên → (hiện chưa có sản phẩm cà phê trong danh sách, tạm để dự phòng)
+-- Có thể thêm sản phẩm "Cà phê lon Trung Nguyên" sau này
+
+-- 🐟 NCC010 - Công Ty Hải Sản Biển Đông → cung cấp ĐỒ HỘP HẢI SẢN
+('SPP20251028102652bb6', 'SLE202510281014544b2', 'PRD202510262054565b3', 30000, 1); -- Cá hộp 3 Cô Gái
+GO
 
 
