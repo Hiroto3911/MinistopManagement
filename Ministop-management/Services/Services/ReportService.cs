@@ -24,5 +24,25 @@ namespace Services.Services
             var stores = list.Select(x => new StoreDto { StoreId = x.StoreID, StoreName = x.StoreName, Address = x.Address, Phone = x.Phone });
             return stores.ToList();
         }
+
+        public List<EmployeeDto> GetEmployeesByStore(string storeId)
+        {
+            var list = _ministopUnitOfWork.ReportRepository.GetEmployeesByStore(storeId);
+
+            var employees = list.Select(x => new EmployeeDto
+            {
+                EmployeeId = x.EmployeeID,
+                FullName = x.FullName,
+                Gender = x.Gender,
+                BirthDate = x.BirthDate,
+                Phone = x.Phone,
+                Position = x.Position,
+                EmploymentType = x.EmploymentType,
+            });
+
+            return employees.ToList();
+        }
+
+
     }
 }

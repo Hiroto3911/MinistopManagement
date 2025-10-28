@@ -70,18 +70,18 @@ namespace Presentation
 
             // Tiền điện bắt buộc nhập
             if (string.IsNullOrWhiteSpace(txtTienDien.Text) ||
-                !decimal.TryParse(txtTienDien.Text, out decimal electricityCost) || electricityCost < 0)
+                !decimal.TryParse(txtTienDien.Text, out decimal electricityCost) || electricityCost <= 0)
             {
-                MessageBox.Show("Tiền điện phải là số hợp lệ và không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tiền điện phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTienDien.Focus();
                 return;
             }
 
             // Tiền nước bắt buộc nhập
             if (string.IsNullOrWhiteSpace(txtTienNuoc.Text) ||
-                !decimal.TryParse(txtTienNuoc.Text, out decimal waterCost) || waterCost < 0)
+                !decimal.TryParse(txtTienNuoc.Text, out decimal waterCost) || waterCost <= 0)
             {
-                MessageBox.Show("Tiền nước phải là số hợp lệ và không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Tiền nước phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTienNuoc.Focus();
                 return;
             }

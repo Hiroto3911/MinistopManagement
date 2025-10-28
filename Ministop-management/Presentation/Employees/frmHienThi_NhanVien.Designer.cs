@@ -103,7 +103,7 @@
             this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.guna2ComboBox3 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button21 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThemHD = new Guna.UI2.WinForms.Guna2Button();
             this.tabNhanVien = new System.Windows.Forms.TabPage();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.ibtnThungRac_NV = new Guna.UI2.WinForms.Guna2ImageButton();
@@ -1165,7 +1165,7 @@
             this.guna2Panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
             this.guna2Panel11.Controls.Add(this.label6);
             this.guna2Panel11.Controls.Add(this.guna2ComboBox3);
-            this.guna2Panel11.Controls.Add(this.guna2Button21);
+            this.guna2Panel11.Controls.Add(this.btnThemHD);
             this.guna2Panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel11.Location = new System.Drawing.Point(3, 3);
             this.guna2Panel11.Name = "guna2Panel11";
@@ -1200,24 +1200,25 @@
             this.guna2ComboBox3.Size = new System.Drawing.Size(210, 36);
             this.guna2ComboBox3.TabIndex = 14;
             // 
-            // guna2Button21
+            // btnThemHD
             // 
-            this.guna2Button21.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.guna2Button21.BorderColor = System.Drawing.Color.DimGray;
-            this.guna2Button21.BorderRadius = 10;
-            this.guna2Button21.BorderThickness = 2;
-            this.guna2Button21.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button21.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button21.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button21.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button21.FillColor = System.Drawing.Color.ForestGreen;
-            this.guna2Button21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2Button21.ForeColor = System.Drawing.Color.White;
-            this.guna2Button21.Location = new System.Drawing.Point(942, 6);
-            this.guna2Button21.Name = "guna2Button21";
-            this.guna2Button21.Size = new System.Drawing.Size(118, 40);
-            this.guna2Button21.TabIndex = 6;
-            this.guna2Button21.Text = "Thêm";
+            this.btnThemHD.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnThemHD.BorderColor = System.Drawing.Color.DimGray;
+            this.btnThemHD.BorderRadius = 10;
+            this.btnThemHD.BorderThickness = 2;
+            this.btnThemHD.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemHD.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemHD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemHD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemHD.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnThemHD.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThemHD.ForeColor = System.Drawing.Color.White;
+            this.btnThemHD.Location = new System.Drawing.Point(942, 6);
+            this.btnThemHD.Name = "btnThemHD";
+            this.btnThemHD.Size = new System.Drawing.Size(118, 40);
+            this.btnThemHD.TabIndex = 6;
+            this.btnThemHD.Text = "Thêm";
+            this.btnThemHD.Click += new System.EventHandler(this.btnThemHD_Click);
             // 
             // tabNhanVien
             // 
@@ -1721,7 +1722,7 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
-        private Guna.UI2.WinForms.Guna2Button guna2Button21;
+        private Guna.UI2.WinForms.Guna2Button btnThemHD;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieu_HopDongNV;
         private System.Windows.Forms.TabPage tabPhuCap;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
