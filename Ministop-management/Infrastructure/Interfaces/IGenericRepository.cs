@@ -19,7 +19,7 @@ namespace Infrastructure.Interfaces
         TEntity Find(Expression<Func<TEntity, bool>> predicate);
         IReadOnlyList<TEntity> GetAll();
         IReadOnlyList<TEntity> GetAll(Expression<Func<TEntity, bool>> predicate);
-        int GetCount(Expression<Func<TEntity, bool>> predicate);
+        int GetCount(Expression<Func<TEntity, bool>> predicate = null);
         IReadOnlyList<TEntity> GetPagedResponse(int pageNumber, int pageSize);
         void Update(TEntity entity, bool hasTransaction = false);
         void UpdateRange(IList<TEntity> entities, bool hasTransaction = false);

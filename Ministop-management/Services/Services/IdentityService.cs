@@ -32,7 +32,7 @@ namespace Services.Services
             {
              return false;
             }
-            var userEntity = _ministopUnitOfWork.EmployeeRepository.Find(x => x.EmployeeID == userID);
+            var userEntity = _ministopUnitOfWork.EmployeeRepository.Find(x => x.EmployeeID == userID && !x.IsDeleted);
             if (userEntity == null) return false;
             user = _mapper.Map<EmployeeDto>(userEntity);
             var isValid = HashPasswordSHA256.VerifyPassword(password, user.PasswordHash);

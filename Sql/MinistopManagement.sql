@@ -24,13 +24,14 @@ GO
 
 
 CREATE TABLE StoreFixedExpenses (
-    ExpenseID INT IDENTITY(1,1) PRIMARY KEY,
+    ExpenseID NVARCHAR(200) PRIMARY KEY NOT NULL,
     StoreID NVARCHAR(200) NOT NULL,
     MonthYear CHAR(7) NOT NULL,
     RentCost DECIMAL(18,2) NULL,
     ElectricityCost DECIMAL(18,2) NOT NULL,
     WaterCost DECIMAL(18,2) NOT NULL,
     Note NVARCHAR(255) NULL,
+    Status TINYINT NOT NULL,
     IsDeleted BIT NOT NULL DEFAULT 0  ,
     CreatedBy NVARCHAR(max) NULL,
     Created DATETIME NOT NULL,
@@ -45,7 +46,7 @@ CREATE TABLE ProductCategory (
     CategoryID NVARCHAR(200) PRIMARY KEY,
     CategoryName NVARCHAR(100) NOT NULL,
     Description NVARCHAR(200) NULL,
-     IsDeleted BIT NOT NULL DEFAULT 0   ,
+    IsDeleted BIT NOT NULL DEFAULT 0   ,
     CreatedBy NVARCHAR(max) NULL,
     Created DATETIME NOT NULL,
     LastModifiedBy NVARCHAR(max) NULL,
@@ -72,7 +73,7 @@ GO
 
 CREATE TABLE Employee (
     EmployeeID NVARCHAR(200) PRIMARY KEY,
-    StoreID NVARCHAR(200) NOT NULL,
+    StoreID NVARCHAR(200) NULL,
     FullName NVARCHAR(100) NOT NULL,
     Gender BIT NOT NULL ,
     BirthDate DATE NOT NULL,
@@ -159,9 +160,9 @@ CREATE TABLE Absence (
     EmployeeID NVARCHAR(200) NOT NULL,
     ShiftID NVARCHAR(200) NOT NULL,
     WorkDate DATE NOT NULL,
-	IsLeaveOfAbsence BIT NOT NULL DEFAULT 0  ,
+    IsLeaveOfAbsence BIT NOT NULL DEFAULT 0  ,
     Reason NVARCHAR (MAX),
-	IsPaid BIT	NOT NULL,
+    IsPaid BIT	NOT NULL,
     CONSTRAINT UQ_Absence_shiftAssignment UNIQUE (EmployeeID, ShiftID, WorkDate),
     FOREIGN KEY (EmployeeID, ShiftID, WorkDate) 
         REFERENCES ShiftAssignment(EmployeeID, ShiftID, WorkDate)
@@ -201,6 +202,7 @@ CREATE TABLE StockImport (
     SupplierID NVARCHAR(200) NOT NULL,
     EmployeeID NVARCHAR(200) NOT NULL,
     ImportDate DATETIME NOT NULL,
+    Status TINYINT NOT NULL,
     FOREIGN KEY (StoreID) REFERENCES Store(StoreID),
     FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
@@ -225,7 +227,7 @@ CREATE TABLE StockExport (
     TypeExport NVARCHAR(200) NOT NULL,
     ExportDate DATETIME NOT NULL,
     Reason NVARCHAR(100) NULL,
-    Status NVARCHAR(20) NOT NULL,
+    Status TINYINT NOT NULL,
     FOREIGN KEY (StoreID) REFERENCES Store(StoreID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 );
@@ -248,6 +250,7 @@ CREATE TABLE StockCheck (
     StoreID NVARCHAR(200) NOT NULL,
     EmployeeID NVARCHAR(200) NOT NULL,
     CheckDate DATE NOT NULL,
+    Status TINYINT NOT NULL,
     FOREIGN KEY (StoreID) REFERENCES Store(StoreID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 );
@@ -353,7 +356,7 @@ CREATE TABLE Promotion (
 GO
 
 CREATE TABLE Promotion_Products (
-     Id NVARCHAR(200) NOT NULL PRIMARY KEY,
+    Id NVARCHAR(200) NOT NULL PRIMARY KEY,
     PromotionID NVARCHAR(200) NOT NULL,
     ProductID NVARCHAR(200) NOT NULL,
     DiscountAmount DECIMAL(18,2) NOT NULL,
@@ -375,7 +378,7 @@ CREATE TABLE PriceProposal (
     NewPrice DECIMAL(18,2) NOT NULL,
     Reason NVARCHAR(200) NOT NULL,
     ProposalDate DATETIME NOT NULL,
-    Status NVARCHAR(20) NOT NULL,
+    Status TINYINT NOT NULL,
     ApprovedBy NVARCHAR(200) NULL, 
     FOREIGN KEY (ManagerID) REFERENCES Employee(EmployeeID),
     FOREIGN KEY (ApprovedBy) REFERENCES Employee(EmployeeID),

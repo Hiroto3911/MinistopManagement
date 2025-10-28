@@ -1,4 +1,5 @@
-﻿using Services.Interfaces;
+﻿using Presentation.CrystalReport.FormShow;
+using Services.Interfaces;
 using Services.Services;
 using Shared.Security;
 using System;
@@ -19,7 +20,7 @@ namespace Presentation
     public partial class frmMain : Form
     {
         //Keo form tu panel
-        bool MouseDown;
+        bool _MouseDown;
         private Point offSet;
         //Timer
         private Timer timer;
@@ -147,12 +148,12 @@ namespace Presentation
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             offSet.X = e.X; offSet.Y = e.Y;
-            MouseDown = true;
+            _MouseDown = true;
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (MouseDown == true)
+            if (_MouseDown == true)
             {
                 Point currentScreenPos = PointToScreen(e.Location);
                 Location = new Point(currentScreenPos.X - offSet.X, currentScreenPos.Y - offSet.Y);
@@ -161,7 +162,7 @@ namespace Presentation
 
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
-            MouseDown = false;
+            _MouseDown = false;
         }
         #endregion
 
@@ -301,5 +302,17 @@ namespace Presentation
             OpenChildForm(frmCuaHang);
         }
         #endregion
+
+        private void danhSáchCửaHàngTheoKhuVựcToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_DanhSachCuaHangTheoKhuVuc>();
+            report.Show();
+        }
+
+        private void danhSáchNhânViênTheoCửaHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_DanhSachNhanVienTheoCuaHang>();
+            report.Show();
+        }
     }
 }
