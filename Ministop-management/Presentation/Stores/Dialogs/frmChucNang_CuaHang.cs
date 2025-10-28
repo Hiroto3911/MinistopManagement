@@ -90,6 +90,11 @@ namespace Presentation
                 txtSDT.Focus();
                 return;
             }
+            if (!soDT.StartsWith("0")){
+                MessageBox.Show("Số điện thoại phải bắt đầu từ số 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSDT.Focus();
+                return;
+            }
             if (Regex.IsMatch(tenCH, @"[^a-zA-Z0-9\s\u00C0-\u1EF9]"))
             {
                 MessageBox.Show("Tên cửa hàng không được chứa ký tự đặc biệt!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
