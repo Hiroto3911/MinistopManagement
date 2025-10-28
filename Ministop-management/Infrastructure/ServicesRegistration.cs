@@ -24,7 +24,7 @@ namespace Infrastructure
             // DBML DataContext (Transient)
             container.RegisterFactory<MinistopDataContextDataContext>(c =>
             {
-                var connectionString = "Data Source=DESKTOP-3M1QM2P;Initial Catalog=MinistopManagement;Integrated Security=True;";
+                var connectionString = "Data Source=LAPTOP-2LEA9U48\\SQLEXPRESS;Initial Catalog=MinistopManagement;Integrated Security=True;";
                 return new MinistopDataContextDataContext(connectionString);
             },new PerResolveLifetimeManager() );
 
