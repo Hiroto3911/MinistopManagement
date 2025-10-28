@@ -15,6 +15,7 @@ namespace Domain.DTO
         public decimal? RentCost { get; set; }
         public decimal ElectricityCost { get; set; }
         public decimal WaterCost { get; set; }
+        private byte  Status { get; set; }
         public string Note { get; set; }
     }
 }
