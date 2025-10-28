@@ -431,7 +431,7 @@ namespace Presentation
         }
         #endregion
         #region san pham
-        private void LoadDataSP(int pageNumber = 1, int pageSize = 2)
+        private void LoadDataSP(int pageNumber = 1, int pageSize = 10)
         {
             // ===== 1️⃣ Tạo dữ liệu mẫu =====
             DataTable dt = new DataTable();

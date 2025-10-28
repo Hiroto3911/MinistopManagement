@@ -10,5 +10,6 @@ namespace Services.Interfaces
     public interface IReportService
     {
         List<StoreDto> GetStoreByRegion(string region);
+        List<EmployeeDto> GetEmployeesByStore(string store);
     }
 }
