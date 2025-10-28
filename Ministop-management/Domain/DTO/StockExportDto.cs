@@ -14,6 +14,6 @@ namespace Domain.DTO
         public string TypeExport { get; set; }
         public DateTime ExportDate { get; set; }
         public string Reason { get; set; }
-        public string Status { get; set; }
+        private byte Status { get; set; }
     }
 }
