@@ -45,6 +45,8 @@ namespace Presentation
         {
             LoadDanhSachCuaHang();
             LoadData_NhanVien();
+            string storeIdload = cboChonCuaHang_NV.SelectedValue.ToString();
+            LoadData_NhanVienTheoCuaHang(storeIdload);
 
             // Di chuyển xử lý theo Role vào sau khi combobox đã binding xong
             cboChonCuaHang_NV.SelectedIndexChanged -= cboChonCuaHang_NV_SelectedIndexChanged; // tạm ngắt event
@@ -726,6 +728,10 @@ namespace Presentation
             frmThungRac.ShowDialog();
         }
 
-
+        private void btnThemHD_Click(object sender, EventArgs e)
+        {
+            var frmChucNang = _container.Resolve<frmChucNang_HopDongLuong>();
+            frmChucNang.ShowDialog();
+        }
     }
 }

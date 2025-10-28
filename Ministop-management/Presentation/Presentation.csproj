@@ -109,6 +109,18 @@
     <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachCuaHangTheoKhuVuc.Designer.cs">
       <DependentUpon>frmHienThi_DanhSachCuaHangTheoKhuVuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachNhanVienTheoCuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachNhanVienTheoCuaHang.Designer.cs">
+      <DependentUpon>frmHienThi_DanhSachNhanVienTheoCuaHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachNhanVienTheoCuaHang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_DanhSachNhanVienTheoCuaHang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReport\Report\StoreReports\Rpt_DanhSachCuaHangTheoKhuVuc.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -372,6 +384,13 @@
       <LastGenOutput>Rpt_DanhSachCuaHangTheoKhuVuc.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_DanhSachNhanVienTheoCuaHang.resx">
+      <DependentUpon>frmHienThi_DanhSachNhanVienTheoCuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachNhanVienTheoCuaHang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_DanhSachNhanVienTheoCuaHang.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.resx">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </EmbeddedResource>
@@ -567,6 +586,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="images\close-dark.png" />
     <Content Include="images\cross.png" />
     <Content Include="images\maximize.png" />
     <Content Include="images\minimize.png" />
@@ -619,7 +639,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CrystalReport\Report\EmployeeReports\" />
     <Folder Include="CrystalReport\Report\ProductReports\" />
     <Folder Include="CrystalReport\Report\SaleReports\" />
     <Folder Include="CrystalReport\Report\StockReports\" />

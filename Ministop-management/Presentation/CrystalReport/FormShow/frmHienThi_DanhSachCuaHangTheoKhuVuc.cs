@@ -61,5 +61,10 @@ namespace Presentation.CrystalReport.FormShow
             var list = new List<string>() { "TP.HCM","Hà Nội"};
             cboKhuVuc.DataSource = list; 
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
