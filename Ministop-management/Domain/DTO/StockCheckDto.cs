@@ -12,5 +12,6 @@ namespace Domain.Entity
         public string StoreId { get; set; }
         public string EmployeeId { get; set; }
         public DateTime CheckDate { get; set; }
+        private byte Status { get; set; }
     }
 }
