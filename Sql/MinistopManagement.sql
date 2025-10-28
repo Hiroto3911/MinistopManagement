@@ -31,6 +31,7 @@ CREATE TABLE StoreFixedExpenses (
     ElectricityCost DECIMAL(18,2) NOT NULL,
     WaterCost DECIMAL(18,2) NOT NULL,
     Note NVARCHAR(255) NULL,
+    Status TINYINT NOT NULL,
     IsDeleted BIT NOT NULL DEFAULT 0  ,
     CreatedBy NVARCHAR(max) NULL,
     Created DATETIME NOT NULL,
@@ -45,7 +46,7 @@ CREATE TABLE ProductCategory (
     CategoryID NVARCHAR(200) PRIMARY KEY,
     CategoryName NVARCHAR(100) NOT NULL,
     Description NVARCHAR(200) NULL,
-     IsDeleted BIT NOT NULL DEFAULT 0   ,
+    IsDeleted BIT NOT NULL DEFAULT 0   ,
     CreatedBy NVARCHAR(max) NULL,
     Created DATETIME NOT NULL,
     LastModifiedBy NVARCHAR(max) NULL,
@@ -201,6 +202,7 @@ CREATE TABLE StockImport (
     SupplierID NVARCHAR(200) NOT NULL,
     EmployeeID NVARCHAR(200) NOT NULL,
     ImportDate DATETIME NOT NULL,
+    Status TINYINT NOT NULL,
     FOREIGN KEY (StoreID) REFERENCES Store(StoreID),
     FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
@@ -225,7 +227,7 @@ CREATE TABLE StockExport (
     TypeExport NVARCHAR(200) NOT NULL,
     ExportDate DATETIME NOT NULL,
     Reason NVARCHAR(100) NULL,
-    Status NVARCHAR(20) NOT NULL,
+    Status TINYINT NOT NULL,
     FOREIGN KEY (StoreID) REFERENCES Store(StoreID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 );
@@ -248,6 +250,7 @@ CREATE TABLE StockCheck (
     StoreID NVARCHAR(200) NOT NULL,
     EmployeeID NVARCHAR(200) NOT NULL,
     CheckDate DATE NOT NULL,
+    Status TINYINT NOT NULL,
     FOREIGN KEY (StoreID) REFERENCES Store(StoreID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 );
@@ -353,7 +356,7 @@ CREATE TABLE Promotion (
 GO
 
 CREATE TABLE Promotion_Products (
-     Id NVARCHAR(200) NOT NULL PRIMARY KEY,
+    Id NVARCHAR(200) NOT NULL PRIMARY KEY,
     PromotionID NVARCHAR(200) NOT NULL,
     ProductID NVARCHAR(200) NOT NULL,
     DiscountAmount DECIMAL(18,2) NOT NULL,
@@ -375,7 +378,7 @@ CREATE TABLE PriceProposal (
     NewPrice DECIMAL(18,2) NOT NULL,
     Reason NVARCHAR(200) NOT NULL,
     ProposalDate DATETIME NOT NULL,
-    Status NVARCHAR(20) NOT NULL,
+    Status TINYINT NOT NULL,
     ApprovedBy NVARCHAR(200) NULL, 
     FOREIGN KEY (ManagerID) REFERENCES Employee(EmployeeID),
     FOREIGN KEY (ApprovedBy) REFERENCES Employee(EmployeeID),
