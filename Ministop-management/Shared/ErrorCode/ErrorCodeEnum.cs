@@ -154,5 +154,19 @@ namespace Shared.ErrorCode
         [Description(@"Bị trùng dữ liệu nhà cung cấp.")]
         SLE_ERR_006,
         #endregion
+        #region SupplierProduct
+        [Description(@"Không nhà cung cấp loại sản phẩm.")]
+        SLPRD_ERR_001,
+        [Description(@"Nhà cung cấp sản phẩm đã tồn tại.")]
+        SLPRD_ERR_002,
+        [Description(@"Tạo nhà cung cấp sản phẩm thất bại.")]
+        SLPRD_ERR_003,
+        [Description(@"Sửa nhà cung cấp sản phẩm thất bại.")]
+        SLPRD_ERR_004,
+        [Description(@"Xóa nhà cung cấp sản phẩm thất bại.")]
+        SLPRD_ERR_005,
+        [Description(@"Bị trùng dữ liệu nhà cung cấp sản phẩm.")]
+        SLPRD_ERR_006,
+        #endregion
     }
 }

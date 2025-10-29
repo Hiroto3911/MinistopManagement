@@ -30,6 +30,7 @@ namespace Services
             container.RegisterType<IProductService, ProductService>(new PerResolveLifetimeManager());
             container.RegisterType<ISupplierService, SupplierService>(new PerResolveLifetimeManager());
             container.RegisterType<IReportService, ReportService>(new PerResolveLifetimeManager());
+            container.RegisterType<ISupplierProductService, SupplierProductService>(new PerResolveLifetimeManager());
             Infrastructure.ServicesRegistration.AddInfrastructureTier(container);
         }
     }

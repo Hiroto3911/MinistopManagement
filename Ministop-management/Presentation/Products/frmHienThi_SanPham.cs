@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Presentation.Products;
 using Services.Interfaces;
 using Services.Services;
 using Shared.Security;
@@ -65,11 +66,7 @@ namespace Presentation
 
       
 
-        private void guna2Button15_Click(object sender, EventArgs e)
-        {
-            frmChucNang_NhaCungCapSanPham  chucNang = new frmChucNang_NhaCungCapSanPham();
-            chucNang.Show();
-        }
+        
 
         private void guna2Button7_Click(object sender, EventArgs e)
         {
@@ -364,6 +361,7 @@ namespace Presentation
 
         private void dgvSanPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex < 0) return;
             string productid = dgvSanPham.Rows[e.RowIndex].Cells["MaSanPham"].Value.ToString();
             if (dgvSanPham.Columns[e.ColumnIndex].Name == "Edit")
@@ -560,6 +558,14 @@ namespace Presentation
                 txtTrangSP.Text = pageNumber.ToString();
                 LoadDataSP(pageNumber);
             }
+        }
+
+        private void dgvnhacungcap_DoubleClick(object sender, EventArgs e)
+        {
+            int row=dgvnhacungcap.CurrentCell.RowIndex;
+            string supplierId = dgvnhacungcap.Rows[row].Cells["MaNhaCungCap"].Value.ToString();
+            var frmChucNangLoaiSanPham = _container.Resolve<frmHienThi_NhaCungCapSanPham>(new ParameterOverride("supplierID", supplierId));
+            frmChucNangLoaiSanPham.ShowDialog();
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Infrastructure.UnitOfWorks
             IProductCategoryRepository productCategoryRepository,
             IProductRepository productRepository,
             ISupplierRepository supplierRepository,
+            ISupplierProductRepository supplierProductRepository,
             IReportRepository reportRepository
             ) : base(context)
         {
@@ -33,6 +34,7 @@ namespace Infrastructure.UnitOfWorks
             ProductCategoryRepository = productCategoryRepository;
             ProductRepository = productRepository;
             SupplierRepository = supplierRepository;
+            SupplierProductRepository = supplierProductRepository;
             ReportRepository = reportRepository;
 
         }
@@ -48,6 +50,7 @@ namespace Infrastructure.UnitOfWorks
         public IProductCategoryRepository ProductCategoryRepository { get; private set; }
         public IProductRepository ProductRepository { get; private set; }
         public ISupplierRepository SupplierRepository { get; private set; }
+        public ISupplierProductRepository SupplierProductRepository { get; private set; }
 
         public IReportRepository ReportRepository { get; private set; }
     }

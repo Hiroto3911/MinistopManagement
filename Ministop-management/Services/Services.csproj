@@ -60,6 +60,7 @@
     <Compile Include="Interfaces\IReportService.cs" />
     <Compile Include="Interfaces\IShiftService.cs" />
     <Compile Include="Interfaces\IStoreFixedExpenseServices.cs" />
+    <Compile Include="Interfaces\ISupplierProductService.cs" />
     <Compile Include="Interfaces\ISupplierService.cs" />
     <Compile Include="Mapping\AllowanceMapping.cs" />
     <Compile Include="Mapping\EmployeeMapping.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Mapping\ShiftMapping.cs" />
     <Compile Include="Mapping\StoreFixedExpenseMapping.cs" />
     <Compile Include="Mapping\SupplierMapping.cs" />
+    <Compile Include="Mapping\SupplierProductMapping.cs" />
     <Compile Include="ServicesRegistration.cs" />
     <Compile Include="Interfaces\IDateTimeService.cs" />
     <Compile Include="Interfaces\IIdentityService.cs" />
@@ -84,6 +86,7 @@
     <Compile Include="Services\ShiftService.cs" />
     <Compile Include="Services\StoreFixedExpenseServices.cs" />
     <Compile Include="Services\StoreService.cs" />
+    <Compile Include="Services\SupplierProductService.cs" />
     <Compile Include="Services\SupplierService.cs" />
   </ItemGroup>
   <ItemGroup>
