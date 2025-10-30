@@ -154,5 +154,96 @@ namespace Shared.ErrorCode
         [Description(@"Bị trùng dữ liệu nhà cung cấp.")]
         SLE_ERR_006,
         #endregion
+
+        #region StockImport
+        [Description(@"Không tìm thấy Phiếu nhập .")]
+        SIT_ERR_001,
+        [Description(@"Phiếu nhập đã tồn tại.")]
+        SIT_ERR_002,
+        [Description(@"Tạo Phiếu nhập thất bại.")]
+        SIT_ERR_003,
+        [Description(@"Sửa Phiếu nhập thất bại.")]
+        SIT_ERR_004,
+        [Description(@"Xóa Phiếu nhập thất bại.")]
+        SIT_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu nhập.")]
+        SIT_ERR_006,
+        #endregion
+
+        #region StockImportDetail
+        [Description(@"Không tìm thấy Phiếu chi tiết nhập .")]
+        SID_ERR_001,
+        [Description(@"Phiếu chi tiết nhập đã tồn tại.")]
+        SID_ERR_002,
+        [Description(@"Tạo Phiếu chi tiết nhập thất bại.")]
+        SID_ERR_003,
+        [Description(@"Sửa Phiếu chi tiết nhập thất bại.")]
+        SID_ERR_004,
+        [Description(@"Xóa Phiếu chi tiết nhập thất bại.")]
+        SID_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu chi tiết nhập.")]
+        SID_ERR_006,
+        #endregion
+
+        #region StockExport
+        [Description(@"Không tìm thấy Phiếu Xuất .")]
+        SET_ERR_001,
+        [Description(@"Phiếu Xuất đã tồn tại.")]
+        SET_ERR_002,
+        [Description(@"Tạo Phiếu Xuất thất bại.")]
+        SET_ERR_003,
+        [Description(@"Sửa Phiếu Xuất thất bại.")]
+        SET_ERR_004,
+        [Description(@"Xóa Phiếu Xuất thất bại.")]
+        SET_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu Xuất.")]
+        SET_ERR_006,
+        #endregion
+
+        #region StockExportDetail
+        [Description(@"Không tìm thấy Phiếu chi tiết Xuất .")]
+        SED_ERR_001,
+        [Description(@"Phiếu chi tiết Xuất đã tồn tại.")]
+        SED_ERR_002,
+        [Description(@"Tạo Phiếu chi tiết Xuất thất bại.")]
+        SED_ERR_003,
+        [Description(@"Sửa Phiếu chi tiết Xuất thất bại.")]
+        SED_ERR_004,
+        [Description(@"Xóa Phiếu chi tiết Xuất thất bại.")]
+        SED_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu chi tiết Xuất.")]
+        SED_ERR_006,
+        #endregion
+
+        #region StockCheck
+        [Description(@"Không tìm thấy Phiếu kiểm .")]
+        SCT_ERR_001,
+        [Description(@"Phiếu kiểm đã tồn tại.")]
+        SCT_ERR_002,
+        [Description(@"Tạo Phiếu kiểm thất bại.")]
+        SCT_ERR_003,
+        [Description(@"Sửa Phiếu kiểm thất bại.")]
+        SCT_ERR_004,
+        [Description(@"Xóa Phiếu kiểm thất bại.")]
+        SCT_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu kiểm.")]
+        SCT_ERR_006,
+        #endregion
+
+        #region StockCheckDetail
+        [Description(@"Không tìm thấy Phiếu chi tiết kiểm .")]
+        SCD_ERR_001,
+        [Description(@"Phiếu chi tiết kiểm đã tồn tại.")]
+        SCD_ERR_002,
+        [Description(@"Tạo Phiếu chi tiết kiểm thất bại.")]
+        SCD_ERR_003,
+        [Description(@"Sửa Phiếu chi tiết kiểm thất bại.")]
+        SCD_ERR_004,
+        [Description(@"Xóa Phiếu chi tiết kiểm thất bại.")]
+        SCD_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu chi tiết kiểm.")]
+        SCD_ERR_006,
+        #endregion
+
     }
 }

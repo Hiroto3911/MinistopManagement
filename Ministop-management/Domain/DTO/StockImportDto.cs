@@ -12,7 +12,7 @@ namespace Domain.DTO
         public string StoreId { get; set; }
         public string SupplierId { get; set; }
         public string EmployeeId { get; set; }
-        private byte Status { get; set; }
+        public byte Status { get; set; }
         public DateTime ImportDate { get; set; }
     }
 }
