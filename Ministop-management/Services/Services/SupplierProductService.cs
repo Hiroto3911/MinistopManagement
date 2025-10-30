@@ -29,7 +29,12 @@ namespace Services.Services
             _userSession = userSession;
             _mapper = mapper;
         }
-
+        public PagedResult<IReadOnlyList<SupplierProductDto>> GetProductExpense(string supplierId, int pageNumber, int pageSize)
+        {
+            var totalCount = _ministopUnitOfWork.SupplierProductRepository.GetCount(x => x.SupplierID == supplierId);
+            var supplierProductDto = _ministopUnitOfWork.SupplierProductRepository.GetPagedResponse((x => x.SupplierID == supplierId), pageNumber, pageSize);
+            return new PagedResult<IReadOnlyList<SupplierProductDto>>(supplierProductDto, pageNumber, pageSize, totalCount);
+        }
         public Result<IReadOnlyList<SupplierProductDto>> GetAll()
         {
             // Lấy danh sách từ DBML (entity của LINQ to SQL)
@@ -62,10 +67,16 @@ namespace Services.Services
         }
         public PagedResult<IReadOnlyList<SupplierProductDto>> GetSupplierProduct(string supplierId, int pageNumber, int pageSize)
         {
-            var totalCount = _ministopUnitOfWork.SupplierProductRepository.GetCount();
-            var SupplierProductEntity = _ministopUnitOfWork.SupplierProductRepository.GetPagedResponse(supplierId,pageNumber, pageSize);
-            var SupplierProductsDto = _mapper.Map<IReadOnlyList<SupplierProductDto>>(SupplierProductEntity);
-            return new PagedResult<IReadOnlyList<SupplierProductDto>>(SupplierProductsDto, pageNumber, pageSize, totalCount);
+            var totalCount = _ministopUnitOfWork.SupplierProductRepository
+                .GetCount(x => x.SupplierID == supplierId);
+            var supplierProductEntities = _ministopUnitOfWork.SupplierProductRepository
+                .GetPagedResponse(x => x.SupplierID == supplierId, pageNumber, pageSize);
+            return new PagedResult<IReadOnlyList<SupplierProductDto>>(
+                supplierProductEntities,
+                pageNumber,
+                pageSize,
+                totalCount
+            );
         }
 
         public Result<bool> CreateSupplierProduct(SupplierProductDto SupplierProductDto)

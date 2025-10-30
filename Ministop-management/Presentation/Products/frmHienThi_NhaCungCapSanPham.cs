@@ -86,8 +86,6 @@ namespace Presentation.Products
             using (var childContainer = _container.CreateChildContainer())
             {
                 var supplierProductService = childContainer.Resolve<ISupplierProductService>();
-                var productService = childContainer.Resolve<IProductService>();
-
                 var list = supplierProductService.GetSupplierProduct(supplierId, pageNumber, pageSize);
 
                 if (!list.Succeeded || list.Data == null)
@@ -97,12 +95,10 @@ namespace Presentation.Products
 
                 foreach (var item in list.Data)
                 {
-                    var product = productService.GetProductByID(item.ProductId);
-                    string tenSanPham = product?.Data?.ProductName ?? "(Không tìm thấy)";
 
-                    dt.Rows.Add(item.Id, item.SupplierId, tenSanPham, item.SupplyPrice, item.Status);
-                }
-            }
+                    dt.Rows.Add(item.Id, item.SupplierId, item.ProductName, item.SupplyPrice, item.Status);
+                }         
+        }
 
             dgvDuLieu.DataSource = dt;
             dgvDuLieu.AllowUserToAddRows = false;
