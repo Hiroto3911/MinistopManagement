@@ -62,8 +62,8 @@
     <Compile Include="DTO\StockCheckDto.cs" />
     <Compile Include="DTO\StockCheckDetailDto.cs" />
     <Compile Include="DTO\StockDetailDto.cs" />
+    <Compile Include="DTO\StockExportDetailDto.cs" />
     <Compile Include="DTO\StockExportDto.cs" />
-    <Compile Include="DTO\StockExportDetail.cs" />
     <Compile Include="DTO\StockHistoryDto.cs" />
     <Compile Include="DTO\StockImportDto.cs" />
     <Compile Include="DTO\StockImportDetailDto.cs" />

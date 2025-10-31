@@ -8,9 +8,10 @@ namespace Domain.DTO
 {
     public class StockImportDto
     {
-        public string ImportId { get; set; }
+        public string ImportID { get; set; }
         public string StoreId { get; set; }
         public string SupplierId { get; set; }
+        public string SupplierName { get; set; }
         public string EmployeeId { get; set; }
         public byte Status { get; set; }
         public DateTime ImportDate { get; set; }

@@ -61,8 +61,10 @@
     <Compile Include="Interfaces\IShiftService.cs" />
     <Compile Include="Interfaces\IStockCheckDetailService.cs" />
     <Compile Include="Interfaces\IStockCheckService.cs" />
+    <Compile Include="Interfaces\IStockDetailService.cs" />
     <Compile Include="Interfaces\IStockExportDetailService.cs" />
     <Compile Include="Interfaces\IStockExportService.cs" />
+    <Compile Include="Interfaces\IStockHistoryService.cs" />
     <Compile Include="Interfaces\IStockImportDetailSerivce.cs" />
     <Compile Include="Interfaces\IStockImportService.cs" />
     <Compile Include="Interfaces\IStoreFixedExpenseServices.cs" />
@@ -74,8 +76,10 @@
     <Compile Include="Mapping\ShiftMapping.cs" />
     <Compile Include="Mapping\StockCheckDetailMapping.cs" />
     <Compile Include="Mapping\StockCheckMapping.cs" />
+    <Compile Include="Mapping\StockDetailMapping.cs" />
     <Compile Include="Mapping\StockExportDetailMapping.cs" />
     <Compile Include="Mapping\StockExportMapping.cs" />
+    <Compile Include="Mapping\StockHistoryMapping.cs" />
     <Compile Include="Mapping\StockImportDetailMapping.cs" />
     <Compile Include="Mapping\StockImportMapping.cs" />
     <Compile Include="Mapping\StoreFixedExpenseMapping.cs" />
@@ -96,8 +100,10 @@
     <Compile Include="Services\ShiftService.cs" />
     <Compile Include="Services\StockCheckDetailService.cs" />
     <Compile Include="Services\StockCheckService.cs" />
+    <Compile Include="Services\StockDetailService.cs" />
     <Compile Include="Services\StockExportDetailService.cs" />
     <Compile Include="Services\StockExportService.cs" />
+    <Compile Include="Services\StockHistoryService.cs" />
     <Compile Include="Services\StockImportDetailSerivce.cs" />
     <Compile Include="Services\StockImportService.cs" />
     <Compile Include="Services\StoreFixedExpenseServices.cs" />

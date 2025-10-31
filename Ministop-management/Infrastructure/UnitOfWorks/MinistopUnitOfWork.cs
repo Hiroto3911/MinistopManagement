@@ -22,7 +22,15 @@ namespace Infrastructure.UnitOfWorks
             IProductCategoryRepository productCategoryRepository,
             IProductRepository productRepository,
             ISupplierRepository supplierRepository,
-            IReportRepository reportRepository
+            IReportRepository reportRepository,
+             IStockDetailRepository stockDetailRepository,
+            IStockHistoryRepository stockHistoryRepository,
+            IStockImportRepository stockImportRepository,
+            IStockImportDetailRepository stockImportDetailRepository,
+            IStockExportRepository stockExportRepository,
+            IStockExportDetailRepository stockExportDetailRepository,
+            IStockCheckRepository stockCheckRepository,
+            IStockCheckDetailRepository stockCheckDetailRepository
             ) : base(context)
         {
             StoreRepository = storeRepository;
@@ -34,6 +42,14 @@ namespace Infrastructure.UnitOfWorks
             ProductRepository = productRepository;
             SupplierRepository = supplierRepository;
             ReportRepository = reportRepository;
+            StockDetailRepository = stockDetailRepository;
+            StockHistoryRepository = stockHistoryRepository;
+            StockImportRepository = stockImportRepository;
+            StockImportDetailRepository = stockImportDetailRepository;
+            StockExportRepository = stockExportRepository;
+            StockExportDetailRepository = stockExportDetailRepository;
+            StockCheckRepository = stockCheckRepository;
+            StockCheckDetailRepository = stockCheckDetailRepository;
 
         }
         public IStoreRepository StoreRepository { get; private set; }
@@ -50,5 +66,21 @@ namespace Infrastructure.UnitOfWorks
         public ISupplierRepository SupplierRepository { get; private set; }
 
         public IReportRepository ReportRepository { get; private set; }
+
+        public IStockDetailRepository StockDetailRepository { get; private set; }
+
+        public IStockHistoryRepository StockHistoryRepository { get; private set; }
+
+        public IStockImportRepository StockImportRepository { get; private set; }
+
+        public IStockImportDetailRepository StockImportDetailRepository { get; private set; }
+
+        public IStockExportRepository StockExportRepository { get; private set; }
+
+        public IStockExportDetailRepository StockExportDetailRepository { get; private set; }
+
+        public IStockCheckRepository StockCheckRepository { get; private set; }
+
+        public IStockCheckDetailRepository StockCheckDetailRepository { get; private set; }
     }
 }
