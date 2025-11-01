@@ -60,6 +60,8 @@
     <Compile Include="Interfaces\IAllowanceRepository.cs" />
     <Compile Include="Interfaces\IProductCategoryRepository.cs" />
     <Compile Include="Interfaces\IProductRepository.cs" />
+    <Compile Include="Interfaces\IPromotionProductRepository.cs" />
+    <Compile Include="Interfaces\IPromotionRepository.cs" />
     <Compile Include="Interfaces\IReportRepository.cs" />
     <Compile Include="Interfaces\IShiftRepository.cs" />
     <Compile Include="Interfaces\ISupplierProductRepository.cs" />
@@ -67,6 +69,8 @@
     <Compile Include="Repositories\AllowanceRepository.cs" />
     <Compile Include="Repositories\ProductCategoryRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\PromotionProductReponsitory.cs" />
+    <Compile Include="Repositories\PromotionRepository.cs" />
     <Compile Include="Repositories\ReportRepository.cs" />
     <Compile Include="Repositories\ShiftRepository.cs" />
     <Compile Include="Repositories\SupplierProductRepository.cs" />

@@ -1,5 +1,4 @@
 ﻿using Services.Interfaces;
-using Services.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,96 +8,80 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Unity;
 using Unity.Resolution;
 
 namespace Presentation.Products
 {
-    public partial class frmHienThi_NhaCungCapSanPham : Form
+    public partial class frmHienThi_GiamGiaSanPham : Form
     {
         private readonly IUnityContainer _container;
-        private readonly ISupplierProductService _supplierProductService;
-        private long _totalPageSPNCC = 1;
-        private string _supplierID;
-        private long _totalPageSNCCSP = 1;
-        public frmHienThi_NhaCungCapSanPham(IUnityContainer container, ISupplierProductService supplierProductService, string supplierID = null)
+        private readonly IPromotionProductService _promotionProductService;
+        private string _promotionId;
+        private long _totalPageGGSPP = 1;
+        public frmHienThi_GiamGiaSanPham(IUnityContainer container, IPromotionProductService promotionService, string promotionID = null )
         {
             InitializeComponent();
             _container = container;
-            _supplierID = supplierID;
-            _supplierProductService = supplierProductService;
-            LoadDataNCCSP(_supplierID);
-        }
-
-        private void ibtnThoat_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void btnThem_Click(object sender, EventArgs e)
-        {
-            var frmNCC = _container.Resolve<frmChucNang_NhaCungCapSanPham>(new ParameterOverride("supplierID", _supplierID));
-
-            frmNCC.Datachanged += (s, ev) =>
-            {
-                LoadDataNCCSP(_supplierID);
-            };
-
-            frmNCC.ShowDialog();
+            _promotionProductService = promotionService;
+            _promotionId = promotionID;
+            LoadDataGGSP(_promotionId);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void dgvDuLieu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) { return; }
 
-            string supplierProductId = dgvDuLieu.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+            string promotionProductId = dgvDuLieu.Rows[e.RowIndex].Cells["Id"].Value.ToString();
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")
             {
-                var formChucNang_NhaCungCapSanPham = _container.Resolve<frmChucNang_NhaCungCapSanPham>(new ParameterOverride("supplierProductId", supplierProductId));
-                formChucNang_NhaCungCapSanPham.Datachanged += (s, ev) =>
+                var frmHienThi_GiamGiaSanPham = _container.Resolve<frmChucNang_GiamGiaSP>(new ParameterOverride("promotionProductId", promotionProductId));
+                frmHienThi_GiamGiaSanPham.DataChanged += (s, ev) =>
                 {
-                    LoadDataNCCSP(_supplierID);
+                    LoadDataGGSP(_promotionId);
                 };
-                formChucNang_NhaCungCapSanPham.ShowDialog();
+                frmHienThi_GiamGiaSanPham.ShowDialog();
             }
             else if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult question = MessageBox.Show($"bạn có chắc chắn muốn xóa {supplierProductId} của nhà cung cấp này không!!", "xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult question = MessageBox.Show($"bạn có chắc chắn muốn xóa {promotionProductId} của nhà cung cấp này không!!", "xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (question == DialogResult.Yes)
                 {
-                    _supplierProductService.RemoveSupplierProduct(supplierProductId);
+                    _promotionProductService.RemovePromotionProduct(promotionProductId);
                     MessageBox.Show("Xóa thành công");
-                    LoadDataNCCSP(_supplierID);
+                    LoadDataGGSP(_promotionId);
                 }
 
             }
         }
-
-        private void LoadDataNCCSP(string supplierId, int pageNumber = 1, int pageSize = 5)
+        private void LoadDataGGSP(string promotionId, int pageNumber = 1, int pageSize = 5)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("Id");
-            dt.Columns.Add("MaNhaCungCap");
-            dt.Columns.Add("TenSanPham"); 
-            dt.Columns.Add("GiaTuNhaCungCap");
-            dt.Columns.Add("TrangThai");
-
+            dt.Columns.Add("MaPhieuGiamGia");
+            dt.Columns.Add("MaSanPham");
+            dt.Columns.Add("TenSanPham");
+            dt.Columns.Add("SoTienGiam");
+            dt.Columns.Add("SoLuongToiThieu");
+            dt.Columns.Add("GhiChu");
             using (var childContainer = _container.CreateChildContainer())
             {
-                var supplierProductService = childContainer.Resolve<ISupplierProductService>();
-                var list = supplierProductService.GetSupplierProduct(supplierId, pageNumber, pageSize);
+                var promotionProductService = childContainer.Resolve<IPromotionProductService>();
+                var list = promotionProductService.GetPromotionProduct(promotionId, pageNumber, pageSize);
 
                 if (!list.Succeeded || list.Data == null)
                     return;
 
-                _totalPageSPNCC = (long)Math.Ceiling((double)list.TotalCount / pageSize);
+                _totalPageGGSPP = (long)Math.Ceiling((double)list.TotalCount / pageSize);
 
                 foreach (var item in list.Data)
                 {
 
-                    dt.Rows.Add(item.Id, item.SupplierId, item.ProductName, item.SupplyPrice, item.Status);
-                }         
-        }
+                    dt.Rows.Add(item.Id, item.PromotionId, item.ProductId, item.ProductName, item.DiscountAmount, item.MinQuantity,item.Note);
+                }
+            }
 
             dgvDuLieu.DataSource = dt;
             dgvDuLieu.AllowUserToAddRows = false;
@@ -165,47 +148,59 @@ namespace Presentation.Products
                     e.Handled = true;
                 }
             };
-            btnTrangTruocNCCSP.Enabled = pageNumber > 1;
-            btnTrangSauNCCSP.Enabled = pageNumber < _totalPageSPNCC;
+            btnTrangTruocGGSP.Enabled = pageNumber > 1;
+            btnTrangSauGGSP.Enabled = pageNumber < _totalPageGGSPP;
         }
 
-        private void frmHienThi_NhaCungCapSanPham_Load(object sender, EventArgs e)
+        private void btnTrangSauGGSP_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnTrangSauNCCSP_Click(object sender, EventArgs e)
-        {
-            int number = Convert.ToInt32(txtTrangNCCSP.Text);
-            btnTrangTruocNCCSP.Enabled = true;
-            if (number <= _totalPageSNCCSP)
+            int number = Convert.ToInt32(txtTrangGGSP.Text);
+            btnTrangTruocGGSP.Enabled = true;
+            if (number <= _totalPageGGSPP)
             {
                 var pageNumber = ++number;
-                txtTrangNCCSP.Text = pageNumber.ToString();
-                LoadDataNCCSP(_supplierID,pageNumber);
+                txtTrangGGSP.Text = pageNumber.ToString();
+                LoadDataGGSP(_promotionId, pageNumber);
             }
         }
 
-        private void btnTrangTruocNCCSP_Click(object sender, EventArgs e)
+        private void ibtnThoat_Click(object sender, EventArgs e)
         {
-            int number = Convert.ToInt32(txtTrangNCCSP.Text);
+            this.Close();
+        }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            var frmPGG = _container.Resolve<frmChucNang_GiamGiaSP>(new ParameterOverride("promotionID", _promotionId));
+
+            frmPGG.DataChanged += (s, ev) =>
+            {
+                LoadDataGGSP(_promotionId);
+            };
+
+            frmPGG.ShowDialog();
+        }
+
+        private void frmHienThi_GiamGiaSanPham_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTrangTruocGGSP_Click(object sender, EventArgs e)
+        {
+            int number = Convert.ToInt32(txtTrangGGSP.Text);
             if (number > 1)
             {
 
                 var pageNumber = --number;
-                txtTrangNCCSP.Text = pageNumber.ToString();
-                LoadDataNCCSP(_supplierID,pageNumber);
+                txtTrangGGSP.Text = pageNumber.ToString();
+                LoadDataGGSP(_promotionId, pageNumber);
 
             }
             else
             {
-                btnTrangTruocNCCSP.Enabled = false;
+                btnTrangTruocGGSP.Enabled = false;
             }
-        }
-
-        private void frmHienThi_NhaCungCapSanPham_Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

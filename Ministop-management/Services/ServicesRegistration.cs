@@ -31,6 +31,8 @@ namespace Services
             container.RegisterType<ISupplierService, SupplierService>(new PerResolveLifetimeManager());
             container.RegisterType<IReportService, ReportService>(new PerResolveLifetimeManager());
             container.RegisterType<ISupplierProductService, SupplierProductService>(new PerResolveLifetimeManager());
+            container.RegisterType<IPromotionService, PromotionService>(new PerResolveLifetimeManager());
+            container.RegisterType<IPromotionProductService, PromotionProductService>(new PerResolveLifetimeManager());
             Infrastructure.ServicesRegistration.AddInfrastructureTier(container);
         }
     }

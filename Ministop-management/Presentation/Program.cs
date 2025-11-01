@@ -44,6 +44,8 @@ namespace Presentation
             container.RegisterType<frmChucNang_CuaHang>();
             container.RegisterType<frmChucNang_PhuCap>();
             container.RegisterType<frmChucNang_NhaCungCapSanPham>();
+            container.RegisterType<frmChucNang_PhieuGiamGia>();
+            container.RegisterType<frmChucNang_GiamGiaSP>();
             //frm Report 
             container.RegisterType<frmHienThi_DanhSachCuaHangTheoKhuVuc>();
             // frm dang nhap 
