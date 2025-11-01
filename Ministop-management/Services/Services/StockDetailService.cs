@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Domain.DTO;
+using Infrastructure.Data;
 using Infrastructure.Interfaces;
 using Services.Interfaces;
 using Shared.Security;
@@ -28,10 +29,10 @@ namespace Services.Services
             _mapper = mapper;
         }
 
-        public PagedResult<IReadOnlyList<StockDetailDto>> GetStockDetails(int pageNumber = 1, int pageSize = 20)
+        public PagedResult<IReadOnlyList<StockDetailDto>> GetStockDetails(string storeId, int pageNumber = 1, int pageSize = 20)
         {
-            long totalCount = _ministopUnitOfWork.StockDetailRepository.GetCount();
-            var list = _ministopUnitOfWork.StockDetailRepository.GetPagedResponse((x => x.StoreID == _userSession.IdStore), pageNumber, pageSize);
+            long totalCount = _ministopUnitOfWork.StockDetailRepository.GetCount(x => x.StoreID == storeId);
+            var list = _ministopUnitOfWork.StockDetailRepository.GetPagedResponse((x => x.StoreID == storeId), pageNumber, pageSize);
             return new PagedResult<IReadOnlyList<StockDetailDto>>(list, pageNumber, pageSize, totalCount);
 
         }

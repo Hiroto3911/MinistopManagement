@@ -11,6 +11,7 @@ namespace Domain.DTO
         public string ExportId { get; set; }
         public string StoreId { get; set; }
         public string EmployeeId { get; set; }
+        public string EmployeeName { get; set; }
         public string TypeExport { get; set; }
         public DateTime ExportDate { get; set; }
         public string Reason { get; set; }

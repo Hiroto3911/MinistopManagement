@@ -10,6 +10,7 @@ namespace Services.Interfaces
 {
     public interface IStockDetailService
     {
-        PagedResult<IReadOnlyList<StockDetailDto>> GetStockDetails(int pageNumber = 1, int pageSize = 20);
+        
+        PagedResult<IReadOnlyList<StockDetailDto>> GetStockDetails(string storeId, int pageNumber = 1, int pageSize = 20);
     }
 }

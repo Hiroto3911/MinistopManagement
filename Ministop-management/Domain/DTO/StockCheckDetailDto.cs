@@ -11,8 +11,10 @@ namespace Domain.DTO
         public string Id { get; set; }
         public string CheckId { get; set; }
         public string ProductId { get; set; }
+        public string ProductName { get; set; }
         public int QuantitySystem { get; set; }
         public int QuantityActual { get; set; }
+        public int QuantityVariance { get; set; }
         public string Note { get; set; } 
     }
 }

@@ -12,7 +12,7 @@ namespace Services.Interfaces
     {
         Result<bool> CreatestockCheck(StockCheckDto StockCheckDto);
         Result<IReadOnlyList<StockCheckDto>> GetAll();
-        PagedResult<IReadOnlyList<StockCheckDto>> GetStockCheck(int pageNumber, int pageSize);
+        PagedResult<IReadOnlyList<StockCheckDto>> GetStockCheck(string storeId, int pageNumber, int pageSize);
         Result<StockCheckDto> GetStockCheckByID(string id);
         Result<bool> RemoveStockCheck(string id);
         Result<bool> UpdateStockCheck(StockCheckDto stockImportEdit);

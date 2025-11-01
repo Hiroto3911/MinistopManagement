@@ -59,10 +59,10 @@ namespace Services.Services
                 throw ex;
             }
         }
-        public PagedResult<IReadOnlyList<StockExportDto>> GetStockExport(int pageNumber, int pageSize)
+        public PagedResult<IReadOnlyList<StockExportDto>> GetStockExport (string storeId, int pageNumber, int pageSize)
         {
-            var totalCount = _ministopUnitOfWork.StockExportRepository.GetCount();
-            var stockExportEntity = _ministopUnitOfWork.StockExportRepository.GetPagedResponse(pageNumber, pageSize);
+            var totalCount = _ministopUnitOfWork.StockExportRepository.GetCount(x => x.StoreID == storeId);
+            var stockExportEntity = _ministopUnitOfWork.StockExportRepository.GetPagedResponse((x => x.StoreID == storeId), pageNumber, pageSize);
             var stockImportsDto = _mapper.Map<IReadOnlyList<StockExportDto>>(stockExportEntity);
 
             return new PagedResult<IReadOnlyList<StockExportDto>>(stockImportsDto, pageNumber, pageSize, totalCount);

@@ -13,6 +13,7 @@ namespace Domain.DTO
         public string SupplierId { get; set; }
         public string SupplierName { get; set; }
         public string EmployeeId { get; set; }
+        public string EmployeeName { get; set; }
         public byte Status { get; set; }
         public DateTime ImportDate { get; set; }
     }

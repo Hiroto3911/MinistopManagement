@@ -30,7 +30,7 @@ namespace Services.Services
 
         public PagedResult<IReadOnlyList<StockHistoryDto>> GetStockHistory(string stockDetailId, int pageNumber = 1, int pageSize = 20)
         {
-            long totalCount = _ministopUnitOfWork.StockDetailRepository.GetCount();
+            long totalCount = _ministopUnitOfWork.StockDetailRepository.GetCount(x => x.StockDetailID == stockDetailId);
             var list = _ministopUnitOfWork.StockHistoryRepository.GetPagedResponse((x => x.StockDetailID == stockDetailId), pageNumber, pageSize);
             var stockHistoryDtos = _mapper.Map<IReadOnlyList<StockHistoryDto>>(list);
             return new PagedResult<IReadOnlyList<StockHistoryDto>>(stockHistoryDtos, pageNumber, pageSize, totalCount);

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Domain.DTO;
+using Shared.Wrappers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +10,11 @@ namespace Services.Interfaces
 {
     public interface IStockCheckDetailService
     {
+        Result<bool> CreateStockCheckDetail(StockCheckDetailDto stockCheckDetailDto);
+        Result<IReadOnlyList<StockCheckDetailDto>> GetAll();
+        PagedResult<IReadOnlyList<StockCheckDetailDto>> GetStockCheckDetail(string stockCheckID, int pageNumber, int pageSize);
+        Result<StockCheckDetailDto> GetStockCheckDetailByID(string id);
+        Result<bool> RemoveStockCheckDetail(string id);
+        Result<bool> UpdateStockCheckDetail(StockCheckDetailDto stockCheckDetailEdit);
     }
 }
