@@ -1,6 +1,6 @@
-﻿namespace Presentation
+﻿namespace Presentation.Stocks.Dialogs
 {
-    partial class frmHienThi_DanhSachNhapHang
+    partial class frmHienThiChiTietKiemHang
     {
         /// <summary>
         /// Required designer variable.
@@ -81,7 +81,7 @@
             this.dgvDuLieu.RowHeadersWidth = 62;
             this.dgvDuLieu.RowTemplate.Height = 28;
             this.dgvDuLieu.Size = new System.Drawing.Size(681, 305);
-            this.dgvDuLieu.TabIndex = 17;
+            this.dgvDuLieu.TabIndex = 20;
             this.dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvDuLieu.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.dgvDuLieu.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -114,7 +114,7 @@
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(681, 34);
-            this.guna2Panel1.TabIndex = 16;
+            this.guna2Panel1.TabIndex = 19;
             // 
             // label11
             // 
@@ -124,9 +124,9 @@
             this.label11.Location = new System.Drawing.Point(8, 5);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(294, 21);
+            this.label11.Size = new System.Drawing.Size(282, 21);
             this.label11.TabIndex = 8;
-            this.label11.Text = "Danh sách sản phẩm từ nhà cung cấp";
+            this.label11.Text = "Danh sách sản phẩm từ phiếu kiểm ";
             // 
             // ibtnThoat
             // 
@@ -158,7 +158,7 @@
             this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.Size = new System.Drawing.Size(681, 34);
-            this.guna2Panel3.TabIndex = 18;
+            this.guna2Panel3.TabIndex = 21;
             // 
             // guna2Button2
             // 
@@ -203,7 +203,7 @@
             this.txtSoTrang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSoTrang.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoTrang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSoTrang.Location = new System.Drawing.Point(316, 4);
+            this.txtSoTrang.Location = new System.Drawing.Point(338, 4);
             this.txtSoTrang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSoTrang.Name = "txtSoTrang";
             this.txtSoTrang.PlaceholderText = "";
@@ -225,7 +225,7 @@
             this.btnTrangSau.FillColor = System.Drawing.SystemColors.Highlight;
             this.btnTrangSau.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrangSau.ForeColor = System.Drawing.Color.White;
-            this.btnTrangSau.Location = new System.Drawing.Point(370, 4);
+            this.btnTrangSau.Location = new System.Drawing.Point(392, 4);
             this.btnTrangSau.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrangSau.Name = "btnTrangSau";
             this.btnTrangSau.Size = new System.Drawing.Size(43, 26);
@@ -245,14 +245,14 @@
             this.btnTrangTruoc.FillColor = System.Drawing.SystemColors.Highlight;
             this.btnTrangTruoc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrangTruoc.ForeColor = System.Drawing.Color.White;
-            this.btnTrangTruoc.Location = new System.Drawing.Point(267, 4);
+            this.btnTrangTruoc.Location = new System.Drawing.Point(289, 4);
             this.btnTrangTruoc.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrangTruoc.Name = "btnTrangTruoc";
             this.btnTrangTruoc.Size = new System.Drawing.Size(43, 26);
             this.btnTrangTruoc.TabIndex = 240;
             this.btnTrangTruoc.Text = "<<";
             // 
-            // frmHienThi_DanhSachNhapHang
+            // frmHienThiChiTietKiemHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -261,10 +261,10 @@
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "frmHienThi_DanhSachNhapHang";
+            this.Name = "frmHienThiChiTietKiemHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmHienThi_DanhSachNhapHang";
+            this.Text = "frmHienThiChiTietKiemHang";
+            this.Load += new System.EventHandler(this.frmHienThiChiTietKiemHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
@@ -274,13 +274,14 @@
         }
 
         #endregion
+
         private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieu;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2ImageButton ibtnThoat;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2TextBox txtSoTrang;
         private Guna.UI2.WinForms.Guna2Button btnTrangSau;
         private Guna.UI2.WinForms.Guna2Button btnTrangTruoc;

@@ -139,5 +139,40 @@ namespace Services.Services
                 throw ex;
             }
         }
+        public Result<bool> RemoveRangeStockCheckDetailByCheckID(string checkID)
+        {
+            _ministopUnitOfWork.BeginTransaction();
+            try
+            {
+
+
+                var stockCheckEntities = _ministopUnitOfWork.StockCheckDetailRepository.GetAll((x => x.CheckID == checkID));
+                if (stockCheckEntities == null)
+                {
+                    return new Result<bool>(ErrorCodeEnum.SID_ERR_001);
+                }
+                _ministopUnitOfWork.StockCheckDetailRepository.DeleteRange(stockCheckEntities, true);
+                _ministopUnitOfWork.Commit();
+                return new Result<bool>(true);
+
+            }
+            catch (Exception ex)
+            {
+                _ministopUnitOfWork.Rollback();
+                throw ex;
+            }
+        }
+        public Result<bool> Any(string checkId)
+        {
+            try
+            {
+                bool isChecked = _ministopUnitOfWork.StockCheckDetailRepository.Any((x => x.CheckID == checkId));
+                return new Result<bool>(isChecked);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

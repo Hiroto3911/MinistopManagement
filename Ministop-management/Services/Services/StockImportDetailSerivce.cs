@@ -46,7 +46,7 @@ namespace Services.Services
         {
             try
             {
-                var stockImportEntity = _ministopUnitOfWork.StockImportDetailRepository.Find(x => x.ImportID == id);
+                var stockImportEntity = _ministopUnitOfWork.StockImportDetailRepository.Find(x => x.Id == id);
                 if (stockImportEntity == null)
                 {
                     return new Result<StockImportDetailDto>(ErrorCodeEnum.SID_ERR_001);
@@ -64,7 +64,6 @@ namespace Services.Services
             var totalCount = _ministopUnitOfWork.StockImportDetailRepository.GetCount(x => x.ImportID == stockImportId);
             var stockImportDetailEntity = _ministopUnitOfWork.StockImportDetailRepository.GetPagedResponse((x => x.ImportID == stockImportId), pageNumber, pageSize);
             var stockImportDetailDto = _mapper.Map<IReadOnlyList<StockImportDetailDto>>(stockImportDetailEntity);
-
             return new PagedResult<IReadOnlyList<StockImportDetailDto>>(stockImportDetailDto, pageNumber, pageSize, totalCount);
         }
 
@@ -122,7 +121,7 @@ namespace Services.Services
             try
             {
 
-                var currentUserId = _userSession.UserId;
+              
                 var stockImportEntity = _ministopUnitOfWork.StockImportDetailRepository.Find(x => x.Id == id);
                 if (stockImportEntity == null)
                 {
@@ -136,6 +135,41 @@ namespace Services.Services
             catch (Exception ex)
             {
                 _ministopUnitOfWork.Rollback();
+                throw ex;
+            }
+        }
+        public Result<bool> RemoveRangeStockImportDetailByImportID(string importID)
+        {
+            _ministopUnitOfWork.BeginTransaction();
+            try
+            {
+
+                
+                var stockImportEntity = _ministopUnitOfWork.StockImportDetailRepository.GetAll((x=> x.ImportID == importID));
+                if (stockImportEntity == null)
+                {
+                    return new Result<bool>(ErrorCodeEnum.SID_ERR_001);
+                }
+                _ministopUnitOfWork.StockImportDetailRepository.DeleteRange(stockImportEntity, true);
+                _ministopUnitOfWork.Commit();
+                return new Result<bool>(true);
+
+            }
+            catch (Exception ex)
+            {
+                _ministopUnitOfWork.Rollback();
+                throw ex;
+            }
+        }
+        public Result<bool> Any(string importId)
+        {
+            try
+            {
+                bool isChecked = _ministopUnitOfWork.StockImportDetailRepository.Any((x => x.ImportID == importId));
+                return new Result<bool>(isChecked);
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

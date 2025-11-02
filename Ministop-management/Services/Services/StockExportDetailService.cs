@@ -139,5 +139,40 @@ namespace Services.Services
                 throw ex;
             }
         }
+        public Result<bool> RemoveRangeStockExportDetailByExportID(string exportID)
+        {
+            _ministopUnitOfWork.BeginTransaction();
+            try
+            {
+
+
+                var stockExportEntity = _ministopUnitOfWork.StockExportDetailRepository.GetAll((x => x.ExportID == exportID));
+                if (stockExportEntity == null)
+                {
+                    return new Result<bool>(ErrorCodeEnum.SED_ERR_001);
+                }
+                _ministopUnitOfWork.StockExportDetailRepository.DeleteRange(stockExportEntity, true);
+                _ministopUnitOfWork.Commit();
+                return new Result<bool>(true);
+
+            }
+            catch (Exception ex)
+            {
+                _ministopUnitOfWork.Rollback();
+                throw ex;
+            }
+        }
+        public Result<bool> Any(string exportId)
+        {
+            try
+            {
+                bool isChecked = _ministopUnitOfWork.StockExportDetailRepository.Any((x => x.ExportID == exportId));
+                return new Result<bool>(isChecked);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

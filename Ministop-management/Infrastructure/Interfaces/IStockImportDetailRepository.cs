@@ -11,6 +11,7 @@ namespace Infrastructure.Interfaces
 {
     public interface IStockImportDetailRepository : IGenericRepository<StockImportDetail>
     {
+        IList<StockImportDetail> GetAll(Expression<Func<StockImportDetail, bool>> predicate);
         IReadOnlyList<StockImportDetailDto> GetPagedResponse(Expression<Func<StockImportDetail, bool>> predicated, int pageNumber, int pageSize);
     }
 }

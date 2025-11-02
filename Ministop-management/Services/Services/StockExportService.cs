@@ -73,7 +73,7 @@ namespace Services.Services
             try
             {
 
-                var stockExportID = IdGenerator.CreateID("SIT");
+                var stockExportID = IdGenerator.CreateID("SET");
                 var currentUserId = _userSession.UserId;
                 StockExportDto.ExportId = stockExportID;
                 var stockExportEntity = _mapper.Map<StockExport>(StockExportDto);
@@ -104,6 +104,8 @@ namespace Services.Services
                     return new Result<bool>(ErrorCodeEnum.SET_ERR_001);
                 }
                 stockExportEntity.Status = stockImportEdit.Status;
+                stockExportEntity.TypeExport = stockImportEdit.TypeExport;
+                stockExportEntity.Reason = stockImportEdit.Reason;
                 _ministopUnitOfWork.StockExportRepository.Update(stockExportEntity, true);
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);

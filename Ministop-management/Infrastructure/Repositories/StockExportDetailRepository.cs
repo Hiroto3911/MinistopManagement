@@ -17,6 +17,10 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
+        public virtual IList<StockExportDetail> GetAll(Expression<Func<StockExportDetail, bool>> predicate)
+        {
+            return _context.GetTable<StockExportDetail>().Where(predicate).ToList();
+        }
         public virtual IReadOnlyList<StockExportDetailDto> GetPagedResponse(Expression<Func<StockExportDetail, bool>> predicated, int pageNumber, int pageSize)
         {
             var query = from xh in _context.GetTable<StockExportDetail>().Where(predicated)

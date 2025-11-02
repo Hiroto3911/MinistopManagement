@@ -8,13 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Presentation
+namespace Presentation.Stocks.Dialogs
 {
     public partial class frmChucNang_ChiTietNhapKho : Form
     {
+        public event EventHandler dataChanged;
         public frmChucNang_ChiTietNhapKho()
         {
             InitializeComponent();
+        }
+
+        private void ibtnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void frmChucNang_ChiTietNhapKho_Load(object sender, EventArgs e)
@@ -22,9 +28,9 @@ namespace Presentation
 
         }
 
-        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        private void btnLuu_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
     }
 }

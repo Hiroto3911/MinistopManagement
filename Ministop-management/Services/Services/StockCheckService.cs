@@ -123,7 +123,6 @@ namespace Services.Services
             try
             {
 
-                var currentUserId = _userSession.UserId;
                 var stockCheckEntity = _ministopUnitOfWork.StockCheckRepository.Find(x => x.CheckID == id);
                 if (stockCheckEntity == null)
                 {
