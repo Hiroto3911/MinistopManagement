@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Services.Interfaces;
+using Services.Services;
+using Shared.Security;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,21 +15,36 @@ namespace Presentation
 {
     public partial class frmChucNang_ChiTietKiemKho : Form
     {
-        public frmChucNang_ChiTietKiemKho()
+        public event EventHandler<string> dataChanged;
+        public readonly IStockCheckDetailService _stockCheckDetailService;
+        public readonly IUserSession _userSession;
+        public string _checkID;
+        public frmChucNang_ChiTietKiemKho(IStockCheckDetailService stockCheckDetailService, IUserSession userSession, string CheckID = null)
         {
             InitializeComponent();
+            _stockCheckDetailService = stockCheckDetailService;
+            _userSession = userSession;
+            _checkID = CheckID;
         }
 
-   
-
-        private void guna2Button2_Click(object sender, EventArgs e)
+        private void frmChucNang_ChiTietKiemKho_Load(object sender, EventArgs e)
         {
-            this.Close();
+            if (!string.IsNullOrEmpty(_checkID))
+            {
+                var entity = _stockCheckDetailService.GetStockCheckDetailByID(_checkID);
+                if (entity.Succeeded == false && entity.Data == null)
+                {
+                    MessageBox.Show($"{entity.Message}", "Lỗi");
+                    return;
+                }
+                
+
+            }
         }
 
-        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        private void btnLuu_Click(object sender, EventArgs e)
         {
-            this.Close();
+
         }
     }
 }
