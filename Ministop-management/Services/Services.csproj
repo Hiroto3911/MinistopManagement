@@ -61,6 +61,14 @@
     <Compile Include="Interfaces\IPromotionService.cs" />
     <Compile Include="Interfaces\IReportService.cs" />
     <Compile Include="Interfaces\IShiftService.cs" />
+    <Compile Include="Interfaces\IStockCheckDetailService.cs" />
+    <Compile Include="Interfaces\IStockCheckService.cs" />
+    <Compile Include="Interfaces\IStockDetailService.cs" />
+    <Compile Include="Interfaces\IStockExportDetailService.cs" />
+    <Compile Include="Interfaces\IStockExportService.cs" />
+    <Compile Include="Interfaces\IStockHistoryService.cs" />
+    <Compile Include="Interfaces\IStockImportDetailSerivce.cs" />
+    <Compile Include="Interfaces\IStockImportService.cs" />
     <Compile Include="Interfaces\IStoreFixedExpenseServices.cs" />
     <Compile Include="Interfaces\ISupplierProductService.cs" />
     <Compile Include="Interfaces\ISupplierService.cs" />
@@ -71,6 +79,14 @@
     <Compile Include="Mapping\PromotionMapping.cs" />
     <Compile Include="Mapping\PromotionProductMapping.cs" />
     <Compile Include="Mapping\ShiftMapping.cs" />
+    <Compile Include="Mapping\StockCheckDetailMapping.cs" />
+    <Compile Include="Mapping\StockCheckMapping.cs" />
+    <Compile Include="Mapping\StockDetailMapping.cs" />
+    <Compile Include="Mapping\StockExportDetailMapping.cs" />
+    <Compile Include="Mapping\StockExportMapping.cs" />
+    <Compile Include="Mapping\StockHistoryMapping.cs" />
+    <Compile Include="Mapping\StockImportDetailMapping.cs" />
+    <Compile Include="Mapping\StockImportMapping.cs" />
     <Compile Include="Mapping\StoreFixedExpenseMapping.cs" />
     <Compile Include="Mapping\SupplierMapping.cs" />
     <Compile Include="Mapping\SupplierProductMapping.cs" />
@@ -90,10 +106,21 @@
     <Compile Include="Services\PromotionService.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Services\ShiftService.cs" />
+    <Compile Include="Services\StockCheckDetailService.cs" />
+    <Compile Include="Services\StockCheckService.cs" />
+    <Compile Include="Services\StockDetailService.cs" />
+    <Compile Include="Services\StockExportDetailService.cs" />
+    <Compile Include="Services\StockExportService.cs" />
+    <Compile Include="Services\StockHistoryService.cs" />
+    <Compile Include="Services\StockImportDetailSerivce.cs" />
+    <Compile Include="Services\StockImportService.cs" />
     <Compile Include="Services\StoreFixedExpenseServices.cs" />
     <Compile Include="Services\StoreService.cs" />
     <Compile Include="Services\SupplierProductService.cs" />
     <Compile Include="Services\SupplierService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
@@ -108,9 +135,6 @@
       <Project>{36b44f87-d9ad-403c-ace4-a02a0c415e22}</Project>
       <Name>Shared</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

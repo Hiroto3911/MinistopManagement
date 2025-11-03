@@ -57,6 +57,17 @@ namespace Services.Services
             // Trả về Result
             return new Result<IReadOnlyList<SupplierDto>>(list);
         }
+        public Result<IReadOnlyList<SupplierDto>> GetAllSupplier()
+        {
+            // Lấy danh sách từ DBML (entity của LINQ to SQL)
+            var dbList = _ministopUnitOfWork.SupplierRepository.GetAll(x => !x.IsDeleted);
+
+            // Map sang Domain.Entity.Store
+            var list = _mapper.Map<IReadOnlyList<SupplierDto>>(dbList);
+
+            // Trả về Result
+            return new Result<IReadOnlyList<SupplierDto>>(list);
+        }
         public Result<bool> RestoreSupplier(List<string> listRestoreId)
         {
             _ministopUnitOfWork.BeginTransaction();
