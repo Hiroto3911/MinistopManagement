@@ -50,7 +50,7 @@ namespace Services.Services
                 var PromotionProductEntity = _ministopUnitOfWork.PromotionProductRepository.Find(x => x.Id == id);
                 if (PromotionProductEntity == null)
                 {
-                    return new Result<PromotionProductDto>(ErrorCodeEnum.STR_ERR_001);
+                    return new Result<PromotionProductDto>(ErrorCodeEnum.PRD_ERR_001);
                 }
                 var result = _mapper.Map<PromotionProductDto>(PromotionProductEntity);
                 return new Result<PromotionProductDto>(result);
@@ -81,7 +81,7 @@ namespace Services.Services
                 var isDuplicate = _ministopUnitOfWork.PromotionProductRepository.Any(x => x.Id == PromotionProductDto.Id);
                 if (isDuplicate)
                 {
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_006);
+                    return new Result<bool>(ErrorCodeEnum.PRD_ERR_006);
                 }
                 var PromotionProductId = IdGenerator.CreateID("PRP");
                 var currentUserId = _userSession.UserId;
@@ -91,7 +91,7 @@ namespace Services.Services
                 var succeeded = _ministopUnitOfWork.PromotionProductRepository.Add(PromotionProductEntity);
                 if (succeeded == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
+                    return new Result<bool>(ErrorCodeEnum.PRD_ERR_003);
                 }
                 return new Result<bool>(true);
 
@@ -112,7 +112,7 @@ namespace Services.Services
                 var promotionProductEntity = _ministopUnitOfWork.PromotionProductRepository.Find(x => x.Id == PromotionProductEdit.Id);
                 if (promotionProductEntity == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.SLPRD_ERR_001);
+                    return new Result<bool>(ErrorCodeEnum.PRD_ERR_001);
                 }
                 promotionProductEntity.DiscountAmount = PromotionProductEdit.DiscountAmount;
                 promotionProductEntity.MinQuantity = PromotionProductEdit.MinQuantity;
@@ -139,7 +139,7 @@ namespace Services.Services
                 var PromotionProductEntity = _ministopUnitOfWork.PromotionProductRepository.Find(x => x.Id == PromotionProductId);
                 if (PromotionProductEntity == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_001);
+                    return new Result<bool>(ErrorCodeEnum.PRD_ERR_001);
                 }
                 _ministopUnitOfWork.PromotionProductRepository.Delete(PromotionProductEntity, true);
                 _ministopUnitOfWork.Commit();

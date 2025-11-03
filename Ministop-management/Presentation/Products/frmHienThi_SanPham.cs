@@ -62,18 +62,8 @@ namespace Presentation
 
         }
 
-        private void guna2Button21_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void guna2TextBox12_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         #region loai san pham
-        private void LoadDataPCT(int pageNumber = 1, int pageSize = 2)
+        private void LoadDataPCT(int pageNumber = 1, int pageSize = 5)
         {
             // ===== 1️⃣ Tạo dữ liệu mẫu =====
             DataTable dt = new DataTable();
@@ -229,7 +219,7 @@ namespace Presentation
 
         
         #region nha cung cap
-        private void LoadDataNCC(int pageNumber = 1, int pageSize = 2)
+        private void LoadDataNCC(int pageNumber = 1, int pageSize = 5)
         {
             // ===== 1️⃣ Tạo dữ liệu mẫu =====
             DataTable dt = new DataTable();
@@ -574,7 +564,7 @@ namespace Presentation
                 }
             }
         }
-        private void LoadDataPGG(int pageNumber = 1, int pageSize = 2)
+        private void LoadDataPGG(int pageNumber = 1, int pageSize = 5)
         {
             // ===== 1️⃣ Tạo dữ liệu mẫu =====
             DataTable dt = new DataTable();
@@ -685,6 +675,35 @@ namespace Presentation
             string promotionId = dgvPGG.Rows[row].Cells["MaPhieuGiamGia"].Value.ToString();
             var frmChucNangGiamGiaSP = _container.Resolve<frmHienThi_GiamGiaSanPham>(new ParameterOverride("promotionID", promotionId));
             frmChucNangGiamGiaSP.ShowDialog();
+        }
+
+        private void btnTrangTruocKM_Click(object sender, EventArgs e)
+        {
+            int number = Convert.ToInt32(txtTrangKM.Text);
+            if (number > 1)
+            {
+
+                var pageNumber = --number;
+                txtTrangKM.Text = pageNumber.ToString();
+                LoadDataPGG(pageNumber);
+
+            }
+            else
+            {
+                btnTrangTruocKM.Enabled = false;
+            }
+        }
+
+        private void btnTrangSauKM_Click(object sender, EventArgs e)
+        {
+            int number = Convert.ToInt32(txtTrangKM.Text);
+            btnTrangTruocKM.Enabled = true;
+            if (number <= _totalPagePGG)
+            {
+                var pageNumber = ++number;
+                txtTrangKM.Text = pageNumber.ToString();
+                LoadDataPGG(pageNumber);
+            }
         }
     }
 }

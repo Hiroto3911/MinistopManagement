@@ -21,88 +21,24 @@ namespace Presentation
         private ErrorProvider errorProvider1;
         public event EventHandler DataChanged;
         private readonly IPromotionProductService _promotionProductService;
+        private readonly IProductService _productService;
         private readonly IUnityContainer _container;
         private string _promotionProductId;
         private string _promotionID;
-        public frmChucNang_GiamGiaSP(IPromotionProductService promotionProductService,IUnityContainer container, string promotionProductId = null, string promotionID = null)
+        public frmChucNang_GiamGiaSP(IPromotionProductService promotionProductService, IProductService productService, IUnityContainer container, string promotionProductId = null, string promotionID = null)
         {
             InitializeComponent();
             _promotionProductService = promotionProductService;
+            _productService = productService;
             _promotionProductId = promotionProductId;
             _container = container;
             _promotionID = promotionID;
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string MaGG = txtMaGG.Text.Trim();
-            string MaSP = txtMaSP.Text.Trim();
-            string TenSP = txtTenSP.Text.Trim();
-            string note = rtbGhiChu.Text.Trim();
-
-            if (string.IsNullOrEmpty(MaGG))
-            {
-                MessageBox.Show("Vui lòng nhập mã giảm giá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtMaGG.Focus();
+            if (!KiemTraDuLieuNhap(out PromotionProductDto promotionProduct))
                 return;
-            }
 
-            if (string.IsNullOrEmpty(MaSP))
-            {
-                MessageBox.Show("Vui lòng chọn sản phẩm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtMaSP.Focus();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(TenSP))
-            {
-                MessageBox.Show("Tên sản phẩm không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTenSP.Focus();
-                return;
-            }
-
-            if (!decimal.TryParse(txtSoTienGiam.Text.Trim(), out decimal SoTien))
-            {
-                MessageBox.Show("Số tiền giảm không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSoTienGiam.Focus();
-                return;
-            }
-
-            if (SoTien < 0)
-            {
-                MessageBox.Show("Số tiền giảm không được âm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSoTienGiam.Focus();
-                return;
-            }
-
-            if (!int.TryParse(txtSoLuong.Text.Trim(), out int SLTT))
-            {
-                MessageBox.Show("Số lượng tối thiểu không hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSoLuong.Focus();
-                return;
-            }
-
-            if (SLTT <= 0)
-            {
-                MessageBox.Show("Số lượng tối thiểu phải lớn hơn 0.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSoLuong.Focus();
-                return;
-            }
-            var promotionProduct = new PromotionProductDto
-            {
-                Id = _promotionProductId,
-                PromotionId = MaGG,
-                ProductId = MaSP,
-                ProductName = TenSP,
-                DiscountAmount = SoTien,
-                MinQuantity = SLTT,
-                Note = note,
-            };
             Result<bool> result = string.IsNullOrEmpty(_promotionProductId)
                 ? _promotionProductService.CreatePromotionProduct(promotionProduct)
                 : _promotionProductService.UpdatePromotionProduct(promotionProduct);
@@ -112,9 +48,85 @@ namespace Presentation
                 MessageBox.Show(result.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             DataChanged?.Invoke(this, EventArgs.Empty);
             MessageBox.Show("Lưu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+        private bool KiemTraDuLieuNhap(out PromotionProductDto promotionProduct)
+        {
+            promotionProduct = null;
+
+            string MaGG = txtMaGG.Text.Trim();
+            string MaSP = txtMaSP.Text.Trim();
+            string TenSP = txtTenSP.Text.Trim();
+            string note = rtbGhiChu.Text.Trim();
+            if (string.IsNullOrEmpty(MaGG))
+            {
+                MessageBox.Show("Vui lòng nhập mã giảm giá.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaGG.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(MaSP))
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtMaSP.Focus();
+                return false;
+            }
+            if (string.IsNullOrEmpty(TenSP))
+            {
+                MessageBox.Show("Tên sản phẩm không được để trống.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenSP.Focus();
+                return false;
+            }
+            if (!decimal.TryParse(txtSoTienGiam.Text.Trim(), out decimal SoTien))
+            {
+                MessageBox.Show("Số tiền giảm phải là số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSoTienGiam.Focus();
+                return false;
+            }
+            var product = _productService.GetProductByID(MaSP);
+            if (!product.Succeeded)
+            {
+                MessageBox.Show(product.Message);
+            }
+            if (SoTien >= product.Data.StandardPrice)
+            {
+                MessageBox.Show("số tiền giảm giá không được lớn hơn hoặc bằng số tiền giá tiêu chuẩn", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSoLuong.Focus();
+                return false;
+            }
+            if (SoTien <= 0)
+            {
+                MessageBox.Show("Số tiền giảm phải lớn hơn 0.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSoTienGiam.Focus();
+                return false;
+            }
+            if (!int.TryParse(txtSoLuong.Text.Trim(), out int SLTT))
+            {
+                MessageBox.Show("Số lượng tối thiểu phải là số nguyên hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSoLuong.Focus();
+                return false;
+            }
+
+            if (SLTT <= 0)
+            {
+                MessageBox.Show("Số lượng tối thiểu phải lớn hơn 0.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSoLuong.Focus();
+                return false;
+            }
+            promotionProduct = new PromotionProductDto
+            {
+                Id = _promotionProductId,
+                PromotionId = MaGG,
+                ProductId = MaSP,
+                ProductName = TenSP,
+                DiscountAmount = SoTien,
+                MinQuantity = SLTT,
+                Note = note,
+            };
+           
+            return true;
         }
 
         private void HienThiTenSanPham(string maSP)
@@ -135,7 +147,7 @@ namespace Presentation
                     if (result != null && result.Succeeded && result.Data != null)
                         txtTenSP.Text = result.Data.ProductName;
                     else
-                        txtTenSP.Text = "(Không tìm thấy)";
+                        txtTenSP.Text = null;
                 }
             }
             catch
@@ -175,7 +187,12 @@ namespace Presentation
 
         private void txtTenSP_TextChanged(object sender, EventArgs e)
         {
+            string maSP = txtTenSP.Text.Trim();
             HienThiTenSanPham(txtMaSP.Text);
+        }
+
+        private void txtMaSP_TextChanged(object sender, EventArgs e)
+        {          
         }
     }
 }

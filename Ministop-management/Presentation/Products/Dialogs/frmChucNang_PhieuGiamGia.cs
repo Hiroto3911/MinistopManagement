@@ -43,39 +43,81 @@ namespace Presentation
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            int douutien =(int)udMucDoUuTien.Value;
-            bool trangThai = Convert.ToInt32(cboTrangThai.SelectedValue) == 0;
-            if (trangThai)
-            {
-                cboTrangThai.SelectedItem = "Tạm ngưng hoạt động";
-            }
-            else
-            {
-                cboTrangThai.SelectedItem = "Đang hoạt động";
-            }
-            var promotion = new PromotionDto() { PromotionId = txtMaGG.Text, PromotionName = txtTenGG.Text, StartDate = DateTime.Parse(dtpNgayBD.Text), EndDate = DateTime.Parse(dtpNgayKT.Text), Priority = douutien,Status = trangThai};
+            if (!KiemTraDuLieuNhap(out PromotionDto promotion))
+                return; // Dừng nếu dữ liệu không hợp lệ
+
             Result<bool> result;
+
             if (string.IsNullOrEmpty(txtMaGG.Text))
             {
                 result = _promotionService.CreatePromotion(promotion);
-                DataChanged?.Invoke(this, EventArgs.Empty);
             }
             else
             {
                 promotion.PromotionId = _promotionId;
                 result = _promotionService.UpdatePromotion(promotion);
-                DataChanged?.Invoke(this, EventArgs.Empty);
             }
-            if (result.Succeeded == false)
+
+            if (!result.Succeeded)
             {
-                MessageBox.Show($"{result.Message}", "Lỗi");
+                MessageBox.Show(result.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show($"Luu thanh cong", "Thong bao");
+            MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DataChanged?.Invoke(this, EventArgs.Empty);
             this.Close();
         }
+        private bool KiemTraDuLieuNhap(out PromotionDto promotion)
+        {
+            promotion = null;
 
+            string maGG = txtMaGG.Text.Trim();
+            string tenGG = txtTenGG.Text.Trim();
+            DateTime ngayBD = dtpNgayBD.Value;
+            DateTime ngayKT = dtpNgayKT.Value;
+            int mucDoUuTien = (int)udMucDoUuTien.Value;
+            if (cboTrangThai.SelectedIndex < 0)
+            {
+                cboTrangThai.SelectedIndex = 0;
+            }
+            bool trangThai = Convert.ToInt32(cboTrangThai.SelectedValue) == 1;
+            if (string.IsNullOrEmpty(tenGG))
+            {
+                MessageBox.Show("Tên chương trình giảm giá không được để trống.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenGG.Focus();
+                return false;
+            }
+            if (ngayBD > ngayKT)
+            {
+                MessageBox.Show("Ngày bắt đầu không được sau ngày kết thúc.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpNgayBD.Focus();
+                return false;
+            }
+            if (ngayKT < ngayBD)
+            {
+                MessageBox.Show("Ngày kết thúc không thể trước ngày bắt đầu.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpNgayKT.Focus();
+                return false;
+            }
+            if (udMucDoUuTien.Value < 0)
+            {
+                MessageBox.Show("Mức độ ưu tiên phải lớn hơn 0.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                udMucDoUuTien.Focus();
+                return false;
+            }
+            promotion = new PromotionDto()
+            {
+                PromotionId = maGG,
+                PromotionName = tenGG,
+                StartDate = ngayBD,
+                EndDate = ngayKT,
+                Priority = mucDoUuTien,
+                Status = trangThai
+            };
+
+            return true;
+        }
         private void frmChucNang_PhieuGiamGia_Load(object sender, EventArgs e)
         {
             cboTrangThai.Items.Add("Đang hoạt động");

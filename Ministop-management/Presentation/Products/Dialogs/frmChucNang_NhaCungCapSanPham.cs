@@ -32,125 +32,134 @@ namespace Presentation
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            bool TryParseDecimalFlexible(string text, out decimal value)
-            {
-                value = 0m;
-                if (string.IsNullOrWhiteSpace(text)) return false;
-                var t = text.Trim();
-                if (decimal.TryParse(t, NumberStyles.Number, CultureInfo.InvariantCulture, out value)) return true;
-                if (decimal.TryParse(t, NumberStyles.Number, new CultureInfo("vi-VN"), out value)) return true;
-                if (decimal.TryParse(t, NumberStyles.Number, CultureInfo.CurrentCulture, out value)) return true;
-                return false;
-            }
-            var supplierId = txtMaNCC.Text?.Trim() ?? string.Empty;
-            var productId = txtMaSP.Text?.Trim() ?? string.Empty;
-            var priceText = txtGiaNCC.Text?.Trim() ?? string.Empty;
-            var statusRaw = cboTrangThai.SelectedValue?.ToString()?.Trim() ?? string.Empty;
-            if (string.IsNullOrEmpty(supplierId))
-            {
-                MessageBox.Show("Mã nhà cung cấp không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtMaNCC.Focus();
+            if (!ValidateInput(out var supplierProduct))
                 return;
-            }
 
-            if (string.IsNullOrEmpty(productId))
-            {
-                MessageBox.Show("Mã sản phẩm không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtMaSP.Focus();
-                return;
-            }
-
-            if (string.IsNullOrEmpty(priceText))
-            {
-                MessageBox.Show("Giá NCC không được để trống.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtGiaNCC.Focus();
-                return;
-            }
-            const int MaxIdLength = 50;
-            if (supplierId.Length > MaxIdLength)
-            {
-                MessageBox.Show($"Mã nhà cung cấp tối đa {MaxIdLength} ký tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtMaNCC.Focus();
-                return;
-            }
-            if (productId.Length > MaxIdLength)
-            {
-                MessageBox.Show($"Mã sản phẩm tối đa {MaxIdLength} ký tự.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtMaSP.Focus();
-                return;
-            }
-            if (!TryParseDecimalFlexible(priceText, out var giaNCC))
-            {
-                MessageBox.Show("Giá không hợp lệ. Vui lòng nhập số thập phân hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtGiaNCC.Focus();
-                return;
-            }
-            if (giaNCC < 0m)
-            {
-                MessageBox.Show("Giá không được nhỏ hơn 0.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtGiaNCC.Focus();
-                return;
-            }
-            const decimal MaxAllowedPrice = 1000000000m;
-            if (giaNCC > MaxAllowedPrice)
-            {
-                MessageBox.Show($"Giá không được lớn hơn {MaxAllowedPrice:N0}.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtGiaNCC.Focus();
-                return;
-            }
-            byte trangthai = 0;
-            if (string.Equals(statusRaw, "hoạt động", StringComparison.OrdinalIgnoreCase) ||
-                string.Equals(statusRaw, "hoat dong", StringComparison.OrdinalIgnoreCase))
-            {
-                trangthai = 1;
-            }
-            else if (string.Equals(statusRaw, "tạm ngưng hoạt động", StringComparison.OrdinalIgnoreCase) ||
-                     string.Equals(statusRaw, "tam ngung hoat dong", StringComparison.OrdinalIgnoreCase))
-            {
-                trangthai = 2;
-            }
-            else if (byte.TryParse(statusRaw, out var stParsed) && (stParsed == 1 || stParsed == 2))
-            {
-                trangthai = stParsed;
-            }
-            else
-            {
-                MessageBox.Show("Trạng thái không hợp lệ. Vui lòng chọn trạng thái.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                cboTrangThai.Focus();
-                return;
-            }
-          
-            var supplierProduct = new SupplierProductDto
-            {
-                SupplierId = supplierId,
-                ProductId = productId,
-                SupplyPrice = giaNCC,
-                Status = trangthai
-            };
-
-            Result<bool> result;
-            if (string.IsNullOrEmpty(_supplierProductId))
-            {
-                result = _supplierProductService.CreateSupplierProduct(supplierProduct);
-            }
-            else
-            {
-                supplierProduct.Id = _supplierProductId;
-                result = _supplierProductService.UpdateSupplierProduct(supplierProduct);
-            }
+            var result = SaveSupplierProduct(supplierProduct);
 
             if (!result.Succeeded)
             {
-                MessageBox.Show(result.Message ?? "Lưu không thành công.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowError(result.Message ?? "Lưu không thành công.");
                 return;
             }
 
             Datachanged?.Invoke(this, EventArgs.Empty);
-            MessageBox.Show("Lưu thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowInfo("Lưu thành công");
             this.Close();
         }
+        private bool ValidateInput(out SupplierProductDto supplierProduct)
+        {
+            supplierProduct = null;
 
+            string supplierId = txtMaNCC.Text?.Trim() ?? string.Empty;
+            string productId = txtMaSP.Text?.Trim() ?? string.Empty;
+            string priceText = txtGiaNCC.Text?.Trim() ?? string.Empty;
+            string statusRaw = cboTrangThai.SelectedValue?.ToString()?.Trim() ?? string.Empty;
 
+            if (!ValidateNotEmpty(supplierId, "Mã nhà cung cấp", txtMaNCC)) return false;
+            if (!ValidateNotEmpty(productId, "Mã sản phẩm", txtMaSP)) return false;
+            if (!ValidateNotEmpty(priceText, "Giá NCC", txtGiaNCC)) return false;
+
+            if (!ValidateMaxLength(supplierId, 50, "Mã nhà cung cấp", txtMaNCC)) return false;
+            if (!ValidateMaxLength(productId, 50, "Mã sản phẩm", txtMaSP)) return false;
+
+            if (!TryParseDecimalFlexible(priceText, out var giaNCC))
+            {
+                ShowError("Giá không hợp lệ. Vui lòng nhập số thập phân hợp lệ.", txtGiaNCC);
+                return false;
+            }
+
+            if (giaNCC < 0m)
+            {
+                ShowError("Giá không được nhỏ hơn 0.", txtGiaNCC);
+                return false;
+            }
+
+            if (giaNCC > 1_000_000_000m)
+            {
+                ShowError("Giá không được lớn hơn 1,000,000,000.", txtGiaNCC);
+                return false;
+            }
+
+            byte trangThai = ParseStatus(statusRaw);
+            if (trangThai == 0)
+            {
+                ShowError("Trạng thái không hợp lệ. Vui lòng chọn trạng thái.", cboTrangThai);
+                return false;
+            }
+
+            supplierProduct = new SupplierProductDto
+            {
+                SupplierId = supplierId,
+                ProductId = productId,
+                SupplyPrice = giaNCC,
+                Status = trangThai
+            };
+
+            return true;
+        }
+        private bool ValidateNotEmpty(string value, string fieldName, Control control)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                ShowError($"{fieldName} không được để trống.", control);
+                return false;
+            }
+            return true;
+        }
+        private bool ValidateMaxLength(string value, int maxLength, string fieldName, Control control)
+        {
+            if (value.Length > maxLength)
+            {
+                ShowError($"{fieldName} tối đa {maxLength} ký tự.", control);
+                return false;
+            }
+            return true;
+        }
+        private bool TryParseDecimalFlexible(string text, out decimal value)
+        {
+            value = 0m;
+            if (string.IsNullOrWhiteSpace(text)) return false;
+
+            var t = text.Trim();
+            return decimal.TryParse(t, NumberStyles.Number, CultureInfo.InvariantCulture, out value)
+                || decimal.TryParse(t, NumberStyles.Number, new CultureInfo("vi-VN"), out value)
+                || decimal.TryParse(t, NumberStyles.Number, CultureInfo.CurrentCulture, out value);
+        }
+        private byte ParseStatus(string statusRaw)
+        {
+            if (string.IsNullOrEmpty(statusRaw)) return 0;
+
+            if (string.Equals(statusRaw, "hoạt động", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(statusRaw, "hoat dong", StringComparison.OrdinalIgnoreCase))
+                return 1;
+
+            if (string.Equals(statusRaw, "tạm ngưng hoạt động", StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(statusRaw, "tam ngung hoat dong", StringComparison.OrdinalIgnoreCase))
+                return 2;
+
+            return byte.TryParse(statusRaw, out var result) && (result == 1 || result == 2)
+                ? result
+                : (byte)0;
+        }
+        private Result<bool> SaveSupplierProduct(SupplierProductDto supplierProduct)
+        {
+            if (!string.IsNullOrEmpty(_supplierProductId))
+            {
+                supplierProduct.Id = _supplierProductId;
+                return _supplierProductService.UpdateSupplierProduct(supplierProduct);
+            }
+            return _supplierProductService.CreateSupplierProduct(supplierProduct);
+        }
+        private void ShowError(string message, Control control = null)
+        {
+            MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            control?.Focus();
+        }
+        private void ShowInfo(string message)
+        {
+            MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -215,13 +224,22 @@ namespace Presentation
                     if (result != null && result.Succeeded && result.Data != null)
                         txtTenSP.Text = result.Data.ProductName;
                     else
-                        txtTenSP.Text = "(Không tìm thấy)";
+                        txtTenSP.Text = null;
                 }
             }
             catch
             {
                 txtTenSP.Text = "(Lỗi lấy dữ liệu)";
             }
+        }
+
+        private void txtMaSP_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void txtTenSP_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

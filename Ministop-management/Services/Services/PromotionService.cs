@@ -36,7 +36,7 @@ namespace Services.Services
                 var PromotionEntity = _ministopUnitOfWork.PromotionRepository.Find(x => x.PromotionID == id);
                 if (PromotionEntity == null)
                 {
-                    return new Result<PromotionDto>(ErrorCodeEnum.PCT_ERR_001);
+                    return new Result<PromotionDto>(ErrorCodeEnum.PRM_ERR_001);
                 }
                 var result = _mapper.Map<PromotionDto>(PromotionEntity);
                 return new Result<PromotionDto>(result);
@@ -70,7 +70,7 @@ namespace Services.Services
                 var filter = promotions.Where(x => listRestoreId.Contains(x.PromotionID)).ToList();
                 if (filter == null || filter.Count == 0)
                 {
-                    return new Result<bool>(ErrorCodeEnum.PCT_ERR_001);
+                    return new Result<bool>(ErrorCodeEnum.PRM_ERR_001);
                 }
                 foreach (var item in filter)
                 {
@@ -104,7 +104,7 @@ namespace Services.Services
                 var isDuplicate = _ministopUnitOfWork.PromotionRepository.Any(x => x.PromotionID == promotionDto.PromotionId);
                 if (isDuplicate)
                 {
-                    return new Result<bool>(ErrorCodeEnum.PCT_ERR_006);
+                    return new Result<bool>(ErrorCodeEnum.PRM_ERR_006);
                 }
                 var PromotionId = IdGenerator.CreateID("PRM");
                 var currenUserId = _userSession.UserId;
@@ -115,7 +115,7 @@ namespace Services.Services
                 var succeeded = _ministopUnitOfWork.PromotionRepository.Add(PromotionEntity);
                 if (succeeded == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.PCT_ERR_003);
+                    return new Result<bool>(ErrorCodeEnum.PRM_ERR_003);
                 }
                 return new Result<bool>(true);
             }
@@ -132,13 +132,13 @@ namespace Services.Services
                 var isDuplicate = _ministopUnitOfWork.PromotionRepository.Any(x => x.PromotionID != PromotionEdit.PromotionId && x.PromotionName == PromotionEdit.PromotionName);
                 if (isDuplicate)
                 {
-                    return new Result<bool>(ErrorCodeEnum.PCT_ERR_004);
+                    return new Result<bool>(ErrorCodeEnum.PRM_ERR_004);
                 }
                 var currentUserID = _userSession.UserId;
                 var PromotionEntity = _ministopUnitOfWork.PromotionRepository.Find(x => x.PromotionID == PromotionEdit.PromotionId);
                 if (PromotionEntity == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.STR_ERR_001);
+                    return new Result<bool>(ErrorCodeEnum.PRM_ERR_001);
                 }
                 PromotionEntity.PromotionName = PromotionEdit.PromotionName;
                 PromotionEntity.StartDate = PromotionEdit.StartDate;
@@ -166,7 +166,7 @@ namespace Services.Services
                 var PromotionEntity = _ministopUnitOfWork.PromotionRepository.Find(x => x.PromotionID == PromotionId);
                 if (PromotionEntity == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.PCT_ERR_005);
+                    return new Result<bool>(ErrorCodeEnum.PRM_ERR_005);
                 }
                 PromotionEntity.LastModified = _dateTimeService.NowUtc;
                 PromotionEntity.LastModifiedBy = currentUserId;

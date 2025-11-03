@@ -156,6 +156,7 @@
             this.txtMaSP.SelectedText = "";
             this.txtMaSP.Size = new System.Drawing.Size(292, 44);
             this.txtMaSP.TabIndex = 142;
+            this.txtMaSP.TextChanged += new System.EventHandler(this.txtMaSP_TextChanged);
             // 
             // txtGiaNCC
             // 
@@ -264,6 +265,7 @@
             this.txtTenSP.SelectedText = "";
             this.txtTenSP.Size = new System.Drawing.Size(292, 44);
             this.txtTenSP.TabIndex = 149;
+            this.txtTenSP.TextChanged += new System.EventHandler(this.txtTenSP_TextChanged);
             // 
             // label4
             // 
