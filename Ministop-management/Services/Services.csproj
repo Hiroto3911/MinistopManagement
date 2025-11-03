@@ -57,17 +57,23 @@
     <Compile Include="Interfaces\IEmployeeService.cs" />
     <Compile Include="Interfaces\IProductCategoryService.cs" />
     <Compile Include="Interfaces\IProductService.cs" />
+    <Compile Include="Interfaces\IPromotionProductService.cs" />
+    <Compile Include="Interfaces\IPromotionService.cs" />
     <Compile Include="Interfaces\IReportService.cs" />
     <Compile Include="Interfaces\IShiftService.cs" />
     <Compile Include="Interfaces\IStoreFixedExpenseServices.cs" />
+    <Compile Include="Interfaces\ISupplierProductService.cs" />
     <Compile Include="Interfaces\ISupplierService.cs" />
     <Compile Include="Mapping\AllowanceMapping.cs" />
     <Compile Include="Mapping\EmployeeMapping.cs" />
     <Compile Include="Mapping\ProductCategoryMapping.cs" />
     <Compile Include="Mapping\ProductMapping.cs" />
+    <Compile Include="Mapping\PromotionMapping.cs" />
+    <Compile Include="Mapping\PromotionProductMapping.cs" />
     <Compile Include="Mapping\ShiftMapping.cs" />
     <Compile Include="Mapping\StoreFixedExpenseMapping.cs" />
     <Compile Include="Mapping\SupplierMapping.cs" />
+    <Compile Include="Mapping\SupplierProductMapping.cs" />
     <Compile Include="ServicesRegistration.cs" />
     <Compile Include="Interfaces\IDateTimeService.cs" />
     <Compile Include="Interfaces\IIdentityService.cs" />
@@ -80,10 +86,13 @@
     <Compile Include="Services\IdentityService.cs" />
     <Compile Include="Services\ProductCategoryService.cs" />
     <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\PromotionProductService.cs" />
+    <Compile Include="Services\PromotionService.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Services\ShiftService.cs" />
     <Compile Include="Services\StoreFixedExpenseServices.cs" />
     <Compile Include="Services\StoreService.cs" />
+    <Compile Include="Services\SupplierProductService.cs" />
     <Compile Include="Services\SupplierService.cs" />
   </ItemGroup>
   <ItemGroup>

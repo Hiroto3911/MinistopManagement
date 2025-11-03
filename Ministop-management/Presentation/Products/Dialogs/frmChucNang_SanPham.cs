@@ -69,7 +69,6 @@ namespace Presentation
         {
             cboLoaiSP.DropDownStyle = ComboBoxStyle.DropDownList;
             LoadCboLSP();
-            //cboTrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
             if (!string.IsNullOrEmpty(_ProductId))
             {
                 var entity = _ProductService.GetProductByID(_ProductId);
@@ -93,113 +92,11 @@ namespace Presentation
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            //decimal  standardPrice = Convert.ToDecimal(txtGTC.Text);
-            //var product = new ProductDto() { ProductId = txtMaSP.Text, CategoryId = cboLoaiSP.SelectedValue.ToString(), ProductName = txtTenSP.Text, Unit = txtUnit.Text,StandardPrice = standardPrice };
-            //Result<bool> result;
-            //if (string.IsNullOrEmpty(txtMaSP.Text))
-            //{
-            //    result = _ProductService.CreateProduct(product);
-            //    DataChanged?.Invoke(this, EventArgs.Empty);
-            //}
-            //else
-            //{
-            //    product.ProductId = _ProductId;
-            //    result = _ProductService.UpdateProduct(product);
-            //    DataChanged?.Invoke(this, EventArgs.Empty);
-            //}
-            //if (result.Succeeded == false)
-            //{
-            //    MessageBox.Show($"{result.Message}", "Lỗi");
-            //    return;
-            //}
-
-            //MessageBox.Show($"Luu thanh cong", "Thong bao");
-            //this.Close();
-            string loaiSP = cboLoaiSP.SelectedValue?.ToString() ?? "";
-            string tenSP = txtTenSP.Text.Trim();
-            string donVi = txtUnit.Text.Trim();
-            string giaTieuChuanText = txtGTC.Text.Trim();
-
-            // 1️⃣ Kiểm tra loại sản phẩm
-            if (string.IsNullOrEmpty(loaiSP))
-            {
-                MessageBox.Show("Vui lòng chọn loại sản phẩm.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cboLoaiSP.Focus();
+            if (!KiemTraDuLieuNhap(out ProductDto product))
                 return;
-            }
-
-            // 2️⃣ Kiểm tra tên sản phẩm
-            if (string.IsNullOrWhiteSpace(tenSP))
-            {
-                MessageBox.Show("Vui lòng nhập tên sản phẩm.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTenSP.Focus();
-                return;
-            }
-
-            if (tenSP.Length > 100)
-            {
-                MessageBox.Show("Tên sản phẩm không được vượt quá 100 ký tự.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTenSP.Focus();
-                return;
-            }
-
-            if (!System.Text.RegularExpressions.Regex.IsMatch(tenSP, @"^[a-zA-Z0-9\s\-_À-ỹ]+$"))
-            {
-                MessageBox.Show("Tên sản phẩm chỉ được chứa chữ, số, khoảng trắng, gạch nối (-) hoặc gạch dưới (_).",
-                                "Ký tự không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtTenSP.Focus();
-                return;
-            }
-
-            // 3️⃣ Kiểm tra đơn vị
-            if (string.IsNullOrWhiteSpace(donVi))
-            {
-                MessageBox.Show("Vui lòng nhập đơn vị tính.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUnit.Focus();
-                return;
-            }
-
-            if (!System.Text.RegularExpressions.Regex.IsMatch(donVi, @"^[a-zA-Z0-9\s\-_À-ỹ]+$"))
-            {
-                MessageBox.Show("Đơn vị chỉ được chứa chữ, số và khoảng trắng.", "Ký tự không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUnit.Focus();
-                return;
-            }
-
-            // 4️⃣ Kiểm tra giá tiêu chuẩn
-            if (string.IsNullOrWhiteSpace(giaTieuChuanText))
-            {
-                MessageBox.Show("Vui lòng nhập giá tiêu chuẩn.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtGTC.Focus();
-                return;
-            }
-
-            if (!decimal.TryParse(giaTieuChuanText, out decimal standardPrice))
-            {
-                MessageBox.Show("Giá tiêu chuẩn phải là số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtGTC.Focus();
-                return;
-            }
-
-            if (standardPrice <= 0)
-            {
-                MessageBox.Show("Giá tiêu chuẩn phải lớn hơn 0.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtGTC.Focus();
-                return;
-            }
-
-            // 5️⃣ Tạo DTO
-            var product = new ProductDto()
-            {
-                CategoryId = loaiSP,
-                ProductName = tenSP,
-                Unit = donVi,
-                StandardPrice = standardPrice
-            };
 
             Result<bool> result;
 
-            // 6️⃣ Thêm mới hoặc cập nhật
             if (string.IsNullOrEmpty(_ProductId))
             {
                 result = _ProductService.CreateProduct(product);
@@ -212,7 +109,6 @@ namespace Presentation
                 DataChanged?.Invoke(this, EventArgs.Empty);
             }
 
-            // 7️⃣ Kiểm tra kết quả xử lý
             if (!result.Succeeded)
             {
                 MessageBox.Show(result.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -221,6 +117,81 @@ namespace Presentation
 
             MessageBox.Show("Lưu thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+        private bool KiemTraDuLieuNhap(out ProductDto product)
+        {
+            product = null;
+
+            string loaiSP = cboLoaiSP.SelectedValue?.ToString() ?? "";
+            string tenSP = txtTenSP.Text.Trim();
+            string donVi = txtUnit.Text.Trim();
+            string giaTieuChuanText = txtGTC.Text.Trim();
+            if (string.IsNullOrEmpty(loaiSP))
+            {
+                MessageBox.Show("Vui lòng chọn loại sản phẩm.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cboLoaiSP.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(tenSP))
+            {
+                MessageBox.Show("Vui lòng nhập tên sản phẩm.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenSP.Focus();
+                return false;
+            }
+
+            if (tenSP.Length > 100)
+            {
+                MessageBox.Show("Tên sản phẩm không được vượt quá 100 ký tự.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenSP.Focus();
+                return false;
+            }
+            if (!System.Text.RegularExpressions.Regex.IsMatch(tenSP, @"^[a-zA-Z0-9\s\-_À-ỹ]+$"))
+            {
+                MessageBox.Show("Tên sản phẩm chỉ được chứa chữ, số, khoảng trắng, gạch nối (-) hoặc gạch dưới (_).",
+                                "Ký tự không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTenSP.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(donVi))
+            {
+                MessageBox.Show("Vui lòng nhập đơn vị tính.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUnit.Focus();
+                return false;
+            }
+            if (!System.Text.RegularExpressions.Regex.IsMatch(donVi, @"^[A-Za-zÀ-ỹ\s]+$"))
+            {
+                MessageBox.Show("Đơn vị chỉ được chứa chữ cái (có thể có dấu) và khoảng trắng, không được dùng số hoặc ký tự đặc biệt.",
+                                "Ký tự không hợp lệ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUnit.Focus();
+                return false;
+            }
+            if (string.IsNullOrWhiteSpace(giaTieuChuanText))
+            {
+                MessageBox.Show("Vui lòng nhập giá tiêu chuẩn.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtGTC.Focus();
+                return false;
+            }
+            if (!decimal.TryParse(giaTieuChuanText, out decimal standardPrice))
+            {
+                MessageBox.Show("Giá tiêu chuẩn phải là số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtGTC.Focus();
+                return false;
+            }
+            if (standardPrice < 1)
+            {
+                MessageBox.Show("Giá tiêu chuẩn phải lớn hơn hoặc bằng 1.", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtGTC.Focus();
+                return false;
+            }
+            product = new ProductDto
+            {
+                CategoryId = loaiSP,
+                ProductName = tenSP,
+                Unit = donVi,
+                StandardPrice = standardPrice
+            };
+
+            return true;
         }
     }
 }

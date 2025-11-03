@@ -126,22 +126,22 @@ namespace Shared.ErrorCode
         #endregion
 
         #region Product 
-        [Description(@"Không tìm thấy loại sản phẩm.")]
+        [Description(@"Không tìm thấy sản phẩm.")]
         PRD_ERR_001,
-        [Description(@"Loại sản phẩm đã tồn tại.")]
+        [Description(@"Sản phẩm đã tồn tại.")]
         PRD_ERR_002,
-        [Description(@"Tạo loại sản phẩm thất bại.")]
+        [Description(@"Tạo sản phẩm thất bại.")]
         PRD_ERR_003,
-        [Description(@"Sửa loại sản phẩm thất bại.")]
+        [Description(@"Sửa sản phẩm thất bại.")]
         PRD_ERR_004,
-        [Description(@"Xóa loại sản phẩm thất bại.")]
+        [Description(@"Xóa sản phẩm thất bại.")]
         PRD_ERR_005,
-        [Description(@"Bị trùng dữ liệu loại sản phẩm.")]
+        [Description(@"Bị trùng dữ liệu sản phẩm.")]
         PRD_ERR_006,
         #endregion
 
         #region Supplier
-        [Description(@"Không nhà cung cấp loại sản phẩm.")]
+        [Description(@"Không tìm thấy nhà cung cấp.")]
         SLE_ERR_001,
         [Description(@"Nhà cung cấp đã tồn tại.")]
         SLE_ERR_002,
@@ -153,6 +153,48 @@ namespace Shared.ErrorCode
         SLE_ERR_005,
         [Description(@"Bị trùng dữ liệu nhà cung cấp.")]
         SLE_ERR_006,
+        #endregion
+        #region SupplierProduct
+        [Description(@"Không tìm thấy nhà cung cấp loại sản phẩm.")]
+        SLPRD_ERR_001,
+        [Description(@"Nhà cung cấp loại sản phẩm này đã tồn tại.")]
+        SLPRD_ERR_002,
+        [Description(@"Tạo nhà cung cấp sản phẩm thất bại.")]
+        SLPRD_ERR_003,
+        [Description(@"Sửa nhà cung cấp sản phẩm thất bại.")]
+        SLPRD_ERR_004,
+        [Description(@"Xóa nhà cung cấp sản phẩm thất bại.")]
+        SLPRD_ERR_005,
+        [Description(@"Bị trùng dữ liệu nhà cung cấp sản phẩm.")]
+        SLPRD_ERR_006,
+        #endregion
+        #region Promotion
+        [Description(@"Không tìm thấy phiếu giảm giá.")]
+        PRM_ERR_001,
+        [Description(@"Phiếu giảm giá đã tồn tại.")]
+        PRM_ERR_002,
+        [Description(@"Tạo phiếu giảm giá thất bại.")]
+        PRM_ERR_003,
+        [Description(@"Sửa phiếu giảm giá thất bại.")]
+        PRM_ERR_004,
+        [Description(@"Xóa phiếu giảm giá thất bại.")]
+        PRM_ERR_005,
+        [Description(@"Bị trùng dữ liệu phiếu giảm giá.")]
+        PRM_ERR_006,
+        #endregion
+        #region PromotionProduct
+        [Description(@"Không tìm thấy phiếu giảm giá sản phẩm.")]
+        PRP_ERR_001,
+        [Description(@"Phiếu giảm giá sản phẩm đã tồn tại.")]
+        PRP_ERR_002,
+        [Description(@"Tạo phiếu giảm giá sản phẩm thất bại.")]
+        PRP_ERR_003,
+        [Description(@"Sửa phiếu giảm giá sản phẩm thất bại.")]
+        PRP_ERR_004,
+        [Description(@"Xóa phiếu giảm giá sản phẩm thất bại.")]
+        PRP_ERR_005,
+        [Description(@"Bị trùng dữ liệu phiếu giảm giá sản phẩm.")]
+        PRP_ERR_006,
         #endregion
     }
 }
