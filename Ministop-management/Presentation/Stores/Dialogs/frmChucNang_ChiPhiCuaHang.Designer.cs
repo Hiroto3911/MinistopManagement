@@ -46,6 +46,8 @@
             this.txtTienDien = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTienMatBang = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTienNuoc = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cboTrangThai = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -171,7 +173,7 @@
             this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(130, 332);
+            this.btnLuu.Location = new System.Drawing.Point(129, 371);
             this.btnLuu.Margin = new System.Windows.Forms.Padding(2);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(93, 29);
@@ -181,7 +183,7 @@
             // 
             // rtxtGhiChu
             // 
-            this.rtxtGhiChu.Location = new System.Drawing.Point(130, 265);
+            this.rtxtGhiChu.Location = new System.Drawing.Point(130, 259);
             this.rtxtGhiChu.Name = "rtxtGhiChu";
             this.rtxtGhiChu.Size = new System.Drawing.Size(219, 52);
             this.rtxtGhiChu.TabIndex = 192;
@@ -220,7 +222,7 @@
             this.dtpNgayLap.FillColor = System.Drawing.Color.White;
             this.dtpNgayLap.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpNgayLap.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayLap.Location = new System.Drawing.Point(130, 92);
+            this.dtpNgayLap.Location = new System.Drawing.Point(130, 91);
             this.dtpNgayLap.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpNgayLap.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpNgayLap.Name = "dtpNgayLap";
@@ -242,7 +244,7 @@
             this.txtTienDien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTienDien.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTienDien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTienDien.Location = new System.Drawing.Point(129, 178);
+            this.txtTienDien.Location = new System.Drawing.Point(129, 175);
             this.txtTienDien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTienDien.Name = "txtTienDien";
             this.txtTienDien.PlaceholderText = "";
@@ -264,7 +266,7 @@
             this.txtTienMatBang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTienMatBang.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTienMatBang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTienMatBang.Location = new System.Drawing.Point(129, 135);
+            this.txtTienMatBang.Location = new System.Drawing.Point(129, 133);
             this.txtTienMatBang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTienMatBang.Name = "txtTienMatBang";
             this.txtTienMatBang.PlaceholderText = "";
@@ -286,7 +288,7 @@
             this.txtTienNuoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTienNuoc.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTienNuoc.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtTienNuoc.Location = new System.Drawing.Point(129, 221);
+            this.txtTienNuoc.Location = new System.Drawing.Point(129, 217);
             this.txtTienNuoc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTienNuoc.Name = "txtTienNuoc";
             this.txtTienNuoc.PlaceholderText = "";
@@ -295,11 +297,43 @@
             this.txtTienNuoc.TabIndex = 189;
             this.txtTienNuoc.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTienNuoc_KeyDown);
             // 
+            // cboTrangThai
+            // 
+            this.cboTrangThai.BackColor = System.Drawing.Color.Transparent;
+            this.cboTrangThai.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.cboTrangThai.BorderRadius = 2;
+            this.cboTrangThai.BorderThickness = 2;
+            this.cboTrangThai.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cboTrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTrangThai.Enabled = false;
+            this.cboTrangThai.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboTrangThai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cboTrangThai.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cboTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cboTrangThai.ItemHeight = 30;
+            this.cboTrangThai.Location = new System.Drawing.Point(129, 317);
+            this.cboTrangThai.Margin = new System.Windows.Forms.Padding(2);
+            this.cboTrangThai.Name = "cboTrangThai";
+            this.cboTrangThai.Size = new System.Drawing.Size(219, 36);
+            this.cboTrangThai.TabIndex = 194;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(12, 317);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 19);
+            this.label8.TabIndex = 193;
+            this.label8.Text = "Trạng thái :";
+            // 
             // frmChucNang_ChiPhiCuaHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 373);
+            this.ClientSize = new System.Drawing.Size(376, 411);
+            this.Controls.Add(this.cboTrangThai);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.rtxtGhiChu);
             this.Controls.Add(this.txtTenCuaHang);
             this.Controls.Add(this.dtpNgayLap);
@@ -345,5 +379,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtTienDien;
         private Guna.UI2.WinForms.Guna2TextBox txtTienMatBang;
         private Guna.UI2.WinForms.Guna2TextBox txtTienNuoc;
+        private Guna.UI2.WinForms.Guna2ComboBox cboTrangThai;
+        private System.Windows.Forms.Label label8;
     }
 }

@@ -16,6 +16,10 @@ namespace Infrastructure.Interfaces
         IProductCategoryRepository ProductCategoryRepository { get; }
         IProductRepository ProductRepository { get; }
         ISupplierRepository SupplierRepository { get; }
+        ISupplierProductRepository SupplierProductRepository { get; }
+        IPromotionRepository PromotionRepository { get; }
+        IPromotionProductRepository PromotionProductRepository { get; }
         IReportRepository ReportRepository { get; }
+
     }
 }
