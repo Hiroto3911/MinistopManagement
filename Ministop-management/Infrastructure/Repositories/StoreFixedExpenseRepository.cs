@@ -26,14 +26,29 @@ namespace Infrastructure.Repositories
                 .OrderByDescending(x => x.Created)
                 .ToList();
         }
-        public IReadOnlyList<StoreFixedExpense> GetPagedResponse(Expression<Func<StoreFixedExpense, bool>> predicate, int pageNumber, int pageSize)
+        public IReadOnlyList<StoreFixedExpenseDto> GetPagedResponse(Expression<Func<StoreFixedExpense, bool>> predicate, int pageNumber, int pageSize)
         {
-            return _context.GetTable<StoreFixedExpense>()
-                .Where(predicate)
-                .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize)
-                .OrderByDescending(x => x.Created)
-                .ToList();
+            var query = from e in _context.GetTable<StoreFixedExpense>().Where(predicate)
+                        join s in _context.GetTable<Store>() on e.StoreID equals s.StoreID
+                        where !e.IsDeleted 
+                        orderby e.Created descending
+                        select new StoreFixedExpenseDto
+                        {
+                            ExpenseId = e.ExpenseID,
+                            StoreId = s.StoreID,
+                            StoreName = s.StoreName,
+                            ElectricityCost = e.ElectricityCost,
+                            RentCost = e.RentCost,
+                            WaterCost = e.WaterCost,
+                            Status = e.Status,
+                            Note = e.Note,
+                            Created = e.Created,
+                            CreatedBy = e.CreatedBy,
+                            LastModified = e.LastModified,
+                            LastModifiedBy = e.LastModifiedBy
+                        };
+            return query.Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize).ToList();
         }
         public override bool All(Expression<Func<StoreFixedExpense, bool>> predicate)
         {

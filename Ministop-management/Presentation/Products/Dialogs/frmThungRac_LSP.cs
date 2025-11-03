@@ -89,9 +89,6 @@ namespace Presentation
             dgvDuLieu.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvDuLieu.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
             dgvDuLieu.RowTemplate.Height = 40;
-
-
-
         }
         private void itbnThoat_Click(object sender, EventArgs e)
         {
