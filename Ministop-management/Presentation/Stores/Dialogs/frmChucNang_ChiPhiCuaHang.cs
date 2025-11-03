@@ -30,9 +30,40 @@ namespace Presentation
             _expenseID = expenseID;
         }
 
+        private void LoadDataCboTrangThai()
+        {
+            cboTrangThai.Enabled = true;
+            cboTrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
+            Dictionary<string, byte> status;
+            if (_userSession.Role == "Admin")
+            {
+                txtTienDien.Enabled = false;
+                txtTienNuoc.Enabled = false;
+                txtTienMatBang.Enabled = false;
+                
+                status = new Dictionary<string, byte>()
+                {
+                    {"Duyệt",1 },
+                    { "Không duyệt",0 }
+                };
+            }
+            else
+            {
+                
+                status = new Dictionary<string, byte>()
+                {
+                  {"Đang soạn",2 },
+                  {"Chờ duyệt",3 },
+
+                };
+            }
+            cboTrangThai.DataSource = status.ToList();
+            cboTrangThai.DisplayMember = "Key";
+            cboTrangThai.ValueMember = "Value";
+        }
         private void frmChucNang_ChiPhiCuaHang_Load(object sender, EventArgs e)
         {
-            //cboTrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
+            LoadDataCboTrangThai();
             if (!string.IsNullOrEmpty(_expenseID))
             {
                 var entity = _storeFixedExpenseServices.GetStoreFixedExpenseByID(_expenseID);
@@ -42,11 +73,15 @@ namespace Presentation
                     return;
                 }
                 txtTenCuaHang.Text = entity.Data.StoreId;
-                txtTienMatBang.Text = entity.Data.RentCost.ToString()??"0.0";
+                txtTienMatBang.Text = entity.Data.RentCost.ToString() ?? "0.0";
                 txtTienDien.Text = entity.Data.ElectricityCost.ToString() ?? "0.0";
                 txtTienNuoc.Text = entity.Data.WaterCost.ToString() ?? "0.0";
-                rtxtGhiChu.Text = entity.Data.Note ??"";
+                rtxtGhiChu.Text = entity.Data.Note ?? "";
 
+            }
+            else
+            {
+                cboTrangThai.Enabled = false;
             }
         }
 
@@ -94,16 +129,17 @@ namespace Presentation
             var storeId = _userSession.IdStore;
             var note = rtxtGhiChu.Text.Trim();
             string monthYear = dtpNgayLap.Text;
-
+            byte status = Convert.ToByte(cboTrangThai.SelectedValue.ToString()); 
             var expenseDto = new StoreFixedExpenseDto()
             {
-          
+
                 StoreId = storeId,
                 RentCost = rentCost,          // giá trị có thể là 0 nếu trống
                 WaterCost = waterCost,
                 ElectricityCost = electricityCost,
                 MonthYear = monthYear,
-                Note = note
+                Note = note,
+                Status = status
             };
 
             Result<string> result;
@@ -115,6 +151,7 @@ namespace Presentation
             }
             else
             {
+                
                 expenseDto.ExpenseId = _expenseID;
                 result = _storeFixedExpenseServices.UpdateStoreFixedExpense(expenseDto);
                 dataChanged?.Invoke(this, result.Data);
@@ -161,7 +198,7 @@ namespace Presentation
         private void rtxtGhiChu_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up) { txtTienNuoc.Focus(); }
-            else if ( e.KeyCode == Keys.Enter) { btnLuu_Click(sender, e); }
+            else if (e.KeyCode == Keys.Enter) { btnLuu_Click(sender, e); }
             else return;
             e.Handled = true;
             e.SuppressKeyPress = true;
