@@ -134,6 +134,24 @@
     <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.Designer.cs">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_GG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_GG.Designer.cs">
+      <DependentUpon>frmThungRac_GG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\frmHienThi_GiamGiaSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\frmHienThi_GiamGiaSanPham.Designer.cs">
+      <DependentUpon>frmHienThi_GiamGiaSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\frmHienThi_NhaCungCapSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\frmHienThi_NhaCungCapSanPham.Designer.cs">
+      <DependentUpon>frmHienThi_NhaCungCapSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\Dialogs\frmChucNang_PhieuTraHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -418,6 +436,15 @@
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.resx">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmThungRac_GG.resx">
+      <DependentUpon>frmThungRac_GG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\frmHienThi_GiamGiaSanPham.resx">
+      <DependentUpon>frmHienThi_GiamGiaSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\frmHienThi_NhaCungCapSanPham.resx">
+      <DependentUpon>frmHienThi_NhaCungCapSanPham.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\Dialogs\frmChucNang_PhieuTraHang.resx">
       <DependentUpon>frmChucNang_PhieuTraHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -661,8 +688,13 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CrystalReport\Report\ProductReports\" />
+    <Folder Include="CrystalReport\Report\SaleReports\" />
+    <Folder Include="CrystalReport\Report\StockReports\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{204B809A-D027-406F-8529-2193211726EE}</Project>
+      <Project>{204b809a-d027-406f-8529-2193211726ee}</Project>
       <Name>Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
@@ -673,11 +705,6 @@
       <Project>{36b44f87-d9ad-403c-ace4-a02a0c415e22}</Project>
       <Name>Shared</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CrystalReport\Report\ProductReports\" />
-    <Folder Include="CrystalReport\Report\SaleReports\" />
-    <Folder Include="CrystalReport\Report\StockReports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -76,6 +76,7 @@
             this.dgvDuLieu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDuLieu.Location = new System.Drawing.Point(0, 34);
             this.dgvDuLieu.Margin = new System.Windows.Forms.Padding(2);
+
             this.dgvDuLieu.Name = "dgvDuLieu";
             this.dgvDuLieu.RowHeadersVisible = false;
             this.dgvDuLieu.RowHeadersWidth = 62;
@@ -211,6 +212,7 @@
             this.txtSoTrang.Size = new System.Drawing.Size(48, 26);
             this.txtSoTrang.TabIndex = 242;
             this.txtSoTrang.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+
             // 
             // btnTrangSau
             // 

@@ -38,6 +38,9 @@ namespace Services
             container.RegisterType<IStockExportDetailService, StockExportDetailService>(new PerResolveLifetimeManager());
             container.RegisterType<IStockCheckService, StockCheckService>(new PerResolveLifetimeManager());
             container.RegisterType<IStockCheckDetailService, StockCheckDetailService>(new PerResolveLifetimeManager());
+            container.RegisterType<ISupplierProductService, SupplierProductService>(new PerResolveLifetimeManager());
+            container.RegisterType<IPromotionService, PromotionService>(new PerResolveLifetimeManager());
+            container.RegisterType<IPromotionProductService, PromotionProductService>(new PerResolveLifetimeManager());
             Infrastructure.ServicesRegistration.AddInfrastructureTier(container);
         }
     }

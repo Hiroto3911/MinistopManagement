@@ -75,6 +75,7 @@
             this.dgvDuLieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDuLieu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDuLieu.Location = new System.Drawing.Point(0, 34);
+
             this.dgvDuLieu.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDuLieu.Name = "dgvDuLieu";
             this.dgvDuLieu.RowHeadersVisible = false;
@@ -256,11 +257,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(681, 373);
             this.Controls.Add(this.dgvDuLieu);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmHienThi_DanhSachNhapHang";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -277,6 +280,7 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieu;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label11;
+
         private Guna.UI2.WinForms.Guna2ImageButton ibtnThoat;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
@@ -284,5 +288,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtSoTrang;
         private Guna.UI2.WinForms.Guna2Button btnTrangSau;
         private Guna.UI2.WinForms.Guna2Button btnTrangTruoc;
+
     }
 }

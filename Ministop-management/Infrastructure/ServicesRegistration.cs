@@ -42,6 +42,9 @@ namespace Infrastructure
             container.RegisterType<IProductCategoryRepository, ProductCategoryRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IProductRepository, ProductRepository>(new PerResolveLifetimeManager());
             container.RegisterType<ISupplierRepository, SupplierRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<ISupplierProductRepository, SupplierProductRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IPromotionRepository, PromotionRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IPromotionProductRepository, PromotionProductReponsitory>(new PerResolveLifetimeManager());
             container.RegisterType<IReportRepository, ReportRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IStockImportRepository, StockImportRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IStockImportDetailRepository, StockImportDetailRepository>(new PerResolveLifetimeManager());

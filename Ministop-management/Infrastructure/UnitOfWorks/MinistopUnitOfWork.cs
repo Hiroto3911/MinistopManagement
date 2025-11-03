@@ -30,7 +30,11 @@ namespace Infrastructure.UnitOfWorks
             IStockExportRepository stockExportRepository,
             IStockExportDetailRepository stockExportDetailRepository,
             IStockCheckRepository stockCheckRepository,
-            IStockCheckDetailRepository stockCheckDetailRepository
+            IStockCheckDetailRepository stockCheckDetailRepository,
+            ISupplierProductRepository supplierProductRepository,
+            IPromotionRepository promotionRepository,
+            IPromotionProductRepository promotionProductRepository
+
             ) : base(context)
         {
             StoreRepository = storeRepository;
@@ -41,6 +45,10 @@ namespace Infrastructure.UnitOfWorks
             ProductCategoryRepository = productCategoryRepository;
             ProductRepository = productRepository;
             SupplierRepository = supplierRepository;
+            SupplierProductRepository = supplierProductRepository;
+            ReportRepository = reportRepository;
+            PromotionRepository = promotionRepository;
+            PromotionProductRepository = promotionProductRepository;
             ReportRepository = reportRepository;
             StockDetailRepository = stockDetailRepository;
             StockHistoryRepository = stockHistoryRepository;
@@ -64,6 +72,9 @@ namespace Infrastructure.UnitOfWorks
         public IProductCategoryRepository ProductCategoryRepository { get; private set; }
         public IProductRepository ProductRepository { get; private set; }
         public ISupplierRepository SupplierRepository { get; private set; }
+        public ISupplierProductRepository SupplierProductRepository { get; private set; }
+        public IPromotionRepository PromotionRepository { get; private set; }
+        public IPromotionProductRepository PromotionProductRepository { get; private set; }
 
         public IReportRepository ReportRepository { get; private set; }
 

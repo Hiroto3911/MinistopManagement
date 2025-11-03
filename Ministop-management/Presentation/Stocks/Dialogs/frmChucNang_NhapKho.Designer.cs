@@ -48,6 +48,7 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.dtpNgayNhap = new Guna.UI2.WinForms.Guna2DateTimePicker();
+
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -313,6 +314,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             this.label3.Location = new System.Drawing.Point(22, 96);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 19);
@@ -335,11 +337,13 @@
             this.dtpNgayNhap.Size = new System.Drawing.Size(218, 36);
             this.dtpNgayNhap.TabIndex = 191;
             this.dtpNgayNhap.Value = new System.DateTime(2025, 10, 1, 8, 48, 24, 373);
+
             // 
             // frmChucNang_NhapKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(425, 403);
             this.Controls.Add(this.cboTrangThai);
             this.Controls.Add(this.label8);
@@ -371,6 +375,7 @@
 
         #endregion
 
+
         private Guna.UI2.WinForms.Guna2ComboBox cboTrangThai;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2TextBox txtMaNCC;
@@ -390,5 +395,6 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgayNhap;
+
     }
 }

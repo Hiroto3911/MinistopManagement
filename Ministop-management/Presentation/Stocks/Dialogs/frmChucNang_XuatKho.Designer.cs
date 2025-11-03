@@ -35,6 +35,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.rtxtLyDo = new System.Windows.Forms.RichTextBox();
+
             this.txtPhieuXuat = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtMaCH = new Guna.UI2.WinForms.Guna2TextBox();
@@ -244,9 +245,11 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(425, 35);
             this.panel1.TabIndex = 195;
+
             // 
             // dtpNgayXuat
             // 
+
             this.dtpNgayXuat.BorderRadius = 2;
             this.dtpNgayXuat.BorderThickness = 2;
             this.dtpNgayXuat.Checked = true;
@@ -301,6 +304,7 @@
             this.cboLoaiXuat.Name = "cboLoaiXuat";
             this.cboLoaiXuat.Size = new System.Drawing.Size(219, 36);
             this.cboLoaiXuat.TabIndex = 198;
+
             // 
             // label4
             // 
@@ -310,6 +314,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 19);
             this.label4.TabIndex = 196;
+
             this.label4.Text = "Ngày xuất:";
             // 
             // label3
@@ -359,6 +364,7 @@
 
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2ImageButton ibtnThoat;
+
         private Guna.UI2.WinForms.Guna2ComboBox cboTrangThai;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
@@ -369,6 +375,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtMaNV;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgayXuat;

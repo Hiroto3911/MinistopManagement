@@ -1,3 +1,4 @@
+
 ﻿using Services.Interfaces;
 using Shared.Security;
 using System;
@@ -14,6 +15,7 @@ namespace Presentation.Stocks.Dialogs
 {
     public partial class frmChucNang_KiemKho : Form
     {
+
         public event EventHandler<string> dataChanged;
         public readonly IStoreFixedExpenseServices _storeFixedExpenseServices;
         public readonly IUserSession _userSession;

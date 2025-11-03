@@ -60,6 +60,8 @@
     <Compile Include="Interfaces\IAllowanceRepository.cs" />
     <Compile Include="Interfaces\IProductCategoryRepository.cs" />
     <Compile Include="Interfaces\IProductRepository.cs" />
+    <Compile Include="Interfaces\IPromotionProductRepository.cs" />
+    <Compile Include="Interfaces\IPromotionRepository.cs" />
     <Compile Include="Interfaces\IReportRepository.cs" />
     <Compile Include="Interfaces\IShiftRepository.cs" />
     <Compile Include="Interfaces\IStockCheckDetailRepository.cs" />
@@ -70,10 +72,13 @@
     <Compile Include="Interfaces\IStockHistoryRepository.cs" />
     <Compile Include="Interfaces\IStockImportDetailRepository.cs" />
     <Compile Include="Interfaces\IStockImportRepository.cs" />
+    <Compile Include="Interfaces\ISupplierProductRepository.cs" />
     <Compile Include="Interfaces\ISupplierRepository.cs" />
     <Compile Include="Repositories\AllowanceRepository.cs" />
     <Compile Include="Repositories\ProductCategoryRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\PromotionProductReponsitory.cs" />
+    <Compile Include="Repositories\PromotionRepository.cs" />
     <Compile Include="Repositories\ReportRepository.cs" />
     <Compile Include="Repositories\ShiftRepository.cs" />
     <Compile Include="Repositories\StockCheckDetailRepository.cs" />
@@ -84,6 +89,7 @@
     <Compile Include="Repositories\StockHistoryRepository.cs" />
     <Compile Include="Repositories\StockImportDetailRepository.cs" />
     <Compile Include="Repositories\StockImportRepository.cs" />
+    <Compile Include="Repositories\SupplierProductRepository.cs" />
     <Compile Include="Repositories\SupplierRepository.cs" />
     <Compile Include="ServicesRegistration.cs" />
     <Compile Include="Interfaces\IEmployeeRepository.cs" />
