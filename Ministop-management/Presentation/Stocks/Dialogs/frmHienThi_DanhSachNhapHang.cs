@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Services.Interfaces;
+using Shared.Security;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +14,17 @@ namespace Presentation
 {
     public partial class frmHienThi_DanhSachNhapHang : Form
     {
-        public frmHienThi_DanhSachNhapHang()
+        public event EventHandler<string> dataChanged;
+        public readonly IStockImportService _stockImportService;
+
+        public readonly IUserSession _userSession;
+        public string _expenseID;
+        public frmHienThi_DanhSachNhapHang(IStockImportService stockImportService, IUserSession userSession, string expenseID = null)
         {
             InitializeComponent();
-            LoadData();
+            _stockImportService = stockImportService;
+            _userSession = userSession;
+            _expenseID = expenseID;
         }
         private void LoadData()
         {
@@ -68,7 +77,7 @@ namespace Presentation
 
         }
 
-        private void guna2ImageButton4_Click(object sender, EventArgs e)
+        private void ibtnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }
