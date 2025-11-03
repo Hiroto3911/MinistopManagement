@@ -573,7 +573,7 @@ namespace Presentation
             if (dgvDuLieuKH.Columns[e.ColumnIndex].Name == "Edit")
             {
                 //MessageBox.Show($"Edit sản phẩm: {productId}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                var frmChucNang = _container.Resolve<frmChucNang_KiemKho>(new ParameterOverride("CheckID", CheckID));
+                var frmChucNang = _container.Resolve<frmChucNang_KiemKho>(new ParameterOverride("checkID", CheckID));
                 frmChucNang.dataChanged += (s, ev) =>
                 {
 
@@ -615,7 +615,8 @@ namespace Presentation
             if (dgvDuLieuKH.CurrentCell == null || dgvDuLieuKH.Rows.Count == 0) return;
             var row = dgvDuLieuKH.CurrentCell.RowIndex;
             string CheckID = dgvDuLieuKH.Rows[row].Cells["MaPhieuKiem"].Value.ToString();
-            var frmHienThi = _container.Resolve<frmHienThiChiTietKiemHang>(new ParameterOverride("CheckID", CheckID));
+            string status = dgvDuLieuKH.Rows[row].Cells["TrangThai"].Value.ToString();
+            var frmHienThi = _container.Resolve<frmHienThiChiTietKiemHang>(new ParameterOverride("checkID", CheckID), new ParameterOverride("Status",status));
             frmHienThi.ShowDialog();
         }
 

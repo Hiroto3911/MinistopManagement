@@ -46,7 +46,7 @@ namespace Services.Services
         {
             try
             {
-                var stockCheckEntity = _ministopUnitOfWork.StockCheckDetailRepository.Find(x => x.CheckID == id);
+                var stockCheckEntity = _ministopUnitOfWork.StockCheckDetailRepository.Find(x => x.Id == id);
                 if (stockCheckEntity == null)
                 {
                     return new Result<StockCheckDetailDto>(ErrorCodeEnum.SCD_ERR_001);

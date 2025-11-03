@@ -23,7 +23,7 @@ namespace Presentation.Stocks.Dialogs
         private readonly IStockExportDetailService _stockExportDetailService;
         private readonly IUserSession _userSession;
         private readonly IUnityContainer _container;
-        public string _exportID;
+        private string _exportID;
         private string _status;
         private long _totalPage;
 
@@ -46,6 +46,10 @@ namespace Presentation.Stocks.Dialogs
         private void frmHienThi_ChiTietXuatHang_Load(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(_exportID)) return;
+            if (_status == "1" || _userSession.Role == "Admin")
+            {
+                btnThem.Enabled = false;
+            }
             LoadData(_exportID);
         }
         private void LoadData(string exportID, int pageNumber = 1, int pageSize = 20)
@@ -190,7 +194,7 @@ namespace Presentation.Stocks.Dialogs
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")
             {
                 //MessageBox.Show($"Edit sản phẩm: {productId}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                var frmChucNangCP = _container.Resolve<frmChucNang_ChiTietNhapKho>(new ParameterOverride("exportDetailID", id));
+                var frmChucNangCP = _container.Resolve<frmChucNang_ChiTietXuatKho>(new ParameterOverride("ExportID", _exportID), new ParameterOverride("ExportDetailID", id));
                 frmChucNangCP.dataChanged += (s, ev) =>
                 {
                     LoadData(_exportID, pageNumber);

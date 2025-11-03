@@ -181,7 +181,7 @@ namespace Presentation.Stocks.Dialogs
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")
             {
                 //MessageBox.Show($"Edit sản phẩm: {productId}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                var frmChucNangCP = _container.Resolve<frmChucNang_ChiTietNhapKho>(new ParameterOverride("importDetailID", id));
+                var frmChucNangCP = _container.Resolve<frmChucNang_ChiTietNhapKho>(new ParameterOverride("importID", _importID), new ParameterOverride("importDetailID", id));
                 frmChucNangCP.dataChanged += (s, ev) =>
                 {
                     LoadData(_importID,pageNumber);

@@ -53,9 +53,9 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(17, 56);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 19);
+            this.label4.Size = new System.Drawing.Size(71, 19);
             this.label4.TabIndex = 232;
-            this.label4.Text = "Mã phiếu nhập:";
+            this.label4.Text = "Mã phiếu:";
             // 
             // guna2BorderlessForm1
             // 
@@ -274,6 +274,7 @@
             this.txtMaSP.SelectedText = "";
             this.txtMaSP.Size = new System.Drawing.Size(219, 36);
             this.txtMaSP.TabIndex = 236;
+          
             // 
             // frmChucNang_ChiTietNhapKho
             // 

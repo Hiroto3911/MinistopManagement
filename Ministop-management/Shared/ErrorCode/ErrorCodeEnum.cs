@@ -155,6 +155,21 @@ namespace Shared.ErrorCode
         SLE_ERR_006,
         #endregion
 
+        #region StockDetail
+        [Description(@"Không tìm thấy phiếu chi tiết kho .")]
+        SDD_ERR_001,
+        [Description(@"Phiếu chi tiết kho đã tồn tại.")]
+        SDD_ERR_002,
+        [Description(@"Tạo Phiếu chi tiết kho thất bại.")]
+        SDD_ERR_003,
+        [Description(@"Sửa Phiếu chi tiết kho thất bại.")]
+        SDD_ERR_004,
+        [Description(@"Xóa Phiếu chi tiết kho thất bại.")]
+        SDD_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu chi tiết kho.")]
+        SDD_ERR_006,
+        #endregion
+
         #region StockImport
         [Description(@"Không tìm thấy Phiếu nhập .")]
         SIT_ERR_001,

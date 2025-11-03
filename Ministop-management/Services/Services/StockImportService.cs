@@ -105,6 +105,20 @@ namespace Services.Services
                 }
                 stockImportEntity.Status = stockImportEdit.Status;
                 _ministopUnitOfWork.StockImportRepository.Update(stockImportEntity, true);
+                if (stockImportEdit.Status == 4)
+                {
+                    var list = _ministopUnitOfWork.StockImportDetailRepository.GetAll(x => x.ImportID == stockImportEntity.ImportID);
+                    if (list == null || list.Count < 0) return new Result<bool>(ErrorCodeEnum.SET_ERR_005);
+                    foreach (var item in list)
+                    {
+                        var result = _ministopUnitOfWork.StockDetailRepository.FindByID(x => x.ProductID == item.ProductID);
+                        if (result == null) continue;
+                        result.Quantity -= item.Quantity;
+                        result.LastUpdate = _dateTimeService.NowUtc;
+                        _ministopUnitOfWork.StockDetailRepository.Update(result, true);
+                        CreateHistoryEntity(stockImportEntity.ImportID, result.StockDetailID, item.Quantity);
+                    }
+                }
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);
 
@@ -115,7 +129,20 @@ namespace Services.Services
                 throw ex;
             }
         }
-
+        private void CreateHistoryEntity(string refID, string stockDetailID, int quantityChange)
+        {
+            string id = IdGenerator.CreateID("STH");
+            var entity = new StockHistory()
+            {
+                StockHistoryID = id,
+                StockDetailID = stockDetailID,
+                QuantityChange = quantityChange,
+                RefID = refID,
+                ChangeDate = _dateTimeService.NowUtc,
+                ChangeType = "Nhập"
+            };
+            _ministopUnitOfWork.StockHistoryRepository.Add(entity);
+        }
         public Result<bool> RemoveStockImport(string id)
         {
             _ministopUnitOfWork.BeginTransaction();
