@@ -10,6 +10,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Unity.Storage.RegistrationSet;
@@ -43,6 +44,12 @@ namespace Presentation
             string employeeId = txtMaNV.Text.Trim();
             DateTime exportDate = dtpNgayXuat.Value;
             string typeExport = cboLoaiXuat.Text.Trim();
+            if (Regex.IsMatch(rtxtLyDo.Text.Trim(), @"[^a-zA-Z0-9\s\u00C0-\u1EF9,./-]"))
+            {
+                MessageBox.Show("Ly do không được chứa ký tự đặc biệt lạ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                rtxtLyDo.Focus();
+                return;
+            }
             string reason = rtxtLyDo.Text.Trim();
             byte status = Convert.ToByte(cboTrangThai.SelectedValue.ToString());
         
@@ -123,7 +130,7 @@ namespace Presentation
             {
                 var entity = _stockExportService.GetStockExportByID(_exportID);
                 if (!entity.Succeeded && entity.Data == null) return;
-                cboTrangThai.Enabled = true;
+                cboTrangThai.Enabled = false;
                 txtPhieuXuat.Text = entity.Data.ExportId;
                 txtMaCH.Text = entity.Data.StoreId;
                 txtMaNV.Text = entity.Data.EmployeeId;

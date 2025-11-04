@@ -74,18 +74,20 @@
             this.btnTrangTruocNH = new Guna.UI2.WinForms.Guna2Button();
             this.tabChiTietKho = new System.Windows.Forms.TabPage();
             this.dgvDuLieuCT = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlDetail = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2ImageButton6 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ibtnCanhBaoTonKho = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.lblSoLanCanhBao = new System.Windows.Forms.Label();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2ImageButton5 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ibtnSoLanXuat = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.lblSoLanXuat = new System.Windows.Forms.Label();
             this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.label4 = new System.Windows.Forms.Label();
+            this.ibtnSoLanNhap = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.lblSoLanNhap = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ibtnLoadDuLieu = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtSoTrangCT = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTrangSauCT = new Guna.UI2.WinForms.Guna2Button();
             this.btnTrangTruocCT = new Guna.UI2.WinForms.Guna2Button();
@@ -104,7 +106,7 @@
             this.guna2Panel3.SuspendLayout();
             this.tabChiTietKho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieuCT)).BeginInit();
-            this.guna2Panel1.SuspendLayout();
+            this.pnlDetail.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.guna2GroupBox2.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
@@ -776,7 +778,7 @@
             // tabChiTietKho
             // 
             this.tabChiTietKho.Controls.Add(this.dgvDuLieuCT);
-            this.tabChiTietKho.Controls.Add(this.guna2Panel1);
+            this.tabChiTietKho.Controls.Add(this.pnlDetail);
             this.tabChiTietKho.Controls.Add(this.guna2Panel5);
             this.tabChiTietKho.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabChiTietKho.Location = new System.Drawing.Point(444, 4);
@@ -846,16 +848,16 @@
             this.dgvDuLieuCT.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvDuLieuCT.DoubleClick += new System.EventHandler(this.dgvDuLieuCT_DoubleClick);
             // 
-            // guna2Panel1
+            // pnlDetail
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
-            this.guna2Panel1.Controls.Add(this.tableLayoutPanel1);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.Location = new System.Drawing.Point(2, 2);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(415, 109);
-            this.guna2Panel1.TabIndex = 13;
+            this.pnlDetail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
+            this.pnlDetail.Controls.Add(this.tableLayoutPanel1);
+            this.pnlDetail.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlDetail.Location = new System.Drawing.Point(2, 2);
+            this.pnlDetail.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlDetail.Name = "pnlDetail";
+            this.pnlDetail.Size = new System.Drawing.Size(415, 109);
+            this.pnlDetail.TabIndex = 13;
             // 
             // tableLayoutPanel1
             // 
@@ -879,8 +881,8 @@
             // guna2GroupBox2
             // 
             this.guna2GroupBox2.BorderRadius = 5;
-            this.guna2GroupBox2.Controls.Add(this.guna2ImageButton6);
-            this.guna2GroupBox2.Controls.Add(this.label2);
+            this.guna2GroupBox2.Controls.Add(this.ibtnCanhBaoTonKho);
+            this.guna2GroupBox2.Controls.Add(this.lblSoLanCanhBao);
             this.guna2GroupBox2.CustomBorderColor = System.Drawing.Color.IndianRed;
             this.guna2GroupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GroupBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -892,41 +894,41 @@
             this.guna2GroupBox2.TabIndex = 19;
             this.guna2GroupBox2.Text = "Cách báo tồn kho thấp";
             // 
-            // guna2ImageButton6
+            // ibtnCanhBaoTonKho
             // 
-            this.guna2ImageButton6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ibtnCanhBaoTonKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2ImageButton6.BackColor = System.Drawing.Color.White;
-            this.guna2ImageButton6.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton6.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton6.Image = global::Presentation.Properties.Resources.danger;
-            this.guna2ImageButton6.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton6.ImageRotate = 0F;
-            this.guna2ImageButton6.Location = new System.Drawing.Point(30, 28);
-            this.guna2ImageButton6.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton6.Name = "guna2ImageButton6";
-            this.guna2ImageButton6.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton6.Size = new System.Drawing.Size(45, 73);
-            this.guna2ImageButton6.TabIndex = 15;
+            this.ibtnCanhBaoTonKho.BackColor = System.Drawing.Color.White;
+            this.ibtnCanhBaoTonKho.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnCanhBaoTonKho.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnCanhBaoTonKho.Image = global::Presentation.Properties.Resources.danger;
+            this.ibtnCanhBaoTonKho.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnCanhBaoTonKho.ImageRotate = 0F;
+            this.ibtnCanhBaoTonKho.Location = new System.Drawing.Point(30, 28);
+            this.ibtnCanhBaoTonKho.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnCanhBaoTonKho.Name = "ibtnCanhBaoTonKho";
+            this.ibtnCanhBaoTonKho.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnCanhBaoTonKho.Size = new System.Drawing.Size(45, 73);
+            this.ibtnCanhBaoTonKho.TabIndex = 15;
             // 
-            // label2
+            // lblSoLanCanhBao
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(153, 44);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 41);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "12";
+            this.lblSoLanCanhBao.AutoSize = true;
+            this.lblSoLanCanhBao.BackColor = System.Drawing.Color.Transparent;
+            this.lblSoLanCanhBao.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoLanCanhBao.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSoLanCanhBao.Location = new System.Drawing.Point(153, 44);
+            this.lblSoLanCanhBao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSoLanCanhBao.Name = "lblSoLanCanhBao";
+            this.lblSoLanCanhBao.Size = new System.Drawing.Size(47, 41);
+            this.lblSoLanCanhBao.TabIndex = 14;
+            this.lblSoLanCanhBao.Text = "12";
             // 
             // guna2GroupBox1
             // 
             this.guna2GroupBox1.BorderRadius = 5;
-            this.guna2GroupBox1.Controls.Add(this.guna2ImageButton5);
-            this.guna2GroupBox1.Controls.Add(this.label1);
+            this.guna2GroupBox1.Controls.Add(this.ibtnSoLanXuat);
+            this.guna2GroupBox1.Controls.Add(this.lblSoLanXuat);
             this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.Gold;
             this.guna2GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -936,43 +938,43 @@
             this.guna2GroupBox1.Name = "guna2GroupBox1";
             this.guna2GroupBox1.Size = new System.Drawing.Size(134, 105);
             this.guna2GroupBox1.TabIndex = 18;
-            this.guna2GroupBox1.Text = "Tổng số lần xuất kho trong ngày";
+            this.guna2GroupBox1.Text = "Tổng số lần xuất kho trong tháng";
             // 
-            // guna2ImageButton5
+            // ibtnSoLanXuat
             // 
-            this.guna2ImageButton5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ibtnSoLanXuat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2ImageButton5.BackColor = System.Drawing.Color.White;
-            this.guna2ImageButton5.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton5.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton5.Image = global::Presentation.Properties.Resources.import_export;
-            this.guna2ImageButton5.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton5.ImageRotate = 0F;
-            this.guna2ImageButton5.Location = new System.Drawing.Point(29, 25);
-            this.guna2ImageButton5.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton5.Name = "guna2ImageButton5";
-            this.guna2ImageButton5.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton5.Size = new System.Drawing.Size(45, 76);
-            this.guna2ImageButton5.TabIndex = 15;
+            this.ibtnSoLanXuat.BackColor = System.Drawing.Color.White;
+            this.ibtnSoLanXuat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanXuat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanXuat.Image = global::Presentation.Properties.Resources.import_export;
+            this.ibtnSoLanXuat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnSoLanXuat.ImageRotate = 0F;
+            this.ibtnSoLanXuat.Location = new System.Drawing.Point(29, 25);
+            this.ibtnSoLanXuat.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnSoLanXuat.Name = "ibtnSoLanXuat";
+            this.ibtnSoLanXuat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanXuat.Size = new System.Drawing.Size(45, 76);
+            this.ibtnSoLanXuat.TabIndex = 15;
             // 
-            // label1
+            // lblSoLanXuat
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(142, 44);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 41);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "12";
+            this.lblSoLanXuat.AutoSize = true;
+            this.lblSoLanXuat.BackColor = System.Drawing.Color.Transparent;
+            this.lblSoLanXuat.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoLanXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSoLanXuat.Location = new System.Drawing.Point(142, 44);
+            this.lblSoLanXuat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSoLanXuat.Name = "lblSoLanXuat";
+            this.lblSoLanXuat.Size = new System.Drawing.Size(47, 41);
+            this.lblSoLanXuat.TabIndex = 14;
+            this.lblSoLanXuat.Text = "12";
             // 
             // guna2GroupBox3
             // 
             this.guna2GroupBox3.BorderRadius = 5;
-            this.guna2GroupBox3.Controls.Add(this.guna2ImageButton1);
-            this.guna2GroupBox3.Controls.Add(this.label4);
+            this.guna2GroupBox3.Controls.Add(this.ibtnSoLanNhap);
+            this.guna2GroupBox3.Controls.Add(this.lblSoLanNhap);
             this.guna2GroupBox3.CustomBorderColor = System.Drawing.Color.SeaGreen;
             this.guna2GroupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2GroupBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -982,41 +984,43 @@
             this.guna2GroupBox3.Name = "guna2GroupBox3";
             this.guna2GroupBox3.Size = new System.Drawing.Size(134, 105);
             this.guna2GroupBox3.TabIndex = 17;
-            this.guna2GroupBox3.Text = "Tổng số lần nhập kho trong ngày";
+            this.guna2GroupBox3.Text = "Tổng số lần nhập kho trong tháng ";
             // 
-            // guna2ImageButton1
+            // ibtnSoLanNhap
             // 
-            this.guna2ImageButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ibtnSoLanNhap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.guna2ImageButton1.BackColor = System.Drawing.Color.White;
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Image = global::Presentation.Properties.Resources.in_stock1;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.Location = new System.Drawing.Point(37, 30);
-            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(45, 75);
-            this.guna2ImageButton1.TabIndex = 14;
+            this.ibtnSoLanNhap.BackColor = System.Drawing.Color.White;
+            this.ibtnSoLanNhap.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanNhap.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanNhap.Image = global::Presentation.Properties.Resources.in_stock1;
+            this.ibtnSoLanNhap.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnSoLanNhap.ImageRotate = 0F;
+            this.ibtnSoLanNhap.Location = new System.Drawing.Point(37, 30);
+            this.ibtnSoLanNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnSoLanNhap.Name = "ibtnSoLanNhap";
+            this.ibtnSoLanNhap.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanNhap.Size = new System.Drawing.Size(45, 75);
+            this.ibtnSoLanNhap.TabIndex = 14;
             // 
-            // label4
+            // lblSoLanNhap
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label4.Location = new System.Drawing.Point(139, 44);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 41);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "12";
+            this.lblSoLanNhap.AutoSize = true;
+            this.lblSoLanNhap.BackColor = System.Drawing.Color.Transparent;
+            this.lblSoLanNhap.Font = new System.Drawing.Font("Segoe UI Semibold", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSoLanNhap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lblSoLanNhap.Location = new System.Drawing.Point(139, 44);
+            this.lblSoLanNhap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSoLanNhap.Name = "lblSoLanNhap";
+            this.lblSoLanNhap.Size = new System.Drawing.Size(47, 41);
+            this.lblSoLanNhap.TabIndex = 13;
+            this.lblSoLanNhap.Text = "12";
             // 
             // guna2Panel5
             // 
             this.guna2Panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2Panel5.Controls.Add(this.label6);
+            this.guna2Panel5.Controls.Add(this.ibtnLoadDuLieu);
             this.guna2Panel5.Controls.Add(this.txtSoTrangCT);
             this.guna2Panel5.Controls.Add(this.btnTrangSauCT);
             this.guna2Panel5.Controls.Add(this.btnTrangTruocCT);
@@ -1026,6 +1030,38 @@
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.Size = new System.Drawing.Size(415, 34);
             this.guna2Panel5.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Location = new System.Drawing.Point(305, 5);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 19);
+            this.label6.TabIndex = 162;
+            this.label6.Text = "Làm mới";
+            // 
+            // ibtnLoadDuLieu
+            // 
+            this.ibtnLoadDuLieu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ibtnLoadDuLieu.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLoadDuLieu.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLoadDuLieu.Image = global::Presentation.Properties.Resources.loading_arrow;
+            this.ibtnLoadDuLieu.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnLoadDuLieu.ImageRotate = 0F;
+            this.ibtnLoadDuLieu.ImageSize = new System.Drawing.Size(30, 30);
+            this.ibtnLoadDuLieu.Location = new System.Drawing.Point(376, 2);
+            this.ibtnLoadDuLieu.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnLoadDuLieu.Name = "ibtnLoadDuLieu";
+            this.ibtnLoadDuLieu.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLoadDuLieu.Size = new System.Drawing.Size(37, 32);
+            this.ibtnLoadDuLieu.TabIndex = 161;
+            this.ibtnLoadDuLieu.Click += new System.EventHandler(this.ibtnLoadDuLieu_Click);
             // 
             // txtSoTrangCT
             // 
@@ -1155,7 +1191,7 @@
             this.guna2Panel3.ResumeLayout(false);
             this.tabChiTietKho.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieuCT)).EndInit();
-            this.guna2Panel1.ResumeLayout(false);
+            this.pnlDetail.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.guna2GroupBox2.ResumeLayout(false);
             this.guna2GroupBox2.PerformLayout();
@@ -1164,6 +1200,7 @@
             this.guna2GroupBox3.ResumeLayout(false);
             this.guna2GroupBox3.PerformLayout();
             this.guna2Panel5.ResumeLayout(false);
+            this.guna2Panel5.PerformLayout();
             this.tabControlKH.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -1174,17 +1211,17 @@
         private Guna.UI2.WinForms.Guna2TabControl tabControlKH;
         private System.Windows.Forms.TabPage tabChiTietKho;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieuCT;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel pnlDetail;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox2;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton6;
-        private System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnCanhBaoTonKho;
+        private System.Windows.Forms.Label lblSoLanCanhBao;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton5;
-        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnSoLanXuat;
+        private System.Windows.Forms.Label lblSoLanXuat;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox3;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
-        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnSoLanNhap;
+        private System.Windows.Forms.Label lblSoLanNhap;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private System.Windows.Forms.TabPage tabNhapHang;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
@@ -1219,5 +1256,7 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2ComboBox cboCuaHangKH;
         private System.Windows.Forms.Label lblTime;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnLoadDuLieu;
+        private System.Windows.Forms.Label label6;
     }
 }

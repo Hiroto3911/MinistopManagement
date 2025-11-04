@@ -44,9 +44,9 @@ namespace Presentation.Stocks.Dialogs
             txtMaSP.Enabled = false;
             txtMaChiTiet.Text = entity.Data.Id;
             txtMaSP.Text = entity.Data.ProductId;
-            txtTenSP.Text = entity.Data.ProductName;
             txtSoluong.Text = entity.Data.Quantity.ToString();
             txtDonGia.Text = entity.Data.UnitPrice.ToString();
+
 
         }
 
@@ -58,9 +58,15 @@ namespace Presentation.Stocks.Dialogs
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txtSoluong.Text) ||
+              !int.TryParse(txtSoluong.Text, out int quantity) || quantity <= 0)
+            {
+                MessageBox.Show("So luong phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSoluong.Focus();
+                return;
+            }
             string importDetailID = txtMaChiTiet.Text.Trim();
             string productID = txtMaSP.Text.Trim();
-            int quantity = Convert.ToInt32(txtSoluong.Text.Trim());
             decimal unitPrice = Convert.ToDecimal(txtDonGia.Text.Trim());
 
 
@@ -89,28 +95,7 @@ namespace Presentation.Stocks.Dialogs
 
         }
 
-        //private void txtMaSP_TextChanged(object sender, EventArgs e)
-        //{
-        //    //m
-        //    string maSP = txtMaSP.Text.Trim();
-        //    if (string.IsNullOrEmpty(maSP))
-        //    {
-        //        return;
-        //    }
-        //    var result = _stockDetailService.GetStockDetailByProductID(maSP);
-        //    if (result.Succeeded && result.Data != null)
-        //    {
-        //        txtTenSP.Text = result.Data.ProductName;
-        //        txtSLHeThong.Text = result.Data.Quantity.ToString();
-
-        //    }
-        //    else
-        //    {
-        //        txtTenSP.Text = string.Empty;
-        //        txtSLHeThong.Text = string.Empty;
-        //    }
-
-        //}
+       
 
     }
 }

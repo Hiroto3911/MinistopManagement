@@ -66,7 +66,13 @@ namespace Presentation
         {
             string exportDetailID = txtPhieuXuat.Text.Trim();
             string productID = txtMaSP.Text.Trim();
-            int quantity = Convert.ToInt32(txtSoLuong.Text.Trim());
+            if (string.IsNullOrWhiteSpace(txtSoLuong.Text) ||
+            !int.TryParse(txtSoLuong.Text, out int quantity) || quantity <= 0)
+            {
+                MessageBox.Show("So luong phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSoLuong.Focus();
+                return;
+            }
             decimal unitPrice = Convert.ToDecimal(txtDonViGia.Text.Trim());
 
             var detailDto = new StockExportDetailDto()

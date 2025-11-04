@@ -112,11 +112,20 @@ namespace Services.Services
                     foreach (var item in list)
                     {
                         var result = _ministopUnitOfWork.StockDetailRepository.FindByID(x => x.ProductID == item.ProductID);
-                        if (result == null) continue;
-                        result.Quantity -= item.Quantity;
-                        result.LastUpdate = _dateTimeService.NowUtc;
-                        _ministopUnitOfWork.StockDetailRepository.Update(result, true);
-                        CreateHistoryEntity(stockImportEntity.ImportID, result.StockDetailID, item.Quantity);
+                        string detailID;
+                        if (result == null) {
+                            detailID = IdGenerator.CreateID("SDD");
+                            var stockDetail = new StockDetail() {StockDetailID = detailID, ProductID = item.ProductID ,Quantity = item.Quantity,Price = item.UnitPrice, LastUpdate = _dateTimeService.NowUtc, StoreID = stockImportEdit.StoreId};
+                            _ministopUnitOfWork.StockDetailRepository.Add(stockDetail);
+                        }
+                        else
+                        {
+                            detailID = result.StockDetailID;
+                            result.Quantity += item.Quantity;
+                            result.LastUpdate = _dateTimeService.NowUtc;
+                            _ministopUnitOfWork.StockDetailRepository.Update(result, true);
+                        }
+                        CreateHistoryEntity(stockImportEntity.ImportID, detailID, item.Quantity);
                     }
                 }
                 _ministopUnitOfWork.Commit();

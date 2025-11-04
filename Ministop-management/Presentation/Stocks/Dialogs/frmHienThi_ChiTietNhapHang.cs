@@ -24,16 +24,18 @@ namespace Presentation.Stocks.Dialogs
         private readonly IUserSession _userSession;
         private readonly IUnityContainer _container;
         public string _importID;
+        private readonly string _supplierID;
         private string _status;
         private long _totalPage;
 
-        public frmHienThi_ChiTietNhapHang(IStockImportDetailSerivce stockImportDetailSerivce, IUserSession userSession, IUnityContainer container, string ImportID = null, string Status = null)
+        public frmHienThi_ChiTietNhapHang(IStockImportDetailSerivce stockImportDetailSerivce, IUserSession userSession, IUnityContainer container, string ImportID = null, string Status = null, string supplierID = null)
         {
             InitializeComponent();
             _stockImportDetailSerivce = stockImportDetailSerivce;
             _userSession = userSession;
             _container = container;
             _importID = ImportID;
+            _supplierID = supplierID;
             _status = Status;
         }
 
@@ -205,7 +207,7 @@ namespace Presentation.Stocks.Dialogs
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            var frmChucNangCP = _container.Resolve<frmHienThi_DanhSachNhapHang>(new ParameterOverride("ImportID",_importID));
+            var frmChucNangCP = _container.Resolve<frmHienThi_DanhSachNhapHang>(new ParameterOverride("importID", _importID), new ParameterOverride("supplierID", _supplierID));
             frmChucNangCP.dataChanged += (s, ev) =>
             {
 

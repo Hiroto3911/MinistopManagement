@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -25,7 +26,7 @@ namespace Presentation
         private string _checkID;
         private string _checkDetailID;
 
-        public frmChucNang_ChiTietKiemKho(IStockCheckDetailService stockCheckDetailService,IStockDetailService stockDetailService, IUserSession userSession, string checkID = null, string checkDetailID = null)
+        public frmChucNang_ChiTietKiemKho(IStockCheckDetailService stockCheckDetailService, IStockDetailService stockDetailService, IUserSession userSession, string checkID = null, string checkDetailID = null)
         {
             InitializeComponent();
             _stockCheckDetailService = stockCheckDetailService;
@@ -34,7 +35,7 @@ namespace Presentation
             _checkID = checkID;
             _checkDetailID = checkDetailID;
         }
-     
+
 
         private void frmChucNang_ChiTietKiemKho_Load(object sender, EventArgs e)
         {
@@ -63,7 +64,19 @@ namespace Presentation
             string exportDetailID = txtMaChiTiet.Text.Trim();
             string productID = txtMaSP.Text.Trim();
             int quantitySystem = Convert.ToInt32(txtSLHeThong.Text.Trim());
-            int quantityActual = Convert.ToInt32(txtSLThucTe.Text.Trim());
+            if (string.IsNullOrWhiteSpace(txtSLThucTe.Text) ||
+               !int.TryParse(txtSLThucTe.Text, out int quantityActual) || quantityActual <= 0)
+            {
+                MessageBox.Show("So luong thuc te phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSLThucTe.Focus();
+                return;
+            }
+            if (Regex.IsMatch(rtxtGhiChu.Text.Trim(), @"[^a-zA-Z0-9\s\u00C0-\u1EF9,./-]"))
+            {
+                MessageBox.Show("Ghi chú không được chứa ký tự đặc biệt lạ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                rtxtGhiChu.Focus();
+                return;
+            }
             string note = rtxtGhiChu.Text.Trim();
 
             var detailDto = new StockCheckDetailDto()
@@ -74,7 +87,7 @@ namespace Presentation
                 QuantityActual = quantityActual,
                 QuantitySystem = quantitySystem,
                 Note = note
-                
+
 
             };
 

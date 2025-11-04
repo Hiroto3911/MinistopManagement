@@ -200,6 +200,12 @@
     <Compile Include="Stocks\Dialogs\frmHienThi_LichSuKhoHang.Designer.cs">
       <DependentUpon>frmHienThi_LichSuKhoHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_ThongBao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_ThongBao.Designer.cs">
+      <DependentUpon>frmHienThi_ThongBao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stores\frmHienThi_CuaHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -472,6 +478,9 @@
     <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_LichSuKhoHang.resx">
       <DependentUpon>frmHienThi_LichSuKhoHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_ThongBao.resx">
+      <DependentUpon>frmHienThi_ThongBao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stores\frmHienThi_CuaHang.resx">
       <DependentUpon>frmHienThi_CuaHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -666,6 +675,7 @@
     <Content Include="Resources\invoice.png" />
     <None Include="Resources\invoice1.png" />
     <None Include="Resources\market.png" />
+    <None Include="Resources\loading-arrow.png" />
     <Content Include="Resources\monitor.png" />
     <None Include="Resources\Product1.png" />
     <None Include="Resources\Product2.png" />

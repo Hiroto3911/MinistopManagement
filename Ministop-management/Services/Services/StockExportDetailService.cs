@@ -41,7 +41,15 @@ namespace Services.Services
             return new Result<IReadOnlyList<StockExportDetailDto>>(list);
         }
 
+        public Result<int> GetCount(string storeID, DateTime dateNow)
+        {
+            // Lấy  từ DBML (entity của LINQ to SQL)
+            var stockImport = _ministopUnitOfWork.StockExportRepository.Find(x => x.StoreID == storeID && x.ExportDate.Month == dateNow.Month && x.ExportDate.Year == dateNow.Year);
+            var totalCount = _ministopUnitOfWork.StockExportDetailRepository.GetCount(x => x.ExportID == stockImport.ExportID);
 
+            // Trả về Result
+            return new Result<int>(totalCount);
+        }
         public Result<StockExportDetailDto> GetStockExportDetailByID(string id)
         {
             try

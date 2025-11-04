@@ -10,6 +10,7 @@ using Shared.Wrappers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,7 +42,15 @@ namespace Services.Services
             return new Result<IReadOnlyList<StockImportDetailDto>>(list);
         }
 
+        public Result<int> GetCount(string storeID, DateTime dateNow)
+        {
+            // Lấy  từ DBML (entity của LINQ to SQL)
+            var stockImport = _ministopUnitOfWork.StockImportRepository.Find(x => x.StoreID == storeID && x.ImportDate.Month == dateNow.Month && x.ImportDate.Year == dateNow.Year);
+            var totalCount = _ministopUnitOfWork.StockImportDetailRepository.GetCount(x=> x.ImportID == stockImport.ImportID);
 
+            // Trả về Result
+            return new Result<int>(totalCount);
+        }
         public Result<StockImportDetailDto> GetStockImportDetailByID(string id)
         {
             try
@@ -71,7 +80,11 @@ namespace Services.Services
         {
             try
             {
-
+                var isDuplicate = _ministopUnitOfWork.StockImportDetailRepository.Any(x=> x.ImportID == StockImportDetailDto.ImportId && x.ProductID == StockImportDetailDto.ProductId);
+                if (isDuplicate)
+                {
+                    return new Result<bool>(ErrorCodeEnum.SID_ERR_002);
+                }
                 var stockImportDetailId = IdGenerator.CreateID("SID");
                 var currentUserId = _userSession.UserId;
                 StockImportDetailDto.Id = stockImportDetailId;

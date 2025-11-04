@@ -13,6 +13,7 @@ namespace Services.Interfaces
         Result<bool> Any(string exportId);
         Result<bool> CreatestockExportDetaill(StockExportDetailDto StockExportDetailDto);
         Result<IReadOnlyList<StockExportDetailDto>> GetAll();
+        Result<int> GetCount(string storeID, DateTime dateNow);
         PagedResult<IReadOnlyList<StockExportDetailDto>> GetStockExportDetail(string stockExportId, int pageNumber, int pageSize);
         Result<StockExportDetailDto> GetStockExportDetailByID(string id);
         Result<bool> RemoveRangeStockExportDetailByExportID(string exportID);
