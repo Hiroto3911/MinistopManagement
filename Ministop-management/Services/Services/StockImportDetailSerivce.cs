@@ -9,6 +9,7 @@ using Shared.Security;
 using Shared.Wrappers;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -45,11 +46,35 @@ namespace Services.Services
         public Result<int> GetCount(string storeID, DateTime dateNow)
         {
             // Lấy  từ DBML (entity của LINQ to SQL)
-            var stockImport = _ministopUnitOfWork.StockImportRepository.Find(x => x.StoreID == storeID && x.ImportDate.Month == dateNow.Month && x.ImportDate.Year == dateNow.Year);
-            var totalCount = _ministopUnitOfWork.StockImportDetailRepository.GetCount(x=> x.ImportID == stockImport.ImportID);
+            var importList = _ministopUnitOfWork.StockImportRepository
+                     .GetAll(x => x.StoreID == storeID
+                               && x.ImportDate.Month == dateNow.Month
+                               && x.ImportDate.Year == dateNow.Year);
 
-            // Trả về Result
+            if (!importList.Any())
+                return new Result<int>(0);
+
+            var importIDs = importList.Select(x => x.ImportID).ToList();
+
+            // Đếm tổng số dòng chi tiết nhập ứng với tất cả ImportID
+            var totalCount = _ministopUnitOfWork.StockImportDetailRepository
+                                .GetCount(x => importIDs.Contains(x.ImportID));
+
             return new Result<int>(totalCount);
+        }
+        public PagedResult<IReadOnlyList<StockImportDetailDto>> GetImportDetails(string storeID, int month, int year, int pageNumber, int pageSize)
+        {
+            var exportList = _ministopUnitOfWork.StockImportRepository
+                   .GetAll(x => x.StoreID == storeID
+                             && x.ImportDate.Month == month
+                             && x.ImportDate.Year == year);
+            var importIDs = exportList.Select(x => x.ImportID).ToList();
+            var totalCount = _ministopUnitOfWork.StockImportDetailRepository
+                                .GetCount(x => importIDs.Contains(x.ImportID));
+            var list = _ministopUnitOfWork.StockImportDetailRepository
+                                .GetPagedResponse(x => importIDs.Contains(x.ImportID), pageNumber, pageSize);
+
+            return new PagedResult<IReadOnlyList<StockImportDetailDto>>(list, pageNumber, pageSize, totalCount);
         }
         public Result<StockImportDetailDto> GetStockImportDetailByID(string id)
         {

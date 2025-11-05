@@ -113,6 +113,7 @@ namespace Presentation
             else
             {
                 dgvDuLieu.Rows[e.RowIndex].Cells["SoLuong"].Value = DBNull.Value;
+                dgvDuLieu.Rows[e.RowIndex].Cells["SoLuong"].ReadOnly = false;
             }
 
 

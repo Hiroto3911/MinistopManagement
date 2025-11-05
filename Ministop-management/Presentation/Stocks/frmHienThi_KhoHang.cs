@@ -207,7 +207,7 @@ namespace Presentation
         {
             LoadDataStockDetail(_userSession.IdStore);
         }
-        public void LoadDataStockDetail(string storeId, int pageNumber = 1, int pageSize = 20)
+        public void LoadDataStockDetail(string storeId, int pageNumber = 1, int pageSize = 20, int quantitywarming= 50)
         {
             _totalCountWarming = 0;
             DataTable dt = new DataTable();
@@ -225,7 +225,7 @@ namespace Presentation
                 foreach (var item in list.Data)
                 {
                     dt.Rows.Add(item.StockDetailId, item.ProductName, item.Quantity, item.Price, item.LastUpdate.ToShortDateString());
-                    if(item.Quantity< 50)
+                    if(item.Quantity< quantitywarming)
                     {
                         _totalCountWarming++;
                     }
@@ -248,7 +248,7 @@ namespace Presentation
                 var grid = (Guna2DataGridView)s;
                 var row = grid.Rows[e.RowIndex];
                 long quantity =Convert.ToInt64(row.Cells["SoLuong"].Value.ToString());
-                if(quantity < 50)
+                if(quantity < quantitywarming)
                 {
                     //using (Pen p = new Pen(Color.Red, 4))
                     //{
@@ -322,6 +322,17 @@ namespace Presentation
             string stockDetailID = dgvDuLieuCT.Rows[row].Cells["MaChiTietKho"].Value.ToString();
             var frmChucNang = _container.Resolve<frmHienThi_LichSuKhoHang>(new ParameterOverride("stockDetailID", stockDetailID));
             frmChucNang.ShowDialog();
+        }
+        private void ibtnSoLanNhap_Click(object sender, EventArgs e)
+        {
+            var frmHienThi = _container.Resolve<frmHienThi_ThongBao>(new ParameterOverride("storeID", _userSession.IdStore), new ParameterOverride("date", DateTime.UtcNow.ToLocalTime()), new ParameterOverride("type", "IMPORT"));
+            frmHienThi.ShowDialog();
+        }
+
+        private void ibtnSoLanXuat_Click(object sender, EventArgs e)
+        {
+            var frmHienThi = _container.Resolve<frmHienThi_ThongBao>(new ParameterOverride("storeID", _userSession.IdStore), new ParameterOverride("date", DateTime.UtcNow.ToLocalTime()), new ParameterOverride("type", "EXPORT"));
+            frmHienThi.ShowDialog();
         }
         #endregion
 
@@ -731,8 +742,9 @@ namespace Presentation
 
 
 
+
         #endregion
 
-       
+      
     }
 }
