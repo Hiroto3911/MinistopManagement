@@ -43,12 +43,25 @@ namespace Infrastructure
             container.RegisterType<IProductCategoryRepository, ProductCategoryRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IProductRepository, ProductRepository>(new PerResolveLifetimeManager());
             container.RegisterType<ISupplierRepository, SupplierRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<ISupplierProductRepository, SupplierProductRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IPromotionRepository, PromotionRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IPromotionProductRepository, PromotionProductReponsitory>(new PerResolveLifetimeManager());
             container.RegisterType<IReportRepository, ReportRepository>(new PerResolveLifetimeManager());
             container.RegisterType<ISalaryContractRepository, SalaryContractRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IShiftAssignmentRepository, ShiftAssignmentRepository>(new PerResolveLifetimeManager());
             container.RegisterType<ISalaryRepository, SalaryRepository>(new PerResolveLifetimeManager());
             container.RegisterType<ISalaryContractAllowanceRepository, SalaryContractAllowanceRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IAbsenceRepository, AbsenceRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IStockImportRepository, StockImportRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IStockImportDetailRepository, StockImportDetailRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IStockExportRepository, StockExportRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IStockExportDetailRepository, StockExportDetailRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IStockCheckRepository, StockCheckRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IStockCheckDetailRepository, StockCheckDetailRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IStockDetailRepository, StockDetailRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IStockHistoryRepository, StockHistoryRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IInvoiceRepository, InvoiceRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IInvoiceDetailRepository, InvoiceDetailRepository>(new PerResolveLifetimeManager());
         }
     }
 }

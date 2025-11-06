@@ -11,6 +11,7 @@ namespace Services.Interfaces
     public interface ISupplierService
     {
         Result<bool> CreateSupplier(SupplierDto SupplierDto);
+        Result<IReadOnlyList<SupplierDto>> GetAllSupplier();
         Result<IReadOnlyList<SupplierDto>> GetAllSupplierIsDelete();
         PagedResult<IReadOnlyList<SupplierDto>> GetSupplier(int pageNumber, int pageSize);
         Result<SupplierDto> GetSupplierByID(string id);

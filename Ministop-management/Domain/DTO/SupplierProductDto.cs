@@ -11,6 +11,7 @@ namespace Domain.DTO
         public string Id { get; set; }
         public string SupplierId { get; set; }
         public string ProductId { get; set; }
+        public string ProductName { get; set; }
         public decimal SupplyPrice { get; set; }
         public byte Status { get; set; }
     }

@@ -16,11 +16,24 @@ namespace Infrastructure.Interfaces
         IProductCategoryRepository ProductCategoryRepository { get; }
         IProductRepository ProductRepository { get; }
         ISupplierRepository SupplierRepository { get; }
+        ISupplierProductRepository SupplierProductRepository { get; }
+        IPromotionRepository PromotionRepository { get; }
+        IPromotionProductRepository PromotionProductRepository { get; }
         IReportRepository ReportRepository { get; }
         ISalaryContractRepository SalaryContractRepository { get; }
         IShiftAssignmentRepository ShiftAssignmentRepository { get; }
         ISalaryRepository SalaryRepository { get; }
         ISalaryContractAllowanceRepository SalaryContractAllowanceRepository { get; }
         IAbsenceRepository AbsenceRepository { get; }
+        IStockDetailRepository StockDetailRepository { get; }
+        IStockHistoryRepository StockHistoryRepository { get; }
+        IStockImportRepository StockImportRepository { get; }
+        IStockImportDetailRepository StockImportDetailRepository { get; }
+        IStockExportRepository StockExportRepository { get; }
+        IStockExportDetailRepository StockExportDetailRepository { get; }
+        IStockCheckRepository StockCheckRepository { get; }
+        IStockCheckDetailRepository StockCheckDetailRepository { get; }
+        IInvoiceRepository InvoiceRepository { get; }
+        IInvoiceDetailRepository InvoiceDetailRepository { get; }
     }
 }

@@ -27,7 +27,20 @@ namespace Infrastructure.UnitOfWorks
             IShiftAssignmentRepository shiftAssignmentRepository,
             ISalaryRepository salaryRepository,
             ISalaryContractAllowanceRepository salaryContractAllowanceRepository,
-            IAbsenceRepository absenceRepository
+            IAbsenceRepository absenceRepository,
+             IStockDetailRepository stockDetailRepository,
+            IStockHistoryRepository stockHistoryRepository,
+            IStockImportRepository stockImportRepository,
+            IStockImportDetailRepository stockImportDetailRepository,
+            IStockExportRepository stockExportRepository,
+            IStockExportDetailRepository stockExportDetailRepository,
+            IStockCheckRepository stockCheckRepository,
+            IStockCheckDetailRepository stockCheckDetailRepository,
+            ISupplierProductRepository supplierProductRepository,
+            IPromotionRepository promotionRepository,
+            IPromotionProductRepository promotionProductRepository,
+            IInvoiceRepository invoiceRepository,
+            IInvoiceDetailRepository invoiceDetailRepository
             ) : base(context)
         {
             StoreRepository = storeRepository;
@@ -38,12 +51,26 @@ namespace Infrastructure.UnitOfWorks
             ProductCategoryRepository = productCategoryRepository;
             ProductRepository = productRepository;
             SupplierRepository = supplierRepository;
+            SupplierProductRepository = supplierProductRepository;
             ReportRepository = reportRepository;
             SalaryContractRepository = salaryContractRepository;
             ShiftAssignmentRepository = shiftAssignmentRepository;
             SalaryRepository = salaryRepository;
             SalaryContractAllowanceRepository = salaryContractAllowanceRepository;
             AbsenceRepository = absenceRepository;
+            PromotionRepository = promotionRepository;
+            PromotionProductRepository = promotionProductRepository;
+            ReportRepository = reportRepository;
+            StockDetailRepository = stockDetailRepository;
+            StockHistoryRepository = stockHistoryRepository;
+            StockImportRepository = stockImportRepository;
+            StockImportDetailRepository = stockImportDetailRepository;
+            StockExportRepository = stockExportRepository;
+            StockExportDetailRepository = stockExportDetailRepository;
+            StockCheckRepository = stockCheckRepository;
+            StockCheckDetailRepository = stockCheckDetailRepository;
+            InvoiceRepository = invoiceRepository;
+            InvoiceDetailRepository = invoiceDetailRepository;
 
         }
         public IStoreRepository StoreRepository { get; private set; }
@@ -64,5 +91,26 @@ namespace Infrastructure.UnitOfWorks
         public ISalaryRepository SalaryRepository { get; private set; }
         public ISalaryContractAllowanceRepository SalaryContractAllowanceRepository { get; private set; }
         public IAbsenceRepository AbsenceRepository { get; private set; }
+        public ISupplierProductRepository SupplierProductRepository { get; private set; }
+        public IPromotionRepository PromotionRepository { get; private set; }
+        public IPromotionProductRepository PromotionProductRepository { get; private set; }
+
+        public IStockDetailRepository StockDetailRepository { get; private set; }
+
+        public IStockHistoryRepository StockHistoryRepository { get; private set; }
+
+        public IStockImportRepository StockImportRepository { get; private set; }
+
+        public IStockImportDetailRepository StockImportDetailRepository { get; private set; }
+
+        public IStockExportRepository StockExportRepository { get; private set; }
+
+        public IStockExportDetailRepository StockExportDetailRepository { get; private set; }
+
+        public IStockCheckRepository StockCheckRepository { get; private set; }
+
+        public IStockCheckDetailRepository StockCheckDetailRepository { get; private set; }
+        public IInvoiceRepository InvoiceRepository { get; private set; }
+        public IInvoiceDetailRepository InvoiceDetailRepository { get; private set; }
     }
 }

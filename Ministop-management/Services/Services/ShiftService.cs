@@ -29,7 +29,6 @@ namespace Services.Services
             _userSession = userSession;
             _mapper = mapper;
         }
-
         public Result<IReadOnlyList<ShiftDto>> GetAll()
         {
             // Lấy danh sách từ DBML (entity của LINQ to SQL)
@@ -42,7 +41,7 @@ namespace Services.Services
             return new Result<IReadOnlyList<ShiftDto>>(list);
         }
 
-       
+
         public Result<ShiftDto> GetShiftByID(string id)
         {
             try
@@ -81,7 +80,7 @@ namespace Services.Services
                 var ShiftId = IdGenerator.CreateID("SFT");
                 var currentUserId = _userSession.UserId;
                 ShiftDto.ShiftId = ShiftId;
-               
+
                 var ShiftEntity = _mapper.Map<Shift>(ShiftDto);
                 var succeeded = _ministopUnitOfWork.ShiftRepository.Add(ShiftEntity);
                 if (succeeded == null)
@@ -97,7 +96,7 @@ namespace Services.Services
             }
         }
 
-      
+
         public Result<bool> UpdateShift(ShiftDto ShiftEdit)
         {
             _ministopUnitOfWork.BeginTransaction();

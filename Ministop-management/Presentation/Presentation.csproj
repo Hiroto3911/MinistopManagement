@@ -115,10 +115,40 @@
     <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachNhanVienTheoCuaHang.Designer.cs">
       <DependentUpon>frmHienThi_DanhSachNhanVienTheoCuaHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuNhap.Designer.cs">
+      <DependentUpon>frmHienThi_PhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuXuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuXuat.Designer.cs">
+      <DependentUpon>frmHienThi_PhieuXuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachNhanVienTheoCuaHang.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Rpt_DanhSachNhanVienTheoCuaHang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\Report\SaleReports\Rpt_InHoaDon.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_InHoaDon.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\Report\StockReports\Rpt_InPhieuNhap.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_InPhieuNhap.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\Report\StockReports\Rpt_InPhieuXuat.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_InPhieuXuat.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CrystalReport\Report\StoreReports\Rpt_DanhSachCuaHangTheoKhuVuc.cs">
@@ -134,6 +164,24 @@
     <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.Designer.cs">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_GG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_GG.Designer.cs">
+      <DependentUpon>frmThungRac_GG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\frmHienThi_GiamGiaSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\frmHienThi_GiamGiaSanPham.Designer.cs">
+      <DependentUpon>frmHienThi_GiamGiaSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\frmHienThi_NhaCungCapSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\frmHienThi_NhaCungCapSanPham.Designer.cs">
+      <DependentUpon>frmHienThi_NhaCungCapSanPham.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales\Dialogs\frmChucNang_PhieuTraHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,11 +194,59 @@
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stocks\frmHienThi_LichSuKho.cs">
+    <Compile Include="Sales\Dialogs\frmHienThi_ChiTietHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stocks\frmHienThi_LichSuKho.Designer.cs">
-      <DependentUpon>frmHienThi_LichSuKho.cs</DependentUpon>
+    <Compile Include="Sales\Dialogs\frmHienThi_ChiTietHoaDon.Designer.cs">
+      <DependentUpon>frmHienThi_ChiTietHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\Dialogs\frmHienThi_ChiTietTraHang1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\Dialogs\frmHienThi_ChiTietTraHang1.Designer.cs">
+      <DependentUpon>frmHienThi_ChiTietTraHang1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietNhapKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietNhapKho.Designer.cs">
+      <DependentUpon>frmChucNang_ChiTietNhapKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmChucNang_KiemKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmChucNang_KiemKho.Designer.cs">
+      <DependentUpon>frmChucNang_KiemKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThiChiTietKiemHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThiChiTietKiemHang.Designer.cs">
+      <DependentUpon>frmHienThiChiTietKiemHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_ChiTietNhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_ChiTietNhapHang.Designer.cs">
+      <DependentUpon>frmHienThi_ChiTietNhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_ChiTietXuatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_ChiTietXuatHang.Designer.cs">
+      <DependentUpon>frmHienThi_ChiTietXuatHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_LichSuKhoHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_LichSuKhoHang.Designer.cs">
+      <DependentUpon>frmHienThi_LichSuKhoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_ThongBao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_ThongBao.Designer.cs">
+      <DependentUpon>frmHienThi_ThongBao.cs</DependentUpon>
     </Compile>
     <Compile Include="Stores\frmHienThi_CuaHang.cs">
       <SubType>Form</SubType>
@@ -217,12 +313,6 @@
     </Compile>
     <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietKiemKho.Designer.cs">
       <DependentUpon>frmChucNang_ChiTietKiemKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietNhapKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietNhapKho.Designer.cs">
-      <DependentUpon>frmChucNang_ChiTietNhapKho.cs</DependentUpon>
     </Compile>
     <Compile Include="Sales\Dialogs\frmChucNang_ChiTietPhieuTraHang.cs">
       <SubType>Form</SubType>
@@ -387,12 +477,39 @@
     <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_DanhSachNhanVienTheoCuaHang.resx">
       <DependentUpon>frmHienThi_DanhSachNhanVienTheoCuaHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_PhieuNhap.resx">
+      <DependentUpon>frmHienThi_PhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_PhieuXuat.resx">
+      <DependentUpon>frmHienThi_PhieuXuat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachNhanVienTheoCuaHang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_DanhSachNhanVienTheoCuaHang.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\Report\SaleReports\Rpt_InHoaDon.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_InHoaDon.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\Report\StockReports\Rpt_InPhieuNhap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_InPhieuNhap.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\Report\StockReports\Rpt_InPhieuXuat.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_InPhieuXuat.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.resx">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmThungRac_GG.resx">
+      <DependentUpon>frmThungRac_GG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\frmHienThi_GiamGiaSanPham.resx">
+      <DependentUpon>frmHienThi_GiamGiaSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\frmHienThi_NhaCungCapSanPham.resx">
+      <DependentUpon>frmHienThi_NhaCungCapSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\Dialogs\frmChucNang_PhieuTraHang.resx">
       <DependentUpon>frmChucNang_PhieuTraHang.cs</DependentUpon>
@@ -400,11 +517,35 @@
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sales\Dialogs\frmHienThi_ChiTietHoaDon.resx">
+      <DependentUpon>frmHienThi_ChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\Dialogs\frmHienThi_ChiTietTraHang1.resx">
+      <DependentUpon>frmHienThi_ChiTietTraHang1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_ChiTietNhapKho.resx">
+      <DependentUpon>frmChucNang_ChiTietNhapKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_KiemKho.resx">
+      <DependentUpon>frmChucNang_KiemKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\Dialogs\frmHienThiChiTietKiemHang.resx">
+      <DependentUpon>frmHienThiChiTietKiemHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_ChiTietNhapHang.resx">
+      <DependentUpon>frmHienThi_ChiTietNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_ChiTietXuatHang.resx">
+      <DependentUpon>frmHienThi_ChiTietXuatHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_DanhSachNhapHang.resx">
       <DependentUpon>frmHienThi_DanhSachNhapHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stocks\frmHienThi_LichSuKho.resx">
-      <DependentUpon>frmHienThi_LichSuKho.cs</DependentUpon>
+    <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_LichSuKhoHang.resx">
+      <DependentUpon>frmHienThi_LichSuKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_ThongBao.resx">
+      <DependentUpon>frmHienThi_ThongBao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stores\frmHienThi_CuaHang.resx">
       <DependentUpon>frmHienThi_CuaHang.cs</DependentUpon>
@@ -435,9 +576,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_ChiTietKiemKho.resx">
       <DependentUpon>frmChucNang_ChiTietKiemKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_ChiTietNhapKho.resx">
-      <DependentUpon>frmChucNang_ChiTietNhapKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sales\Dialogs\frmChucNang_ChiTietPhieuTraHang.resx">
       <DependentUpon>frmChucNang_ChiTietPhieuTraHang.cs</DependentUpon>
@@ -603,6 +741,7 @@
     <Content Include="Resources\invoice.png" />
     <None Include="Resources\invoice1.png" />
     <None Include="Resources\market.png" />
+    <None Include="Resources\loading-arrow.png" />
     <Content Include="Resources\monitor.png" />
     <None Include="Resources\Product1.png" />
     <None Include="Resources\Product2.png" />
@@ -625,8 +764,11 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CrystalReport\Report\ProductReports\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{204B809A-D027-406F-8529-2193211726EE}</Project>
+      <Project>{204b809a-d027-406f-8529-2193211726ee}</Project>
       <Name>Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
@@ -637,11 +779,6 @@
       <Project>{36b44f87-d9ad-403c-ace4-a02a0c415e22}</Project>
       <Name>Shared</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CrystalReport\Report\ProductReports\" />
-    <Folder Include="CrystalReport\Report\SaleReports\" />
-    <Folder Include="CrystalReport\Report\StockReports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

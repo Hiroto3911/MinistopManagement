@@ -20,6 +20,7 @@ namespace Shared.ErrorCode
         COM_ERR_002,
         [Description(@"Thiết lập thất bại")]
         COM_ERR_003,
+
         #endregion
 
         #region User
@@ -126,22 +127,22 @@ namespace Shared.ErrorCode
         #endregion
 
         #region Product 
-        [Description(@"Không tìm thấy loại sản phẩm.")]
+        [Description(@"Không tìm thấy sản phẩm.")]
         PRD_ERR_001,
-        [Description(@"Loại sản phẩm đã tồn tại.")]
+        [Description(@"Sản phẩm đã tồn tại.")]
         PRD_ERR_002,
-        [Description(@"Tạo loại sản phẩm thất bại.")]
+        [Description(@"Tạo sản phẩm thất bại.")]
         PRD_ERR_003,
-        [Description(@"Sửa loại sản phẩm thất bại.")]
+        [Description(@"Sửa sản phẩm thất bại.")]
         PRD_ERR_004,
-        [Description(@"Xóa loại sản phẩm thất bại.")]
+        [Description(@"Xóa sản phẩm thất bại.")]
         PRD_ERR_005,
-        [Description(@"Bị trùng dữ liệu loại sản phẩm.")]
+        [Description(@"Bị trùng dữ liệu sản phẩm.")]
         PRD_ERR_006,
         #endregion
 
         #region Supplier
-        [Description(@"Không nhà cung cấp loại sản phẩm.")]
+        [Description(@"Không tìm thấy nhà cung cấp.")]
         SLE_ERR_001,
         [Description(@"Nhà cung cấp đã tồn tại.")]
         SLE_ERR_002,
@@ -155,6 +156,7 @@ namespace Shared.ErrorCode
         SLE_ERR_006,
         #endregion
 
+<<<<<<< HEAD
         #region Salary Contract
         [Description(@"Không có hợp đồng lương.")]
         SAL_ERR_001,
@@ -255,5 +257,159 @@ namespace Shared.ErrorCode
         [Description(@"Bị trùng chấm công vắng.")]
         ABS_ERR_006,
         #endregion
+=======
+        #region StockDetail
+        [Description(@"Không tìm thấy phiếu chi tiết kho .")]
+        SDD_ERR_001,
+        [Description(@"Phiếu chi tiết kho đã tồn tại.")]
+        SDD_ERR_002,
+        [Description(@"Tạo Phiếu chi tiết kho thất bại.")]
+        SDD_ERR_003,
+        [Description(@"Sửa Phiếu chi tiết kho thất bại.")]
+        SDD_ERR_004,
+        [Description(@"Xóa Phiếu chi tiết kho thất bại.")]
+        SDD_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu chi tiết kho.")]
+        SDD_ERR_006,
+        [Description(@"số lượng của sản phẩm trong kho đã được thay đổi. Vui lòng cập nhập lại thông tin")]
+        SDD_ERR_007,
+        #endregion
+
+        #region StockImport
+        [Description(@"Không tìm thấy Phiếu nhập .")]
+        SIT_ERR_001,
+        [Description(@"Phiếu nhập đã tồn tại.")]
+        SIT_ERR_002,
+        [Description(@"Tạo Phiếu nhập thất bại.")]
+        SIT_ERR_003,
+        [Description(@"Sửa Phiếu nhập thất bại.")]
+        SIT_ERR_004,
+        [Description(@"Xóa Phiếu nhập thất bại.")]
+        SIT_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu nhập.")]
+        SIT_ERR_006,
+        #endregion
+
+        #region StockImportDetail
+        [Description(@"Không tìm thấy Phiếu chi tiết nhập .")]
+        SID_ERR_001,
+        [Description(@"Phiếu chi tiết nhập đã tồn tại.")]
+        SID_ERR_002,
+        [Description(@"Tạo Phiếu chi tiết nhập thất bại.")]
+        SID_ERR_003,
+        [Description(@"Sửa Phiếu chi tiết nhập thất bại.")]
+        SID_ERR_004,
+        [Description(@"Xóa Phiếu chi tiết nhập thất bại.")]
+        SID_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu chi tiết nhập.")]
+        SID_ERR_006,
+        #endregion
+
+        #region StockExport
+        [Description(@"Không tìm thấy Phiếu Xuất .")]
+        SET_ERR_001,
+        [Description(@"Phiếu Xuất đã tồn tại.")]
+        SET_ERR_002,
+        [Description(@"Tạo Phiếu Xuất thất bại.")]
+        SET_ERR_003,
+        [Description(@"Sửa Phiếu Xuất thất bại.")]
+        SET_ERR_004,
+        [Description(@"Xóa Phiếu Xuất thất bại.")]
+        SET_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu Xuất.")]
+        SET_ERR_006,
+        #endregion
+
+        #region StockExportDetail
+        [Description(@"Không tìm thấy Phiếu chi tiết Xuất .")]
+        SED_ERR_001,
+        [Description(@"Phiếu chi tiết Xuất đã tồn tại.")]
+        SED_ERR_002,
+        [Description(@"Tạo Phiếu chi tiết Xuất thất bại.")]
+        SED_ERR_003,
+        [Description(@"Sửa Phiếu chi tiết Xuất thất bại.")]
+        SED_ERR_004,
+        [Description(@"Xóa Phiếu chi tiết Xuất thất bại.")]
+        SED_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu chi tiết Xuất.")]
+        SED_ERR_006,
+        #endregion
+
+        #region StockCheck
+        [Description(@"Không tìm thấy Phiếu kiểm .")]
+        SCT_ERR_001,
+        [Description(@"Phiếu kiểm đã tồn tại.")]
+        SCT_ERR_002,
+        [Description(@"Tạo Phiếu kiểm thất bại.")]
+        SCT_ERR_003,
+        [Description(@"Sửa Phiếu kiểm thất bại.")]
+        SCT_ERR_004,
+        [Description(@"Xóa Phiếu kiểm thất bại.")]
+        SCT_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu kiểm.")]
+        SCT_ERR_006,
+        #endregion
+
+        #region StockCheckDetail
+        [Description(@"Không tìm thấy Phiếu chi tiết kiểm .")]
+        SCD_ERR_001,
+        [Description(@"Phiếu chi tiết kiểm đã tồn tại.")]
+        SCD_ERR_002,
+        [Description(@"Tạo Phiếu chi tiết kiểm thất bại.")]
+        SCD_ERR_003,
+        [Description(@"Sửa Phiếu chi tiết kiểm thất bại.")]
+        SCD_ERR_004,
+        [Description(@"Xóa Phiếu chi tiết kiểm thất bại.")]
+        SCD_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu chi tiết kiểm.")]
+        SCD_ERR_006,
+        #endregion
+
+        #region SupplierProduct
+        [Description(@"Không tìm thấy nhà cung cấp loại sản phẩm.")]
+        SLPRD_ERR_001,
+        [Description(@"Nhà cung cấp loại sản phẩm này đã tồn tại.")]
+        SLPRD_ERR_002,
+        [Description(@"Tạo nhà cung cấp sản phẩm thất bại.")]
+        SLPRD_ERR_003,
+        [Description(@"Sửa nhà cung cấp sản phẩm thất bại.")]
+        SLPRD_ERR_004,
+        [Description(@"Xóa nhà cung cấp sản phẩm thất bại.")]
+        SLPRD_ERR_005,
+        [Description(@"Bị trùng dữ liệu nhà cung cấp sản phẩm.")]
+        SLPRD_ERR_006,
+        #endregion
+
+        #region Promotion
+        [Description(@"Không tìm thấy phiếu giảm giá.")]
+        PRM_ERR_001,
+        [Description(@"Phiếu giảm giá đã tồn tại.")]
+        PRM_ERR_002,
+        [Description(@"Tạo phiếu giảm giá thất bại.")]
+        PRM_ERR_003,
+        [Description(@"Sửa phiếu giảm giá thất bại.")]
+        PRM_ERR_004,
+        [Description(@"Xóa phiếu giảm giá thất bại.")]
+        PRM_ERR_005,
+        [Description(@"Bị trùng dữ liệu phiếu giảm giá.")]
+        PRM_ERR_006,
+        #endregion
+
+        #region PromotionProduct
+        [Description(@"Không tìm thấy phiếu giảm giá sản phẩm.")]
+        PRP_ERR_001,
+        [Description(@"Phiếu giảm giá sản phẩm đã tồn tại.")]
+        PRP_ERR_002,
+        [Description(@"Tạo phiếu giảm giá sản phẩm thất bại.")]
+        PRP_ERR_003,
+        [Description(@"Sửa phiếu giảm giá sản phẩm thất bại.")]
+        PRP_ERR_004,
+        [Description(@"Xóa phiếu giảm giá sản phẩm thất bại.")]
+        PRP_ERR_005,
+        [Description(@"Bị trùng dữ liệu phiếu giảm giá sản phẩm.")]
+        PRP_ERR_006,
+        #endregion
+
+>>>>>>> develop
     }
 }
