@@ -9,6 +9,7 @@ using Shared.Security;
 using Shared.Wrappers;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,7 +42,37 @@ namespace Services.Services
             return new Result<IReadOnlyList<StockExportDetailDto>>(list);
         }
 
+        public Result<int> GetCount(string storeID, DateTime dateNow)
+        {
+            var exportList = _ministopUnitOfWork.StockExportRepository
+                    .GetAll(x => x.StoreID == storeID
+                              && x.ExportDate.Month == dateNow.Month
+                              && x.ExportDate.Year == dateNow.Year);
 
+            if (!exportList.Any())
+                return new Result<int>(0);
+
+            var exportIDs = exportList.Select(x => x.ExportID).ToList();
+
+            var totalCount = _ministopUnitOfWork.StockExportDetailRepository
+                                .GetCount(x => exportIDs.Contains(x.ExportID));
+
+            return new Result<int>(totalCount);
+        }
+        public PagedResult<IReadOnlyList<StockExportDetailDto>> GetExportDetails(string storeID, int month, int year, int pageNumber, int pageSize)
+        {
+            var exportList = _ministopUnitOfWork.StockExportRepository
+                   .GetAll(x => x.StoreID == storeID
+                             && x.ExportDate.Month == month
+                             && x.ExportDate.Year == year);
+            var exportIDs = exportList.Select(x => x.ExportID).ToList();
+            var totalCount = _ministopUnitOfWork.StockExportDetailRepository
+                                .GetCount(x => exportIDs.Contains(x.ExportID));
+            var list = _ministopUnitOfWork.StockExportDetailRepository
+                                .GetPagedResponse(x => exportIDs.Contains(x.ExportID), pageNumber, pageSize);
+       
+            return new PagedResult<IReadOnlyList<StockExportDetailDto>>(list, pageNumber, pageSize, totalCount);
+        }
         public Result<StockExportDetailDto> GetStockExportDetailByID(string id)
         {
             try

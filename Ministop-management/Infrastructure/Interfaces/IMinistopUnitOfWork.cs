@@ -29,5 +29,7 @@ namespace Infrastructure.Interfaces
         IStockExportDetailRepository StockExportDetailRepository { get; }
         IStockCheckRepository StockCheckRepository { get; }
         IStockCheckDetailRepository StockCheckDetailRepository { get; }
+        IInvoiceRepository InvoiceRepository { get; }
+        IInvoiceDetailRepository InvoiceDetailRepository { get; }
     }
 }

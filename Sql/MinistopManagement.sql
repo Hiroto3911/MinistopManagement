@@ -299,6 +299,8 @@ CREATE TABLE Invoice (
     EmployeeID NVARCHAR(200) NOT NULL,
     InvoiceDate DATETIME NOT NULL,
     FinalAmount DECIMAL(18,2),
+    DiscountTotal DECIMAL(18,2) NULL, -- tổng số tiền giảm
+    Status TINYINT NOT NULL DEFAULT 0, -- 0: đang tạo | 1: đã hoàn tất | 2: đã trả hàng
     FOREIGN KEY (StoreID) REFERENCES Store(StoreID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 );
@@ -310,6 +312,8 @@ CREATE TABLE InvoiceDetails (
     ProductID NVARCHAR(200) NOT NULL,
     Quantity INT NOT NULL,
     UnitPrice DECIMAL(18,2) NOT NULL,
+    FinalUnitPrice DECIMAL(18,2) NOT NULL, -- giá sau giảm
+    DiscountAmount DECIMAL(18,2) NOT NULL DEFAULT 0,
     FOREIGN KEY (InvoiceID) REFERENCES Invoice(InvoiceID),
     FOREIGN KEY (ProductID) REFERENCES Products(ProductID),
     UNIQUE(InvoiceID,ProductID)
@@ -322,6 +326,7 @@ CREATE TABLE ReturnProduct (
     InvoiceID NVARCHAR(200) NOT NULL,
     EmployeeID NVARCHAR(200) NOT NULL,
     ReturnDate DATETIME NOT NULL,
+     Status TINYINT NOT NULL DEFAULT 0,
     FOREIGN KEY (InvoiceID) REFERENCES Invoice(InvoiceID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 ); 

@@ -121,6 +121,24 @@
       <DependentUpon>Rpt_DanhSachNhanVienTheoCuaHang.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReport\Report\SaleReports\Rpt_InHoaDon.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_InHoaDon.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\Report\StockReports\Rpt_InPhieuNhap.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_InPhieuNhap.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\Report\StockReports\Rpt_InPhieuXuat.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_InPhieuXuat.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReport\Report\StoreReports\Rpt_DanhSachCuaHangTheoKhuVuc.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -199,6 +217,12 @@
     </Compile>
     <Compile Include="Stocks\Dialogs\frmHienThi_LichSuKhoHang.Designer.cs">
       <DependentUpon>frmHienThi_LichSuKhoHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_ThongBao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_ThongBao.Designer.cs">
+      <DependentUpon>frmHienThi_ThongBao.cs</DependentUpon>
     </Compile>
     <Compile Include="Stores\frmHienThi_CuaHang.cs">
       <SubType>Form</SubType>
@@ -433,6 +457,18 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_DanhSachNhanVienTheoCuaHang.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\Report\SaleReports\Rpt_InHoaDon.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_InHoaDon.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\Report\StockReports\Rpt_InPhieuNhap.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_InPhieuNhap.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\Report\StockReports\Rpt_InPhieuXuat.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_InPhieuXuat.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.resx">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </EmbeddedResource>
@@ -471,6 +507,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_LichSuKhoHang.resx">
       <DependentUpon>frmHienThi_LichSuKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_ThongBao.resx">
+      <DependentUpon>frmHienThi_ThongBao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stores\frmHienThi_CuaHang.resx">
       <DependentUpon>frmHienThi_CuaHang.cs</DependentUpon>
@@ -666,6 +705,7 @@
     <Content Include="Resources\invoice.png" />
     <None Include="Resources\invoice1.png" />
     <None Include="Resources\market.png" />
+    <None Include="Resources\loading-arrow.png" />
     <Content Include="Resources\monitor.png" />
     <None Include="Resources\Product1.png" />
     <None Include="Resources\Product2.png" />
@@ -689,8 +729,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CrystalReport\Report\ProductReports\" />
-    <Folder Include="CrystalReport\Report\SaleReports\" />
-    <Folder Include="CrystalReport\Report\StockReports\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">

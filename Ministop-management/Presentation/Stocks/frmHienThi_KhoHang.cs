@@ -36,6 +36,9 @@ namespace Presentation
         private long _totalPageStockImport;
         private long _totalPageStockExport;
         private long _totalPageStockCheck;
+        private int _totalCountImport;
+        private int _totalCountExport;
+        private int _totalCountWarming= 0;
 
         public frmHienThi_KhoHang
             (IUserSession userSession, IUnityContainer container,
@@ -200,8 +203,13 @@ namespace Presentation
         }
 
         #region StockDetail 
-        public void LoadDataStockDetail(string storeId, int pageNumber = 1, int pageSize = 20)
+        private void ibtnLoadDuLieu_Click(object sender, EventArgs e)
         {
+            LoadDataStockDetail(_userSession.IdStore);
+        }
+        public void LoadDataStockDetail(string storeId, int pageNumber = 1, int pageSize = 20, int quantitywarming= 50)
+        {
+            _totalCountWarming = 0;
             DataTable dt = new DataTable();
             dt.Columns.Add("MaChiTietKho");
             dt.Columns.Add("SanPham");
@@ -217,8 +225,13 @@ namespace Presentation
                 foreach (var item in list.Data)
                 {
                     dt.Rows.Add(item.StockDetailId, item.ProductName, item.Quantity, item.Price, item.LastUpdate.ToShortDateString());
+                    if(item.Quantity< quantitywarming)
+                    {
+                        _totalCountWarming++;
+                    }
                 }
             }
+            lblSoLanCanhBao.Text = _totalCountWarming.ToString();
             dgvDuLieuCT.DataSource = dt;
             dgvDuLieuCT.AllowUserToAddRows = false;
             dgvDuLieuCT.ReadOnly = true;
@@ -229,6 +242,28 @@ namespace Presentation
             dgvDuLieuCT.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvDuLieuCT.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
             dgvDuLieuCT.RowTemplate.Height = 40;
+            dgvDuLieuCT.RowPostPaint += (s, e) =>
+            {
+                if (e.RowIndex < 0) return;
+                var grid = (Guna2DataGridView)s;
+                var row = grid.Rows[e.RowIndex];
+                long quantity =Convert.ToInt64(row.Cells["SoLuong"].Value.ToString());
+                if(quantity < quantitywarming)
+                {
+                    //using (Pen p = new Pen(Color.Red, 4))
+                    //{
+                    //    int x = e.RowBounds.Left + 1;
+                    //    int y = e.RowBounds.Top + 1;
+                    //    int y2 = e.RowBounds.Bottom - 1;
+                    //    e.Graphics.DrawLine(p,x,y,x,y2);
+                    //}
+         
+                    row.DefaultCellStyle.BackColor = Color.IndianRed;
+                    row.DefaultCellStyle.ForeColor = Color.White;
+                }
+            };
+            GetCountExport();
+            GetCountImport();
             btnTrangTruocCT.Enabled = pageNumber > 1;
             btnTrangSauCT.Enabled = pageNumber <= _totalPageStockDetail;
         }
@@ -243,7 +278,26 @@ namespace Presentation
                 LoadDataStockDetail(_userSession.IdStore, pageNumber);
             }
         }
-
+        private void GetCountExport()
+        {
+            using(var childContainer  = _container.CreateChildContainer())
+            {
+                var date = DateTime.UtcNow.ToLocalTime();
+                var exportService = _container.Resolve<IStockExportDetailService>();
+                var count = exportService.GetCount(_userSession.IdStore, date);
+                lblSoLanXuat.Text = count.Data.ToString();
+            }
+        }
+        private void GetCountImport()
+        {
+            using (var childContainer = _container.CreateChildContainer())
+            {
+                var date = DateTime.UtcNow.ToLocalTime();
+                var importService = _container.Resolve<IStockImportDetailSerivce>();
+                var count = importService.GetCount(_userSession.IdStore, date);
+                lblSoLanNhap.Text = count.Data.ToString();
+            }
+        }
         private void btnTrangTruocCT_Click(object sender, EventArgs e)
         {
             int number = Convert.ToInt32(txtSoTrangCT.Text);
@@ -269,6 +323,17 @@ namespace Presentation
             var frmChucNang = _container.Resolve<frmHienThi_LichSuKhoHang>(new ParameterOverride("stockDetailID", stockDetailID));
             frmChucNang.ShowDialog();
         }
+        private void ibtnSoLanNhap_Click(object sender, EventArgs e)
+        {
+            var frmHienThi = _container.Resolve<frmHienThi_ThongBao>(new ParameterOverride("storeID", _userSession.IdStore), new ParameterOverride("date", DateTime.UtcNow.ToLocalTime()), new ParameterOverride("type", "IMPORT"));
+            frmHienThi.ShowDialog();
+        }
+
+        private void ibtnSoLanXuat_Click(object sender, EventArgs e)
+        {
+            var frmHienThi = _container.Resolve<frmHienThi_ThongBao>(new ParameterOverride("storeID", _userSession.IdStore), new ParameterOverride("date", DateTime.UtcNow.ToLocalTime()), new ParameterOverride("type", "EXPORT"));
+            frmHienThi.ShowDialog();
+        }
         #endregion
 
         #region StockImport
@@ -276,6 +341,7 @@ namespace Presentation
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("MaPhieuNhap");
+            dt.Columns.Add("MaNhaCungCap");
             dt.Columns.Add("NhaCungCap");
             dt.Columns.Add("NguoiLapPhieu");
             dt.Columns.Add("TrangThai");
@@ -288,7 +354,7 @@ namespace Presentation
                 _totalPageStockImport = (long)Math.Ceiling((double)list.TotalCount / pageSize);
                 foreach (var item in list.Data)
                 {
-                    dt.Rows.Add(item.ImportID, item.SupplierName, item.EmployeeName, item.Status, item.ImportDate.ToShortDateString());
+                    dt.Rows.Add(item.ImportID, item.SupplierId, item.SupplierName, item.EmployeeName, item.Status, item.ImportDate.ToShortDateString());
                 }
             }
             dgvDuLieuNH.DataSource = dt;
@@ -353,7 +419,8 @@ namespace Presentation
             var row = dgvDuLieuNH.CurrentCell.RowIndex;
             string importID = dgvDuLieuNH.Rows[row].Cells["MaPhieuNhap"].Value.ToString();
             var status = dgvDuLieuNH.Rows[row].Cells["TrangThai"].Value.ToString();
-            var frmHienThi = _container.Resolve<frmHienThi_ChiTietNhapHang>(new ParameterOverride("ImportID", importID), new ParameterOverride("Status", status));
+            string supllierID = dgvDuLieuNH.Rows[row].Cells["MaNhaCungCap"].Value.ToString();
+            var frmHienThi = _container.Resolve<frmHienThi_ChiTietNhapHang>(new ParameterOverride("ImportID", importID), new ParameterOverride("Status", status), new ParameterOverride("supplierID", supllierID));
             frmHienThi.ShowDialog();
         }
         private void btnThemNH_Click(object sender, EventArgs e)
@@ -573,7 +640,7 @@ namespace Presentation
             if (dgvDuLieuKH.Columns[e.ColumnIndex].Name == "Edit")
             {
                 //MessageBox.Show($"Edit sản phẩm: {productId}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                var frmChucNang = _container.Resolve<frmChucNang_KiemKho>(new ParameterOverride("CheckID", CheckID));
+                var frmChucNang = _container.Resolve<frmChucNang_KiemKho>(new ParameterOverride("checkID", CheckID));
                 frmChucNang.dataChanged += (s, ev) =>
                 {
 
@@ -615,7 +682,8 @@ namespace Presentation
             if (dgvDuLieuKH.CurrentCell == null || dgvDuLieuKH.Rows.Count == 0) return;
             var row = dgvDuLieuKH.CurrentCell.RowIndex;
             string CheckID = dgvDuLieuKH.Rows[row].Cells["MaPhieuKiem"].Value.ToString();
-            var frmHienThi = _container.Resolve<frmHienThiChiTietKiemHang>(new ParameterOverride("CheckID", CheckID));
+            string status = dgvDuLieuKH.Rows[row].Cells["TrangThai"].Value.ToString();
+            var frmHienThi = _container.Resolve<frmHienThiChiTietKiemHang>(new ParameterOverride("checkID", CheckID), new ParameterOverride("Status",status));
             frmHienThi.ShowDialog();
         }
 
@@ -666,15 +734,17 @@ namespace Presentation
 
 
 
+
+
+
+
+
+
+
+
+
         #endregion
 
-
-
-
-
-
-
-
-
+      
     }
 }

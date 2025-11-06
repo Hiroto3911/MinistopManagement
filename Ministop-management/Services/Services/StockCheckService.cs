@@ -106,6 +106,31 @@ namespace Services.Services
                 }
                 stockCheckEntity.Status = stockImportEdit.Status;
                 _ministopUnitOfWork.StockCheckRepository.Update(stockCheckEntity, true);
+                if (stockImportEdit.Status == 1)
+                {
+                    var list = _ministopUnitOfWork.StockCheckDetailRepository.GetAll(x => x.CheckID == stockCheckEntity.CheckID);
+                    if (list == null || list.Count < 0) return new Result<bool>(ErrorCodeEnum.SET_ERR_005);
+                    foreach (var item in list)
+                    {
+                        var result = _ministopUnitOfWork.StockDetailRepository.FindByID(x => x.ProductID == item.ProductID);
+                        if (result == null) continue;
+                        if(result.Quantity != item.QuantitySystem)
+                        {
+                            return new Result<bool>(ErrorCodeEnum.SDD_ERR_007);
+                        }
+                        if(result.Quantity > item.QuantityActual)
+                        {
+                            result.Quantity -= item.QuantityActual;
+                        }
+                        else
+                        {
+                            result.Quantity = item.QuantityActual;
+                        }
+                            result.LastUpdate = _dateTimeService.NowUtc;
+                        _ministopUnitOfWork.StockDetailRepository.Update(result, true);
+                        CreateHistoryEntity(stockCheckEntity.CheckID, result.StockDetailID, item.QuantityActual);
+                    }
+                }
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);
 
@@ -116,7 +141,20 @@ namespace Services.Services
                 throw ex;
             }
         }
-
+        private void CreateHistoryEntity(string refID, string stockDetailID, int quantityChange)
+        {
+            string id = IdGenerator.CreateID("STH");
+            var entity = new StockHistory()
+            {
+                StockHistoryID = id,
+                StockDetailID = stockDetailID,
+                QuantityChange = quantityChange,
+                RefID = refID,
+                ChangeDate = _dateTimeService.NowUtc,
+                ChangeType = "Kiểm kê"
+            };
+            _ministopUnitOfWork.StockHistoryRepository.Add(entity);
+        }
         public Result<bool> RemoveStockCheck(string id)
         {
             _ministopUnitOfWork.BeginTransaction();

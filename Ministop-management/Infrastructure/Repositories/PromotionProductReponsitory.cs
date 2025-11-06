@@ -34,5 +34,9 @@ namespace Infrastructure.Repositories
             return query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
 
         }
+        public Promotion_Product GetActivePromotionForProduct(string productId, int qty)
+        {
+            return _context.GetTable<Promotion_Product>().Where(x => x.ProductID == productId && x.MinQuantity <= qty && x.Promotion.Status == true && DateTime.UtcNow.ToLocalTime() >= x.Promotion.StartDate && DateTime.UtcNow.ToLocalTime() <= x.Promotion.EndDate).OrderByDescending(x => x.Promotion.Priority).FirstOrDefault();
+        }
     }
 }

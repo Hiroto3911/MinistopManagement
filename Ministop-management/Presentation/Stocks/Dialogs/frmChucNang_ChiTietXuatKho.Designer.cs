@@ -33,7 +33,6 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-
             this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtTenSP = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaSP = new Guna.UI2.WinForms.Guna2TextBox();
@@ -88,7 +87,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(395, 35);
             this.panel1.TabIndex = 230;
-
             // 
             // label11
             // 
@@ -104,7 +102,6 @@
             // 
             // ibtnThoat
             // 
-
             this.ibtnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ibtnThoat.BackColor = System.Drawing.Color.Transparent;
             this.ibtnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
@@ -142,7 +139,6 @@
             this.txtTenSP.SelectedText = "";
             this.txtTenSP.Size = new System.Drawing.Size(219, 36);
             this.txtTenSP.TabIndex = 241;
-
             // 
             // txtMaSP
             // 
@@ -164,14 +160,13 @@
             this.txtMaSP.SelectedText = "";
             this.txtMaSP.Size = new System.Drawing.Size(219, 36);
             this.txtMaSP.TabIndex = 240;
-
+            this.txtMaSP.TextChanged += new System.EventHandler(this.txtMaSP_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(19, 143);
-
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 19);
             this.label3.TabIndex = 239;
@@ -182,7 +177,6 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(19, 99);
-
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 19);
             this.label4.TabIndex = 238;
@@ -229,6 +223,7 @@
             this.txtDonViGia.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtDonViGia.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtDonViGia.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDonViGia.Enabled = false;
             this.txtDonViGia.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDonViGia.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtDonViGia.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -280,24 +275,19 @@
             this.label1.Size = new System.Drawing.Size(70, 19);
             this.label1.TabIndex = 231;
             this.label1.Text = "Số lượng:";
-
             // 
             // frmChucNang_ChiTietXuatKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(395, 320);
-
             this.Controls.Add(this.txtPhieuXuat);
             this.Controls.Add(this.panel1);
-
             this.Controls.Add(this.txtTenSP);
             this.Controls.Add(this.txtMaSP);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
-
             this.Controls.Add(this.label7);
-
             this.Controls.Add(this.txtSoLuong);
             this.Controls.Add(this.txtDonViGia);
             this.Controls.Add(this.label5);
