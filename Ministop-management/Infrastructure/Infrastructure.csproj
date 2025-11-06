@@ -57,16 +57,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MinistopDataContext.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IAbsenceRepository.cs" />
     <Compile Include="Interfaces\IAllowanceRepository.cs" />
     <Compile Include="Interfaces\IProductCategoryRepository.cs" />
     <Compile Include="Interfaces\IProductRepository.cs" />
     <Compile Include="Interfaces\IReportRepository.cs" />
+    <Compile Include="Interfaces\ISalaryContractAllowanceRepository.cs" />
+    <Compile Include="Interfaces\ISalaryContractRepository.cs" />
+    <Compile Include="Interfaces\ISalaryRepository.cs" />
+    <Compile Include="Interfaces\IShiftAssignmentRepository.cs" />
     <Compile Include="Interfaces\IShiftRepository.cs" />
     <Compile Include="Interfaces\ISupplierRepository.cs" />
+    <Compile Include="Repositories\AbsenceRepository.cs" />
     <Compile Include="Repositories\AllowanceRepository.cs" />
     <Compile Include="Repositories\ProductCategoryRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\ReportRepository.cs" />
+    <Compile Include="Repositories\SalaryContractAllowanceRepository.cs" />
+    <Compile Include="Repositories\SalaryContractRepository.cs" />
+    <Compile Include="Repositories\SalaryRepository.cs" />
+    <Compile Include="Repositories\ShiftAssignmentRepository.cs" />
     <Compile Include="Repositories\ShiftRepository.cs" />
     <Compile Include="Repositories\SupplierRepository.cs" />
     <Compile Include="ServicesRegistration.cs" />

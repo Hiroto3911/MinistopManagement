@@ -22,7 +22,12 @@ namespace Infrastructure.UnitOfWorks
             IProductCategoryRepository productCategoryRepository,
             IProductRepository productRepository,
             ISupplierRepository supplierRepository,
-            IReportRepository reportRepository
+            IReportRepository reportRepository,
+            ISalaryContractRepository salaryContractRepository,
+            IShiftAssignmentRepository shiftAssignmentRepository,
+            ISalaryRepository salaryRepository,
+            ISalaryContractAllowanceRepository salaryContractAllowanceRepository,
+            IAbsenceRepository absenceRepository
             ) : base(context)
         {
             StoreRepository = storeRepository;
@@ -34,6 +39,11 @@ namespace Infrastructure.UnitOfWorks
             ProductRepository = productRepository;
             SupplierRepository = supplierRepository;
             ReportRepository = reportRepository;
+            SalaryContractRepository = salaryContractRepository;
+            ShiftAssignmentRepository = shiftAssignmentRepository;
+            SalaryRepository = salaryRepository;
+            SalaryContractAllowanceRepository = salaryContractAllowanceRepository;
+            AbsenceRepository = absenceRepository;
 
         }
         public IStoreRepository StoreRepository { get; private set; }
@@ -48,7 +58,11 @@ namespace Infrastructure.UnitOfWorks
         public IProductCategoryRepository ProductCategoryRepository { get; private set; }
         public IProductRepository ProductRepository { get; private set; }
         public ISupplierRepository SupplierRepository { get; private set; }
-
         public IReportRepository ReportRepository { get; private set; }
+        public ISalaryContractRepository SalaryContractRepository { get; private set; }
+        public IShiftAssignmentRepository ShiftAssignmentRepository { get; private set; }
+        public ISalaryRepository SalaryRepository { get; private set; }
+        public ISalaryContractAllowanceRepository SalaryContractAllowanceRepository { get; private set; }
+        public IAbsenceRepository AbsenceRepository { get; private set; }
     }
 }

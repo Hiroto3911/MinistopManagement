@@ -17,5 +17,10 @@ namespace Infrastructure.Interfaces
         IProductRepository ProductRepository { get; }
         ISupplierRepository SupplierRepository { get; }
         IReportRepository ReportRepository { get; }
+        ISalaryContractRepository SalaryContractRepository { get; }
+        IShiftAssignmentRepository ShiftAssignmentRepository { get; }
+        ISalaryRepository SalaryRepository { get; }
+        ISalaryContractAllowanceRepository SalaryContractAllowanceRepository { get; }
+        IAbsenceRepository AbsenceRepository { get; }
     }
 }
