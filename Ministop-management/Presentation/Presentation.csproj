@@ -115,6 +115,18 @@
     <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachNhanVienTheoCuaHang.Designer.cs">
       <DependentUpon>frmHienThi_DanhSachNhanVienTheoCuaHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuNhap.Designer.cs">
+      <DependentUpon>frmHienThi_PhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuXuat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuXuat.Designer.cs">
+      <DependentUpon>frmHienThi_PhieuXuat.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachNhanVienTheoCuaHang.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -181,6 +193,18 @@
     </Compile>
     <Compile Include="frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\Dialogs\frmHienThi_ChiTietHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\Dialogs\frmHienThi_ChiTietHoaDon.Designer.cs">
+      <DependentUpon>frmHienThi_ChiTietHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sales\Dialogs\frmHienThi_ChiTietTraHang1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sales\Dialogs\frmHienThi_ChiTietTraHang1.Designer.cs">
+      <DependentUpon>frmHienThi_ChiTietTraHang1.cs</DependentUpon>
     </Compile>
     <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietNhapKho.cs">
       <SubType>Form</SubType>
@@ -453,6 +477,12 @@
     <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_DanhSachNhanVienTheoCuaHang.resx">
       <DependentUpon>frmHienThi_DanhSachNhanVienTheoCuaHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_PhieuNhap.resx">
+      <DependentUpon>frmHienThi_PhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_PhieuXuat.resx">
+      <DependentUpon>frmHienThi_PhieuXuat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachNhanVienTheoCuaHang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_DanhSachNhanVienTheoCuaHang.cs</LastGenOutput>
@@ -486,6 +516,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\Dialogs\frmHienThi_ChiTietHoaDon.resx">
+      <DependentUpon>frmHienThi_ChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\Dialogs\frmHienThi_ChiTietTraHang1.resx">
+      <DependentUpon>frmHienThi_ChiTietTraHang1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_ChiTietNhapKho.resx">
       <DependentUpon>frmChucNang_ChiTietNhapKho.cs</DependentUpon>
