@@ -42,7 +42,26 @@ namespace Presentation
 
         private void btnluu_Click(object sender, EventArgs e)
         {
-            var soluong = Convert.ToInt32(txtSL.Text);
+            if (string.IsNullOrEmpty(txtDonGia.Text.Trim()))
+            {
+                MessageBox.Show("Sản phẩm này không tồn tại trong kho hàng. Vui lòng nhập lại mã!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtMaSP.Focus();
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtSL.Text) ||
+           !int.TryParse(txtSL.Text, out int soluong) || soluong <= 0)
+            {
+                MessageBox.Show("So luong phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSL.Focus();
+                return;
+            }
+            if (!CheckQuantityStock(txtMaSP.Text, soluong))
+            {
+                MessageBox.Show("Số lượng trong kho không đủ đế đáp ứng số lượng xuất của bạn vui lòng điều chỉnh lại số lượng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSL.Focus();
+                return;
+            }
+
             var gia = Convert.ToDecimal(txtDonGia.Text);
             var invoiceDetailDto = new InvoiceDetailDto()
             {
@@ -92,23 +111,14 @@ namespace Presentation
                     return;
                 }
                 txtMaSP.Text = entity.Data.ProductId;
-                txtTenSP.Text = GetNameProductByID(entity.Data.ProductId);
+                UpdateFieldProduct(txtMaSP.Text);
                 txtSL.Text = entity.Data.Quantity.ToString();
-                txtDonGia.Text = entity.Data.UnitPrice.ToString();
-                txtThanhTien.Text = entity.Data.DiscountAmount.ToString();
+                txtKM.Text = entity.Data.DiscountAmount.ToString();
+                txtThanhTien.Text = entity.Data.FinalUnitPrice.ToString();
 
             }
         }
-        private string GetNameProductByID(string productID)
-        {
-            using (var childContaner = _container.CreateChildContainer())
-            {
-                var productService = childContaner.Resolve<IProductService>();
-                var list = productService.GetProductByID(productID);
-                if (list.Succeeded == false && list.Data == null) return "";
-                return list.Data.ProductName;
-            }
-        }
+
 
         private void txtMaSP_TextChanged(object sender, EventArgs e)
         {
@@ -117,7 +127,11 @@ namespace Presentation
             {
                 return;
             }
-            var result = _stockDetailService.GetStockDetailByProductID(maSP);
+            UpdateFieldProduct(maSP);
+        }
+        private void UpdateFieldProduct(string productID)
+        {
+            var result = _stockDetailService.GetStockDetailByProductID(productID);
             if (result.Succeeded && result.Data != null)
             {
                 txtTenSP.Text = result.Data.ProductName;
@@ -129,5 +143,18 @@ namespace Presentation
                 txtDonGia.Text = string.Empty;
             }
         }
+
+        private bool CheckQuantityStock(string productID, int quantity)
+        {
+            var check = _stockDetailService.GetStockDetailByProductID(productID);
+            if (check.Succeeded && check.Data != null)
+            {
+                bool isSatisfied = check.Data.Quantity >= quantity;
+                return isSatisfied;
+            }
+            return false;
+        }
+
+       
     }
 }

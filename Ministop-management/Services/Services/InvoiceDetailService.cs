@@ -40,7 +40,18 @@ namespace Services.Services
             return new Result<IReadOnlyList<InvoiceDetailDto>>(list);
         }
 
-
+        public Result<bool> Any(string invoiceID)
+        {
+            try
+            {
+                bool isChecked = _ministopUnitOfWork.InvoiceDetailRepository.Any((x => x.InvoiceID == invoiceID));
+                return new Result<bool>(isChecked);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public Result<InvoiceDetailDto> GetInvoiceDetailByID(string id)
         {
             try
@@ -58,74 +69,47 @@ namespace Services.Services
                 throw ex;
             }
         }
-        public PagedResult<IReadOnlyList<InvoiceDetailDto>> GetInvoiceDetail(int pageNumber, int pageSize)
+        public PagedResult<IReadOnlyList<InvoiceDetailDto>> GetInvoiceDetail(string invoiceID, int pageNumber, int pageSize)
         {
-            var totalCount = _ministopUnitOfWork.InvoiceDetailRepository.GetCount();
-            var InvoiceDetailEntity = _ministopUnitOfWork.InvoiceDetailRepository.GetPagedResponse(pageNumber, pageSize);
+            var totalCount = _ministopUnitOfWork.InvoiceDetailRepository.GetCount(x => x.InvoiceID == invoiceID);
+            var InvoiceDetailEntity = _ministopUnitOfWork.InvoiceDetailRepository.GetPagedResponse((x => x.InvoiceID == invoiceID), pageNumber, pageSize);
             var InvoiceDetailsDto = _mapper.Map<IReadOnlyList<InvoiceDetailDto>>(InvoiceDetailEntity);
 
             return new PagedResult<IReadOnlyList<InvoiceDetailDto>>(InvoiceDetailsDto, pageNumber, pageSize, totalCount);
         }
 
-        public Result<bool> CreateInvoiceDetail(InvoiceDetailDto InvoiceDetailDto)
+        public Result<bool> CreateInvoiceDetail(InvoiceDetailDto invoiceDetailDto)
         {
             _ministopUnitOfWork.BeginTransaction();
             try
             {
-                var isAvailable = _ministopUnitOfWork.StockDetailRepository.Find(x => x.StoreID == _userSession.IdStore && x.ProductID == InvoiceDetailDto.ProductId);
+                var isAvailable = _ministopUnitOfWork.StockDetailRepository.Find(x => x.StoreID == _userSession.IdStore && x.ProductID == invoiceDetailDto.ProductId);
                 if (isAvailable.Quantity <= 0)
                 {
                     //thong bao da het hang san pham
                     return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
                 }
-                decimal subTotal = 0;
-                decimal discountTotal = 0;
                 var productPrice = isAvailable.Price;
-                decimal discountAmt = 0;
-                decimal finalPrice = productPrice;
-                var isDuplicate = _ministopUnitOfWork.InvoiceDetailRepository.Find(x => x.ProductID == InvoiceDetailDto.ProductId && x.InvoiceID == InvoiceDetailDto.InvoiceId);
+                var isDuplicate = _ministopUnitOfWork.InvoiceDetailRepository.Find(x => x.ProductID == invoiceDetailDto.ProductId && x.InvoiceID == invoiceDetailDto.InvoiceId);
                 if (isDuplicate != null)
                 {
-                    isDuplicate.Quantity += InvoiceDetailDto.Quantity;
-                    var promotion = GetActivePromotion(isDuplicate.ProductID, isDuplicate.Quantity);
-                    if (promotion != null)
-                    {
-                        discountAmt = promotion.DiscountAmount;
-                        finalPrice = productPrice - discountAmt;
-
-                    }
-                    subTotal += productPrice * isDuplicate.Quantity;
-                    discountTotal += discountAmt * isDuplicate.Quantity;
-                    isDuplicate.DiscountAmount = discountAmt;
+                    isDuplicate.Quantity += invoiceDetailDto.Quantity;
+                    isDuplicate.FinalUnitPrice = productPrice * isDuplicate.Quantity;
                     _ministopUnitOfWork.InvoiceDetailRepository.Update(isDuplicate);
-                    isAvailable.Quantity -= isDuplicate.Quantity;
-                    isAvailable.LastUpdate = DateTime.UtcNow.ToLocalTime();
-                    var stockDetail = _mapper.Map<StockDetail>(isAvailable);
-                    _ministopUnitOfWork.StockDetailRepository.Update(stockDetail);
                     _ministopUnitOfWork.Commit();
                     return new Result<bool>(true);
                 }
                 else
                 {
                     var InvoiceDetailId = IdGenerator.CreateID("IVD");
-                    InvoiceDetailDto.Id = InvoiceDetailId;
-                    var promotion = GetActivePromotion(InvoiceDetailDto.ProductId, InvoiceDetailDto.Quantity);
-                    if (promotion != null)
-                    {
-                        discountAmt = promotion.DiscountAmount;
-                        finalPrice = productPrice - discountAmt;
-                    }
-                    InvoiceDetailDto.DiscountAmount = discountAmt;
-                    var InvoiceDetailEntity = _mapper.Map<InvoiceDetail>(InvoiceDetailDto);
+                    invoiceDetailDto.Id = InvoiceDetailId;
+                    invoiceDetailDto.FinalUnitPrice = productPrice * invoiceDetailDto.Quantity;
+                    var InvoiceDetailEntity = _mapper.Map<InvoiceDetail>(invoiceDetailDto);
                     var succeeded = _ministopUnitOfWork.InvoiceDetailRepository.Add(InvoiceDetailEntity);
                     if (succeeded == null)
                     {
                         return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
                     }
-                    isAvailable.Quantity -= InvoiceDetailDto.Quantity;
-                    isAvailable.LastUpdate = DateTime.UtcNow.ToLocalTime();
-                    var stockDetail = _mapper.Map<StockDetail>(isAvailable);
-                    _ministopUnitOfWork.StockDetailRepository.Update(stockDetail);
                 }
 
                 _ministopUnitOfWork.Commit();
@@ -156,13 +140,6 @@ namespace Services.Services
                     return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
                 }
 
-                // 2. Kiểm tra Invoice có đang ở trạng thái cho phép sửa không
-                var invoice = _ministopUnitOfWork.InvoiceRepository.Find(x => x.InvoiceID == existingDetail.InvoiceID);
-                if (invoice == null || invoice.Status != 0)
-                {
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
-                }
-
                 // 3. Kiểm tra kho
                 var stockDetail = _ministopUnitOfWork.StockDetailRepository.Find(
                     x => x.StoreID == _userSession.IdStore && x.ProductID == existingDetail.ProductID
@@ -173,50 +150,11 @@ namespace Services.Services
                     return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
                 }
 
-                // 4. Tính toán sự thay đổi số lượng
-                int oldQuantity = existingDetail.Quantity;
-                int newQuantity = invoiceDetailDto.Quantity;
-                int quantityDiff = newQuantity - oldQuantity;
-
-                // 5. Kiểm tra số lượng trong kho
-                // Nếu tăng số lượng (quantityDiff > 0) thì phải kiểm tra kho có đủ không
-                if (quantityDiff > 0)
-                {
-                    if (stockDetail.Quantity < quantityDiff)
-                    {
-                        return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
-                    }
-                }
-
-                // 6. Cập nhật số lượng trong kho
-                // - Nếu tăng số lượng: trừ thêm từ kho
-                // - Nếu giảm số lượng: hoàn lại vào kho
-                stockDetail.Quantity -= quantityDiff;
-                stockDetail.LastUpdate = DateTime.UtcNow.ToLocalTime();
-                var entity = _mapper.Map<StockDetail>(stockDetail);
-                _ministopUnitOfWork.StockDetailRepository.Update(entity);
-
-                // 7. Tính lại discount dựa trên số lượng mới
-                decimal productPrice = stockDetail.Price;
-                decimal discountAmt = 0;
-
-                var promotion = GetActivePromotion(existingDetail.ProductID, newQuantity);
-                if (promotion != null)
-                {
-                    discountAmt = promotion.DiscountAmount;
-                }
-
                 // 8. Cập nhật InvoiceDetail
-                existingDetail.Quantity = newQuantity;
-                existingDetail.UnitPrice = productPrice;
-                existingDetail.DiscountAmount = discountAmt;
-                existingDetail.FinalUnitPrice = productPrice - discountAmt;
-
+                existingDetail.Quantity = invoiceDetailDto.Quantity;
+                existingDetail.UnitPrice = stockDetail.Price;
+                existingDetail.FinalUnitPrice = stockDetail.Price * invoiceDetailDto.Quantity;
                 _ministopUnitOfWork.InvoiceDetailRepository.Update(existingDetail, true);
-
-                // 9. Cập nhật lại Invoice
-                RecalculateInvoiceTotals(invoice.InvoiceID);
-
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);
             }
@@ -239,34 +177,8 @@ namespace Services.Services
                 {
                     return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
                 }
-
-                // 2. Kiểm tra Invoice có đang ở trạng thái cho phép xóa không
-                var invoice = _ministopUnitOfWork.InvoiceRepository.Find(x => x.InvoiceID == invoiceDetail.InvoiceID);
-                if (invoice == null || invoice.Status != 0)
-                {
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
-                }
-
-                // 3. Hoàn lại số lượng vào kho
-                var stockDetail = _ministopUnitOfWork.StockDetailRepository.Find(
-                    x => x.StoreID == _userSession.IdStore && x.ProductID == invoiceDetail.ProductID
-                );
-
-                if (stockDetail != null)
-                {
-                    // Cộng lại số lượng đã trừ
-                    stockDetail.Quantity += invoiceDetail.Quantity;
-                    stockDetail.LastUpdate = DateTime.UtcNow.ToLocalTime();
-                    var entity = _mapper.Map<StockDetail>(stockDetail);
-                    _ministopUnitOfWork.StockDetailRepository.Update(entity);
-                }
-
                 // 4. Xóa InvoiceDetail
                 _ministopUnitOfWork.InvoiceDetailRepository.Delete(invoiceDetail, true);
-
-                // 5. Cập nhật lại Invoice
-                RecalculateInvoiceTotals(invoice.InvoiceID);
-
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);
             }
@@ -277,34 +189,7 @@ namespace Services.Services
             }
         }
 
-        // ===== HÀM TÍNH LẠI TỔNG TIỀN CHO INVOICE =====
-        private void RecalculateInvoiceTotals(string invoiceId)
-        {
-            var invoice = _ministopUnitOfWork.InvoiceRepository.Find(x => x.InvoiceID == invoiceId);
-            if (invoice == null) return;
 
-            // Lấy tất cả InvoiceDetails của Invoice này
-            var invoiceDetails = _ministopUnitOfWork.InvoiceDetailRepository
-                .GetAll()
-                .Where(x => x.InvoiceID == invoiceId)
-                .ToList();
-
-            // Tính SubTotal và DiscountTotal
-            decimal subTotal = 0;
-            decimal discountTotal = 0;
-
-            foreach (var detail in invoiceDetails)
-            {
-                subTotal += detail.UnitPrice * detail.Quantity;
-                discountTotal += detail.DiscountAmount * detail.Quantity;
-            }
-
-            // Cập nhật Invoice
-            invoice.DiscountTotal = discountTotal;
-            invoice.FinalAmount = subTotal - discountTotal;
-
-            _ministopUnitOfWork.InvoiceRepository.Update(invoice, true);
-        }
 
         //private PromotionProductDto GetActivePromotion(string productId, int qty)
         //{
@@ -312,5 +197,27 @@ namespace Services.Services
         //    var entity = _mapper.Map<PromotionProductDto>(promotion);
         //    return entity;
         //}
+
+        public Result<bool> RemoveRangeInvoiceDetailByInvoiceID(string invoiceID)
+        {
+            _ministopUnitOfWork.BeginTransaction();
+            try
+            {
+                var invoiceDetailEntity = _ministopUnitOfWork.InvoiceDetailRepository.GetAll((x => x.InvoiceID == invoiceID));
+                if (invoiceDetailEntity == null)
+                {
+                    return new Result<bool>(ErrorCodeEnum.SID_ERR_001);
+                }
+                _ministopUnitOfWork.InvoiceDetailRepository.DeleteRange(invoiceDetailEntity.ToList(), true);
+                _ministopUnitOfWork.Commit();
+                return new Result<bool>(true);
+
+            }
+            catch (Exception ex)
+            {
+                _ministopUnitOfWork.Rollback();
+                throw ex;
+            }
+        }
     }
 }

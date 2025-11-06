@@ -12,9 +12,10 @@ namespace Services.Interfaces
     {
         Result<IReadOnlyList<InvoiceDto>> GetAll();
         Result<InvoiceDto> GetInvoiceByID(string id);
-        Result<bool> CreateInvoice(InvoiceDto invoiceDto);
+        Result<string> CreateInvoice(InvoiceDto invoiceDto);
         //Result<bool> UpdateInvoice(InvoiceDto invoiceEdit);
         Result<bool> RemoveInvoice(string invoiceId);
         PagedResult<IReadOnlyList<InvoiceDto>> GetInvoice(string storeId, int pageNumber, int pageSize);
+        Result<bool> UpdateInvoice(string invoiceID);
     }
 }

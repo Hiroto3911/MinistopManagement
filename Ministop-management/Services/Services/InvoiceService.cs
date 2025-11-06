@@ -21,6 +21,7 @@ namespace Services.Services
         private readonly IDateTimeService _dateTimeService;
         private readonly IUserSession _userSession;
         private readonly IMapper _mapper;
+        private decimal _finalAmount = 0;
         public InvoiceService(IMinistopUnitOfWork ministopUnitOfWork, IDateTimeService dateTimeService, IUserSession userSession, IMapper mapper)
         {
             _ministopUnitOfWork = ministopUnitOfWork;
@@ -61,11 +62,11 @@ namespace Services.Services
         public PagedResult<IReadOnlyList<InvoiceDto>> GetInvoice(string storeId, int pageNumber, int pageSize)
         {
             var totalCount = _ministopUnitOfWork.InvoiceRepository.GetCount(x => x.StoreID == storeId);
-            var invoiceEntity = _ministopUnitOfWork.InvoiceRepository.GetPagedResponse(pageNumber, pageSize);
+            var invoiceEntity = _ministopUnitOfWork.InvoiceRepository.GetPagedResponse((x => x.StoreID == storeId), pageNumber, pageSize);
             var invoicetDto = _mapper.Map<IReadOnlyList<InvoiceDto>>(invoiceEntity);
             return new PagedResult<IReadOnlyList<InvoiceDto>>(invoicetDto, pageNumber, pageSize, totalCount);
         }
-        public Result<bool> CreateInvoice(InvoiceDto InvoiceDto)
+        public Result<string> CreateInvoice(InvoiceDto InvoiceDto)
         {
             try
             {
@@ -75,15 +76,81 @@ namespace Services.Services
                 var succeeded = _ministopUnitOfWork.InvoiceRepository.Add(InvoiceEntity);
                 if (succeeded == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
+                    return new Result<string>(ErrorCodeEnum.SFT_ERR_003);
                 }
-                return new Result<bool>(true);
+                return new Result<string>(InvoiceId);
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+        public Result<bool> UpdateInvoice(string invoiceID)
+        {
+            _ministopUnitOfWork.BeginTransaction();
+            try
+            {
+                var invoiceEntity = _ministopUnitOfWork.InvoiceRepository
+                    .Find(x => x.InvoiceID == invoiceID);
+
+                if (invoiceEntity == null)
+                    return new Result<bool>(ErrorCodeEnum.SET_ERR_001);
+
+                var details = _ministopUnitOfWork.InvoiceDetailRepository
+                    .GetAll(x => x.InvoiceID == invoiceEntity.InvoiceID);
+
+                if (details == null || !details.Any())
+                    return new Result<bool>(ErrorCodeEnum.SET_ERR_005);
+
+                decimal finalAmount = 0;
+                decimal discountTotal = 0;
+
+                foreach (var item in details)
+                {
+                    var stock = _ministopUnitOfWork.StockDetailRepository
+                        .Find(x => x.ProductID == item.ProductID
+                                && x.StoreID == invoiceEntity.StoreID);
+
+                    if (stock == null)
+                        continue;
+                    decimal discountAmt = 0;
+                    decimal finalPrice = stock.Price;
+
+                    var promotion = GetActivePromotion(item.ProductID, item.Quantity);
+                    if (promotion != null)
+                    {
+                        discountAmt = promotion.DiscountAmount;
+                        finalPrice = stock.Price - discountAmt;
+                    }
+
+                    item.DiscountAmount = discountAmt;
+                    finalAmount += finalPrice * item.Quantity;
+                    discountTotal += discountAmt * item.Quantity;
+
+                    _ministopUnitOfWork.InvoiceDetailRepository.Update(item);
+
+                    stock.Quantity -= item.Quantity;
+                    stock.LastUpdate = _dateTimeService.NowUtc;
+                    var stockEntity = _mapper.Map<StockDetail>(stock);
+                    _ministopUnitOfWork.StockDetailRepository.Update(stockEntity, true);
+                }
+
+                invoiceEntity.Status = 1; // Completed
+                invoiceEntity.FinalAmount = finalAmount;
+                invoiceEntity.DiscountTotal = discountTotal;
+
+                _ministopUnitOfWork.InvoiceRepository.Update(invoiceEntity, true);
+
+                _ministopUnitOfWork.Commit();
+                return new Result<bool>(true);
+            }
+            catch
+            {
+                _ministopUnitOfWork.Rollback();
+                throw;
+            }
+        }
+
         public Result<bool> RemoveInvoice(string InvoiceId)
         {
             _ministopUnitOfWork.BeginTransaction();
@@ -104,6 +171,40 @@ namespace Services.Services
                 _ministopUnitOfWork.Rollback();
                 throw ex;
             }
+        }
+        private PromotionProductDto GetActivePromotion(string productId, int qty)
+        {
+            var promotion = _ministopUnitOfWork.PromotionProductRepository.GetActivePromotionForProduct(productId, qty);
+            var entity = _mapper.Map<PromotionProductDto>(promotion);
+            return entity;
+        }
+        // ===== HÀM TÍNH LẠI TỔNG TIỀN CHO INVOICE =====
+        private void RecalculateInvoiceTotals(string invoiceId)
+        {
+            var invoice = _ministopUnitOfWork.InvoiceRepository.Find(x => x.InvoiceID == invoiceId);
+            if (invoice == null) return;
+
+            // Lấy tất cả InvoiceDetails của Invoice này
+            var invoiceDetails = _ministopUnitOfWork.InvoiceDetailRepository
+                .GetAll()
+                .Where(x => x.InvoiceID == invoiceId)
+                .ToList();
+
+            // Tính SubTotal và DiscountTotal
+            decimal subTotal = 0;
+            decimal discountTotal = 0;
+
+            foreach (var detail in invoiceDetails)
+            {
+                subTotal += detail.UnitPrice * detail.Quantity;
+                discountTotal += detail.DiscountAmount * detail.Quantity;
+            }
+
+            // Cập nhật Invoice
+            invoice.DiscountTotal = discountTotal;
+            invoice.FinalAmount = subTotal - discountTotal;
+
+            _ministopUnitOfWork.InvoiceRepository.Update(invoice, true);
         }
     }
 }
