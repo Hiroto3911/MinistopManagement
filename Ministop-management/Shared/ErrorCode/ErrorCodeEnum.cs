@@ -20,6 +20,7 @@ namespace Shared.ErrorCode
         COM_ERR_002,
         [Description(@"Thiết lập thất bại")]
         COM_ERR_003,
+
         #endregion
 
         #region User
@@ -168,6 +169,8 @@ namespace Shared.ErrorCode
         SDD_ERR_005,
         [Description(@"Bị trùng dữ liệu Phiếu chi tiết kho.")]
         SDD_ERR_006,
+        [Description(@"số lượng của sản phẩm trong kho đã được thay đổi. Vui lòng cập nhập lại thông tin")]
+        SDD_ERR_007,
         #endregion
 
         #region StockImport

@@ -100,6 +100,7 @@ namespace Presentation
             Dictionary<string, byte> status;
             if (_userSession.Role == "Quản lý cửa hàng")
             {
+                cboLoaiXuat.Enabled = false;
                 cboTrangThai.Enabled = true;
                 status = new Dictionary<string, byte>()
                 {

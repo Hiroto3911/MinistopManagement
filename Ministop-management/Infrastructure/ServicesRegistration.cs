@@ -54,6 +54,8 @@ namespace Infrastructure
             container.RegisterType<IStockCheckDetailRepository, StockCheckDetailRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IStockDetailRepository, StockDetailRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IStockHistoryRepository, StockHistoryRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IInvoiceRepository, InvoiceRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IInvoiceDetailRepository, InvoiceDetailRepository>(new PerResolveLifetimeManager());
         }
     }
 }

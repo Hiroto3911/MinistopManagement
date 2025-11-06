@@ -128,7 +128,7 @@ END
 GO
 --EXEC SP_InvoiceReport 'EXP20251102001'
 --GO
-CREATE PROCEDURE SP_ReturnReport
+CREATE PROC SP_ReturnReport
     @ReturnID NVARCHAR(200)
 AS
 BEGIN
@@ -159,3 +159,86 @@ BEGIN
     WHERE RP.ReturnID = @ReturnID;
 END
 GO
+
+CREATE PROC SP_StoreRevenueByMonth
+    @StoreID NVARCHAR(200) = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        YEAR(I.InvoiceDate) AS Year,
+        MONTH(I.InvoiceDate) AS Month,
+        S.StoreID,
+        S.StoreName,
+        SUM(ID.Quantity * ID.UnitPrice) AS Revenue
+    FROM Invoice I
+    INNER JOIN InvoiceDetails ID ON I.InvoiceID = ID.InvoiceID
+    INNER JOIN Store S ON I.StoreID = S.StoreID
+    WHERE (@StoreID IS NULL OR S.StoreID = @StoreID)
+    GROUP BY
+        YEAR(I.InvoiceDate),
+        MONTH(I.InvoiceDate),
+        S.StoreID,
+        S.StoreName
+    ORDER BY
+        YEAR(I.InvoiceDate),
+        MONTH(I.InvoiceDate);
+END
+GO
+CREATE PROCEDURE GetStockByPeriod
+    @StoreId NVARCHAR(50),
+    @ProductId NVARCHAR(50),
+    @Month INT,
+    @Year INT
+AS
+BEGIN
+    DECLARE @StartDate DATE = DATEFROMPARTS(@Year, @Month, 1);
+    DECLARE @EndDate DATE = EOMONTH(@StartDate);
+
+    -- T?n ??u k?
+    DECLARE @OpeningStock INT =
+    (
+        SELECT 
+            ISNULL(SUM(PID.Quantity), 0) 
+            - ISNULL((SELECT SUM(ID.Quantity)
+                      FROM InvoiceDetail ID
+                      JOIN Invoice I ON ID.InvoiceID = I.InvoiceID
+                      WHERE I.StoreID = @StoreId
+                        AND ID.ProductID = @ProductId
+                        AND I.InvoiceDate < @StartDate), 0)
+        FROM PurchaseInvoiceDetail PID
+        JOIN PurchaseInvoice PI ON PID.InvoiceID = PI.InvoiceID
+        WHERE PI.StoreID = @StoreId
+          AND PID.ProductID = @ProductId
+          AND PI.ReceiptDate < @StartDate
+    );
+
+    -- Nh?p trong k?
+    DECLARE @TotalImport INT =
+    (
+        SELECT ISNULL(SUM(PID.Quantity), 0)
+        FROM PurchaseInvoiceDetail PID
+        JOIN PurchaseInvoice PI ON PID.InvoiceID = PI.InvoiceID
+        WHERE PI.StoreID = @StoreId
+          AND PID.ProductID = @ProductId
+          AND PI.ReceiptDate BETWEEN @StartDate AND @EndDate
+    );
+
+    -- Xu?t trong k?
+    DECLARE @TotalExport INT =
+    (
+        SELECT ISNULL(SUM(ID.Quantity), 0)
+        FROM InvoiceDetail ID
+        JOIN Invoice I ON ID.InvoiceID = I.InvoiceID
+        WHERE I.StoreID = @StoreId
+          AND ID.ProductID = @ProductId
+          AND I.InvoiceDate BETWEEN @StartDate AND @EndDate
+    );  
+
+    SELECT
+        @OpeningStock AS OpeningStock,
+        @TotalImport AS ImportInPeriod,
+        @TotalExport AS ExportInPeriod,
+        @OpeningStock + @TotalImport - @TotalExport AS ClosingStock
+END;

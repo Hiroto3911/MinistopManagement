@@ -114,6 +114,10 @@ namespace Services.Services
                     {
                         var result = _ministopUnitOfWork.StockDetailRepository.FindByID(x => x.ProductID == item.ProductID);
                         if (result == null) continue;
+                        if(result.Quantity != item.QuantitySystem)
+                        {
+                            return new Result<bool>(ErrorCodeEnum.SDD_ERR_007);
+                        }
                         if(result.Quantity > item.QuantityActual)
                         {
                             result.Quantity -= item.QuantityActual;

@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Interfaces\IAllowanceService.cs" />
     <Compile Include="Interfaces\IEmployeeService.cs" />
+    <Compile Include="Interfaces\IInvoiceDetailService.cs" />
+    <Compile Include="Interfaces\IInvoiceService.cs" />
     <Compile Include="Interfaces\IProductCategoryService.cs" />
     <Compile Include="Interfaces\IProductService.cs" />
     <Compile Include="Interfaces\IPromotionProductService.cs" />
@@ -74,6 +76,8 @@
     <Compile Include="Interfaces\ISupplierService.cs" />
     <Compile Include="Mapping\AllowanceMapping.cs" />
     <Compile Include="Mapping\EmployeeMapping.cs" />
+    <Compile Include="Mapping\InvoiceDetailMapping.cs" />
+    <Compile Include="Mapping\InvoiceMapping.cs" />
     <Compile Include="Mapping\ProductCategoryMapping.cs" />
     <Compile Include="Mapping\ProductMapping.cs" />
     <Compile Include="Mapping\PromotionMapping.cs" />
@@ -100,6 +104,8 @@
     <Compile Include="Services\DateTimeService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\IdentityService.cs" />
+    <Compile Include="Services\InvoiceDetailService.cs" />
+    <Compile Include="Services\InvoiceService.cs" />
     <Compile Include="Services\ProductCategoryService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\PromotionProductService.cs" />

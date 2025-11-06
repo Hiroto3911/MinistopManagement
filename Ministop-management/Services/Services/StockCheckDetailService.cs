@@ -103,7 +103,9 @@ namespace Services.Services
                 {
                     return new Result<bool>(ErrorCodeEnum.SCD_ERR_001);
                 }
+                stockImportEntity.QuantitySystem = stockCheckDetailEdit.QuantitySystem;
                 stockImportEntity.QuantityActual = stockCheckDetailEdit.QuantityActual;
+                stockImportEntity.Note = stockCheckDetailEdit.Note;
                 _ministopUnitOfWork.StockCheckDetailRepository.Update(stockImportEntity, true);
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);

@@ -66,10 +66,23 @@ namespace Presentation
         {
             string exportDetailID = txtPhieuXuat.Text.Trim();
             string productID = txtMaSP.Text.Trim();
+            
+            if (string.IsNullOrEmpty(txtDonViGia.Text.Trim()))
+            {
+                MessageBox.Show("Sản phẩm này không tồn tại trong kho hàng. Vui lòng nhập lại mã!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtMaSP.Focus();
+                return;
+            }
             if (string.IsNullOrWhiteSpace(txtSoLuong.Text) ||
             !int.TryParse(txtSoLuong.Text, out int quantity) || quantity <= 0)
             {
                 MessageBox.Show("So luong phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSoLuong.Focus();
+                return;
+            }
+            if (!CheckQuantityStock(productID,quantity))
+            {
+                MessageBox.Show("Số lượng trong kho không đủ đế đáp ứng số lượng xuất của bạn vui lòng điều chỉnh lại số lượng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSoLuong.Focus();
                 return;
             }
@@ -129,6 +142,16 @@ namespace Presentation
                 txtDonViGia.Text = string.Empty;
             }
 
+        }
+        private bool CheckQuantityStock(string productID,int quantity)
+        {
+           var check = _stockDetailService.GetStockDetailByProductID(productID);
+            if(check.Succeeded && check.Data != null)
+            {
+                bool isSatisfied = check.Data.Quantity >= quantity;
+                return isSatisfied;
+            }
+           return false;
         }
     }
 }

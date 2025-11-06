@@ -47,7 +47,7 @@
     <Compile Include="DTO\EmployeeDto.cs" />
     <Compile Include="DTO\ImportProductDto.cs" />
     <Compile Include="DTO\InvoiceDto.cs" />
-    <Compile Include="DTO\InvoiceDetail.cs" />
+    <Compile Include="DTO\InvoiceDetailDto.cs" />
     <Compile Include="DTO\PriceProposalDto.cs" />
     <Compile Include="DTO\ProductDto.cs" />
     <Compile Include="DTO\ProductCategoryDto.cs" />

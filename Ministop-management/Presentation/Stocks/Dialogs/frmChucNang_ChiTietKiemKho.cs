@@ -22,16 +22,14 @@ namespace Presentation
         public event EventHandler dataChanged;
         public readonly IStockCheckDetailService _stockCheckDetailService;
         private readonly IStockDetailService _stockDetailService;
-        private readonly IUserSession _userSession;
         private string _checkID;
         private string _checkDetailID;
 
-        public frmChucNang_ChiTietKiemKho(IStockCheckDetailService stockCheckDetailService, IStockDetailService stockDetailService, IUserSession userSession, string checkID = null, string checkDetailID = null)
+        public frmChucNang_ChiTietKiemKho(IStockCheckDetailService stockCheckDetailService, IStockDetailService stockDetailService, string checkID = null, string checkDetailID = null)
         {
             InitializeComponent();
             _stockCheckDetailService = stockCheckDetailService;
             _stockDetailService = stockDetailService;
-            _userSession = userSession;
             _checkID = checkID;
             _checkDetailID = checkDetailID;
         }
@@ -40,20 +38,18 @@ namespace Presentation
         private void frmChucNang_ChiTietKiemKho_Load(object sender, EventArgs e)
         {
 
-
             if (string.IsNullOrEmpty(_checkDetailID)) { return; }
             var entity = _stockCheckDetailService.GetStockCheckDetailByID(_checkDetailID);
             if (!entity.Succeeded && entity.Data == null) return;
             txtMaSP.Enabled = false;
             txtMaChiTiet.Text = entity.Data.Id;
             txtMaSP.Text = entity.Data.ProductId;
-            txtTenSP.Text = entity.Data.ProductName;
-            txtSLHeThong.Text = entity.Data.QuantitySystem.ToString();
+            LoadDataProduct(txtMaSP.Text);
             txtSLThucTe.Text = entity.Data.QuantityActual.ToString();
             rtxtGhiChu.Text = entity.Data.Note.ToString();
         }
 
-
+       
         private void ibtnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -63,6 +59,12 @@ namespace Presentation
         {
             string exportDetailID = txtMaChiTiet.Text.Trim();
             string productID = txtMaSP.Text.Trim();
+            if (string.IsNullOrEmpty(txtSLHeThong.Text.Trim()))
+            {
+                MessageBox.Show("Sản phẩm này không tồn tại trong kho hàng. Vui lòng nhập lại mã!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtMaSP.Focus();
+                return;
+            }
             int quantitySystem = Convert.ToInt32(txtSLHeThong.Text.Trim());
             if (string.IsNullOrWhiteSpace(txtSLThucTe.Text) ||
                !int.TryParse(txtSLThucTe.Text, out int quantityActual) || quantityActual <= 0)
@@ -114,7 +116,6 @@ namespace Presentation
             MessageBox.Show("Lưu phiếu kiem thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
-
         private void txtMaSP_TextChanged(object sender, EventArgs e)
         {
             //m
@@ -123,7 +124,12 @@ namespace Presentation
             {
                 return;
             }
-            var result = _stockDetailService.GetStockDetailByProductID(maSP);
+            LoadDataProduct(maSP);
+        }
+        private void LoadDataProduct(string productID)
+        {
+            
+            var result = _stockDetailService.GetStockDetailByProductID(productID);
             if (result.Succeeded && result.Data != null)
             {
                 txtTenSP.Text = result.Data.ProductName;
@@ -135,7 +141,6 @@ namespace Presentation
                 txtTenSP.Text = string.Empty;
                 txtSLHeThong.Text = string.Empty;
             }
-
         }
     }
 }
