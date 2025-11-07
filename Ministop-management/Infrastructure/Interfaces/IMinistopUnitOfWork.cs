@@ -20,11 +20,7 @@ namespace Infrastructure.Interfaces
         IPromotionRepository PromotionRepository { get; }
         IPromotionProductRepository PromotionProductRepository { get; }
         IReportRepository ReportRepository { get; }
-        ISalaryContractRepository SalaryContractRepository { get; }
-        IShiftAssignmentRepository ShiftAssignmentRepository { get; }
-        ISalaryRepository SalaryRepository { get; }
-        ISalaryContractAllowanceRepository SalaryContractAllowanceRepository { get; }
-        IAbsenceRepository AbsenceRepository { get; }
+
         IStockDetailRepository StockDetailRepository { get; }
         IStockHistoryRepository StockHistoryRepository { get; }
         IStockImportRepository StockImportRepository { get; }
@@ -35,5 +31,10 @@ namespace Infrastructure.Interfaces
         IStockCheckDetailRepository StockCheckDetailRepository { get; }
         IInvoiceRepository InvoiceRepository { get; }
         IInvoiceDetailRepository InvoiceDetailRepository { get; }
+        ISalaryContractRepository SalaryContractRepository { get; }
+        IShiftAssignmentRepository ShiftAssignmentRepository { get; }
+        ISalaryRepository SalaryRepository { get; }
+        ISalaryContractAllowanceRepository SalaryContractAllowanceRepository { get; }
+        IAbsenceRepository AbsenceRepository { get; }
     }
 }

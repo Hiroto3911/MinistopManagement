@@ -20,6 +20,7 @@ namespace Shared.ErrorCode
         COM_ERR_002,
         [Description(@"Thiết lập thất bại")]
         COM_ERR_003,
+
         #endregion
 
         #region User
@@ -31,7 +32,7 @@ namespace Shared.ErrorCode
         USE_ERR_003,
         #endregion
 
-        #region Store
+        #region Store 
         [Description(@"Không tìm thấy cửa hàng.")]
         STR_ERR_001,
         [Description(@"Cửa hàng đã tồn tại.")]
@@ -91,7 +92,7 @@ namespace Shared.ErrorCode
         EMP_ERR_006,
         #endregion
 
-        #region StoreFixedExpense
+        #region StoreFixedExpense 
         [Description(@"Không tìm thấy phi cửa hàng.")]
         SFE_ERR_001,
         [Description(@"Phiếu chi phí Cửa hàng đã tồn tại.")]
@@ -110,7 +111,7 @@ namespace Shared.ErrorCode
         SFE_ERR_008,
         #endregion
 
-        #region ProductCategory
+        #region ProductCategory 
         [Description(@"Không tìm thấy sản phẩm.")]
         PCT_ERR_001,
         [Description(@"Sản phẩm đã tồn tại.")]
@@ -125,7 +126,7 @@ namespace Shared.ErrorCode
         PCT_ERR_006,
         #endregion
 
-        #region Product
+        #region Product 
         [Description(@"Không tìm thấy sản phẩm.")]
         PRD_ERR_001,
         [Description(@"Sản phẩm đã tồn tại.")]
@@ -153,85 +154,6 @@ namespace Shared.ErrorCode
         SLE_ERR_005,
         [Description(@"Bị trùng dữ liệu nhà cung cấp.")]
         SLE_ERR_006,
-        #endregion
-
-        #region Salary Contract
-        [Description(@"Không có hợp đồng lương.")]
-        SAL_ERR_001,
-        [Description(@"Hợp đồng lương đã tồn tại.")]
-        SAL_ERR_002,
-        [Description(@"Tạo hợp đồng lương thất bại.")]
-        SAL_ERR_003,
-        [Description(@"Sửa hợp đồng lương thất bại.")]
-        SAL_ERR_004,
-        [Description(@"Xóa hợp đồng lương thất bại.")]
-        SAL_ERR_005,
-        [Description(@"Bị trùng dữ liệu hợp đồng lương.")]
-        SAL_ERR_006,
-        #endregion
-
-        #region ShiftAssignment
-        [Description(@"Không tìm thấy phân công ca làm việc.")]
-        SA_ERR_001,
-        [Description(@"Phân công ca làm việc đã tồn tại.")]
-        SA_ERR_002,
-        [Description(@"Tạo phân công ca làm việc thất bại.")]
-        SA_ERR_003,
-        [Description(@"Sửa phân công ca làm việc thất bại.")]
-        SA_ERR_004,
-        [Description(@"Xóa mềm phân công ca làm việc thất bại.")]
-        SA_ERR_005,
-        [Description(@"Bị trùng dữ liệu phân công ca (Nhân viên + Ca + Ngày).")]
-        SA_ERR_006,
-        #endregion
-
-        #region Salary
-        [Description(@"Không tìm thấy bảng lương.")]
-        SLL_ERR_001,
-        [Description(@"Bảng lương đã tồn tại.")]
-        SLL_ERR_002,
-        [Description(@"Tạo bảng lương thất bại.")]
-        SLL_ERR_003,
-        [Description(@"Sửa bảng lương thất bại.")]
-        SLL_ERR_004,
-        [Description(@"Xóa bảng lương thất bại.")]
-        SLL_ERR_005,
-        [Description(@"Bị trùng bảng lương (Hợp đồng + Tháng/Năm).")]
-        SLL_ERR_006,
-        #endregion
-
-        #region SalaryContract_Allowance
-        [Description(@"Không tìm thấy phụ cấp trong hợp đồng lương.")]
-        SCA_ERR_001,
-        [Description(@"ContractID không được để trống.")]
-        SCA_ERR_002,
-        [Description(@"Phụ cấp này đã tồn tại trong hợp đồng lương (trùng ContractID + AllowanceID).")]
-        SCA_ERR_003,
-        [Description(@"Hợp đồng lương không tồn tại.")]
-        SCA_ERR_004,
-        [Description(@"Loại phụ cấp không tồn tại.")]
-        SCA_ERR_005,
-        [Description(@"Thêm phụ cấp vào hợp đồng thất bại.")]
-        SCA_ERR_006,
-        [Description(@"Cập nhật phụ cấp trong hợp đồng thất bại.")]
-        SCA_ERR_007,
-        [Description(@"Xóa phụ cấp khỏi hợp đồng thất bại.")]
-        SCA_ERR_008,
-        #endregion
-
-        #region Absence
-        [Description(@"Không tìm thấy chấm công vắng.")]
-        ABS_ERR_001,
-        [Description(@"Chấm công vắng đã tồn tại.")]
-        ABS_ERR_002,
-        [Description(@"Tạo chấm công vắng thất bại.")]
-        ABS_ERR_003,
-        [Description(@"Sửa chấm công vắng thất bại.")]
-        ABS_ERR_004,
-        [Description(@"Xóa chấm công vắng thất bại.")]
-        ABS_ERR_005,
-        [Description(@"Bị trùng chấm công vắng.")]
-        ABS_ERR_006,
         #endregion
 
         #region StockDetail
@@ -384,6 +306,108 @@ namespace Shared.ErrorCode
         PRP_ERR_005,
         [Description(@"Bị trùng dữ liệu phiếu giảm giá sản phẩm.")]
         PRP_ERR_006,
+        #endregion
+
+
+        #region Salary Contract
+        [Description(@"Không có hợp đồng lương.")]
+        SAL_ERR_001,
+        [Description(@"Hợp đồng lương đã tồn tại.")]
+        SAL_ERR_002,
+        [Description(@"Tạo hợp đồng lương thất bại.")]
+        SAL_ERR_003,
+        [Description(@"Sửa hợp đồng lương thất bại.")]
+        SAL_ERR_004,
+        [Description(@"Xóa hợp đồng lương thất bại.")]
+        SAL_ERR_005,
+        [Description(@"Bị trùng dữ liệu hợp đồng lương.")]
+        SAL_ERR_006,
+        #endregion
+
+        #region ShiftAssignment
+        [Description(@"Không tìm thấy phân công ca làm việc.")]
+        SA_ERR_001,
+
+        [Description(@"Phân công ca làm việc đã tồn tại.")]
+        SA_ERR_002,
+
+        [Description(@"Tạo phân công ca làm việc thất bại.")]
+        SA_ERR_003,
+
+        [Description(@"Sửa phân công ca làm việc thất bại.")]
+        SA_ERR_004,
+
+        [Description(@"Xóa mềm phân công ca làm việc thất bại.")]
+        SA_ERR_005,
+
+        [Description(@"Bị trùng dữ liệu phân công ca (Nhân viên + Ca + Ngày).")]
+        SA_ERR_006,
+        #endregion
+
+        #region Salary
+        [Description(@"Không tìm thấy bảng lương.")]
+        SLL_ERR_001,
+
+        [Description(@"Bảng lương đã tồn tại.")]
+        SLL_ERR_002,
+
+        [Description(@"Tạo bảng lương thất bại.")]
+        SLL_ERR_003,
+
+        [Description(@"Sửa bảng lương thất bại.")]
+        SLL_ERR_004,
+
+        [Description(@"Xóa bảng lương thất bại.")]
+        SLL_ERR_005,
+
+        [Description(@"Bị trùng bảng lương (Hợp đồng + Tháng/Năm).")]
+        SLL_ERR_006,
+        #endregion
+
+        #region SalaryContract_Allowance
+        [Description(@"Không tìm thấy phụ cấp trong hợp đồng lương.")]
+        SCA_ERR_001,
+
+        [Description(@"ContractID không được để trống.")]
+        SCA_ERR_002,
+
+        [Description(@"Phụ cấp này đã tồn tại trong hợp đồng lương (trùng ContractID + AllowanceID).")]
+        SCA_ERR_003,
+
+        [Description(@"Hợp đồng lương không tồn tại.")]
+        SCA_ERR_004,
+
+        [Description(@"Loại phụ cấp không tồn tại.")]
+        SCA_ERR_005,
+
+        [Description(@"Thêm phụ cấp vào hợp đồng thất bại.")]
+        SCA_ERR_006,
+
+        [Description(@"Cập nhật phụ cấp trong hợp đồng thất bại.")]
+        SCA_ERR_007,
+
+        [Description(@"Xóa phụ cấp khỏi hợp đồng thất bại.")]
+        SCA_ERR_008,
+        #endregion
+
+        #region Absence
+        [Description(@"Không tìm thấy chấm công vắng.")]
+        ABS_ERR_001,
+
+        [Description(@"Chấm công vắng đã tồn tại.")]
+        ABS_ERR_002,
+
+        [Description(@"Tạo chấm công vắng thất bại.")]
+        ABS_ERR_003,
+
+        [Description(@"Sửa chấm công vắng thất bại.")]
+        ABS_ERR_004,
+
+        [Description(@"Xóa chấm công vắng thất bại.")]
+        ABS_ERR_005,
+
+        [Description(@"Bị trùng chấm công vắng.")]
+        ABS_ERR_006,
         #endregion
     }
 }

@@ -186,7 +186,7 @@ BEGIN
         MONTH(I.InvoiceDate);
 END
 GO
-CREATE PROCEDURE GetStockByPeriod
+CREATE PROC GetStockByPeriod
     @StoreId NVARCHAR(50),
     @ProductId NVARCHAR(50),
     @Month INT,
@@ -242,3 +242,75 @@ BEGIN
         @TotalExport AS ExportInPeriod,
         @OpeningStock + @TotalImport - @TotalExport AS ClosingStock
 END;
+CREATE PROC SP_StoreRevenueByTimeResult
+    @StoreID NVARCHAR(200) = NULL,
+    @FromDate DATE = NULL,
+    @ToDate DATE = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT
+        YEAR(I.InvoiceDate) AS [Year],
+        MONTH(I.InvoiceDate) AS [Month],
+        S.StoreID,
+        S.StoreName,
+        SUM(ID.Quantity * ID.UnitPrice) AS Revenue
+    FROM Invoice I
+    INNER JOIN InvoiceDetails ID ON I.InvoiceID = ID.InvoiceID
+    INNER JOIN Store S ON I.StoreID = S.StoreID
+    WHERE 
+        (@StoreID IS NULL OR S.StoreID = @StoreID)
+        AND (@FromDate IS NULL OR I.InvoiceDate >= @FromDate)
+        AND (@ToDate IS NULL OR I.InvoiceDate <= @ToDate)
+    GROUP BY
+        YEAR(I.InvoiceDate),
+        MONTH(I.InvoiceDate),
+        S.StoreID,
+        S.StoreName
+    ORDER BY
+        YEAR(I.InvoiceDate),
+        MONTH(I.InvoiceDate);
+END
+GO
+
+GO
+CREATE PROCEDURE sp_GetSalaryContractReport
+    @EmployeeID NVARCHAR(200)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Lấy thông tin hợp đồng và nhân viên
+    SELECT 
+        sc.ContractID,
+        e.EmployeeID,
+        e.FullName,
+        e.Position,
+        e.EmploymentType,
+        s.StoreName,
+        sc.BasicSalary,
+        sc.HourlyRate,
+        sc.StartDate,
+        sc.EndDate,
+        ISNULL(SUM(ISNULL(sca.CustomAmount, a.DefaultAmount)), 0) AS TotalAllowance,
+        ISNULL(sc.BasicSalary, 0) + ISNULL(SUM(ISNULL(sca.CustomAmount, a.DefaultAmount)), 0) AS EstimatedTotalIncome
+    FROM SalaryContract sc
+        INNER JOIN Employee e ON sc.EmployeeID = e.EmployeeID
+        LEFT JOIN Store s ON e.StoreID = s.StoreID
+        LEFT JOIN SalaryContract_Allowances sca ON sc.ContractID = sca.ContractID
+        LEFT JOIN Allowances a ON sca.AllowanceID = a.AllowanceID
+    WHERE sc.EmployeeID = @EmployeeID AND sc.IsDeleted = 0
+    GROUP BY 
+        sc.ContractID, e.EmployeeID, e.FullName, e.Position, e.EmploymentType,
+        s.StoreName, sc.BasicSalary, sc.HourlyRate, sc.StartDate, sc.EndDate;
+	SELECT 
+        a.AllowanceName,
+        ISNULL(sca.CustomAmount, a.DefaultAmount) AS Amount
+    FROM SalaryContract sc
+    INNER JOIN SalaryContract_Allowances sca ON sc.ContractID = sca.ContractID
+    INNER JOIN Allowances a ON sca.AllowanceID = a.AllowanceID
+    WHERE sc.EmployeeID = @EmployeeID AND sc.IsDeleted = 0
+END
+GO
+-- DROP PROCEDURE sp_GetSalaryContractReport @EmployeeID = 'EMP20251026200001c2c'

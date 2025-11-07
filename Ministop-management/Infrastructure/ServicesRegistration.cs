@@ -47,11 +47,6 @@ namespace Infrastructure
             container.RegisterType<IPromotionRepository, PromotionRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IPromotionProductRepository, PromotionProductReponsitory>(new PerResolveLifetimeManager());
             container.RegisterType<IReportRepository, ReportRepository>(new PerResolveLifetimeManager());
-            container.RegisterType<ISalaryContractRepository, SalaryContractRepository>(new PerResolveLifetimeManager());
-            container.RegisterType<IShiftAssignmentRepository, ShiftAssignmentRepository>(new PerResolveLifetimeManager());
-            container.RegisterType<ISalaryRepository, SalaryRepository>(new PerResolveLifetimeManager());
-            container.RegisterType<ISalaryContractAllowanceRepository, SalaryContractAllowanceRepository>(new PerResolveLifetimeManager());
-            container.RegisterType<IAbsenceRepository, AbsenceRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IStockImportRepository, StockImportRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IStockImportDetailRepository, StockImportDetailRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IStockExportRepository, StockExportRepository>(new PerResolveLifetimeManager());
@@ -62,6 +57,11 @@ namespace Infrastructure
             container.RegisterType<IStockHistoryRepository, StockHistoryRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IInvoiceRepository, InvoiceRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IInvoiceDetailRepository, InvoiceDetailRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<ISalaryContractRepository, SalaryContractRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IShiftAssignmentRepository, ShiftAssignmentRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<ISalaryRepository, SalaryRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<ISalaryContractAllowanceRepository, SalaryContractAllowanceRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IAbsenceRepository, AbsenceRepository>(new PerResolveLifetimeManager());
         }
     }
 }

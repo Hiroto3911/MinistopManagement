@@ -114,19 +114,23 @@ namespace Services.Services
                     if (stock == null)
                         continue;
                     decimal discountAmt = 0;
-                    decimal finalPrice = stock.Price;
+                    decimal finalPrice = 0;
 
                     var promotion = GetActivePromotion(item.ProductID, item.Quantity);
                     if (promotion != null)
                     {
                         discountAmt = promotion.DiscountAmount;
-                        finalPrice = stock.Price - discountAmt;
+                        finalPrice = (item.Quantity * stock.Price) - discountAmt;
+                    }
+                    else
+                    {
+                        finalPrice = stock.Price * item.Quantity;
                     }
 
                     item.DiscountAmount = discountAmt;
-                    finalAmount += finalPrice * item.Quantity;
-                    discountTotal += discountAmt * item.Quantity;
-
+                    finalAmount += finalPrice;
+                    discountTotal += discountAmt;
+                    item.FinalUnitPrice = finalPrice;
                     _ministopUnitOfWork.InvoiceDetailRepository.Update(item);
 
                     stock.Quantity -= item.Quantity;

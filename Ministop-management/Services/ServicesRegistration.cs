@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
 using Services.Interfaces;
 using Services.Services;
 using System.Configuration.Assemblies;
@@ -18,7 +19,6 @@ namespace Services
             });
             var mapper = mapperConfig.CreateMapper();
             container.RegisterInstance<IMapper>(mapper);
-
             container.RegisterSingleton<IDateTimeService, DateTimeService>();
             container.RegisterType<IIdentityService, IdentityService>();
             container.RegisterType<IEmployeeService, EmployeeService>(new PerResolveLifetimeManager());
@@ -30,11 +30,6 @@ namespace Services
             container.RegisterType<IProductService, ProductService>(new PerResolveLifetimeManager());
             container.RegisterType<ISupplierService, SupplierService>(new PerResolveLifetimeManager());
             container.RegisterType<IReportService, ReportService>(new PerResolveLifetimeManager());
-            container.RegisterType<ISalaryContractService, SalaryContractService>(new PerResolveLifetimeManager());
-            container.RegisterType<IShiftAssignmentService, ShiftAssignmentService>(new PerResolveLifetimeManager());
-            container.RegisterType<ISalaryService, SalaryService>(new PerResolveLifetimeManager());
-            container.RegisterType<ISalaryContractAllowanceService, SalaryContractAllowanceService>(new PerResolveLifetimeManager());
-            container.RegisterType<IAbsenceService, AbsenceService>(new PerResolveLifetimeManager());
             container.RegisterType<IStockDetailService, StockDetailService>(new PerResolveLifetimeManager());
             container.RegisterType<IStockHistoryService, StockHistoryService>(new PerResolveLifetimeManager());
             container.RegisterType<IStockImportService, StockImportService>(new PerResolveLifetimeManager());
@@ -48,7 +43,11 @@ namespace Services
             container.RegisterType<IPromotionProductService, PromotionProductService>(new PerResolveLifetimeManager());
             container.RegisterType<IInvoiceService, InvoiceService>(new PerResolveLifetimeManager());
             container.RegisterType<IInvoiceDetailService, InvoiceDetailService>(new PerResolveLifetimeManager());
-
+            container.RegisterType<ISalaryContractService, SalaryContractService>(new PerResolveLifetimeManager());
+            container.RegisterType<IShiftAssignmentService, ShiftAssignmentService>(new PerResolveLifetimeManager());
+            container.RegisterType<ISalaryService, SalaryService>(new PerResolveLifetimeManager());
+            container.RegisterType<ISalaryContractAllowanceService, SalaryContractAllowanceService>(new PerResolveLifetimeManager());
+            container.RegisterType<IAbsenceService, AbsenceService>(new PerResolveLifetimeManager());
             Infrastructure.ServicesRegistration.AddInfrastructureTier(container);
         }
     }

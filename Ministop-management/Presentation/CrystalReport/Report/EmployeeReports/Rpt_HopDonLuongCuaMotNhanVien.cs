@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Presentation.CrystalReport.Report.SaleReports {
+namespace Presentation.CrystalReport.Report.EmployeeReports {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace Presentation.CrystalReport.Report.SaleReports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Rpt_InHoaDon : ReportClass {
+    public class Rpt_HopDonLuongCuaMotNhanVien : ReportClass {
         
-        public Rpt_InHoaDon() {
+        public Rpt_HopDonLuongCuaMotNhanVien() {
         }
         
         public override string ResourceName {
             get {
-                return "Rpt_InHoaDon.rpt";
+                return "Rpt_HopDonLuongCuaMotNhanVien.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,8 @@ namespace Presentation.CrystalReport.Report.SaleReports {
         
         public override string FullResourceName {
             get {
-                return "Presentation.CrystalReport.Report.SaleReports.Rpt_InHoaDon.rpt";
+                return "Presentation.CrystalReport.Report.EmployeeReports.Rpt_HopDonLuongCuaMotNhanVien.r" +
+                    "pt";
             }
             set {
                 // Do nothing
@@ -90,9 +91,9 @@ namespace Presentation.CrystalReport.Report.SaleReports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedRpt_InHoaDon : Component, ICachedReport {
+    public class CachedRpt_HopDonLuongCuaMotNhanVien : Component, ICachedReport {
         
-        public CachedRpt_InHoaDon() {
+        public CachedRpt_HopDonLuongCuaMotNhanVien() {
         }
         
         [Browsable(false)]
@@ -129,7 +130,7 @@ namespace Presentation.CrystalReport.Report.SaleReports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Rpt_InHoaDon rpt = new Rpt_InHoaDon();
+            Rpt_HopDonLuongCuaMotNhanVien rpt = new Rpt_HopDonLuongCuaMotNhanVien();
             rpt.Site = this.Site;
             return rpt;
         }
