@@ -109,5 +109,36 @@ namespace Services.Services
             return result.ToList();
         }
 
+        public List<sp_GetSalaryContractReportResult> GetSalaryContract(string employeeId)
+        {
+            if (string.IsNullOrEmpty(employeeId))
+                return new List<sp_GetSalaryContractReportResult>();
+
+            return _ministopUnitOfWork.ReportRepository.GetSalaryContract(employeeId);
+        }
+        public List<InvoiceReportDto> GetInvoiceProductReport(string invoiceID)
+        {
+            var list = _ministopUnitOfWork.ReportRepository.GetInvoiceProductReport(invoiceID);
+
+            var result = list.Select(x => new InvoiceReportDto
+            {
+                InvoiceID = x.InvoiceID,
+                InvoiceDate = x.InvoiceDate,
+                StoreID = x.StoreID,
+                StoreName = x.StoreName,
+                StoreAddress = x.StoreAddress,
+                StorePhone = x.StorePhone,
+                EmployeeID = x.EmployeeID,
+                EmployeeName = x.EmployeeName,
+                ProductName = x.ProductName,
+                Unit = x.Unit,
+                Quantity = x.Quantity,
+                UnitPrice = x.UnitPrice,
+                Total = x.Total,
+                TotalAmount = x.TotalAmount
+            }).ToList(); // <-- sửa đúng ở đây
+
+            return result;
+        }
     }
 }

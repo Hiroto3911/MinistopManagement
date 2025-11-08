@@ -40,21 +40,21 @@
             this.txtMatKhau = new Guna.UI2.WinForms.Guna2TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.rdNam = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.rdNu = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.dtpNgaySinh = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.txtSoDienThoai = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbChucVu = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbLoaiNhanVien = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtMaNhanVien = new Guna.UI2.WinForms.Guna2TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.rdNu = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.rdNam = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -214,23 +214,12 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 268);
+            this.label2.Location = new System.Drawing.Point(27, 321);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(108, 28);
             this.label2.TabIndex = 185;
             this.label2.Text = "Ngày sinh:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(27, 334);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 28);
-            this.label4.TabIndex = 184;
-            this.label4.Text = "Giới tính:";
             // 
             // label1
             // 
@@ -272,62 +261,6 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // rdNam
-            // 
-            this.rdNam.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdNam.CheckedState.BorderThickness = 0;
-            this.rdNam.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdNam.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdNam.Location = new System.Drawing.Point(241, 337);
-            this.rdNam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdNam.Name = "rdNam";
-            this.rdNam.Size = new System.Drawing.Size(30, 31);
-            this.rdNam.TabIndex = 201;
-            this.rdNam.Text = "Nam";
-            this.rdNam.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdNam.UncheckedState.BorderThickness = 2;
-            this.rdNam.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdNam.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            // 
-            // rdNu
-            // 
-            this.rdNu.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdNu.CheckedState.BorderThickness = 0;
-            this.rdNu.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rdNu.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rdNu.Location = new System.Drawing.Point(403, 337);
-            this.rdNu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdNu.Name = "rdNu";
-            this.rdNu.Size = new System.Drawing.Size(30, 31);
-            this.rdNu.TabIndex = 202;
-            this.rdNu.Text = "guna2CustomRadioButton1";
-            this.rdNu.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rdNu.UncheckedState.BorderThickness = 2;
-            this.rdNu.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rdNu.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(289, 338);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 28);
-            this.label9.TabIndex = 184;
-            this.label9.Text = "Nam";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(463, 338);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 28);
-            this.label10.TabIndex = 184;
-            this.label10.Text = "Nữ";
-            // 
             // dtpNgaySinh
             // 
             this.dtpNgaySinh.BorderRadius = 2;
@@ -336,7 +269,7 @@
             this.dtpNgaySinh.FillColor = System.Drawing.Color.White;
             this.dtpNgaySinh.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(234, 268);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(234, 321);
             this.dtpNgaySinh.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpNgaySinh.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpNgaySinh.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -435,15 +368,85 @@
             this.label13.TabIndex = 203;
             this.label13.Text = "Mã nhân viên:";
             // 
+            // rdNu
+            // 
+            this.rdNu.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdNu.CheckedState.BorderThickness = 0;
+            this.rdNu.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdNu.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdNu.Location = new System.Drawing.Point(446, 271);
+            this.rdNu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdNu.Name = "rdNu";
+            this.rdNu.Size = new System.Drawing.Size(30, 31);
+            this.rdNu.TabIndex = 209;
+            this.rdNu.Text = "guna2CustomRadioButton1";
+            this.rdNu.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdNu.UncheckedState.BorderThickness = 2;
+            this.rdNu.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdNu.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // rdNam
+            // 
+            this.rdNam.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdNam.CheckedState.BorderThickness = 0;
+            this.rdNam.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rdNam.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rdNam.Location = new System.Drawing.Point(284, 271);
+            this.rdNam.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdNam.Name = "rdNam";
+            this.rdNam.Size = new System.Drawing.Size(30, 31);
+            this.rdNam.TabIndex = 208;
+            this.rdNam.Text = "Nam";
+            this.rdNam.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rdNam.UncheckedState.BorderThickness = 2;
+            this.rdNam.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rdNam.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(506, 272);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(39, 28);
+            this.label10.TabIndex = 205;
+            this.label10.Text = "Nữ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(332, 272);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(55, 28);
+            this.label9.TabIndex = 206;
+            this.label9.Text = "Nam";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(70, 268);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(95, 28);
+            this.label4.TabIndex = 207;
+            this.label4.Text = "Giới tính:";
+            // 
             // frmChucNang_NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1166, 471);
-            this.Controls.Add(this.txtMaNhanVien);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.rdNu);
             this.Controls.Add(this.rdNam);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtMaNhanVien);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpNgaySinh);
@@ -457,9 +460,6 @@
             this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
@@ -489,20 +489,20 @@
         private Guna.UI2.WinForms.Guna2TextBox txtMatKhau;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
-        private Guna.UI2.WinForms.Guna2CustomRadioButton rdNu;
-        private Guna.UI2.WinForms.Guna2CustomRadioButton rdNam;
-        private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgaySinh;
         private Guna.UI2.WinForms.Guna2ComboBox cbLoaiNhanVien;
         private Guna.UI2.WinForms.Guna2ComboBox cbChucVu;
         private Guna.UI2.WinForms.Guna2TextBox txtSoDienThoai;
-        private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox txtMaNhanVien;
         private System.Windows.Forms.Label label13;
+        private Guna.UI2.WinForms.Guna2CustomRadioButton rdNu;
+        private Guna.UI2.WinForms.Guna2CustomRadioButton rdNam;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label4;
     }
 }

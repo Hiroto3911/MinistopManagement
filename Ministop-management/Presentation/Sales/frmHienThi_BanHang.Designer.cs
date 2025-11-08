@@ -39,7 +39,6 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dgvDuLieuHD = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnHoanTat = new Guna.UI2.WinForms.Guna2Button();
             this.btnThemHD = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtSoTrangHD = new Guna.UI2.WinForms.Guna2TextBox();
@@ -53,11 +52,12 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnHoanTat = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieuHD)).BeginInit();
             this.guna2Panel7.SuspendLayout();
@@ -159,29 +159,6 @@
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.Size = new System.Drawing.Size(639, 34);
             this.guna2Panel7.TabIndex = 19;
-            // 
-            // btnHoanTat
-            // 
-            this.btnHoanTat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnHoanTat.BorderColor = System.Drawing.Color.DimGray;
-            this.btnHoanTat.BorderRadius = 10;
-            this.btnHoanTat.BorderThickness = 3;
-            this.btnHoanTat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnHoanTat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnHoanTat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnHoanTat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnHoanTat.Enabled = false;
-            this.btnHoanTat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
-            this.btnHoanTat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHoanTat.ForeColor = System.Drawing.Color.White;
-            this.btnHoanTat.Location = new System.Drawing.Point(444, 2);
-            this.btnHoanTat.Margin = new System.Windows.Forms.Padding(2);
-            this.btnHoanTat.Name = "btnHoanTat";
-            this.btnHoanTat.Size = new System.Drawing.Size(79, 26);
-            this.btnHoanTat.TabIndex = 225;
-            this.btnHoanTat.Text = "Hoàn tất";
-            this.btnHoanTat.Click += new System.EventHandler(this.btnHoanTat_Click);
             // 
             // btnThemHD
             // 
@@ -478,6 +455,22 @@
             this.guna2Panel2.Size = new System.Drawing.Size(635, 34);
             this.guna2Panel2.TabIndex = 18;
             // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = global::Presentation.Properties.Resources.recycle_bin;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(42, 42);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(595, 2);
+            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(35, 30);
+            this.guna2ImageButton1.TabIndex = 156;
+            // 
             // guna2TextBox2
             // 
             this.guna2TextBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -541,6 +534,29 @@
             this.guna2Button4.TabIndex = 7;
             this.guna2Button4.Text = "<<";
             // 
+            // btnHoanTat
+            // 
+            this.btnHoanTat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHoanTat.BorderColor = System.Drawing.Color.DimGray;
+            this.btnHoanTat.BorderRadius = 10;
+            this.btnHoanTat.BorderThickness = 3;
+            this.btnHoanTat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnHoanTat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnHoanTat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnHoanTat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnHoanTat.Enabled = false;
+            this.btnHoanTat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
+            this.btnHoanTat.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHoanTat.ForeColor = System.Drawing.Color.White;
+            this.btnHoanTat.Location = new System.Drawing.Point(444, 2);
+            this.btnHoanTat.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHoanTat.Name = "btnHoanTat";
+            this.btnHoanTat.Size = new System.Drawing.Size(79, 26);
+            this.btnHoanTat.TabIndex = 225;
+            this.btnHoanTat.Text = "Hoàn tất";
+            this.btnHoanTat.Click += new System.EventHandler(this.btnHoanTat_Click);
+            // 
             // guna2TextBox1
             // 
             this.guna2TextBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -566,22 +582,6 @@
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.Size = new System.Drawing.Size(186, 26);
             this.guna2TextBox1.TabIndex = 0;
-            // 
-            // guna2ImageButton1
-            // 
-            this.guna2ImageButton1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Image = global::Presentation.Properties.Resources.recycle_bin;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton1.Location = new System.Drawing.Point(595, 2);
-            this.guna2ImageButton1.Margin = new System.Windows.Forms.Padding(2);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Size = new System.Drawing.Size(35, 30);
-            this.guna2ImageButton1.TabIndex = 156;
             // 
             // frmHienThi_BanHang
             // 
@@ -615,7 +615,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
@@ -630,5 +629,6 @@
         private Guna.UI2.WinForms.Guna2Button btnTrangSauHD;
         private Guna.UI2.WinForms.Guna2Button btnTrangTruocHD;
         private Guna.UI2.WinForms.Guna2Button btnHoanTat;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
     }
 }

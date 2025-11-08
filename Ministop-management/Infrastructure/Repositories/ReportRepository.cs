@@ -27,9 +27,9 @@ namespace Infrastructure.Repositories
         {
             return _context.SP_GetEmployeesByStore(store).ToList();
         }
-        public List<SP_StoreRevenueByTimeResult> GetStoreRevenueByTime(string storeID, DateTime fromDate, DateTime toDate)
+        public List<SP_StoreRevenueByTimeResultResult> GetStoreRevenueByTime(string storeID, DateTime fromDate, DateTime toDate)
         {
-            return _context.SP_StoreRevenueByTime(storeID,fromDate,toDate).ToList();
+            return _context.SP_StoreRevenueByTimeResult(storeID,fromDate,toDate).ToList();
         }
         public List<SP_StockImportReportResult> GetStockImportReport(string importID)
         {
@@ -129,5 +129,14 @@ namespace Infrastructure.Repositories
             return report.ToList();
         }
 
+        public List<sp_GetSalaryContractReportResult> GetSalaryContract(string EmployeeID)
+        {
+            return _context.sp_GetSalaryContractReport(EmployeeID).ToList();
+        }
+        public List<SP_InvoiceReportResult> GetInvoiceProductReport(string invoiceID)
+        {
+            return _context.SP_InvoiceReport(invoiceID).ToList();
+        }
     }
+
 }

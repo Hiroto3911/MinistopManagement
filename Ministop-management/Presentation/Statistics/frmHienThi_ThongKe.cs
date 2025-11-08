@@ -41,6 +41,15 @@ namespace Presentation
             cboThang.DataSource = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
             dtpTuDT.Value = DateTime.Now.AddMonths(-1); // Gợi ý mặc định ✅
             dtpDenDT.Value = DateTime.Now;
+            if (_userSession.Role == "Quản lý cửa hàng")
+            {
+                cboCuaHangDT.Enabled = false;
+                cboCuaHangTK.Enabled = false;
+                cboCuaHangDT.SelectedValue = _userSession.IdStore;
+                cboCuaHangTK.SelectedValue = _userSession.IdStore;
+
+            }
+           
         }
         private void LoadCboCuaHang(Guna2ComboBox cboCuaHang)
         {

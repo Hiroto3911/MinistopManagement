@@ -16,5 +16,9 @@ namespace Services.Interfaces
         List<InventoryReportDto> GetInventoryReport(string storeId, int month, int year);
         List<StockImportReportDto> GetStockImportReport(string importID);
         List<ExportReportDto> GetStockExportReport(string exportID);
+        List<sp_GetSalaryContractReportResult> GetSalaryContract(string employeeId);
+        List<InvoiceReportDto> GetInvoiceProductReport(string invoiceID);
+
+
     }
 }

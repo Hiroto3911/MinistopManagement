@@ -186,59 +186,78 @@ BEGIN
         MONTH(I.InvoiceDate);
 END
 GO
-CREATE PROCEDURE GetStockByPeriod
-    @StoreId NVARCHAR(50),
-    @ProductId NVARCHAR(50),
-    @Month INT,
-    @Year INT
+
+
+CREATE PROC SP_StoreRevenueByTimeResult
+    @StoreID NVARCHAR(200) = NULL,
+    @FromDate DATE = NULL,
+    @ToDate DATE = NULL
 AS
 BEGIN
-    DECLARE @StartDate DATE = DATEFROMPARTS(@Year, @Month, 1);
-    DECLARE @EndDate DATE = EOMONTH(@StartDate);
-
-    -- T?n ??u k?
-    DECLARE @OpeningStock INT =
-    (
-        SELECT 
-            ISNULL(SUM(PID.Quantity), 0) 
-            - ISNULL((SELECT SUM(ID.Quantity)
-                      FROM InvoiceDetail ID
-                      JOIN Invoice I ON ID.InvoiceID = I.InvoiceID
-                      WHERE I.StoreID = @StoreId
-                        AND ID.ProductID = @ProductId
-                        AND I.InvoiceDate < @StartDate), 0)
-        FROM PurchaseInvoiceDetail PID
-        JOIN PurchaseInvoice PI ON PID.InvoiceID = PI.InvoiceID
-        WHERE PI.StoreID = @StoreId
-          AND PID.ProductID = @ProductId
-          AND PI.ReceiptDate < @StartDate
-    );
-
-    -- Nh?p trong k?
-    DECLARE @TotalImport INT =
-    (
-        SELECT ISNULL(SUM(PID.Quantity), 0)
-        FROM PurchaseInvoiceDetail PID
-        JOIN PurchaseInvoice PI ON PID.InvoiceID = PI.InvoiceID
-        WHERE PI.StoreID = @StoreId
-          AND PID.ProductID = @ProductId
-          AND PI.ReceiptDate BETWEEN @StartDate AND @EndDate
-    );
-
-    -- Xu?t trong k?
-    DECLARE @TotalExport INT =
-    (
-        SELECT ISNULL(SUM(ID.Quantity), 0)
-        FROM InvoiceDetail ID
-        JOIN Invoice I ON ID.InvoiceID = I.InvoiceID
-        WHERE I.StoreID = @StoreId
-          AND ID.ProductID = @ProductId
-          AND I.InvoiceDate BETWEEN @StartDate AND @EndDate
-    );  
+    SET NOCOUNT ON;
 
     SELECT
-        @OpeningStock AS OpeningStock,
-        @TotalImport AS ImportInPeriod,
-        @TotalExport AS ExportInPeriod,
-        @OpeningStock + @TotalImport - @TotalExport AS ClosingStock
-END;
+        YEAR(I.InvoiceDate) AS [Year],
+        MONTH(I.InvoiceDate) AS [Month],
+        S.StoreID,
+        S.StoreName,
+        SUM(ID.Quantity * ID.UnitPrice) AS Revenue
+    FROM Invoice I
+    INNER JOIN InvoiceDetails ID ON I.InvoiceID = ID.InvoiceID
+    INNER JOIN Store S ON I.StoreID = S.StoreID
+    WHERE 
+        (@StoreID IS NULL OR S.StoreID = @StoreID)
+        AND (@FromDate IS NULL OR I.InvoiceDate >= @FromDate)
+        AND (@ToDate IS NULL OR I.InvoiceDate <= @ToDate)
+    GROUP BY
+        YEAR(I.InvoiceDate),
+        MONTH(I.InvoiceDate),
+        S.StoreID,
+        S.StoreName
+    ORDER BY
+        YEAR(I.InvoiceDate),
+        MONTH(I.InvoiceDate);
+END
+GO
+
+GO
+CREATE PROCEDURE sp_GetSalaryContractReport
+    @EmployeeID NVARCHAR(200)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Lấy thông tin hợp đồng và nhân viên
+    SELECT 
+        sc.ContractID,
+        e.EmployeeID,
+        e.FullName,
+        e.Position,
+        e.EmploymentType,
+        s.StoreName,
+        sc.BasicSalary,
+        sc.HourlyRate,
+        sc.StartDate,
+        sc.EndDate,
+        ISNULL(SUM(ISNULL(sca.CustomAmount, a.DefaultAmount)), 0) AS TotalAllowance,
+        ISNULL(sc.BasicSalary, 0) + ISNULL(SUM(ISNULL(sca.CustomAmount, a.DefaultAmount)), 0) AS EstimatedTotalIncome
+    FROM SalaryContract sc
+        INNER JOIN Employee e ON sc.EmployeeID = e.EmployeeID
+        LEFT JOIN Store s ON e.StoreID = s.StoreID
+        LEFT JOIN SalaryContract_Allowances sca ON sc.ContractID = sca.ContractID
+        LEFT JOIN Allowances a ON sca.AllowanceID = a.AllowanceID
+    WHERE sc.EmployeeID = @EmployeeID AND sc.IsDeleted = 0
+    GROUP BY 
+        sc.ContractID, e.EmployeeID, e.FullName, e.Position, e.EmploymentType,
+        s.StoreName, sc.BasicSalary, sc.HourlyRate, sc.StartDate, sc.EndDate;
+	SELECT 
+        a.AllowanceName,
+        ISNULL(sca.CustomAmount, a.DefaultAmount) AS Amount
+    FROM SalaryContract sc
+    INNER JOIN SalaryContract_Allowances sca ON sc.ContractID = sca.ContractID
+    INNER JOIN Allowances a ON sca.AllowanceID = a.AllowanceID
+    WHERE sc.EmployeeID = @EmployeeID AND sc.IsDeleted = 0
+END
+GO
+-- DROP PROCEDURE sp_GetSalaryContractReport @EmployeeID = 'EMP20251026200001c2c'
+

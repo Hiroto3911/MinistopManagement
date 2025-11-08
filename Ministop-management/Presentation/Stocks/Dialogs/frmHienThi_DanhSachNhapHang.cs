@@ -79,6 +79,20 @@ namespace Presentation
             dgvDuLieu.Columns["GiaTuNhaCungCap"].ReadOnly = true;
             dgvDuLieu.Columns["SoLuong"].ReadOnly = true;
             dgvDuLieu.Columns["Chon"].Width = 50;
+            int colCheckIndex = dgvDuLieu.Columns["Chon"].Index;
+            Rectangle rect = dgvDuLieu.GetCellDisplayRectangle(colCheckIndex, -1, true);
+            System.Windows.Forms.CheckBox checkboxHeader = new System.Windows.Forms.CheckBox();
+            checkboxHeader.Name = "checkboxHeader";
+            checkboxHeader.Size = new Size(30, 30);
+            checkboxHeader.Location = new Point(
+               rect.X + (rect.Width +50) ,
+               rect.Y + (rect.Height - checkboxHeader.Height) / 2
+            );
+            checkboxHeader.BackColor = Color.Transparent;
+            checkboxHeader.FlatStyle = FlatStyle.Flat;
+            checkboxHeader.CheckedChanged += new EventHandler(checkboxHeader_CheckedChanged);
+            dgvDuLieu.Controls.Add(checkboxHeader);
+
             dgvDuLieu.AllowUserToAddRows = false;
             dgvDuLieu.ReadOnly = false;
             dgvDuLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -87,6 +101,18 @@ namespace Presentation
             btnTrangTruoc.Enabled = pageNumber > 1;
             btnTrangSau.Enabled = pageNumber < _totalPage;
 
+        }
+        private void checkboxHeader_CheckedChanged(object sender, EventArgs e)
+        {
+            var headerBox = (System.Windows.Forms.CheckBox)sender;
+            foreach (DataGridViewRow row in dgvDuLieu.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    row.Cells["Chon"].Value = headerBox.Checked;
+                }
+                dgvDuLieu.EndEdit();
+            }
         }
         private void LoadThemStyle()
         {
