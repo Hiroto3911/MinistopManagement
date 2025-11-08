@@ -129,9 +129,9 @@
     <Compile Include="UnitOfWorks\MinistopUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
+    <ProjectReference Include="..\Domain\Model.csproj">
       <Project>{204b809a-d027-406f-8529-2193211726ee}</Project>
-      <Name>Domain</Name>
+      <Name>Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{36b44f87-d9ad-403c-ace4-a02a0c415e22}</Project>

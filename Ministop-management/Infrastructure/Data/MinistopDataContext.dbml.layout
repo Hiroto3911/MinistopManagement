@@ -183,56 +183,56 @@
         <classShapeMoniker Id="ff43a891-df27-4667-987e-125a439af497" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 8.03049967447917); (3.125 : 8.40549967447917); (3.125 : 21.0825512695313); (3.22916666666667 : 21.0825512695313 : JumpStart); (3.48958333333333 : 21.0825512695313 : JumpEnd); (5.82291666666667 : 21.0825512695313 : JumpStart); (6.20833333333333 : 21.0825512695313 : JumpEnd); (6.25 : 21.0825512695313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 8.03049967447917); (3.125 : 8.40549967447917); (3.125 : 21.0825512695313); (3.32291666666667 : 21.0825512695313 : JumpStart); (3.48958333333333 : 21.0825512695313 : JumpEnd); (5.82291666666667 : 21.0825512695313 : JumpStart); (6.20833333333333 : 21.0825512695313 : JumpEnd); (6.25 : 21.0825512695313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Invoice/Invoice_InvoiceDetail" />
       <nodes>
         <classShapeMoniker Id="ff43a891-df27-4667-987e-125a439af497" />
         <classShapeMoniker Id="474f982e-26ab-4b80-a400-942f3102fcf0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 10.6450512695312); (13.25 : 10.6450512695312); (13.25 : 13.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 10.6450512695312); (3.04166666666667 : 10.6450512695312 : JumpStart); (3.20833333333333 : 10.6450512695312 : JumpEnd); (5.97916666666667 : 10.6450512695312 : JumpStart); (6.14583333333333 : 10.6450512695312 : JumpEnd); (8.32291666666667 : 10.6450512695312 : JumpStart); (8.53645833333333 : 10.6450512695312 : JumpEnd); (13.25 : 10.6450512695312); (13.25 : 13.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Employee/Employee_PriceProposal" />
       <nodes>
         <classShapeMoniker Id="ced1ef0a-4f93-450d-bd54-531c0160c046" />
         <classShapeMoniker Id="a8d0f23a-5a3b-49ce-807e-e115417fdbac" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 10.8225281347656); (3.07291666666667 : 10.8225281347656 : JumpStart); (3.23958333333333 : 10.8225281347656 : JumpEnd); (5.82291666666667 : 10.8225281347656 : JumpStart); (6.05208333333333 : 10.8225281347656 : JumpEnd); (8.36979166666667 : 10.8225281347656 : JumpStart); (8.53645833333333 : 10.8225281347656 : JumpEnd); (12.7187475 : 10.8225281347656); (12.7187475 : 13.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 10.8225281347656); (3.07291666666667 : 10.8225281347656 : JumpStart); (3.23958333333333 : 10.8225281347656 : JumpEnd); (5.97916666666667 : 10.8225281347656 : JumpStart); (6.14583333333333 : 10.8225281347656 : JumpEnd); (12.7187475 : 10.8225281347656); (12.7187475 : 13.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Employee/Employee_PriceProposal1" />
       <nodes>
         <classShapeMoniker Id="ced1ef0a-4f93-450d-bd54-531c0160c046" />
         <classShapeMoniker Id="a8d0f23a-5a3b-49ce-807e-e115417fdbac" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 15.0104484049479); (5.82291666666667 : 15.0104484049479 : JumpStart); (6.05208333333333 : 15.0104484049479 : JumpEnd); (6.25 : 15.0104484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 15.0104484049479); (6.25 : 15.0104484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Product/Product_SupplierProduct" />
       <nodes>
         <classShapeMoniker Id="1c2d9f37-3b90-4689-b63e-cd0f57aa6ae9" />
         <classShapeMoniker Id="d0829c08-dd43-4cd1-9c54-1014c54cf5fc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.45076923076923 : 16.4247054036458); (5.9375 : 16.9114361728766); (5.9375 : 20.4475236347656); (6.25 : 20.4475236347656)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.45076923076923 : 16.4247054036458); (5.9375 : 16.9114361728766); (5.9375 : 20.4475236347656); (6.04166666666667 : 20.4475236347656 : JumpStart); (6.20833333333333 : 20.4475236347656 : JumpEnd); (6.25 : 20.4475236347656)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Product/Product_InvoiceDetail" />
       <nodes>
         <classShapeMoniker Id="1c2d9f37-3b90-4689-b63e-cd0f57aa6ae9" />
         <classShapeMoniker Id="474f982e-26ab-4b80-a400-942f3102fcf0" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 13.84375); (5.82291666666667 : 13.84375 : JumpStart); (6.05208333333333 : 13.84375 : JumpEnd); (8.27604166666667 : 13.84375 : JumpStart); (8.53645833333333 : 13.84375 : JumpEnd); (12.25 : 13.84375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 13.84375); (8.27604166666667 : 13.84375 : JumpStart); (8.44270833333333 : 13.84375 : JumpEnd); (12.25 : 13.84375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Product/Product_PriceProposal" />
       <nodes>
         <classShapeMoniker Id="1c2d9f37-3b90-4689-b63e-cd0f57aa6ae9" />
         <classShapeMoniker Id="a8d0f23a-5a3b-49ce-807e-e115417fdbac" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 14.9239005533854); (3.07291666666667 : 14.9239005533854 : JumpStart); (3.48958333333333 : 14.9239005533854 : JumpEnd); (3.5 : 14.9239005533854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 14.9239005533854); (3.5 : 14.9239005533854)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/ProductCategory/ProductCategory_Product" />
       <nodes>
         <classShapeMoniker Id="73cf5b92-32d7-4553-87f2-b77d16cd5d35" />
         <classShapeMoniker Id="1c2d9f37-3b90-4689-b63e-cd0f57aa6ae9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 13.5); (4.5 : 11.03125); (8.36979166666667 : 11.03125 : JumpStart); (8.53645833333333 : 11.03125 : JumpEnd); (9.25 : 11.03125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.5 : 13.5); (4.5 : 11.03125); (5.97916666666667 : 11.03125 : JumpStart); (6.14583333333333 : 11.03125 : JumpEnd); (9.25 : 11.03125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Product/Product_Promotion_Product" />
       <nodes>
         <classShapeMoniker Id="1c2d9f37-3b90-4689-b63e-cd0f57aa6ae9" />
@@ -267,7 +267,7 @@
         <classShapeMoniker Id="b4d22383-b338-4aa8-b284-ec4f1a52f9fd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 5.875); (1.75 : 3.48442510742187); (3.5 : 3.48442510742187)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.75 : 5.875); (1.75 : 3.48442510742187); (3.22916666666667 : 3.48442510742187 : JumpStart); (3.39583333333333 : 3.48442510742187 : JumpEnd); (3.5 : 3.48442510742187)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Invoice/Invoice_ReturnProduct" />
       <nodes>
         <classShapeMoniker Id="ff43a891-df27-4667-987e-125a439af497" />
@@ -281,7 +281,7 @@
         <classShapeMoniker Id="6d6bf7f0-5026-4601-a218-ff96733185c1" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.70076923076923 : 12.2516097005208); (3.09732443490112 : 12.6481649046527 : JumpStart); (3.21517556509888 : 12.7660160348505 : JumpEnd); (3.3125 : 12.8633404697516); (3.3125 : 34.9623527018229); (3.5 : 34.9623527018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.70076923076923 : 12.2516097005208); (3.06607443490112 : 12.6169149046527 : JumpStart); (3.21517556509888 : 12.7660160348505 : JumpEnd); (3.3125 : 12.8633404697516); (3.3125 : 34.9623527018229); (3.5 : 34.9623527018229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Employee/Employee_SalaryContract" />
       <nodes>
         <classShapeMoniker Id="ced1ef0a-4f93-450d-bd54-531c0160c046" />
@@ -309,7 +309,7 @@
         <classShapeMoniker Id="37a68e74-3f95-48f6-92a8-db79b5088898" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 10.4675744042969); (8.36979166666667 : 10.4675744042969 : JumpStart); (8.53645833333333 : 10.4675744042969 : JumpEnd); (11.40625 : 10.4675744042969); (11.40625 : 6.85740397135417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 10.4675744042969); (3.27150149373996 : 10.4675744042969 : JumpStart); (3.43816816040663 : 10.4675744042969 : JumpEnd); (5.68952414728567 : 10.4675744042969 : JumpStart); (5.85619081395233 : 10.4675744042969 : JumpEnd); (5.97916666666667 : 10.4675744042969 : JumpStart); (6.14583333333333 : 10.4675744042969 : JumpEnd); (8.32291666666667 : 10.4675744042969 : JumpStart); (8.53645833333333 : 10.4675744042969 : JumpEnd); (11.40625 : 10.4675744042969); (11.40625 : 6.85740397135417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Employee/Employee_ShiftAssignment" />
       <nodes>
         <classShapeMoniker Id="ced1ef0a-4f93-450d-bd54-531c0160c046" />
@@ -323,7 +323,7 @@
         <classShapeMoniker Id="bd820456-83f1-4883-8222-af8f917f18ed" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 12.2516097005208); (3.1875 : 12.6891097005208); (3.1875 : 27.0104484049479); (3.22916666666667 : 27.0104484049479 : JumpStart); (3.39583333333333 : 27.0104484049479 : JumpEnd); (5.82291666666667 : 27.0104484049479 : JumpStart); (5.98958333333333 : 27.0104484049479 : JumpEnd); (6.5 : 27.0104484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 12.2516097005208); (3.06607443490112 : 12.5676841354219 : JumpStart); (3.18392556509888 : 12.6855352656197 : JumpEnd); (3.1875 : 12.6891097005208); (3.1875 : 27.0104484049479); (5.82291666666667 : 27.0104484049479 : JumpStart); (5.98958333333333 : 27.0104484049479 : JumpEnd); (6.5 : 27.0104484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Employee/Employee_StockCheck" />
       <nodes>
         <classShapeMoniker Id="ced1ef0a-4f93-450d-bd54-531c0160c046" />
@@ -344,42 +344,42 @@
         <classShapeMoniker Id="ef1399c9-144c-4b3d-b37c-6a7d2eae1fbb" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 13.5615374615385); (5.84732443490112 : 13.2142130266374 : JumpStart); (6.02767556509888 : 13.0338618964396 : JumpEnd); (6.0625 : 12.9990374615385); (6.0625 : 8.98159912109375); (6.25 : 8.98159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 13.5615374615385); (6.0625 : 12.9990374615385); (6.0625 : 8.98159912109375); (6.25 : 8.98159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Product/Product_StockDetail" />
       <nodes>
         <classShapeMoniker Id="1c2d9f37-3b90-4689-b63e-cd0f57aa6ae9" />
         <classShapeMoniker Id="04c7798d-73d3-4335-959a-6ab9e9fed085" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 12.1716087005208); (3.40625 : 12.8278587005208); (3.40625 : 22.9527498372396); (3.5 : 22.9527498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 12.1716087005208); (3.09732443490112 : 12.5189331354219 : JumpStart); (3.21517556509888 : 12.6367842656197 : JumpEnd); (3.40625 : 12.8278587005208); (3.40625 : 22.9527498372396); (3.5 : 22.9527498372396)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Employee/Employee_StockExport" />
       <nodes>
         <classShapeMoniker Id="ced1ef0a-4f93-450d-bd54-531c0160c046" />
         <classShapeMoniker Id="4f2566ee-255e-4010-99d9-9e9b95a10365" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 21.875); (5.90982443490112 : 21.4651755650989 : JumpStart); (6.02767556509888 : 21.3473244349011 : JumpEnd); (6.125 : 21.25); (6.125 : 18.0104484049479); (6.25 : 18.0104484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 21.875); (6.125 : 21.25); (6.125 : 18.0104484049479); (6.25 : 18.0104484049479)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/StockExport/StockExport_StockExportDetail" />
       <nodes>
         <classShapeMoniker Id="4f2566ee-255e-4010-99d9-9e9b95a10365" />
         <classShapeMoniker Id="f9e2b3e6-b0b5-4f3f-aab6-7f8fb5c5d4e7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 16.4231659421074); (5.84732443490112 : 16.7704903770085 : JumpStart); (6.12142556509888 : 17.0445915072063 : JumpEnd); (6.125 : 17.0481659421074); (6.125 : 17.536472202474); (6.25 : 17.536472202474)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 16.4231659421074); (5.84732443490112 : 16.7704903770085 : JumpStart); (6.02767556509888 : 16.9508415072063 : JumpEnd); (6.125 : 17.0481659421074); (6.125 : 17.536472202474); (6.25 : 17.536472202474)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Product/Product_StockExportDetail" />
       <nodes>
         <classShapeMoniker Id="1c2d9f37-3b90-4689-b63e-cd0f57aa6ae9" />
         <classShapeMoniker Id="f9e2b3e6-b0b5-4f3f-aab6-7f8fb5c5d4e7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(8.25 : 8.98159912109375); (8.36979166666667 : 8.98159912109375 : JumpStart); (8.53645833333333 : 8.98159912109375 : JumpEnd); (9 : 8.98159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.25 : 8.98159912109375); (8.32291666666667 : 8.98159912109375 : JumpStart); (8.53645833333333 : 8.98159912109375 : JumpEnd); (9 : 8.98159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/StockDetail/StockDetail_StockHistory" />
       <nodes>
         <classShapeMoniker Id="04c7798d-73d3-4335-959a-6ab9e9fed085" />
         <classShapeMoniker Id="c03986c0-9d5d-4cf6-9924-bee040a83951" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 10.9503290673828); (8.359375 : 10.9503290673828); (8.359375 : 23)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 10.9503290673828); (5.97916666666667 : 10.9503290673828 : JumpStart); (6.14583333333333 : 10.9503290673828 : JumpEnd); (8.359375 : 10.9503290673828); (8.359375 : 23)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Employee/Employee_StockImport" />
       <nodes>
         <classShapeMoniker Id="ced1ef0a-4f93-450d-bd54-531c0160c046" />
@@ -393,28 +393,28 @@
         <classShapeMoniker Id="4db7cf7f-1d19-4a16-8f5c-c7894885e477" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 16.1036639913862); (5.82291666666667 : 16.1036639913862 : JumpStart); (6.14583333333333 : 16.1036639913862 : JumpEnd); (8.27604166666667 : 16.1036639913862 : JumpStart); (8.53645833333333 : 16.1036639913862 : JumpEnd); (8.79166666666667 : 16.1036639913862 : JumpStart); (8.95833333333333 : 16.1036639913862 : JumpEnd); (10.25 : 16.1036639913862); (10.25 : 15.8958968098958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 16.1036639913862); (10.25 : 16.1036639913862); (10.25 : 15.8958968098958)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Product/Product_StockImportDetail" />
       <nodes>
         <classShapeMoniker Id="1c2d9f37-3b90-4689-b63e-cd0f57aa6ae9" />
         <classShapeMoniker Id="4db7cf7f-1d19-4a16-8f5c-c7894885e477" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.5 : 9.58284173106971); (2.75 : 9.58284173106971)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(3.5 : 9.58284173106971); (3.20833333333333 : 9.58284173106971 : JumpStart); (3.04166666666667 : 9.58284173106971 : JumpEnd); (2.75 : 9.58284173106971)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Store/Store_Employee" />
       <nodes>
         <classShapeMoniker Id="a942cd9f-88db-4114-91cf-7621b57ac7bd" />
         <classShapeMoniker Id="ced1ef0a-4f93-450d-bd54-531c0160c046" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 7.75); (4.5 : 6.8124995); (3.39583333333333 : 6.8124995 : JumpStart); (3.22916666666667 : 6.8124995 : JumpEnd); (2.75 : 6.8124995)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.5 : 7.75); (4.5 : 6.8124995); (2.75 : 6.8124995)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Store/Store_Invoice" />
       <nodes>
         <classShapeMoniker Id="a942cd9f-88db-4114-91cf-7621b57ac7bd" />
         <classShapeMoniker Id="ff43a891-df27-4667-987e-125a439af497" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 10.157900390625); (8.36979166666667 : 10.157900390625 : JumpStart); (8.53645833333333 : 10.157900390625 : JumpEnd); (11.3229166666667 : 10.157900390625 : JumpStart); (11.4895833333333 : 10.157900390625 : JumpEnd); (13.7812525 : 10.157900390625); (13.7812525 : 13.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 10.157900390625); (13.7812525 : 10.157900390625); (13.7812525 : 13.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Store/Store_PriceProposal" />
       <nodes>
         <classShapeMoniker Id="a942cd9f-88db-4114-91cf-7621b57ac7bd" />
@@ -428,14 +428,14 @@
         <classShapeMoniker Id="3c2205b5-6dd3-4b74-8e17-7d4033a59121" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 8.42829956054687); (5.79166666666667 : 8.42829956054687 : JumpStart); (5.95833333333333 : 8.42829956054687 : JumpEnd); (6.25 : 8.42829956054687)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 8.42829956054687); (6.25 : 8.42829956054687)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Store/Store_StockDetail" />
       <nodes>
         <classShapeMoniker Id="a942cd9f-88db-4114-91cf-7621b57ac7bd" />
         <classShapeMoniker Id="04c7798d-73d3-4335-959a-6ab9e9fed085" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.53230669230769 : 10.2901025390625); (3.15625 : 10.6661592313702); (3.15625 : 21.53125); (3.34732443490112 : 21.7223244349011 : JumpStart); (3.46517556509888 : 21.8401755650989 : JumpEnd); (3.5 : 21.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(3.53230669230769 : 10.2901025390625); (3.15625 : 10.6661592313702); (3.15625 : 21.53125); (3.5 : 21.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Store/Store_StockExport" />
       <nodes>
         <classShapeMoniker Id="a942cd9f-88db-4114-91cf-7621b57ac7bd" />
@@ -456,14 +456,14 @@
         <classShapeMoniker Id="a6e01751-9147-4209-a0c8-2e8b0f5e35a3" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 17.75); (5.87857443490112 : 17.3714255650989 : JumpStart); (5.99642556509888 : 17.2535744349011 : JumpEnd); (6.0625 : 17.1875); (6.0625 : 15.4844246074219); (6.25 : 15.4844246074219)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 17.75); (5.84732443490112 : 17.4026755650989 : JumpStart); (6.02767556509888 : 17.2223244349011 : JumpEnd); (6.0625 : 17.1875); (6.0625 : 15.4844246074219); (6.25 : 15.4844246074219)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Supplier/Supplier_SupplierProduct" />
       <nodes>
         <classShapeMoniker Id="864aaf6e-712a-4717-a9e4-f089260e3bb8" />
         <classShapeMoniker Id="d0829c08-dd43-4cd1-9c54-1014c54cf5fc" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.5 : 19.3854484049479); (8.3359375 : 19.3854484049479); (8.3359375 : 23)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.5 : 19.3854484049479); (6.04166666666667 : 19.3854484049479 : JumpStart); (6.20833333333333 : 19.3854484049479 : JumpEnd); (8.3359375 : 19.3854484049479); (8.3359375 : 23)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/MinistopDataContextDataContext/Supplier/Supplier_StockImport" />
       <nodes>
         <classShapeMoniker Id="864aaf6e-712a-4717-a9e4-f089260e3bb8" />

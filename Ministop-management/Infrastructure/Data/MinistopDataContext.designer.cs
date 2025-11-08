@@ -120,7 +120,7 @@ namespace Infrastructure.Data
     #endregion
 		
 		public MinistopDataContextDataContext() : 
-				base(global::Infrastructure.Properties.Settings.Default.MinistopManagementConnectionString3, mappingSource)
+				base(global::Infrastructure.Properties.Settings.Default.MinistopManagementConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}

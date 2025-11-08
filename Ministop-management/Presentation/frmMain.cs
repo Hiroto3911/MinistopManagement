@@ -315,16 +315,6 @@ namespace Presentation
             report.Show();
         }
 
-        private void phieuNhapToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var report = _container.Resolve<frmHienThi_PhieuNhap>();
-            report.Show();
-        }
-
-        private void phieuXuatToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var report = _container.Resolve<frmHienThi_PhieuXuat>();
-            report.Show();
-        }
+     
     }
 }

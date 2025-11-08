@@ -340,14 +340,14 @@
             this.phieuNhapToolStripMenuItem.Name = "phieuNhapToolStripMenuItem";
             this.phieuNhapToolStripMenuItem.Size = new System.Drawing.Size(396, 34);
             this.phieuNhapToolStripMenuItem.Text = "PhieuNhap";
-            this.phieuNhapToolStripMenuItem.Click += new System.EventHandler(this.phieuNhapToolStripMenuItem_Click);
+         
             // 
             // phieuXuatToolStripMenuItem
             // 
             this.phieuXuatToolStripMenuItem.Name = "phieuXuatToolStripMenuItem";
             this.phieuXuatToolStripMenuItem.Size = new System.Drawing.Size(396, 34);
             this.phieuXuatToolStripMenuItem.Text = "PhieuXuat";
-            this.phieuXuatToolStripMenuItem.Click += new System.EventHandler(this.phieuXuatToolStripMenuItem_Click);
+      
             // 
             // frmMain
             // 

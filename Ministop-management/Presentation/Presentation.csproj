@@ -802,9 +802,9 @@
     <Folder Include="CrystalReport\Report\ProductReports\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
+    <ProjectReference Include="..\Domain\Model.csproj">
       <Project>{204b809a-d027-406f-8529-2193211726ee}</Project>
-      <Name>Domain</Name>
+      <Name>Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{adf5bd48-5e3b-4665-b06d-b9de1b63082a}</Project>

@@ -1,5 +1,6 @@
 ﻿using CrystalDecisions.ReportAppServer;
 using Guna.UI2.WinForms;
+using Presentation.CrystalReport.FormShow;
 using Presentation.Stocks.Dialogs;
 using Services.Interfaces;
 using Services.Services;
@@ -743,8 +744,19 @@ namespace Presentation
 
 
 
+
         #endregion
 
-      
+        private void btnInPhieuNhap_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_PhieuNhap>();
+            report.Show();
+        }
+
+        private void btnInPhieuXuat_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_PhieuXuat>();
+            report.Show();
+        }
     }
 }

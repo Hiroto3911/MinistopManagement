@@ -26,6 +26,7 @@ namespace Presentation.Stocks.Dialogs
         private string _exportID;
         private string _status;
         private long _totalPage;
+        private decimal _totalAmount ; 
 
         public frmHienThi_ChiTietXuatHang(IStockExportDetailService stockExportDetailService, IUserSession userSession, IUnityContainer container, string ExportID = null, string Status = null)
         {
@@ -54,6 +55,7 @@ namespace Presentation.Stocks.Dialogs
         }
         private void LoadData(string exportID, int pageNumber = 1, int pageSize = 20)
         {
+            _totalAmount = 0; 
             DataTable dt = new DataTable();
             dt.Columns.Add("MaPhieuChiTiet");
             dt.Columns.Add("SanPham");
@@ -69,6 +71,7 @@ namespace Presentation.Stocks.Dialogs
                 foreach (var item in list.Data)
                 {
                     dt.Rows.Add(item.Id, item.ProductName, item.Quantity, item.UnitPrice, item.Total);
+                    _totalAmount +=  item.Total;
                 }
             }
             dgvDuLieu.DataSource = dt;
@@ -76,6 +79,7 @@ namespace Presentation.Stocks.Dialogs
             dgvDuLieu.ReadOnly = true;
             dgvDuLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ApplyGridStyle(dgvDuLieu);
+            lblTongTienXuat.Text =$"Tổng tiền xuất: {_totalAmount} VND" ;
             btnTrangTruoc.Enabled = pageNumber > 1;
             btnTrangSau.Enabled = pageNumber <= _totalPage;
 

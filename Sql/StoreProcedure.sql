@@ -186,62 +186,8 @@ BEGIN
         MONTH(I.InvoiceDate);
 END
 GO
-CREATE PROC GetStockByPeriod
-    @StoreId NVARCHAR(50),
-    @ProductId NVARCHAR(50),
-    @Month INT,
-    @Year INT
-AS
-BEGIN
-    DECLARE @StartDate DATE = DATEFROMPARTS(@Year, @Month, 1);
-    DECLARE @EndDate DATE = EOMONTH(@StartDate);
 
-    -- T?n ??u k?
-    DECLARE @OpeningStock INT =
-    (
-        SELECT 
-            ISNULL(SUM(PID.Quantity), 0) 
-            - ISNULL((SELECT SUM(ID.Quantity)
-                      FROM InvoiceDetail ID
-                      JOIN Invoice I ON ID.InvoiceID = I.InvoiceID
-                      WHERE I.StoreID = @StoreId
-                        AND ID.ProductID = @ProductId
-                        AND I.InvoiceDate < @StartDate), 0)
-        FROM PurchaseInvoiceDetail PID
-        JOIN PurchaseInvoice PI ON PID.InvoiceID = PI.InvoiceID
-        WHERE PI.StoreID = @StoreId
-          AND PID.ProductID = @ProductId
-          AND PI.ReceiptDate < @StartDate
-    );
 
-    -- Nh?p trong k?
-    DECLARE @TotalImport INT =
-    (
-        SELECT ISNULL(SUM(PID.Quantity), 0)
-        FROM PurchaseInvoiceDetail PID
-        JOIN PurchaseInvoice PI ON PID.InvoiceID = PI.InvoiceID
-        WHERE PI.StoreID = @StoreId
-          AND PID.ProductID = @ProductId
-          AND PI.ReceiptDate BETWEEN @StartDate AND @EndDate
-    );
-
-    -- Xu?t trong k?
-    DECLARE @TotalExport INT =
-    (
-        SELECT ISNULL(SUM(ID.Quantity), 0)
-        FROM InvoiceDetail ID
-        JOIN Invoice I ON ID.InvoiceID = I.InvoiceID
-        WHERE I.StoreID = @StoreId
-          AND ID.ProductID = @ProductId
-          AND I.InvoiceDate BETWEEN @StartDate AND @EndDate
-    );  
-
-    SELECT
-        @OpeningStock AS OpeningStock,
-        @TotalImport AS ImportInPeriod,
-        @TotalExport AS ExportInPeriod,
-        @OpeningStock + @TotalImport - @TotalExport AS ClosingStock
-END;
 CREATE PROC SP_StoreRevenueByTimeResult
     @StoreID NVARCHAR(200) = NULL,
     @FromDate DATE = NULL,
@@ -314,3 +260,4 @@ BEGIN
 END
 GO
 -- DROP PROCEDURE sp_GetSalaryContractReport @EmployeeID = 'EMP20251026200001c2c'
+
