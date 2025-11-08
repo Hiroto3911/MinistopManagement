@@ -557,4 +557,17 @@
       <Column Name="EstimatedTotalIncome" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SP_StoreFinancialReportByMonth" Method="SP_StoreFinancialReportByMonth">
+    <Parameter Name="StoreID" Parameter="storeID" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="SP_StoreFinancialReportByMonthResult">
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Month" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Revenue" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="FixedExpense" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="SalaryExpense" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Financial" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

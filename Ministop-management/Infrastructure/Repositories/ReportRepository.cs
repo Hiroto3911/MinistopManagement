@@ -137,6 +137,10 @@ namespace Infrastructure.Repositories
         {
             return _context.SP_InvoiceReport(invoiceID).ToList();
         }
+        public List<SP_StoreFinancialReportByMonthResult> GetStoreFinancialReportByMonth(string storeID)
+        {
+            return _context.SP_StoreFinancialReportByMonth(storeID).ToList();
+        }
     }
 
 }

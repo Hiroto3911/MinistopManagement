@@ -3,6 +3,7 @@ using Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,6 +19,8 @@ namespace Services.Interfaces
         List<ExportReportDto> GetStockExportReport(string exportID);
         List<sp_GetSalaryContractReportResult> GetSalaryContract(string employeeId);
         List<InvoiceReportDto> GetInvoiceProductReport(string invoiceID);
+        List<StoreFinancialDto> GetStoreFinancialReportByMonth(string storeID);
+      
 
 
     }

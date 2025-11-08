@@ -107,27 +107,44 @@ namespace Presentation
             }
 
             string storeID = cboCuaHangDT.SelectedValue.ToString();
-            DateTime fromDate = dtpTuDT.Value.Date;
-            DateTime toDate = dtpDenDT.Value.Date;
-
-            if (fromDate > toDate)
+            if (rbDoanhThu.Checked)
             {
-                MessageBox.Show("Từ ngày phải nhỏ hơn Đến ngày!", "Lỗi");
-                return;
+                DateTime fromDate = dtpTuDT.Value.Date;
+                DateTime toDate = dtpDenDT.Value.Date;
+
+                if (fromDate > toDate)
+                {
+                    MessageBox.Show("Từ ngày phải nhỏ hơn Đến ngày!", "Lỗi");
+                    return;
+                }
+
+                // ✅ Gọi service lấy dữ liệu doanh thu
+                var result = _reportService.GetRevenueByTimeResults(storeID, fromDate, toDate);
+
+                if (result == null || result.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu trong khoảng thời gian này!", "Thông báo");
+                    chartBieuDo.Series.Clear();
+                    return;
+                }
+
+                LoadDuLieuLenChart(result);
+                LoadDuLieuDaLocTheoTgianMongMuon(storeID, fromDate, toDate);
             }
-
-            // ✅ Gọi service lấy dữ liệu doanh thu
-            var result = _reportService.GetRevenueByTimeResults(storeID, fromDate, toDate);
-
-            if (result == null || result.Count == 0)
+            else
             {
-                MessageBox.Show("Không có dữ liệu trong khoảng thời gian này!", "Thông báo");
-                chartBieuDo.Series.Clear();
-                return;
-            }
+                var result = _reportService.GetStoreFinancialReportByMonth(storeID);
 
-            LoadDuLieuLenChart(result);
-            LoadDuLieuDaLocTheoTgianMongMuon(storeID, fromDate, toDate);
+                if (result == null || result.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu !", "Thông báo");
+                    chartBieuDo.Series.Clear();
+                    return;
+                }
+
+                LoadDuLieuTaiChinhLenChart(result);
+                LoadDuLieuTaiChinh(result);
+            }
         }
 
         private void LoadDuLieuDaLocTheoTgianMongMuon(string maCH, DateTime tuNgay, DateTime denNgay)
@@ -136,7 +153,12 @@ namespace Presentation
             dgvDuLieuDT.DataSource = data;
             dgvDuLieuDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
-
+        private void LoadDuLieuTaiChinh(List<StoreFinancialDto> ds)
+        {
+     
+            dgvDuLieuDT.DataSource = ds;
+            dgvDuLieuDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
         private void LoadDuLieuLenChart(List<StoreRevenueByMonthResultDto> ds)
         {
             chartBieuDo.Series.Clear();
@@ -157,7 +179,25 @@ namespace Presentation
             chartBieuDo.ChartAreas[0].AxisY.Title = "Doanh thu (VNĐ)";
         }
 
- 
+        private void LoadDuLieuTaiChinhLenChart(List<StoreFinancialDto> ds)
+        {
+            chartBieuDo.Series.Clear();
+            Series series = new Series("TaiChinh")
+            {
+                ChartType = SeriesChartType.Column,
+                IsValueShownAsLabel = true
+            };
+
+            foreach (var i in ds)
+            {
+                string label = $"{i.Month}/{i.Year}";
+                series.Points.AddXY(label, i.Financial);
+            }
+
+            chartBieuDo.Series.Add(series);
+            chartBieuDo.ChartAreas[0].AxisX.Title = "Tháng/Năm";
+            chartBieuDo.ChartAreas[0].AxisY.Title = "Tai Chinh (VNĐ)";
+        }
         private void ibtnLamMoiDT_Click(object sender, EventArgs e)
         {
             chartBieuDo.Series.Clear();
@@ -205,6 +245,17 @@ namespace Presentation
 
         }
 
-        
+        private void rbDoanhThu_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpDenDT.Enabled = true;
+            dtpTuDT.Enabled = true;
+
+        }
+
+        private void guna2RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpDenDT.Enabled = false;
+            dtpTuDT.Enabled = false;
+        }
     }
 }
