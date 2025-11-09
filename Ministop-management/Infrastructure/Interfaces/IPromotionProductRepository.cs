@@ -11,6 +11,7 @@ namespace Infrastructure.Interfaces
 {
     public interface IPromotionProductRepository : IGenericRepository<Promotion_Product>
     {
+        Promotion_Product GetActivePromotionForProduct(string productId, int qty);
         IReadOnlyList<PromotionProductDto> GetPagedResponse(Expression<Func<Promotion_Product, bool>> predicate, int pageNumber, int pageSize);
     }
 }

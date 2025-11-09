@@ -3,6 +3,7 @@ using Domain.DTO;
 using Infrastructure.Data;
 using Infrastructure.Interfaces;
 using Services.Interfaces;
+using Shared.ErrorCode;
 using Shared.Security;
 using Shared.Wrappers;
 using System;
@@ -35,6 +36,22 @@ namespace Services.Services
             var list = _ministopUnitOfWork.StockDetailRepository.GetPagedResponse((x => x.StoreID == storeId), pageNumber, pageSize);
             return new PagedResult<IReadOnlyList<StockDetailDto>>(list, pageNumber, pageSize, totalCount);
 
+        }
+        //n
+        public Result<StockDetailDto> GetStockDetailByProductID(string id)
+        {
+            try
+            {
+                var search = _ministopUnitOfWork.StockDetailRepository.Find(x => x.ProductID == id);
+                if (search == null) return new Result<StockDetailDto>(ErrorCodeEnum.SDD_ERR_001);
+                var stockDetailDto = _mapper.Map<StockDetailDto>(search);
+                return new Result<StockDetailDto>(stockDetailDto);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

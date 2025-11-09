@@ -314,5 +314,7 @@ namespace Presentation
             var report = _container.Resolve<frmHienThi_DanhSachNhanVienTheoCuaHang>();
             report.Show();
         }
+
+     
     }
 }
