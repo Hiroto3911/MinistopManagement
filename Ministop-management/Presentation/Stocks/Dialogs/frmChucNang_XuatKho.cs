@@ -131,13 +131,13 @@ namespace Presentation
             {
                 var entity = _stockExportService.GetStockExportByID(_exportID);
                 if (!entity.Succeeded && entity.Data == null) return;
-                cboTrangThai.Enabled = false;
                 txtPhieuXuat.Text = entity.Data.ExportId;
                 txtMaCH.Text = entity.Data.StoreId;
                 txtMaNV.Text = entity.Data.EmployeeId;
                 cboLoaiXuat.SelectedItem = entity.Data.TypeExport;
                 dtpNgayXuat.Value = entity.Data.ExportDate;
                 rtxtLyDo.Text = entity.Data.Reason;
+                cboLoaiXuat.Enabled = false;
 
             }
             else
