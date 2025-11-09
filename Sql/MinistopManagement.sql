@@ -325,10 +325,12 @@ CREATE TABLE ReturnProduct (
     ReturnID NVARCHAR(200) PRIMARY KEY,
     InvoiceID NVARCHAR(200) NOT NULL,
     EmployeeID NVARCHAR(200) NOT NULL,
+    StoreID NVARCHAR(200) NOT NULL,
     ReturnDate DATETIME NOT NULL,
      Status TINYINT NOT NULL DEFAULT 0,
     FOREIGN KEY (InvoiceID) REFERENCES Invoice(InvoiceID),
-    FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
+    FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID),
+    FOREIGN KEY (StoreID) REFERENCES Store(StoreID)
 ); 
 GO
 

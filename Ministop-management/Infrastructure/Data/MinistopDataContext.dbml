@@ -192,11 +192,13 @@
       <Column Name="ReturnID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="InvoiceID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="ReturnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Association Name="ReturnProduct_ReturnDetail" Member="ReturnDetails" ThisKey="ReturnID" OtherKey="ReturnID" Type="ReturnDetail" />
       <Association Name="Employee_ReturnProduct" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
       <Association Name="Invoice_ReturnProduct" Member="Invoice" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="Invoice" IsForeignKey="true" />
+      <Association Name="Store_ReturnProduct" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Salary" Member="Salaries">
@@ -376,6 +378,7 @@
       <Association Name="Store_Employee" Member="Employees" ThisKey="StoreID" OtherKey="StoreID" Type="Employee" />
       <Association Name="Store_Invoice" Member="Invoices" ThisKey="StoreID" OtherKey="StoreID" Type="Invoice" />
       <Association Name="Store_PriceProposal" Member="PriceProposals" ThisKey="StoreID" OtherKey="StoreID" Type="PriceProposal" />
+      <Association Name="Store_ReturnProduct" Member="ReturnProducts" ThisKey="StoreID" OtherKey="StoreID" Type="ReturnProduct" />
       <Association Name="Store_StockCheck" Member="StockChecks" ThisKey="StoreID" OtherKey="StoreID" Type="StockCheck" />
       <Association Name="Store_StockDetail" Member="StockDetails" ThisKey="StoreID" OtherKey="StoreID" Type="StockDetail" />
       <Association Name="Store_StockExport" Member="StockExports" ThisKey="StoreID" OtherKey="StoreID" Type="StockExport" />

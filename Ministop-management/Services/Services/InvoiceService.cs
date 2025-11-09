@@ -49,7 +49,7 @@ namespace Services.Services
                 var InvoiceEntity = _ministopUnitOfWork.InvoiceRepository.Find(x => x.InvoiceID == id);
                 if (InvoiceEntity == null)
                 {
-                    return new Result<InvoiceDto>(ErrorCodeEnum.STR_ERR_001);//chua sua error
+                    return new Result<InvoiceDto>(ErrorCodeEnum.IVC_ERR_001);//chua sua error
                 }
                 var result = _mapper.Map<InvoiceDto>(InvoiceEntity);
                 return new Result<InvoiceDto>(result);
@@ -76,7 +76,7 @@ namespace Services.Services
                 var succeeded = _ministopUnitOfWork.InvoiceRepository.Add(InvoiceEntity);
                 if (succeeded == null)
                 {
-                    return new Result<string>(ErrorCodeEnum.SFT_ERR_003);
+                    return new Result<string>(ErrorCodeEnum.IVC_ERR_003);
                 }
                 return new Result<string>(InvoiceId);
             }
@@ -163,7 +163,7 @@ namespace Services.Services
                 var InvoiceEntity = _ministopUnitOfWork.InvoiceRepository.Find(x => x.InvoiceID == InvoiceId);
                 if (InvoiceEntity == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_001);
+                    return new Result<bool>(ErrorCodeEnum.IVC_ERR_001);
                 }
                 _ministopUnitOfWork.InvoiceRepository.Delete(InvoiceEntity, true);
                 _ministopUnitOfWork.Commit();

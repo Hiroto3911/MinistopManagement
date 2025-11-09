@@ -4649,6 +4649,8 @@ namespace Infrastructure.Data
 		
 		private string _EmployeeID;
 		
+		private string _StoreID;
+		
 		private System.DateTime _ReturnDate;
 		
 		private byte _Status;
@@ -4658,6 +4660,8 @@ namespace Infrastructure.Data
 		private EntityRef<Employee> _Employee;
 		
 		private EntityRef<Invoice> _Invoice;
+		
+		private EntityRef<Store> _Store;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -4669,6 +4673,8 @@ namespace Infrastructure.Data
     partial void OnInvoiceIDChanged();
     partial void OnEmployeeIDChanging(string value);
     partial void OnEmployeeIDChanged();
+    partial void OnStoreIDChanging(string value);
+    partial void OnStoreIDChanged();
     partial void OnReturnDateChanging(System.DateTime value);
     partial void OnReturnDateChanged();
     partial void OnStatusChanging(byte value);
@@ -4680,6 +4686,7 @@ namespace Infrastructure.Data
 			this._ReturnDetails = new EntitySet<ReturnDetail>(new Action<ReturnDetail>(this.attach_ReturnDetails), new Action<ReturnDetail>(this.detach_ReturnDetails));
 			this._Employee = default(EntityRef<Employee>);
 			this._Invoice = default(EntityRef<Invoice>);
+			this._Store = default(EntityRef<Store>);
 			OnCreated();
 		}
 		
@@ -4747,6 +4754,30 @@ namespace Infrastructure.Data
 					this._EmployeeID = value;
 					this.SendPropertyChanged("EmployeeID");
 					this.OnEmployeeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string StoreID
+		{
+			get
+			{
+				return this._StoreID;
+			}
+			set
+			{
+				if ((this._StoreID != value))
+				{
+					if (this._Store.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnStoreIDChanging(value);
+					this.SendPropertyChanging();
+					this._StoreID = value;
+					this.SendPropertyChanged("StoreID");
+					this.OnStoreIDChanged();
 				}
 			}
 		}
@@ -4868,6 +4899,40 @@ namespace Infrastructure.Data
 						this._InvoiceID = default(string);
 					}
 					this.SendPropertyChanged("Invoice");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Store_ReturnProduct", Storage="_Store", ThisKey="StoreID", OtherKey="StoreID", IsForeignKey=true)]
+		public Store Store
+		{
+			get
+			{
+				return this._Store.Entity;
+			}
+			set
+			{
+				Store previousValue = this._Store.Entity;
+				if (((previousValue != value) 
+							|| (this._Store.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Store.Entity = null;
+						previousValue.ReturnProducts.Remove(this);
+					}
+					this._Store.Entity = value;
+					if ((value != null))
+					{
+						value.ReturnProducts.Add(this);
+						this._StoreID = value.StoreID;
+					}
+					else
+					{
+						this._StoreID = default(string);
+					}
+					this.SendPropertyChanged("Store");
 				}
 			}
 		}
@@ -8499,6 +8564,8 @@ namespace Infrastructure.Data
 		
 		private EntitySet<PriceProposal> _PriceProposals;
 		
+		private EntitySet<ReturnProduct> _ReturnProducts;
+		
 		private EntitySet<StockCheck> _StockChecks;
 		
 		private EntitySet<StockDetail> _StockDetails;
@@ -8538,6 +8605,7 @@ namespace Infrastructure.Data
 			this._Employees = new EntitySet<Employee>(new Action<Employee>(this.attach_Employees), new Action<Employee>(this.detach_Employees));
 			this._Invoices = new EntitySet<Invoice>(new Action<Invoice>(this.attach_Invoices), new Action<Invoice>(this.detach_Invoices));
 			this._PriceProposals = new EntitySet<PriceProposal>(new Action<PriceProposal>(this.attach_PriceProposals), new Action<PriceProposal>(this.detach_PriceProposals));
+			this._ReturnProducts = new EntitySet<ReturnProduct>(new Action<ReturnProduct>(this.attach_ReturnProducts), new Action<ReturnProduct>(this.detach_ReturnProducts));
 			this._StockChecks = new EntitySet<StockCheck>(new Action<StockCheck>(this.attach_StockChecks), new Action<StockCheck>(this.detach_StockChecks));
 			this._StockDetails = new EntitySet<StockDetail>(new Action<StockDetail>(this.attach_StockDetails), new Action<StockDetail>(this.detach_StockDetails));
 			this._StockExports = new EntitySet<StockExport>(new Action<StockExport>(this.attach_StockExports), new Action<StockExport>(this.detach_StockExports));
@@ -8765,6 +8833,19 @@ namespace Infrastructure.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Store_ReturnProduct", Storage="_ReturnProducts", ThisKey="StoreID", OtherKey="StoreID")]
+		public EntitySet<ReturnProduct> ReturnProducts
+		{
+			get
+			{
+				return this._ReturnProducts;
+			}
+			set
+			{
+				this._ReturnProducts.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Store_StockCheck", Storage="_StockChecks", ThisKey="StoreID", OtherKey="StoreID")]
 		public EntitySet<StockCheck> StockChecks
 		{
@@ -8881,6 +8962,18 @@ namespace Infrastructure.Data
 		}
 		
 		private void detach_PriceProposals(PriceProposal entity)
+		{
+			this.SendPropertyChanging();
+			entity.Store = null;
+		}
+		
+		private void attach_ReturnProducts(ReturnProduct entity)
+		{
+			this.SendPropertyChanging();
+			entity.Store = this;
+		}
+		
+		private void detach_ReturnProducts(ReturnProduct entity)
 		{
 			this.SendPropertyChanging();
 			entity.Store = null;

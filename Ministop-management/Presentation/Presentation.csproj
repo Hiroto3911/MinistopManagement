@@ -159,6 +159,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Rpt_InHoaDon.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReport\Report\StockReports\Rpt_InPhieuNhap.cs">
       <AutoGen>True</AutoGen>
@@ -527,10 +528,11 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_HopDonLuongCuaMotNhanVien.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport\Report\SaleReports\Rpt_InHoaDon.rpt">
+    <Content Include="CrystalReport\Report\SaleReports\Rpt_InHoaDon.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_InHoaDon.cs</LastGenOutput>
-    </EmbeddedResource>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="CrystalReport\Report\StockReports\Rpt_InPhieuNhap.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_InPhieuNhap.cs</LastGenOutput>

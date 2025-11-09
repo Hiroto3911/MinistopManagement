@@ -27,49 +27,39 @@ namespace Services.Services
 
         public Result<IReadOnlyList<ReturnDetailDto>> GetAll()
         {
-            try
-            {
-                var list = _ministopUnitOfWork.ReturnDetailRepository.GetAll();
-                var dto = _mapper.Map<IReadOnlyList<ReturnDetailDto>>(list);
-                return new Result<IReadOnlyList<ReturnDetailDto>>(dto);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+            // Lấy danh sách từ DBML (entity của LINQ to SQL)
+            var dbList = _ministopUnitOfWork.ReturnDetailRepository.GetAll();
 
+            // Map sang Domain.Entity.Shift
+            var list = _mapper.Map<IReadOnlyList<ReturnDetailDto>>(dbList);
+
+            // Trả về Result
+            return new Result<IReadOnlyList<ReturnDetailDto>>(list);
+        }
+        public Result<bool> Any(string returnID)
+        {
+         
+                bool isChecked = _ministopUnitOfWork.ReturnDetailRepository.Any((x => x.ReturnID == returnID));
+                return new Result<bool>(isChecked);
+           
+        }
         public Result<ReturnDetailDto> GetReturnDetailByID(string id)
         {
-            try
+            var returnEntity = _ministopUnitOfWork.ReturnDetailRepository.Find(x => x.Id == id);
+            if (returnEntity == null)
             {
-                var entity = _ministopUnitOfWork.ReturnDetailRepository.Find(x => x.Id == id);
-                if (entity == null)
-                    return new Result<ReturnDetailDto>(ErrorCodeEnum.SFT_ERR_003);
-
-                var dto = _mapper.Map<ReturnDetailDto>(entity);
-                return new Result<ReturnDetailDto>(dto);
+                return new Result<ReturnDetailDto>(ErrorCodeEnum.RTD_ERR_001);//chua sua error
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            var result = _mapper.Map<ReturnDetailDto>(returnEntity);
+            return new Result<ReturnDetailDto>(result);
         }
 
-        public PagedResult<IReadOnlyList<ReturnDetailDto>> GetReturnDetail(int pageNumber, int pageSize)
+        public PagedResult<IReadOnlyList<ReturnDetailDto>> GetReturnDetail(string returnID,int pageNumber, int pageSize)
         {
-            try
-            {
-                var query = _ministopUnitOfWork.ReturnDetailRepository.GetAll().AsQueryable();
-                var totalCount = query.Count();
-                var paged = query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-                var dto = _mapper.Map<IReadOnlyList<ReturnDetailDto>>(paged);
-                return new PagedResult<IReadOnlyList<ReturnDetailDto>>(dto, pageNumber, pageSize, totalCount);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            var totalCount = _ministopUnitOfWork.ReturnDetailRepository.GetCount(x => x.ReturnID == returnID);
+            var InvoiceDetailEntity = _ministopUnitOfWork.ReturnDetailRepository.GetPagedResponse((x => x.ReturnID == returnID), pageNumber, pageSize);
+            var InvoiceDetailsDto = _mapper.Map<IReadOnlyList<ReturnDetailDto>>(InvoiceDetailEntity);
+            return new PagedResult<IReadOnlyList<ReturnDetailDto>>(InvoiceDetailsDto, pageNumber, pageSize, totalCount);
         }
 
         public Result<bool> CreateReturnDetail(ReturnDetailDto returnDetailDto)
@@ -77,10 +67,7 @@ namespace Services.Services
             _ministopUnitOfWork.BeginTransaction();
             try
             {
-                if (returnDetailDto == null)
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
-
-                // Tạo ID nếu chưa có
+                
                 if (string.IsNullOrEmpty(returnDetailDto.Id))
                     returnDetailDto.Id = IdGenerator.CreateID("RTD");
 
@@ -88,14 +75,14 @@ namespace Services.Services
                 if (entity == null)
                 {
                     _ministopUnitOfWork.Rollback();
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
+                    return new Result<bool>(ErrorCodeEnum.RTD_ERR_003);
                 }
 
                 var added = _ministopUnitOfWork.ReturnDetailRepository.Add(entity);
                 if (added == null)
                 {
                     _ministopUnitOfWork.Rollback();
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
+                    return new Result<bool>(ErrorCodeEnum.RTD_ERR_003);
                 }
 
                 _ministopUnitOfWork.Commit();
@@ -117,10 +104,10 @@ namespace Services.Services
                 if (existing == null)
                 {
                     _ministopUnitOfWork.Rollback();
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
+                    return new Result<bool>(ErrorCodeEnum.RTD_ERR_003);
                 }
 
-                var updatedEntity = _mapper.Map(returnDetailsEdit, existing);
+                var updatedEntity = _mapper.Map<ReturnDetail>(returnDetailsEdit);
 
                 _ministopUnitOfWork.ReturnDetailRepository.Update(updatedEntity, true);
                 _ministopUnitOfWork.Commit();
@@ -142,12 +129,33 @@ namespace Services.Services
                 if (entity == null)
                 {
                     _ministopUnitOfWork.Rollback();
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
+                    return new Result<bool>(ErrorCodeEnum.RTD_ERR_003);
                 }
 
                 _ministopUnitOfWork.ReturnDetailRepository.Delete(entity, true);
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);
+            }
+            catch (Exception ex)
+            {
+                _ministopUnitOfWork.Rollback();
+                throw ex;
+            }
+        }
+        public Result<bool> RemoveRangeReturnDetailByReturnID(string returnID)
+        {
+            _ministopUnitOfWork.BeginTransaction();
+            try
+            {
+                var returnDetailEntity = _ministopUnitOfWork.ReturnDetailRepository.GetAll((x => x.ReturnID == returnID));
+                if (returnDetailEntity == null)
+                {
+                    return new Result<bool>(ErrorCodeEnum.RTD_ERR_001);
+                }
+                _ministopUnitOfWork.ReturnDetailRepository.DeleteRange(returnDetailEntity.ToList(), true);
+                _ministopUnitOfWork.Commit();
+                return new Result<bool>(true);
+
             }
             catch (Exception ex)
             {

@@ -45,7 +45,7 @@ namespace Presentation.Stocks.Dialogs
         private void frmHienThiChiTietKiemHang_Load(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(_checkID)) return;
-            if (_status == "1" || _userSession.Role == "Admin"|| _userSession.Role == "Quản lý cửa hàng")
+            if (_status == "Duyệt" || _userSession.Role == "Admin"|| _userSession.Role == "Quản lý cửa hàng")
             {
                 btnThem.Enabled = false;
             }
@@ -82,7 +82,7 @@ namespace Presentation.Stocks.Dialogs
         }
         private void ApplyGridStyle(Guna2DataGridView dgvDuLieu)
         {
-            if (_userSession.Role == "Admin" || _status == "1") return;
+            if (_userSession.Role == "Admin" || _status == "Duyệt") return;
             // ===== 2️⃣ Thêm hai cột nút =====
             if (dgvDuLieu.Columns["Edit"] == null)
             {
@@ -116,7 +116,7 @@ namespace Presentation.Stocks.Dialogs
             dgvDuLieu.CellPainting += (s, e) =>
             {
 
-                bool allowEditDelete = _status != "1";
+                bool allowEditDelete = _status != "Duyệt";
                 if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
                                         dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
                 {
@@ -188,7 +188,7 @@ namespace Presentation.Stocks.Dialogs
         {
             if (e.RowIndex < 0) return;
             string id = dgvDuLieu.Rows[e.RowIndex].Cells["MaPhieuChiTiet"].Value.ToString();
-            var allowAction = _status == "1";
+            var allowAction = _status == "Duyệt";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrang.Text);
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")
