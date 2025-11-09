@@ -118,7 +118,7 @@ namespace Presentation
             }
 
         }
-        private void ApplyGridStyle(Guna2DataGridView dgvDuLieu, string statusNotAllowed ="1", string roleNotAllowed = "")
+        private void ApplyGridStyle(Guna2DataGridView dgvDuLieu, string statusNotAllowed = "Duyệt", string roleNotAllowed = "")
         {
 
             // ===== 2️⃣ Thêm hai cột nút =====
@@ -159,7 +159,7 @@ namespace Presentation
                 var row = grid.Rows[e.RowIndex];
                 var status = row.Cells["TrangThai"].Value?.ToString();
 
-                if (status == "0") // bị từ chối
+                if (status == "Không duyệt") // bị từ chối
                 {
                     using (Pen p = new Pen(Color.Red, 5)) // viền trái đỏ, dày 4px
                     {
@@ -374,16 +374,39 @@ namespace Presentation
                 var list = stockDetailService.GetStockImport(storeId, pageNumber, pageSize);
                 if (list.Succeeded == false && list.Data == null) return;
                 _totalPageStockImport = (long)Math.Ceiling((double)list.TotalCount / pageSize);
+               
                 foreach (var item in list.Data)
                 {
-                    dt.Rows.Add(item.ImportID, item.SupplierId, item.SupplierName, item.EmployeeName, item.Status, item.ImportDate.ToShortDateString());
+                    string status="";
+                    switch (item.Status)
+                    {
+                        case 0:
+                            status = "Không duyệt";
+                            break;
+                        case 1:
+                            status = "Duyệt";
+                            break;
+
+                        case 3:
+                            status = "Chờ duyệt";
+                            break;
+                        case 4:
+                            status = "Đã nhập hàng";
+                            break;
+                        default:
+                            status = "Đang soạn";
+
+                        break;
+                    }
+                    
+                    dt.Rows.Add(item.ImportID, item.SupplierId, item.SupplierName, item.EmployeeName, status, item.ImportDate.ToShortDateString());
                 }
             }
             dgvDuLieuNH.DataSource = dt;
             dgvDuLieuNH.AllowUserToAddRows = false;
             dgvDuLieuNH.ReadOnly = true;
             dgvDuLieuNH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ApplyGridStyle(dgvDuLieuNH,"4");
+            ApplyGridStyle(dgvDuLieuNH, "Đã nhập hàng");
             btnTrangTruocNH.Enabled = pageNumber > 1;
             btnTrangSauNH.Enabled = pageNumber <= _totalPageStockImport;
         }
@@ -392,7 +415,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string importID = dgvDuLieuNH.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
             var status = dgvDuLieuNH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
-            var allowAction = status == "4";
+            var allowAction = status == "Đã nhập hàng";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrangNH.Text);
             if (dgvDuLieuNH.Columns[e.ColumnIndex].Name == "Edit")
@@ -489,6 +512,11 @@ namespace Presentation
         {
             LoadDataStockImport(cboCuaHangNH.SelectedValue.ToString());
         }
+        private void btnInPhieuNhap_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_PhieuNhap>();
+            report.Show();
+        }
         #endregion
 
         #region StockExport 
@@ -509,14 +537,33 @@ namespace Presentation
                 _totalPageStockExport = (long)Math.Ceiling((double)list.TotalCount / pageSize);
                 foreach (var item in list.Data)
                 {
-                    dt.Rows.Add(item.ExportId, item.EmployeeName, item.TypeExport, item.Status, item.ExportDate.ToShortDateString(), item.Reason);
+                    string status = "";
+                    switch (item.Status)
+                    {
+                        case 0:
+                            status = "Không duyệt";
+                            break;
+                        case 1:
+                            status = "Duyệt";
+                            break;
+
+                        case 3:
+                            status = "Chờ duyệt";
+                            break;
+                  
+                        default:
+                            status = "Đang soạn";
+
+                            break;
+                    }
+                    dt.Rows.Add(item.ExportId, item.EmployeeName, item.TypeExport, status, item.ExportDate.ToShortDateString(), item.Reason);
                 }
             }
             dgvDuLieuXH.DataSource = dt;
             dgvDuLieuXH.AllowUserToAddRows = false;
             dgvDuLieuXH.ReadOnly = true;
             dgvDuLieuXH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ApplyGridStyle(dgvDuLieuXH,"1","Admin");
+            ApplyGridStyle(dgvDuLieuXH, "Duyệt", "Admin");
             btnTrangTruocXH.Enabled = pageNumber > 1;
             btnTrangSauXH.Enabled = pageNumber <= _totalPageStockExport;
         }
@@ -525,7 +572,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string exportID = dgvDuLieuXH.Rows[e.RowIndex].Cells["MaPhieuXuat"].Value.ToString();
             var status = dgvDuLieuXH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
-            var allowAction = status == "1";
+            var allowAction = status == "Duyệt";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrangNH.Text);
             if (dgvDuLieuXH.Columns[e.ColumnIndex].Name == "Edit")
@@ -621,6 +668,11 @@ namespace Presentation
         {
             LoadDataStockExport(cboCuaHangXH.SelectedValue.ToString());
         }
+        private void btnInPhieuXuat_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_PhieuXuat>();
+            report.Show();
+        }
         #endregion
 
         #region StockCheck
@@ -640,14 +692,33 @@ namespace Presentation
                 _totalPageStockCheck = (long)Math.Ceiling((double)list.TotalCount / pageSize);
                 foreach (var item in list.Data)
                 {
-                    dt.Rows.Add(item.CheckId, item.EmployeeName, item.Status, item.CheckDate.ToShortDateString());
+                    string status = "";
+                    switch (item.Status)
+                    {
+                        case 0:
+                            status = "Không duyệt";
+                            break;
+                        case 1:
+                            status = "Duyệt";
+                            break;
+
+                        case 3:
+                            status = "Chờ duyệt";
+                            break;
+
+                        default:
+                            status = "Đang soạn";
+
+                            break;
+                    }
+                    dt.Rows.Add(item.CheckId, item.EmployeeName, status, item.CheckDate.ToShortDateString());
                 }
             }
             dgvDuLieuKH.DataSource = dt;
             dgvDuLieuKH.AllowUserToAddRows = false;
             dgvDuLieuKH.ReadOnly = true;
             dgvDuLieuKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ApplyGridStyle(dgvDuLieuKH,"1","Admin");
+            ApplyGridStyle(dgvDuLieuKH, "Duyệt", "Admin");
             btnTrangTruocKH.Enabled = pageNumber > 1;
             btnTrangSauKH.Enabled = pageNumber <= _totalPageStockCheck;
         }
@@ -656,7 +727,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string CheckID = dgvDuLieuKH.Rows[e.RowIndex].Cells["MaPhieuKiem"].Value.ToString();
             var status = dgvDuLieuKH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
-            var allowAction = status == "1";
+            var allowAction = status == "Duyệt";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrangNH.Text);
             if (dgvDuLieuKH.Columns[e.ColumnIndex].Name == "Edit")
@@ -755,30 +826,8 @@ namespace Presentation
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
         #endregion
 
-        private void btnInPhieuNhap_Click(object sender, EventArgs e)
-        {
-            var report = _container.Resolve<frmHienThi_PhieuNhap>();
-            report.Show();
-        }
-
-        private void btnInPhieuXuat_Click(object sender, EventArgs e)
-        {
-            var report = _container.Resolve<frmHienThi_PhieuXuat>();
-            report.Show();
-        }
 
      
     }

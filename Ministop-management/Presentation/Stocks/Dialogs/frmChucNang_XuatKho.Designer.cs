@@ -35,7 +35,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.rtxtLyDo = new System.Windows.Forms.RichTextBox();
-
             this.txtPhieuXuat = new Guna.UI2.WinForms.Guna2TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtMaCH = new Guna.UI2.WinForms.Guna2TextBox();
@@ -90,7 +89,6 @@
             this.cboTrangThai.BorderThickness = 2;
             this.cboTrangThai.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboTrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTrangThai.Enabled = false;
             this.cboTrangThai.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cboTrangThai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cboTrangThai.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -245,11 +243,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(425, 35);
             this.panel1.TabIndex = 195;
-
             // 
             // dtpNgayXuat
             // 
-
             this.dtpNgayXuat.BorderRadius = 2;
             this.dtpNgayXuat.BorderThickness = 2;
             this.dtpNgayXuat.Checked = true;
@@ -304,7 +300,6 @@
             this.cboLoaiXuat.Name = "cboLoaiXuat";
             this.cboLoaiXuat.Size = new System.Drawing.Size(219, 36);
             this.cboLoaiXuat.TabIndex = 198;
-
             // 
             // label4
             // 
@@ -314,7 +309,6 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 19);
             this.label4.TabIndex = 196;
-
             this.label4.Text = "Ngày xuất:";
             // 
             // label3

@@ -16,5 +16,6 @@ namespace Services.Interfaces
         //Result<bool> UpdateInvoice(InvoiceDto invoiceEdit);
         Result<bool> RemoveReturnProduct(string returnProductID);
         PagedResult<IReadOnlyList<ReturnProductDto>> GetReturnProduct(string invoceID, int pageNumber, int pageSize);
+        Result<bool> UpdateReturnProduct(string returnID);
     }
 }

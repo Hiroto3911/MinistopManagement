@@ -42,7 +42,7 @@ namespace Services.Services
         {
             try
             {
-                var search = _ministopUnitOfWork.StockDetailRepository.Find(x => x.ProductID == id);
+                var search = _ministopUnitOfWork.StockDetailRepository.Find(x =>x.StoreID ==_userSession.IdStore && x.ProductID == id);
                 if (search == null) return new Result<StockDetailDto>(ErrorCodeEnum.SDD_ERR_001);
                 var stockDetailDto = _mapper.Map<StockDetailDto>(search);
                 return new Result<StockDetailDto>(stockDetailDto);

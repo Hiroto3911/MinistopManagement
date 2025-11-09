@@ -54,8 +54,7 @@ namespace Services.Services
         }
         public Result<InvoiceDetailDto> GetInvoiceDetailByID(string id)
         {
-            try
-            {
+          
                 var InvoiceEntity = _ministopUnitOfWork.InvoiceDetailRepository.Find(x => x.Id == id);
                 if (InvoiceEntity == null)
                 {
@@ -63,11 +62,8 @@ namespace Services.Services
                 }
                 var result = _mapper.Map<InvoiceDetailDto>(InvoiceEntity);
                 return new Result<InvoiceDetailDto>(result);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+
+          
         }
         public PagedResult<IReadOnlyList<InvoiceDetailDto>> GetInvoiceDetail(string invoiceID, int pageNumber, int pageSize)
         {
@@ -84,7 +80,7 @@ namespace Services.Services
             try
             {
                 var isAvailable = _ministopUnitOfWork.StockDetailRepository.Find(x => x.StoreID == _userSession.IdStore && x.ProductID == invoiceDetailDto.ProductId);
-                if (isAvailable.Quantity <= 0)
+                if (isAvailable == null && isAvailable.Quantity <= 0)
                 {
                     //thong bao da het hang san pham
                     return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
@@ -137,7 +133,7 @@ namespace Services.Services
                 var existingDetail = _ministopUnitOfWork.InvoiceDetailRepository.Find(x => x.Id == invoiceDetailDto.Id);
                 if (existingDetail == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
+                    return new Result<bool>(ErrorCodeEnum.IVD_ERR_003);
                 }
 
                 // 3. Kiểm tra kho
@@ -147,7 +143,7 @@ namespace Services.Services
 
                 if (stockDetail == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.SFT_ERR_003);
+                    return new Result<bool>(ErrorCodeEnum.IVD_ERR_003);
                 }
 
                 // 8. Cập nhật InvoiceDetail
@@ -206,7 +202,7 @@ namespace Services.Services
                 var invoiceDetailEntity = _ministopUnitOfWork.InvoiceDetailRepository.GetAll((x => x.InvoiceID == invoiceID));
                 if (invoiceDetailEntity == null)
                 {
-                    return new Result<bool>(ErrorCodeEnum.SID_ERR_001);
+                    return new Result<bool>(ErrorCodeEnum.IVD_ERR_001);
                 }
                 _ministopUnitOfWork.InvoiceDetailRepository.DeleteRange(invoiceDetailEntity.ToList(), true);
                 _ministopUnitOfWork.Commit();

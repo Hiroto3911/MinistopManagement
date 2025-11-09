@@ -79,22 +79,22 @@
             this.pnlDetail = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.guna2GroupBox2 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.ibtnCanhBaoTonKho = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lblSoLanCanhBao = new System.Windows.Forms.Label();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.ibtnSoLanXuat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lblSoLanXuat = new System.Windows.Forms.Label();
             this.guna2GroupBox3 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.ibtnSoLanNhap = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lblSoLanNhap = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ibtnSetting = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label6 = new System.Windows.Forms.Label();
+            this.ibtnLoadDuLieu = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtSoTrangCT = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTrangSauCT = new Guna.UI2.WinForms.Guna2Button();
             this.btnTrangTruocCT = new Guna.UI2.WinForms.Guna2Button();
             this.tabControlKH = new Guna.UI2.WinForms.Guna2TabControl();
-            this.ibtnCanhBaoTonKho = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.ibtnSoLanXuat = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.ibtnSoLanNhap = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.ibtnSetting = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.ibtnLoadDuLieu = new Guna.UI2.WinForms.Guna2ImageButton();
             this.tabKiemHang.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieuKH)).BeginInit();
@@ -718,7 +718,7 @@
             this.dgvDuLieuNH.RowHeadersVisible = false;
             this.dgvDuLieuNH.RowHeadersWidth = 62;
             this.dgvDuLieuNH.RowTemplate.Height = 28;
-            this.dgvDuLieuNH.Size = new System.Drawing.Size(855, 272);
+            this.dgvDuLieuNH.Size = new System.Drawing.Size(417, 272);
             this.dgvDuLieuNH.TabIndex = 17;
             this.dgvDuLieuNH.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvDuLieuNH.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -943,6 +943,23 @@
             this.guna2GroupBox2.TabIndex = 19;
             this.guna2GroupBox2.Text = "Cách báo tồn kho thấp";
             // 
+            // ibtnCanhBaoTonKho
+            // 
+            this.ibtnCanhBaoTonKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ibtnCanhBaoTonKho.BackColor = System.Drawing.Color.White;
+            this.ibtnCanhBaoTonKho.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnCanhBaoTonKho.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnCanhBaoTonKho.Image = global::Presentation.Properties.Resources.danger;
+            this.ibtnCanhBaoTonKho.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnCanhBaoTonKho.ImageRotate = 0F;
+            this.ibtnCanhBaoTonKho.Location = new System.Drawing.Point(30, 28);
+            this.ibtnCanhBaoTonKho.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnCanhBaoTonKho.Name = "ibtnCanhBaoTonKho";
+            this.ibtnCanhBaoTonKho.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnCanhBaoTonKho.Size = new System.Drawing.Size(45, 73);
+            this.ibtnCanhBaoTonKho.TabIndex = 15;
+            // 
             // lblSoLanCanhBao
             // 
             this.lblSoLanCanhBao.AutoSize = true;
@@ -971,6 +988,24 @@
             this.guna2GroupBox1.Size = new System.Drawing.Size(134, 105);
             this.guna2GroupBox1.TabIndex = 18;
             this.guna2GroupBox1.Text = "Tổng số lần xuất kho trong tháng";
+            // 
+            // ibtnSoLanXuat
+            // 
+            this.ibtnSoLanXuat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ibtnSoLanXuat.BackColor = System.Drawing.Color.White;
+            this.ibtnSoLanXuat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanXuat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanXuat.Image = global::Presentation.Properties.Resources.import_export;
+            this.ibtnSoLanXuat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnSoLanXuat.ImageRotate = 0F;
+            this.ibtnSoLanXuat.Location = new System.Drawing.Point(29, 25);
+            this.ibtnSoLanXuat.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnSoLanXuat.Name = "ibtnSoLanXuat";
+            this.ibtnSoLanXuat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanXuat.Size = new System.Drawing.Size(45, 76);
+            this.ibtnSoLanXuat.TabIndex = 15;
+            this.ibtnSoLanXuat.Click += new System.EventHandler(this.ibtnSoLanXuat_Click);
             // 
             // lblSoLanXuat
             // 
@@ -1001,6 +1036,24 @@
             this.guna2GroupBox3.TabIndex = 17;
             this.guna2GroupBox3.Text = "Tổng số lần nhập kho trong tháng ";
             // 
+            // ibtnSoLanNhap
+            // 
+            this.ibtnSoLanNhap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ibtnSoLanNhap.BackColor = System.Drawing.Color.White;
+            this.ibtnSoLanNhap.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanNhap.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanNhap.Image = global::Presentation.Properties.Resources.in_stock1;
+            this.ibtnSoLanNhap.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnSoLanNhap.ImageRotate = 0F;
+            this.ibtnSoLanNhap.Location = new System.Drawing.Point(37, 30);
+            this.ibtnSoLanNhap.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnSoLanNhap.Name = "ibtnSoLanNhap";
+            this.ibtnSoLanNhap.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSoLanNhap.Size = new System.Drawing.Size(45, 75);
+            this.ibtnSoLanNhap.TabIndex = 14;
+            this.ibtnSoLanNhap.Click += new System.EventHandler(this.ibtnSoLanNhap_Click);
+            // 
             // lblSoLanNhap
             // 
             this.lblSoLanNhap.AutoSize = true;
@@ -1030,6 +1083,24 @@
             this.guna2Panel5.Size = new System.Drawing.Size(415, 34);
             this.guna2Panel5.TabIndex = 15;
             // 
+            // ibtnSetting
+            // 
+            this.ibtnSetting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.ibtnSetting.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSetting.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSetting.Image = global::Presentation.Properties.Resources.settings1;
+            this.ibtnSetting.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnSetting.ImageRotate = 0F;
+            this.ibtnSetting.ImageSize = new System.Drawing.Size(30, 30);
+            this.ibtnSetting.Location = new System.Drawing.Point(0, 0);
+            this.ibtnSetting.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnSetting.Name = "ibtnSetting";
+            this.ibtnSetting.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnSetting.Size = new System.Drawing.Size(37, 32);
+            this.ibtnSetting.TabIndex = 163;
+            this.ibtnSetting.Click += new System.EventHandler(this.ibtnSetting_Click);
+            // 
             // label6
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1043,6 +1114,24 @@
             this.label6.Size = new System.Drawing.Size(67, 19);
             this.label6.TabIndex = 162;
             this.label6.Text = "Làm mới";
+            // 
+            // ibtnLoadDuLieu
+            // 
+            this.ibtnLoadDuLieu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ibtnLoadDuLieu.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLoadDuLieu.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLoadDuLieu.Image = global::Presentation.Properties.Resources.loading_arrow;
+            this.ibtnLoadDuLieu.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnLoadDuLieu.ImageRotate = 0F;
+            this.ibtnLoadDuLieu.ImageSize = new System.Drawing.Size(30, 30);
+            this.ibtnLoadDuLieu.Location = new System.Drawing.Point(376, 2);
+            this.ibtnLoadDuLieu.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnLoadDuLieu.Name = "ibtnLoadDuLieu";
+            this.ibtnLoadDuLieu.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLoadDuLieu.Size = new System.Drawing.Size(37, 32);
+            this.ibtnLoadDuLieu.TabIndex = 161;
+            this.ibtnLoadDuLieu.Click += new System.EventHandler(this.ibtnLoadDuLieu_Click);
             // 
             // txtSoTrangCT
             // 
@@ -1143,95 +1232,6 @@
             this.tabControlKH.TabButtonSize = new System.Drawing.Size(220, 100);
             this.tabControlKH.TabIndex = 1;
             this.tabControlKH.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
-            // 
-            // ibtnCanhBaoTonKho
-            // 
-            this.ibtnCanhBaoTonKho.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.ibtnCanhBaoTonKho.BackColor = System.Drawing.Color.White;
-            this.ibtnCanhBaoTonKho.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnCanhBaoTonKho.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnCanhBaoTonKho.Image = global::Presentation.Properties.Resources.danger;
-            this.ibtnCanhBaoTonKho.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnCanhBaoTonKho.ImageRotate = 0F;
-            this.ibtnCanhBaoTonKho.Location = new System.Drawing.Point(30, 28);
-            this.ibtnCanhBaoTonKho.Margin = new System.Windows.Forms.Padding(2);
-            this.ibtnCanhBaoTonKho.Name = "ibtnCanhBaoTonKho";
-            this.ibtnCanhBaoTonKho.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnCanhBaoTonKho.Size = new System.Drawing.Size(45, 73);
-            this.ibtnCanhBaoTonKho.TabIndex = 15;
-            // 
-            // ibtnSoLanXuat
-            // 
-            this.ibtnSoLanXuat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.ibtnSoLanXuat.BackColor = System.Drawing.Color.White;
-            this.ibtnSoLanXuat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnSoLanXuat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnSoLanXuat.Image = global::Presentation.Properties.Resources.import_export;
-            this.ibtnSoLanXuat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnSoLanXuat.ImageRotate = 0F;
-            this.ibtnSoLanXuat.Location = new System.Drawing.Point(29, 25);
-            this.ibtnSoLanXuat.Margin = new System.Windows.Forms.Padding(2);
-            this.ibtnSoLanXuat.Name = "ibtnSoLanXuat";
-            this.ibtnSoLanXuat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnSoLanXuat.Size = new System.Drawing.Size(45, 76);
-            this.ibtnSoLanXuat.TabIndex = 15;
-            this.ibtnSoLanXuat.Click += new System.EventHandler(this.ibtnSoLanXuat_Click);
-            // 
-            // ibtnSoLanNhap
-            // 
-            this.ibtnSoLanNhap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.ibtnSoLanNhap.BackColor = System.Drawing.Color.White;
-            this.ibtnSoLanNhap.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnSoLanNhap.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnSoLanNhap.Image = global::Presentation.Properties.Resources.in_stock1;
-            this.ibtnSoLanNhap.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnSoLanNhap.ImageRotate = 0F;
-            this.ibtnSoLanNhap.Location = new System.Drawing.Point(37, 30);
-            this.ibtnSoLanNhap.Margin = new System.Windows.Forms.Padding(2);
-            this.ibtnSoLanNhap.Name = "ibtnSoLanNhap";
-            this.ibtnSoLanNhap.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnSoLanNhap.Size = new System.Drawing.Size(45, 75);
-            this.ibtnSoLanNhap.TabIndex = 14;
-            this.ibtnSoLanNhap.Click += new System.EventHandler(this.ibtnSoLanNhap_Click);
-            // 
-            // ibtnSetting
-            // 
-            this.ibtnSetting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.ibtnSetting.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnSetting.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnSetting.Image = global::Presentation.Properties.Resources.settings1;
-            this.ibtnSetting.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnSetting.ImageRotate = 0F;
-            this.ibtnSetting.ImageSize = new System.Drawing.Size(30, 30);
-            this.ibtnSetting.Location = new System.Drawing.Point(0, 0);
-            this.ibtnSetting.Margin = new System.Windows.Forms.Padding(2);
-            this.ibtnSetting.Name = "ibtnSetting";
-            this.ibtnSetting.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnSetting.Size = new System.Drawing.Size(37, 32);
-            this.ibtnSetting.TabIndex = 163;
-            this.ibtnSetting.Click += new System.EventHandler(this.ibtnSetting_Click);
-            // 
-            // ibtnLoadDuLieu
-            // 
-            this.ibtnLoadDuLieu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ibtnLoadDuLieu.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnLoadDuLieu.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnLoadDuLieu.Image = global::Presentation.Properties.Resources.loading_arrow;
-            this.ibtnLoadDuLieu.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnLoadDuLieu.ImageRotate = 0F;
-            this.ibtnLoadDuLieu.ImageSize = new System.Drawing.Size(30, 30);
-            this.ibtnLoadDuLieu.Location = new System.Drawing.Point(376, 2);
-            this.ibtnLoadDuLieu.Margin = new System.Windows.Forms.Padding(2);
-            this.ibtnLoadDuLieu.Name = "ibtnLoadDuLieu";
-            this.ibtnLoadDuLieu.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnLoadDuLieu.Size = new System.Drawing.Size(37, 32);
-            this.ibtnLoadDuLieu.TabIndex = 161;
-            this.ibtnLoadDuLieu.Click += new System.EventHandler(this.ibtnLoadDuLieu_Click);
             // 
             // frmHienThi_KhoHang
             // 

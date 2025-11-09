@@ -12,9 +12,11 @@ namespace Services.Interfaces
     {
         Result<IReadOnlyList<ReturnDetailDto>> GetAll();
         Result<ReturnDetailDto> GetReturnDetailByID(string id);
-        PagedResult<IReadOnlyList<ReturnDetailDto>> GetReturnDetail(int pageNumber, int pageSize);
+        PagedResult<IReadOnlyList<ReturnDetailDto>> GetReturnDetail(string invoiceID,int pageNumber, int pageSize);
         Result<bool> CreateReturnDetail(ReturnDetailDto returnDetailDto);
         Result<bool> UpdateReturnDetail(ReturnDetailDto returnDetailsEdit);
         Result<bool> RemoveReturnDetail(string returnID);
+        Result<bool> Any(string returnID);
+        Result<bool> RemoveRangeReturnDetailByReturnID(string returnID);
     }
 }
