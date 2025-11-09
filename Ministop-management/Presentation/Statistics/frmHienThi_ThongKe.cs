@@ -51,6 +51,7 @@ namespace Presentation
             }
            
         }
+        #region Revenue&Financial
         private void LoadCboCuaHang(Guna2ComboBox cboCuaHang)
         {
             using (var childContainer = _container.CreateChildContainer())
@@ -212,39 +213,6 @@ namespace Presentation
         {
 
         }
-
-
-        private void LoadDataCH(string storeID , int month = 1, int year= 2025)
-        {
-            // ===== 1️⃣ Tạo DataTable cho danh sách cửa hàng =====
-            using (var childContainer = _container.CreateChildContainer())
-            {
-                var storeService = childContainer.Resolve<IReportService>();
-                var list = storeService.GetInventoryReport(storeID, month,year);
-                if (list == null || list.Count == 0)
-                {
-                    dgvDuLieuTK.DataSource = null;
-                    MessageBox.Show("Không có dữ liệu tồn kho trong tháng này!", "Thông báo");
-                    return;
-                }
-                dgvDuLieuTK.DataSource = list;
-                dgvDuLieuTK.AllowUserToAddRows = false;
-                dgvDuLieuTK.ReadOnly = true;
-                dgvDuLieuTK.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            }
-
-            dgvDuLieuTK.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
-            dgvDuLieuTK.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
-            dgvDuLieuTK.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvDuLieuTK.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvDuLieuTK.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
-            dgvDuLieuTK.RowTemplate.Height = 40;
-
-
-
-        }
-
         private void rbDoanhThu_CheckedChanged(object sender, EventArgs e)
         {
             dtpDenDT.Enabled = true;
@@ -257,5 +225,79 @@ namespace Presentation
             dtpDenDT.Enabled = false;
             dtpTuDT.Enabled = false;
         }
+        #endregion
+        #region Inventory 
+
+        private void LoadDataCH(string storeID , int month = 1, int year= 2025, int quantitywarming = 50)
+        {
+            // ===== 1️⃣ Tạo DataTable cho danh sách cửa hàng =====
+            DataTable dt = new DataTable();
+            dt.Columns.Add("MaSanPham");
+            dt.Columns.Add("TenSanPham");
+            dt.Columns.Add("DonVi");
+            dt.Columns.Add("TonDauKy");
+            dt.Columns.Add("SoLanNhapHang");
+            dt.Columns.Add("SoLanXuatHang");
+            dt.Columns.Add("SoLanBanHang");
+            dt.Columns.Add("SoLanKiemHangDu");
+            dt.Columns.Add("SoLanKiemHangThieu");
+            dt.Columns.Add("TonCuoiKy");
+
+            using (var childContainer = _container.CreateChildContainer())
+            {
+
+                var storeService = childContainer.Resolve<IReportService>();
+                var list = storeService.GetInventoryReport(storeID, month,year);
+                if (list == null || list.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu tồn kho trong tháng này!", "Thông báo");
+                    return;
+                }
+                foreach (var item in list)
+                {
+                    dt.Rows.Add(item.ProductID, item.ProductName, item.Unit, item.OpeningStock, item.ImportInPeriod
+                               ,item.ExportInPeriod,item.SaleInPeriod,item.CheckIncrease,item.CheckDecrease
+                               ,item.ClosingStock);
+                            
+                }
+                dgvDuLieuTK.DataSource = dt;
+                dgvDuLieuTK.AllowUserToAddRows = false;
+                dgvDuLieuTK.ReadOnly = true;
+                dgvDuLieuTK.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            }
+
+            dgvDuLieuTK.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
+            dgvDuLieuTK.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvDuLieuTK.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvDuLieuTK.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvDuLieuTK.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
+            dgvDuLieuTK.RowTemplate.Height = 40;
+            dgvDuLieuTK.RowPostPaint += (s, e) =>
+            {
+                if (e.RowIndex < 0) return;
+                var grid = (Guna2DataGridView)s;
+                var row = grid.Rows[e.RowIndex];
+                long quantity = Convert.ToInt64(row.Cells["TonCuoiKy"].Value.ToString());
+                if (quantity < quantitywarming)
+                {
+                    //using (Pen p = new Pen(Color.Red, 4))
+                    //{
+                    //    int x = e.RowBounds.Left + 1;
+                    //    int y = e.RowBounds.Top + 1;
+                    //    int y2 = e.RowBounds.Bottom - 1;
+                    //    e.Graphics.DrawLine(p,x,y,x,y2);
+                    //}
+
+                    row.DefaultCellStyle.BackColor = Color.IndianRed;
+                    row.DefaultCellStyle.ForeColor = Color.White;
+                }
+            };
+
+
+        }
+        #endregion
+
+       
     }
 }

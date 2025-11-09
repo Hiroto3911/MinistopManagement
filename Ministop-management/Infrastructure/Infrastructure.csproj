@@ -66,6 +66,8 @@
     <Compile Include="Interfaces\IPromotionProductRepository.cs" />
     <Compile Include="Interfaces\IPromotionRepository.cs" />
     <Compile Include="Interfaces\IReportRepository.cs" />
+    <Compile Include="Interfaces\IReturnDetailRepository.cs" />
+    <Compile Include="Interfaces\IReturnProductRepository.cs" />
     <Compile Include="Interfaces\ISalaryContractAllowanceRepository.cs" />
     <Compile Include="Interfaces\ISalaryContractRepository.cs" />
     <Compile Include="Interfaces\ISalaryRepository.cs" />
@@ -90,6 +92,8 @@
     <Compile Include="Repositories\PromotionProductReponsitory.cs" />
     <Compile Include="Repositories\PromotionRepository.cs" />
     <Compile Include="Repositories\ReportRepository.cs" />
+    <Compile Include="Repositories\ReturnDetailRepository.cs" />
+    <Compile Include="Repositories\ReturnProductRepository.cs" />
     <Compile Include="Repositories\SalaryContractAllowanceRepository.cs" />
     <Compile Include="Repositories\SalaryContractRepository.cs" />
     <Compile Include="Repositories\SalaryRepository.cs" />

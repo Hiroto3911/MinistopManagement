@@ -355,25 +355,35 @@ BEGIN
         INNER JOIN InvoiceDetails CTHD ON HD.InvoiceID = CTHD.InvoiceID
         WHERE HD.Status = 1
           AND (@StoreID IS NULL OR HD.StoreID = @StoreID)
-        GROUP BY YEAR(HD.InvoiceDate), MONTH(HD.InvoiceID), HD.StoreID
+        GROUP BY YEAR(HD.InvoiceDate), MONTH(HD.InvoiceDate), HD.StoreID
     ),
 
-    FixedExpenseCTE AS (
-        SELECT
-            CAST(RIGHT(FE.MonthYear, 4) AS INT) AS ReportYear,
-            CAST(LEFT(FE.MonthYear, CHARINDEX('/', FE.MonthYear) - 1) AS INT) AS ReportMonth,
-            FE.StoreID AS StoreID,
-            SUM(
-                COALESCE(FE.TienThueMatBang,0)
-                + COALESCE(FE.TienDien,0)
-                + COALESCE(FE.TienNuoc,0)
-            ) AS FixedExpense
-        FROM StoreFixedExpenses FE
-        WHERE FE.IsDeleted = 0
-          AND FE.Status = 1
-          AND (@StoreID IS NULL OR FE.StoreID = @StoreID)
-        GROUP BY FE.StoreID, FE.MonthYear
-    )
+   FixedExpenseCTE AS (
+    SELECT
+        FE.StoreID,
+        TRY_CAST(
+            CASE 
+                WHEN FE.MonthYear LIKE '%/%' THEN RIGHT(FE.MonthYear, 4)
+                WHEN FE.MonthYear LIKE '%-%' THEN RIGHT(FE.MonthYear, 4)
+            END AS INT
+        ) AS ReportYear,
+        TRY_CAST(
+            CASE 
+                WHEN FE.MonthYear LIKE '%/%' THEN LEFT(FE.MonthYear, CHARINDEX('/', FE.MonthYear) - 1)
+                WHEN FE.MonthYear LIKE '%-%' THEN RIGHT(LEFT(FE.MonthYear, LEN(FE.MonthYear) - 5), 2)
+            END AS INT
+        ) AS ReportMonth,
+        SUM(
+            COALESCE(FE.RentCost,0)
+            + COALESCE(FE.ElectricityCost,0)
+            + COALESCE(FE.WaterCost,0)
+        ) AS FixedExpense
+    FROM StoreFixedExpenses FE
+    WHERE FE.IsDeleted = 0
+      AND FE.Status = 1
+      AND (@StoreID IS NULL OR FE.StoreID = @StoreID)
+    GROUP BY FE.StoreID, FE.MonthYear
+)
 
     SELECT
         R.ReportYear AS [Year],
@@ -392,6 +402,7 @@ BEGIN
     ORDER BY R.ReportYear, R.ReportMonth;
 END
 GO
+
 
 exec SP_StoreFinancialReportByMonth 'STR20251026202700739'
 Go

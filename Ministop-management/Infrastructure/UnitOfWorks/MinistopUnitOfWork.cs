@@ -40,7 +40,9 @@ namespace Infrastructure.UnitOfWorks
             IShiftAssignmentRepository shiftAssignmentRepository,
             ISalaryRepository salaryRepository,
             ISalaryContractAllowanceRepository salaryContractAllowanceRepository,
-            IAbsenceRepository absenceRepository
+            IAbsenceRepository absenceRepository,
+            IReturnProductRepository returnProductRepository,
+            IReturnDetailRepository returnDetailRepository
             ) : base(context)
         {
             StoreRepository = storeRepository;
@@ -71,6 +73,8 @@ namespace Infrastructure.UnitOfWorks
             SalaryRepository = salaryRepository;
             SalaryContractAllowanceRepository = salaryContractAllowanceRepository;
             AbsenceRepository = absenceRepository;
+            ReturnProductRepository = returnProductRepository;
+            ReturnDetailRepository = returnDetailRepository;
 
         }
         public IStoreRepository StoreRepository { get; private set; }
@@ -113,5 +117,7 @@ namespace Infrastructure.UnitOfWorks
         public ISalaryRepository SalaryRepository { get; private set; }
         public ISalaryContractAllowanceRepository SalaryContractAllowanceRepository { get; private set; }
         public IAbsenceRepository AbsenceRepository { get; private set; }
+        public IReturnProductRepository ReturnProductRepository { get; private set; }
+        public IReturnDetailRepository ReturnDetailRepository { get; private set; }
     }
 }

@@ -36,5 +36,7 @@ namespace Infrastructure.Interfaces
         ISalaryRepository SalaryRepository { get; }
         ISalaryContractAllowanceRepository SalaryContractAllowanceRepository { get; }
         IAbsenceRepository AbsenceRepository { get; }
+        IReturnProductRepository ReturnProductRepository { get; }
+        IReturnDetailRepository ReturnDetailRepository { get; }
     }
 }
