@@ -190,5 +190,29 @@ namespace Services.Services
 
             return _ministopUnitOfWork.ReportRepository.GetSalaryContractAllowances(employeeId);
         }
+
+        public SalarySlipMainDto GetSalarySlipMain(string employeeId, string monthYear)
+        {
+            if (string.IsNullOrEmpty(employeeId) || string.IsNullOrEmpty(monthYear))
+                return null;
+
+            return _ministopUnitOfWork.ReportRepository.GetSalarySlipMain(employeeId, monthYear);
+        }
+
+        public List<SalarySlipAllowanceDto> GetSalarySlipAllowances(string employeeId)
+        {
+            if (string.IsNullOrEmpty(employeeId))
+                return new List<SalarySlipAllowanceDto>();
+
+            return _ministopUnitOfWork.ReportRepository.GetSalarySlipAllowances(employeeId);
+        }
+
+        public List<SalaryListDto> GetSalaryListByStore(string storeId, string monthYear)
+        {
+            if (string.IsNullOrEmpty(storeId) || string.IsNullOrEmpty(monthYear))
+                return new List<SalaryListDto>();
+
+            return _ministopUnitOfWork.ReportRepository.GetSalaryListByStore(storeId, monthYear);
+        }
     }
 }

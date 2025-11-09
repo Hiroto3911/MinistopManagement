@@ -174,6 +174,98 @@ namespace Infrastructure.Repositories
 
             return result;
         }
+
+        public SalarySlipMainDto GetSalarySlipMain(string employeeId, string monthYear)
+        {
+            var result = new SalarySlipMainDto();
+
+            using (var connection = new SqlConnection(_context.Connection.ConnectionString))
+            {
+                connection.Open();
+                using (var command = new SqlCommand("sp_GetSalarySlip_ByEmployee", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@EmployeeID", employeeId);
+                    command.Parameters.AddWithValue("@MonthYear", monthYear);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            result = new SalarySlipMainDto
+                            {
+                                SalaryID = reader["SalaryID"]?.ToString(),
+                                ContractID = reader["ContractID"]?.ToString(),
+                                EmployeeID = reader["EmployeeID"]?.ToString(),
+                                FullName = reader["FullName"]?.ToString(),
+                                Position = reader["Position"]?.ToString(),
+                                EmploymentType = reader["EmploymentType"]?.ToString(),
+                                StoreName = reader["StoreName"]?.ToString(),
+                                MonthYear = reader["MonthYear"]?.ToString(),
+                                BasicSalary = reader["BasicSalary"] as decimal?,
+                                HourlyRate = reader["HourlyRate"] as decimal?,
+                                Bonus = Convert.ToDecimal(reader["Bonus"]),
+                                Deduction = Convert.ToDecimal(reader["Deduction"]),
+                                TotalHoursWorked = Convert.ToInt32(reader["TotalHoursWorked"]),
+                                TotalAllowance = Convert.ToDecimal(reader["TotalAllowance"])
+                            };
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
+        public List<SalarySlipAllowanceDto> GetSalarySlipAllowances(string employeeId)
+        {
+            var result = new List<SalarySlipAllowanceDto>();
+
+            using (var connection = new SqlConnection(_context.Connection.ConnectionString))
+            {
+                connection.Open();
+                using (var command = new SqlCommand("sp_GetSalarySlip_ByEmployee", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@EmployeeID", employeeId);
+                    command.Parameters.AddWithValue("@MonthYear", "2000-01"); // Bất kỳ tháng nào, vì bảng phụ cấp không dùng
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        // Bỏ qua bảng chính
+                        reader.NextResult();
+
+                        // Đọc bảng phụ cấp
+                        while (reader.Read())
+                        {
+                            result.Add(new SalarySlipAllowanceDto
+                            {
+                                AllowanceName = reader["AllowanceName"]?.ToString() ?? "",
+                                Amount = Convert.ToDecimal(reader["Amount"])
+                            });
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
+        public List<SalaryListDto> GetSalaryListByStore(string storeId, string monthYear)
+        {
+            return _context.sp_GetSalaryList_ByStore(storeId, monthYear)
+                .Select(x => new SalaryListDto
+                {
+                    SalaryID = x.SalaryID,
+                    EmployeeID = x.EmployeeID,
+                    FullName = x.FullName,
+                    Position = x.Position,
+                    EmploymentType = x.EmploymentType,
+                    BasicSalary = x.BasicSalary,
+                    HourlyRate = x.HourlyRate,
+                    Bonus = x.Bonus,
+                    Deduction = x.Deduction,
+                    TotalIncome = x.TotalIncome ?? 0
+                }).ToList();
+        }
     }
 
 }

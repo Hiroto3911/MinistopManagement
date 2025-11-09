@@ -342,6 +342,9 @@ namespace Shared.ErrorCode
 
         [Description(@"Bị trùng dữ liệu phân công ca (Nhân viên + Ca + Ngày).")]
         SA_ERR_006,
+        [Description(@"Định dạng tháng năm không hợp lệ (yyyy-MM)")]
+
+        SA_ERR_007,
         #endregion
 
         #region Salary

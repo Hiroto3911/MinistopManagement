@@ -120,7 +120,7 @@ namespace Infrastructure.Data
     #endregion
 		
 		public MinistopDataContextDataContext() : 
-				base(global::Infrastructure.Properties.Settings.Default.MinistopManagementConnectionString2, mappingSource)
+				base(global::Infrastructure.Properties.Settings.Default.MinistopManagementConnectionString4, mappingSource)
 		{
 			OnCreated();
 		}
@@ -449,6 +449,20 @@ namespace Infrastructure.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), storeID);
 			return ((ISingleResult<SP_StoreFinancialReportByMonthResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetSalaryList_ByStore")]
+		public ISingleResult<sp_GetSalaryList_ByStoreResult> sp_GetSalaryList_ByStore([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StoreID", DbType="NVarChar(200)")] string storeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MonthYear", DbType="Char(7)")] string monthYear)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), storeID, monthYear);
+			return ((ISingleResult<sp_GetSalaryList_ByStoreResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetSalarySlip_ByEmployee")]
+		public ISingleResult<sp_GetSalarySlip_ByEmployeeResult> sp_GetSalarySlip_ByEmployee([global::System.Data.Linq.Mapping.ParameterAttribute(Name="EmployeeID", DbType="NVarChar(200)")] string employeeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MonthYear", DbType="Char(7)")] string monthYear)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), employeeID, monthYear);
+			return ((ISingleResult<sp_GetSalarySlip_ByEmployeeResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -11652,6 +11666,472 @@ namespace Infrastructure.Data
 				if ((this._Financial != value))
 				{
 					this._Financial = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_GetSalaryList_ByStoreResult
+	{
+		
+		private string _SalaryID;
+		
+		private string _EmployeeID;
+		
+		private string _FullName;
+		
+		private string _Position;
+		
+		private string _EmploymentType;
+		
+		private System.Nullable<decimal> _BasicSalary;
+		
+		private System.Nullable<decimal> _HourlyRate;
+		
+		private decimal _Bonus;
+		
+		private decimal _Deduction;
+		
+		private System.Nullable<decimal> _TotalIncome;
+		
+		public sp_GetSalaryList_ByStoreResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaryID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string SalaryID
+		{
+			get
+			{
+				return this._SalaryID;
+			}
+			set
+			{
+				if ((this._SalaryID != value))
+				{
+					this._SalaryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this._EmployeeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this._FullName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Position
+		{
+			get
+			{
+				return this._Position;
+			}
+			set
+			{
+				if ((this._Position != value))
+				{
+					this._Position = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmploymentType", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string EmploymentType
+		{
+			get
+			{
+				return this._EmploymentType;
+			}
+			set
+			{
+				if ((this._EmploymentType != value))
+				{
+					this._EmploymentType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BasicSalary", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> BasicSalary
+		{
+			get
+			{
+				return this._BasicSalary;
+			}
+			set
+			{
+				if ((this._BasicSalary != value))
+				{
+					this._BasicSalary = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HourlyRate", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> HourlyRate
+		{
+			get
+			{
+				return this._HourlyRate;
+			}
+			set
+			{
+				if ((this._HourlyRate != value))
+				{
+					this._HourlyRate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bonus", DbType="Decimal(18,2) NOT NULL")]
+		public decimal Bonus
+		{
+			get
+			{
+				return this._Bonus;
+			}
+			set
+			{
+				if ((this._Bonus != value))
+				{
+					this._Bonus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deduction", DbType="Decimal(10,2) NOT NULL")]
+		public decimal Deduction
+		{
+			get
+			{
+				return this._Deduction;
+			}
+			set
+			{
+				if ((this._Deduction != value))
+				{
+					this._Deduction = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalIncome", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> TotalIncome
+		{
+			get
+			{
+				return this._TotalIncome;
+			}
+			set
+			{
+				if ((this._TotalIncome != value))
+				{
+					this._TotalIncome = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_GetSalarySlip_ByEmployeeResult
+	{
+		
+		private string _SalaryID;
+		
+		private string _ContractID;
+		
+		private string _EmployeeID;
+		
+		private string _FullName;
+		
+		private string _Position;
+		
+		private string _EmploymentType;
+		
+		private string _StoreName;
+		
+		private string _MonthYear;
+		
+		private System.Nullable<decimal> _BasicSalary;
+		
+		private System.Nullable<decimal> _HourlyRate;
+		
+		private decimal _Bonus;
+		
+		private decimal _Deduction;
+		
+		private string _Status;
+		
+		private int _TotalHoursWorked;
+		
+		private decimal _TotalAllowance;
+		
+		public sp_GetSalarySlip_ByEmployeeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaryID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string SalaryID
+		{
+			get
+			{
+				return this._SalaryID;
+			}
+			set
+			{
+				if ((this._SalaryID != value))
+				{
+					this._SalaryID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContractID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string ContractID
+		{
+			get
+			{
+				return this._ContractID;
+			}
+			set
+			{
+				if ((this._ContractID != value))
+				{
+					this._ContractID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this._EmployeeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this._FullName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Position", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Position
+		{
+			get
+			{
+				return this._Position;
+			}
+			set
+			{
+				if ((this._Position != value))
+				{
+					this._Position = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmploymentType", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string EmploymentType
+		{
+			get
+			{
+				return this._EmploymentType;
+			}
+			set
+			{
+				if ((this._EmploymentType != value))
+				{
+					this._EmploymentType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string StoreName
+		{
+			get
+			{
+				return this._StoreName;
+			}
+			set
+			{
+				if ((this._StoreName != value))
+				{
+					this._StoreName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MonthYear", DbType="Char(7) NOT NULL", CanBeNull=false)]
+		public string MonthYear
+		{
+			get
+			{
+				return this._MonthYear;
+			}
+			set
+			{
+				if ((this._MonthYear != value))
+				{
+					this._MonthYear = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BasicSalary", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> BasicSalary
+		{
+			get
+			{
+				return this._BasicSalary;
+			}
+			set
+			{
+				if ((this._BasicSalary != value))
+				{
+					this._BasicSalary = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HourlyRate", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> HourlyRate
+		{
+			get
+			{
+				return this._HourlyRate;
+			}
+			set
+			{
+				if ((this._HourlyRate != value))
+				{
+					this._HourlyRate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bonus", DbType="Decimal(18,2) NOT NULL")]
+		public decimal Bonus
+		{
+			get
+			{
+				return this._Bonus;
+			}
+			set
+			{
+				if ((this._Bonus != value))
+				{
+					this._Bonus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deduction", DbType="Decimal(10,2) NOT NULL")]
+		public decimal Deduction
+		{
+			get
+			{
+				return this._Deduction;
+			}
+			set
+			{
+				if ((this._Deduction != value))
+				{
+					this._Deduction = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="NVarChar(20)")]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalHoursWorked", DbType="Int NOT NULL")]
+		public int TotalHoursWorked
+		{
+			get
+			{
+				return this._TotalHoursWorked;
+			}
+			set
+			{
+				if ((this._TotalHoursWorked != value))
+				{
+					this._TotalHoursWorked = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalAllowance", DbType="Decimal(38,2) NOT NULL")]
+		public decimal TotalAllowance
+		{
+			get
+			{
+				return this._TotalAllowance;
+			}
+			set
+			{
+				if ((this._TotalAllowance != value))
+				{
+					this._TotalAllowance = value;
 				}
 			}
 		}

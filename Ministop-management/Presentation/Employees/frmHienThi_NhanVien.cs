@@ -21,6 +21,8 @@ namespace Presentation
         private readonly IShiftService _shiftService;
         private readonly IShiftAssignmentService _shiftAssignmentService;
         private readonly ISalaryContractService _salaryContractService;
+        private readonly ISalaryService _salaryService;
+        private readonly ISalaryContractAllowanceService _salaryContractAllowanceService;
         private readonly IUnityContainer _container;
         private readonly IUserSession _userSession;
         private readonly IAbsenceService _absenceService;
@@ -33,13 +35,18 @@ namespace Presentation
         private long _totalPage_PhanCong = 1;
         private long _totalPage_Vang = 1;
 
+        
+
+        // CẬP NHẬT CONSTRUCTOR (thêm các service cần thiết)
         public frmHienThi_NhanVien(
             IEmployeeService employeeService,
             IAllowanceService allowanceService,
             IShiftService shiftService,
             IShiftAssignmentService shiftAssignmentService,
             ISalaryContractService salaryContractService,
-            IAbsenceService absenceService, // THÊM
+            IAbsenceService absenceService,
+            ISalaryService salaryService,
+            ISalaryContractAllowanceService salaryContractAllowanceService,
             IUnityContainer container,
             IUserSession userSession)
         {
@@ -49,7 +56,9 @@ namespace Presentation
             _shiftService = shiftService;
             _shiftAssignmentService = shiftAssignmentService;
             _salaryContractService = salaryContractService;
-            _absenceService = absenceService; // THÊM
+            _absenceService = absenceService;
+            _salaryService = salaryService;
+            _salaryContractAllowanceService = salaryContractAllowanceService;
             _container = container;
             _userSession = userSession;
         }
@@ -135,6 +144,9 @@ namespace Presentation
             cboChonCuaHang_HD.SelectedIndexChanged += cboChonCuaHang_HD_SelectedIndexChanged;
             cboChonCuaHang_Vang.SelectedIndexChanged -= cboChonCuaHang_Vang_SelectedIndexChanged;
             cboChonCuaHang_Vang.SelectedIndexChanged += cboChonCuaHang_Vang_SelectedIndexChanged;
+            // Lay thang
+            dtpThangTinhLuong.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            LoadCboCuaHang_TinhLuong();
 
             LoadData_PhuCap();
             LoadData_CaLam();
@@ -1122,6 +1134,199 @@ namespace Presentation
 
         #endregion
 
+        #region Tính lương
+
+        private void LoadCboCuaHang_TinhLuong()
+        {
+            cboCuaHang_TinhLuong.DataSource = cboChonCuaHang_NV.DataSource;
+            cboCuaHang_TinhLuong.DisplayMember = "StoreName";
+            cboCuaHang_TinhLuong.ValueMember = "StoreId";
+
+            if (_userSession.Role != "Admin")
+            {
+                cboCuaHang_TinhLuong.SelectedValue = _userSession.IdStore;
+                cboCuaHang_TinhLuong.Enabled = false;
+            }
+        }
+
+        private void btnTinhLuong_Click(object sender, EventArgs e)
+        {
+            string storeId = _userSession.Role == "Admin"
+                ? cboCuaHang_TinhLuong.SelectedValue?.ToString()
+                : _userSession.IdStore;
+
+            string monthYear = dtpThangTinhLuong.Value.ToString("yyyy-MM");
+
+            if (string.IsNullOrEmpty(storeId))
+            {
+                MessageBox.Show("Vui lòng chọn cửa hàng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            TinhLuongVaHienThi(storeId, monthYear);
+        }
+
+        private void TinhLuongVaHienThi(string storeId, string monthYear)
+        {
+            using (var childContainer = _container.CreateChildContainer())
+            {
+                var empService = childContainer.Resolve<IEmployeeService>();
+                var contractService = childContainer.Resolve<ISalaryContractService>();
+                var allowanceService = childContainer.Resolve<ISalaryContractAllowanceService>();
+                var assignmentService = childContainer.Resolve<IShiftAssignmentService>();
+                var absenceService = childContainer.Resolve<IAbsenceService>();
+                var shiftService = childContainer.Resolve<IShiftService>();
+                var salaryService = childContainer.Resolve<ISalaryService>();
+
+                // Lấy nhân viên theo cửa hàng
+                var empResult = empService.GetEmployeeByStore(storeId, 1, 1000);
+                if (!empResult.Succeeded || empResult.Data == null || !empResult.Data.Any())
+                {
+                    MessageBox.Show("Không có nhân viên nào ở cửa hàng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvDuLieu_TinhLuong.DataSource = null;
+                    lblTongNhanVien.Text = "Tổng số nhân viên: 0";
+                    lblTongChiPhiLuong.Text = "Tổng chi phí lương: 0 ₫";
+                    return;
+                }
+
+                var employees = empResult.Data;
+                var dt = new DataTable();
+                dt.Columns.Add("STT", typeof(int));
+                dt.Columns.Add("Mã NV");
+                dt.Columns.Add("Họ tên");
+                dt.Columns.Add("Loại NV");
+                dt.Columns.Add("Lương cơ bản", typeof(decimal));
+                dt.Columns.Add("Giờ làm", typeof(int));
+                dt.Columns.Add("Phụ cấp", typeof(decimal));
+                dt.Columns.Add("Thưởng", typeof(decimal));
+                dt.Columns.Add("Khấu trừ (vắng)", typeof(decimal));
+                dt.Columns.Add("Thực lãnh", typeof(decimal));
+
+                decimal tongQuyLuong = 0;
+                int stt = 1;
+
+                foreach (var emp in employees)
+                {
+                    // Lấy hợp đồng hiện tại
+                    var contractResult = contractService.GetCurrentContractByEmployeeId(emp.EmployeeId);
+                    if (!contractResult.Succeeded || contractResult.Data == null) continue;
+
+                    var contract = contractResult.Data;
+
+                    // Tính giờ làm (Part-time)
+                    int totalHours = 0;
+                    decimal luongGio = 0;
+                    if (emp.EmploymentType == "Parttime")
+                    {
+                        var assignments = assignmentService.GetByEmployeeAndMonth(emp.EmployeeId, monthYear);
+                        if (assignments.Succeeded && assignments.Data != null)
+                        {
+                            foreach (var ass in assignments.Data)
+                            {
+                                var shift = shiftService.GetShiftByID(ass.ShiftId);
+                                if (shift.Succeeded && shift.Data != null)
+                                {
+                                    TimeSpan duration = shift.Data.EndTime - shift.Data.StartTime;
+                                    totalHours += (int)Math.Ceiling(duration.TotalHours);
+                                }
+                            }
+                            luongGio = (contract.HourlyRate ?? 0) * totalHours;
+                        }
+                    }
+
+                    // Tính phụ cấp
+                    decimal phuCap = 0;
+                    var allowances = allowanceService.GetByContractId(contract.ContractId);
+                    if (allowances.Succeeded && allowances.Data != null)
+                    {
+                        phuCap = allowances.Data.Sum(a => a.CustomAmount ?? 0);
+                    }
+
+                    // Lấy bảng lương (thưởng + khấu trừ thủ công)
+                    decimal bonus = 0, manualDeduction = 0;
+                    var salaryResult = salaryService.GetByContract(contract.ContractId);
+                    if (salaryResult.Succeeded && salaryResult.Data != null)
+                    {
+                        var salaryThisMonth = salaryResult.Data.FirstOrDefault(s => s.MonthYear == monthYear);
+                        if (salaryThisMonth != null)
+                        {
+                            bonus = salaryThisMonth.Bonus;
+                            manualDeduction = salaryThisMonth.Deduction;
+                        }
+                    }
+
+                    // Tính khấu trừ do vắng (nghỉ không lương)
+                    decimal truVang = 0;
+                    var absences = absenceService.GetAll();
+                    if (absences.Succeeded && absences.Data != null)
+                    {
+                        var vangKhongLuong = absences.Data
+                            .Where(a => a.EmployeeId == emp.EmployeeId &&
+                                       a.WorkDate.Year == dtpThangTinhLuong.Value.Year &&
+                                       a.WorkDate.Month == dtpThangTinhLuong.Value.Month &&
+                                       !a.IsPaid)
+                            .ToList();
+
+                        foreach (var v in vangKhongLuong)
+                        {
+                            var ass = assignmentService.GetById(v.ShiftId);
+                            if (ass.Succeeded && ass.Data != null)
+                            {
+                                var shift = shiftService.GetShiftByID(ass.Data.ShiftId);
+                                if (shift.Succeeded && shift.Data != null)
+                                {
+                                    TimeSpan duration = shift.Data.EndTime - shift.Data.StartTime;
+                                    int hours = (int)Math.Ceiling(duration.TotalHours);
+                                    decimal luongCa = (contract.HourlyRate ?? 0) * hours;
+                                    truVang += luongCa;
+                                }
+                            }
+                        }
+                    }
+
+                    // Tính thực lãnh
+                    decimal luongCoBan = emp.EmploymentType == "Fulltime" ? (contract.BasicSalary ?? 0) : 0;
+                    decimal thucLanh = luongCoBan + luongGio + phuCap + bonus - manualDeduction - truVang;
+
+                    tongQuyLuong += thucLanh;
+
+                    dt.Rows.Add(
+                        stt++,
+                        emp.EmployeeId,
+                        emp.FullName,
+                        emp.EmploymentType,
+                        luongCoBan,
+                        totalHours,
+                        phuCap,
+                        bonus,
+                        truVang + manualDeduction,
+                        thucLanh
+                    );
+                }
+                ApplyGridStyle(dgvDuLieu_TinhLuong);
+                dgvDuLieu_TinhLuong.DataSource = dt;
+                ApplyGridStyle(dgvDuLieu_TinhLuong);
+                ApplyGridStyle(dgvDuLieu_TinhLuong);
+
+                // Định dạng tiền + màu
+                foreach (DataGridViewColumn col in dgvDuLieu_TinhLuong.Columns)
+                {
+                    if (col.ValueType == typeof(decimal))
+                    {
+                        col.DefaultCellStyle.Format = "N0";
+                        col.DefaultCellStyle.ForeColor = Color.DarkBlue;
+                    }
+                }
+                dgvDuLieu_TinhLuong.Columns["Thực lãnh"].DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                dgvDuLieu_TinhLuong.Columns["Thực lãnh"].DefaultCellStyle.ForeColor = Color.DarkGreen;
+
+                // Tổng hợp
+                lblTongNhanVien.Text = $"Tổng số nhân viên: {employees.Count()} người";
+                lblTongChiPhiLuong.Text = $"Tổng chi phí lương: {tongQuyLuong:N0} ₫";
+            }
+        }
+        #endregion
+
         #region Giao diện DataGridView
         private void ApplyGridStyle(Guna2DataGridView dgvDuLieu)
         {
@@ -1149,6 +1354,8 @@ namespace Presentation
             };
         }
         #endregion
+
+
 
         private void btnThemHD_Click(object sender, EventArgs e)
         {

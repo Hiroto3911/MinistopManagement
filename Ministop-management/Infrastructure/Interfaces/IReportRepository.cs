@@ -20,5 +20,8 @@ namespace Infrastructure.Interfaces
         List<SP_InvoiceReportResult> GetInvoiceProductReport(string invoiceID);
         List<SP_StoreFinancialReportByMonthResult> GetStoreFinancialReportByMonth(string storeID);
         List<SalaryContractAllowanceReportDto> GetSalaryContractAllowances(string employeeId);
+        SalarySlipMainDto GetSalarySlipMain(string employeeId, string monthYear);
+        List<SalarySlipAllowanceDto> GetSalarySlipAllowances(string employeeId);
+        List<SalaryListDto> GetSalaryListByStore(string storeId, string monthYear);
     }
 }

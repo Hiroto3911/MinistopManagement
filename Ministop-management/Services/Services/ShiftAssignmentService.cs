@@ -291,5 +291,36 @@ namespace Services.Services
             }
         }
 
+        public Result<IReadOnlyList<ShiftAssignmentDto>> GetByEmployeeAndMonth(string employeeId, string monthYear)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(employeeId) || string.IsNullOrWhiteSpace(monthYear))
+                    return new Result<IReadOnlyList<ShiftAssignmentDto>>(ErrorCodeEnum.SA_ERR_002); // Thiếu tham số
+
+                // Parse tháng năm
+                if (!DateTime.TryParseExact(monthYear, "yyyy-MM", null, System.Globalization.DateTimeStyles.None, out DateTime parsedDate))
+                    return new Result<IReadOnlyList<ShiftAssignmentDto>>(ErrorCodeEnum.SA_ERR_007);
+
+                var startDate = new DateTime(parsedDate.Year, parsedDate.Month, 1);
+                var endDate = startDate.AddMonths(1).AddDays(-1); // Ngày cuối tháng
+
+                var entities = _unitOfWork.ShiftAssignmentRepository.GetAll()
+                    .Where(x => !x.IsDeleted &&
+                                x.EmployeeID == employeeId &&
+                                x.WorkDate >= startDate &&
+                                x.WorkDate <= endDate)
+                    .OrderBy(x => x.WorkDate)
+                    .ToList();
+
+                var dtos = _mapper.Map<IReadOnlyList<ShiftAssignmentDto>>(entities);
+                return new Result<IReadOnlyList<ShiftAssignmentDto>>(dtos);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Lỗi lấy bằng nhân viên và tháng", ex);
+            }
+        }
+
     }
 }

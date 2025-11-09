@@ -112,6 +112,12 @@
     <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachCuaHangTheoKhuVuc.Designer.cs">
       <DependentUpon>frmHienThi_DanhSachCuaHangTheoKhuVuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachLuong_CuaHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachLuong_CuaHang.Designer.cs">
+      <DependentUpon>frmHienThi_DanhSachLuong_CuaHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachNhanVienTheoCuaHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,12 @@
     <Compile Include="CrystalReport\FormShow\frmHienThi_HopDongLuongCuaMotNhanVien.Designer.cs">
       <DependentUpon>frmHienThi_HopDongLuongCuaMotNhanVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuLuong_NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuLuong_NhanVien.Designer.cs">
+      <DependentUpon>frmHienThi_PhieuLuong_NhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,16 +154,30 @@
     <Compile Include="CrystalReport\FormShow\frmHienThi_PhieuXuat.Designer.cs">
       <DependentUpon>frmHienThi_PhieuXuat.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachLuong_CuaHang.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_DanhSachLuong_CuaHang.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachNhanVienTheoCuaHang.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Rpt_DanhSachNhanVienTheoCuaHang.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReport\Report\EmployeeReports\Rpt_HopDonLuongCuaMotNhanVien.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Rpt_HopDonLuongCuaMotNhanVien.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="CrystalReport\Report\EmployeeReports\Rpt_PhieuLuong_NhanVien.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_PhieuLuong_NhanVien.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CrystalReport\Report\SaleReports\Rpt_InHoaDon.cs">
@@ -505,6 +531,9 @@
       <LastGenOutput>Rpt_DanhSachCuaHangTheoKhuVuc.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_DanhSachLuong_CuaHang.resx">
+      <DependentUpon>frmHienThi_DanhSachLuong_CuaHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_DanhSachNhanVienTheoCuaHang.resx">
       <DependentUpon>frmHienThi_DanhSachNhanVienTheoCuaHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -514,19 +543,28 @@
     <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_HopDongLuongCuaMotNhanVien.resx">
       <DependentUpon>frmHienThi_HopDongLuongCuaMotNhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_PhieuLuong_NhanVien.resx">
+      <DependentUpon>frmHienThi_PhieuLuong_NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_PhieuNhap.resx">
       <DependentUpon>frmHienThi_PhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_PhieuXuat.resx">
       <DependentUpon>frmHienThi_PhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachLuong_CuaHang.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_DanhSachLuong_CuaHang.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachNhanVienTheoCuaHang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_DanhSachNhanVienTheoCuaHang.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_HopDonLuongCuaMotNhanVien.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_HopDonLuongCuaMotNhanVien.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <Content Include="CrystalReport\Report\SaleReports\Rpt_InHoaDon.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -543,6 +581,10 @@
       <LastGenOutput>Rpt_InPhieuXuat.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_PhieuLuong_NhanVien.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_PhieuLuong_NhanVien.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.resx">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </EmbeddedResource>

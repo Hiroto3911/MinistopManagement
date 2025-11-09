@@ -63,6 +63,7 @@
     <Compile Include="DTO\SalaryDto.cs" />
     <Compile Include="DTO\SalaryContractDto.cs" />
     <Compile Include="DTO\SalaryContractAllowanceDto.cs" />
+    <Compile Include="DTO\SalaryReportDtos.cs" />
     <Compile Include="DTO\ShiftDto.cs" />
     <Compile Include="DTO\ShiftAssignmentDto.cs" />
     <Compile Include="DTO\StockCheckDto.cs" />

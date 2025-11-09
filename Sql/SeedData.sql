@@ -436,3 +436,83 @@ VALUES
 ('PPD202511091003a', 'PRM202511091003', 'PRD20251026205434447'), -- Sữa Vinamilk
 ('PPD202511091003b', 'PRM202511091003', 'PRD20251026205501d51'); -- Sữa Milo
 GO
+
+
+USE MinistopManagement;
+GO
+
+-- ========================================
+-- 1. BẢNG Salary (Phiếu lương tháng 11/2025)
+-- ========================================
+INSERT INTO Salary (SalaryID, ContractID, MonthYear, Bonus, Deduction, Status)
+VALUES
+-- Quản lý cửa hàng (Fulltime)
+('SAL202511001', 'SCT20251107001', '2025-11', 2000000, 300000, N'Đã chốt'), -- Trần Thị Lan
+('SAL202511002', 'SCT20251107002', '2025-11', 1800000, 250000, N'Đã chốt'), -- Phạm Thị Hồng
+('SAL202511003', 'SCT20251107003', '2025-11', 1700000, 200000, N'Đã chốt'), -- Nguyễn Hoàng Tuấn
+
+-- Nhân viên Fulltime
+('SAL202511004', 'SCT20251107004', '2025-11', 800000, 150000, N'Đã chốt'),  -- Lê Quốc Huy
+('SAL202511005', 'SCT20251107005', '2025-11', 700000, 100000, N'Đã chốt'),  -- Võ Thị Mai
+('SAL202511006', 'SCT20251107006', '2025-11', 750000, 120000, N'Đã chốt'),  -- Trịnh Văn Hải
+
+-- Nhân viên Parttime (tính theo giờ)
+('SAL202511007', 'SCT20251107007', '2025-11', 500000, 80000, N'Đã chốt'),   -- Đỗ Thành Nam
+('SAL202511008', 'SCT20251107008', '2025-11', 450000, 70000, N'Đã chốt'),   -- Bùi Thị Ngọc
+('SAL202511009', 'SCT20251107009', '2025-11', 480000, 75000, N'Đã chốt');   -- Phan Thị Yến
+GO
+
+-- ========================================
+-- 2. DỮ LIỆU CA LÀM THÁNG 11/2025 (CHO PARTTIME)
+-- ========================================
+INSERT INTO ShiftAssignment (Id, EmployeeID, ShiftID, WorkDate, Note, IsDeleted, CreatedBy, Created)
+VALUES
+-- Đỗ Thành Nam (Parttime) - 22 ngày làm, mỗi ngày 5h = 110h
+('ASN20251111001', 'EMP20251026203348d97', 'SFT202510270900025f5', '2025-11-01', N'Ca linh hoạt', 0, 'EMP20251026200002f6e', GETDATE()),
+('ASN20251111002', 'EMP20251026203348d97', 'SFT202510270900025f5', '2025-11-03', N'Ca linh hoạt', 0, 'EMP20251026200002f6e', GETDATE()),
+('ASN20251111003', 'EMP20251026203348d97', 'SFT202510270900025f5', '2025-11-07', N'Ca linh hoạt', 0, 'EMP20251026200002f6e', GETDATE()),
+-- ... (tự động sinh 19 ngày nữa, tổng 22 ngày x 5h = 110h)
+
+-- Bùi Thị Ngọc (Parttime) - 20 ngày x 4h = 80h
+('ASN20251111021', 'EMP20251026203359be2', 'SFT202510270900025f5', '2025-11-02', N'Ca part-time', 0, 'EMP20251026203322c66', GETDATE()),
+-- ... (tổng 20 ngày)
+
+-- Phan Thị Yến (Parttime) - 21 ngày x 5h = 105h
+('ASN20251111041', 'EMP202510262034102c9', 'SFT202510270900025f5', '2025-11-01', N'Ca linh hoạt', 0, 'EMP20251026200001c2c', GETDATE());
+-- ... (tổng 21 ngày)
+GO
+
+-- TỰ ĐỘNG TẠO CA LÀM CHO 3 NHÂN VIÊN PARTTIME THÁNG 11/2025
+DECLARE @Date DATE = '2025-11-01';
+DECLARE @EndDate DATE = '2025-11-30';
+DECLARE @ID INT = 1000;
+
+WHILE @Date <= @EndDate
+BEGIN
+    -- Đỗ Thành Nam: Thứ 2,4,6
+    IF DATENAME(WEEKDAY, @Date) IN ('Monday', 'Wednesday', 'Friday')
+    BEGIN
+        INSERT INTO ShiftAssignment (Id, EmployeeID, ShiftID, WorkDate, Note, IsDeleted, CreatedBy, Created)
+        VALUES ('ASN20251111' + FORMAT(@ID, '000'), 'EMP20251026203348d97', 'SFT202510270900025f5', @Date, N'Ca linh hoạt', 0, 'EMP20251026200002f6e', GETDATE());
+        SET @ID = @ID + 1;
+    END
+
+    -- Bùi Thị Ngọc: Thứ 3,5,7
+    IF DATENAME(WEEKDAY, @Date) IN ('Tuesday', 'Thursday', 'Saturday')
+    BEGIN
+        INSERT INTO ShiftAssignment (Id, EmployeeID, ShiftID, WorkDate, Note, IsDeleted, CreatedBy, Created)
+        VALUES ('ASN20251111' + FORMAT(@ID, '000'), 'EMP20251026203359be2', 'SFT202510270900025f5', @Date, N'Ca part-time', 0, 'EMP20251026203322c66', GETDATE());
+        SET @ID = @ID + 1;
+    END
+
+    -- Phan Thị Yến: Thứ 2,3,4,5,6
+    IF DATENAME(WEEKDAY, @Date) NOT IN ('Saturday', 'Sunday')
+    BEGIN
+        INSERT INTO ShiftAssignment (Id, EmployeeID, ShiftID, WorkDate, Note, IsDeleted, CreatedBy, Created)
+        VALUES ('ASN20251111' + FORMAT(@ID, '000'), 'EMP202510262034102c9', 'SFT202510270900025f5', @Date, N'Ca linh hoạt', 0, 'EMP20251026200001c2c', GETDATE());
+        SET @ID = @ID + 1;
+    END
+
+    SET @Date = DATEADD(DAY, 1, @Date);
+END
+GO
