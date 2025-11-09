@@ -63,6 +63,8 @@
     <Compile Include="Interfaces\IPromotionProductService.cs" />
     <Compile Include="Interfaces\IPromotionService.cs" />
     <Compile Include="Interfaces\IReportService.cs" />
+    <Compile Include="Interfaces\IReturnDetailService.cs" />
+    <Compile Include="Interfaces\IReturnProductService.cs" />
     <Compile Include="Interfaces\ISalaryContactAllowanceService.cs" />
     <Compile Include="Interfaces\ISalaryContractService.cs" />
     <Compile Include="Interfaces\ISalaryService.cs" />
@@ -81,6 +83,8 @@
     <Compile Include="Interfaces\ISupplierService.cs" />
     <Compile Include="Mapping\AbsenceMapping.cs" />
     <Compile Include="Mapping\AllowanceMapping.cs" />
+    <Compile Include="Mapping\ReturnDetailMapping.cs" />
+    <Compile Include="Mapping\ReturnProductMapping.cs" />
     <Compile Include="Mapping\SalaryContractAllowanceMapping.cs" />
     <Compile Include="Mapping\SalaryMapping.cs" />
     <Compile Include="Mapping\ShiftAssignmentMapping.cs" />
@@ -122,6 +126,8 @@
     <Compile Include="Services\PromotionProductService.cs" />
     <Compile Include="Services\PromotionService.cs" />
     <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Services\ReturnDetailService.cs" />
+    <Compile Include="Services\ReturnProductService.cs" />
     <Compile Include="Services\SalaryContractAllowanceService.cs" />
     <Compile Include="Services\SalaryService.cs" />
     <Compile Include="Services\SalaryContractService.cs" />

@@ -140,5 +140,21 @@ namespace Services.Services
 
             return result;
         }
+
+        public List<StoreFinancialDto> GetStoreFinancialReportByMonth(string storeID)
+        {
+            var list = _ministopUnitOfWork.ReportRepository.GetStoreFinancialReportByMonth(storeID);
+            return list.Select(x => new StoreFinancialDto
+            {
+                StoreID = x.StoreID,
+                StoreName = x.StoreName,
+                Month = x.Month ?? 1,
+                Year = x.Year ?? 2025,
+                Revenue = x.Revenue ?? 0,
+                Financial = x.Financial ?? 0,
+                FixedExpense = x.FixedExpense ?? 0,
+           
+            }).ToList();
+        }
     }
 }

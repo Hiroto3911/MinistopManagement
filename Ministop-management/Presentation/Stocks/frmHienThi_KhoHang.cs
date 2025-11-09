@@ -1,6 +1,7 @@
 ﻿using CrystalDecisions.ReportAppServer;
 using Guna.UI2.WinForms;
 using Presentation.CrystalReport.FormShow;
+using Presentation.Stocks;
 using Presentation.Stocks.Dialogs;
 using Services.Interfaces;
 using Services.Services;
@@ -11,6 +12,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Services.Description;
@@ -226,7 +228,7 @@ namespace Presentation
                 foreach (var item in list.Data)
                 {
                     dt.Rows.Add(item.StockDetailId, item.ProductName, item.Quantity, item.Price, item.LastUpdate.ToShortDateString());
-                    if(item.Quantity< quantitywarming)
+                    if(item.Quantity < quantitywarming)
                     {
                         _totalCountWarming++;
                     }
@@ -261,6 +263,11 @@ namespace Presentation
          
                     row.DefaultCellStyle.BackColor = Color.IndianRed;
                     row.DefaultCellStyle.ForeColor = Color.White;
+                }
+                else
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                    row.DefaultCellStyle.ForeColor = Color.Black;
                 }
             };
             GetCountExport();
@@ -334,6 +341,20 @@ namespace Presentation
         {
             var frmHienThi = _container.Resolve<frmHienThi_ThongBao>(new ParameterOverride("storeID", _userSession.IdStore), new ParameterOverride("date", DateTime.UtcNow.ToLocalTime()), new ParameterOverride("type", "EXPORT"));
             frmHienThi.ShowDialog();
+        }
+        private void ibtnSetting_Click(object sender, EventArgs e)
+        {
+            var frmChucNang = _container.Resolve<frmChucNang_CaiDat>();
+            frmChucNang.dataChanged += (s, ev) =>
+            {
+                int quantity = ChildData_CNSent(s, ev);
+                LoadDataStockDetail(_userSession.IdStore, 1, 20, quantity);
+            };
+            frmChucNang.ShowDialog();
+        }
+        private int ChildData_CNSent(object sender, int quantity)
+        {
+            return quantity;
         }
         #endregion
 
@@ -758,5 +779,7 @@ namespace Presentation
             var report = _container.Resolve<frmHienThi_PhieuXuat>();
             report.Show();
         }
+
+     
     }
 }

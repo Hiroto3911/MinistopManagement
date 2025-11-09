@@ -18,5 +18,6 @@ namespace Infrastructure.Interfaces
         List<SP_StockImportReportResult> GetStockImportReport(string importID);
         List<sp_GetSalaryContractReportResult> GetSalaryContract(string EmployeeID);
         List<SP_InvoiceReportResult> GetInvoiceProductReport(string invoiceID);
+        List<SP_StoreFinancialReportByMonthResult> GetStoreFinancialReportByMonth(string storeID);
     }
 }

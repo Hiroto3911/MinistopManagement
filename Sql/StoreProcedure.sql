@@ -261,3 +261,148 @@ END
 GO
 -- DROP PROCEDURE sp_GetSalaryContractReport @EmployeeID = 'EMP20251026200001c2c'
 
+--CREATE PROC SP_StoreFinancialReportByMonth
+--    @StoreID NVARCHAR(200) = NULL
+--AS
+--BEGIN
+--    SET NOCOUNT ON;
+
+--    -- Doanh Thu theo tháng
+--    ;WITH RevenueCTE AS (
+--        SELECT
+--            YEAR(I.InvoiceDate) AS Year,
+--            MONTH(I.InvoiceDate) AS Month,
+--            I.StoreID,
+--            SUM(ID.Quantity * ID.FinalUnitPrice) AS Revenue
+--        FROM Invoice I
+--        INNER JOIN InvoiceDetails ID ON I.InvoiceID = ID.InvoiceID
+--        WHERE I.Status = 1 -- chỉ tính hóa đơn đã hoàn tất
+--          AND (@StoreID IS NULL OR I.StoreID = @StoreID)
+--        GROUP BY YEAR(I.InvoiceDate), MONTH(I.InvoiceDate), I.StoreID
+--    ),
+
+--    -- Chi phí cố định theo tháng
+--    FixedExpenseCTE AS (
+--        SELECT
+--            CAST(LEFT(FE.MonthYear, 4) AS INT) AS Year,
+--            CAST(RIGHT(FE.MonthYear, 2) AS INT) AS Month,
+--            FE.StoreID,
+--            SUM(
+--                COALESCE(FE.RentCost,0) 
+--                + COALESCE(FE.ElectricityCost,0) 
+--                + COALESCE(FE.WaterCost,0)
+--            ) AS FixedExpense
+--        FROM StoreFixedExpenses FE
+--        WHERE FE.IsDeleted = 0
+--          AND FE.Status = 1 -- chỉ tính chi phí đã duyệt
+--          AND (@StoreID IS NULL OR FE.StoreID = @StoreID)
+--        GROUP BY FE.StoreID, FE.MonthYear
+--    ),
+
+--    -- Lương (chi phí linh hoạt)
+--    SalaryExpenseCTE AS (
+--        SELECT
+--            CAST(LEFT(S.MonthYear, 4) AS INT) AS Year,
+--            CAST(RIGHT(S.MonthYear, 2) AS INT) AS Month,
+--            E.StoreID,
+--            SUM(
+--                COALESCE(SC.BasicSalary, 0) 
+--                + COALESCE(S.Bonus,0)
+--                - COALESCE(S.Deduction,0)
+--            ) AS SalaryExpense
+--        FROM Salary S
+--        INNER JOIN SalaryContract SC ON S.ContractID = SC.ContractID
+--        INNER JOIN Employee E ON SC.EmployeeID = E.EmployeeID
+--        WHERE S.Status = N'Đã duyệt'
+--          AND E.IsDeleted = 0
+--          AND (@StoreID IS NULL OR E.StoreID = @StoreID)
+--        GROUP BY E.StoreID, S.MonthYear
+--    )
+
+--    SELECT
+--        R.Year,
+--        R.Month,
+--        S.StoreID,
+--        ST.StoreName,
+--        R.Revenue,
+--        COALESCE(F.FixedExpense,0) AS FixedExpense,
+--        COALESCE(SL.SalaryExpense,0) AS SalaryExpense,
+--        (R.Revenue 
+--            - COALESCE(F.FixedExpense,0) 
+--            - COALESCE(SL.SalaryExpense,0)) AS Financial
+--    FROM RevenueCTE R
+--    INNER JOIN Store ST ON R.StoreID = ST.StoreID
+--    LEFT JOIN FixedExpenseCTE F ON R.StoreID = F.StoreID 
+--        AND R.Year = F.Year AND R.Month = F.Month
+--    LEFT JOIN SalaryExpenseCTE SL ON R.StoreID = SL.StoreID 
+--        AND R.Year = SL.Year AND R.Month = SL.Month
+--    ORDER BY R.Year, R.Month;
+--END
+--GO
+CREATE PROC SP_StoreFinancialReportByMonth
+    @StoreID NVARCHAR(200) = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    ;WITH RevenueCTE AS (
+        SELECT
+            YEAR(HD.InvoiceDate) AS ReportYear,
+            MONTH(HD.InvoiceDate) AS ReportMonth,
+            HD.StoreID AS StoreID,
+            SUM(ISNULL(CTHD.FinalUnitPrice,0)) AS Revenue
+        FROM Invoice HD
+        INNER JOIN InvoiceDetails CTHD ON HD.InvoiceID = CTHD.InvoiceID
+        WHERE HD.Status = 1
+          AND (@StoreID IS NULL OR HD.StoreID = @StoreID)
+        GROUP BY YEAR(HD.InvoiceDate), MONTH(HD.InvoiceDate), HD.StoreID
+    ),
+
+   FixedExpenseCTE AS (
+    SELECT
+        FE.StoreID,
+        TRY_CAST(
+            CASE 
+                WHEN FE.MonthYear LIKE '%/%' THEN RIGHT(FE.MonthYear, 4)
+                WHEN FE.MonthYear LIKE '%-%' THEN RIGHT(FE.MonthYear, 4)
+            END AS INT
+        ) AS ReportYear,
+        TRY_CAST(
+            CASE 
+                WHEN FE.MonthYear LIKE '%/%' THEN LEFT(FE.MonthYear, CHARINDEX('/', FE.MonthYear) - 1)
+                WHEN FE.MonthYear LIKE '%-%' THEN RIGHT(LEFT(FE.MonthYear, LEN(FE.MonthYear) - 5), 2)
+            END AS INT
+        ) AS ReportMonth,
+        SUM(
+            COALESCE(FE.RentCost,0)
+            + COALESCE(FE.ElectricityCost,0)
+            + COALESCE(FE.WaterCost,0)
+        ) AS FixedExpense
+    FROM StoreFixedExpenses FE
+    WHERE FE.IsDeleted = 0
+      AND FE.Status = 1
+      AND (@StoreID IS NULL OR FE.StoreID = @StoreID)
+    GROUP BY FE.StoreID, FE.MonthYear
+)
+
+    SELECT
+        R.ReportYear AS [Year],
+        R.ReportMonth AS [Month],
+        R.StoreID,
+        CH.StoreName AS StoreName,
+        R.Revenue,
+        COALESCE(F.FixedExpense,0) AS FixedExpense,
+        (R.Revenue - COALESCE(F.FixedExpense,0)) AS Financial
+    FROM RevenueCTE R
+    INNER JOIN Store CH ON R.StoreID = CH.StoreID
+    LEFT JOIN FixedExpenseCTE F 
+        ON R.StoreID = F.StoreID 
+        AND R.ReportYear = F.ReportYear 
+        AND R.ReportMonth = F.ReportMonth
+    ORDER BY R.ReportYear, R.ReportMonth;
+END
+GO
+
+
+exec SP_StoreFinancialReportByMonth 'STR20251026202700739'
+Go

@@ -43,9 +43,7 @@ namespace Infrastructure.Repositories
         {
             var startDate = new DateTime(year, month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
-
-            var products = _context.Products.Where(p => !p.IsDeleted);
-
+            var products = _context.Products.Where(p => !p.IsDeleted && _context.StockDetails.Any(x=> x.ProductID == p.ProductID));
             var report = from p in products
                          let opening = (
                             from sd in _context.StockDetails
@@ -136,6 +134,10 @@ namespace Infrastructure.Repositories
         public List<SP_InvoiceReportResult> GetInvoiceProductReport(string invoiceID)
         {
             return _context.SP_InvoiceReport(invoiceID).ToList();
+        }
+        public List<SP_StoreFinancialReportByMonthResult> GetStoreFinancialReportByMonth(string storeID)
+        {
+            return _context.SP_StoreFinancialReportByMonth(storeID).ToList();
         }
     }
 

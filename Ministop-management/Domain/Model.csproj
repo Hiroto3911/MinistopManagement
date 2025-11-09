@@ -73,6 +73,7 @@
     <Compile Include="DTO\StockImportDetailDto.cs" />
     <Compile Include="DTO\StockImportReportDto.cs" />
     <Compile Include="DTO\StoreDto.cs" />
+    <Compile Include="DTO\StoreFinancialDto.cs" />
     <Compile Include="DTO\StoreFixedExpenseDto.cs" />
     <Compile Include="DTO\StoreRevenueByMonthResultDto.cs" />
     <Compile Include="DTO\SupplierDto.cs" />
