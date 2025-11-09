@@ -32,6 +32,7 @@ namespace Presentation
 
         private void LoadDataCboTrangThai()
         {
+            dtpNgayLap.Value = DateTime.UtcNow.ToLocalTime();
             cboTrangThai.Enabled = true;
             cboTrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
             Dictionary<string, byte> status;

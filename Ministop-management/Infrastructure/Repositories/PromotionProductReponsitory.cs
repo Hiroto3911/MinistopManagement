@@ -36,7 +36,7 @@ namespace Infrastructure.Repositories
         }
         public Promotion_Product GetActivePromotionForProduct(string productId, int qty)
         {
-            return _context.GetTable<Promotion_Product>().Where(x => x.ProductID == productId && x.MinQuantity <= qty && x.Promotion.Status == true && DateTime.UtcNow.ToLocalTime() >= x.Promotion.StartDate && DateTime.UtcNow.ToLocalTime() <= x.Promotion.EndDate).OrderByDescending(x => x.Promotion.Priority).FirstOrDefault();
+            return _context.GetTable<Promotion_Product>().Where(x => x.ProductID == productId && x.MinQuantity <= qty && x.Promotion.Status == false && DateTime.UtcNow.ToLocalTime() >= x.Promotion.StartDate && DateTime.UtcNow.ToLocalTime() <= x.Promotion.EndDate).OrderByDescending(x => x.Promotion.Priority).FirstOrDefault();
         }
     }
 }

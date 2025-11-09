@@ -118,15 +118,9 @@ namespace Services.Services
                         {
                             return new Result<bool>(ErrorCodeEnum.SDD_ERR_007);
                         }
-                        if(result.Quantity > item.QuantityActual)
-                        {
-                            result.Quantity -= item.QuantityActual;
-                        }
-                        else
-                        {
-                            result.Quantity = item.QuantityActual;
-                        }
-                            result.LastUpdate = _dateTimeService.NowUtc;
+                        result.Quantity = item.QuantityActual;
+
+                        result.LastUpdate = _dateTimeService.NowUtc;
                         _ministopUnitOfWork.StockDetailRepository.Update(result, true);
                         CreateHistoryEntity(stockCheckEntity.CheckID, result.StockDetailID, item.QuantityActual);
                     }
@@ -138,7 +132,7 @@ namespace Services.Services
             catch (Exception ex)
             {
                 _ministopUnitOfWork.Rollback();
-                throw ex;
+                throw ;
             }
         }
         private void CreateHistoryEntity(string refID, string stockDetailID, int quantityChange)

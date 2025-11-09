@@ -56,8 +56,8 @@ namespace Presentation.Stocks.Dialogs
             DataTable dt = new DataTable();
             dt.Columns.Add("MaPhieuChiTiet");
             dt.Columns.Add("SanPham");
-            dt.Columns.Add("SoLUongHeThong");
-            dt.Columns.Add("DonGiaThucTe");
+            dt.Columns.Add("SoLuongHeThong");
+            dt.Columns.Add("SoLuongThucTe");
             dt.Columns.Add("ChenhLech");
             dt.Columns.Add("Ghi chu");
             using (var childContaner = _container.CreateChildContainer())

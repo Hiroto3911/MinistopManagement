@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IAbsenceService.cs" />
     <Compile Include="Interfaces\IAllowanceService.cs" />
     <Compile Include="Interfaces\IEmployeeService.cs" />
     <Compile Include="Interfaces\IInvoiceDetailService.cs" />
@@ -62,6 +63,12 @@
     <Compile Include="Interfaces\IPromotionProductService.cs" />
     <Compile Include="Interfaces\IPromotionService.cs" />
     <Compile Include="Interfaces\IReportService.cs" />
+    <Compile Include="Interfaces\IReturnDetailService.cs" />
+    <Compile Include="Interfaces\IReturnProductService.cs" />
+    <Compile Include="Interfaces\ISalaryContactAllowanceService.cs" />
+    <Compile Include="Interfaces\ISalaryContractService.cs" />
+    <Compile Include="Interfaces\ISalaryService.cs" />
+    <Compile Include="Interfaces\IShiftAssignmentService.cs" />
     <Compile Include="Interfaces\IShiftService.cs" />
     <Compile Include="Interfaces\IStockCheckDetailService.cs" />
     <Compile Include="Interfaces\IStockCheckService.cs" />
@@ -74,7 +81,13 @@
     <Compile Include="Interfaces\IStoreFixedExpenseServices.cs" />
     <Compile Include="Interfaces\ISupplierProductService.cs" />
     <Compile Include="Interfaces\ISupplierService.cs" />
+    <Compile Include="Mapping\AbsenceMapping.cs" />
     <Compile Include="Mapping\AllowanceMapping.cs" />
+    <Compile Include="Mapping\ReturnDetailMapping.cs" />
+    <Compile Include="Mapping\ReturnProductMapping.cs" />
+    <Compile Include="Mapping\SalaryContractAllowanceMapping.cs" />
+    <Compile Include="Mapping\SalaryMapping.cs" />
+    <Compile Include="Mapping\ShiftAssignmentMapping.cs" />
     <Compile Include="Mapping\EmployeeMapping.cs" />
     <Compile Include="Mapping\InvoiceDetailMapping.cs" />
     <Compile Include="Mapping\InvoiceMapping.cs" />
@@ -82,6 +95,7 @@
     <Compile Include="Mapping\ProductMapping.cs" />
     <Compile Include="Mapping\PromotionMapping.cs" />
     <Compile Include="Mapping\PromotionProductMapping.cs" />
+    <Compile Include="Mapping\SalaryContractMapping.cs" />
     <Compile Include="Mapping\ShiftMapping.cs" />
     <Compile Include="Mapping\StockCheckDetailMapping.cs" />
     <Compile Include="Mapping\StockCheckMapping.cs" />
@@ -100,6 +114,7 @@
     <Compile Include="Interfaces\IStoreService.cs" />
     <Compile Include="Mapping\StoreMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AbsenceService.cs" />
     <Compile Include="Services\AllowanceService.cs" />
     <Compile Include="Services\DateTimeService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
@@ -111,6 +126,12 @@
     <Compile Include="Services\PromotionProductService.cs" />
     <Compile Include="Services\PromotionService.cs" />
     <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Services\ReturnDetailService.cs" />
+    <Compile Include="Services\ReturnProductService.cs" />
+    <Compile Include="Services\SalaryContractAllowanceService.cs" />
+    <Compile Include="Services\SalaryService.cs" />
+    <Compile Include="Services\SalaryContractService.cs" />
+    <Compile Include="Services\ShiftAssignmentService.cs" />
     <Compile Include="Services\ShiftService.cs" />
     <Compile Include="Services\StockCheckDetailService.cs" />
     <Compile Include="Services\StockCheckService.cs" />
@@ -129,9 +150,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
+    <ProjectReference Include="..\Domain\Model.csproj">
       <Project>{204b809a-d027-406f-8529-2193211726ee}</Project>
-      <Name>Domain</Name>
+      <Name>Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{af96d17c-450d-43c3-8483-e111c856afa4}</Project>

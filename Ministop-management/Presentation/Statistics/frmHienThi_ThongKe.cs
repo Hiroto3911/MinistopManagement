@@ -41,7 +41,17 @@ namespace Presentation
             cboThang.DataSource = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
             dtpTuDT.Value = DateTime.Now.AddMonths(-1); // Gợi ý mặc định ✅
             dtpDenDT.Value = DateTime.Now;
+            if (_userSession.Role == "Quản lý cửa hàng")
+            {
+                cboCuaHangDT.Enabled = false;
+                cboCuaHangTK.Enabled = false;
+                cboCuaHangDT.SelectedValue = _userSession.IdStore;
+                cboCuaHangTK.SelectedValue = _userSession.IdStore;
+
+            }
+           
         }
+        #region Revenue&Financial
         private void LoadCboCuaHang(Guna2ComboBox cboCuaHang)
         {
             using (var childContainer = _container.CreateChildContainer())
@@ -98,27 +108,44 @@ namespace Presentation
             }
 
             string storeID = cboCuaHangDT.SelectedValue.ToString();
-            DateTime fromDate = dtpTuDT.Value.Date;
-            DateTime toDate = dtpDenDT.Value.Date;
-
-            if (fromDate > toDate)
+            if (rbDoanhThu.Checked)
             {
-                MessageBox.Show("Từ ngày phải nhỏ hơn Đến ngày!", "Lỗi");
-                return;
+                DateTime fromDate = dtpTuDT.Value.Date;
+                DateTime toDate = dtpDenDT.Value.Date;
+
+                if (fromDate > toDate)
+                {
+                    MessageBox.Show("Từ ngày phải nhỏ hơn Đến ngày!", "Lỗi");
+                    return;
+                }
+
+                // ✅ Gọi service lấy dữ liệu doanh thu
+                var result = _reportService.GetRevenueByTimeResults(storeID, fromDate, toDate);
+
+                if (result == null || result.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu trong khoảng thời gian này!", "Thông báo");
+                    chartBieuDo.Series.Clear();
+                    return;
+                }
+
+                LoadDuLieuLenChart(result);
+                LoadDuLieuDaLocTheoTgianMongMuon(storeID, fromDate, toDate);
             }
-
-            // ✅ Gọi service lấy dữ liệu doanh thu
-            var result = _reportService.GetRevenueByTimeResults(storeID, fromDate, toDate);
-
-            if (result == null || result.Count == 0)
+            else
             {
-                MessageBox.Show("Không có dữ liệu trong khoảng thời gian này!", "Thông báo");
-                chartBieuDo.Series.Clear();
-                return;
-            }
+                var result = _reportService.GetStoreFinancialReportByMonth(storeID);
 
-            LoadDuLieuLenChart(result);
-            LoadDuLieuDaLocTheoTgianMongMuon(storeID, fromDate, toDate);
+                if (result == null || result.Count == 0)
+                {
+                    MessageBox.Show("Không có dữ liệu !", "Thông báo");
+                    chartBieuDo.Series.Clear();
+                    return;
+                }
+
+                LoadDuLieuTaiChinhLenChart(result);
+                LoadDuLieuTaiChinh(result);
+            }
         }
 
         private void LoadDuLieuDaLocTheoTgianMongMuon(string maCH, DateTime tuNgay, DateTime denNgay)
@@ -127,7 +154,12 @@ namespace Presentation
             dgvDuLieuDT.DataSource = data;
             dgvDuLieuDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
-
+        private void LoadDuLieuTaiChinh(List<StoreFinancialDto> ds)
+        {
+     
+            dgvDuLieuDT.DataSource = ds;
+            dgvDuLieuDT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
         private void LoadDuLieuLenChart(List<StoreRevenueByMonthResultDto> ds)
         {
             chartBieuDo.Series.Clear();
@@ -148,7 +180,25 @@ namespace Presentation
             chartBieuDo.ChartAreas[0].AxisY.Title = "Doanh thu (VNĐ)";
         }
 
- 
+        private void LoadDuLieuTaiChinhLenChart(List<StoreFinancialDto> ds)
+        {
+            chartBieuDo.Series.Clear();
+            Series series = new Series("TaiChinh")
+            {
+                ChartType = SeriesChartType.Column,
+                IsValueShownAsLabel = true
+            };
+
+            foreach (var i in ds)
+            {
+                string label = $"{i.Month}/{i.Year}";
+                series.Points.AddXY(label, i.Financial);
+            }
+
+            chartBieuDo.Series.Add(series);
+            chartBieuDo.ChartAreas[0].AxisX.Title = "Tháng/Năm";
+            chartBieuDo.ChartAreas[0].AxisY.Title = "Tai Chinh (VNĐ)";
+        }
         private void ibtnLamMoiDT_Click(object sender, EventArgs e)
         {
             chartBieuDo.Series.Clear();
@@ -163,22 +213,54 @@ namespace Presentation
         {
 
         }
+        private void rbDoanhThu_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpDenDT.Enabled = true;
+            dtpTuDT.Enabled = true;
 
+        }
 
-        private void LoadDataCH(string storeID , int month = 1, int year= 2025)
+        private void guna2RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpDenDT.Enabled = false;
+            dtpTuDT.Enabled = false;
+        }
+        #endregion
+        #region Inventory 
+
+        private void LoadDataCH(string storeID , int month = 1, int year= 2025, int quantitywarming = 50)
         {
             // ===== 1️⃣ Tạo DataTable cho danh sách cửa hàng =====
+            DataTable dt = new DataTable();
+            dt.Columns.Add("MaSanPham");
+            dt.Columns.Add("TenSanPham");
+            dt.Columns.Add("DonVi");
+            dt.Columns.Add("TonDauKy");
+            dt.Columns.Add("SoLanNhapHang");
+            dt.Columns.Add("SoLanXuatHang");
+            dt.Columns.Add("SoLanBanHang");
+            dt.Columns.Add("SoLanKiemHangDu");
+            dt.Columns.Add("SoLanKiemHangThieu");
+            dt.Columns.Add("TonCuoiKy");
+
             using (var childContainer = _container.CreateChildContainer())
             {
+
                 var storeService = childContainer.Resolve<IReportService>();
                 var list = storeService.GetInventoryReport(storeID, month,year);
                 if (list == null || list.Count == 0)
                 {
-                    dgvDuLieuTK.DataSource = null;
                     MessageBox.Show("Không có dữ liệu tồn kho trong tháng này!", "Thông báo");
                     return;
                 }
-                dgvDuLieuTK.DataSource = list;
+                foreach (var item in list)
+                {
+                    dt.Rows.Add(item.ProductID, item.ProductName, item.Unit, item.OpeningStock, item.ImportInPeriod
+                               ,item.ExportInPeriod,item.SaleInPeriod,item.CheckIncrease,item.CheckDecrease
+                               ,item.ClosingStock);
+                            
+                }
+                dgvDuLieuTK.DataSource = dt;
                 dgvDuLieuTK.AllowUserToAddRows = false;
                 dgvDuLieuTK.ReadOnly = true;
                 dgvDuLieuTK.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -191,11 +273,31 @@ namespace Presentation
             dgvDuLieuTK.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvDuLieuTK.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
             dgvDuLieuTK.RowTemplate.Height = 40;
+            dgvDuLieuTK.RowPostPaint += (s, e) =>
+            {
+                if (e.RowIndex < 0) return;
+                var grid = (Guna2DataGridView)s;
+                var row = grid.Rows[e.RowIndex];
+                long quantity = Convert.ToInt64(row.Cells["TonCuoiKy"].Value.ToString());
+                if (quantity < quantitywarming)
+                {
+                    //using (Pen p = new Pen(Color.Red, 4))
+                    //{
+                    //    int x = e.RowBounds.Left + 1;
+                    //    int y = e.RowBounds.Top + 1;
+                    //    int y2 = e.RowBounds.Bottom - 1;
+                    //    e.Graphics.DrawLine(p,x,y,x,y2);
+                    //}
 
+                    row.DefaultCellStyle.BackColor = Color.IndianRed;
+                    row.DefaultCellStyle.ForeColor = Color.White;
+                }
+            };
 
 
         }
+        #endregion
 
-        
+       
     }
 }

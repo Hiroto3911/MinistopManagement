@@ -528,16 +528,46 @@
       <Column Name="Revenue" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SP_StoreRevenueByTime" Method="SP_StoreRevenueByTime">
+  <Function Name="dbo.SP_StoreRevenueByTimeResult" Method="SP_StoreRevenueByTimeResult">
     <Parameter Name="StoreID" Parameter="storeID" Type="System.String" DbType="NVarChar(200)" />
     <Parameter Name="FromDate" Parameter="fromDate" Type="System.DateTime" DbType="Date" />
     <Parameter Name="ToDate" Parameter="toDate" Type="System.DateTime" DbType="Date" />
-    <ElementType Name="SP_StoreRevenueByTimeResult">
+    <ElementType Name="SP_StoreRevenueByTimeResultResult">
       <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Month" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="Revenue" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetSalaryContractReport" Method="sp_GetSalaryContractReport">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="sp_GetSalaryContractReportResult">
+      <Column Name="ContractID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmploymentType" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BasicSalary" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="HourlyRate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TotalAllowance" Type="System.Decimal" DbType="Decimal(38,2) NOT NULL" CanBeNull="false" />
+      <Column Name="EstimatedTotalIncome" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_StoreFinancialReportByMonth" Method="SP_StoreFinancialReportByMonth">
+    <Parameter Name="StoreID" Parameter="storeID" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="SP_StoreFinancialReportByMonthResult">
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Month" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Revenue" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="FixedExpense" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="SalaryExpense" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Financial" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

@@ -55,6 +55,8 @@
             this.btnResize = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lblTime = new System.Windows.Forms.Label();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.phieuNhapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.phieuXuatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -159,6 +161,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnHeThong,
@@ -259,7 +262,9 @@
             // 
             this.báoCáoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.danhSáchCửaHàngTheoKhuVựcToolStripMenuItem,
-            this.danhSáchNhânViênTheoCửaHàngToolStripMenuItem});
+            this.danhSáchNhânViênTheoCửaHàngToolStripMenuItem,
+            this.phieuNhapToolStripMenuItem,
+            this.phieuXuatToolStripMenuItem});
             this.báoCáoToolStripMenuItem.Image = global::Presentation.Properties.Resources.report;
             this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
             this.báoCáoToolStripMenuItem.Size = new System.Drawing.Size(115, 29);
@@ -330,6 +335,20 @@
             this.panelContainer.Size = new System.Drawing.Size(1365, 651);
             this.panelContainer.TabIndex = 3;
             // 
+            // phieuNhapToolStripMenuItem
+            // 
+            this.phieuNhapToolStripMenuItem.Name = "phieuNhapToolStripMenuItem";
+            this.phieuNhapToolStripMenuItem.Size = new System.Drawing.Size(396, 34);
+            this.phieuNhapToolStripMenuItem.Text = "PhieuNhap";
+         
+            // 
+            // phieuXuatToolStripMenuItem
+            // 
+            this.phieuXuatToolStripMenuItem.Name = "phieuXuatToolStripMenuItem";
+            this.phieuXuatToolStripMenuItem.Size = new System.Drawing.Size(396, 34);
+            this.phieuXuatToolStripMenuItem.Text = "PhieuXuat";
+      
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
@@ -388,5 +407,7 @@
         private System.Windows.Forms.ToolStripMenuItem báoCáoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchCửaHàngTheoKhuVựcToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem danhSáchNhânViênTheoCửaHàngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem phieuNhapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem phieuXuatToolStripMenuItem;
     }
 }

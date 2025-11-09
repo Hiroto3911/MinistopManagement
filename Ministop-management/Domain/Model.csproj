@@ -50,6 +50,7 @@
     <Compile Include="DTO\InventoryReportDto.cs" />
     <Compile Include="DTO\InvoiceDto.cs" />
     <Compile Include="DTO\InvoiceDetailDto.cs" />
+    <Compile Include="DTO\InvoiceReportDto.cs" />
     <Compile Include="DTO\PriceProposalDto.cs" />
     <Compile Include="DTO\ProductDto.cs" />
     <Compile Include="DTO\ProductCategoryDto.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="DTO\StockImportDetailDto.cs" />
     <Compile Include="DTO\StockImportReportDto.cs" />
     <Compile Include="DTO\StoreDto.cs" />
+    <Compile Include="DTO\StoreFinancialDto.cs" />
     <Compile Include="DTO\StoreFixedExpenseDto.cs" />
     <Compile Include="DTO\StoreRevenueByMonthResultDto.cs" />
     <Compile Include="DTO\SupplierDto.cs" />
