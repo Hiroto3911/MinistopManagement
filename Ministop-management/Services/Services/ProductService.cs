@@ -46,6 +46,7 @@ namespace Services.Services
                 throw ex;
             }
         }
+      
         public Result<IReadOnlyList<ProductDto>> GetAllProductIsDelete()
         {
             // Lấy danh sách từ DBML (entity của LINQ to SQL)

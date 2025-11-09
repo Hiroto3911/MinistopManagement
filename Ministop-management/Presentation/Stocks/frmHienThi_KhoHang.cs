@@ -35,6 +35,7 @@ namespace Presentation
         private readonly IStockExportDetailService _stockExportDetailService;
         private readonly IStockCheckService _stockCheckService;
         private readonly IStockCheckDetailService _stockCheckDetailService;
+        private readonly IProductService _productService;
         private long _totalPageStockDetail;
         private long _totalPageStockImport;
         private long _totalPageStockExport;
@@ -42,13 +43,15 @@ namespace Presentation
         private int _totalCountImport;
         private int _totalCountExport;
         private int _totalCountWarming= 0;
+        private long _totalPageSearch;
 
         public frmHienThi_KhoHang
             (IUserSession userSession, IUnityContainer container,
             IStockDetailService stockDetailService, IStockHistoryService stockHistoryService,
             IStockImportService stockImportService, IStockImportDetailSerivce stockImportDetailSerivce,
             IStockExportService stockExportService, IStockExportDetailService stockExportDetailService,
-            IStockCheckService stockCheckService, IStockCheckDetailService stockCheckDetailService
+            IStockCheckService stockCheckService, IStockCheckDetailService stockCheckDetailService,
+            IProductService productService
             )
         {
             InitializeComponent();
@@ -62,6 +65,7 @@ namespace Presentation
             _stockExportDetailService = stockExportDetailService;
             _stockCheckService = stockCheckService;
             _stockCheckDetailService = stockCheckDetailService;
+            _productService = productService;
 
         }
         private void frmHienThi_KhoHang_Load(object sender, EventArgs e)
@@ -826,9 +830,57 @@ namespace Presentation
         }
 
 
+
+
         #endregion
 
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtSearch.Text))
+            {
+                MessageBox.Show("Vui long nhap ten san pham can tim!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtSearch.Focus();
+                return;
+            }
+            string productName = txtSearch.Text;
+            LoadDataSearch(productName);
+        }
+        public void LoadDataSearch(string nameProduct)
+        {
+            _totalCountWarming = 0;
+            // ===== 1️⃣ Tạo dữ liệu mẫu =====
+            DataTable dt = new DataTable();
+            dt.Columns.Add("MaChiTietKho");
+            dt.Columns.Add("MaSanPham");
+            dt.Columns.Add("TenSanPham");
+            dt.Columns.Add("SoLuong");
+            dt.Columns.Add("GiaBan");
+            dt.Columns.Add("LanCuoiCapNhap");
+            using (var childContainer = _container.CreateChildContainer())
+            {
+                var ProductService = childContainer.Resolve<IStockDetailService>();
+                var list = ProductService.GetStockDetailByProductName(nameProduct);
+                if (list.Succeeded == false && list.Data == null) { return; }
+                foreach (var item in list.Data)
+                {
+                    dt.Rows.Add(item.StockDetailId,item.ProductId, item.ProductName, item.Quantity, item.Price, item.LastUpdate);
+                }
+            }
+            lblSoLanCanhBao.Text = _totalCountWarming.ToString();
+            dgvDuLieuTimKiem.DataSource = dt;
+           dgvDuLieuTimKiem.AllowUserToAddRows = false;
+           dgvDuLieuTimKiem.ReadOnly = true;
+           dgvDuLieuTimKiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+           dgvDuLieuTimKiem.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
+           dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
+           dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+           dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+           dgvDuLieuTimKiem.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
+           dgvDuLieuTimKiem.RowTemplate.Height = 40;
+          
+        }
+       
 
-     
+       
     }
 }

@@ -53,5 +53,47 @@ namespace Services.Services
                 throw ex;
             }
         }
+        public Result<IReadOnlyList<StockDetailDto>> GetStockDetailByProductName(string productName)
+        {
+            try
+            {
+                // Tìm tất cả sản phẩm có tên chứa từ khóa
+                var products = _ministopUnitOfWork.ProductRepository
+                    .GetAll(p => p.ProductName.Contains(productName) && !p.IsDeleted)
+                    .Select(p => new { p.ProductID, p.ProductName })
+                    .ToList();
+
+                if (!products.Any())
+                    return new Result<IReadOnlyList<StockDetailDto>>(ErrorCodeEnum.SDD_ERR_001);
+
+                // Lấy danh sách productId
+                var productIds = products.Select(p => p.ProductID).ToList();
+
+                // Lấy StockDetail tương ứng với các ProductId đó
+                var stockDetails = _ministopUnitOfWork.StockDetailRepository
+                    .GetAll(x => x.StoreID == _userSession.IdStore && productIds.Contains(x.ProductID))
+                    .Select(x => new StockDetailDto
+                    {
+                        StoreId = x.StoreID,
+                        StockDetailId = x.StockDetailID,
+                        ProductId = x.ProductID,
+                        ProductName = products.First(p => p.ProductID == x.ProductID).ProductName,
+                        Quantity = x.Quantity,
+                        Price = x.Price,
+                        LastUpdate = x.LastUpdate
+                    })
+                    .ToList();
+
+                if (!stockDetails.Any())
+                    return new Result<IReadOnlyList<StockDetailDto>>(ErrorCodeEnum.SDD_ERR_001);
+
+                return new Result<IReadOnlyList<StockDetailDto>>(stockDetails);
+            }
+            catch (Exception ex)
+            {
+                throw ex; // Không throw ex để tránh mất stacktrace
+            }
+        }
+
     }
 }
