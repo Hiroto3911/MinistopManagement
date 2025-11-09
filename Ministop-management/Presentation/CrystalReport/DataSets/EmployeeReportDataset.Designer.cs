@@ -26,7 +26,9 @@ namespace Presentation.CrystalReport.DataSets {
         
         private EmployeeTableByStoreDataTable tableEmployeeTableByStore;
         
-        private GetSalaryContractReportDataTable tableGetSalaryContractReport;
+        private SalaryContractMainDataTable tableSalaryContractMain;
+        
+        private AllowanceDetailDataTable tableAllowanceDetail;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -59,8 +61,11 @@ namespace Presentation.CrystalReport.DataSets {
                 if ((ds.Tables["EmployeeTableByStore"] != null)) {
                     base.Tables.Add(new EmployeeTableByStoreDataTable(ds.Tables["EmployeeTableByStore"]));
                 }
-                if ((ds.Tables["GetSalaryContractReport"] != null)) {
-                    base.Tables.Add(new GetSalaryContractReportDataTable(ds.Tables["GetSalaryContractReport"]));
+                if ((ds.Tables["SalaryContractMain"] != null)) {
+                    base.Tables.Add(new SalaryContractMainDataTable(ds.Tables["SalaryContractMain"]));
+                }
+                if ((ds.Tables["AllowanceDetail"] != null)) {
+                    base.Tables.Add(new AllowanceDetailDataTable(ds.Tables["AllowanceDetail"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -94,9 +99,19 @@ namespace Presentation.CrystalReport.DataSets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public GetSalaryContractReportDataTable GetSalaryContractReport {
+        public SalaryContractMainDataTable SalaryContractMain {
             get {
-                return this.tableGetSalaryContractReport;
+                return this.tableSalaryContractMain;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public AllowanceDetailDataTable AllowanceDetail {
+            get {
+                return this.tableAllowanceDetail;
             }
         }
         
@@ -170,8 +185,11 @@ namespace Presentation.CrystalReport.DataSets {
                 if ((ds.Tables["EmployeeTableByStore"] != null)) {
                     base.Tables.Add(new EmployeeTableByStoreDataTable(ds.Tables["EmployeeTableByStore"]));
                 }
-                if ((ds.Tables["GetSalaryContractReport"] != null)) {
-                    base.Tables.Add(new GetSalaryContractReportDataTable(ds.Tables["GetSalaryContractReport"]));
+                if ((ds.Tables["SalaryContractMain"] != null)) {
+                    base.Tables.Add(new SalaryContractMainDataTable(ds.Tables["SalaryContractMain"]));
+                }
+                if ((ds.Tables["AllowanceDetail"] != null)) {
+                    base.Tables.Add(new AllowanceDetailDataTable(ds.Tables["AllowanceDetail"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -212,10 +230,16 @@ namespace Presentation.CrystalReport.DataSets {
                     this.tableEmployeeTableByStore.InitVars();
                 }
             }
-            this.tableGetSalaryContractReport = ((GetSalaryContractReportDataTable)(base.Tables["GetSalaryContractReport"]));
+            this.tableSalaryContractMain = ((SalaryContractMainDataTable)(base.Tables["SalaryContractMain"]));
             if ((initTable == true)) {
-                if ((this.tableGetSalaryContractReport != null)) {
-                    this.tableGetSalaryContractReport.InitVars();
+                if ((this.tableSalaryContractMain != null)) {
+                    this.tableSalaryContractMain.InitVars();
+                }
+            }
+            this.tableAllowanceDetail = ((AllowanceDetailDataTable)(base.Tables["AllowanceDetail"]));
+            if ((initTable == true)) {
+                if ((this.tableAllowanceDetail != null)) {
+                    this.tableAllowanceDetail.InitVars();
                 }
             }
         }
@@ -230,8 +254,10 @@ namespace Presentation.CrystalReport.DataSets {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableEmployeeTableByStore = new EmployeeTableByStoreDataTable();
             base.Tables.Add(this.tableEmployeeTableByStore);
-            this.tableGetSalaryContractReport = new GetSalaryContractReportDataTable();
-            base.Tables.Add(this.tableGetSalaryContractReport);
+            this.tableSalaryContractMain = new SalaryContractMainDataTable();
+            base.Tables.Add(this.tableSalaryContractMain);
+            this.tableAllowanceDetail = new AllowanceDetailDataTable();
+            base.Tables.Add(this.tableAllowanceDetail);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -242,7 +268,13 @@ namespace Presentation.CrystalReport.DataSets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeGetSalaryContractReport() {
+        private bool ShouldSerializeSalaryContractMain() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeAllowanceDetail() {
             return false;
         }
         
@@ -305,7 +337,10 @@ namespace Presentation.CrystalReport.DataSets {
         public delegate void EmployeeTableByStoreRowChangeEventHandler(object sender, EmployeeTableByStoreRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void GetSalaryContractReportRowChangeEventHandler(object sender, GetSalaryContractReportRowChangeEvent e);
+        public delegate void SalaryContractMainRowChangeEventHandler(object sender, SalaryContractMainRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void AllowanceDetailRowChangeEventHandler(object sender, AllowanceDetailRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -643,7 +678,7 @@ namespace Presentation.CrystalReport.DataSets {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class GetSalaryContractReportDataTable : global::System.Data.TypedTableBase<GetSalaryContractReportRow> {
+        public partial class SalaryContractMainDataTable : global::System.Data.TypedTableBase<SalaryContractMainRow> {
             
             private global::System.Data.DataColumn columnContractID;
             
@@ -669,14 +704,10 @@ namespace Presentation.CrystalReport.DataSets {
             
             private global::System.Data.DataColumn columnEstimatedTotalIncome;
             
-            private global::System.Data.DataColumn columnAllowanceName;
-            
-            private global::System.Data.DataColumn columnAmount;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public GetSalaryContractReportDataTable() {
-                this.TableName = "GetSalaryContractReport";
+            public SalaryContractMainDataTable() {
+                this.TableName = "SalaryContractMain";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -684,7 +715,7 @@ namespace Presentation.CrystalReport.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal GetSalaryContractReportDataTable(global::System.Data.DataTable table) {
+            internal SalaryContractMainDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -701,7 +732,7 @@ namespace Presentation.CrystalReport.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected GetSalaryContractReportDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected SalaryContractMainDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -804,22 +835,6 @@ namespace Presentation.CrystalReport.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AllowanceNameColumn {
-                get {
-                    return this.columnAllowanceName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn AmountColumn {
-                get {
-                    return this.columnAmount;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -829,34 +844,34 @@ namespace Presentation.CrystalReport.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public GetSalaryContractReportRow this[int index] {
+            public SalaryContractMainRow this[int index] {
                 get {
-                    return ((GetSalaryContractReportRow)(this.Rows[index]));
+                    return ((SalaryContractMainRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event GetSalaryContractReportRowChangeEventHandler GetSalaryContractReportRowChanging;
+            public event SalaryContractMainRowChangeEventHandler SalaryContractMainRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event GetSalaryContractReportRowChangeEventHandler GetSalaryContractReportRowChanged;
+            public event SalaryContractMainRowChangeEventHandler SalaryContractMainRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event GetSalaryContractReportRowChangeEventHandler GetSalaryContractReportRowDeleting;
+            public event SalaryContractMainRowChangeEventHandler SalaryContractMainRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event GetSalaryContractReportRowChangeEventHandler GetSalaryContractReportRowDeleted;
+            public event SalaryContractMainRowChangeEventHandler SalaryContractMainRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddGetSalaryContractReportRow(GetSalaryContractReportRow row) {
+            public void AddSalaryContractMainRow(SalaryContractMainRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public GetSalaryContractReportRow AddGetSalaryContractReportRow(string ContractID, string EmployeeID, string FullName, string Position, string EmploymentType, string StoreName, string BasicSalary, string HourlyRate, string StartDate, string EndDate, string TotalAllowance, string EstimatedTotalIncome, string AllowanceName, string Amount) {
-                GetSalaryContractReportRow rowGetSalaryContractReportRow = ((GetSalaryContractReportRow)(this.NewRow()));
+            public SalaryContractMainRow AddSalaryContractMainRow(string ContractID, string EmployeeID, string FullName, string Position, string EmploymentType, string StoreName, string BasicSalary, string HourlyRate, string StartDate, string EndDate, string TotalAllowance, string EstimatedTotalIncome) {
+                SalaryContractMainRow rowSalaryContractMainRow = ((SalaryContractMainRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ContractID,
                         EmployeeID,
@@ -869,18 +884,16 @@ namespace Presentation.CrystalReport.DataSets {
                         StartDate,
                         EndDate,
                         TotalAllowance,
-                        EstimatedTotalIncome,
-                        AllowanceName,
-                        Amount};
-                rowGetSalaryContractReportRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowGetSalaryContractReportRow);
-                return rowGetSalaryContractReportRow;
+                        EstimatedTotalIncome};
+                rowSalaryContractMainRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSalaryContractMainRow);
+                return rowSalaryContractMainRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                GetSalaryContractReportDataTable cln = ((GetSalaryContractReportDataTable)(base.Clone()));
+                SalaryContractMainDataTable cln = ((SalaryContractMainDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -888,7 +901,7 @@ namespace Presentation.CrystalReport.DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new GetSalaryContractReportDataTable();
+                return new SalaryContractMainDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -906,8 +919,6 @@ namespace Presentation.CrystalReport.DataSets {
                 this.columnEndDate = base.Columns["EndDate"];
                 this.columnTotalAllowance = base.Columns["TotalAllowance"];
                 this.columnEstimatedTotalIncome = base.Columns["EstimatedTotalIncome"];
-                this.columnAllowanceName = base.Columns["AllowanceName"];
-                this.columnAmount = base.Columns["Amount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -937,36 +948,32 @@ namespace Presentation.CrystalReport.DataSets {
                 base.Columns.Add(this.columnTotalAllowance);
                 this.columnEstimatedTotalIncome = new global::System.Data.DataColumn("EstimatedTotalIncome", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEstimatedTotalIncome);
-                this.columnAllowanceName = new global::System.Data.DataColumn("AllowanceName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAllowanceName);
-                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAmount);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public GetSalaryContractReportRow NewGetSalaryContractReportRow() {
-                return ((GetSalaryContractReportRow)(this.NewRow()));
+            public SalaryContractMainRow NewSalaryContractMainRow() {
+                return ((SalaryContractMainRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new GetSalaryContractReportRow(builder);
+                return new SalaryContractMainRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(GetSalaryContractReportRow);
+                return typeof(SalaryContractMainRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.GetSalaryContractReportRowChanged != null)) {
-                    this.GetSalaryContractReportRowChanged(this, new GetSalaryContractReportRowChangeEvent(((GetSalaryContractReportRow)(e.Row)), e.Action));
+                if ((this.SalaryContractMainRowChanged != null)) {
+                    this.SalaryContractMainRowChanged(this, new SalaryContractMainRowChangeEvent(((SalaryContractMainRow)(e.Row)), e.Action));
                 }
             }
             
@@ -974,8 +981,8 @@ namespace Presentation.CrystalReport.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.GetSalaryContractReportRowChanging != null)) {
-                    this.GetSalaryContractReportRowChanging(this, new GetSalaryContractReportRowChangeEvent(((GetSalaryContractReportRow)(e.Row)), e.Action));
+                if ((this.SalaryContractMainRowChanging != null)) {
+                    this.SalaryContractMainRowChanging(this, new SalaryContractMainRowChangeEvent(((SalaryContractMainRow)(e.Row)), e.Action));
                 }
             }
             
@@ -983,8 +990,8 @@ namespace Presentation.CrystalReport.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.GetSalaryContractReportRowDeleted != null)) {
-                    this.GetSalaryContractReportRowDeleted(this, new GetSalaryContractReportRowChangeEvent(((GetSalaryContractReportRow)(e.Row)), e.Action));
+                if ((this.SalaryContractMainRowDeleted != null)) {
+                    this.SalaryContractMainRowDeleted(this, new SalaryContractMainRowChangeEvent(((SalaryContractMainRow)(e.Row)), e.Action));
                 }
             }
             
@@ -992,14 +999,14 @@ namespace Presentation.CrystalReport.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.GetSalaryContractReportRowDeleting != null)) {
-                    this.GetSalaryContractReportRowDeleting(this, new GetSalaryContractReportRowChangeEvent(((GetSalaryContractReportRow)(e.Row)), e.Action));
+                if ((this.SalaryContractMainRowDeleting != null)) {
+                    this.SalaryContractMainRowDeleting(this, new SalaryContractMainRowChangeEvent(((SalaryContractMainRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveGetSalaryContractReportRow(GetSalaryContractReportRow row) {
+            public void RemoveSalaryContractMainRow(SalaryContractMainRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1026,7 +1033,268 @@ namespace Presentation.CrystalReport.DataSets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "GetSalaryContractReportDataTable";
+                attribute2.FixedValue = "SalaryContractMainDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class AllowanceDetailDataTable : global::System.Data.TypedTableBase<AllowanceDetailRow> {
+            
+            private global::System.Data.DataColumn columnAllowanceName;
+            
+            private global::System.Data.DataColumn columnAmount;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AllowanceDetailDataTable() {
+                this.TableName = "AllowanceDetail";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal AllowanceDetailDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected AllowanceDetailDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AllowanceNameColumn {
+                get {
+                    return this.columnAllowanceName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn AmountColumn {
+                get {
+                    return this.columnAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AllowanceDetailRow this[int index] {
+                get {
+                    return ((AllowanceDetailRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event AllowanceDetailRowChangeEventHandler AllowanceDetailRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event AllowanceDetailRowChangeEventHandler AllowanceDetailRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event AllowanceDetailRowChangeEventHandler AllowanceDetailRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event AllowanceDetailRowChangeEventHandler AllowanceDetailRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddAllowanceDetailRow(AllowanceDetailRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AllowanceDetailRow AddAllowanceDetailRow(string AllowanceName, string Amount) {
+                AllowanceDetailRow rowAllowanceDetailRow = ((AllowanceDetailRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        AllowanceName,
+                        Amount};
+                rowAllowanceDetailRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowAllowanceDetailRow);
+                return rowAllowanceDetailRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                AllowanceDetailDataTable cln = ((AllowanceDetailDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new AllowanceDetailDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnAllowanceName = base.Columns["AllowanceName"];
+                this.columnAmount = base.Columns["Amount"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnAllowanceName = new global::System.Data.DataColumn("AllowanceName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAllowanceName);
+                this.columnAmount = new global::System.Data.DataColumn("Amount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmount);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AllowanceDetailRow NewAllowanceDetailRow() {
+                return ((AllowanceDetailRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new AllowanceDetailRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(AllowanceDetailRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.AllowanceDetailRowChanged != null)) {
+                    this.AllowanceDetailRowChanged(this, new AllowanceDetailRowChangeEvent(((AllowanceDetailRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.AllowanceDetailRowChanging != null)) {
+                    this.AllowanceDetailRowChanging(this, new AllowanceDetailRowChangeEvent(((AllowanceDetailRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.AllowanceDetailRowDeleted != null)) {
+                    this.AllowanceDetailRowDeleted(this, new AllowanceDetailRowChangeEvent(((AllowanceDetailRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.AllowanceDetailRowDeleting != null)) {
+                    this.AllowanceDetailRowDeleting(this, new AllowanceDetailRowChangeEvent(((AllowanceDetailRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveAllowanceDetailRow(AllowanceDetailRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                EmployeeReportDataset ds = new EmployeeReportDataset();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "AllowanceDetailDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1281,15 +1549,15 @@ namespace Presentation.CrystalReport.DataSets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class GetSalaryContractReportRow : global::System.Data.DataRow {
+        public partial class SalaryContractMainRow : global::System.Data.DataRow {
             
-            private GetSalaryContractReportDataTable tableGetSalaryContractReport;
+            private SalaryContractMainDataTable tableSalaryContractMain;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal GetSalaryContractReportRow(global::System.Data.DataRowBuilder rb) : 
+            internal SalaryContractMainRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableGetSalaryContractReport = ((GetSalaryContractReportDataTable)(this.Table));
+                this.tableSalaryContractMain = ((SalaryContractMainDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1297,14 +1565,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string ContractID {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.ContractIDColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.ContractIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ContractID\' in table \'GetSalaryContractReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ContractID\' in table \'SalaryContractMain\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.ContractIDColumn] = value;
+                    this[this.tableSalaryContractMain.ContractIDColumn] = value;
                 }
             }
             
@@ -1313,14 +1581,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string EmployeeID {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.EmployeeIDColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.EmployeeIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EmployeeID\' in table \'GetSalaryContractReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'EmployeeID\' in table \'SalaryContractMain\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.EmployeeIDColumn] = value;
+                    this[this.tableSalaryContractMain.EmployeeIDColumn] = value;
                 }
             }
             
@@ -1329,14 +1597,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string FullName {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.FullNameColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.FullNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'FullName\' in table \'GetSalaryContractReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FullName\' in table \'SalaryContractMain\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.FullNameColumn] = value;
+                    this[this.tableSalaryContractMain.FullNameColumn] = value;
                 }
             }
             
@@ -1345,14 +1613,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string Position {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.PositionColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.PositionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Position\' in table \'GetSalaryContractReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Position\' in table \'SalaryContractMain\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.PositionColumn] = value;
+                    this[this.tableSalaryContractMain.PositionColumn] = value;
                 }
             }
             
@@ -1361,15 +1629,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string EmploymentType {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.EmploymentTypeColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.EmploymentTypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EmploymentType\' in table \'GetSalaryContractReport\' is DBNul" +
-                                "l.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'EmploymentType\' in table \'SalaryContractMain\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.EmploymentTypeColumn] = value;
+                    this[this.tableSalaryContractMain.EmploymentTypeColumn] = value;
                 }
             }
             
@@ -1378,14 +1645,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string StoreName {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.StoreNameColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.StoreNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StoreName\' in table \'GetSalaryContractReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'StoreName\' in table \'SalaryContractMain\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.StoreNameColumn] = value;
+                    this[this.tableSalaryContractMain.StoreNameColumn] = value;
                 }
             }
             
@@ -1394,14 +1661,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string BasicSalary {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.BasicSalaryColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.BasicSalaryColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BasicSalary\' in table \'GetSalaryContractReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'BasicSalary\' in table \'SalaryContractMain\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.BasicSalaryColumn] = value;
+                    this[this.tableSalaryContractMain.BasicSalaryColumn] = value;
                 }
             }
             
@@ -1410,14 +1677,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string HourlyRate {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.HourlyRateColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.HourlyRateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HourlyRate\' in table \'GetSalaryContractReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'HourlyRate\' in table \'SalaryContractMain\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.HourlyRateColumn] = value;
+                    this[this.tableSalaryContractMain.HourlyRateColumn] = value;
                 }
             }
             
@@ -1426,14 +1693,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string StartDate {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.StartDateColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.StartDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'StartDate\' in table \'GetSalaryContractReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'StartDate\' in table \'SalaryContractMain\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.StartDateColumn] = value;
+                    this[this.tableSalaryContractMain.StartDateColumn] = value;
                 }
             }
             
@@ -1442,14 +1709,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string EndDate {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.EndDateColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.EndDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EndDate\' in table \'GetSalaryContractReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'EndDate\' in table \'SalaryContractMain\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.EndDateColumn] = value;
+                    this[this.tableSalaryContractMain.EndDateColumn] = value;
                 }
             }
             
@@ -1458,15 +1725,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string TotalAllowance {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.TotalAllowanceColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.TotalAllowanceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAllowance\' in table \'GetSalaryContractReport\' is DBNul" +
-                                "l.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAllowance\' in table \'SalaryContractMain\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.TotalAllowanceColumn] = value;
+                    this[this.tableSalaryContractMain.TotalAllowanceColumn] = value;
                 }
             }
             
@@ -1475,16 +1741,175 @@ namespace Presentation.CrystalReport.DataSets {
             public string EstimatedTotalIncome {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.EstimatedTotalIncomeColumn]));
+                        return ((string)(this[this.tableSalaryContractMain.EstimatedTotalIncomeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EstimatedTotalIncome\' in table \'GetSalaryContractReport\' is" +
-                                " DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'EstimatedTotalIncome\' in table \'SalaryContractMain\' is DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.EstimatedTotalIncomeColumn] = value;
+                    this[this.tableSalaryContractMain.EstimatedTotalIncomeColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsContractIDNull() {
+                return this.IsNull(this.tableSalaryContractMain.ContractIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetContractIDNull() {
+                this[this.tableSalaryContractMain.ContractIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEmployeeIDNull() {
+                return this.IsNull(this.tableSalaryContractMain.EmployeeIDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEmployeeIDNull() {
+                this[this.tableSalaryContractMain.EmployeeIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsFullNameNull() {
+                return this.IsNull(this.tableSalaryContractMain.FullNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetFullNameNull() {
+                this[this.tableSalaryContractMain.FullNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsPositionNull() {
+                return this.IsNull(this.tableSalaryContractMain.PositionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetPositionNull() {
+                this[this.tableSalaryContractMain.PositionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEmploymentTypeNull() {
+                return this.IsNull(this.tableSalaryContractMain.EmploymentTypeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEmploymentTypeNull() {
+                this[this.tableSalaryContractMain.EmploymentTypeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStoreNameNull() {
+                return this.IsNull(this.tableSalaryContractMain.StoreNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStoreNameNull() {
+                this[this.tableSalaryContractMain.StoreNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBasicSalaryNull() {
+                return this.IsNull(this.tableSalaryContractMain.BasicSalaryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBasicSalaryNull() {
+                this[this.tableSalaryContractMain.BasicSalaryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsHourlyRateNull() {
+                return this.IsNull(this.tableSalaryContractMain.HourlyRateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetHourlyRateNull() {
+                this[this.tableSalaryContractMain.HourlyRateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStartDateNull() {
+                return this.IsNull(this.tableSalaryContractMain.StartDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStartDateNull() {
+                this[this.tableSalaryContractMain.StartDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEndDateNull() {
+                return this.IsNull(this.tableSalaryContractMain.EndDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEndDateNull() {
+                this[this.tableSalaryContractMain.EndDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTotalAllowanceNull() {
+                return this.IsNull(this.tableSalaryContractMain.TotalAllowanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTotalAllowanceNull() {
+                this[this.tableSalaryContractMain.TotalAllowanceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEstimatedTotalIncomeNull() {
+                return this.IsNull(this.tableSalaryContractMain.EstimatedTotalIncomeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEstimatedTotalIncomeNull() {
+                this[this.tableSalaryContractMain.EstimatedTotalIncomeColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class AllowanceDetailRow : global::System.Data.DataRow {
+            
+            private AllowanceDetailDataTable tableAllowanceDetail;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal AllowanceDetailRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableAllowanceDetail = ((AllowanceDetailDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1492,15 +1917,14 @@ namespace Presentation.CrystalReport.DataSets {
             public string AllowanceName {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.AllowanceNameColumn]));
+                        return ((string)(this[this.tableAllowanceDetail.AllowanceNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AllowanceName\' in table \'GetSalaryContractReport\' is DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AllowanceName\' in table \'AllowanceDetail\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.AllowanceNameColumn] = value;
+                    this[this.tableAllowanceDetail.AllowanceNameColumn] = value;
                 }
             }
             
@@ -1509,183 +1933,39 @@ namespace Presentation.CrystalReport.DataSets {
             public string Amount {
                 get {
                     try {
-                        return ((string)(this[this.tableGetSalaryContractReport.AmountColumn]));
+                        return ((string)(this[this.tableAllowanceDetail.AmountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'GetSalaryContractReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Amount\' in table \'AllowanceDetail\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableGetSalaryContractReport.AmountColumn] = value;
+                    this[this.tableAllowanceDetail.AmountColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsContractIDNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.ContractIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetContractIDNull() {
-                this[this.tableGetSalaryContractReport.ContractIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmployeeIDNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.EmployeeIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmployeeIDNull() {
-                this[this.tableGetSalaryContractReport.EmployeeIDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsFullNameNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.FullNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetFullNameNull() {
-                this[this.tableGetSalaryContractReport.FullNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsPositionNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.PositionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetPositionNull() {
-                this[this.tableGetSalaryContractReport.PositionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEmploymentTypeNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.EmploymentTypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEmploymentTypeNull() {
-                this[this.tableGetSalaryContractReport.EmploymentTypeColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsStoreNameNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.StoreNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetStoreNameNull() {
-                this[this.tableGetSalaryContractReport.StoreNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsBasicSalaryNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.BasicSalaryColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetBasicSalaryNull() {
-                this[this.tableGetSalaryContractReport.BasicSalaryColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsHourlyRateNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.HourlyRateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetHourlyRateNull() {
-                this[this.tableGetSalaryContractReport.HourlyRateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsStartDateNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.StartDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetStartDateNull() {
-                this[this.tableGetSalaryContractReport.StartDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEndDateNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.EndDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEndDateNull() {
-                this[this.tableGetSalaryContractReport.EndDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTotalAllowanceNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.TotalAllowanceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTotalAllowanceNull() {
-                this[this.tableGetSalaryContractReport.TotalAllowanceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsEstimatedTotalIncomeNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.EstimatedTotalIncomeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetEstimatedTotalIncomeNull() {
-                this[this.tableGetSalaryContractReport.EstimatedTotalIncomeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsAllowanceNameNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.AllowanceNameColumn);
+                return this.IsNull(this.tableAllowanceDetail.AllowanceNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetAllowanceNameNull() {
-                this[this.tableGetSalaryContractReport.AllowanceNameColumn] = global::System.Convert.DBNull;
+                this[this.tableAllowanceDetail.AllowanceNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsAmountNull() {
-                return this.IsNull(this.tableGetSalaryContractReport.AmountColumn);
+                return this.IsNull(this.tableAllowanceDetail.AmountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetAmountNull() {
-                this[this.tableGetSalaryContractReport.AmountColumn] = global::System.Convert.DBNull;
+                this[this.tableAllowanceDetail.AmountColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1727,22 +2007,56 @@ namespace Presentation.CrystalReport.DataSets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class GetSalaryContractReportRowChangeEvent : global::System.EventArgs {
+        public class SalaryContractMainRowChangeEvent : global::System.EventArgs {
             
-            private GetSalaryContractReportRow eventRow;
+            private SalaryContractMainRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public GetSalaryContractReportRowChangeEvent(GetSalaryContractReportRow row, global::System.Data.DataRowAction action) {
+            public SalaryContractMainRowChangeEvent(SalaryContractMainRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public GetSalaryContractReportRow Row {
+            public SalaryContractMainRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class AllowanceDetailRowChangeEvent : global::System.EventArgs {
+            
+            private AllowanceDetailRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AllowanceDetailRowChangeEvent(AllowanceDetailRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public AllowanceDetailRow Row {
                 get {
                     return this.eventRow;
                 }

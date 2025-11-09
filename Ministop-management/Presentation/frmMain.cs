@@ -315,6 +315,10 @@ namespace Presentation
             report.Show();
         }
 
-     
+        private void xemHợpĐồngLươngNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_HopDongLuongNhanVien>();
+            report.Show();
+        }
     }
 }

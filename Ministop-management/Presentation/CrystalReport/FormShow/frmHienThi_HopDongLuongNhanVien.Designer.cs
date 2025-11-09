@@ -51,7 +51,7 @@
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 133);
             this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(800, 317);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1014, 496);
             this.crystalReportViewer1.TabIndex = 5;
             this.crystalReportViewer1.ToolPanelWidth = 300;
             // 
@@ -69,7 +69,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(800, 133);
+            this.guna2Panel1.Size = new System.Drawing.Size(1014, 133);
             this.guna2Panel1.TabIndex = 4;
             // 
             // cboEmployee
@@ -122,11 +122,12 @@
             this.btnThoat.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnThoat.ImageRotate = 0F;
             this.btnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnThoat.Location = new System.Drawing.Point(761, 3);
+            this.btnThoat.Location = new System.Drawing.Point(975, 3);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnThoat.Size = new System.Drawing.Size(36, 35);
             this.btnThoat.TabIndex = 233;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnXem
             // 
@@ -141,11 +142,12 @@
             this.btnXem.FillColor = System.Drawing.Color.ForestGreen;
             this.btnXem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnXem.ForeColor = System.Drawing.Color.White;
-            this.btnXem.Location = new System.Drawing.Point(665, 51);
+            this.btnXem.Location = new System.Drawing.Point(879, 51);
             this.btnXem.Name = "btnXem";
             this.btnXem.Size = new System.Drawing.Size(123, 44);
             this.btnXem.TabIndex = 232;
             this.btnXem.Text = "Xem";
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // cboStore
             // 
@@ -164,6 +166,7 @@
             this.cboStore.Name = "cboStore";
             this.cboStore.Size = new System.Drawing.Size(262, 36);
             this.cboStore.TabIndex = 231;
+            this.cboStore.SelectedIndexChanged += new System.EventHandler(this.cboStore_SelectedIndexChanged);
             // 
             // lblTime
             // 
@@ -187,12 +190,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1014, 629);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmHienThi_HopDongLuongNhanVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmHienThi_HopDongLuongCuaMotNhanVien";
+            this.Load += new System.EventHandler(this.frmHienThi_HopDongLuongNhanVien_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.ResumeLayout(false);

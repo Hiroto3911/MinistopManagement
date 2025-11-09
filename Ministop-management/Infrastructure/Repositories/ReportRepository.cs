@@ -3,6 +3,8 @@ using Infrastructure.Data;
 using Infrastructure.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Security.Cryptography;
@@ -126,11 +128,6 @@ namespace Infrastructure.Repositories
 
             return report.ToList();
         }
-
-        public List<sp_GetSalaryContractReportResult> GetSalaryContract(string EmployeeID)
-        {
-            return _context.sp_GetSalaryContractReport(EmployeeID).ToList();
-        }
         public List<SP_InvoiceReportResult> GetInvoiceProductReport(string invoiceID)
         {
             return _context.SP_InvoiceReport(invoiceID).ToList();
@@ -138,6 +135,44 @@ namespace Infrastructure.Repositories
         public List<SP_StoreFinancialReportByMonthResult> GetStoreFinancialReportByMonth(string storeID)
         {
             return _context.SP_StoreFinancialReportByMonth(storeID).ToList();
+        }
+
+        public List<sp_GetSalaryContractReportResult> GetSalaryContract(string EmployeeID)
+        {
+            return _context.sp_GetSalaryContractReport(EmployeeID).ToList();
+        }
+
+        public List<SalaryContractAllowanceReportDto> GetSalaryContractAllowances(string employeeId)
+        {
+            var result = new List<SalaryContractAllowanceReportDto>();
+
+            using (var connection = new SqlConnection(_context.Connection.ConnectionString))
+            {
+                connection.Open();
+                using (var command = new SqlCommand("sp_GetSalaryContractReport", connection))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@EmployeeID", employeeId);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        // Bỏ qua bảng đầu tiên
+                        reader.NextResult();
+
+                        // Đọc bảng phụ cấp
+                        while (reader.Read())
+                        {
+                            result.Add(new SalaryContractAllowanceReportDto
+                            {
+                                AllowanceName = reader["AllowanceName"]?.ToString() ?? "",
+                                Amount = Convert.ToDecimal(reader["Amount"])
+                            });
+                        }
+                    }
+                }
+            }
+
+            return result;
         }
     }
 

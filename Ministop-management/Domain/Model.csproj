@@ -58,6 +58,8 @@
     <Compile Include="DTO\PromotionProductDto.cs" />
     <Compile Include="DTO\ReturnDetailDto.cs" />
     <Compile Include="DTO\ReturnProductDto.cs" />
+    <Compile Include="DTO\SalaryContractAllowanceReportDto.cs" />
+    <Compile Include="DTO\SalaryContractReportMainDto.cs" />
     <Compile Include="DTO\SalaryDto.cs" />
     <Compile Include="DTO\SalaryContractDto.cs" />
     <Compile Include="DTO\SalaryContractAllowanceDto.cs" />

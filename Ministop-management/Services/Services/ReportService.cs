@@ -156,5 +156,39 @@ namespace Services.Services
            
             }).ToList();
         }
+
+        public SalaryContractReportMainDto GetSalaryContractMain(string employeeId)
+        {
+            if (string.IsNullOrEmpty(employeeId))
+                return null;
+
+            var data = _ministopUnitOfWork.ReportRepository.GetSalaryContract(employeeId);
+            if (!data.Any()) return null;
+
+            var item = data.First();
+            return new SalaryContractReportMainDto
+            {
+                ContractID = item.ContractID,
+                EmployeeID = item.EmployeeID,
+                FullName = item.FullName,
+                Position = item.Position,
+                EmploymentType = item.EmploymentType,
+                StoreName = item.StoreName ?? "Chưa xác định",
+                BasicSalary = item.BasicSalary,
+                HourlyRate = item.HourlyRate,
+                StartDate = item.StartDate,
+                EndDate = item.EndDate,
+                TotalAllowance = item.TotalAllowance,
+                EstimatedTotalIncome = item.EstimatedTotalIncome ?? 0
+            };
+        }
+
+        public List<SalaryContractAllowanceReportDto> GetSalaryContractAllowances(string employeeId)
+        {
+            if (string.IsNullOrEmpty(employeeId))
+                return new List<SalaryContractAllowanceReportDto>();
+
+            return _ministopUnitOfWork.ReportRepository.GetSalaryContractAllowances(employeeId);
+        }
     }
 }
