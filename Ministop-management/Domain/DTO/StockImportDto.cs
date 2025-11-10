@@ -15,6 +15,7 @@ namespace Domain.DTO
         public string EmployeeId { get; set; }
         public string EmployeeName { get; set; }
         public byte Status { get; set; }
+        public string Note { get; set; }
         public DateTime ImportDate { get; set; }
     }
 }

@@ -393,53 +393,8 @@ VALUES
 GO
 
 
---INSERT INTO Promotion (PromotionID, PromotionName, Description, StartDate, EndDate, DiscountPercent, DiscountAmount, Status, Created, CreatedBy)
---VALUES
---('PRM202511091001', N'Uống là mê', N'Giảm giá đặc biệt cho các loại nước giải khát mùa nóng.', 
--- '2025-11-01', '2025-11-30', 15, NULL, 1, GETDATE(), 'EMP20251026203343a4a');
---GO
-
---INSERT INTO PromotionProduct (PromotionProductID, PromotionID, ProductID)
---VALUES
---('PPD202511091001a', 'PRM202511091001', 'PRD2025102620540050b'), -- Coca-Cola
---('PPD202511091001b', 'PRM202511091001', 'PRD202510262054065a9'), -- Sting Dâu
---('PPD202511091001c', 'PRM202511091001', 'PRD2025102620553238f'); -- Red Bull
---GO
 
 
-
----- 2️⃣ CHƯƠNG TRÌNH KHUYẾN MÃI "ĂN MÌ TRÚNG QUÀ"
---INSERT INTO Promotion (PromotionID, PromotionName, Description, StartDate, EndDate, DiscountPercent, DiscountAmount, Status, Created, CreatedBy)
---VALUES
---('PRM202511091002', N'Ăn mì trúng quà', N'Mua mì ăn liền được giảm giá và cơ hội trúng voucher Ministop.',
--- '2025-10-25', '2025-11-15', 10, NULL, 1, GETDATE(), 'EMP20251026203354f08');
---GO
-
---INSERT INTO PromotionProduct (PromotionProductID, PromotionID, ProductID)
---VALUES
---('PPD202511091002a', 'PRM202511091002', 'PRD2025102620541236a'), -- Mì Hảo Hảo
---('PPD202511091002b', 'PRM202511091002', 'PRD20251026205527da0'), -- Mì Cung Đình
---('PPD202511091002c', 'PRM202511091002', 'PRD2025102620542224a'); -- Mì Omachi
---GO
-
-
-
--- 3️⃣ CHƯƠNG TRÌNH KHUYẾN MÃI "SỮA NGON GIÁ TỐT"
-INSERT INTO Promotion (PromotionID, PromotionName, Description, StartDate, EndDate, DiscountPercent, DiscountAmount, Status, Created, CreatedBy)
-VALUES
-('PRM202511091003', N'Sữa ngon giá tốt', N'Giảm 5% cho các sản phẩm sữa thương hiệu Vinamilk và Milo.',
- '2025-11-05', '2025-12-05', 5, NULL, 1, GETDATE(), 'EMP202510262034056d9');
-GO
-
-INSERT INTO PromotionProduct (PromotionProductID, PromotionID, ProductID)
-VALUES
-('PPD202511091003a', 'PRM202511091003', 'PRD20251026205434447'), -- Sữa Vinamilk
-('PPD202511091003b', 'PRM202511091003', 'PRD20251026205501d51'); -- Sữa Milo
-GO
-
-
-USE MinistopManagement;
-GO
 
 -- ========================================
 -- 1. BẢNG Salary (Phiếu lương tháng 11/2025)

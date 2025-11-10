@@ -116,8 +116,8 @@ BEGIN
         P.Unit,
         ID.Quantity,
         ID.UnitPrice,
-        (ID.Quantity * ID.UnitPrice) AS Total,
-        SUM(ID.Quantity * ID.UnitPrice) OVER (PARTITION BY I.InvoiceID) AS TotalAmount
+        (ID.FinalUnitPrice) AS Total,
+        SUM(ID.FinalUnitPrice) OVER (PARTITION BY I.InvoiceID) AS TotalAmount
     FROM Invoice I
     INNER JOIN InvoiceDetails ID ON I.InvoiceID = ID.InvoiceID
     INNER JOIN Products P ON ID.ProductID = P.ProductID

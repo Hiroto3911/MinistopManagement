@@ -78,8 +78,38 @@ namespace Services.Services
         {
             try
             {
-                var isDuplicate = _ministopUnitOfWork.PromotionProductRepository.Any(x => x.Id == PromotionProductDto.Id);
-                if (isDuplicate)
+                //var promotion = _ministopUnitOfWork.PromotionRepository.Find(x => x.PromotionID == PromotionProductDto.PromotionId);
+                //var checkPriority = _ministopUnitOfWork.PromotionRepository.Any(x =>  x.PromotionID != promotion.PromotionID && !x.IsDeleted && x.Status == false && x.Priority == promotion.Priority);
+                //if (checkPriority)
+                //{
+                //    return new Result<bool>(ErrorCodeEnum.PRD_ERR_006, $"San pham nay đã được áp dụng ưu tiên {promotion.Priority} ");
+                //}
+                var promotion = _ministopUnitOfWork.PromotionRepository
+    .Find(x => x.PromotionID == PromotionProductDto.PromotionId);
+
+                var checkPriority = (
+                    from p in _ministopUnitOfWork.PromotionRepository.GetAll()
+                    join pp in _ministopUnitOfWork.PromotionProductRepository.GetAll()
+                        on p.PromotionID equals pp.PromotionID
+                    where
+                        pp.ProductID == PromotionProductDto.ProductId &&  // cùng sản phẩm
+                        p.PromotionID != promotion.PromotionID &&         // không trùng khuyến mãi hiện tại
+                        !p.IsDeleted &&                                   // chưa xoá
+                        p.Status == false &&                              // đang hoạt động (Status=0)
+                        p.Priority == promotion.Priority                  // cùng độ ưu tiên
+                    select p
+                ).Any();
+
+                if (checkPriority)
+                {
+                    return new Result<bool>(
+                        ErrorCodeEnum.PRD_ERR_006,
+                        $"Sản phẩm này đã nằm trong chương trình khuyến mãi khác đang hoạt động có ưu tiên {promotion.Priority}"
+                    );
+                }
+
+                var isduplicate = _ministopUnitOfWork.PromotionProductRepository.Any(x => x.ProductID == PromotionProductDto.ProductId && x.PromotionID == PromotionProductDto.PromotionId);
+                if (isduplicate)
                 {
                     return new Result<bool>(ErrorCodeEnum.PRD_ERR_006);
                 }

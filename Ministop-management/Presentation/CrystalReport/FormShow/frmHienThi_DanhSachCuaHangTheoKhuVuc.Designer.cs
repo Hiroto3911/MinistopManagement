@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnXem = new Guna.UI2.WinForms.Guna2Button();
             this.cboKhuVuc = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblTime = new System.Windows.Forms.Label();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.btnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +65,23 @@
             this.label11.Size = new System.Drawing.Size(394, 32);
             this.label11.TabIndex = 234;
             this.label11.Text = "Xem cửa hàng theo từng khu vực";
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.btnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.btnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnThoat.ImageRotate = 0F;
+            this.btnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnThoat.Location = new System.Drawing.Point(1161, 3);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.Size = new System.Drawing.Size(36, 35);
+            this.btnThoat.TabIndex = 233;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // btnXem
             // 
@@ -124,7 +141,7 @@
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 97);
             this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1200, 603);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1200, 703);
             this.crystalReportViewer1.TabIndex = 1;
             this.crystalReportViewer1.ToolPanelWidth = 300;
             // 
@@ -135,28 +152,11 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // btnThoat
-            // 
-            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.btnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.btnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnThoat.ImageRotate = 0F;
-            this.btnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnThoat.Location = new System.Drawing.Point(1161, 3);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.Size = new System.Drawing.Size(36, 35);
-            this.btnThoat.TabIndex = 233;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
-            // 
             // frmHienThi_DanhSachCuaHangTheoKhuVuc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.ClientSize = new System.Drawing.Size(1200, 800);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

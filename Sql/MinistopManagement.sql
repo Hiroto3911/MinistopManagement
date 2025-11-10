@@ -203,6 +203,7 @@ CREATE TABLE StockImport (
     EmployeeID NVARCHAR(200) NOT NULL,
     ImportDate DATETIME NOT NULL,
     Status TINYINT NOT NULL,
+	Note NVARCHAR(200) NULL,
     FOREIGN KEY (StoreID) REFERENCES Store(StoreID),
     FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID),
     FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)

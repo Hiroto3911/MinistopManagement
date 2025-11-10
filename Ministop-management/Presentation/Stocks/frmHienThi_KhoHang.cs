@@ -371,6 +371,7 @@ namespace Presentation
             dt.Columns.Add("NhaCungCap");
             dt.Columns.Add("NguoiLapPhieu");
             dt.Columns.Add("TrangThai");
+            dt.Columns.Add("GhiChu");
             dt.Columns.Add("NgayNhap");
             using (var childContaner = _container.CreateChildContainer())
             {
@@ -403,7 +404,7 @@ namespace Presentation
                         break;
                     }
                     
-                    dt.Rows.Add(item.ImportID, item.SupplierId, item.SupplierName, item.EmployeeName, status, item.ImportDate.ToShortDateString());
+                    dt.Rows.Add(item.ImportID, item.SupplierId, item.SupplierName, item.EmployeeName, status,item.Note, item.ImportDate.ToShortDateString());
                 }
             }
             dgvDuLieuNH.DataSource = dt;
