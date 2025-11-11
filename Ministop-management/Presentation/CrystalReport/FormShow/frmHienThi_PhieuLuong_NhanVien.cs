@@ -9,13 +9,13 @@ using System.Windows.Forms;
 
 namespace Presentation.CrystalReport.FormShow
 {
-    public partial class frmHienThi_HopDongLuongCuaMotNhanVien : Form
+    public partial class frmHienThi_PhieuLuong_NhanVien : Form
     {
         private readonly IReportService _reportService;
         private readonly IStoreService _storeService;
         private readonly IEmployeeService _employeeService;
 
-        public frmHienThi_HopDongLuongCuaMotNhanVien(
+        public frmHienThi_PhieuLuong_NhanVien(
             IReportService reportService,
             IStoreService storeService,
             IEmployeeService employeeService)
@@ -26,9 +26,10 @@ namespace Presentation.CrystalReport.FormShow
             _employeeService = employeeService;
         }
 
-        private void frmHienThi_HopDongLuongNhanVien_Load(object sender, EventArgs e)
+        private void frmHienThi_PhieuLuong_NhanVien_Load(object sender, EventArgs e)
         {
             LoadCuaHang();
+            dtpMonth.Value = DateTime.Today; // Mặc định tháng hiện tại
         }
 
         private void LoadCuaHang()
@@ -75,55 +76,55 @@ namespace Presentation.CrystalReport.FormShow
             }
 
             string employeeId = cboEmployee.SelectedValue.ToString();
-            HienThiReport(employeeId);
+            string monthYear = dtpMonth.Value.ToString("yyyy-MM");
+
+            HienThiReport(employeeId, monthYear);
         }
 
-        private void HienThiReport(string employeeId)
+        private void HienThiReport(string employeeId, string monthYear)
         {
             try
             {
-                var main = _reportService.GetSalaryContractMain(employeeId);
-                var allowances = _reportService.GetSalaryContractAllowances(employeeId);
+                var main = _reportService.GetSalarySlipMain(employeeId, monthYear);
+                var allowances = _reportService.GetSalarySlipAllowances(employeeId);
 
                 if (main == null)
                 {
-                    MessageBox.Show("Không tìm thấy hợp đồng lương cho nhân viên này!");
+                    MessageBox.Show($"Không tìm thấy phiếu lương tháng {monthYear} cho nhân viên này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
                 var ds = new EmployeeReportDataset();
 
-                // === BẢNG CHÍNH ===
-                var rowMain = ds.SalaryContractMain.NewSalaryContractMainRow();
+                // === BẢNG CHÍNH: SalarySlipMain ===
+                var rowMain = ds.SalarySlipMain.NewSalarySlipMainRow();
+                rowMain.SalaryID = main.SalaryID ?? "";
                 rowMain.ContractID = main.ContractID ?? "";
                 rowMain.EmployeeID = main.EmployeeID ?? "";
                 rowMain.FullName = main.FullName ?? "";
                 rowMain.Position = main.Position ?? "";
                 rowMain.EmploymentType = main.EmploymentType ?? "";
-                rowMain.StoreName = main.StoreName ?? "Chưa xác định";
-
+                rowMain.StoreName = main.StoreName ?? "";
+                rowMain.MonthYear = monthYear;
                 rowMain.BasicSalary = main.BasicSalary.HasValue ? main.BasicSalary.Value.ToString("N0") : "0";
                 rowMain.HourlyRate = main.HourlyRate.HasValue ? main.HourlyRate.Value.ToString("N0") : "0";
-                rowMain.StartDate = main.StartDate.ToLongDateString();
-                rowMain.EndDate = main.EndDate.ToString();
+                rowMain.TotalHoursWorked = main.TotalHoursWorked;
+                rowMain.Bonus = main.Bonus.ToString("N0");
+                rowMain.Deduction = main.Deduction.ToString("N0");
                 rowMain.TotalAllowance = main.TotalAllowance.ToString("N0");
-                rowMain.EstimatedTotalIncome = main.EstimatedTotalIncome.ToString("N0");
+                rowMain.TotalIncome = main.TotalIncome.ToString("N0");
+                ds.SalarySlipMain.AddSalarySlipMainRow(rowMain);
 
-                ds.SalaryContractMain.AddSalaryContractMainRow(rowMain);
-
-                // === BẢNG PHỤ CẤP ===
+                // === BẢNG PHỤ: SalarySlipAllowance ===
                 foreach (var item in allowances)
                 {
-                    var row = ds.AllowanceDetail.NewAllowanceDetailRow();
+                    var row = ds.SalarySlipAllowance.NewSalarySlipAllowanceRow();
                     row.AllowanceName = item.AllowanceName ?? "";
                     row.Amount = item.Amount.ToString("N0");
-                    ds.AllowanceDetail.AddAllowanceDetailRow(row);
+                    ds.SalarySlipAllowance.AddSalarySlipAllowanceRow(row);
                 }
 
-                string reportPath = Path.Combine(Application.StartupPath,
-                "CrystalReport",
-                "Report",
-                "EmployeeReports", "Rpt_HopDonLuongCuaMotNhanVien.rpt");
+                string reportPath = Path.Combine(Application.StartupPath, "CrystalReport", "Report", "Rpt_PhieuLuong_NhanVien.rpt");
                 if (!File.Exists(reportPath))
                 {
                     MessageBox.Show("Không tìm thấy file báo cáo: " + reportPath);
@@ -133,7 +134,6 @@ namespace Presentation.CrystalReport.FormShow
                 var rpt = new ReportDocument();
                 rpt.Load(reportPath);
                 rpt.SetDataSource(ds);
-
                 crystalReportViewer1.ReportSource = rpt;
                 crystalReportViewer1.Refresh();
             }

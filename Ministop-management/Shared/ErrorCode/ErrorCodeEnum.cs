@@ -342,6 +342,9 @@ namespace Shared.ErrorCode
 
         [Description(@"Bị trùng dữ liệu phân công ca (Nhân viên + Ca + Ngày).")]
         SA_ERR_006,
+        [Description(@"Định dạng tháng năm không hợp lệ (yyyy-MM)")]
+
+        SA_ERR_007,
         #endregion
 
         #region Salary
@@ -409,5 +412,63 @@ namespace Shared.ErrorCode
         [Description(@"Bị trùng chấm công vắng.")]
         ABS_ERR_006,
         #endregion
+
+        #region Invoice
+        [Description(@"Không tìm thấy Hoá đơn.")]
+        IVC_ERR_001,
+        [Description(@"Hoá đơn đã tồn tại.")]
+        IVC_ERR_002,
+        [Description(@"Tạo Hoá đơn thất bại.")]
+        IVC_ERR_003,
+        [Description(@"Sửa Hoá đơn thất bại.")]
+        IVC_ERR_004,
+        [Description(@"Xóa Hoá đơn thất bại.")]
+        IVC_ERR_005,
+        [Description(@"Bị trùng dữ liệu Hoá đơn.")]
+        IVC_ERR_006,
+        #endregion
+        #region InvoiceDetail
+        [Description(@"Không tìm thấy Hoá đơn chi tiết .")]
+        IVD_ERR_001,
+        [Description(@"Hoá đơn chi tiết đã tồn tại.")]
+        IVD_ERR_002,
+        [Description(@"Tạo Hoá chi tiết đơn thất bại.")]
+        IVD_ERR_003,
+        [Description(@"Sửa Hoá đơn chi tiết thất bại.")]
+        IVD_ERR_004,
+        [Description(@"Xóa Hoá đơn chi tiết thất bại.")]
+        IVD_ERR_005,
+        [Description(@"Bị trùng dữ liệu Hoá đơn chi tiết.")]
+        IVD_ERR_006,
+        #endregion
+        #region ReturnProduct
+        [Description(@"Không tìm thấy Phiếu trả hàng.")]
+        RTP_ERR_001,
+        [Description(@"Phiếu trả hàng đã tồn tại.")]
+        RTP_ERR_002,
+        [Description(@"Tạo Phiếu trả hàng thất bại.")]
+        RTP_ERR_003,
+        [Description(@"Sửa Phiếu trả hàng thất bại.")]
+        RTP_ERR_004,
+        [Description(@"Xóa Phiếu trả hàng thất bại.")]
+        RTP_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu trả hàng.")]
+        RTP_ERR_006,
+        #endregion
+        #region ReturnProductDetail
+        [Description(@"Không tìm thấy Phiếu trả hàng chi tiết .")]
+        RTD_ERR_001,
+        [Description(@"Phiếu trả hàng chi tiết đã tồn tại.")]
+        RTD_ERR_002,
+        [Description(@"Tạo Phiếu trả hàng chi tiết đơn thất bại.")]
+        RTD_ERR_003,
+        [Description(@"Sửa Phiếu trả hàng chi tiết thất bại.")]
+        RTD_ERR_004,
+        [Description(@"Xóa Phiếu trả hàng chi tiết thất bại.")]
+        RTD_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu trả hàng chi tiết.")]
+        RTD_ERR_006,
+        #endregion
+
     }
 }

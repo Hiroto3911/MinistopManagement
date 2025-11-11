@@ -116,8 +116,8 @@ BEGIN
         P.Unit,
         ID.Quantity,
         ID.UnitPrice,
-        (ID.Quantity * ID.UnitPrice) AS Total,
-        SUM(ID.Quantity * ID.UnitPrice) OVER (PARTITION BY I.InvoiceID) AS TotalAmount
+        (ID.FinalUnitPrice) AS Total,
+        SUM(ID.FinalUnitPrice) OVER (PARTITION BY I.InvoiceID) AS TotalAmount
     FROM Invoice I
     INNER JOIN InvoiceDetails ID ON I.InvoiceID = ID.InvoiceID
     INNER JOIN Products P ON ID.ProductID = P.ProductID
@@ -404,5 +404,95 @@ END
 GO
 
 
-exec SP_StoreFinancialReportByMonth 'STR20251026202700739'
-Go
+--exec SP_StoreFinancialReportByMonth 'STR20251026202700739'
+
+
+CREATE PROCEDURE sp_GetSalarySlip_ByEmployee
+    @EmployeeID NVARCHAR(200),
+    @MonthYear CHAR(7) -- VD: '2025-11'
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Bảng chính: Thông tin lương + hợp đồng
+    SELECT 
+        s.SalaryID,
+        s.ContractID,
+        sc.EmployeeID,
+        e.FullName,
+        e.Position,
+        e.EmploymentType,
+        st.StoreName,
+        s.MonthYear,
+        sc.BasicSalary,
+        sc.HourlyRate,
+        ISNULL(s.Bonus, 0) AS Bonus,
+        ISNULL(s.Deduction, 0) AS Deduction,
+        s.Status,
+        -- Tính công thực tế (part-time)
+        ISNULL((
+            SELECT SUM(DATEDIFF(HOUR, sh.StartTime, sh.EndTime))
+            FROM ShiftAssignment sa
+            JOIN Shifts sh ON sa.ShiftID = sh.ShiftID
+            LEFT JOIN Absence a ON a.EmployeeID = sa.EmployeeID AND a.ShiftID = sa.ShiftID AND a.WorkDate = sa.WorkDate
+            WHERE sa.EmployeeID = @EmployeeID
+              AND FORMAT(sa.WorkDate, 'yyyy-MM') = @MonthYear
+              AND a.AbsenceID IS NULL -- Không nghỉ
+        ), 0) AS TotalHoursWorked,
+        -- Tổng phụ cấp
+        ISNULL((
+            SELECT SUM(ISNULL(sca.CustomAmount, a.DefaultAmount))
+            FROM SalaryContract_Allowances sca
+            JOIN Allowances a ON sca.AllowanceID = a.AllowanceID
+            WHERE sca.ContractID = sc.ContractID
+        ), 0) AS TotalAllowance
+    FROM Salary s
+    JOIN SalaryContract sc ON s.ContractID = sc.ContractID
+    JOIN Employee e ON sc.EmployeeID = e.EmployeeID
+    JOIN Store st ON e.StoreID = st.StoreID
+    WHERE sc.EmployeeID = @EmployeeID
+      AND s.MonthYear = @MonthYear
+      AND sc.IsDeleted = 0;
+
+    -- Bảng phụ: Chi tiết phụ cấp
+    SELECT 
+        a.AllowanceName,
+        ISNULL(sca.CustomAmount, a.DefaultAmount) AS Amount
+    FROM SalaryContract sc
+    JOIN SalaryContract_Allowances sca ON sc.ContractID = sca.ContractID
+    JOIN Allowances a ON sca.AllowanceID = a.AllowanceID
+    WHERE sc.EmployeeID = @EmployeeID AND sc.IsDeleted = 0;
+END
+GO
+CREATE PROCEDURE sp_GetSalaryList_ByStore
+    @StoreID NVARCHAR(200),
+    @MonthYear CHAR(7)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        s.SalaryID,
+        e.EmployeeID,
+        e.FullName,
+        e.Position,
+        e.EmploymentType,
+        sc.BasicSalary,
+        sc.HourlyRate,
+        ISNULL(s.Bonus, 0) AS Bonus,
+        ISNULL(s.Deduction, 0) AS Deduction,
+        -- Tổng thu nhập = lương cơ bản/part-time + phụ cấp + thưởng - khấu trừ
+        ISNULL((
+            SELECT SUM(ISNULL(sca.CustomAmount, a.DefaultAmount))
+            FROM SalaryContract_Allowances sca
+            JOIN Allowances a ON sca.AllowanceID = a.AllowanceID
+            WHERE sca.ContractID = sc.ContractID
+        ), 0) + ISNULL(s.Bonus, 0) - ISNULL(s.Deduction, 0) AS TotalIncome
+    FROM Salary s
+    JOIN SalaryContract sc ON s.ContractID = sc.ContractID
+    JOIN Employee e ON sc.EmployeeID = e.EmployeeID
+    WHERE e.StoreID = @StoreID
+      AND s.MonthYear = @MonthYear
+      AND sc.IsDeleted = 0
+    ORDER BY e.FullName;
+END

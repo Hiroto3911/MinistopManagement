@@ -49,6 +49,7 @@ namespace Presentation
             DateTime importDate = dtpNgayNhap.Value;
             string SupplierId = txtMaNCC.Text.Trim();
             byte status = Convert.ToByte(cboTrangThai.SelectedValue.ToString());
+            string note  = rtxtGhiChu.Text.Trim();  
             var importDto = new StockImportDto()
             {
 
@@ -56,7 +57,8 @@ namespace Presentation
                 EmployeeId = employeeId,
                 ImportDate = importDate,
                 SupplierId = SupplierId , 
-                Status = status
+                Status = status,
+                Note = note
             };
 
             Result<bool> result;
@@ -143,6 +145,7 @@ namespace Presentation
                 txtMaNV.Text = entity.Data.EmployeeName;
                 txtMaNCC.Text = entity.Data.SupplierId;
                 dtpNgayNhap.Value = entity.Data.ImportDate;
+                rtxtGhiChu.Text = entity.Data.Note;
                 cboNhaCungCap.Enabled = false;
                 if (_userSession.Role == "Quản lý cửa hàng")
                 {
