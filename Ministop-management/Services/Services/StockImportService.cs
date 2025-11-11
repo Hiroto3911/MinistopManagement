@@ -104,7 +104,32 @@ namespace Services.Services
                     return new Result<bool>(ErrorCodeEnum.SIT_ERR_001);
                 }
                 stockImportEntity.Status = stockImportEdit.Status;
+                stockImportEntity.Note = stockImportEdit.Note;
                 _ministopUnitOfWork.StockImportRepository.Update(stockImportEntity, true);
+                if (stockImportEdit.Status == 4)
+                {
+                    var list = _ministopUnitOfWork.StockImportDetailRepository.GetAll(x => x.ImportID == stockImportEntity.ImportID);
+                    if (list == null || list.Count < 0) return new Result<bool>(ErrorCodeEnum.SET_ERR_005);
+                    foreach (var item in list)
+                    {
+                        var result = _ministopUnitOfWork.StockDetailRepository.FindByID(x => x.ProductID == item.ProductID);
+                        string detailID;
+                        if (result == null) {
+                            detailID = IdGenerator.CreateID("SDD");
+                            var stockDetail = new StockDetail() {StockDetailID = detailID, ProductID = item.ProductID ,Quantity = item.Quantity,Price = item.UnitPrice, LastUpdate = _dateTimeService.NowUtc, StoreID = stockImportEdit.StoreId};
+                            _ministopUnitOfWork.StockDetailRepository.Add(stockDetail);
+                        }
+                        else
+                        {
+                            detailID = result.StockDetailID;
+                            result.Quantity += item.Quantity;
+                            result.LastUpdate = _dateTimeService.NowUtc;
+
+                            _ministopUnitOfWork.StockDetailRepository.Update(result, true);
+                        }
+                        CreateHistoryEntity(stockImportEntity.ImportID, detailID, item.Quantity);
+                    }
+                }
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);
 
@@ -115,7 +140,20 @@ namespace Services.Services
                 throw ex;
             }
         }
-
+        private void CreateHistoryEntity(string refID, string stockDetailID, int quantityChange)
+        {
+            string id = IdGenerator.CreateID("STH");
+            var entity = new StockHistory()
+            {
+                StockHistoryID = id,
+                StockDetailID = stockDetailID,
+                QuantityChange = quantityChange,
+                RefID = refID,
+                ChangeDate = _dateTimeService.NowUtc,
+                ChangeType = "Nhập"
+            };
+            _ministopUnitOfWork.StockHistoryRepository.Add(entity);
+        }
         public Result<bool> RemoveStockImport(string id)
         {
             _ministopUnitOfWork.BeginTransaction();

@@ -141,7 +141,7 @@
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 97);
             this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1200, 603);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1200, 703);
             this.crystalReportViewer1.TabIndex = 1;
             this.crystalReportViewer1.ToolPanelWidth = 300;
             // 
@@ -156,7 +156,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 700);
+            this.ClientSize = new System.Drawing.Size(1200, 800);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

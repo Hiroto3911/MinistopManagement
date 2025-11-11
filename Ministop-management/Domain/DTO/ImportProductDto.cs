@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entity
+namespace Domain.DTO
 {
-    public class InvoiceDetail
+    public class ImportProductDto
     {
-        public string Id { get; set; } 
-        public string InvoiceId { get; set; } 
-        public string ProductId { get; set; } 
+        public string ProductId { get; set; }
         public int Quantity { get; set; }
         public decimal UnitPrice { get; set; }
     }

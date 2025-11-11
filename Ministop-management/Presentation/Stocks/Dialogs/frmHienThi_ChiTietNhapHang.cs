@@ -24,16 +24,19 @@ namespace Presentation.Stocks.Dialogs
         private readonly IUserSession _userSession;
         private readonly IUnityContainer _container;
         public string _importID;
+        private readonly string _supplierID;
         private string _status;
         private long _totalPage;
+        private decimal _totalAmount;
 
-        public frmHienThi_ChiTietNhapHang(IStockImportDetailSerivce stockImportDetailSerivce, IUserSession userSession, IUnityContainer container, string ImportID = null, string Status = null)
+        public frmHienThi_ChiTietNhapHang(IStockImportDetailSerivce stockImportDetailSerivce, IUserSession userSession, IUnityContainer container, string ImportID = null, string Status = null, string supplierID = null)
         {
             InitializeComponent();
             _stockImportDetailSerivce = stockImportDetailSerivce;
             _userSession = userSession;
             _container = container;
             _importID = ImportID;
+            _supplierID = supplierID;
             _status = Status;
         }
 
@@ -45,11 +48,16 @@ namespace Presentation.Stocks.Dialogs
         private void frmHienThi_ChiTietNhapHang_Load(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(_importID)) return;
+            if (_status == "Đã nhập hàng" || _userSession.Role == "Admin")
+            {
+                btnThem.Enabled = false;
+            }
             LoadData(_importID);
 
         }
         private void LoadData(string importID, int pageNumber = 1 , int pageSize = 20)
         {
+            _totalAmount = 0;
             DataTable dt = new DataTable();
             dt.Columns.Add("MaPhieuChiTiet");
             dt.Columns.Add("SanPham");
@@ -65,6 +73,7 @@ namespace Presentation.Stocks.Dialogs
                 foreach (var item in list.Data)
                 {
                     dt.Rows.Add(item.Id, item.ProductName, item.Quantity, item.UnitPrice, item.Total);
+                    _totalAmount += item.Total;
                 }
             }
             dgvDuLieu.DataSource = dt;
@@ -72,13 +81,14 @@ namespace Presentation.Stocks.Dialogs
             dgvDuLieu.ReadOnly = true;
             dgvDuLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ApplyGridStyle(dgvDuLieu);
+            lblTongTienNhap.Text = $"Tổng tiền nhập: {_totalAmount} VND";
             btnTrangTruoc.Enabled = pageNumber > 1;
             btnTrangSau.Enabled = pageNumber <= _totalPage;
 
         }
         private void ApplyGridStyle(Guna2DataGridView dgvDuLieu)
         {
-            if (_userSession.Role == "Admin" || _status == "4") return; 
+            if (_userSession.Role == "Admin" || _status == "Đã nhập hàng") return; 
             // ===== 2️⃣ Thêm hai cột nút =====
             if (dgvDuLieu.Columns["Edit"] == null)
             {
@@ -112,7 +122,7 @@ namespace Presentation.Stocks.Dialogs
             dgvDuLieu.CellPainting += (s, e) =>
             {
                
-                bool allowEditDelete = _status != "4";
+                bool allowEditDelete = _status != "Đã nhập hàng";
                 if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
                                         dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
                 {
@@ -175,13 +185,13 @@ namespace Presentation.Stocks.Dialogs
         {
             if (e.RowIndex < 0) return;
             string id = dgvDuLieu.Rows[e.RowIndex].Cells["MaPhieuChiTiet"].Value.ToString();
-            var allowAction = _status == "4";
+            var allowAction = _status == "Đã nhập hàng";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrang.Text);
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")
             {
                 //MessageBox.Show($"Edit sản phẩm: {productId}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                var frmChucNangCP = _container.Resolve<frmChucNang_ChiTietNhapKho>(new ParameterOverride("importDetailID", id));
+                var frmChucNangCP = _container.Resolve<frmChucNang_ChiTietNhapKho>(new ParameterOverride("importID", _importID), new ParameterOverride("importDetailID", id));
                 frmChucNangCP.dataChanged += (s, ev) =>
                 {
                     LoadData(_importID,pageNumber);
@@ -205,7 +215,7 @@ namespace Presentation.Stocks.Dialogs
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            var frmChucNangCP = _container.Resolve<frmHienThi_DanhSachNhapHang>(new ParameterOverride("ImportID",_importID));
+            var frmChucNangCP = _container.Resolve<frmHienThi_DanhSachNhapHang>(new ParameterOverride("importID", _importID), new ParameterOverride("supplierID", _supplierID));
             frmChucNangCP.dataChanged += (s, ev) =>
             {
 
