@@ -85,7 +85,7 @@ namespace Presentation
             checkboxHeader.Name = "checkboxHeader";
             checkboxHeader.Size = new Size(30, 30);
             checkboxHeader.Location = new Point(
-               rect.X + (rect.Width +50) ,
+               rect.X + (rect.Width +70) ,
                rect.Y + (rect.Height - checkboxHeader.Height) / 2
             );
             checkboxHeader.BackColor = Color.Transparent;
@@ -142,7 +142,13 @@ namespace Presentation
                 dgvDuLieu.Rows[e.RowIndex].Cells["SoLuong"].ReadOnly = false;
             }
 
-
+      
+            //if (!int.TryParse(dgvDuLieu.Rows[e.RowIndex].Cells["SoLuong"].Value?.ToString(), out int qty) || qty <= 0)
+            //{
+            //    dgvDuLieu.Rows[e.RowIndex].Cells["SoLuong"].Style.BackColor = Color.LightCoral;
+            //    MessageBox.Show($"Số lượng không hợp lệ: {dgvDuLieu.Rows[e.RowIndex].Cells["TenSanPham"].Value}");
+            //    return ;
+            //}
 
         }
 

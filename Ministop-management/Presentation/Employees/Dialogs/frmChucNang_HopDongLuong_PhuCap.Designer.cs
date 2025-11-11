@@ -35,7 +35,6 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnDong = new Guna.UI2.WinForms.Guna2ImageButton();
             this.dgvDuLieu_PhuCap = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
@@ -53,7 +52,6 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.btnDong);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -71,24 +69,6 @@
             this.label11.Size = new System.Drawing.Size(438, 32);
             this.label11.TabIndex = 2;
             this.label11.Text = "Thêm phụ cấp cho nhân viên fulltime";
-            // 
-            // btnDong
-            // 
-            this.btnDong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDong.BackColor = System.Drawing.Color.Transparent;
-            this.btnDong.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnDong.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnDong.Image = global::Presentation.Properties.Resources.cross;
-            this.btnDong.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnDong.ImageRotate = 0F;
-            this.btnDong.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnDong.Location = new System.Drawing.Point(841, 9);
-            this.btnDong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDong.Name = "btnDong";
-            this.btnDong.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnDong.Size = new System.Drawing.Size(36, 35);
-            this.btnDong.TabIndex = 1;
-            this.btnDong.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // dgvDuLieu_PhuCap
             // 
@@ -190,7 +170,6 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2ImageButton btnDong;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieu_PhuCap;
         private Guna.UI2.WinForms.Guna2Button btnThem;
     }

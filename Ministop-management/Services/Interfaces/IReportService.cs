@@ -20,8 +20,10 @@ namespace Services.Interfaces
         List<sp_GetSalaryContractReportResult> GetSalaryContract(string employeeId);
         List<InvoiceReportDto> GetInvoiceProductReport(string invoiceID);
         List<StoreFinancialDto> GetStoreFinancialReportByMonth(string storeID);
-      
-
-
+        SalaryContractReportMainDto GetSalaryContractMain(string employeeId);
+        List<SalaryContractAllowanceReportDto> GetSalaryContractAllowances(string employeeId);
+        SalarySlipMainDto GetSalarySlipMain(string employeeId, string monthYear);
+        List<SalarySlipAllowanceDto> GetSalarySlipAllowances(string employeeId);
+        List<SalaryListDto> GetSalaryListByStore(string storeId, string monthYear);
     }
 }

@@ -25,5 +25,6 @@ namespace Services.Interfaces
         PagedResult<IReadOnlyList<ShiftAssignmentDto>> GetByDateRange(DateTime startDate, DateTime endDate, int pageNumber, int pageSize);
         Result<bool> Any(Expression<Func<ShiftAssignment, bool>> predicate);
         Result<bool> CheckDuplicate(string employeeId, string shiftId, DateTime workDate, string excludeId = null);
+        Result<IReadOnlyList<ShiftAssignmentDto>> GetByEmployeeAndMonth(string employeeId, string monthYear);
     }
 }

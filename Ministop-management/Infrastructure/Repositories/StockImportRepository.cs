@@ -31,7 +31,8 @@ namespace Infrastructure.Repositories
                             EmployeeId = nv.EmployeeID,
                             EmployeeName = nv.FullName,
                             ImportDate = nh.ImportDate,
-                            Status = nh.Status
+                            Status = nh.Status,
+                            Note = nh.Note
 
                         };
             return query.Skip((int)((pageNumber - 1) * pageSize)).Take(pageSize).OrderByDescending(x => x.ImportDate).ToList();

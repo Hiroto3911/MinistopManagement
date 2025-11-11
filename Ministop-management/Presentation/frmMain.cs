@@ -315,6 +315,22 @@ namespace Presentation
             report.Show();
         }
 
-     
+        private void xemHợpĐồngLươngNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_HopDongLuongCuaMotNhanVien>();
+            report.Show();
+        }
+
+        private void xuấtPhiếuLươngNhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_PhieuLuong_NhanVien>();
+            report.Show();
+        }
+
+        private void xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_DanhSachLuong_CuaHang>();
+            report.Show();
+        }
     }
 }
