@@ -42,6 +42,7 @@
             this.btnTrangTruoc = new Guna.UI2.WinForms.Guna2Button();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.lblTongTienNhap = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -150,6 +151,7 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2Panel3.Controls.Add(this.lblTongTienNhap);
             this.guna2Panel3.Controls.Add(this.txtSoTrang);
             this.guna2Panel3.Controls.Add(this.btnTrangSau);
             this.guna2Panel3.Controls.Add(this.btnTrangTruoc);
@@ -177,7 +179,7 @@
             this.txtSoTrang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSoTrang.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoTrang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSoTrang.Location = new System.Drawing.Point(311, 4);
+            this.txtSoTrang.Location = new System.Drawing.Point(61, 3);
             this.txtSoTrang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSoTrang.Name = "txtSoTrang";
             this.txtSoTrang.PlaceholderText = "";
@@ -199,7 +201,7 @@
             this.btnTrangSau.FillColor = System.Drawing.SystemColors.Highlight;
             this.btnTrangSau.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrangSau.ForeColor = System.Drawing.Color.White;
-            this.btnTrangSau.Location = new System.Drawing.Point(365, 4);
+            this.btnTrangSau.Location = new System.Drawing.Point(115, 3);
             this.btnTrangSau.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrangSau.Name = "btnTrangSau";
             this.btnTrangSau.Size = new System.Drawing.Size(43, 26);
@@ -220,7 +222,7 @@
             this.btnTrangTruoc.FillColor = System.Drawing.SystemColors.Highlight;
             this.btnTrangTruoc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrangTruoc.ForeColor = System.Drawing.Color.White;
-            this.btnTrangTruoc.Location = new System.Drawing.Point(262, 4);
+            this.btnTrangTruoc.Location = new System.Drawing.Point(12, 3);
             this.btnTrangTruoc.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrangTruoc.Name = "btnTrangTruoc";
             this.btnTrangTruoc.Size = new System.Drawing.Size(43, 26);
@@ -256,6 +258,18 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
+            // lblTongTienNhap
+            // 
+            this.lblTongTienNhap.AutoSize = true;
+            this.lblTongTienNhap.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongTienNhap.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTongTienNhap.Location = new System.Drawing.Point(184, 3);
+            this.lblTongTienNhap.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTongTienNhap.Name = "lblTongTienNhap";
+            this.lblTongTienNhap.Size = new System.Drawing.Size(87, 21);
+            this.lblTongTienNhap.TabIndex = 244;
+            this.lblTongTienNhap.Text = "Tổng tiền:";
+            // 
             // frmHienThi_ChiTietNhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,6 +287,7 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
+            this.guna2Panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -289,5 +304,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtSoTrang;
         private Guna.UI2.WinForms.Guna2Button btnTrangSau;
         private Guna.UI2.WinForms.Guna2Button btnTrangTruoc;
+        private System.Windows.Forms.Label lblTongTienNhap;
     }
 }

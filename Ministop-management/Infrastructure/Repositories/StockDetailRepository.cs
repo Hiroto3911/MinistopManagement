@@ -33,5 +33,29 @@ namespace Infrastructure.Repositories
                         };
             return query.Skip((int)((pageNumber - 1) * pageSize)).Take(pageSize).OrderByDescending(x => x.LastUpdate).ToList();
         }
+        public virtual StockDetailDto Find(Expression<Func<StockDetail, bool>> predicated)
+        {
+            var query = from ct in _context.GetTable<StockDetail>().Where(predicated)
+                        join sp in _context.GetTable<Product>() on ct.ProductID equals sp.ProductID
+                        select new StockDetailDto
+                        {
+                            StockDetailId = ct.StockDetailID,
+                            StoreId = ct.StoreID,
+                            ProductName = sp.ProductName,
+                            ProductId = ct.ProductID,
+                            LastUpdate = ct.LastUpdate,
+                            Price = ct.Price,
+                            Quantity = ct.Quantity
+                        };
+            return query.FirstOrDefault();
+
+
+        }
+        public virtual StockDetail FindByID(Expression<Func<StockDetail, bool>> predicated)
+        {
+
+            return _context.GetTable<StockDetail>().FirstOrDefault(predicated);
+
+        }
     }
 }

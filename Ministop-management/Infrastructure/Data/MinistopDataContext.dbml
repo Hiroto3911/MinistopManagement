@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MinistopManagement" Class="MinistopDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-3M1QM2P;Initial Catalog=MinistopManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Infrastructure.Properties.Settings" SettingsPropertyName="MinistopManagementConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LATI7480\SQLEXPRESS;Initial Catalog=MinistopManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Infrastructure.Properties.Settings" SettingsPropertyName="MinistopManagementConnectionString4" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Absence" Member="Absences">
     <Type Name="Absence">
       <Column Name="AbsenceID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -10,6 +10,17 @@
       <Column Name="Reason" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="IsPaid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="ShiftAssignment_Absence" Member="ShiftAssignment" ThisKey="EmployeeID,ShiftID,WorkDate" OtherKey="EmployeeID,ShiftID,WorkDate" Type="ShiftAssignment" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SupplierProduct" Member="SupplierProducts">
+    <Type Name="SupplierProduct">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="Product_SupplierProduct" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="Supplier_SupplierProduct" Member="Supplier" ThisKey="SupplierID" OtherKey="SupplierID" Type="Supplier" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Allowances" Member="Allowances">
@@ -60,6 +71,8 @@
       <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="InvoiceDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="FinalAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DiscountTotal" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Association Name="Invoice_InvoiceDetail" Member="InvoiceDetails" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="InvoiceDetail" />
       <Association Name="Invoice_ReturnProduct" Member="ReturnProducts" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="ReturnProduct" />
       <Association Name="Employee_Invoice" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
@@ -73,6 +86,8 @@
       <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="FinalUnitPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DiscountAmount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
       <Association Name="Invoice_InvoiceDetail" Member="Invoice" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="Invoice" IsForeignKey="true" />
       <Association Name="Product_InvoiceDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
     </Type>
@@ -121,6 +136,7 @@
       <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Product_SupplierProduct" Member="SupplierProducts" ThisKey="ProductID" OtherKey="ProductID" Type="SupplierProduct" />
       <Association Name="Product_InvoiceDetail" Member="InvoiceDetails" ThisKey="ProductID" OtherKey="ProductID" Type="InvoiceDetail" />
       <Association Name="Product_PriceProposal" Member="PriceProposals" ThisKey="ProductID" OtherKey="ProductID" Type="PriceProposal" />
       <Association Name="Product_Promotion_Product" Member="Promotion_Products" ThisKey="ProductID" OtherKey="ProductID" Type="Promotion_Product" />
@@ -129,7 +145,6 @@
       <Association Name="Product_StockDetail" Member="StockDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockDetail" />
       <Association Name="Product_StockExportDetail" Member="StockExportDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockExportDetail" />
       <Association Name="Product_StockImportDetail" Member="StockImportDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockImportDetail" />
-      <Association Name="Product_SupplierProduct" Member="SupplierProducts" ThisKey="ProductID" OtherKey="ProductID" Type="SupplierProduct" />
       <Association Name="ProductCategory_Product" Member="ProductCategory" ThisKey="CategoryID" OtherKey="CategoryID" Type="ProductCategory" IsForeignKey="true" />
     </Type>
   </Table>
@@ -177,10 +192,13 @@
       <Column Name="ReturnID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="InvoiceID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="ReturnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Association Name="ReturnProduct_ReturnDetail" Member="ReturnDetails" ThisKey="ReturnID" OtherKey="ReturnID" Type="ReturnDetail" />
       <Association Name="Employee_ReturnProduct" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
       <Association Name="Invoice_ReturnProduct" Member="Invoice" ThisKey="InvoiceID" OtherKey="InvoiceID" Type="Invoice" IsForeignKey="true" />
+      <Association Name="Store_ReturnProduct" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Salary" Member="Salaries">
@@ -329,6 +347,7 @@
       <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
       <Column Name="ImportDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Association Name="StockImport_StockImportDetail" Member="StockImportDetails" ThisKey="ImportID" OtherKey="ImportID" Type="StockImportDetail" />
       <Association Name="Employee_StockImport" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
       <Association Name="Store_StockImport" Member="Store" ThisKey="StoreID" OtherKey="StoreID" Type="Store" IsForeignKey="true" />
@@ -360,6 +379,7 @@
       <Association Name="Store_Employee" Member="Employees" ThisKey="StoreID" OtherKey="StoreID" Type="Employee" />
       <Association Name="Store_Invoice" Member="Invoices" ThisKey="StoreID" OtherKey="StoreID" Type="Invoice" />
       <Association Name="Store_PriceProposal" Member="PriceProposals" ThisKey="StoreID" OtherKey="StoreID" Type="PriceProposal" />
+      <Association Name="Store_ReturnProduct" Member="ReturnProducts" ThisKey="StoreID" OtherKey="StoreID" Type="ReturnProduct" />
       <Association Name="Store_StockCheck" Member="StockChecks" ThisKey="StoreID" OtherKey="StoreID" Type="StockCheck" />
       <Association Name="Store_StockDetail" Member="StockDetails" ThisKey="StoreID" OtherKey="StoreID" Type="StockDetail" />
       <Association Name="Store_StockExport" Member="StockExports" ThisKey="StoreID" OtherKey="StoreID" Type="StockExport" />
@@ -396,19 +416,8 @@
       <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Supplier_StockImport" Member="StockImports" ThisKey="SupplierID" OtherKey="SupplierID" Type="StockImport" />
       <Association Name="Supplier_SupplierProduct" Member="SupplierProducts" ThisKey="SupplierID" OtherKey="SupplierID" Type="SupplierProduct" />
-    </Type>
-  </Table>
-  <Table Name="dbo.SupplierProduct" Member="SupplierProducts">
-    <Type Name="SupplierProduct">
-      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SupplierID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="SupplyPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
-      <Association Name="Product_SupplierProduct" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
-      <Association Name="Supplier_SupplierProduct" Member="Supplier" ThisKey="SupplierID" OtherKey="SupplierID" Type="Supplier" IsForeignKey="true" />
+      <Association Name="Supplier_StockImport" Member="StockImports" ThisKey="SupplierID" OtherKey="SupplierID" Type="StockImport" />
     </Type>
   </Table>
   <Function Name="dbo.SP_DanhSachCuaHangTheoThanhPho" Method="SP_DanhSachCuaHangTheoThanhPho">
@@ -436,6 +445,170 @@
       <Column Name="Position" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="EmploymentType" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="StoreID" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_ReturnReport" Method="SP_ReturnReport">
+    <Parameter Name="ReturnID" Parameter="returnID" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="SP_ReturnReportResult">
+      <Column Name="ReturnID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreAddress" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RefundAmount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalRefund" Type="System.Decimal" DbType="Decimal(29,2)" CanBeNull="true" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_StockExport" Method="SP_StockExport">
+    <Parameter Name="ExportID" Parameter="exportID" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="SP_StockExportResult">
+      <Column Name="ExportID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ExportDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(29,2)" CanBeNull="true" />
+      <Column Name="totalAmount" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_StockImportReport" Method="SP_StockImportReport">
+    <Parameter Name="ImportID" Parameter="importID" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="SP_StockImportReportResult">
+      <Column Name="ImportID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ImportDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(29,2)" CanBeNull="true" />
+      <Column Name="totalAmount" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_StoreRevenueByMonth" Method="SP_StoreRevenueByMonth">
+    <Parameter Name="StoreID" Parameter="storeID" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="SP_StoreRevenueByMonthResult">
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Month" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Revenue" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_StoreRevenueByTimeResult" Method="SP_StoreRevenueByTimeResult">
+    <Parameter Name="StoreID" Parameter="storeID" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="FromDate" Parameter="fromDate" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="ToDate" Parameter="toDate" Type="System.DateTime" DbType="Date" />
+    <ElementType Name="SP_StoreRevenueByTimeResultResult">
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Month" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Revenue" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetSalaryContractReport" Method="sp_GetSalaryContractReport">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="sp_GetSalaryContractReportResult">
+      <Column Name="ContractID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmploymentType" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BasicSalary" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="HourlyRate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TotalAllowance" Type="System.Decimal" DbType="Decimal(38,2) NOT NULL" CanBeNull="false" />
+      <Column Name="EstimatedTotalIncome" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_StoreFinancialReportByMonth" Method="SP_StoreFinancialReportByMonth">
+    <Parameter Name="StoreID" Parameter="storeID" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="SP_StoreFinancialReportByMonthResult">
+      <Column Name="Year" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Month" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Revenue" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="FixedExpense" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="SalaryExpense" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Financial" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetSalaryList_ByStore" Method="sp_GetSalaryList_ByStore">
+    <Parameter Name="StoreID" Parameter="storeID" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="MonthYear" Parameter="monthYear" Type="System.String" DbType="Char(7)" />
+    <ElementType Name="sp_GetSalaryList_ByStoreResult">
+      <Column Name="SalaryID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmploymentType" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="BasicSalary" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="HourlyRate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Bonus" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Deduction" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalIncome" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetSalarySlip_ByEmployee" Method="sp_GetSalarySlip_ByEmployee">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="MonthYear" Parameter="monthYear" Type="System.String" DbType="Char(7)" />
+    <ElementType Name="sp_GetSalarySlip_ByEmployeeResult">
+      <Column Name="SalaryID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ContractID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmploymentType" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="MonthYear" Type="System.String" DbType="Char(7) NOT NULL" CanBeNull="false" />
+      <Column Name="BasicSalary" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="HourlyRate" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="Bonus" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Deduction" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="TotalHoursWorked" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TotalAllowance" Type="System.Decimal" DbType="Decimal(38,2) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_InvoiceReport" Method="SP_InvoiceReport">
+    <Parameter Name="InvoiceID" Parameter="invoiceID" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="SP_InvoiceReportResult">
+      <Column Name="InvoiceID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="InvoiceDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreAddress" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StorePhone" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductName" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Unit" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

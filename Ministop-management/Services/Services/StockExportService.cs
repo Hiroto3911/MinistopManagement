@@ -59,7 +59,7 @@ namespace Services.Services
                 throw ex;
             }
         }
-        public PagedResult<IReadOnlyList<StockExportDto>> GetStockExport (string storeId, int pageNumber, int pageSize)
+        public PagedResult<IReadOnlyList<StockExportDto>> GetStockExport(string storeId, int pageNumber, int pageSize)
         {
             var totalCount = _ministopUnitOfWork.StockExportRepository.GetCount(x => x.StoreID == storeId);
             var stockExportEntity = _ministopUnitOfWork.StockExportRepository.GetPagedResponse((x => x.StoreID == storeId), pageNumber, pageSize);
@@ -91,22 +91,37 @@ namespace Services.Services
             }
         }
 
-
-        public Result<bool> UpdateStockExport(StockExportDto stockImportEdit)
+        //n
+        public Result<bool> UpdateStockExport(StockExportDto stockExportEdit)
         {
             _ministopUnitOfWork.BeginTransaction();
             try
             {
                 var currentUserId = _userSession.UserId;
-                var stockExportEntity = _ministopUnitOfWork.StockExportRepository.Find(x => x.ExportID == stockImportEdit.ExportId);
+                var stockExportEntity = _ministopUnitOfWork.StockExportRepository.Find(x => x.ExportID == stockExportEdit.ExportId);
                 if (stockExportEntity == null)
                 {
                     return new Result<bool>(ErrorCodeEnum.SET_ERR_001);
                 }
-                stockExportEntity.Status = stockImportEdit.Status;
-                stockExportEntity.TypeExport = stockImportEdit.TypeExport;
-                stockExportEntity.Reason = stockImportEdit.Reason;
+                stockExportEntity.Status = stockExportEdit.Status;
+                stockExportEntity.TypeExport = stockExportEdit.TypeExport;
+                stockExportEntity.Reason = stockExportEdit.Reason;
                 _ministopUnitOfWork.StockExportRepository.Update(stockExportEntity, true);
+                if (stockExportEdit.Status == 1)
+                {
+                    var list = _ministopUnitOfWork.StockExportDetailRepository.GetAll(x => x.ExportID == stockExportEntity.ExportID);
+                    if (list == null || list.Count < 0) return new Result<bool>(ErrorCodeEnum.SET_ERR_005);
+                    foreach (var item in list)
+                    {
+                        var result = _ministopUnitOfWork.StockDetailRepository.FindByID(x => x.ProductID == item.ProductID);
+                        if (result == null) continue;
+                        result.Quantity -= item.Quantity;
+                        result.LastUpdate = _dateTimeService.NowUtc;
+                        _ministopUnitOfWork.StockDetailRepository.Update(result, true);
+                        CreateHistoryEntity(stockExportEntity.ExportID, result.StockDetailID, item.Quantity);
+                    }
+                }
+
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);
 
@@ -117,7 +132,21 @@ namespace Services.Services
                 throw ex;
             }
         }
-
+        //N
+        private void CreateHistoryEntity(string refID, string stockDetailID, int quantityChange)
+        {
+            string id = IdGenerator.CreateID("STH");
+            var entity = new StockHistory()
+            {
+                StockHistoryID = id,
+                StockDetailID = stockDetailID,
+                QuantityChange = quantityChange,
+                RefID = refID,
+                ChangeDate = _dateTimeService.NowUtc,
+                ChangeType = "Xuất"
+            };
+            _ministopUnitOfWork.StockHistoryRepository.Add(entity);
+        }
         public Result<bool> RemoveStockExport(string id)
         {
             _ministopUnitOfWork.BeginTransaction();
