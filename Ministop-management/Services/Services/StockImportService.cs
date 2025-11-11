@@ -104,6 +104,7 @@ namespace Services.Services
                     return new Result<bool>(ErrorCodeEnum.SIT_ERR_001);
                 }
                 stockImportEntity.Status = stockImportEdit.Status;
+                stockImportEntity.Note = stockImportEdit.Note;
                 _ministopUnitOfWork.StockImportRepository.Update(stockImportEntity, true);
                 if (stockImportEdit.Status == 4)
                 {
@@ -123,6 +124,7 @@ namespace Services.Services
                             detailID = result.StockDetailID;
                             result.Quantity += item.Quantity;
                             result.LastUpdate = _dateTimeService.NowUtc;
+
                             _ministopUnitOfWork.StockDetailRepository.Update(result, true);
                         }
                         CreateHistoryEntity(stockImportEntity.ImportID, detailID, item.Quantity);
