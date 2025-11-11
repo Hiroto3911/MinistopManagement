@@ -1,6 +1,6 @@
-﻿namespace Presentation
+﻿namespace Presentation.Sales.Dialogs
 {
-    partial class frmHienThi_LichSuKho
+    partial class frmHienThi_ChiTietHoaDon
     {
         /// <summary>
         /// Required designer variable.
@@ -32,26 +32,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.dgvDuLieu = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.itbnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.lblTieuDe = new System.Windows.Forms.Label();
+            this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtSoTrang = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTrangSau = new Guna.UI2.WinForms.Guna2Button();
             this.btnTrangTruoc = new Guna.UI2.WinForms.Guna2Button();
+            this.btnThem = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // guna2BorderlessForm1
-            // 
-            this.guna2BorderlessForm1.BorderRadius = 5;
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // dgvDuLieu
             // 
@@ -81,13 +75,13 @@
             this.dgvDuLieu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDuLieu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDuLieu.Location = new System.Drawing.Point(0, 34);
-            this.dgvDuLieu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvDuLieu.Margin = new System.Windows.Forms.Padding(2);
             this.dgvDuLieu.Name = "dgvDuLieu";
             this.dgvDuLieu.RowHeadersVisible = false;
             this.dgvDuLieu.RowHeadersWidth = 62;
             this.dgvDuLieu.RowTemplate.Height = 28;
-            this.dgvDuLieu.Size = new System.Drawing.Size(696, 234);
-            this.dgvDuLieu.TabIndex = 14;
+            this.dgvDuLieu.Size = new System.Drawing.Size(800, 382);
+            this.dgvDuLieu.TabIndex = 26;
             this.dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvDuLieu.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.dgvDuLieu.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -109,48 +103,49 @@
             this.dgvDuLieu.ThemeStyle.RowsStyle.Height = 28;
             this.dgvDuLieu.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDuLieu.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvDuLieu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDuLieu_CellContentClick);
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
-            this.guna2Panel1.Controls.Add(this.label11);
-            this.guna2Panel1.Controls.Add(this.itbnThoat);
+            this.guna2Panel1.Controls.Add(this.lblTieuDe);
+            this.guna2Panel1.Controls.Add(this.ibtnThoat);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(696, 34);
-            this.guna2Panel1.TabIndex = 13;
+            this.guna2Panel1.Size = new System.Drawing.Size(800, 34);
+            this.guna2Panel1.TabIndex = 25;
             // 
-            // label11
+            // lblTieuDe
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(8, 5);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(266, 21);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "Thông Tin Chi Tiết của sản phẩm: ";
+            this.lblTieuDe.AutoSize = true;
+            this.lblTieuDe.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTieuDe.ForeColor = System.Drawing.Color.White;
+            this.lblTieuDe.Location = new System.Drawing.Point(8, 5);
+            this.lblTieuDe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTieuDe.Name = "lblTieuDe";
+            this.lblTieuDe.Size = new System.Drawing.Size(213, 21);
+            this.lblTieuDe.TabIndex = 8;
+            this.lblTieuDe.Text = "Danh sách chi tiết hóa đơn";
             // 
-            // itbnThoat
+            // ibtnThoat
             // 
-            this.itbnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.itbnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.itbnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.itbnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.itbnThoat.ImageRotate = 0F;
-            this.itbnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.itbnThoat.Location = new System.Drawing.Point(668, 3);
-            this.itbnThoat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.itbnThoat.Name = "itbnThoat";
-            this.itbnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.Size = new System.Drawing.Size(24, 23);
-            this.itbnThoat.TabIndex = 7;
-            this.itbnThoat.Click += new System.EventHandler(this.guna2ImageButton4_Click);
+            this.ibtnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ibtnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.ibtnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.ibtnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnThoat.ImageRotate = 0F;
+            this.ibtnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.ibtnThoat.Location = new System.Drawing.Point(772, 3);
+            this.ibtnThoat.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnThoat.Name = "ibtnThoat";
+            this.ibtnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Size = new System.Drawing.Size(24, 23);
+            this.ibtnThoat.TabIndex = 7;
+            this.ibtnThoat.Click += new System.EventHandler(this.ibtnThoat_Click);
             // 
             // guna2Panel3
             // 
@@ -158,12 +153,13 @@
             this.guna2Panel3.Controls.Add(this.txtSoTrang);
             this.guna2Panel3.Controls.Add(this.btnTrangSau);
             this.guna2Panel3.Controls.Add(this.btnTrangTruoc);
+            this.guna2Panel3.Controls.Add(this.btnThem);
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel3.Location = new System.Drawing.Point(0, 268);
-            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.guna2Panel3.Location = new System.Drawing.Point(0, 416);
+            this.guna2Panel3.Margin = new System.Windows.Forms.Padding(2);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(696, 34);
-            this.guna2Panel3.TabIndex = 15;
+            this.guna2Panel3.Size = new System.Drawing.Size(800, 34);
+            this.guna2Panel3.TabIndex = 27;
             // 
             // txtSoTrang
             // 
@@ -181,13 +177,13 @@
             this.txtSoTrang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSoTrang.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSoTrang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSoTrang.Location = new System.Drawing.Point(326, 4);
+            this.txtSoTrang.Location = new System.Drawing.Point(371, 4);
             this.txtSoTrang.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSoTrang.Name = "txtSoTrang";
             this.txtSoTrang.PlaceholderText = "";
             this.txtSoTrang.SelectedText = "";
             this.txtSoTrang.Size = new System.Drawing.Size(48, 26);
-            this.txtSoTrang.TabIndex = 158;
+            this.txtSoTrang.TabIndex = 239;
             this.txtSoTrang.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnTrangSau
@@ -203,12 +199,13 @@
             this.btnTrangSau.FillColor = System.Drawing.SystemColors.Highlight;
             this.btnTrangSau.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrangSau.ForeColor = System.Drawing.Color.White;
-            this.btnTrangSau.Location = new System.Drawing.Point(380, 4);
+            this.btnTrangSau.Location = new System.Drawing.Point(425, 4);
             this.btnTrangSau.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrangSau.Name = "btnTrangSau";
             this.btnTrangSau.Size = new System.Drawing.Size(43, 26);
-            this.btnTrangSau.TabIndex = 157;
+            this.btnTrangSau.TabIndex = 238;
             this.btnTrangSau.Text = ">>";
+            this.btnTrangSau.Click += new System.EventHandler(this.btnTrangSau_Click);
             // 
             // btnTrangTruoc
             // 
@@ -223,26 +220,55 @@
             this.btnTrangTruoc.FillColor = System.Drawing.SystemColors.Highlight;
             this.btnTrangTruoc.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTrangTruoc.ForeColor = System.Drawing.Color.White;
-            this.btnTrangTruoc.Location = new System.Drawing.Point(277, 4);
+            this.btnTrangTruoc.Location = new System.Drawing.Point(322, 4);
             this.btnTrangTruoc.Margin = new System.Windows.Forms.Padding(2);
             this.btnTrangTruoc.Name = "btnTrangTruoc";
             this.btnTrangTruoc.Size = new System.Drawing.Size(43, 26);
-            this.btnTrangTruoc.TabIndex = 156;
+            this.btnTrangTruoc.TabIndex = 237;
             this.btnTrangTruoc.Text = "<<";
+            this.btnTrangTruoc.Click += new System.EventHandler(this.btnTrangTruoc_Click);
             // 
-            // frmHienThi_LichSuKho
+            // btnThem
+            // 
+            this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnThem.BorderColor = System.Drawing.Color.DimGray;
+            this.btnThem.BorderRadius = 10;
+            this.btnThem.BorderThickness = 3;
+            this.btnThem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
+            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.ForeColor = System.Drawing.Color.White;
+            this.btnThem.Location = new System.Drawing.Point(680, 3);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(2);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(93, 29);
+            this.btnThem.TabIndex = 236;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.BorderRadius = 5;
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            // 
+            // frmHienThi_ChiTietHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 302);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvDuLieu);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2Panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "frmHienThi_LichSuKho";
+            this.Name = "frmHienThi_ChiTietHoaDon";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmHienThi_ChiTiet";
+            this.Text = "frmHienThi_ChiTietHoaDon";
+            this.Load += new System.EventHandler(this.frmHienThi_ChiTietHoaDon_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
@@ -253,14 +279,15 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieu;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private System.Windows.Forms.Label lblTieuDe;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnThoat;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2ImageButton itbnThoat;
-        private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2TextBox txtSoTrang;
         private Guna.UI2.WinForms.Guna2Button btnTrangSau;
         private Guna.UI2.WinForms.Guna2Button btnTrangTruoc;
+        private Guna.UI2.WinForms.Guna2Button btnThem;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }

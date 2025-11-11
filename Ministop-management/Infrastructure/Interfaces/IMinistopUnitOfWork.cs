@@ -21,5 +21,22 @@ namespace Infrastructure.Interfaces
         IPromotionProductRepository PromotionProductRepository { get; }
         IReportRepository ReportRepository { get; }
 
+        IStockDetailRepository StockDetailRepository { get; }
+        IStockHistoryRepository StockHistoryRepository { get; }
+        IStockImportRepository StockImportRepository { get; }
+        IStockImportDetailRepository StockImportDetailRepository { get; }
+        IStockExportRepository StockExportRepository { get; }
+        IStockExportDetailRepository StockExportDetailRepository { get; }
+        IStockCheckRepository StockCheckRepository { get; }
+        IStockCheckDetailRepository StockCheckDetailRepository { get; }
+        IInvoiceRepository InvoiceRepository { get; }
+        IInvoiceDetailRepository InvoiceDetailRepository { get; }
+        ISalaryContractRepository SalaryContractRepository { get; }
+        IShiftAssignmentRepository ShiftAssignmentRepository { get; }
+        ISalaryRepository SalaryRepository { get; }
+        ISalaryContractAllowanceRepository SalaryContractAllowanceRepository { get; }
+        IAbsenceRepository AbsenceRepository { get; }
+        IReturnProductRepository ReturnProductRepository { get; }
+        IReturnDetailRepository ReturnDetailRepository { get; }
     }
 }

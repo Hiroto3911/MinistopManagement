@@ -53,24 +53,58 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IAbsenceService.cs" />
     <Compile Include="Interfaces\IAllowanceService.cs" />
     <Compile Include="Interfaces\IEmployeeService.cs" />
+    <Compile Include="Interfaces\IInvoiceDetailService.cs" />
+    <Compile Include="Interfaces\IInvoiceService.cs" />
     <Compile Include="Interfaces\IProductCategoryService.cs" />
     <Compile Include="Interfaces\IProductService.cs" />
     <Compile Include="Interfaces\IPromotionProductService.cs" />
     <Compile Include="Interfaces\IPromotionService.cs" />
     <Compile Include="Interfaces\IReportService.cs" />
+    <Compile Include="Interfaces\IReturnDetailService.cs" />
+    <Compile Include="Interfaces\IReturnProductService.cs" />
+    <Compile Include="Interfaces\ISalaryContactAllowanceService.cs" />
+    <Compile Include="Interfaces\ISalaryContractService.cs" />
+    <Compile Include="Interfaces\ISalaryService.cs" />
+    <Compile Include="Interfaces\IShiftAssignmentService.cs" />
     <Compile Include="Interfaces\IShiftService.cs" />
+    <Compile Include="Interfaces\IStockCheckDetailService.cs" />
+    <Compile Include="Interfaces\IStockCheckService.cs" />
+    <Compile Include="Interfaces\IStockDetailService.cs" />
+    <Compile Include="Interfaces\IStockExportDetailService.cs" />
+    <Compile Include="Interfaces\IStockExportService.cs" />
+    <Compile Include="Interfaces\IStockHistoryService.cs" />
+    <Compile Include="Interfaces\IStockImportDetailSerivce.cs" />
+    <Compile Include="Interfaces\IStockImportService.cs" />
     <Compile Include="Interfaces\IStoreFixedExpenseServices.cs" />
     <Compile Include="Interfaces\ISupplierProductService.cs" />
     <Compile Include="Interfaces\ISupplierService.cs" />
+    <Compile Include="Mapping\AbsenceMapping.cs" />
     <Compile Include="Mapping\AllowanceMapping.cs" />
+    <Compile Include="Mapping\ReturnDetailMapping.cs" />
+    <Compile Include="Mapping\ReturnProductMapping.cs" />
+    <Compile Include="Mapping\SalaryContractAllowanceMapping.cs" />
+    <Compile Include="Mapping\SalaryMapping.cs" />
+    <Compile Include="Mapping\ShiftAssignmentMapping.cs" />
     <Compile Include="Mapping\EmployeeMapping.cs" />
+    <Compile Include="Mapping\InvoiceDetailMapping.cs" />
+    <Compile Include="Mapping\InvoiceMapping.cs" />
     <Compile Include="Mapping\ProductCategoryMapping.cs" />
     <Compile Include="Mapping\ProductMapping.cs" />
     <Compile Include="Mapping\PromotionMapping.cs" />
     <Compile Include="Mapping\PromotionProductMapping.cs" />
+    <Compile Include="Mapping\SalaryContractMapping.cs" />
     <Compile Include="Mapping\ShiftMapping.cs" />
+    <Compile Include="Mapping\StockCheckDetailMapping.cs" />
+    <Compile Include="Mapping\StockCheckMapping.cs" />
+    <Compile Include="Mapping\StockDetailMapping.cs" />
+    <Compile Include="Mapping\StockExportDetailMapping.cs" />
+    <Compile Include="Mapping\StockExportMapping.cs" />
+    <Compile Include="Mapping\StockHistoryMapping.cs" />
+    <Compile Include="Mapping\StockImportDetailMapping.cs" />
+    <Compile Include="Mapping\StockImportMapping.cs" />
     <Compile Include="Mapping\StoreFixedExpenseMapping.cs" />
     <Compile Include="Mapping\SupplierMapping.cs" />
     <Compile Include="Mapping\SupplierProductMapping.cs" />
@@ -80,25 +114,45 @@
     <Compile Include="Interfaces\IStoreService.cs" />
     <Compile Include="Mapping\StoreMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AbsenceService.cs" />
     <Compile Include="Services\AllowanceService.cs" />
     <Compile Include="Services\DateTimeService.cs" />
     <Compile Include="Services\EmployeeService.cs" />
     <Compile Include="Services\IdentityService.cs" />
+    <Compile Include="Services\InvoiceDetailService.cs" />
+    <Compile Include="Services\InvoiceService.cs" />
     <Compile Include="Services\ProductCategoryService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\PromotionProductService.cs" />
     <Compile Include="Services\PromotionService.cs" />
     <Compile Include="Services\ReportService.cs" />
+    <Compile Include="Services\ReturnDetailService.cs" />
+    <Compile Include="Services\ReturnProductService.cs" />
+    <Compile Include="Services\SalaryContractAllowanceService.cs" />
+    <Compile Include="Services\SalaryService.cs" />
+    <Compile Include="Services\SalaryContractService.cs" />
+    <Compile Include="Services\ShiftAssignmentService.cs" />
     <Compile Include="Services\ShiftService.cs" />
+    <Compile Include="Services\StockCheckDetailService.cs" />
+    <Compile Include="Services\StockCheckService.cs" />
+    <Compile Include="Services\StockDetailService.cs" />
+    <Compile Include="Services\StockExportDetailService.cs" />
+    <Compile Include="Services\StockExportService.cs" />
+    <Compile Include="Services\StockHistoryService.cs" />
+    <Compile Include="Services\StockImportDetailSerivce.cs" />
+    <Compile Include="Services\StockImportService.cs" />
     <Compile Include="Services\StoreFixedExpenseServices.cs" />
     <Compile Include="Services\StoreService.cs" />
     <Compile Include="Services\SupplierProductService.cs" />
     <Compile Include="Services\SupplierService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Model.csproj">
       <Project>{204b809a-d027-406f-8529-2193211726ee}</Project>
-      <Name>Domain</Name>
+      <Name>Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
       <Project>{af96d17c-450d-43c3-8483-e111c856afa4}</Project>
@@ -110,7 +164,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <Folder Include="Domain\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

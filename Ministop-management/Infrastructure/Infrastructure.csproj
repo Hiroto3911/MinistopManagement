@@ -57,22 +57,56 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MinistopDataContext.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IAbsenceRepository.cs" />
     <Compile Include="Interfaces\IAllowanceRepository.cs" />
+    <Compile Include="Interfaces\IInvoiceDetailRepository.cs" />
+    <Compile Include="Interfaces\IInvoiceRepository.cs" />
     <Compile Include="Interfaces\IProductCategoryRepository.cs" />
     <Compile Include="Interfaces\IProductRepository.cs" />
     <Compile Include="Interfaces\IPromotionProductRepository.cs" />
     <Compile Include="Interfaces\IPromotionRepository.cs" />
     <Compile Include="Interfaces\IReportRepository.cs" />
+    <Compile Include="Interfaces\IReturnDetailRepository.cs" />
+    <Compile Include="Interfaces\IReturnProductRepository.cs" />
+    <Compile Include="Interfaces\ISalaryContractAllowanceRepository.cs" />
+    <Compile Include="Interfaces\ISalaryContractRepository.cs" />
+    <Compile Include="Interfaces\ISalaryRepository.cs" />
+    <Compile Include="Interfaces\IShiftAssignmentRepository.cs" />
     <Compile Include="Interfaces\IShiftRepository.cs" />
+    <Compile Include="Interfaces\IStockCheckDetailRepository.cs" />
+    <Compile Include="Interfaces\IStockCheckRepository.cs" />
+    <Compile Include="Interfaces\IStockDetailRepository.cs" />
+    <Compile Include="Interfaces\IStockExportDetailRepository.cs" />
+    <Compile Include="Interfaces\IStockExportRepository.cs" />
+    <Compile Include="Interfaces\IStockHistoryRepository.cs" />
+    <Compile Include="Interfaces\IStockImportDetailRepository.cs" />
+    <Compile Include="Interfaces\IStockImportRepository.cs" />
     <Compile Include="Interfaces\ISupplierProductRepository.cs" />
     <Compile Include="Interfaces\ISupplierRepository.cs" />
+    <Compile Include="Repositories\AbsenceRepository.cs" />
     <Compile Include="Repositories\AllowanceRepository.cs" />
+    <Compile Include="Repositories\InvoiceDetailRepository.cs" />
+    <Compile Include="Repositories\InvoiceRepository.cs" />
     <Compile Include="Repositories\ProductCategoryRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\PromotionProductReponsitory.cs" />
     <Compile Include="Repositories\PromotionRepository.cs" />
     <Compile Include="Repositories\ReportRepository.cs" />
+    <Compile Include="Repositories\ReturnDetailRepository.cs" />
+    <Compile Include="Repositories\ReturnProductRepository.cs" />
+    <Compile Include="Repositories\SalaryContractAllowanceRepository.cs" />
+    <Compile Include="Repositories\SalaryContractRepository.cs" />
+    <Compile Include="Repositories\SalaryRepository.cs" />
+    <Compile Include="Repositories\ShiftAssignmentRepository.cs" />
     <Compile Include="Repositories\ShiftRepository.cs" />
+    <Compile Include="Repositories\StockCheckDetailRepository.cs" />
+    <Compile Include="Repositories\StockCheckRepository.cs" />
+    <Compile Include="Repositories\StockDetailRepository.cs" />
+    <Compile Include="Repositories\StockExportDetailRepository.cs" />
+    <Compile Include="Repositories\StockExportRepository.cs" />
+    <Compile Include="Repositories\StockHistoryRepository.cs" />
+    <Compile Include="Repositories\StockImportDetailRepository.cs" />
+    <Compile Include="Repositories\StockImportRepository.cs" />
     <Compile Include="Repositories\SupplierProductRepository.cs" />
     <Compile Include="Repositories\SupplierRepository.cs" />
     <Compile Include="ServicesRegistration.cs" />
@@ -99,9 +133,9 @@
     <Compile Include="UnitOfWorks\MinistopUnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
+    <ProjectReference Include="..\Domain\Model.csproj">
       <Project>{204b809a-d027-406f-8529-2193211726ee}</Project>
-      <Name>Domain</Name>
+      <Name>Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Shared\Shared.csproj">
       <Project>{36b44f87-d9ad-403c-ace4-a02a0c415e22}</Project>

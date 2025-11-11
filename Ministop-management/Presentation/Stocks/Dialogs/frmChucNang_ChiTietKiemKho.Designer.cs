@@ -32,6 +32,7 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label5 = new System.Windows.Forms.Label();
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,11 +41,10 @@
             this.txtSLThucTe = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaSP = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtPhieuKiem = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtMaChiTiet = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTenSP = new Guna.UI2.WinForms.Guna2TextBox();
-            this.itbnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.rtxtGhiChu = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,12 +60,12 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.itbnThoat);
+            this.panel1.Controls.Add(this.ibtnThoat);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(409, 35);
+            this.panel1.Size = new System.Drawing.Size(399, 35);
             this.panel1.TabIndex = 210;
             // 
             // label11
@@ -79,6 +79,24 @@
             this.label11.Size = new System.Drawing.Size(226, 21);
             this.label11.TabIndex = 2;
             this.label11.Text = "Thông Tin Chi Tiết Kiểm Kho";
+            // 
+            // ibtnThoat
+            // 
+            this.ibtnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ibtnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.ibtnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.ibtnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnThoat.ImageRotate = 0F;
+            this.ibtnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.ibtnThoat.Location = new System.Drawing.Point(367, 6);
+            this.ibtnThoat.Margin = new System.Windows.Forms.Padding(2);
+            this.ibtnThoat.Name = "ibtnThoat";
+            this.ibtnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Size = new System.Drawing.Size(24, 23);
+            this.ibtnThoat.TabIndex = 1;
+            this.ibtnThoat.Click += new System.EventHandler(this.ibtnThoat_Click);
             // 
             // label5
             // 
@@ -103,12 +121,13 @@
             this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
             this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(158, 354);
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLuu.Location = new System.Drawing.Point(159, 358);
+            this.btnLuu.Margin = new System.Windows.Forms.Padding(2);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(93, 29);
             this.btnLuu.TabIndex = 216;
             this.btnLuu.Text = "Lưu";
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // label2
             // 
@@ -193,6 +212,7 @@
             this.txtMaSP.SelectedText = "";
             this.txtMaSP.Size = new System.Drawing.Size(219, 36);
             this.txtMaSP.TabIndex = 223;
+            this.txtMaSP.TextChanged += new System.EventHandler(this.txtMaSP_TextChanged);
             // 
             // label3
             // 
@@ -204,27 +224,27 @@
             this.label3.TabIndex = 222;
             this.label3.Text = "Mã sản phẩm:";
             // 
-            // txtPhieuKiem
+            // txtMaChiTiet
             // 
-            this.txtPhieuKiem.BorderRadius = 2;
-            this.txtPhieuKiem.BorderThickness = 2;
-            this.txtPhieuKiem.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPhieuKiem.DefaultText = "";
-            this.txtPhieuKiem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtPhieuKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtPhieuKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPhieuKiem.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtPhieuKiem.Enabled = false;
-            this.txtPhieuKiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhieuKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtPhieuKiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtPhieuKiem.Location = new System.Drawing.Point(159, 51);
-            this.txtPhieuKiem.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtPhieuKiem.Name = "txtPhieuKiem";
-            this.txtPhieuKiem.PlaceholderText = "";
-            this.txtPhieuKiem.SelectedText = "";
-            this.txtPhieuKiem.Size = new System.Drawing.Size(219, 36);
-            this.txtPhieuKiem.TabIndex = 225;
+            this.txtMaChiTiet.BorderRadius = 2;
+            this.txtMaChiTiet.BorderThickness = 2;
+            this.txtMaChiTiet.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtMaChiTiet.DefaultText = "";
+            this.txtMaChiTiet.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtMaChiTiet.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtMaChiTiet.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaChiTiet.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtMaChiTiet.Enabled = false;
+            this.txtMaChiTiet.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaChiTiet.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txtMaChiTiet.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtMaChiTiet.Location = new System.Drawing.Point(159, 51);
+            this.txtMaChiTiet.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMaChiTiet.Name = "txtMaChiTiet";
+            this.txtMaChiTiet.PlaceholderText = "";
+            this.txtMaChiTiet.SelectedText = "";
+            this.txtMaChiTiet.Size = new System.Drawing.Size(219, 36);
+            this.txtMaChiTiet.TabIndex = 225;
             // 
             // label4
             // 
@@ -232,9 +252,9 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(13, 51);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 19);
+            this.label4.Size = new System.Drawing.Size(75, 19);
             this.label4.TabIndex = 224;
-            this.label4.Text = "Mã phiếu kiểm:";
+            this.label4.Text = "Mã phiếu :";
             // 
             // label6
             // 
@@ -268,30 +288,11 @@
             this.txtTenSP.Size = new System.Drawing.Size(219, 36);
             this.txtTenSP.TabIndex = 228;
             // 
-            // itbnThoat
-            // 
-            this.itbnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.itbnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.itbnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.itbnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.itbnThoat.ImageRotate = 0F;
-            this.itbnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.itbnThoat.Location = new System.Drawing.Point(377, 6);
-            this.itbnThoat.Margin = new System.Windows.Forms.Padding(2);
-            this.itbnThoat.Name = "itbnThoat";
-            this.itbnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.Size = new System.Drawing.Size(24, 23);
-            this.itbnThoat.TabIndex = 1;
-            this.itbnThoat.Click += new System.EventHandler(this.guna2ImageButton4_Click);
-            // 
             // rtxtGhiChu
             // 
-            this.rtxtGhiChu.Location = new System.Drawing.Point(158, 281);
-            this.rtxtGhiChu.Margin = new System.Windows.Forms.Padding(2);
+            this.rtxtGhiChu.Location = new System.Drawing.Point(159, 281);
             this.rtxtGhiChu.Name = "rtxtGhiChu";
-            this.rtxtGhiChu.Size = new System.Drawing.Size(220, 55);
+            this.rtxtGhiChu.Size = new System.Drawing.Size(219, 66);
             this.rtxtGhiChu.TabIndex = 229;
             this.rtxtGhiChu.Text = "";
             // 
@@ -299,11 +300,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 394);
+            this.ClientSize = new System.Drawing.Size(399, 395);
             this.Controls.Add(this.rtxtGhiChu);
             this.Controls.Add(this.txtTenSP);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtPhieuKiem);
+            this.Controls.Add(this.txtMaChiTiet);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtMaSP);
             this.Controls.Add(this.label3);
@@ -318,6 +319,7 @@
             this.Name = "frmChucNang_ChiTietKiemKho";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmChucNang_ChiTietKiemKho";
+            this.Load += new System.EventHandler(this.frmChucNang_ChiTietKiemKho_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -330,14 +332,14 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2ImageButton itbnThoat;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnThoat;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2Button btnLuu;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox txtSLHeThong;
         private Guna.UI2.WinForms.Guna2TextBox txtSLThucTe;
-        private Guna.UI2.WinForms.Guna2TextBox txtPhieuKiem;
+        private Guna.UI2.WinForms.Guna2TextBox txtMaChiTiet;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2TextBox txtMaSP;
         private System.Windows.Forms.Label label3;
