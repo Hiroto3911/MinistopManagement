@@ -52,5 +52,10 @@ namespace Presentation.Settings
             cboLanguage.ValueMember = "Value";
 
         }
+
+        private void ibtnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
