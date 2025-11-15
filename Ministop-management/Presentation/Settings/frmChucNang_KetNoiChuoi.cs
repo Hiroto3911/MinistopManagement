@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Presentation.Sales.Dialogs
+namespace Presentation.Settings
 {
-    public partial class frmHienThi_ChiTietTraHang1 : Form
+    public partial class frmChucNang_KetNoiChuoi : Form
     {
-        public frmHienThi_ChiTietTraHang1()
+        public frmChucNang_KetNoiChuoi()
         {
             InitializeComponent();
         }

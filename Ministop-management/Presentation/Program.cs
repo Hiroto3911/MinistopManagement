@@ -1,8 +1,12 @@
 ﻿using Presentation.CrystalReport.FormShow;
+using Presentation.Settings;
+using Presentation.Stocks;
 using Services;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Services.Description;
 using System.Windows.Forms;
@@ -51,6 +55,15 @@ namespace Presentation
             // frm dang nhap 
             container.RegisterType<frmDangNhap>();
             #endregion
+            string lang = Properties.Settings.Default.Language;
+            if (string.IsNullOrEmpty(lang))
+            {
+                var frmCaiDat = container.Resolve<frmChucNang_CaiDatCaNhan>();
+                Application.Run(frmCaiDat);
+                return;
+            }
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(lang);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
             var frmDangNhap = container.Resolve<frmDangNhap>();
             Application.Run(frmDangNhap);
         }
