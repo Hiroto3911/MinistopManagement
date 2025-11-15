@@ -123,55 +123,49 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 19</value>
+    <value>56, 19</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>StoreID:</value>
+    <value>ShiftID:</value>
   </data>
-  <data name="btnLuu.Text" xml:space="preserve">
+  <data name="guna2Button1.Text" xml:space="preserve">
     <value>Save</value>
   </data>
   <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>146, 21</value>
+    <value>142, 21</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
-    <value>Store Information</value>
+    <value>Shift Information</value>
   </data>
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 19</value>
+    <value>66, 19</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
-    <value>PhoneNumber:</value>
+    <value>EndTime:</value>
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 95</value>
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 19</value>
+    <value>79, 19</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>StoreName:</value>
+    <value>ShiftName:</value>
   </data>
   <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 138</value>
-  </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 19</value>
+    <value>73, 19</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>Address:</value>
+    <value>StartTime:</value>
   </data>
   <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>

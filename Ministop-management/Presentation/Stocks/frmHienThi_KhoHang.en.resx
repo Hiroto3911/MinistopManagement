@@ -128,10 +128,13 @@
     <value>NoControl</value>
   </data>
   <data name="guna2GroupBox1.Text" xml:space="preserve">
-    <value>Total Export volume  in Month</value>
+    <value>Total export volume  in the Month</value>
   </data>
   <data name="lblSoLanNhap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="guna2GroupBox3.Text" xml:space="preserve">
+    <value>Total import volume in the month</value>
   </data>
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -143,19 +146,91 @@
   <data name="label6.Text" xml:space="preserve">
     <value>Refresh</value>
   </data>
+  <data name="tabChiTietKho.Text" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="btnInPhieuNhap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>469, 2</value>
+  </data>
   <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="btnThemNH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>552, 2</value>
+  </data>
+  <data name="guna2Panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>635, 34</value>
+  </data>
+  <data name="dgvDuLieuNH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>931, 272</value>
+  </data>
+  <data name="txtSoTrangNH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 4</value>
+  </data>
+  <data name="btnTrangSauNH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>347, 4</value>
+  </data>
+  <data name="btnTrangTruocNH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 4</value>
+  </data>
+  <data name="guna2Panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>635, 34</value>
+  </data>
+  <data name="tabNhapHang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 4</value>
+  </data>
+  <data name="tabNhapHang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 342</value>
+  </data>
+  <data name="tabNhapHang.Text" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="dgvDuLieuXH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 274</value>
+  </data>
+  <data name="btnInPhieuXuat.Location" type="System.Drawing.Point, System.Drawing">
+    <value>467, 2</value>
   </data>
   <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="btnThemXH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>556, 2</value>
+  </data>
+  <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 34</value>
+  </data>
+  <data name="txtSoTrangXH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 4</value>
+  </data>
+  <data name="btnTrangSauXH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>349, 4</value>
+  </data>
+  <data name="btnTrangTruocXH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>246, 4</value>
+  </data>
+  <data name="guna2Panel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 34</value>
+  </data>
+  <data name="tabXuatHang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 4</value>
+  </data>
+  <data name="tabXuatHang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 342</value>
+  </data>
+  <data name="tabXuatHang.Text" xml:space="preserve">
+    <value>Export</value>
+  </data>
   <data name="lblTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="tabKiemHang.Text" xml:space="preserve">
+    <value>Check</value>
   </data>
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="tabTimKiem.Text" xml:space="preserve">
+    <value>Search</value>
   </data>
 </root>
