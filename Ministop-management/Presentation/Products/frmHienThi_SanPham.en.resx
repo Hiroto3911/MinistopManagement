@@ -117,7 +117,96 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="guna2BorderlessForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="btnThemSP.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="tabSanPham.Text" xml:space="preserve">
+    <value>Product Management</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="dgvloaisanpham.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 273</value>
+  </data>
+  <data name="btnthemPCT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>556, 4</value>
+  </data>
+  <data name="guna2Panel11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 34</value>
+  </data>
+  <data name="ibtnDuLieuBiXoaPCT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>602, 2</value>
+  </data>
+  <data name="txtTrangLSP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 4</value>
+  </data>
+  <data name="btnTrangSauPCT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>348, 4</value>
+  </data>
+  <data name="btnTrangTruocPCT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 4</value>
+  </data>
+  <data name="guna2Panel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 34</value>
+  </data>
+  <data name="tabLoaiSanPham.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 4</value>
+  </data>
+  <data name="tabLoaiSanPham.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 341</value>
+  </data>
+  <data name="tabLoaiSanPham.Text" xml:space="preserve">
+    <value>Category Management</value>
+  </data>
+  <data name="dgvPGG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 273</value>
+  </data>
+  <data name="btnThemKM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>556, 4</value>
+  </data>
+  <data name="btnThemKM.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="guna2Panel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 34</value>
+  </data>
+  <data name="ibtnThungRacPGG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>598, 2</value>
+  </data>
+  <data name="txtTrangKM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>293, 4</value>
+  </data>
+  <data name="btnTrangSauKM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>348, 4</value>
+  </data>
+  <data name="btnTrangTruocKM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>244, 4</value>
+  </data>
+  <data name="guna2Panel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 34</value>
+  </data>
+  <data name="guna2DataGridView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 341</value>
+  </data>
+  <data name="tabKhuyenMai.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 4</value>
+  </data>
+  <data name="tabKhuyenMai.Size" type="System.Drawing.Size, System.Drawing">
+    <value>639, 341</value>
+  </data>
+  <data name="tabKhuyenMai.Text" xml:space="preserve">
+    <value>Promotion Management</value>
+  </data>
+  <data name="btnThem.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="tabNhaCungCap.Text" xml:space="preserve">
+    <value>Supplier Management</value>
+  </data>
+  <data name="tabDeXuatGia.Text" xml:space="preserve">
+    <value>Price Proposal</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
 </root>

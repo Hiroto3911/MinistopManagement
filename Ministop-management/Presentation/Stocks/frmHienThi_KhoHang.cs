@@ -880,8 +880,7 @@ namespace Presentation
            dgvDuLieuTimKiem.RowTemplate.Height = 40;
           
         }
-       
 
-       
+      
     }
 }
