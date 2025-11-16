@@ -943,6 +943,7 @@
             this.tabControlKH.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
             this.tabControlKH.TabButtonSize = new System.Drawing.Size(220, 100);
             this.tabControlKH.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
+            this.tabControlKH.SelectedIndexChanged += new System.EventHandler(this.tabControlKH_SelectedIndexChanged);
             // 
             // tabTimKiem
             // 

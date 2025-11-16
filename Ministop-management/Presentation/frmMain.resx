@@ -117,12 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>910, 512</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="lblNguoiDung.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
-  <data name="&gt;&gt;lblTime.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;lblTime.Name" xml:space="preserve">
+    <value>lblTime</value>
   </data>
   <data name="&gt;&gt;mnBanHang.Name" xml:space="preserve">
     <value>mnBanHang</value>
@@ -130,16 +130,13 @@
   <data name="&gt;&gt;mnCuaHang.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="xuấtPhiếuLươngNhânViênToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>350, 22</value>
-  </data>
   <data name="&gt;&gt;xemHợpĐồngLươngNhânViênToolStripMenuItem.Name" xml:space="preserve">
     <value>xemHợpĐồngLươngNhânViênToolStripMenuItem</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnResize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="phieuXuatToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>350, 22</value>
   </data>
@@ -179,8 +176,8 @@
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>54, 36</value>
   </data>
-  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
+  <data name="&gt;&gt;guna2BorderlessForm1.Name" xml:space="preserve">
+    <value>guna2BorderlessForm1</value>
   </data>
   <data name="&gt;&gt;lblTime.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -188,9 +185,6 @@
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;mnThongKe.Name" xml:space="preserve">
-    <value>mnThongKe</value>
   </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -219,14 +213,11 @@
   <data name="&gt;&gt;danhSáchNhânViênTheoCửaHàngToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnHeThong.Name" xml:space="preserve">
-    <value>mnHeThong</value>
-  </data>
   <data name="guna2ImageButton3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
   </data>
-  <data name="mnSanPham.Text" xml:space="preserve">
-    <value>Sản phẩm</value>
+  <data name="&gt;&gt;lblTime.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="guna2ImageButton3.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
@@ -261,6 +252,9 @@
   <data name="guna2ImageButton4.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 24</value>
   </data>
+  <data name="xuấtPhiếuLươngNhânViênToolStripMenuItem.Text" xml:space="preserve">
+    <value>Xuất phiếu lương nhân viên</value>
+  </data>
   <data name="&gt;&gt;guna2ImageButton4.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
@@ -269,6 +263,9 @@
   </data>
   <data name="&gt;&gt;btnResize.Parent" xml:space="preserve">
     <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;mnKhoHang.Name" xml:space="preserve">
+    <value>mnKhoHang</value>
   </data>
   <data name="guna2ImageButton3.Location" type="System.Drawing.Point, System.Drawing">
     <value>850, 6</value>
@@ -305,9 +302,6 @@
   </data>
   <data name="danhSáchCửaHàngTheoKhuVựcToolStripMenuItem.Text" xml:space="preserve">
     <value>Danh sách cửa hàng theo khu vực</value>
-  </data>
-  <data name="báoCáoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 28</value>
   </data>
   <data name="&gt;&gt;xuấtPhiếuLươngNhânViênToolStripMenuItem.Name" xml:space="preserve">
     <value>xuấtPhiếuLươngNhânViênToolStripMenuItem</value>
@@ -712,26 +706,23 @@
   <data name="&gt;&gt;guna2ImageButton3.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="&gt;&gt;lblTime.Name" xml:space="preserve">
-    <value>lblTime</value>
+  <data name="&gt;&gt;mnCaiDat.Name" xml:space="preserve">
+    <value>mnCaiDat</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
+  <data name="mnDangXuat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 22</value>
+  </data>
   <data name="mnThongKe.Text" xml:space="preserve">
     <value>Thống kê</value>
-  </data>
-  <data name="&gt;&gt;báoCáoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;báoCáoToolStripMenuItem.Name" xml:space="preserve">
     <value>báoCáoToolStripMenuItem</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>96, 96</value>
-  </data>
-  <data name="&gt;&gt;xemHợpĐồngLươngNhânViênToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="xemHợpĐồngLươngNhânViênToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>350, 22</value>
@@ -754,11 +745,11 @@
   <data name="lblNguoiDung.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="guna2ImageButton3.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
   <data name="guna2ImageButton3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
-  </data>
-  <data name="guna2ImageButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 24</value>
   </data>
   <data name="vềỨngDụngToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>190, 22</value>
@@ -772,11 +763,14 @@
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
   </data>
+  <data name="lblTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="&gt;&gt;guna2BorderlessForm1.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2BorderlessForm, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="&gt;&gt;guna2BorderlessForm1.Name" xml:space="preserve">
-    <value>guna2BorderlessForm1</value>
+  <data name="&gt;&gt;mnHeThong.Name" xml:space="preserve">
+    <value>mnHeThong</value>
   </data>
   <data name="&gt;&gt;guna2ImageButton1.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -808,14 +802,14 @@
   <data name="panelContainer.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="lblNguoiDung.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
-  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 36</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
+  </data>
+  <data name="mnSanPham.Text" xml:space="preserve">
+    <value>Sản phẩm</value>
   </data>
   <data name="&gt;&gt;guna2ImageButton4.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -835,14 +829,14 @@
   <data name="&gt;&gt;btnResize.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;panelContainer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;mnHeThong.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panelContainer.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>910, 512</value>
   </data>
   <data name="&gt;&gt;xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -856,14 +850,17 @@
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
   <data name="vềỨngDụngToolStripMenuItem.Text" xml:space="preserve">
     <value>Về ứng dụng</value>
   </data>
   <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;mnKhoHang.Name" xml:space="preserve">
-    <value>mnKhoHang</value>
+  <data name="guna2ImageButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 24</value>
   </data>
   <data name="danhSáchNhânViênTheoCửaHàngToolStripMenuItem.Text" xml:space="preserve">
     <value>Danh sách nhân viên theo cửa hàng</value>
@@ -871,11 +868,17 @@
   <data name="danhSáchCửaHàngTheoKhuVựcToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>350, 22</value>
   </data>
+  <data name="mnCuaHang.Text" xml:space="preserve">
+    <value>Cửa hàng</value>
+  </data>
   <data name="mnKhoHang.Text" xml:space="preserve">
     <value>Kho hàng</value>
   </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;báoCáoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -893,6 +896,9 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;mnBanHang.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;mnCaiDat.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="mnCuaHang.Size" type="System.Drawing.Size, System.Drawing">
@@ -916,17 +922,14 @@
   <data name="mnThongKe.Size" type="System.Drawing.Size, System.Drawing">
     <value>92, 28</value>
   </data>
-  <data name="&gt;&gt;phieuNhapToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>910, 32</value>
   </data>
-  <data name="xuấtPhiếuLươngNhânViênToolStripMenuItem.Text" xml:space="preserve">
-    <value>Xuất phiếu lương nhân viên</value>
+  <data name="&gt;&gt;panelContainer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="lblTime.Text" xml:space="preserve">
     <value>Datetime is loading...</value>
@@ -940,14 +943,17 @@
   <data name="báoCáoToolStripMenuItem.ShowShortcutKeys" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="mnCaiDat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>190, 22</value>
+  </data>
   <data name="&gt;&gt;lblNguoiDung.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="guna2ImageButton1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="guna2ImageButton3.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
+  <data name="&gt;&gt;xemHợpĐồngLươngNhânViênToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;mnNhanVien.Name" xml:space="preserve">
     <value>mnNhanVien</value>
@@ -957,6 +963,9 @@
   </data>
   <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
     <value>2, 0</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;mnCuaHang.Name" xml:space="preserve">
     <value>mnCuaHang</value>
@@ -979,8 +988,8 @@
   <data name="btnResize.Size" type="System.Drawing.Size, System.Drawing">
     <value>22, 22</value>
   </data>
-  <data name="mnCuaHang.Text" xml:space="preserve">
-    <value>Cửa hàng</value>
+  <data name="&gt;&gt;mnThongKe.Name" xml:space="preserve">
+    <value>mnThongKe</value>
   </data>
   <data name="&gt;&gt;thôngTinNgườiDùngToolStripMenuItem.Name" xml:space="preserve">
     <value>thôngTinNgườiDùngToolStripMenuItem</value>
@@ -988,8 +997,8 @@
   <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
-  <data name="mnDangXuat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>190, 22</value>
+  <data name="&gt;&gt;phieuNhapToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="mnKhoHang.Size" type="System.Drawing.Size, System.Drawing">
     <value>94, 28</value>
@@ -1000,14 +1009,14 @@
   <data name="panelContainer.Size" type="System.Drawing.Size, System.Drawing">
     <value>910, 434</value>
   </data>
-  <data name="lblTime.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
   </data>
   <data name="lblNguoiDung.Location" type="System.Drawing.Point, System.Drawing">
     <value>58, 18</value>
   </data>
-  <data name="menuStrip1.Text" xml:space="preserve">
-    <value>menuStrip1</value>
+  <data name="báoCáoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 28</value>
   </data>
   <data name="guna2ImageButton1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Right</value>
@@ -1030,8 +1039,8 @@
   <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="xuấtPhiếuLươngNhânViênToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>350, 22</value>
   </data>
   <data name="&gt;&gt;mnDangXuat.Name" xml:space="preserve">
     <value>mnDangXuat</value>

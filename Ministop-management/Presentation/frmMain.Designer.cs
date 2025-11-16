@@ -32,16 +32,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.lblNguoiDung = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.panelContainer = new System.Windows.Forms.Panel();
-            this.btnResize = new Guna.UI2.WinForms.Guna2ImageButton();
             this.mnHeThong = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinNgườiDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnDangXuat = new System.Windows.Forms.ToolStripMenuItem();
-            this.vềỨngDụngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnCuaHang = new System.Windows.Forms.ToolStripMenuItem();
             this.mnNhanVien = new System.Windows.Forms.ToolStripMenuItem();
             this.mnKhoHang = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,14 +55,14 @@
             this.xemHợpĐồngLươngNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtPhiếuLươngNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2ImageButton3 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.guna2ImageButton4 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnResize = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.panelContainer = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNguoiDung
@@ -85,6 +84,55 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // guna2ImageButton1
+            // 
+            resources.ApplyResources(this.guna2ImageButton1, "guna2ImageButton1");
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Image = global::Presentation.Properties.Resources.minimize;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            // 
+            // guna2ImageButton3
+            // 
+            resources.ApplyResources(this.guna2ImageButton3, "guna2ImageButton3");
+            this.guna2ImageButton3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Image = global::Presentation.Properties.Resources.maximize;
+            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton3.ImageRotate = 0F;
+            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton3.Name = "guna2ImageButton3";
+            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton3.Click += new System.EventHandler(this.guna2ImageButton3_Click);
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Image = global::Presentation.Properties.Resources.ministop_logo;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // guna2ImageButton4
+            // 
+            resources.ApplyResources(this.guna2ImageButton4, "guna2ImageButton4");
+            this.guna2ImageButton4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton4.Image = global::Presentation.Properties.Resources.cross;
+            this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton4.ImageRotate = 0F;
+            this.guna2ImageButton4.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton4.Name = "guna2ImageButton4";
+            this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton4.Click += new System.EventHandler(this.guna2ImageButton4_Click);
             // 
             // guna2BorderlessForm1
             // 
@@ -109,47 +157,12 @@
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Stretch = false;
             // 
-            // panel2
-            // 
-            resources.ApplyResources(this.panel2, "panel2");
-            this.panel2.BackColor = System.Drawing.SystemColors.Menu;
-            this.panel2.Controls.Add(this.btnResize);
-            this.panel2.Controls.Add(this.lblTime);
-            this.panel2.Name = "panel2";
-            // 
-            // lblTime
-            // 
-            resources.ApplyResources(this.lblTime, "lblTime");
-            this.lblTime.Name = "lblTime";
-            // 
-            // panelContainer
-            // 
-            resources.ApplyResources(this.panelContainer, "panelContainer");
-            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(63)))), ((int)(((byte)(128)))));
-            this.panelContainer.Name = "panelContainer";
-            // 
-            // btnResize
-            // 
-            resources.ApplyResources(this.btnResize, "btnResize");
-            this.btnResize.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnResize.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnResize.Image = global::Presentation.Properties.Resources.resize;
-            this.btnResize.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnResize.ImageRotate = 0F;
-            this.btnResize.ImageSize = new System.Drawing.Size(24, 24);
-            this.btnResize.Name = "btnResize";
-            this.btnResize.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnResize.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnResize_MouseDown);
-            this.btnResize.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BtnResize_MouseMove);
-            this.btnResize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnResize_MouseUp);
-            // 
             // mnHeThong
             // 
             resources.ApplyResources(this.mnHeThong, "mnHeThong");
             this.mnHeThong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinNgườiDùngToolStripMenuItem,
-            this.mnDangXuat,
-            this.vềỨngDụngToolStripMenuItem});
+            this.mnDangXuat});
             this.mnHeThong.Name = "mnHeThong";
             // 
             // thôngTinNgườiDùngToolStripMenuItem
@@ -162,11 +175,6 @@
             resources.ApplyResources(this.mnDangXuat, "mnDangXuat");
             this.mnDangXuat.Name = "mnDangXuat";
             this.mnDangXuat.Click += new System.EventHandler(this.mnDangXuat_Click);
-            // 
-            // vềỨngDụngToolStripMenuItem
-            // 
-            resources.ApplyResources(this.vềỨngDụngToolStripMenuItem, "vềỨngDụngToolStripMenuItem");
-            this.vềỨngDụngToolStripMenuItem.Name = "vềỨngDụngToolStripMenuItem";
             // 
             // mnCuaHang
             // 
@@ -264,54 +272,39 @@
             this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem.Name = "xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem";
             this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem.Click += new System.EventHandler(this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem_Click);
             // 
-            // guna2ImageButton1
+            // panel2
             // 
-            resources.ApplyResources(this.guna2ImageButton1, "guna2ImageButton1");
-            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Image = global::Presentation.Properties.Resources.minimize;
-            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton1.ImageRotate = 0F;
-            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(32, 32);
-            this.guna2ImageButton1.Name = "guna2ImageButton1";
-            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            resources.ApplyResources(this.panel2, "panel2");
+            this.panel2.BackColor = System.Drawing.SystemColors.Menu;
+            this.panel2.Controls.Add(this.btnResize);
+            this.panel2.Controls.Add(this.lblTime);
+            this.panel2.Name = "panel2";
             // 
-            // guna2ImageButton3
+            // btnResize
             // 
-            resources.ApplyResources(this.guna2ImageButton3, "guna2ImageButton3");
-            this.guna2ImageButton3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton3.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.Image = global::Presentation.Properties.Resources.maximize;
-            this.guna2ImageButton3.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton3.ImageRotate = 0F;
-            this.guna2ImageButton3.ImageSize = new System.Drawing.Size(32, 32);
-            this.guna2ImageButton3.Name = "guna2ImageButton3";
-            this.guna2ImageButton3.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton3.Click += new System.EventHandler(this.guna2ImageButton3_Click);
+            resources.ApplyResources(this.btnResize, "btnResize");
+            this.btnResize.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnResize.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnResize.Image = global::Presentation.Properties.Resources.resize;
+            this.btnResize.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnResize.ImageRotate = 0F;
+            this.btnResize.ImageSize = new System.Drawing.Size(24, 24);
+            this.btnResize.Name = "btnResize";
+            this.btnResize.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnResize.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnResize_MouseDown);
+            this.btnResize.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BtnResize_MouseMove);
+            this.btnResize.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnResize_MouseUp);
             // 
-            // pictureBox1
+            // lblTime
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
-            this.pictureBox1.Image = global::Presentation.Properties.Resources.ministop_logo;
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.TabStop = false;
+            resources.ApplyResources(this.lblTime, "lblTime");
+            this.lblTime.Name = "lblTime";
             // 
-            // guna2ImageButton4
+            // panelContainer
             // 
-            resources.ApplyResources(this.guna2ImageButton4, "guna2ImageButton4");
-            this.guna2ImageButton4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ImageButton4.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton4.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton4.Image = global::Presentation.Properties.Resources.cross;
-            this.guna2ImageButton4.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton4.ImageRotate = 0F;
-            this.guna2ImageButton4.ImageSize = new System.Drawing.Size(32, 32);
-            this.guna2ImageButton4.Name = "guna2ImageButton4";
-            this.guna2ImageButton4.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton4.Click += new System.EventHandler(this.guna2ImageButton4_Click);
+            resources.ApplyResources(this.panelContainer, "panelContainer");
+            this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(63)))), ((int)(((byte)(128)))));
+            this.panelContainer.Name = "panelContainer";
             // 
             // frmMain
             // 
@@ -331,11 +324,11 @@
             this.Resize += new System.EventHandler(this.frmMain_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,7 +347,6 @@
         private System.Windows.Forms.ToolStripMenuItem mnHeThong;
         private System.Windows.Forms.ToolStripMenuItem thôngTinNgườiDùngToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mnDangXuat;
-        private System.Windows.Forms.ToolStripMenuItem vềỨngDụngToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblTime;
         private Guna.UI2.WinForms.Guna2ImageButton btnResize;

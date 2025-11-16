@@ -1,4 +1,5 @@
 ﻿using Presentation.CrystalReport.FormShow;
+using Presentation.Settings;
 using Services.Interfaces;
 using Services.Services;
 using Shared.Security;
@@ -332,5 +333,7 @@ namespace Presentation
             var report = _container.Resolve<frmHienThi_DanhSachLuong_CuaHang>();
             report.Show();
         }
+
+       
     }
 }

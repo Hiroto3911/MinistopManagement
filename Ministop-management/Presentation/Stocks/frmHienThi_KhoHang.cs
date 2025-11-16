@@ -27,52 +27,78 @@ namespace Presentation
     {
         private readonly IUserSession _userSession;
         private readonly IUnityContainer _container;
-        private readonly IStockDetailService _stockDetailService;
-        private readonly IStockHistoryService _stockHistoryService;
         private readonly IStockImportService _stockImportService;
         private readonly IStockImportDetailSerivce _stockImportDetailSerivce;
         private readonly IStockExportService _stockExportService;
         private readonly IStockExportDetailService _stockExportDetailService;
         private readonly IStockCheckService _stockCheckService;
         private readonly IStockCheckDetailService _stockCheckDetailService;
-        private readonly IProductService _productService;
         private long _totalPageStockDetail;
         private long _totalPageStockImport;
         private long _totalPageStockExport;
         private long _totalPageStockCheck;
-        private int _totalCountImport;
-        private int _totalCountExport;
         private int _totalCountWarming= 0;
-        private long _totalPageSearch;
 
         public frmHienThi_KhoHang
             (IUserSession userSession, IUnityContainer container,
-            IStockDetailService stockDetailService, IStockHistoryService stockHistoryService,
+            IStockDetailService stockDetailService, 
             IStockImportService stockImportService, IStockImportDetailSerivce stockImportDetailSerivce,
             IStockExportService stockExportService, IStockExportDetailService stockExportDetailService,
-            IStockCheckService stockCheckService, IStockCheckDetailService stockCheckDetailService,
-            IProductService productService
+            IStockCheckService stockCheckService, IStockCheckDetailService stockCheckDetailService
             )
         {
             InitializeComponent();
             _userSession = userSession;
             _container = container;
-            _stockDetailService = stockDetailService;
-            _stockHistoryService = stockHistoryService;
             _stockImportService = stockImportService;
             _stockImportDetailSerivce = stockImportDetailSerivce;
             _stockExportService = stockExportService;
             _stockExportDetailService = stockExportDetailService;
             _stockCheckService = stockCheckService;
             _stockCheckDetailService = stockCheckDetailService;
-            _productService = productService;
 
         }
+        private void tabControlKH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var tab = tabControlKH.SelectedTab;
+            if(tab.Tag == null)
+            {
+                LoadTab(tab);
+                tab.Tag = "Loaded";
+            }
+        }
+
+        private void LoadTab(TabPage tab)
+        {
+           switch(tab.Name) {
+    
+                case "tabTimKiem":
+                    LoadDataStockDetail(_userSession.IdStore);
+                    break;
+                case "tabKiemHang":
+                  
+                    LoadDataStockCheck(cboCuaHangKH.SelectedValue.ToString());
+                    break;
+                case "tabXuatHang":
+                   
+                    LoadDataStockExport(cboCuaHangXH.SelectedValue.ToString());
+                    break;
+                case "tabNhapHang":
+                  
+                    LoadDataStockImport(cboCuaHangNH.SelectedValue.ToString());
+                    break;
+                case "tabChiTietKho":
+                    LoadDataStockDetail(_userSession.IdStore);
+                    break;
+           }
+           
+        }
+
         private void frmHienThi_KhoHang_Load(object sender, EventArgs e)
         {
             LoadCboCuaHang(cboCuaHangKH);
-            LoadCboCuaHang(cboCuaHangNH);
             LoadCboCuaHang(cboCuaHangXH);
+            LoadCboCuaHang(cboCuaHangNH);
             if (_userSession.Role == "Nhân viên")
             {
                 tabControlKH.TabPages.Remove(tabChiTietKho);
@@ -80,7 +106,7 @@ namespace Presentation
                 cboCuaHangKH.SelectedValue = _userSession.IdStore;
                 cboCuaHangNH.SelectedValue = _userSession.IdStore;
                 cboCuaHangXH.SelectedValue = _userSession.IdStore;
-                LoadDataStockDetail(_userSession.IdStore);
+              
 
 
             }
@@ -90,7 +116,6 @@ namespace Presentation
                 cboCuaHangKH.Enabled = true; 
                 cboCuaHangNH .Enabled = true;
                 cboCuaHangXH .Enabled = true;
-                LoadDataStockImport(cboCuaHangNH.SelectedValue.ToString());
                 btnThemKH.Visible = false;
                 btnThemNH.Visible = false;
                 btnThemXH.Visible = false;
@@ -100,13 +125,11 @@ namespace Presentation
                 cboCuaHangKH.SelectedValue = _userSession.IdStore;
                 cboCuaHangNH.SelectedValue = _userSession.IdStore;
                 cboCuaHangXH.SelectedValue = _userSession.IdStore;
-                LoadDataStockDetail(_userSession.IdStore);
-                LoadDataStockImport(cboCuaHangNH.SelectedValue.ToString());
                 btnThemKH.Visible = false;
                 btnThemXH.Visible = false;
             }
-            LoadDataStockCheck(cboCuaHangKH.SelectedValue.ToString());
-            LoadDataStockExport(cboCuaHangXH.SelectedValue.ToString());
+           
+           
 
         }
         private void LoadCboCuaHang(Guna2ComboBox cboCuaHang)
@@ -122,12 +145,158 @@ namespace Presentation
             }
 
         }
+        //private void ApplyGridStyle(Guna2DataGridView dgvDuLieu, string statusNotAllowed = "Duyệt", string roleNotAllowed = "")
+        //{
+
+        //    // ===== 2️⃣ Thêm hai cột nút =====
+        //    if (!dgvDuLieu.Columns.Contains("Edit") || !dgvDuLieu.Columns.Contains("Delete"))
+        //    {
+        //        // add column
+
+        //        if (dgvDuLieu.Columns["Edit"] == null && _userSession.Role != roleNotAllowed)
+        //        {
+
+        //            DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+        //            btnEdit.Name = "Edit";
+        //            btnEdit.HeaderText = "Edit";
+        //            btnEdit.Text = "Edit";
+        //            btnEdit.UseColumnTextForButtonValue = true;
+        //            dgvDuLieu.Columns.Add(btnEdit);
+        //        }
+        //        if (dgvDuLieu.Columns["Delete"] == null && _userSession.Role != "Admin")
+        //        {
+        //            DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+        //            btnDelete.Name = "Delete";
+        //            btnDelete.HeaderText = "Delete";
+        //            btnDelete.Text = "Delete";
+        //            btnDelete.UseColumnTextForButtonValue = true;
+        //            dgvDuLieu.Columns.Add(btnDelete);
+        //        }
+        //    }
+        //    // ===== 3️⃣ Chỉnh style chung cho bảng =====
+        //    dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
+        //    dgvDuLieu.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
+        //    dgvDuLieu.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+        //    dgvDuLieu.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+        //    dgvDuLieu.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
+        //    dgvDuLieu.RowTemplate.Height = 40;
+
+
+        //    // ===== 4️⃣ Đổi màu nút Edit/Delete =====
+        //    dgvDuLieu.RowPostPaint += (s, e) =>
+        //    {
+        //        if (e.RowIndex < 0) return;
+
+        //        var grid = (Guna2DataGridView)s;
+        //        var row = grid.Rows[e.RowIndex];
+        //        var status = row.Cells["TrangThai"].Value?.ToString();
+
+        //        if (status == "Không duyệt") // bị từ chối
+        //        {
+        //            using (Pen p = new Pen(Color.Red, 5)) // viền trái đỏ, dày 4px
+        //            {
+        //                int x = e.RowBounds.Left + 1;
+        //                int y1 = e.RowBounds.Top + 1;
+        //                int y2 = e.RowBounds.Bottom - 1;
+
+        //                e.Graphics.DrawLine(p, x, y1, x, y2);
+        //            }
+        //        }
+        //    };
+        //    dgvDuLieu.CellPainting += (s, e) =>
+        //    {
+        //        if (e.RowIndex < 0) return;
+        //        var grid = (Guna2DataGridView)s;
+        //        var status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
+        //        bool allowEditDelete = status != statusNotAllowed;
+        //        if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
+        //                                dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
+        //        {
+        //            e.PaintBackground(e.CellBounds, true);
+        //            if (allowEditDelete)
+        //            {
+        //                Color backColor = dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit"
+        //                ? Color.SeaGreen
+        //                : Color.IndianRed;
+
+        //                using (Brush b = new SolidBrush(backColor))
+        //                    e.Graphics.FillRectangle(b, e.CellBounds);
+
+        //                string text = dgvDuLieu.Columns[e.ColumnIndex].Name;
+        //                TextRenderer.DrawText(
+        //                    e.Graphics,
+        //                    text,
+        //                    new Font("Segoe UI", 9, FontStyle.Bold),
+        //                    e.CellBounds,
+        //                    Color.White,
+        //                    TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+        //                );
+        //            }
+        //            e.Handled = true;
+        //        }
+        //    };
+        //}
+        // 1️⃣ Hàm vẽ viền đỏ
+        private void DgvDuLieu_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            var grid = (Guna2DataGridView)sender;
+            var status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
+
+            if (status == "Không duyệt")
+            {
+                using (Pen p = new Pen(Color.Red, 5))
+                {
+                    int x = e.RowBounds.Left + 1;
+                    e.Graphics.DrawLine(p, x, e.RowBounds.Top + 1, x, e.RowBounds.Bottom - 1);
+                }
+            }
+        }
+
+        // 2️⃣ Hàm vẽ nút Edit/Delete
+        private void DgvDuLieu_CellPainting(object sender, DataGridViewCellPaintingEventArgs e, string statusNotAllowed)
+        {
+            if (e.RowIndex < 0) return;
+
+            var grid = (Guna2DataGridView)sender;
+            var status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
+            bool allowEditDelete = status != statusNotAllowed;
+
+            if (grid.Columns[e.ColumnIndex].Name == "Edit" || grid.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                e.PaintBackground(e.CellBounds, true);
+
+                if (allowEditDelete)
+                {
+                    Color backColor = grid.Columns[e.ColumnIndex].Name == "Edit" ? Color.SeaGreen : Color.IndianRed;
+                    using (Brush b = new SolidBrush(backColor))
+                        e.Graphics.FillRectangle(b, e.CellBounds);
+
+                    TextRenderer.DrawText(
+                        e.Graphics,
+                        grid.Columns[e.ColumnIndex].Name,
+                        new Font("Segoe UI", 9, FontStyle.Bold),
+                        e.CellBounds,
+                        Color.White,
+                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+                    );
+                }
+
+                e.Handled = true;
+            }
+        }
+
+        // 3️⃣ Gán event 1 lần trong ApplyGridStyle
         private void ApplyGridStyle(Guna2DataGridView dgvDuLieu, string statusNotAllowed = "Duyệt", string roleNotAllowed = "")
         {
-
             // ===== 2️⃣ Thêm hai cột nút =====
-            if (dgvDuLieu.Columns["Edit"] == null && _userSession.Role != roleNotAllowed)
+            if (!dgvDuLieu.Columns.Contains("Edit") || !dgvDuLieu.Columns.Contains("Delete"))
             {
+                // add column
+
+                if (dgvDuLieu.Columns["Edit"] == null && _userSession.Role != roleNotAllowed)
+                {
 
                     DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                     btnEdit.Name = "Edit";
@@ -135,15 +304,16 @@ namespace Presentation
                     btnEdit.Text = "Edit";
                     btnEdit.UseColumnTextForButtonValue = true;
                     dgvDuLieu.Columns.Add(btnEdit);
-            }
-            if (dgvDuLieu.Columns["Delete"] == null && _userSession.Role != "Admin")
-            {
-                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Delete";
-                btnDelete.HeaderText = "Delete";
-                btnDelete.Text = "Delete";
-                btnDelete.UseColumnTextForButtonValue = true;
-                dgvDuLieu.Columns.Add(btnDelete);
+                }
+                if (dgvDuLieu.Columns["Delete"] == null && _userSession.Role != "Admin")
+                {
+                    DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                    btnDelete.Name = "Delete";
+                    btnDelete.HeaderText = "Delete";
+                    btnDelete.Text = "Delete";
+                    btnDelete.UseColumnTextForButtonValue = true;
+                    dgvDuLieu.Columns.Add(btnDelete);
+                }
             }
             // ===== 3️⃣ Chỉnh style chung cho bảng =====
             dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
@@ -152,61 +322,18 @@ namespace Presentation
             dgvDuLieu.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvDuLieu.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
             dgvDuLieu.RowTemplate.Height = 40;
+            // Gỡ event trước khi đăng ký
+            dgvDuLieu.RowPostPaint -= DgvDuLieu_RowPostPaint;
+            dgvDuLieu.RowPostPaint += DgvDuLieu_RowPostPaint;
 
+            dgvDuLieu.CellPainting -= DgvDuLieu_CellPaintingWrapper;
+            dgvDuLieu.CellPainting += DgvDuLieu_CellPaintingWrapper;
 
-            // ===== 4️⃣ Đổi màu nút Edit/Delete =====
-            dgvDuLieu.RowPostPaint += (s, e) =>
+            // Wrapper để truyền parameter
+            void DgvDuLieu_CellPaintingWrapper(object s, DataGridViewCellPaintingEventArgs e)
             {
-                if (e.RowIndex < 0) return;
-
-                var grid = (Guna2DataGridView)s;
-                var row = grid.Rows[e.RowIndex];
-                var status = row.Cells["TrangThai"].Value?.ToString();
-
-                if (status == "Không duyệt") // bị từ chối
-                {
-                    using (Pen p = new Pen(Color.Red, 5)) // viền trái đỏ, dày 4px
-                    {
-                        int x = e.RowBounds.Left + 1;
-                        int y1 = e.RowBounds.Top + 1;
-                        int y2 = e.RowBounds.Bottom - 1;
-
-                        e.Graphics.DrawLine(p, x, y1, x, y2);
-                    }
-                }
-            };
-            dgvDuLieu.CellPainting += (s, e) =>
-            {
-                if (e.RowIndex < 0) return;
-                var grid = (Guna2DataGridView)s;
-                var status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
-                bool allowEditDelete = status != statusNotAllowed;
-                if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
-                                        dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
-                {
-                    e.PaintBackground(e.CellBounds, true);
-                    if (allowEditDelete)
-                    {
-                        Color backColor = dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit"
-                        ? Color.SeaGreen
-                        : Color.IndianRed;
-
-                        using (Brush b = new SolidBrush(backColor))
-                            e.Graphics.FillRectangle(b, e.CellBounds);
-
-                        string text = dgvDuLieu.Columns[e.ColumnIndex].Name;
-                        TextRenderer.DrawText(
-                            e.Graphics,
-                            text,
-                            new Font("Segoe UI", 9, FontStyle.Bold),
-                            e.CellBounds,
-                            Color.White,
-                            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-                        );
-                    }
-                    e.Handled = true;
-                }
-            };
+                DgvDuLieu_CellPainting(s, e, statusNotAllowed);
+            }
         }
 
         #region StockDetail 
@@ -242,7 +369,6 @@ namespace Presentation
             dgvDuLieuCT.DataSource = dt;
             dgvDuLieuCT.AllowUserToAddRows = false;
             dgvDuLieuCT.ReadOnly = true;
-            dgvDuLieuCT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDuLieuCT.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
             dgvDuLieuCT.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
             dgvDuLieuCT.ThemeStyle.HeaderStyle.ForeColor = Color.White;
@@ -410,7 +536,6 @@ namespace Presentation
             dgvDuLieuNH.DataSource = dt;
             dgvDuLieuNH.AllowUserToAddRows = false;
             dgvDuLieuNH.ReadOnly = true;
-            dgvDuLieuNH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ApplyGridStyle(dgvDuLieuNH, "Đã nhập hàng");
             btnTrangTruocNH.Enabled = pageNumber > 1;
             btnTrangSauNH.Enabled = pageNumber <= _totalPageStockImport;
@@ -567,7 +692,6 @@ namespace Presentation
             dgvDuLieuXH.DataSource = dt;
             dgvDuLieuXH.AllowUserToAddRows = false;
             dgvDuLieuXH.ReadOnly = true;
-            dgvDuLieuXH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ApplyGridStyle(dgvDuLieuXH, "Duyệt", "Admin");
             btnTrangTruocXH.Enabled = pageNumber > 1;
             btnTrangSauXH.Enabled = pageNumber <= _totalPageStockExport;
@@ -722,7 +846,6 @@ namespace Presentation
             dgvDuLieuKH.DataSource = dt;
             dgvDuLieuKH.AllowUserToAddRows = false;
             dgvDuLieuKH.ReadOnly = true;
-            dgvDuLieuKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ApplyGridStyle(dgvDuLieuKH, "Duyệt", "Admin");
             btnTrangTruocKH.Enabled = pageNumber > 1;
             btnTrangSauKH.Enabled = pageNumber <= _totalPageStockCheck;
@@ -871,7 +994,6 @@ namespace Presentation
             dgvDuLieuTimKiem.DataSource = dt;
            dgvDuLieuTimKiem.AllowUserToAddRows = false;
            dgvDuLieuTimKiem.ReadOnly = true;
-           dgvDuLieuTimKiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
            dgvDuLieuTimKiem.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
            dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
            dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.ForeColor = Color.White;
@@ -881,6 +1003,6 @@ namespace Presentation
           
         }
 
-      
+       
     }
 }
