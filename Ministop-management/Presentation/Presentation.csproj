@@ -220,23 +220,17 @@
     <Compile Include="Products\Dialogs\frmThungRac_GG.Designer.cs">
       <DependentUpon>frmThungRac_GG.cs</DependentUpon>
     </Compile>
-    <Compile Include="Products\frmHienThi_GiamGiaSanPham.cs">
+    <Compile Include="Products\Dialogs\frmHienThi_GiamGiaSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Products\frmHienThi_GiamGiaSanPham.Designer.cs">
+    <Compile Include="Products\Dialogs\frmHienThi_GiamGiaSanPham.Designer.cs">
       <DependentUpon>frmHienThi_GiamGiaSanPham.cs</DependentUpon>
     </Compile>
-    <Compile Include="Products\frmHienThi_NhaCungCapSanPham.cs">
+    <Compile Include="Products\Dialogs\frmHienThi_NhaCungCapSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Products\frmHienThi_NhaCungCapSanPham.Designer.cs">
+    <Compile Include="Products\Dialogs\frmHienThi_NhaCungCapSanPham.Designer.cs">
       <DependentUpon>frmHienThi_NhaCungCapSanPham.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\Dialogs\frmChucNang_PhieuTraHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Dialogs\frmChucNang_PhieuTraHang.Designer.cs">
-      <DependentUpon>frmChucNang_PhieuTraHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
@@ -249,12 +243,6 @@
     </Compile>
     <Compile Include="Sales\Dialogs\frmHienThi_ChiTietHoaDon.Designer.cs">
       <DependentUpon>frmHienThi_ChiTietHoaDon.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\Dialogs\frmHienThi_ChiTietTraHang1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Dialogs\frmHienThi_ChiTietTraHang1.Designer.cs">
-      <DependentUpon>frmHienThi_ChiTietTraHang1.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings\frmChucNang_CaiDatCaNhan.cs">
       <SubType>Form</SubType>
@@ -381,12 +369,6 @@
     </Compile>
     <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietKiemKho.Designer.cs">
       <DependentUpon>frmChucNang_ChiTietKiemKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Sales\Dialogs\frmChucNang_ChiTietPhieuTraHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Sales\Dialogs\frmChucNang_ChiTietPhieuTraHang.Designer.cs">
-      <DependentUpon>frmChucNang_ChiTietPhieuTraHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Stocks\Dialogs\frmChucNang_ChiTietXuatKho.cs">
       <SubType>Form</SubType>
@@ -597,8 +579,38 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_PhieuLuong_NhanVien.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_CaLamViec.en.resx">
+      <DependentUpon>frmChucNang_CaLamViec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_ChamCongVang.en.resx">
+      <DependentUpon>frmChucNang_ChamCongVang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_HopDongLuong.en.resx">
+      <DependentUpon>frmChucNang_HopDongLuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.en.resx">
+      <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.resx">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_NhanVien.en.resx">
+      <DependentUpon>frmChucNang_NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_PhanCaLam.en.resx">
+      <DependentUpon>frmChucNang_PhanCaLam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_PhuCap.en.resx">
+      <DependentUpon>frmChucNang_PhuCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmThungRac_NhanVien.en.resx">
+      <DependentUpon>frmThungRac_NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmThungRac_PhuCap.en.resx">
+      <DependentUpon>frmThungRac_PhuCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\frmHienThi_NhanVien.en.resx">
+      <DependentUpon>frmHienThi_NhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.en.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
@@ -606,29 +618,77 @@
     <EmbeddedResource Include="frmMain.en.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_DeXuatGia.en.resx">
+      <DependentUpon>frmChucNang_DeXuatGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_GiamGiaSP.en.resx">
+      <DependentUpon>frmChucNang_GiamGiaSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_LoaiSanPham.en.resx">
+      <DependentUpon>frmChucNang_LoaiSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_NhaCungCap.en.resx">
+      <DependentUpon>frmChucNang_NhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_NhaCungCapSanPham.en.resx">
+      <DependentUpon>frmChucNang_NhaCungCapSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_PhieuGiamGia.en.resx">
+      <DependentUpon>frmChucNang_PhieuGiamGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmChucNang_SanPham.en.resx">
+      <DependentUpon>frmChucNang_SanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmHienThi_GiamGiaSanPham.en.resx">
+      <DependentUpon>frmHienThi_GiamGiaSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmHienThi_NhaCungCapSanPham.en.resx">
+      <DependentUpon>frmHienThi_NhaCungCapSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmThungRac_GG.en.resx">
+      <DependentUpon>frmThungRac_GG.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Products\Dialogs\frmThungRac_GG.resx">
       <DependentUpon>frmThungRac_GG.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Products\frmHienThi_GiamGiaSanPham.resx">
+    <EmbeddedResource Include="Products\Dialogs\frmThungRac_LSP.en.resx">
+      <DependentUpon>frmThungRac_LSP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmThungRac_NCC.en.resx">
+      <DependentUpon>frmThungRac_NCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmThungRac_SP.en.resx">
+      <DependentUpon>frmThungRac_SP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\Dialogs\frmHienThi_GiamGiaSanPham.resx">
       <DependentUpon>frmHienThi_GiamGiaSanPham.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Products\frmHienThi_NhaCungCapSanPham.resx">
+    <EmbeddedResource Include="Products\Dialogs\frmHienThi_NhaCungCapSanPham.resx">
       <DependentUpon>frmHienThi_NhaCungCapSanPham.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Dialogs\frmChucNang_PhieuTraHang.resx">
-      <DependentUpon>frmChucNang_PhieuTraHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Products\frmHienThi_SanPham.en.resx">
+      <DependentUpon>frmHienThi_SanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\Dialogs\frmChucNang_ChiTietHoaDon.en.resx">
+      <DependentUpon>frmChucNang_ChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sales\Dialogs\frmHienThi_ChiTietHoaDon.en.resx">
+      <DependentUpon>frmHienThi_ChiTietHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales\Dialogs\frmHienThi_ChiTietHoaDon.resx">
       <DependentUpon>frmHienThi_ChiTietHoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Dialogs\frmHienThi_ChiTietTraHang1.resx">
-      <DependentUpon>frmHienThi_ChiTietTraHang1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Settings\frmChucNang_CaiDatCaNhan.resx">
       <DependentUpon>frmChucNang_CaiDatCaNhan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings\frmChucNang_KetNoiChuoi.resx">
+      <DependentUpon>frmChucNang_KetNoiChuoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics\frmHienThi_ThongKe.en.resx">
+      <DependentUpon>frmHienThi_ThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_ChiTietKiemKho.en.resx">
       <DependentUpon>frmChucNang_ChiTietKiemKho.cs</DependentUpon>
@@ -653,6 +713,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_XuatKho.en.resx">
       <DependentUpon>frmChucNang_XuatKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\Dialogs\frmHienThiChiTietKiemHang.en.resx">
+      <DependentUpon>frmHienThiChiTietKiemHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmHienThiChiTietKiemHang.resx">
       <DependentUpon>frmHienThiChiTietKiemHang.cs</DependentUpon>
@@ -681,11 +744,29 @@
     <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_LichSuKhoHang.resx">
       <DependentUpon>frmHienThi_LichSuKhoHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_ThongBao.en.resx">
+      <DependentUpon>frmHienThi_ThongBao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_ThongBao.resx">
       <DependentUpon>frmHienThi_ThongBao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\frmChucNang_CaiDat.resx">
       <DependentUpon>frmChucNang_CaiDat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\frmHienThi_KhoHang.en.resx">
+      <DependentUpon>frmHienThi_KhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stores\Dialogs\frmChucNang_ChiPhiCuaHang.en.resx">
+      <DependentUpon>frmChucNang_ChiPhiCuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stores\Dialogs\frmChucNang_CuaHang.en.resx">
+      <DependentUpon>frmChucNang_CuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stores\Dialogs\frmThungRac_CuaHang.en.resx">
+      <DependentUpon>frmThungRac_CuaHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stores\frmHienThi_CuaHang.en.resx">
+      <DependentUpon>frmHienThi_CuaHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stores\frmHienThi_CuaHang.resx">
       <DependentUpon>frmHienThi_CuaHang.cs</DependentUpon>
@@ -716,9 +797,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_ChiTietKiemKho.resx">
       <DependentUpon>frmChucNang_ChiTietKiemKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Sales\Dialogs\frmChucNang_ChiTietPhieuTraHang.resx">
-      <DependentUpon>frmChucNang_ChiTietPhieuTraHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_ChiTietXuatKho.resx">
       <DependentUpon>frmChucNang_ChiTietXuatKho.cs</DependentUpon>

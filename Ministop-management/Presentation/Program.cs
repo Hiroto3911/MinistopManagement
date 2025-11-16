@@ -2,6 +2,7 @@
 using Presentation.Settings;
 using Presentation.Stocks;
 using Services;
+using Shared.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -55,17 +56,34 @@ namespace Presentation
             // frm dang nhap 
             container.RegisterType<frmDangNhap>();
             #endregion
-            string lang = Properties.Settings.Default.Language;
-            if (string.IsNullOrEmpty(lang))
+            var config = ConnectionConfigHelper.Load();
+            if (string.IsNullOrEmpty(config.ConnectionString))
             {
-                var frmCaiDat = container.Resolve<frmChucNang_CaiDatCaNhan>();
-                Application.Run(frmCaiDat);
-                return;
+                MessageBox.Show("Chưa cấu hình kết nối CSDL. Vui lòng thiết lập.");
+                var frmKetNoi = new frmChucNang_KetNoiChuoi();
+                frmKetNoi.ShowDialog();
+                config = ConnectionConfigHelper.Load();
+                if (string.IsNullOrEmpty(config.ConnectionString))
+                {
+                    MessageBox.Show("Chưa có chuỗi kết nối. Thoát ứng dụng!");
+                    return;
+                }
+
             }
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(lang);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
-            var frmDangNhap = container.Resolve<frmDangNhap>();
-            Application.Run(frmDangNhap);
+           
+                string lang = Properties.Settings.Default.Language;
+
+                if (string.IsNullOrEmpty(lang))
+                {
+                    var frmCaiDat = new frmChucNang_CaiDatCaNhan();
+                    Application.Run(frmCaiDat);
+                    return;
+                }
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(lang);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
+                var frmDangNhap = container.Resolve<frmDangNhap>();
+                Application.Run(frmDangNhap);
+            
         }
         //Thêm Dll để hiện thị chương trình full DPI
         [System.Runtime.InteropServices.DllImport("user32.dll")]
