@@ -42,7 +42,8 @@ namespace Infrastructure.UnitOfWorks
             ISalaryContractAllowanceRepository salaryContractAllowanceRepository,
             IAbsenceRepository absenceRepository,
             IReturnProductRepository returnProductRepository,
-            IReturnDetailRepository returnDetailRepository
+            IReturnDetailRepository returnDetailRepository,
+            IPriceProposalRepository priceProposalRepository
             ) : base(context)
         {
             StoreRepository = storeRepository;
@@ -119,5 +120,6 @@ namespace Infrastructure.UnitOfWorks
         public IAbsenceRepository AbsenceRepository { get; private set; }
         public IReturnProductRepository ReturnProductRepository { get; private set; }
         public IReturnDetailRepository ReturnDetailRepository { get; private set; }
+        public IPriceProposalRepository PriceProposalRepository { get; private set; }
     }
 }

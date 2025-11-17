@@ -123,75 +123,11 @@
   <data name="tabSanPham.Text" xml:space="preserve">
     <value>Product Management</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dgvloaisanpham.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 273</value>
-  </data>
-  <data name="btnthemPCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>556, 4</value>
-  </data>
-  <data name="guna2Panel11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 34</value>
-  </data>
-  <data name="ibtnDuLieuBiXoaPCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>602, 2</value>
-  </data>
-  <data name="txtTrangLSP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 4</value>
-  </data>
-  <data name="btnTrangSauPCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>348, 4</value>
-  </data>
-  <data name="btnTrangTruocPCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>244, 4</value>
-  </data>
-  <data name="guna2Panel12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 34</value>
-  </data>
-  <data name="tabLoaiSanPham.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
-  </data>
-  <data name="tabLoaiSanPham.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 341</value>
-  </data>
   <data name="tabLoaiSanPham.Text" xml:space="preserve">
     <value>Category Management</value>
   </data>
-  <data name="dgvPGG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 273</value>
-  </data>
-  <data name="btnThemKM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>556, 4</value>
-  </data>
   <data name="btnThemKM.Text" xml:space="preserve">
     <value>Add</value>
-  </data>
-  <data name="guna2Panel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 34</value>
-  </data>
-  <data name="ibtnThungRacPGG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>598, 2</value>
-  </data>
-  <data name="txtTrangKM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 4</value>
-  </data>
-  <data name="btnTrangSauKM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>348, 4</value>
-  </data>
-  <data name="btnTrangTruocKM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>244, 4</value>
-  </data>
-  <data name="guna2Panel8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 34</value>
-  </data>
-  <data name="guna2DataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 341</value>
-  </data>
-  <data name="tabKhuyenMai.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
-  </data>
-  <data name="tabKhuyenMai.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 341</value>
   </data>
   <data name="tabKhuyenMai.Text" xml:space="preserve">
     <value>Promotion Management</value>
@@ -202,11 +138,85 @@
   <data name="tabNhaCungCap.Text" xml:space="preserve">
     <value>Supplier Management</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dgvDuLieuDXG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cboCuaHangDXG.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cboCuaHangDXG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>176, 36</value>
+  </data>
+  <data name="lblTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt, style=Bold</value>
+  </data>
+  <data name="lblTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 5</value>
+  </data>
+  <data name="lblTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
+  </data>
+  <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
+  </data>
+  <data name="lblTime.Text" xml:space="preserve">
+    <value>Store:</value>
+  </data>
+  <data name="btnThemDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btnThemDXG.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnThemDXG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnThemDXG.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="guna2Panel5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="txtSoTrangDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtSoTrangDXG.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="txtSoTrangDXG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="btnTrangSauDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnTrangSauDXG.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangSauDXG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnTrangTruocDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnTrangTruocDXG.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangTruocDXG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="guna2Panel6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
   <data name="tabDeXuatGia.Text" xml:space="preserve">
     <value>Price Proposal</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>

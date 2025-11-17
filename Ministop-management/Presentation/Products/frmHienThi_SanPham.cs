@@ -539,7 +539,7 @@ namespace Presentation
             var frmChucNangLoaiSanPham = _container.Resolve<frmHienThi_NhaCungCapSanPham>(new ParameterOverride("supplierID", supplierId));
             frmChucNangLoaiSanPham.ShowDialog();
         }
-        #region
+        #region PhieuGiamGia
         private void dgvPGG_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -653,7 +653,7 @@ namespace Presentation
         }
 
 
-        #endregion
+
 
         private void btnThemKM_Click(object sender, EventArgs e)
         {
@@ -704,6 +704,31 @@ namespace Presentation
                 txtTrangKM.Text = pageNumber.ToString();
                 LoadDataPGG(pageNumber);
             }
+        }
+        #endregion
+
+        #region DeXuatGia
+
+        #endregion
+
+        private void btnThemDXG_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvDuLieuDXG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnTrangSauDXG_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnTrangTruocDXG_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
