@@ -26,7 +26,6 @@ namespace Presentation
         private readonly IUnityContainer _container;
         private readonly IUserSession _userSession;
         private readonly IAbsenceService _absenceService;
-       
 
         private long _totalPage_NV = 1;
         private long _totalPage_HD = 1;
@@ -35,9 +34,6 @@ namespace Presentation
         private long _totalPage_PhanCong = 1;
         private long _totalPage_Vang = 1;
 
-        
-
-        // CẬP NHẬT CONSTRUCTOR (thêm các service cần thiết)
         public frmHienThi_NhanVien(
             IEmployeeService employeeService,
             IAllowanceService allowanceService,
@@ -1355,12 +1351,5 @@ namespace Presentation
         }
         #endregion
 
-
-
-        private void btnThemHD_Click(object sender, EventArgs e)
-        {
-            var frmChucNang = _container.Resolve<frmChucNang_HopDongLuong>();
-            frmChucNang.ShowDialog();
-        }
     }
 }
