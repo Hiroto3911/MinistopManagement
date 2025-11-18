@@ -132,5 +132,31 @@ namespace Presentation
             this.Close();
 
         }
+
+        private void btnXoaCung_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedStore();
+            if (list == null || list.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một cửa hàng để Xóa vĩnh viễn khỏi dữ liệu.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (list.Count > 1)
+            {
+                MessageBox.Show("Lưu ý hiện tại hệ thống chỉ hỗ trợ xóa một cửa hàng nên vui lòng chọn đúng một cửa hàng để thực hiện thao tác !", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            string storeID = list.FirstOrDefault();
+            var result = _storeService.RemoveStore(storeID);
+            if (result.Succeeded == false)
+            {
+                MessageBox.Show($"Xóa thất bại: {result.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadData();
+        }
+
+      
     }
 }
