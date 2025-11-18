@@ -90,13 +90,13 @@ namespace Presentation
                         DialogResult resultCon = MessageBox.Show($"Cửa hàng {storeId} hiện đang còn dữ liệu và tài khoản hoạt động.\n Nếu bạn xác nhận xoá, hệ thống sẽ ngưng kích hoạt cửa hàng và các dữ liệu liên quan, thay vì xoá vĩnh viễn.",
                         "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (resultCon != DialogResult.Yes) return;
-                        _storeService.RemoveStore(storeId);
+                        _storeService.RemoveSoftStore(storeId);
                         MessageBox.Show("Xóa thành công!");
                         LoadDataCH(); // tải lại dữ liệu
                         return;
 
                     }
-                    _storeService.RemoveStore(storeId);
+                    _storeService.RemoveSoftStore(storeId);
                     MessageBox.Show("Xóa thành công!");
                     LoadDataCH(); // tải lại dữ liệu
                 }

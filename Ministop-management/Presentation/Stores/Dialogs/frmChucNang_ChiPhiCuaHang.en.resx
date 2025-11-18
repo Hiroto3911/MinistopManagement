@@ -194,7 +194,4 @@
   <data name="btnLuu.Text" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
 </root>

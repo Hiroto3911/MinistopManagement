@@ -136,20 +136,11 @@
   <data name="&gt;&gt;txtTienDien.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;rtxtGhiChu.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;cboTrangThai.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="&gt;&gt;label4.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>11</value>
-  </data>
-  <data name="dtpNgayLap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 36</value>
   </data>
   <data name="txtTienDien.Size" type="System.Drawing.Size, System.Drawing">
     <value>219, 36</value>
@@ -161,6 +152,9 @@
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 10pt, style=Bold</value>
+  </data>
   <data name="btnLuu.TabIndex" type="System.Int32, mscorlib">
     <value>139</value>
   </data>
@@ -169,6 +163,9 @@
   </data>
   <data name="txtTienDien.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>Trạng thái :</value>
@@ -211,9 +208,6 @@
   </data>
   <data name="btnLuu.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 29</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Tiền điện:</value>
   </data>
   <data name="cboTrangThai.TabIndex" type="System.Int32, mscorlib">
     <value>194</value>
@@ -266,6 +260,9 @@
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>Thông Tin Chi Phí Cửa Hàng</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>224, 21</value>
   </data>
   <data name="ibtnThoat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -348,14 +345,17 @@
   <data name="&gt;&gt;txtTienNuoc.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
+  <data name="&gt;&gt;dtpNgayLap.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 10pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="txtTienNuoc.Size" type="System.Drawing.Size, System.Drawing">
+    <value>219, 36</value>
   </data>
   <data name="&gt;&gt;ibtnThoat.Name" xml:space="preserve">
     <value>ibtnThoat</value>
@@ -384,17 +384,14 @@
   <data name="txtTienDien.TabIndex" type="System.Int32, mscorlib">
     <value>187</value>
   </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="dtpNgayLap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>218, 36</value>
   </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>10</value>
+  <data name="&gt;&gt;rtxtGhiChu.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="ibtnThoat.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
-  </data>
-  <data name="txtTenCuaHang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>130, 49</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -437,9 +434,6 @@
   </data>
   <data name="&gt;&gt;label11.Name" xml:space="preserve">
     <value>label11</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -495,8 +489,8 @@
   <data name="&gt;&gt;btnLuu.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="cboTrangThai.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -528,11 +522,8 @@
   <data name="&gt;&gt;ibtnThoat.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="dtpNgayLap.CustomFormat" xml:space="preserve">
-    <value>MM/yyyy</value>
-  </data>
-  <data name="txtTienNuoc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 36</value>
+  <data name="cboTrangThai.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="&gt;&gt;btnLuu.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -576,6 +567,9 @@
   <data name="label6.Text" xml:space="preserve">
     <value>Ghi chú:</value>
   </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
   <data name="dtpNgayLap.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -587,6 +581,9 @@
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>76, 19</value>
+  </data>
+  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="label11.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
@@ -609,6 +606,9 @@
   <data name="txtTenCuaHang.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="dtpNgayLap.CustomFormat" xml:space="preserve">
+    <value>MM/yyyy</value>
+  </data>
   <data name="&gt;&gt;txtTienMatBang.Name" xml:space="preserve">
     <value>txtTienMatBang</value>
   </data>
@@ -630,8 +630,8 @@
   <data name="txtTenCuaHang.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
-  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 10pt, style=Bold</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Tiền điện:</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>129</value>
@@ -660,25 +660,22 @@
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
     <value>79, 19</value>
   </data>
-  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>224, 21</value>
+  <data name="txtTenCuaHang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>130, 49</value>
   </data>
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label11.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;cboTrangThai.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
-  <data name="&gt;&gt;dtpNgayLap.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
   </data>
   <metadata name="guna2BorderlessForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
   </metadata>
 </root>
