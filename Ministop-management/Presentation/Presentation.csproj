@@ -214,12 +214,6 @@
     <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.Designer.cs">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </Compile>
-    <Compile Include="Products\Dialogs\frmThungRac_GG.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Products\Dialogs\frmThungRac_GG.Designer.cs">
-      <DependentUpon>frmThungRac_GG.cs</DependentUpon>
-    </Compile>
     <Compile Include="Products\Dialogs\frmHienThi_GiamGiaSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +225,12 @@
     </Compile>
     <Compile Include="Products\Dialogs\frmHienThi_NhaCungCapSanPham.Designer.cs">
       <DependentUpon>frmHienThi_NhaCungCapSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_GG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\Dialogs\frmThungRac_GG.Designer.cs">
+      <DependentUpon>frmThungRac_GG.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>

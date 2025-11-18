@@ -50,6 +50,7 @@ namespace Services
             container.RegisterType<IAbsenceService, AbsenceService>(new PerResolveLifetimeManager());
             container.RegisterType<IInvoiceService, InvoiceService>(new PerResolveLifetimeManager());
             container.RegisterType<IInvoiceDetailService, InvoiceDetailService>(new PerResolveLifetimeManager());
+            container.RegisterType<IPriceProposalService, PriceProposalService>(new PerResolveLifetimeManager());
             Infrastructure.ServicesRegistration.AddInfrastructureTier(container);
         }
     }
