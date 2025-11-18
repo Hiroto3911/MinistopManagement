@@ -427,6 +427,7 @@ namespace Shared.ErrorCode
         [Description(@"Bị trùng dữ liệu Hoá đơn.")]
         IVC_ERR_006,
         #endregion
+
         #region InvoiceDetail
         [Description(@"Không tìm thấy Hoá đơn chi tiết .")]
         IVD_ERR_001,
@@ -441,6 +442,7 @@ namespace Shared.ErrorCode
         [Description(@"Bị trùng dữ liệu Hoá đơn chi tiết.")]
         IVD_ERR_006,
         #endregion
+
         #region ReturnProduct
         [Description(@"Không tìm thấy Phiếu trả hàng.")]
         RTP_ERR_001,
@@ -455,6 +457,7 @@ namespace Shared.ErrorCode
         [Description(@"Bị trùng dữ liệu Phiếu trả hàng.")]
         RTP_ERR_006,
         #endregion
+
         #region ReturnProductDetail
         [Description(@"Không tìm thấy Phiếu trả hàng chi tiết .")]
         RTD_ERR_001,
@@ -470,5 +473,19 @@ namespace Shared.ErrorCode
         RTD_ERR_006,
         #endregion
 
+        #region priceProposai
+        [Description(@"Không tìm thấy Phiếu phiếu đề xuất giá .")]
+        PPR_ERR_001,
+        [Description(@"Phiếu đề xuất giá đã tồn tại.")]
+        PPR_ERR_002,
+        [Description(@"Tạo Phiếu đề xuất giá thất bại.")]
+        PPR_ERR_003,
+        [Description(@"Sửa Phiếu đề xuất giá thất bại.")]
+        PPR_ERR_004,
+        [Description(@"Xóa Phiếu đề xuất giá thất bại.")]
+        PPR_ERR_005,
+        [Description(@"Bị trùng dữ liệu Phiếu đề xuất giá.")]
+        PPR_ERR_006,
+        #endregion
     }
 }
