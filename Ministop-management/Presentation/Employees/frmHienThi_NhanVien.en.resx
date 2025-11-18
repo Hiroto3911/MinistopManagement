@@ -118,10 +118,183 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="dgvDuLieu_TinhLuong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 556</value>
+  </data>
+  <data name="guna2TextBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>420, 6</value>
+  </data>
+  <data name="guna2Button7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>474, 6</value>
+  </data>
+  <data name="guna2Button8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>371, 6</value>
+  </data>
+  <data name="guna2Panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 662</value>
+  </data>
+  <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 34</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>104, 28</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>DateTime</value>
+  </data>
+  <data name="lblTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 28</value>
+  </data>
+  <data name="lblTime.Text" xml:space="preserve">
+    <value>Store</value>
+  </data>
+  <data name="guna2Button17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>751, 4</value>
+  </data>
+  <data name="guna2Panel9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 34</value>
+  </data>
+  <data name="lblTongNhanVien.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTongNhanVien.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 28</value>
+  </data>
+  <data name="lblTongNhanVien.Text" xml:space="preserve">
+    <value>Total count Employee:</value>
+  </data>
+  <data name="lblTongChiPhiLuong.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblTongChiPhiLuong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 28</value>
+  </data>
+  <data name="lblTongChiPhiLuong.Text" xml:space="preserve">
+    <value>Total Salary Amount:</value>
+  </data>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>125, 28</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Information:</value>
+  </data>
+  <data name="guna2Panel13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 40</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
+    <value>696</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 6</value>
+  </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 28</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>Store:</value>
+  </data>
+  <data name="cboChonCuaHang_NV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>86, 6</value>
+  </data>
+  <data name="guna2Button23.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="tabNhanVien.Text" xml:space="preserve">
+    <value>Employee Management</value>
+  </data>
+  <data name="dgvDuLieu_HopDong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 37</value>
+  </data>
+  <data name="dgvDuLieu_HopDong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 667</value>
+  </data>
+  <data name="guna2ImageButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>810, 2</value>
+  </data>
+  <data name="txtSoTrangHD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>436, 6</value>
+  </data>
+  <data name="btnTrangSauHD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>490, 6</value>
+  </data>
+  <data name="btnTrangTruocHD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>387, 6</value>
+  </data>
+  <data name="guna2Panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 704</value>
+  </data>
+  <data name="guna2Panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 34</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 28</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>store</value>
+  </data>
+  <data name="guna2Panel11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 34</value>
+  </data>
+  <data name="tabHopDong.Text" xml:space="preserve">
+    <value>Contract Salary</value>
+  </data>
+  <data name="tabPhuCap.Text" xml:space="preserve">
+    <value>Allowances Management</value>
+  </data>
+  <data name="tabTinhLuong.Text" xml:space="preserve">
+    <value>Caculate Salary</value>
+  </data>
+  <data name="btnThemCaLam.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="tabCaLam.Text" xml:space="preserve">
+    <value>Shift Management</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 28</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>store</value>
+  </data>
+  <data name="btnThemPC.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="tabPhanCongCa.Text" xml:space="preserve">
+    <value>Shift Assignment</value>
+  </data>
+  <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 28</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>store</value>
+  </data>
+  <data name="guna2Button18.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="tabChamCongVang.Text" xml:space="preserve">
+    <value>Absence</value>
   </data>
 </root>
