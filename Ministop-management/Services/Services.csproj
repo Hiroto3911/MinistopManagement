@@ -58,6 +58,7 @@
     <Compile Include="Interfaces\IEmployeeService.cs" />
     <Compile Include="Interfaces\IInvoiceDetailService.cs" />
     <Compile Include="Interfaces\IInvoiceService.cs" />
+    <Compile Include="Interfaces\IPriceProposalService.cs" />
     <Compile Include="Interfaces\IProductCategoryService.cs" />
     <Compile Include="Interfaces\IProductService.cs" />
     <Compile Include="Interfaces\IPromotionProductService.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Interfaces\ISupplierService.cs" />
     <Compile Include="Mapping\AbsenceMapping.cs" />
     <Compile Include="Mapping\AllowanceMapping.cs" />
+    <Compile Include="Mapping\PriceProposalMapping.cs" />
     <Compile Include="Mapping\ReturnDetailMapping.cs" />
     <Compile Include="Mapping\ReturnProductMapping.cs" />
     <Compile Include="Mapping\SalaryContractAllowanceMapping.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Services\IdentityService.cs" />
     <Compile Include="Services\InvoiceDetailService.cs" />
     <Compile Include="Services\InvoiceService.cs" />
+    <Compile Include="Services\PriceProposalService.cs" />
     <Compile Include="Services\ProductCategoryService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\PromotionProductService.cs" />
@@ -163,8 +166,6 @@
       <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

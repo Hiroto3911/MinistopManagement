@@ -17,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Services.Description;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Unity;
 using Unity.Resolution;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -27,52 +28,80 @@ namespace Presentation
     {
         private readonly IUserSession _userSession;
         private readonly IUnityContainer _container;
-        private readonly IStockDetailService _stockDetailService;
-        private readonly IStockHistoryService _stockHistoryService;
         private readonly IStockImportService _stockImportService;
         private readonly IStockImportDetailSerivce _stockImportDetailSerivce;
         private readonly IStockExportService _stockExportService;
         private readonly IStockExportDetailService _stockExportDetailService;
         private readonly IStockCheckService _stockCheckService;
         private readonly IStockCheckDetailService _stockCheckDetailService;
-        private readonly IProductService _productService;
         private long _totalPageStockDetail;
         private long _totalPageStockImport;
         private long _totalPageStockExport;
         private long _totalPageStockCheck;
-        private int _totalCountImport;
-        private int _totalCountExport;
-        private int _totalCountWarming= 0;
-        private long _totalPageSearch;
+        private int _totalCountWarming = 0;
+        private string _lang = Properties.Settings.Default.Language;
 
         public frmHienThi_KhoHang
             (IUserSession userSession, IUnityContainer container,
-            IStockDetailService stockDetailService, IStockHistoryService stockHistoryService,
+            IStockDetailService stockDetailService,
             IStockImportService stockImportService, IStockImportDetailSerivce stockImportDetailSerivce,
             IStockExportService stockExportService, IStockExportDetailService stockExportDetailService,
-            IStockCheckService stockCheckService, IStockCheckDetailService stockCheckDetailService,
-            IProductService productService
+            IStockCheckService stockCheckService, IStockCheckDetailService stockCheckDetailService
             )
         {
             InitializeComponent();
             _userSession = userSession;
             _container = container;
-            _stockDetailService = stockDetailService;
-            _stockHistoryService = stockHistoryService;
             _stockImportService = stockImportService;
             _stockImportDetailSerivce = stockImportDetailSerivce;
             _stockExportService = stockExportService;
             _stockExportDetailService = stockExportDetailService;
             _stockCheckService = stockCheckService;
             _stockCheckDetailService = stockCheckDetailService;
-            _productService = productService;
 
         }
+        private void tabControlKH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var tab = tabControlKH.SelectedTab;
+            if (tab.Tag == null)
+            {
+                LoadTab(tab);
+                tab.Tag = "Loaded";
+            }
+        }
+
+        private void LoadTab(TabPage tab)
+        {
+            switch (tab.Name)
+            {
+
+                case "tabTimKiem":
+                    LoadDataStockDetail(_userSession.IdStore);
+                    break;
+                case "tabKiemHang":
+
+                    LoadDataStockCheck(cboCuaHangKH.SelectedValue.ToString());
+                    break;
+                case "tabXuatHang":
+
+                    LoadDataStockExport(cboCuaHangXH.SelectedValue.ToString());
+                    break;
+                case "tabNhapHang":
+
+                    LoadDataStockImport(cboCuaHangNH.SelectedValue.ToString());
+                    break;
+                case "tabChiTietKho":
+                    LoadDataStockDetail(_userSession.IdStore);
+                    break;
+            }
+
+        }
+
         private void frmHienThi_KhoHang_Load(object sender, EventArgs e)
         {
             LoadCboCuaHang(cboCuaHangKH);
-            LoadCboCuaHang(cboCuaHangNH);
             LoadCboCuaHang(cboCuaHangXH);
+            LoadCboCuaHang(cboCuaHangNH);
             if (_userSession.Role == "Nhân viên")
             {
                 tabControlKH.TabPages.Remove(tabChiTietKho);
@@ -80,17 +109,16 @@ namespace Presentation
                 cboCuaHangKH.SelectedValue = _userSession.IdStore;
                 cboCuaHangNH.SelectedValue = _userSession.IdStore;
                 cboCuaHangXH.SelectedValue = _userSession.IdStore;
-                LoadDataStockDetail(_userSession.IdStore);
+
 
 
             }
             else if (_userSession.Role == "Admin")
             {
                 tabControlKH.TabPages.Remove(tabChiTietKho);
-                cboCuaHangKH.Enabled = true; 
-                cboCuaHangNH .Enabled = true;
-                cboCuaHangXH .Enabled = true;
-                LoadDataStockImport(cboCuaHangNH.SelectedValue.ToString());
+                cboCuaHangKH.Enabled = true;
+                cboCuaHangNH.Enabled = true;
+                cboCuaHangXH.Enabled = true;
                 btnThemKH.Visible = false;
                 btnThemNH.Visible = false;
                 btnThemXH.Visible = false;
@@ -100,13 +128,11 @@ namespace Presentation
                 cboCuaHangKH.SelectedValue = _userSession.IdStore;
                 cboCuaHangNH.SelectedValue = _userSession.IdStore;
                 cboCuaHangXH.SelectedValue = _userSession.IdStore;
-                LoadDataStockDetail(_userSession.IdStore);
-                LoadDataStockImport(cboCuaHangNH.SelectedValue.ToString());
                 btnThemKH.Visible = false;
                 btnThemXH.Visible = false;
             }
-            LoadDataStockCheck(cboCuaHangKH.SelectedValue.ToString());
-            LoadDataStockExport(cboCuaHangXH.SelectedValue.ToString());
+
+
 
         }
         private void LoadCboCuaHang(Guna2ComboBox cboCuaHang)
@@ -122,12 +148,177 @@ namespace Presentation
             }
 
         }
+        //private void ApplyGridStyle(Guna2DataGridView dgvDuLieu, string statusNotAllowed = "Duyệt", string roleNotAllowed = "")
+        //{
+
+        //    // ===== 2️⃣ Thêm hai cột nút =====
+        //    if (!dgvDuLieu.Columns.Contains("Edit") || !dgvDuLieu.Columns.Contains("Delete"))
+        //    {
+        //        // add column
+
+        //        if (dgvDuLieu.Columns["Edit"] == null && _userSession.Role != roleNotAllowed)
+        //        {
+
+        //            DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+        //            btnEdit.Name = "Edit";
+        //            btnEdit.HeaderText = "Edit";
+        //            btnEdit.Text = "Edit";
+        //            btnEdit.UseColumnTextForButtonValue = true;
+        //            dgvDuLieu.Columns.Add(btnEdit);
+        //        }
+        //        if (dgvDuLieu.Columns["Delete"] == null && _userSession.Role != "Admin")
+        //        {
+        //            DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+        //            btnDelete.Name = "Delete";
+        //            btnDelete.HeaderText = "Delete";
+        //            btnDelete.Text = "Delete";
+        //            btnDelete.UseColumnTextForButtonValue = true;
+        //            dgvDuLieu.Columns.Add(btnDelete);
+        //        }
+        //    }
+        //    // ===== 3️⃣ Chỉnh style chung cho bảng =====
+        //    dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
+        //    dgvDuLieu.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
+        //    dgvDuLieu.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+        //    dgvDuLieu.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+        //    dgvDuLieu.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
+        //    dgvDuLieu.RowTemplate.Height = 40;
+
+
+        //    // ===== 4️⃣ Đổi màu nút Edit/Delete =====
+        //    dgvDuLieu.RowPostPaint += (s, e) =>
+        //    {
+        //        if (e.RowIndex < 0) return;
+
+        //        var grid = (Guna2DataGridView)s;
+        //        var row = grid.Rows[e.RowIndex];
+        //        var status = row.Cells["TrangThai"].Value?.ToString();
+
+        //        if (status == "Không duyệt") // bị từ chối
+        //        {
+        //            using (Pen p = new Pen(Color.Red, 5)) // viền trái đỏ, dày 4px
+        //            {
+        //                int x = e.RowBounds.Left + 1;
+        //                int y1 = e.RowBounds.Top + 1;
+        //                int y2 = e.RowBounds.Bottom - 1;
+
+        //                e.Graphics.DrawLine(p, x, y1, x, y2);
+        //            }
+        //        }
+        //    };
+        //    dgvDuLieu.CellPainting += (s, e) =>
+        //    {
+        //        if (e.RowIndex < 0) return;
+        //        var grid = (Guna2DataGridView)s;
+        //        var status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
+        //        bool allowEditDelete = status != statusNotAllowed;
+        //        if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
+        //                                dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
+        //        {
+        //            e.PaintBackground(e.CellBounds, true);
+        //            if (allowEditDelete)
+        //            {
+        //                Color backColor = dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit"
+        //                ? Color.SeaGreen
+        //                : Color.IndianRed;
+
+        //                using (Brush b = new SolidBrush(backColor))
+        //                    e.Graphics.FillRectangle(b, e.CellBounds);
+
+        //                string text = dgvDuLieu.Columns[e.ColumnIndex].Name;
+        //                TextRenderer.DrawText(
+        //                    e.Graphics,
+        //                    text,
+        //                    new Font("Segoe UI", 9, FontStyle.Bold),
+        //                    e.CellBounds,
+        //                    Color.White,
+        //                    TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+        //                );
+        //            }
+        //            e.Handled = true;
+        //        }
+        //    };
+        //}
+        // 1️⃣ Hàm vẽ viền đỏ
+        private void DgvDuLieu_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            var grid = (Guna2DataGridView)sender;
+            string status;
+            if (_lang == "en-US")
+            {
+                status = grid.Rows[e.RowIndex].Cells["Status"].Value?.ToString();
+
+            }
+            else
+            {
+                status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
+            }
+      
+
+            if (status == "Không duyệt"|| status == "Không duyệt")
+            {
+                using (Pen p = new Pen(Color.Red, 5))
+                {
+                    int x = e.RowBounds.Left + 1;
+                    e.Graphics.DrawLine(p, x, e.RowBounds.Top + 1, x, e.RowBounds.Bottom - 1);
+                }
+            }
+        }
+
+        // 2️⃣ Hàm vẽ nút Edit/Delete
+        private void DgvDuLieu_CellPainting(object sender, DataGridViewCellPaintingEventArgs e, string statusNotAllowed)
+        {
+            if (e.RowIndex < 0) return;
+
+            var grid = (Guna2DataGridView)sender;
+            string status;
+            if (_lang == "en-US")
+            {
+                status = grid.Rows[e.RowIndex].Cells["Status"].Value?.ToString();
+
+            }
+            else
+            {
+                 status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
+            }
+            bool allowEditDelete = status != statusNotAllowed;
+
+            if (grid.Columns[e.ColumnIndex].Name == "Edit" || grid.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                e.PaintBackground(e.CellBounds, true);
+
+                if (allowEditDelete)
+                {
+                    Color backColor = grid.Columns[e.ColumnIndex].Name == "Edit" ? Color.SeaGreen : Color.IndianRed;
+                    using (Brush b = new SolidBrush(backColor))
+                        e.Graphics.FillRectangle(b, e.CellBounds);
+
+                    TextRenderer.DrawText(
+                        e.Graphics,
+                        grid.Columns[e.ColumnIndex].Name,
+                        new Font("Segoe UI", 9, FontStyle.Bold),
+                        e.CellBounds,
+                        Color.White,
+                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+                    );
+                }
+
+                e.Handled = true;
+            }
+        }
+
+        // 3️⃣ Gán event 1 lần trong ApplyGridStyle
         private void ApplyGridStyle(Guna2DataGridView dgvDuLieu, string statusNotAllowed = "Duyệt", string roleNotAllowed = "")
         {
-
             // ===== 2️⃣ Thêm hai cột nút =====
-            if (dgvDuLieu.Columns["Edit"] == null && _userSession.Role != roleNotAllowed)
+            if (!dgvDuLieu.Columns.Contains("Edit") || !dgvDuLieu.Columns.Contains("Delete"))
             {
+                // add column
+
+                if (dgvDuLieu.Columns["Edit"] == null && _userSession.Role != roleNotAllowed)
+                {
 
                     DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
                     btnEdit.Name = "Edit";
@@ -135,15 +326,16 @@ namespace Presentation
                     btnEdit.Text = "Edit";
                     btnEdit.UseColumnTextForButtonValue = true;
                     dgvDuLieu.Columns.Add(btnEdit);
-            }
-            if (dgvDuLieu.Columns["Delete"] == null && _userSession.Role != "Admin")
-            {
-                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Delete";
-                btnDelete.HeaderText = "Delete";
-                btnDelete.Text = "Delete";
-                btnDelete.UseColumnTextForButtonValue = true;
-                dgvDuLieu.Columns.Add(btnDelete);
+                }
+                if (dgvDuLieu.Columns["Delete"] == null && _userSession.Role != "Admin")
+                {
+                    DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                    btnDelete.Name = "Delete";
+                    btnDelete.HeaderText = "Delete";
+                    btnDelete.Text = "Delete";
+                    btnDelete.UseColumnTextForButtonValue = true;
+                    dgvDuLieu.Columns.Add(btnDelete);
+                }
             }
             // ===== 3️⃣ Chỉnh style chung cho bảng =====
             dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
@@ -152,61 +344,18 @@ namespace Presentation
             dgvDuLieu.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvDuLieu.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
             dgvDuLieu.RowTemplate.Height = 40;
+            // Gỡ event trước khi đăng ký
+            dgvDuLieu.RowPostPaint -= DgvDuLieu_RowPostPaint;
+            dgvDuLieu.RowPostPaint += DgvDuLieu_RowPostPaint;
 
+            dgvDuLieu.CellPainting -= DgvDuLieu_CellPaintingWrapper;
+            dgvDuLieu.CellPainting += DgvDuLieu_CellPaintingWrapper;
 
-            // ===== 4️⃣ Đổi màu nút Edit/Delete =====
-            dgvDuLieu.RowPostPaint += (s, e) =>
+            // Wrapper để truyền parameter
+            void DgvDuLieu_CellPaintingWrapper(object s, DataGridViewCellPaintingEventArgs e)
             {
-                if (e.RowIndex < 0) return;
-
-                var grid = (Guna2DataGridView)s;
-                var row = grid.Rows[e.RowIndex];
-                var status = row.Cells["TrangThai"].Value?.ToString();
-
-                if (status == "Không duyệt") // bị từ chối
-                {
-                    using (Pen p = new Pen(Color.Red, 5)) // viền trái đỏ, dày 4px
-                    {
-                        int x = e.RowBounds.Left + 1;
-                        int y1 = e.RowBounds.Top + 1;
-                        int y2 = e.RowBounds.Bottom - 1;
-
-                        e.Graphics.DrawLine(p, x, y1, x, y2);
-                    }
-                }
-            };
-            dgvDuLieu.CellPainting += (s, e) =>
-            {
-                if (e.RowIndex < 0) return;
-                var grid = (Guna2DataGridView)s;
-                var status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
-                bool allowEditDelete = status != statusNotAllowed;
-                if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
-                                        dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
-                {
-                    e.PaintBackground(e.CellBounds, true);
-                    if (allowEditDelete)
-                    {
-                        Color backColor = dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit"
-                        ? Color.SeaGreen
-                        : Color.IndianRed;
-
-                        using (Brush b = new SolidBrush(backColor))
-                            e.Graphics.FillRectangle(b, e.CellBounds);
-
-                        string text = dgvDuLieu.Columns[e.ColumnIndex].Name;
-                        TextRenderer.DrawText(
-                            e.Graphics,
-                            text,
-                            new Font("Segoe UI", 9, FontStyle.Bold),
-                            e.CellBounds,
-                            Color.White,
-                            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-                        );
-                    }
-                    e.Handled = true;
-                }
-            };
+                DgvDuLieu_CellPainting(s, e, statusNotAllowed);
+            }
         }
 
         #region StockDetail 
@@ -214,15 +363,26 @@ namespace Presentation
         {
             LoadDataStockDetail(_userSession.IdStore);
         }
-        public void LoadDataStockDetail(string storeId, int pageNumber = 1, int pageSize = 20, int quantitywarming= 50)
+        public void LoadDataStockDetail(string storeId, int pageNumber = 1, int pageSize = 20, int quantitywarming = 50)
         {
             _totalCountWarming = 0;
             DataTable dt = new DataTable();
-            dt.Columns.Add("MaChiTietKho");
-            dt.Columns.Add("SanPham");
-            dt.Columns.Add("SoLuong");
-            dt.Columns.Add("GiaBan");
-            dt.Columns.Add("LanCuoiCapNhap");
+            if (_lang == "en-US")
+            {
+                dt.Columns.Add("StockDetailID");
+                dt.Columns.Add("Product");
+                dt.Columns.Add("Quantity");
+                dt.Columns.Add("Price");
+                dt.Columns.Add("LastUpdated");
+            }
+            else
+            {
+                dt.Columns.Add("MaChiTietKho");
+                dt.Columns.Add("SanPham");
+                dt.Columns.Add("SoLuong");
+                dt.Columns.Add("GiaBan");
+                dt.Columns.Add("LanCuoiCapNhap");
+            }
             using (var childContaner = _container.CreateChildContainer())
             {
                 var stockDetailService = childContaner.Resolve<IStockDetailService>();
@@ -232,7 +392,7 @@ namespace Presentation
                 foreach (var item in list.Data)
                 {
                     dt.Rows.Add(item.StockDetailId, item.ProductName, item.Quantity, item.Price, item.LastUpdate.ToShortDateString());
-                    if(item.Quantity < quantitywarming)
+                    if (item.Quantity < quantitywarming)
                     {
                         _totalCountWarming++;
                     }
@@ -242,7 +402,6 @@ namespace Presentation
             dgvDuLieuCT.DataSource = dt;
             dgvDuLieuCT.AllowUserToAddRows = false;
             dgvDuLieuCT.ReadOnly = true;
-            dgvDuLieuCT.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDuLieuCT.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
             dgvDuLieuCT.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
             dgvDuLieuCT.ThemeStyle.HeaderStyle.ForeColor = Color.White;
@@ -254,8 +413,16 @@ namespace Presentation
                 if (e.RowIndex < 0) return;
                 var grid = (Guna2DataGridView)s;
                 var row = grid.Rows[e.RowIndex];
-                long quantity =Convert.ToInt64(row.Cells["SoLuong"].Value.ToString());
-                if(quantity < quantitywarming)
+                long quantity;
+                if (_lang == "en-US")
+                {
+                    quantity = Convert.ToInt64(row.Cells["Quantity"].Value.ToString());
+                }
+                else
+                {
+                    quantity = Convert.ToInt64(row.Cells["SoLuong"].Value.ToString());
+                }
+                if (quantity < quantitywarming)
                 {
                     //using (Pen p = new Pen(Color.Red, 4))
                     //{
@@ -264,7 +431,7 @@ namespace Presentation
                     //    int y2 = e.RowBounds.Bottom - 1;
                     //    e.Graphics.DrawLine(p,x,y,x,y2);
                     //}
-         
+
                     row.DefaultCellStyle.BackColor = Color.IndianRed;
                     row.DefaultCellStyle.ForeColor = Color.White;
                 }
@@ -292,7 +459,7 @@ namespace Presentation
         }
         private void GetCountExport()
         {
-            using(var childContainer  = _container.CreateChildContainer())
+            using (var childContainer = _container.CreateChildContainer())
             {
                 var date = DateTime.UtcNow.ToLocalTime();
                 var exportService = _container.Resolve<IStockExportDetailService>();
@@ -331,7 +498,15 @@ namespace Presentation
         {
             if (dgvDuLieuCT.CurrentCell == null || dgvDuLieuCT.Rows.Count == 0) return;
             int row = dgvDuLieuCT.CurrentCell.RowIndex;
-            string stockDetailID = dgvDuLieuCT.Rows[row].Cells["MaChiTietKho"].Value.ToString();
+            string stockDetailID;
+            if (_lang == "en-US")
+            {
+                stockDetailID = dgvDuLieuCT.Rows[row].Cells["StockDetailID"].Value.ToString();
+            }
+            else
+            {
+                stockDetailID = dgvDuLieuCT.Rows[row].Cells["MaChiTietKho"].Value.ToString();
+            }
             var frmChucNang = _container.Resolve<frmHienThi_LichSuKhoHang>(new ParameterOverride("stockDetailID", stockDetailID));
             frmChucNang.ShowDialog();
         }
@@ -366,61 +541,122 @@ namespace Presentation
         public void LoadDataStockImport(string storeId, int pageNumber = 1, int pageSize = 20)
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("MaPhieuNhap");
-            dt.Columns.Add("MaNhaCungCap");
-            dt.Columns.Add("NhaCungCap");
-            dt.Columns.Add("NguoiLapPhieu");
-            dt.Columns.Add("TrangThai");
-            dt.Columns.Add("GhiChu");
-            dt.Columns.Add("NgayNhap");
+            if (_lang == "en-US")
+            {
+                dt.Columns.Add("ImportID");
+                dt.Columns.Add("SupplierID");
+                dt.Columns.Add("SupplierName");
+                dt.Columns.Add("Creater");
+                dt.Columns.Add("Status");
+                dt.Columns.Add("Note");
+                dt.Columns.Add("ImportDay");
+            }
+            else
+            {
+                dt.Columns.Add("MaPhieuNhap");
+                dt.Columns.Add("MaNhaCungCap");
+                dt.Columns.Add("NhaCungCap");
+                dt.Columns.Add("NguoiLapPhieu");
+                dt.Columns.Add("TrangThai");
+                dt.Columns.Add("GhiChu");
+                dt.Columns.Add("NgayNhap");
+            }
             using (var childContaner = _container.CreateChildContainer())
             {
                 var stockDetailService = childContaner.Resolve<IStockImportService>();
                 var list = stockDetailService.GetStockImport(storeId, pageNumber, pageSize);
                 if (list.Succeeded == false && list.Data == null) return;
                 _totalPageStockImport = (long)Math.Ceiling((double)list.TotalCount / pageSize);
-               
+
                 foreach (var item in list.Data)
                 {
-                    string status="";
-                    switch (item.Status)
-                    {
-                        case 0:
-                            status = "Không duyệt";
-                            break;
-                        case 1:
-                            status = "Duyệt";
-                            break;
-
-                        case 3:
-                            status = "Chờ duyệt";
-                            break;
-                        case 4:
-                            status = "Đã nhập hàng";
-                            break;
-                        default:
-                            status = "Đang soạn";
-
-                        break;
-                    }
-                    
-                    dt.Rows.Add(item.ImportID, item.SupplierId, item.SupplierName, item.EmployeeName, status,item.Note, item.ImportDate.ToShortDateString());
+                    string status = GetStatus(item.Status);
+                    dt.Rows.Add(item.ImportID, item.SupplierId, item.SupplierName, item.EmployeeName, status, item.Note, item.ImportDate.ToShortDateString());
                 }
             }
             dgvDuLieuNH.DataSource = dt;
             dgvDuLieuNH.AllowUserToAddRows = false;
             dgvDuLieuNH.ReadOnly = true;
-            dgvDuLieuNH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ApplyGridStyle(dgvDuLieuNH, "Đã nhập hàng");
+            if (_lang == "en-US")
+            {
+                ApplyGridStyle(dgvDuLieuNH, "Imported");
+
+            }
+            else
+            {
+                ApplyGridStyle(dgvDuLieuNH, "Đã nhập hàng");
+            }
+          
             btnTrangTruocNH.Enabled = pageNumber > 1;
             btnTrangSauNH.Enabled = pageNumber <= _totalPageStockImport;
         }
+        private string GetStatus(byte status)
+        {
+            if (_lang == "en-US")
+            {
+                switch (status)
+                {
+                    case 0:
+                        return "Not permitted";
+
+                    case 1:
+                        return "Permitted";
+
+
+                    case 3:
+                        return "Pending";
+
+                    case 4:
+                        return "Imported";
+
+                    default:
+                        return "Draft";
+
+
+                }
+            }
+            else
+            {
+                switch (status)
+                {
+                    case 0:
+                        return "Không duyệt";
+
+                    case 1:
+                        return "Duyệt";
+
+
+                    case 3:
+                        return "Chờ duyệt";
+
+                    case 4:
+                        return "Đã nhập hàng";
+
+                    default:
+                        return "Đang soạn";
+
+
+                }
+            }
+            ;
+        }
         private void dgvDuLieuNH_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0) return;
-            string importID = dgvDuLieuNH.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
-            var status = dgvDuLieuNH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
-            var allowAction = status == "Đã nhập hàng";
+            if (e.RowIndex < 0) return; string status;
+            string importID;
+            if (_lang == "en-US")
+            {
+                status = dgvDuLieuNH.Rows[e.RowIndex].Cells["Status"].Value.ToString();
+                importID = dgvDuLieuNH.Rows[e.RowIndex].Cells["ImportID"].Value.ToString();
+
+            }
+            else
+            {
+                status = dgvDuLieuNH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
+                importID = dgvDuLieuNH.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
+            }
+            
+            var allowAction = (status == "Đã nhập hàng"|| status == "Not permitted");
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrangNH.Text);
             if (dgvDuLieuNH.Columns[e.ColumnIndex].Name == "Edit")
@@ -467,9 +703,22 @@ namespace Presentation
         {
             if (dgvDuLieuNH.CurrentCell == null || dgvDuLieuNH.Rows.Count == 0) return;
             var row = dgvDuLieuNH.CurrentCell.RowIndex;
-            string importID = dgvDuLieuNH.Rows[row].Cells["MaPhieuNhap"].Value.ToString();
-            var status = dgvDuLieuNH.Rows[row].Cells["TrangThai"].Value.ToString();
-            string supllierID = dgvDuLieuNH.Rows[row].Cells["MaNhaCungCap"].Value.ToString();
+            string importID;
+            string status ;
+            string supllierID;
+            if (_lang == "en-US")
+            {
+                status = dgvDuLieuNH.Rows[row].Cells["Status"].Value.ToString();
+                importID = dgvDuLieuNH.Rows[row].Cells["ImportID"].Value.ToString();
+                supllierID = dgvDuLieuNH.Rows[row].Cells["SupplierID"].Value.ToString();
+
+            }
+            else
+            {
+                status = dgvDuLieuNH.Rows[row].Cells["TrangThai"].Value.ToString();
+                importID = dgvDuLieuNH.Rows[row].Cells["MaPhieuNhap"].Value.ToString();
+                supllierID = dgvDuLieuNH.Rows[row].Cells["MaNhaCungCap"].Value.ToString();
+            }
             var frmHienThi = _container.Resolve<frmHienThi_ChiTietNhapHang>(new ParameterOverride("ImportID", importID), new ParameterOverride("Status", status), new ParameterOverride("supplierID", supllierID));
             frmHienThi.ShowDialog();
         }
@@ -528,12 +777,27 @@ namespace Presentation
         public void LoadDataStockExport(string storeId, int pageNumber = 1, int pageSize = 20)
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("MaPhieuXuat");
-            dt.Columns.Add("NguoiLapPhieu");
-            dt.Columns.Add("LoaiXuat");
-            dt.Columns.Add("TrangThai");
-            dt.Columns.Add("NgayXuat");
-            dt.Columns.Add("LyDo");
+            string status;
+            if (_lang == "en-US")
+            {
+                dt.Columns.Add("ExportID");
+                dt.Columns.Add("Creater");
+                dt.Columns.Add("ExportType");
+                dt.Columns.Add("Status");
+                dt.Columns.Add("ExportDay");
+                dt.Columns.Add("Reason");
+
+            }
+            else
+            {
+
+                dt.Columns.Add("MaPhieuXuat");
+                dt.Columns.Add("NguoiLapPhieu");
+                dt.Columns.Add("LoaiXuat");
+                dt.Columns.Add("TrangThai");
+                dt.Columns.Add("NgayXuat");
+                dt.Columns.Add("LyDo");
+            }
             using (var childContaner = _container.CreateChildContainer())
             {
                 var stockDetailService = childContaner.Resolve<IStockExportService>();
@@ -542,42 +806,43 @@ namespace Presentation
                 _totalPageStockExport = (long)Math.Ceiling((double)list.TotalCount / pageSize);
                 foreach (var item in list.Data)
                 {
-                    string status = "";
-                    switch (item.Status)
-                    {
-                        case 0:
-                            status = "Không duyệt";
-                            break;
-                        case 1:
-                            status = "Duyệt";
-                            break;
-
-                        case 3:
-                            status = "Chờ duyệt";
-                            break;
-                  
-                        default:
-                            status = "Đang soạn";
-
-                            break;
-                    }
+                     status =  GetStatus(item.Status);
                     dt.Rows.Add(item.ExportId, item.EmployeeName, item.TypeExport, status, item.ExportDate.ToShortDateString(), item.Reason);
                 }
             }
             dgvDuLieuXH.DataSource = dt;
             dgvDuLieuXH.AllowUserToAddRows = false;
             dgvDuLieuXH.ReadOnly = true;
-            dgvDuLieuXH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ApplyGridStyle(dgvDuLieuXH, "Duyệt", "Admin");
+            if (_lang == "en-US")
+            {
+                ApplyGridStyle(dgvDuLieuXH, "Permitted", "Admin");
+
+            }
+            else
+            {
+                ApplyGridStyle(dgvDuLieuXH, "Duyệt", "Admin");
+            }
+           
             btnTrangTruocXH.Enabled = pageNumber > 1;
             btnTrangSauXH.Enabled = pageNumber <= _totalPageStockExport;
         }
         private void dgvDuLieuXH_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            string exportID = dgvDuLieuXH.Rows[e.RowIndex].Cells["MaPhieuXuat"].Value.ToString();
-            var status = dgvDuLieuXH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
-            var allowAction = status == "Duyệt";
+            string status;
+            string exportID;
+            if (_lang == "en-US")
+            {
+                status = dgvDuLieuNH.Rows[e.RowIndex].Cells["Status"].Value.ToString();
+                exportID = dgvDuLieuNH.Rows[e.RowIndex].Cells["ExportID"].Value.ToString();
+
+            }
+            else
+            {
+                status = dgvDuLieuNH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
+                exportID = dgvDuLieuNH.Rows[e.RowIndex].Cells["MaPhieuXuat"].Value.ToString();
+            }
+            var allowAction = status == "Duyệt"|| status =="Permitted";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrangNH.Text);
             if (dgvDuLieuXH.Columns[e.ColumnIndex].Name == "Edit")
@@ -625,9 +890,22 @@ namespace Presentation
         {
             if (dgvDuLieuXH.CurrentCell == null || dgvDuLieuXH.Rows.Count == 0) return;
             var row = dgvDuLieuXH.CurrentCell.RowIndex;
-            string exportID = dgvDuLieuXH.Rows[row].Cells["MaPhieuXuat"].Value.ToString();
-            var status = dgvDuLieuXH.Rows[row].Cells["TrangThai"].Value.ToString();
-            var frmHienThi = _container.Resolve<frmHienThi_ChiTietXuatHang>(new ParameterOverride("ExportID", exportID),new  ParameterOverride("Status", status));
+            string status;
+            string exportID;
+            if (_lang == "en-US")
+            {
+      
+                status = dgvDuLieuXH.Rows[row].Cells["Status"].Value.ToString();
+                exportID = dgvDuLieuXH.Rows[row].Cells["ExportID"].Value.ToString();
+
+            }
+            else
+            {
+                status = dgvDuLieuXH.Rows[row].Cells["TrangThai"].Value.ToString();
+                exportID = dgvDuLieuXH.Rows[row].Cells["MaPhieuXuat"].Value.ToString();
+         
+            }
+            var frmHienThi = _container.Resolve<frmHienThi_ChiTietXuatHang>(new ParameterOverride("ExportID", exportID), new ParameterOverride("Status", status));
             frmHienThi.ShowDialog();
         }
         private void btnThemXH_Click(object sender, EventArgs e)
@@ -684,10 +962,25 @@ namespace Presentation
         public void LoadDataStockCheck(string storeId, int pageNumber = 1, int pageSize = 20)
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("MaPhieuKiem");
-            dt.Columns.Add("NguoiLapPhieu");
-            dt.Columns.Add("TrangThai");
-            dt.Columns.Add("NgayXuat");
+           
+            if (_lang == "en-US")
+            {
+
+                dt.Columns.Add("CheckID");
+                dt.Columns.Add("Creater");
+                dt.Columns.Add("Status");
+                dt.Columns.Add("CheckDay");
+
+            }
+            else
+            {
+                dt.Columns.Add("MaPhieuKiem");
+                dt.Columns.Add("NguoiLapPhieu");
+                dt.Columns.Add("TrangThai");
+                dt.Columns.Add("NgayKiem");
+
+            }
+           
 
             using (var childContaner = _container.CreateChildContainer())
             {
@@ -697,42 +990,42 @@ namespace Presentation
                 _totalPageStockCheck = (long)Math.Ceiling((double)list.TotalCount / pageSize);
                 foreach (var item in list.Data)
                 {
-                    string status = "";
-                    switch (item.Status)
-                    {
-                        case 0:
-                            status = "Không duyệt";
-                            break;
-                        case 1:
-                            status = "Duyệt";
-                            break;
-
-                        case 3:
-                            status = "Chờ duyệt";
-                            break;
-
-                        default:
-                            status = "Đang soạn";
-
-                            break;
-                    }
+                    string status = GetStatus(item.Status);
                     dt.Rows.Add(item.CheckId, item.EmployeeName, status, item.CheckDate.ToShortDateString());
                 }
             }
             dgvDuLieuKH.DataSource = dt;
             dgvDuLieuKH.AllowUserToAddRows = false;
             dgvDuLieuKH.ReadOnly = true;
-            dgvDuLieuKH.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            ApplyGridStyle(dgvDuLieuKH, "Duyệt", "Admin");
+            if (_lang == "en-US")
+            {
+                ApplyGridStyle(dgvDuLieuKH, "Permitted", "Admin");
+
+            }
+            else
+            {
+                ApplyGridStyle(dgvDuLieuKH, "Duyệt", "Admin");
+            }
             btnTrangTruocKH.Enabled = pageNumber > 1;
             btnTrangSauKH.Enabled = pageNumber <= _totalPageStockCheck;
         }
         private void dgvDuLieuKH_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            string CheckID = dgvDuLieuKH.Rows[e.RowIndex].Cells["MaPhieuKiem"].Value.ToString();
-            var status = dgvDuLieuKH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
-            var allowAction = status == "Duyệt";
+            string status;
+            string CheckID;
+            if (_lang == "en-US")
+            {
+                status = dgvDuLieuKH.Rows[e.RowIndex].Cells["Status"].Value.ToString();
+                CheckID = dgvDuLieuKH.Rows[e.RowIndex].Cells["CheckID"].Value.ToString();
+
+            }
+            else
+            {
+                status = dgvDuLieuKH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
+                CheckID = dgvDuLieuKH.Rows[e.RowIndex].Cells["MaPhieuKiem"].Value.ToString();
+            }
+            var allowAction = status == "Duyệt" || status == "Permitted";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrangNH.Text);
             if (dgvDuLieuKH.Columns[e.ColumnIndex].Name == "Edit")
@@ -779,9 +1072,22 @@ namespace Presentation
         {
             if (dgvDuLieuKH.CurrentCell == null || dgvDuLieuKH.Rows.Count == 0) return;
             var row = dgvDuLieuKH.CurrentCell.RowIndex;
-            string CheckID = dgvDuLieuKH.Rows[row].Cells["MaPhieuKiem"].Value.ToString();
-            string status = dgvDuLieuKH.Rows[row].Cells["TrangThai"].Value.ToString();
-            var frmHienThi = _container.Resolve<frmHienThiChiTietKiemHang>(new ParameterOverride("checkID", CheckID), new ParameterOverride("Status",status));
+            string status;
+            string CheckID;
+            if (_lang == "en-US")
+            {
+
+                status = dgvDuLieuKH.Rows[row].Cells["Status"].Value.ToString();
+                CheckID = dgvDuLieuKH.Rows[row].Cells["CheckID"].Value.ToString();
+
+            }
+            else
+            {
+                status = dgvDuLieuKH.Rows[row].Cells["TrangThai"].Value.ToString();
+                CheckID = dgvDuLieuKH.Rows[row].Cells["MaPhieuKiem"].Value.ToString();
+
+            }
+            var frmHienThi = _container.Resolve<frmHienThiChiTietKiemHang>(new ParameterOverride("checkID", CheckID), new ParameterOverride("Status", status));
             frmHienThi.ShowDialog();
         }
 
@@ -835,6 +1141,7 @@ namespace Presentation
 
         #endregion
 
+        #region Search 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtSearch.Text))
@@ -864,24 +1171,22 @@ namespace Presentation
                 if (list.Succeeded == false && list.Data == null) { return; }
                 foreach (var item in list.Data)
                 {
-                    dt.Rows.Add(item.StockDetailId,item.ProductId, item.ProductName, item.Quantity, item.Price, item.LastUpdate);
+                    dt.Rows.Add(item.StockDetailId, item.ProductId, item.ProductName, item.Quantity, item.Price, item.LastUpdate);
                 }
             }
             lblSoLanCanhBao.Text = _totalCountWarming.ToString();
             dgvDuLieuTimKiem.DataSource = dt;
-           dgvDuLieuTimKiem.AllowUserToAddRows = false;
-           dgvDuLieuTimKiem.ReadOnly = true;
-           dgvDuLieuTimKiem.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-           dgvDuLieuTimKiem.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
-           dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
-           dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-           dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-           dgvDuLieuTimKiem.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
-           dgvDuLieuTimKiem.RowTemplate.Height = 40;
-          
-        }
-       
+            dgvDuLieuTimKiem.AllowUserToAddRows = false;
+            dgvDuLieuTimKiem.ReadOnly = true;
+            dgvDuLieuTimKiem.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
+            dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvDuLieuTimKiem.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
+            dgvDuLieuTimKiem.RowTemplate.Height = 40;
 
-       
+        }
+        #endregion
+
     }
 }
