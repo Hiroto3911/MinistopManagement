@@ -124,27 +124,11 @@
   <data name="dgvDuLieu.Size" type="System.Drawing.Size, System.Drawing">
     <value>600, 259</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnTimKiem.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="btnTimKiem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
   <data name="btnTimKiem.Location" type="System.Drawing.Point, System.Drawing">
     <value>234, 38</value>
   </data>
   <data name="btnTimKiem.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 30</value>
-  </data>
-  <data name="btnTimKiem.Text" xml:space="preserve">
-    <value>Tìm kiếm</value>
-  </data>
-  <data name="txtTimkiem.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="txtTimkiem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
   </data>
   <data name="txtTimkiem.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 38</value>
@@ -152,6 +136,7 @@
   <data name="txtTimkiem.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 30</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
