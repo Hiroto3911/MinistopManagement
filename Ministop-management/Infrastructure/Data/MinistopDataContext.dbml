@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MinistopManagement" Class="MinistopDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LATI7480\SQLEXPRESS;Initial Catalog=MinistopManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Infrastructure.Properties.Settings" SettingsPropertyName="MinistopManagementConnectionString4" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-2LEA9U48\SQLEXPRESS;Initial Catalog=MinistopManagement;Integrated Security=True;Trust Server Certificate=True" SettingsObjectName="Infrastructure.Properties.Settings" SettingsPropertyName="MinistopManagementConnectionString5" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Absence" Member="Absences">
     <Type Name="Absence">
       <Column Name="AbsenceID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -609,6 +609,20 @@
       <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
       <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
       <Column Name="TotalAmount" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_GetTop3BestSellingStores" Method="sp_GetTop3BestSellingStores">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="sp_GetTop3BestSellingStoresResult">
+      <Column Name="StoreID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="TotalInvoices" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TotalRevenue" Type="System.Decimal" DbType="Decimal(38,2)" CanBeNull="true" />
+      <Column Name="TotalProductsSold" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AverageInvoiceValue" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

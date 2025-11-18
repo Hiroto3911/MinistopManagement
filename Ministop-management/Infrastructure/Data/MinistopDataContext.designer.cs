@@ -120,7 +120,7 @@ namespace Infrastructure.Data
     #endregion
 		
 		public MinistopDataContextDataContext() : 
-				base(global::Infrastructure.Properties.Settings.Default.MinistopManagementConnectionString4, mappingSource)
+				base(global::Infrastructure.Properties.Settings.Default.MinistopManagementConnectionString5, mappingSource)
 		{
 			OnCreated();
 		}
@@ -463,6 +463,13 @@ namespace Infrastructure.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceID);
 			return ((ISingleResult<SP_InvoiceReportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetTop3BestSellingStores")]
+		public ISingleResult<sp_GetTop3BestSellingStoresResult> sp_GetTop3BestSellingStores([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="DateTime")] System.Nullable<System.DateTime> startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDate", DbType="DateTime")] System.Nullable<System.DateTime> endDate)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), startDate, endDate);
+			return ((ISingleResult<sp_GetTop3BestSellingStoresResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -12156,6 +12163,158 @@ namespace Infrastructure.Data
 				if ((this._TotalAmount != value))
 				{
 					this._TotalAmount = value;
+				}
+			}
+		}
+	}
+	
+	public partial class sp_GetTop3BestSellingStoresResult
+	{
+		
+		private string _StoreID;
+		
+		private string _StoreName;
+		
+		private string _Address;
+		
+		private string _Phone;
+		
+		private System.Nullable<int> _TotalInvoices;
+		
+		private System.Nullable<decimal> _TotalRevenue;
+		
+		private System.Nullable<int> _TotalProductsSold;
+		
+		private System.Nullable<decimal> _AverageInvoiceValue;
+		
+		public sp_GetTop3BestSellingStoresResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string StoreID
+		{
+			get
+			{
+				return this._StoreID;
+			}
+			set
+			{
+				if ((this._StoreID != value))
+				{
+					this._StoreID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string StoreName
+		{
+			get
+			{
+				return this._StoreName;
+			}
+			set
+			{
+				if ((this._StoreName != value))
+				{
+					this._StoreName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="NVarChar(20) NOT NULL", CanBeNull=false)]
+		public string Phone
+		{
+			get
+			{
+				return this._Phone;
+			}
+			set
+			{
+				if ((this._Phone != value))
+				{
+					this._Phone = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalInvoices", DbType="Int")]
+		public System.Nullable<int> TotalInvoices
+		{
+			get
+			{
+				return this._TotalInvoices;
+			}
+			set
+			{
+				if ((this._TotalInvoices != value))
+				{
+					this._TotalInvoices = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalRevenue", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> TotalRevenue
+		{
+			get
+			{
+				return this._TotalRevenue;
+			}
+			set
+			{
+				if ((this._TotalRevenue != value))
+				{
+					this._TotalRevenue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalProductsSold", DbType="Int")]
+		public System.Nullable<int> TotalProductsSold
+		{
+			get
+			{
+				return this._TotalProductsSold;
+			}
+			set
+			{
+				if ((this._TotalProductsSold != value))
+				{
+					this._TotalProductsSold = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AverageInvoiceValue", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> AverageInvoiceValue
+		{
+			get
+			{
+				return this._AverageInvoiceValue;
+			}
+			set
+			{
+				if ((this._AverageInvoiceValue != value))
+				{
+					this._AverageInvoiceValue = value;
 				}
 			}
 		}

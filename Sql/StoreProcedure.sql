@@ -496,3 +496,44 @@ BEGIN
       AND sc.IsDeleted = 0
     ORDER BY e.FullName;
 END
+CREATE PROCEDURE sp_GetTop3BestSellingStores
+    @StartDate DATETIME = NULL,
+    @EndDate DATETIME = NULL
+AS
+BEGIN
+    SET NOCOUNT ON;
+    
+    -- Nếu không truyền tham số, mặc định lấy dữ liệu của tháng hiện tại
+    IF @StartDate IS NULL
+        SET @StartDate = DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1);
+    
+    IF @EndDate IS NULL
+        SET @EndDate = DATEADD(DAY, -1, DATEADD(MONTH, 1, @StartDate));
+    
+    SELECT TOP 3
+        s.StoreID,
+        s.StoreName,
+        s.Address,
+        s.Phone,
+        COUNT(DISTINCT i.InvoiceID) AS TotalInvoices,
+        SUM(i.FinalAmount) AS TotalRevenue,
+        SUM(id.Quantity) AS TotalProductsSold,
+        AVG(i.FinalAmount) AS AverageInvoiceValue
+    FROM 
+        Store s
+        INNER JOIN Invoice i ON s.StoreID = i.StoreID
+        INNER JOIN InvoiceDetails id ON i.InvoiceID = id.InvoiceID
+    WHERE 
+        s.IsDeleted = 0
+        AND i.Status = 1 -- Chỉ tính hóa đơn đã hoàn tất
+        AND i.InvoiceDate BETWEEN @StartDate AND @EndDate
+    GROUP BY 
+        s.StoreID, 
+        s.StoreName, 
+        s.Address, 
+        s.Phone
+    ORDER BY 
+        TotalRevenue DESC;
+END
+GO
+EXEC sp_GetTop3BestSellingStores;

@@ -59,9 +59,11 @@ namespace Presentation
             cboTrangThai.DataSource = status.ToList();
             cboTrangThai.DisplayMember = "Key";
             cboTrangThai.ValueMember = "Value";
+            
         }
         private void frmChucNang_ChiPhiCuaHang_Load(object sender, EventArgs e)
         {
+
             if (!string.IsNullOrEmpty(_priceProposalID))
             {
                 var entity = _priceProposalService.GetpriceProposaByID(_priceProposalID);
@@ -90,6 +92,10 @@ namespace Presentation
         private void frmChucNang_DeXuatGia_Load(object sender, EventArgs e)
         {
             LoadDataCboTrangThai();
+            if (_userSession.Role == "Admin")
+            {
+                cboTrangThai.SelectedIndex = 0;
+            }
             if (!string.IsNullOrEmpty(_priceProposalID))
             {
                 var entity = _priceProposalService.GetpriceProposaByID(_priceProposalID);
@@ -108,8 +114,16 @@ namespace Presentation
                 txtGiaMoi.Text = entity.Data.NewPrice.ToString();
                 rtbLyDo.Text = entity.Data.Reason ?? "";
 
-                // Set trạng thái
-                cboTrangThai.SelectedValue = entity.Data.Status;
+                if (_userSession.Role == "Admin")
+                {
+                    // Admin: Luôn chọn "Duyệt" (item đầu tiên), bỏ qua status từ DB
+                    cboTrangThai.SelectedIndex = 0;
+                }
+                else
+                {
+                    // Quản lý: Set theo status từ DB
+                    cboTrangThai.SelectedValue = entity.Data.Status;
+                }
 
                 // Load tên sản phẩm
                 if (!string.IsNullOrEmpty(entity.Data.ProductId))

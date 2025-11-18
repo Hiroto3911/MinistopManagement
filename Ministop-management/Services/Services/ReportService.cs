@@ -2,9 +2,11 @@
 using Infrastructure.Data;
 using Infrastructure.Interfaces;
 using Infrastructure.UnitOfWorks;
+using Model.DTO;
 using Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -214,5 +216,6 @@ namespace Services.Services
 
             return _ministopUnitOfWork.ReportRepository.GetSalaryListByStore(storeId, monthYear);
         }
+        
     }
 }

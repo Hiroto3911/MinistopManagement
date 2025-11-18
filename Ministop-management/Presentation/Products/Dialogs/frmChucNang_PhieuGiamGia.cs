@@ -22,7 +22,7 @@ namespace Presentation
         private readonly IPromotionService _promotionService;
         private readonly IUnityContainer _container;
         private string _promotionId;
-        public frmChucNang_PhieuGiamGia(IPromotionService promotionService , IUnityContainer container, string promotionId=null)
+        public frmChucNang_PhieuGiamGia(IPromotionService promotionService, IUnityContainer container, string promotionId = null)
         {
             InitializeComponent();
             _promotionService = promotionService;
@@ -120,22 +120,40 @@ namespace Presentation
         }
         private void frmChucNang_PhieuGiamGia_Load(object sender, EventArgs e)
         {
-            cboTrangThai.Items.Add("Đang hoạt động");
-            cboTrangThai.Items.Add("Tạm ngưng hoạt động");
+            // Setup ComboBox
+            cboTrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            var statusList = new Dictionary<string, int>()
+    {
+        { "Đang hoạt động", 1 },
+        { "Tạm ngưng hoạt động", 0 }
+    };
+
+            cboTrangThai.DataSource = statusList.ToList();
+            cboTrangThai.DisplayMember = "Key";
+            cboTrangThai.ValueMember = "Value";
+
+            // Mặc định chọn item đầu tiên
+            cboTrangThai.SelectedIndex = 0;
+
             if (!string.IsNullOrEmpty(_promotionId))
             {
                 var entity = _promotionService.GetPromotionByID(_promotionId);
-                if (entity.Succeeded == false && entity.Data == null)
+                if (entity.Succeeded == false || entity.Data == null)
                 {
-                    MessageBox.Show($"{entity.Message}", "Lỗi");
+                    MessageBox.Show($"{entity.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
                     return;
                 }
+
                 txtMaGG.Text = entity.Data.PromotionId.ToString();
                 txtTenGG.Text = entity.Data.PromotionName;
                 dtpNgayBD.Value = entity.Data.StartDate;
                 dtpNgayKT.Value = entity.Data.EndDate;
                 udMucDoUuTien.Text = entity.Data.Priority.ToString();
-                cboTrangThai.SelectedValue = entity.Data.Status;
+
+                // Set trạng thái theo giá trị từ DB
+                cboTrangThai.SelectedValue = entity.Data.Status ? 1 : 0;
             }
         }
     }
