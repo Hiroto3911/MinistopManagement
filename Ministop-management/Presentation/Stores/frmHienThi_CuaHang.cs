@@ -324,7 +324,8 @@ namespace Presentation
                     }
                     foreach (var item in list.Data)
                     {
-                        dt.Rows.Add(item.ExpenseId, item.StoreName, item.RentCost, item.ElectricityCost, item.WaterCost, item.Note, item.Status, item.LastModifiedBy , item.LastModified.ToString());
+                        string status = GetStatus(item.Status);
+                        dt.Rows.Add(item.ExpenseId, item.StoreName, item.RentCost, item.ElectricityCost, item.WaterCost, item.Note, status, item.LastModifiedBy , item.LastModified.ToString());
                     }
                 }
                 else
@@ -399,7 +400,7 @@ namespace Presentation
                 }
                     
 
-                if (status == "0") // bị từ chối
+                if (status == "Không duyệt" || status == "Not permitted") // bị từ chối
                 {
                     using (Pen p = new Pen(Color.Red, 5)) // viền trái đỏ, dày 4px
                     {
@@ -419,15 +420,18 @@ namespace Presentation
 
                 var grid = (Guna2DataGridView)s;
                 string status;
+                bool allowEditDelete;
                 if (_lang == "en-US")
                 {
                     status = grid.Rows[e.RowIndex].Cells["Status"].Value?.ToString();
+                    allowEditDelete = status != "Permitted";
                 }
                 else
                 {
                     status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
+                    allowEditDelete = status != "Duyệt" ;
                 }
-                bool allowEditDelete =  status != "1";
+             
                 // 👆 chỉ dòng cuối (dòng mới nhất) mới có nút
                
                 if ((grid.Columns[e.ColumnIndex].Name == "Edit" || grid.Columns[e.ColumnIndex].Name == "Delete"))
@@ -464,24 +468,70 @@ namespace Presentation
 
 
         }
+        private string GetStatus(byte status)
+        {
+            if (_lang == "en-US")
+            {
+                switch (status)
+                {
+                    case 0:
+                        return "Not permitted";
+
+                    case 1:
+                        return "Permitted";
+
+
+                    case 3:
+                        return "Pending";
+
+
+                    default:
+                        return "Draft";
+
+
+                }
+            }
+            else
+            {
+                switch (status)
+                {
+                    case 0:
+                        return "Không duyệt";
+
+                    case 1:
+                        return "Duyệt";
+
+
+                    case 3:
+                        return "Chờ duyệt";
+
+
+                    default:
+                        return "Đang soạn";
+
+
+                }
+            }
+          ;
+        }
         private void dgvDuLieuCP_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
             string status;
             string expenseID;
+            bool allowAction;
             if (_lang == "en-US")
             {
                 status = dgvDuLieuCP.Rows[e.RowIndex].Cells["Status"].Value?.ToString();
                 expenseID = dgvDuLieuCP.Rows[e.RowIndex].Cells["ExpenseID"].Value.ToString();
+                allowAction = status != "Permitted";
             }
             else
             {
                 status = dgvDuLieuCP.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
                 expenseID = dgvDuLieuCP.Rows[e.RowIndex].Cells["MaChiPhi"].Value.ToString();
+                allowAction = status != "Duyệt";
             }
- 
-             
-            bool allowAction = status != "1";
             if (!allowAction) return;
 
             if (dgvDuLieuCP.Columns[e.ColumnIndex].Name == "Edit")
