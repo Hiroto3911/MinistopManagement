@@ -81,6 +81,7 @@
     <Compile Include="DTO\StoreRevenueByMonthResultDto.cs" />
     <Compile Include="DTO\SupplierDto.cs" />
     <Compile Include="DTO\SupplierProductDto.cs" />
+    <Compile Include="DTO\Top3BestSellingStoreDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

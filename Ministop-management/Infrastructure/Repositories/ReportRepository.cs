@@ -266,6 +266,10 @@ namespace Infrastructure.Repositories
                     TotalIncome = x.TotalIncome ?? 0
                 }).ToList();
         }
+        public List<sp_GetTop3BestSellingStoresResult> GetTop3BestSellingStores(DateTime stardate, DateTime enddate)
+        {
+            return _context.sp_GetTop3BestSellingStores(stardate,enddate).ToList();
+        }
     }
 
 }
