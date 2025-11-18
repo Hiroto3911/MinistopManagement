@@ -30,14 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChucNang_DeXuatGia));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.rtbLyDo = new System.Windows.Forms.RichTextBox();
             this.txtMaSP = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtTenSP = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.dtpNgayDX = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.btnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.cboTrangThai = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtCuaHang = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaQL = new Guna.UI2.WinForms.Guna2TextBox();
@@ -47,14 +49,53 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.btnThoat);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Name = "label11";
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.btnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.btnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnThoat.ImageRotate = 0F;
+            this.btnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            resources.ApplyResources(this.btnThoat, "btnThoat");
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.Click += new System.EventHandler(this.guna2ImageButton4_Click);
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.BorderRadius = 5;
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // rtbLyDo
             // 
@@ -63,7 +104,6 @@
             // 
             // txtMaSP
             // 
-            resources.ApplyResources(this.txtMaSP, "txtMaSP");
             this.txtMaSP.BorderRadius = 2;
             this.txtMaSP.BorderThickness = 2;
             this.txtMaSP.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -73,6 +113,7 @@
             this.txtMaSP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMaSP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMaSP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txtMaSP, "txtMaSP");
             this.txtMaSP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaSP.Name = "txtMaSP";
             this.txtMaSP.PlaceholderText = "";
@@ -81,7 +122,6 @@
             // 
             // txtTenSP
             // 
-            resources.ApplyResources(this.txtTenSP, "txtTenSP");
             this.txtTenSP.BorderRadius = 2;
             this.txtTenSP.BorderThickness = 2;
             this.txtTenSP.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -90,6 +130,7 @@
             this.txtTenSP.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtTenSP.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTenSP.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            resources.ApplyResources(this.txtTenSP, "txtTenSP");
             this.txtTenSP.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenSP.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenSP.Name = "txtTenSP";
@@ -113,10 +154,10 @@
             // 
             // dtpNgayDX
             // 
-            resources.ApplyResources(this.dtpNgayDX, "dtpNgayDX");
             this.dtpNgayDX.BorderRadius = 2;
             this.dtpNgayDX.BorderThickness = 2;
             this.dtpNgayDX.Checked = true;
+            resources.ApplyResources(this.dtpNgayDX, "dtpNgayDX");
             this.dtpNgayDX.FillColor = System.Drawing.Color.White;
             this.dtpNgayDX.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayDX.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -124,37 +165,8 @@
             this.dtpNgayDX.Name = "dtpNgayDX";
             this.dtpNgayDX.Value = new System.DateTime(2025, 10, 1, 8, 48, 24, 373);
             // 
-            // panel1
-            // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.btnThoat);
-            this.panel1.Name = "panel1";
-            // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Name = "label11";
-            // 
-            // btnThoat
-            // 
-            resources.ApplyResources(this.btnThoat, "btnThoat");
-            this.btnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.btnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.btnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnThoat.ImageRotate = 0F;
-            this.btnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.Click += new System.EventHandler(this.guna2ImageButton4_Click);
-            // 
             // cboTrangThai
             // 
-            resources.ApplyResources(this.cboTrangThai, "cboTrangThai");
             this.cboTrangThai.BackColor = System.Drawing.Color.Transparent;
             this.cboTrangThai.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cboTrangThai.BorderRadius = 2;
@@ -163,12 +175,12 @@
             this.cboTrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboTrangThai.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cboTrangThai.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.cboTrangThai, "cboTrangThai");
             this.cboTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboTrangThai.Name = "cboTrangThai";
             // 
             // txtCuaHang
             // 
-            resources.ApplyResources(this.txtCuaHang, "txtCuaHang");
             this.txtCuaHang.BorderRadius = 2;
             this.txtCuaHang.BorderThickness = 2;
             this.txtCuaHang.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -177,6 +189,7 @@
             this.txtCuaHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtCuaHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtCuaHang.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            resources.ApplyResources(this.txtCuaHang, "txtCuaHang");
             this.txtCuaHang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCuaHang.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtCuaHang.Name = "txtCuaHang";
@@ -185,7 +198,6 @@
             // 
             // txtMaQL
             // 
-            resources.ApplyResources(this.txtMaQL, "txtMaQL");
             this.txtMaQL.BorderRadius = 2;
             this.txtMaQL.BorderThickness = 2;
             this.txtMaQL.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -194,6 +206,7 @@
             this.txtMaQL.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtMaQL.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtMaQL.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            resources.ApplyResources(this.txtMaQL, "txtMaQL");
             this.txtMaQL.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaQL.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtMaQL.Name = "txtMaQL";
@@ -202,7 +215,6 @@
             // 
             // txtGiaMoi
             // 
-            resources.ApplyResources(this.txtGiaMoi, "txtGiaMoi");
             this.txtGiaMoi.BorderRadius = 2;
             this.txtGiaMoi.BorderThickness = 2;
             this.txtGiaMoi.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -212,6 +224,7 @@
             this.txtGiaMoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtGiaMoi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtGiaMoi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txtGiaMoi, "txtGiaMoi");
             this.txtGiaMoi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGiaMoi.Name = "txtGiaMoi";
             this.txtGiaMoi.PlaceholderText = "";
@@ -219,7 +232,6 @@
             // 
             // txtGiaCu
             // 
-            resources.ApplyResources(this.txtGiaCu, "txtGiaCu");
             this.txtGiaCu.BorderRadius = 2;
             this.txtGiaCu.BorderThickness = 2;
             this.txtGiaCu.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -228,6 +240,7 @@
             this.txtGiaCu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtGiaCu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtGiaCu.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            resources.ApplyResources(this.txtGiaCu, "txtGiaCu");
             this.txtGiaCu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGiaCu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtGiaCu.Name = "txtGiaCu";
@@ -254,37 +267,30 @@
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
             // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
             // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // guna2BorderlessForm1
+            // label5
             // 
-            this.guna2BorderlessForm1.BorderRadius = 5;
-            this.guna2BorderlessForm1.ContainerControl = this;
-            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2BorderlessForm1.TransparentWhileDrag = true;
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
             // 
             // frmChucNang_DeXuatGia
             // 
@@ -295,7 +301,6 @@
             this.Controls.Add(this.txtTenSP);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.dtpNgayDX);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.cboTrangThai);
             this.Controls.Add(this.txtCuaHang);
             this.Controls.Add(this.txtMaQL);
@@ -305,11 +310,13 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label7);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmChucNang_DeXuatGia";
             this.Load += new System.EventHandler(this.frmChucNang_DeXuatGia_Load);
@@ -321,15 +328,16 @@
         }
 
         #endregion
-
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label11;
+        private Guna.UI2.WinForms.Guna2ImageButton btnThoat;
+        private System.Windows.Forms.Label label7;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.RichTextBox rtbLyDo;
         private Guna.UI2.WinForms.Guna2TextBox txtMaSP;
         private Guna.UI2.WinForms.Guna2TextBox txtTenSP;
         private Guna.UI2.WinForms.Guna2Button btnLuu;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgayDX;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label11;
-        private Guna.UI2.WinForms.Guna2ImageButton btnThoat;
         private Guna.UI2.WinForms.Guna2ComboBox cboTrangThai;
         private Guna.UI2.WinForms.Guna2TextBox txtCuaHang;
         private Guna.UI2.WinForms.Guna2TextBox txtMaQL;
@@ -339,11 +347,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label10;
     }
 }

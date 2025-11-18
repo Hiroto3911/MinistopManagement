@@ -1,22 +1,13 @@
 ﻿using Guna.UI2.WinForms;
 using Services.Interfaces;
-using Services.Services;
 using Shared.Security;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using Unity;
-using Unity.Lifetime;
 using Unity.Resolution;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace Presentation
 {

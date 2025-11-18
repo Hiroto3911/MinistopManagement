@@ -128,9 +128,6 @@
   <data name="rtbLyDo.Size" type="System.Drawing.Size, System.Drawing">
     <value>220, 79</value>
   </data>
-  <data name="txtMaSP.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
   <data name="txtMaSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
   </data>
@@ -140,9 +137,6 @@
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="txtTenSP.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="txtTenSP.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
   </data>
   <data name="txtTenSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
@@ -163,25 +157,19 @@
     <value>93, 29</value>
   </data>
   <data name="btnLuu.Text" xml:space="preserve">
-    <value>Lưu</value>
+    <value>Save</value>
   </data>
   <data name="dtpNgayDX.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="dtpNgayDX.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
   <data name="dtpNgayDX.Size" type="System.Drawing.Size, System.Drawing">
     <value>218, 36</value>
   </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>774, 35</value>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 21</value>
   </data>
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>209</value>
-  </data>
-  <data name="label11.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Price Proposal </value>
   </data>
   <data name="btnThoat.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -192,11 +180,11 @@
   <data name="btnThoat.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 23</value>
   </data>
-  <data name="cboTrangThai.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>774, 35</value>
   </data>
-  <data name="cboTrangThai.ItemHeight" type="System.Int32, mscorlib">
-    <value>30</value>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>209</value>
   </data>
   <data name="cboTrangThai.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -207,9 +195,6 @@
   <data name="txtCuaHang.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="txtCuaHang.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
   <data name="txtCuaHang.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
   </data>
@@ -219,17 +204,11 @@
   <data name="txtMaQL.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="txtMaQL.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
   <data name="txtMaQL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
   </data>
   <data name="txtMaQL.Size" type="System.Drawing.Size, System.Drawing">
     <value>219, 36</value>
-  </data>
-  <data name="txtGiaMoi.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
   </data>
   <data name="txtGiaMoi.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
@@ -240,17 +219,11 @@
   <data name="txtGiaCu.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="txtGiaCu.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
   <data name="txtGiaCu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
   </data>
   <data name="txtGiaCu.Size" type="System.Drawing.Size, System.Drawing">
     <value>219, 36</value>
-  </data>
-  <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 10pt, style=Bold</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>21, 175</value>
@@ -258,23 +231,32 @@
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>216</value>
   </data>
-  <data name="label8.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 10pt, style=Bold</value>
+  <data name="label4.Text" xml:space="preserve">
+    <value>ProductName:</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
     <value>21, 135</value>
   </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 19</value>
+  </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>215</value>
   </data>
-  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 10pt, style=Bold</value>
+  <data name="label8.Text" xml:space="preserve">
+    <value>ProductID:</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>397, 95</value>
   </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 19</value>
+  </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>214</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>ProposalDay</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -283,61 +265,70 @@
     <value>Segoe UI Semibold, 10pt, style=Bold</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 19</value>
+    <value>57, 19</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
-    <value>Lý do:</value>
-  </data>
-  <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 10pt, style=Bold</value>
+    <value>Reason:</value>
   </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>399, 135</value>
   </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 19</value>
+  </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>212</value>
   </data>
-  <data name="label5.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 10pt, style=Bold</value>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Status:</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>399, 53</value>
   </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 19</value>
+  </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>211</value>
   </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 10pt, style=Bold</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>NewPrice:</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>21, 96</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 19</value>
+    <value>81, 19</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>218</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Mã quản lý:</value>
-  </data>
-  <data name="label3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 10pt, style=Bold</value>
+    <value>ManagerID:</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 216</value>
   </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 19</value>
+  </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>210</value>
   </data>
-  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 10pt, style=Bold</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>OldPrice:</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>23, 55</value>
   </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
+  </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>217</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Store :</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>774, 315</value>

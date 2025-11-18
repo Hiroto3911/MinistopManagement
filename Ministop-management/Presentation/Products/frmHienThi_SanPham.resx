@@ -117,941 +117,83 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="guna2DataGridView1.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="&gt;&gt;txtTrangKM.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="dgvPGG.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dgvDuLieuDXG.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocDXG.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;tabKhuyenMai.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
+  <metadata name="guna2BorderlessForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>83</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnThemSP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>335, 4</value>
-  </data>
-  <data name="ibtnThungRacPGG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="tabControlSP.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;tabNhaCungCap.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="dgvSanPham.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="&gt;&gt;guna2DataGridView1.Parent" xml:space="preserve">
-    <value>tabKhuyenMai</value>
-  </data>
-  <data name="&gt;&gt;txtTrangLSP.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="btnTrangSauDXG.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
-  </data>
-  <data name="guna2DataGridView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauPCT.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="txtTrangKM.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="&gt;&gt;tabSanPham.Parent" xml:space="preserve">
-    <value>tabControlSP</value>
-  </data>
-  <data name="btnTrangSauKM.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="dgvnhacungcap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 273</value>
-  </data>
-  <data name="dgvPGG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 273</value>
-  </data>
-  <data name="btnTrangTruocPCT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;dgvSanPham.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="tabKhuyenMai.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="guna2Panel12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 307</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacSP.Parent" xml:space="preserve">
-    <value>guna2Panel3</value>
-  </data>
-  <data name="txtSoTrangNCC.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnTrangSauNCC.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="btnTrangSauKM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 4</value>
-  </data>
-  <data name="tabLoaiSanPham.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 341</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel4.Name" xml:space="preserve">
-    <value>guna2Panel4</value>
-  </data>
-  <data name="dgvloaisanpham.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <data name="guna2Panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="guna2Panel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="tabSanPham.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnThemDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Right</value>
-  </data>
-  <data name="guna2Panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocNCC.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocKM.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="ibtnThungRacPGG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>378, 2</value>
-  </data>
-  <data name="&gt;&gt;dgvPGG.Parent" xml:space="preserve">
-    <value>tabKhuyenMai</value>
-  </data>
-  <data name="&gt;&gt;btnThem.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="dgvDuLieuDXG.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <data name="btnTrangTruocNCC.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="btnTrangSauPCT.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="btnthemPCT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 26</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauPCT.Name" xml:space="preserve">
-    <value>btnTrangSauPCT</value>
-  </data>
-  <data name="btnThem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 26</value>
-  </data>
-  <data name="btnTrangTruocKM.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnThemKM.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btnTrangTruocDXG.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocSP.Parent" xml:space="preserve">
-    <value>guna2Panel3</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacPGG.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="guna2Panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 305</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel2.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="guna2DataGridView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="guna2Panel8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 34</value>
-  </data>
-  <data name="dgvloaisanpham.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="txtSoTrangDXG.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="txtTrangSP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 26</value>
-  </data>
-  <data name="tabDeXuatGia.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 341</value>
-  </data>
-  <data name="btnTrangTruocKM.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 26</value>
-  </data>
-  <data name="&gt;&gt;btnThemKM.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtTrangSP.Parent" xml:space="preserve">
-    <value>guna2Panel3</value>
-  </data>
-  <data name="&gt;&gt;txtTrangLSP.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel5.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="txtTrangKM.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnTrangSauNCC.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
-  </data>
-  <data name="guna2Panel11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnTrangTruocSP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>132, 4</value>
-  </data>
-  <data name="guna2DataGridView1.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacSP.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnthemPCT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel3.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>415, 34</value>
-  </data>
-  <data name="guna2Panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="guna2Panel5.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;tabControlSP.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnTrangTruocDXG.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="guna2DataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 341</value>
-  </data>
-  <data name="tabLoaiSanPham.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="dgvSanPham.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="guna2Panel11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;btnThemKM.Parent" xml:space="preserve">
-    <value>guna2Panel7</value>
-  </data>
-  <data name="dgvDuLieuDXG.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="btnTrangSauKM.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
-  </data>
-  <data name="guna2Panel7.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="guna2Panel11.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;txtTrangKM.Name" xml:space="preserve">
-    <value>txtTrangKM</value>
-  </data>
-  <data name="txtTrangLSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="tabSanPham.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel6.Parent" xml:space="preserve">
-    <value>tabDeXuatGia</value>
-  </data>
-  <data name="dgvSanPham.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 36</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel7.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="btnThemSP.Text" xml:space="preserve">
-    <value>Thêm</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocDXG.Name" xml:space="preserve">
-    <value>btnTrangTruocDXG</value>
-  </data>
-  <data name="btnTrangTruocDXG.Text" xml:space="preserve">
-    <value>&lt;&lt;</value>
-  </data>
-  <data name="txtTrangLSP.TabIndex" type="System.Int32, mscorlib">
-    <value>155</value>
-  </data>
-  <data name="guna2Panel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="tabNhaCungCap.Text" xml:space="preserve">
-    <value>Nhà cung cấp</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel3.Parent" xml:space="preserve">
-    <value>tabSanPham</value>
-  </data>
-  <data name="guna2Panel12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocPCT.Parent" xml:space="preserve">
-    <value>guna2Panel12</value>
-  </data>
-  <data name="guna2Panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnTrangSauDXG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 26</value>
-  </data>
-  <data name="guna2Panel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="dgvloaisanpham.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>867, 349</value>
   </data>
-  <data name="&gt;&gt;btnTrangSauSP.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel5.Parent" xml:space="preserve">
-    <value>tabDeXuatGia</value>
-  </data>
-  <data name="btnTrangSauNCC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnthemPCT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;dgvSanPham.Name" xml:space="preserve">
-    <value>dgvSanPham</value>
-  </data>
-  <data name="btnThemDXG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 26</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocSP.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel6.Name" xml:space="preserve">
-    <value>guna2Panel6</value>
-  </data>
-  <data name="btnTrangTruocKM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 4</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel11.Parent" xml:space="preserve">
-    <value>tabLoaiSanPham</value>
-  </data>
-  <data name="guna2Panel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;dgvDuLieuDXG.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="ibtnThungRacNCC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>378, 2</value>
-  </data>
-  <data name="&gt;&gt;btnthemPCT.Parent" xml:space="preserve">
-    <value>guna2Panel11</value>
-  </data>
-  <data name="&gt;&gt;dgvloaisanpham.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="tabNhaCungCap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 341</value>
-  </data>
-  <data name="tabKhuyenMai.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauNCC.Name" xml:space="preserve">
-    <value>btnTrangSauNCC</value>
-  </data>
-  <data name="btnTrangSauNCC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 26</value>
-  </data>
-  <data name="&gt;&gt;ibtnDuLieuBiXoaPCT.Parent" xml:space="preserve">
-    <value>guna2Panel12</value>
-  </data>
-  <data name="ibtnDuLieuBiXoaPCT.TabIndex" type="System.Int32, mscorlib">
-    <value>157</value>
-  </data>
-  <data name="lblTime.TabIndex" type="System.Int32, mscorlib">
-    <value>228</value>
-  </data>
-  <data name="btnTrangSauSP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 26</value>
-  </data>
-  <data name="dgvloaisanpham.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 273</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocSP.Name" xml:space="preserve">
-    <value>btnTrangTruocSP</value>
-  </data>
-  <data name="btnTrangTruocKM.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;ibtnDuLieuBiXoaPCT.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauDXG.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;tabControlSP.Name" xml:space="preserve">
-    <value>tabControlSP</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocKM.Parent" xml:space="preserve">
-    <value>guna2Panel8</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel8.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="btnTrangTruocPCT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;txtTrangLSP.Parent" xml:space="preserve">
-    <value>guna2Panel12</value>
-  </data>
-  <data name="&gt;&gt;btnThemDXG.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>frmHienThi_SanPham</value>
-  </data>
-  <data name="guna2Panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="&gt;&gt;btnThem.Parent" xml:space="preserve">
-    <value>guna2Panel2</value>
-  </data>
-  <data name="btnTrangTruocSP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 26</value>
-  </data>
-  <data name="&gt;&gt;btnthemPCT.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="txtTrangSP.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="&gt;&gt;btnThem.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="tabLoaiSanPham.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 4</value>
-  </data>
-  <data name="btnTrangSauSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnTrangTruocKM.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="guna2Panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="&gt;&gt;btnThemSP.Name" xml:space="preserve">
-    <value>btnThemSP</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauKM.Parent" xml:space="preserve">
-    <value>guna2Panel8</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacSP.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;txtSoTrangNCC.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2DataGridView1.Name" xml:space="preserve">
-    <value>guna2DataGridView1</value>
-  </data>
-  <data name="btnTrangSauPCT.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="btnThemSP.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btnTrangSauSP.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauKM.Name" xml:space="preserve">
-    <value>btnTrangSauKM</value>
-  </data>
-  <data name="tabControlSP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>867, 349</value>
-  </data>
-  <data name="&gt;&gt;dgvPGG.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauNCC.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="ibtnThungRacSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="btnThemKM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 4</value>
-  </data>
-  <data name="btnTrangTruocNCC.Text" xml:space="preserve">
-    <value>&lt;&lt;</value>
-  </data>
-  <data name="txtSoTrangNCC.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="&gt;&gt;txtTrangLSP.Name" xml:space="preserve">
-    <value>txtTrangLSP</value>
-  </data>
-  <data name="tabSanPham.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel3.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnTrangTruocNCC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 26</value>
-  </data>
-  <data name="btnTrangSauSP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>234, 4</value>
-  </data>
-  <data name="tabSanPham.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 4</value>
-  </data>
-  <data name="ibtnThungRacSP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>378, 2</value>
-  </data>
-  <data name="&gt;&gt;txtSoTrangNCC.Name" xml:space="preserve">
-    <value>txtSoTrangNCC</value>
-  </data>
-  <data name="&gt;&gt;lblTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tabNhaCungCap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 4</value>
-  </data>
-  <data name="btnTrangSauDXG.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="&gt;&gt;cboCuaHangDXG.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacSP.Name" xml:space="preserve">
-    <value>ibtnThungRacSP</value>
-  </data>
-  <data name="btnTrangTruocPCT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 26</value>
-  </data>
-  <data name="&gt;&gt;tabNhaCungCap.Name" xml:space="preserve">
-    <value>tabNhaCungCap</value>
-  </data>
-  <data name="guna2Panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>415, 34</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocKM.Name" xml:space="preserve">
-    <value>btnTrangTruocKM</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Form2</value>
-  </data>
-  <data name="dgvPGG.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="tabControlSP.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dgvSanPham.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="dgvSanPham.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
-  <data name="&gt;&gt;btnTrangSauSP.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel8.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnTrangSauPCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="guna2Panel6.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="txtTrangLSP.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="guna2DataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;dgvnhacungcap.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtTrangSP.Name" xml:space="preserve">
-    <value>txtTrangSP</value>
-  </data>
-  <data name="guna2Panel6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="&gt;&gt;dgvPGG.Name" xml:space="preserve">
-    <value>dgvPGG</value>
-  </data>
-  <data name="&gt;&gt;btnThemKM.Name" xml:space="preserve">
-    <value>btnThemKM</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;dgvPGG.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="btnthemPCT.Text" xml:space="preserve">
-    <value>Thêm</value>
-  </data>
-  <data name="btnthemPCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 4</value>
-  </data>
-  <data name="&gt;&gt;dgvDuLieuDXG.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="guna2Panel3.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="&gt;&gt;dgvloaisanpham.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocDXG.Parent" xml:space="preserve">
-    <value>guna2Panel6</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacNCC.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel11.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;lblTime.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnTrangSauPCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 4</value>
-  </data>
-  <data name="&gt;&gt;guna2BorderlessForm1.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2BorderlessForm, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="cboCuaHangDXG.ItemHeight" type="System.Int32, mscorlib">
-    <value>30</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauNCC.Parent" xml:space="preserve">
-    <value>guna2Panel4</value>
-  </data>
-  <data name="tabSanPham.Text" xml:space="preserve">
-    <value>Quản lý sản phẩm</value>
-  </data>
-  <data name="&gt;&gt;txtSoTrangNCC.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel12.Parent" xml:space="preserve">
-    <value>tabLoaiSanPham</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacPGG.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel12.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="btnTrangSauNCC.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="ibtnDuLieuBiXoaPCT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel3.Name" xml:space="preserve">
-    <value>guna2Panel3</value>
-  </data>
-  <data name="&gt;&gt;ibtnDuLieuBiXoaPCT.Name" xml:space="preserve">
-    <value>ibtnDuLieuBiXoaPCT</value>
-  </data>
-  <data name="ibtnDuLieuBiXoaPCT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 30</value>
+  <data name="dgvSanPham.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 36</value>
   </data>
   <data name="dgvSanPham.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="&gt;&gt;tabLoaiSanPham.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;dgvloaisanpham.Name" xml:space="preserve">
-    <value>dgvloaisanpham</value>
-  </data>
-  <data name="tabDeXuatGia.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="guna2Panel12.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacNCC.Name" xml:space="preserve">
-    <value>ibtnThungRacNCC</value>
-  </data>
-  <data name="txtTrangKM.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="btnThem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="btnTrangSauPCT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;tabNhaCungCap.Parent" xml:space="preserve">
-    <value>tabControlSP</value>
-  </data>
-  <data name="txtSoTrangDXG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>184, 3</value>
-  </data>
-  <data name="&gt;&gt;lblTime.Parent" xml:space="preserve">
-    <value>guna2Panel5</value>
-  </data>
-  <data name="btnTrangTruocSP.Text" xml:space="preserve">
-    <value>&lt;&lt;</value>
-  </data>
-  <data name="&gt;&gt;tabNhaCungCap.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="txtSoTrangNCC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 26</value>
-  </data>
-  <data name="btnTrangTruocDXG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>122, 3</value>
-  </data>
-  <data name="btnTrangSauKM.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnTrangTruocSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnTrangTruocSP.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="guna2Panel8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnThemKM.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnthemPCT.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="btnTrangTruocPCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 4</value>
+  <data name="dgvSanPham.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>62</value>
   </data>
   <data name="dgvSanPham.Size" type="System.Drawing.Size, System.Drawing">
     <value>415, 269</value>
   </data>
-  <data name="&gt;&gt;guna2Panel6.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="dgvSanPham.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
   </data>
-  <data name="&gt;&gt;btnTrangTruocPCT.Name" xml:space="preserve">
-    <value>btnTrangTruocPCT</value>
+  <data name="&gt;&gt;dgvSanPham.Name" xml:space="preserve">
+    <value>dgvSanPham</value>
   </data>
-  <data name="&gt;&gt;tabLoaiSanPham.Parent" xml:space="preserve">
-    <value>tabControlSP</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocKM.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocSP.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="ibtnDuLieuBiXoaPCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauNCC.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnThemKM.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="btnthemPCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="cboCuaHangDXG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 36</value>
-  </data>
-  <data name="btnThem.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;dgvloaisanpham.Parent" xml:space="preserve">
-    <value>tabLoaiSanPham</value>
-  </data>
-  <data name="txtSoTrangNCC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="txtTrangSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnThemKM.Text" xml:space="preserve">
-    <value>Thêm</value>
-  </data>
-  <data name="guna2Panel8.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="lblTime.Text" xml:space="preserve">
-    <value>Cửa hàng:</value>
-  </data>
-  <data name="dgvSanPham.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <data name="&gt;&gt;btnthemPCT.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="guna2Panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnTrangSauKM.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;txtSoTrangDXG.Parent" xml:space="preserve">
-    <value>guna2Panel6</value>
-  </data>
-  <data name="btnThemDXG.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;tabKhuyenMai.Parent" xml:space="preserve">
-    <value>tabControlSP</value>
-  </data>
-  <data name="btnThem.Text" xml:space="preserve">
-    <value>Thêm</value>
-  </data>
-  <data name="dgvPGG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 34</value>
-  </data>
-  <data name="btnTrangTruocPCT.Text" xml:space="preserve">
-    <value>&lt;&lt;</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel8.Parent" xml:space="preserve">
-    <value>tabKhuyenMai</value>
+  <data name="&gt;&gt;dgvSanPham.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="&gt;&gt;dgvSanPham.Parent" xml:space="preserve">
     <value>tabSanPham</value>
   </data>
-  <data name="btnTrangSauSP.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
+  <data name="&gt;&gt;dgvSanPham.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;guna2DataGridView1.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="btnThemSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
   </data>
-  <data name="guna2Panel4.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
+  <data name="btnThemSP.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
   </data>
-  <data name="dgvPGG.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
+  <data name="btnThemSP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>335, 4</value>
   </data>
-  <data name="&gt;&gt;tabLoaiSanPham.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacPGG.Name" xml:space="preserve">
-    <value>ibtnThungRacPGG</value>
-  </data>
-  <data name="&gt;&gt;tabKhuyenMai.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel6.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="guna2Panel12.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="btnTrangSauDXG.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;dgvnhacungcap.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauDXG.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="dgvloaisanpham.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 34</value>
-  </data>
-  <data name="btnTrangSauNCC.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnThemKM.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 26</value>
-  </data>
-  <data name="&gt;&gt;tabControlSP.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TabControl, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="txtTrangLSP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 26</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel7.Parent" xml:space="preserve">
-    <value>tabKhuyenMai</value>
-  </data>
-  <data name="tabKhuyenMai.Text" xml:space="preserve">
-    <value>Quản lý khuyến mãi</value>
-  </data>
-  <data name="tabDeXuatGia.Text" xml:space="preserve">
-    <value>Đề xuất giá</value>
-  </data>
-  <data name="tabControlSP.Alignment" type="System.Windows.Forms.TabAlignment, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauPCT.Parent" xml:space="preserve">
-    <value>guna2Panel12</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocDXG.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="ibtnThungRacNCC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 30</value>
-  </data>
-  <data name="tabSanPham.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 341</value>
-  </data>
-  <data name="guna2Panel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 34</value>
-  </data>
-  <data name="&gt;&gt;tabDeXuatGia.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocPCT.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;tabSanPham.Name" xml:space="preserve">
-    <value>tabSanPham</value>
-  </data>
-  <data name="btnTrangTruocSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="btnThemSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="&gt;&gt;dgvnhacungcap.Name" xml:space="preserve">
-    <value>dgvnhacungcap</value>
+  <data name="btnThemSP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 26</value>
   </data>
-  <data name="btnTrangTruocKM.Text" xml:space="preserve">
-    <value>&lt;&lt;</value>
+  <data name="btnThemSP.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
   </data>
-  <data name="&gt;&gt;guna2Panel12.Name" xml:space="preserve">
-    <value>guna2Panel12</value>
+  <data name="btnThemSP.Text" xml:space="preserve">
+    <value>Thêm</value>
   </data>
-  <data name="&gt;&gt;btnTrangSauDXG.Parent" xml:space="preserve">
-    <value>guna2Panel6</value>
+  <data name="&gt;&gt;btnThemSP.Name" xml:space="preserve">
+    <value>btnThemSP</value>
   </data>
   <data name="&gt;&gt;btnThemSP.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -1059,523 +201,1390 @@
   <data name="&gt;&gt;btnThemSP.Parent" xml:space="preserve">
     <value>guna2Panel1</value>
   </data>
-  <data name="btnThem.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;txtSoTrangNCC.Parent" xml:space="preserve">
-    <value>guna2Panel4</value>
-  </data>
-  <data name="&gt;&gt;tabSanPham.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="guna2Panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="tabDeXuatGia.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 4</value>
-  </data>
-  <data name="&gt;&gt;txtTrangKM.Parent" xml:space="preserve">
-    <value>guna2Panel8</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacNCC.Parent" xml:space="preserve">
-    <value>guna2Panel4</value>
-  </data>
-  <data name="btnTrangSauSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;btnthemPCT.Name" xml:space="preserve">
-    <value>btnthemPCT</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel11.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="txtTrangSP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>181, 4</value>
-  </data>
-  <data name="tabControlSP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel4.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel8.Name" xml:space="preserve">
-    <value>guna2Panel8</value>
-  </data>
-  <data name="btnTrangTruocDXG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 26</value>
-  </data>
-  <data name="&gt;&gt;tabLoaiSanPham.Name" xml:space="preserve">
-    <value>tabLoaiSanPham</value>
-  </data>
   <data name="&gt;&gt;btnThemSP.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="dgvnhacungcap.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnThemSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
   </data>
   <data name="guna2Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="&gt;&gt;guna2DataGridView1.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 2</value>
   </data>
-  <data name="dgvDuLieuDXG.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="tabSanPham.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="guna2Panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="&gt;&gt;btnThem.Name" xml:space="preserve">
-    <value>btnThem</value>
+  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>415, 34</value>
   </data>
-  <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 11</value>
+  <data name="guna2Panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
   </data>
-  <data name="&gt;&gt;txtTrangSP.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="dgvPGG.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="&gt;&gt;guna2Panel1.Name" xml:space="preserve">
+    <value>guna2Panel1</value>
   </data>
   <data name="&gt;&gt;guna2Panel1.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="guna2Panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 307</value>
+  <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
+    <value>tabSanPham</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ibtnThungRacSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="ibtnThungRacSP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>378, 2</value>
+  </data>
+  <data name="ibtnThungRacSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="ibtnThungRacSP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 30</value>
+  </data>
+  <data name="ibtnThungRacSP.TabIndex" type="System.Int32, mscorlib">
+    <value>156</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacSP.Name" xml:space="preserve">
+    <value>ibtnThungRacSP</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacSP.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacSP.Parent" xml:space="preserve">
+    <value>guna2Panel3</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacSP.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtTrangSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtTrangSP.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtTrangSP.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="txtTrangSP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>181, 4</value>
+  </data>
+  <data name="txtTrangSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="txtTrangSP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 26</value>
   </data>
   <data name="txtTrangSP.TabIndex" type="System.Int32, mscorlib">
     <value>155</value>
   </data>
-  <data name="txtTrangKM.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 26</value>
+  <data name="&gt;&gt;txtTrangSP.Name" xml:space="preserve">
+    <value>txtTrangSP</value>
   </data>
-  <data name="txtSoTrangNCC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 4</value>
+  <data name="&gt;&gt;txtTrangSP.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="&gt;&gt;btnTrangSauKM.Type" xml:space="preserve">
+  <data name="&gt;&gt;txtTrangSP.Parent" xml:space="preserve">
+    <value>guna2Panel3</value>
+  </data>
+  <data name="&gt;&gt;txtTrangSP.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnTrangSauSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnTrangSauSP.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangSauSP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>234, 4</value>
+  </data>
+  <data name="btnTrangSauSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnTrangSauSP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 26</value>
+  </data>
+  <data name="btnTrangSauSP.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnTrangSauSP.Text" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauSP.Name" xml:space="preserve">
+    <value>btnTrangSauSP</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauSP.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="ibtnThungRacNCC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="&gt;&gt;btnTrangSauSP.Parent" xml:space="preserve">
+    <value>guna2Panel3</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauSP.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnTrangTruocSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnTrangTruocSP.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangTruocSP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>132, 4</value>
+  </data>
+  <data name="btnTrangTruocSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="btnThem.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="btnTrangTruocSP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 26</value>
   </data>
-  <data name="guna2DataGridView1.ColumnHeadersHeight" type="System.Int32, mscorlib">
+  <data name="btnTrangTruocSP.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnTrangTruocSP.Text" xml:space="preserve">
+    <value>&lt;&lt;</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocSP.Name" xml:space="preserve">
+    <value>btnTrangTruocSP</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocSP.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocSP.Parent" xml:space="preserve">
+    <value>guna2Panel3</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocSP.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="guna2Panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="guna2Panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 305</value>
+  </data>
+  <data name="guna2Panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="guna2Panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>415, 34</value>
+  </data>
+  <data name="guna2Panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel3.Name" xml:space="preserve">
+    <value>guna2Panel3</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel3.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel3.Parent" xml:space="preserve">
+    <value>tabSanPham</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabSanPham.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="tabSanPham.Location" type="System.Drawing.Point, System.Drawing">
+    <value>444, 4</value>
+  </data>
+  <data name="tabSanPham.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tabSanPham.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tabSanPham.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 341</value>
+  </data>
+  <data name="tabSanPham.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="tabSanPham.Text" xml:space="preserve">
+    <value>Quản lý sản phẩm</value>
+  </data>
+  <data name="&gt;&gt;tabSanPham.Name" xml:space="preserve">
+    <value>tabSanPham</value>
+  </data>
+  <data name="&gt;&gt;tabSanPham.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabSanPham.Parent" xml:space="preserve">
+    <value>tabControlSP</value>
+  </data>
+  <data name="&gt;&gt;tabSanPham.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="dgvloaisanpham.ColumnHeadersHeight" type="System.Int32, mscorlib">
     <value>36</value>
   </data>
-  <data name="&gt;&gt;btnTrangTruocNCC.Parent" xml:space="preserve">
-    <value>guna2Panel4</value>
+  <data name="dgvloaisanpham.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
-  <data name="tabNhaCungCap.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="dgvloaisanpham.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 34</value>
+  </data>
+  <data name="dgvloaisanpham.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
-  <data name="&gt;&gt;guna2Panel5.Name" xml:space="preserve">
-    <value>guna2Panel5</value>
+  <data name="dgvloaisanpham.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>62</value>
   </data>
-  <data name="tabNhaCungCap.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="dgvloaisanpham.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 273</value>
+  </data>
+  <data name="dgvloaisanpham.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;dgvloaisanpham.Name" xml:space="preserve">
+    <value>dgvloaisanpham</value>
+  </data>
+  <data name="&gt;&gt;dgvloaisanpham.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;dgvloaisanpham.Parent" xml:space="preserve">
+    <value>tabLoaiSanPham</value>
+  </data>
+  <data name="&gt;&gt;dgvloaisanpham.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnthemPCT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btnthemPCT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnthemPCT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>336, 4</value>
+  </data>
+  <data name="btnthemPCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnthemPCT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 26</value>
+  </data>
+  <data name="btnthemPCT.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnthemPCT.Text" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="&gt;&gt;btnthemPCT.Name" xml:space="preserve">
+    <value>btnthemPCT</value>
+  </data>
+  <data name="&gt;&gt;btnthemPCT.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnthemPCT.Parent" xml:space="preserve">
+    <value>guna2Panel11</value>
+  </data>
+  <data name="&gt;&gt;btnthemPCT.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="guna2Panel11.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="guna2Panel11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="guna2Panel11.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="guna2Panel11.Size" type="System.Drawing.Size, System.Drawing">
     <value>419, 34</value>
   </data>
+  <data name="guna2Panel11.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel11.Name" xml:space="preserve">
+    <value>guna2Panel11</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel11.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel11.Parent" xml:space="preserve">
+    <value>tabLoaiSanPham</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel11.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ibtnDuLieuBiXoaPCT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="ibtnDuLieuBiXoaPCT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>382, 2</value>
+  </data>
+  <data name="ibtnDuLieuBiXoaPCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="ibtnDuLieuBiXoaPCT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 30</value>
+  </data>
+  <data name="ibtnDuLieuBiXoaPCT.TabIndex" type="System.Int32, mscorlib">
+    <value>157</value>
+  </data>
+  <data name="&gt;&gt;ibtnDuLieuBiXoaPCT.Name" xml:space="preserve">
+    <value>ibtnDuLieuBiXoaPCT</value>
+  </data>
+  <data name="&gt;&gt;ibtnDuLieuBiXoaPCT.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;ibtnDuLieuBiXoaPCT.Parent" xml:space="preserve">
+    <value>guna2Panel12</value>
+  </data>
+  <data name="&gt;&gt;ibtnDuLieuBiXoaPCT.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtTrangLSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtTrangLSP.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="txtTrangLSP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 4</value>
+  </data>
+  <data name="txtTrangLSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="txtTrangLSP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 26</value>
+  </data>
+  <data name="txtTrangLSP.TabIndex" type="System.Int32, mscorlib">
+    <value>155</value>
+  </data>
+  <data name="&gt;&gt;txtTrangLSP.Name" xml:space="preserve">
+    <value>txtTrangLSP</value>
+  </data>
+  <data name="&gt;&gt;txtTrangLSP.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;txtTrangLSP.Parent" xml:space="preserve">
+    <value>guna2Panel12</value>
+  </data>
+  <data name="&gt;&gt;txtTrangLSP.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnTrangSauPCT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnTrangSauPCT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangSauPCT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>238, 4</value>
+  </data>
+  <data name="btnTrangSauPCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnTrangSauPCT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 26</value>
+  </data>
+  <data name="btnTrangSauPCT.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnTrangSauPCT.Text" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauPCT.Name" xml:space="preserve">
+    <value>btnTrangSauPCT</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauPCT.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauPCT.Parent" xml:space="preserve">
+    <value>guna2Panel12</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauPCT.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnTrangTruocPCT.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnTrangTruocPCT.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangTruocPCT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 4</value>
+  </data>
+  <data name="btnTrangTruocPCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnTrangTruocPCT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 26</value>
+  </data>
+  <data name="btnTrangTruocPCT.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnTrangTruocPCT.Text" xml:space="preserve">
+    <value>&lt;&lt;</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocPCT.Name" xml:space="preserve">
+    <value>btnTrangTruocPCT</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocPCT.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocPCT.Parent" xml:space="preserve">
+    <value>guna2Panel12</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocPCT.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="guna2Panel12.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="guna2Panel12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 307</value>
+  </data>
+  <data name="guna2Panel12.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="guna2Panel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 34</value>
+  </data>
+  <data name="guna2Panel12.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel12.Name" xml:space="preserve">
+    <value>guna2Panel12</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel12.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel12.Parent" xml:space="preserve">
+    <value>tabLoaiSanPham</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel12.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabLoaiSanPham.Location" type="System.Drawing.Point, System.Drawing">
+    <value>444, 4</value>
+  </data>
+  <data name="tabLoaiSanPham.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tabLoaiSanPham.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 341</value>
+  </data>
+  <data name="tabLoaiSanPham.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tabLoaiSanPham.Text" xml:space="preserve">
+    <value>Quản lý loại sản phẩm</value>
+  </data>
+  <data name="&gt;&gt;tabLoaiSanPham.Name" xml:space="preserve">
+    <value>tabLoaiSanPham</value>
+  </data>
+  <data name="&gt;&gt;tabLoaiSanPham.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabLoaiSanPham.Parent" xml:space="preserve">
+    <value>tabControlSP</value>
+  </data>
+  <data name="&gt;&gt;tabLoaiSanPham.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="dgvPGG.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="dgvPGG.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="dgvPGG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 34</value>
+  </data>
+  <data name="dgvPGG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="dgvPGG.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="dgvPGG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 273</value>
+  </data>
+  <data name="dgvPGG.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;dgvPGG.Name" xml:space="preserve">
+    <value>dgvPGG</value>
+  </data>
+  <data name="&gt;&gt;dgvPGG.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;dgvPGG.Parent" xml:space="preserve">
+    <value>tabKhuyenMai</value>
+  </data>
+  <data name="&gt;&gt;dgvPGG.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnThemKM.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btnThemKM.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnThemKM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>336, 4</value>
+  </data>
+  <data name="btnThemKM.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnThemKM.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 26</value>
+  </data>
+  <data name="btnThemKM.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnThemKM.Text" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="&gt;&gt;btnThemKM.Name" xml:space="preserve">
+    <value>btnThemKM</value>
+  </data>
+  <data name="&gt;&gt;btnThemKM.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnThemKM.Parent" xml:space="preserve">
+    <value>guna2Panel7</value>
+  </data>
+  <data name="&gt;&gt;btnThemKM.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="guna2Panel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="guna2Panel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="guna2Panel7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="guna2Panel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 34</value>
+  </data>
+  <data name="guna2Panel7.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel7.Name" xml:space="preserve">
+    <value>guna2Panel7</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel7.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel7.Parent" xml:space="preserve">
+    <value>tabKhuyenMai</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel7.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ibtnThungRacPGG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="ibtnThungRacPGG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>378, 2</value>
+  </data>
+  <data name="ibtnThungRacPGG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="ibtnThungRacPGG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 30</value>
+  </data>
+  <data name="ibtnThungRacPGG.TabIndex" type="System.Int32, mscorlib">
+    <value>156</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacPGG.Name" xml:space="preserve">
+    <value>ibtnThungRacPGG</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacPGG.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacPGG.Parent" xml:space="preserve">
+    <value>guna2Panel8</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacPGG.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtTrangKM.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtTrangKM.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="txtTrangKM.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="txtTrangKM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 4</value>
+  </data>
+  <data name="txtTrangKM.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="txtTrangKM.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 26</value>
+  </data>
+  <data name="txtTrangKM.TabIndex" type="System.Int32, mscorlib">
+    <value>155</value>
+  </data>
+  <data name="&gt;&gt;txtTrangKM.Name" xml:space="preserve">
+    <value>txtTrangKM</value>
+  </data>
+  <data name="&gt;&gt;txtTrangKM.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;txtTrangKM.Parent" xml:space="preserve">
+    <value>guna2Panel8</value>
+  </data>
+  <data name="&gt;&gt;txtTrangKM.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnTrangSauKM.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnTrangSauKM.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangSauKM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>238, 4</value>
+  </data>
+  <data name="btnTrangSauKM.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnTrangSauKM.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 26</value>
+  </data>
+  <data name="btnTrangSauKM.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnTrangSauKM.Text" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauKM.Name" xml:space="preserve">
+    <value>btnTrangSauKM</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauKM.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauKM.Parent" xml:space="preserve">
+    <value>guna2Panel8</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauKM.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnTrangTruocKM.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnTrangTruocKM.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangTruocKM.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 4</value>
+  </data>
+  <data name="btnTrangTruocKM.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnTrangTruocKM.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 26</value>
+  </data>
+  <data name="btnTrangTruocKM.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnTrangTruocKM.Text" xml:space="preserve">
+    <value>&lt;&lt;</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocKM.Name" xml:space="preserve">
+    <value>btnTrangTruocKM</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocKM.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocKM.Parent" xml:space="preserve">
+    <value>guna2Panel8</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocKM.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="guna2Panel8.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="guna2Panel8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 307</value>
+  </data>
+  <data name="guna2Panel8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="guna2Panel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 34</value>
+  </data>
+  <data name="guna2Panel8.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel8.Name" xml:space="preserve">
+    <value>guna2Panel8</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel8.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel8.Parent" xml:space="preserve">
+    <value>tabKhuyenMai</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel8.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="guna2DataGridView1.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="guna2DataGridView1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="guna2DataGridView1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="guna2DataGridView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="guna2DataGridView1.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="guna2DataGridView1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 341</value>
+  </data>
+  <data name="guna2DataGridView1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;guna2DataGridView1.Name" xml:space="preserve">
+    <value>guna2DataGridView1</value>
+  </data>
+  <data name="&gt;&gt;guna2DataGridView1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2DataGridView1.Parent" xml:space="preserve">
+    <value>tabKhuyenMai</value>
+  </data>
+  <data name="&gt;&gt;guna2DataGridView1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="tabKhuyenMai.Location" type="System.Drawing.Point, System.Drawing">
+    <value>444, 4</value>
+  </data>
+  <data name="tabKhuyenMai.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tabKhuyenMai.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 341</value>
+  </data>
+  <data name="tabKhuyenMai.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="tabKhuyenMai.Text" xml:space="preserve">
+    <value>Quản lý khuyến mãi</value>
+  </data>
+  <data name="&gt;&gt;tabKhuyenMai.Name" xml:space="preserve">
+    <value>tabKhuyenMai</value>
+  </data>
+  <data name="&gt;&gt;tabKhuyenMai.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabKhuyenMai.Parent" xml:space="preserve">
+    <value>tabControlSP</value>
+  </data>
+  <data name="&gt;&gt;tabKhuyenMai.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="dgvnhacungcap.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="dgvnhacungcap.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="dgvnhacungcap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 34</value>
+  </data>
+  <data name="dgvnhacungcap.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="dgvnhacungcap.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="dgvnhacungcap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 273</value>
+  </data>
+  <data name="dgvnhacungcap.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;dgvnhacungcap.Name" xml:space="preserve">
+    <value>dgvnhacungcap</value>
+  </data>
+  <data name="&gt;&gt;dgvnhacungcap.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;dgvnhacungcap.Parent" xml:space="preserve">
+    <value>tabNhaCungCap</value>
+  </data>
+  <data name="&gt;&gt;dgvnhacungcap.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnThem.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btnThem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnThem.Location" type="System.Drawing.Point, System.Drawing">
+    <value>336, 4</value>
+  </data>
+  <data name="btnThem.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnThem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 26</value>
+  </data>
+  <data name="btnThem.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnThem.Text" xml:space="preserve">
+    <value>Thêm</value>
+  </data>
+  <data name="&gt;&gt;btnThem.Name" xml:space="preserve">
+    <value>btnThem</value>
+  </data>
+  <data name="&gt;&gt;btnThem.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnThem.Parent" xml:space="preserve">
+    <value>guna2Panel2</value>
+  </data>
+  <data name="&gt;&gt;btnThem.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="guna2Panel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="guna2Panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="guna2Panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="guna2Panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 34</value>
+  </data>
+  <data name="guna2Panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel2.Name" xml:space="preserve">
+    <value>guna2Panel2</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel2.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel2.Parent" xml:space="preserve">
+    <value>tabNhaCungCap</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ibtnThungRacNCC.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="ibtnThungRacNCC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>378, 2</value>
+  </data>
+  <data name="ibtnThungRacNCC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="ibtnThungRacNCC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>34, 30</value>
+  </data>
+  <data name="ibtnThungRacNCC.TabIndex" type="System.Int32, mscorlib">
+    <value>156</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacNCC.Name" xml:space="preserve">
+    <value>ibtnThungRacNCC</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacNCC.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacNCC.Parent" xml:space="preserve">
+    <value>guna2Panel4</value>
+  </data>
+  <data name="&gt;&gt;ibtnThungRacNCC.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txtSoTrangNCC.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="txtSoTrangNCC.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="txtSoTrangNCC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>183, 4</value>
+  </data>
+  <data name="txtSoTrangNCC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="txtSoTrangNCC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 26</value>
+  </data>
+  <data name="txtSoTrangNCC.TabIndex" type="System.Int32, mscorlib">
+    <value>155</value>
+  </data>
+  <data name="&gt;&gt;txtSoTrangNCC.Name" xml:space="preserve">
+    <value>txtSoTrangNCC</value>
+  </data>
+  <data name="&gt;&gt;txtSoTrangNCC.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;txtSoTrangNCC.Parent" xml:space="preserve">
+    <value>guna2Panel4</value>
+  </data>
+  <data name="&gt;&gt;txtSoTrangNCC.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnTrangSauNCC.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnTrangSauNCC.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangSauNCC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>238, 4</value>
+  </data>
+  <data name="btnTrangSauNCC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnTrangSauNCC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 26</value>
+  </data>
+  <data name="btnTrangSauNCC.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnTrangSauNCC.Text" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauNCC.Name" xml:space="preserve">
+    <value>btnTrangSauNCC</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauNCC.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauNCC.Parent" xml:space="preserve">
+    <value>guna2Panel4</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauNCC.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnTrangTruocNCC.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnTrangTruocNCC.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangTruocNCC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>134, 4</value>
+  </data>
+  <data name="btnTrangTruocNCC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnTrangTruocNCC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 26</value>
+  </data>
+  <data name="btnTrangTruocNCC.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnTrangTruocNCC.Text" xml:space="preserve">
+    <value>&lt;&lt;</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocNCC.Name" xml:space="preserve">
+    <value>btnTrangTruocNCC</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocNCC.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocNCC.Parent" xml:space="preserve">
+    <value>guna2Panel4</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocNCC.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="guna2Panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="guna2Panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 307</value>
+  </data>
+  <data name="guna2Panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 34</value>
+  </data>
+  <data name="guna2Panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel4.Name" xml:space="preserve">
+    <value>guna2Panel4</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel4.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel4.Parent" xml:space="preserve">
+    <value>tabNhaCungCap</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabNhaCungCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>444, 4</value>
+  </data>
+  <data name="tabNhaCungCap.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tabNhaCungCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 341</value>
+  </data>
+  <data name="tabNhaCungCap.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabNhaCungCap.Text" xml:space="preserve">
+    <value>Nhà cung cấp</value>
+  </data>
+  <data name="&gt;&gt;tabNhaCungCap.Name" xml:space="preserve">
+    <value>tabNhaCungCap</value>
+  </data>
+  <data name="&gt;&gt;tabNhaCungCap.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabNhaCungCap.Parent" xml:space="preserve">
+    <value>tabControlSP</value>
+  </data>
+  <data name="&gt;&gt;tabNhaCungCap.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="dgvDuLieuDXG.ColumnHeadersHeight" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="dgvDuLieuDXG.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="dgvDuLieuDXG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 34</value>
+  </data>
+  <data name="dgvDuLieuDXG.RowHeadersWidth" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="dgvDuLieuDXG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 273</value>
+  </data>
+  <data name="dgvDuLieuDXG.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
   <data name="&gt;&gt;dgvDuLieuDXG.Name" xml:space="preserve">
     <value>dgvDuLieuDXG</value>
   </data>
-  <data name="btnTrangTruocKM.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="&gt;&gt;dgvDuLieuDXG.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2DataGridView, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;dgvDuLieuDXG.Parent" xml:space="preserve">
+    <value>tabDeXuatGia</value>
+  </data>
+  <data name="&gt;&gt;dgvDuLieuDXG.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="cboCuaHangDXG.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 10pt</value>
+  </data>
+  <data name="cboCuaHangDXG.ItemHeight" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="cboCuaHangDXG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>80, 0</value>
+  </data>
+  <data name="cboCuaHangDXG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>174, 36</value>
+  </data>
+  <data name="cboCuaHangDXG.TabIndex" type="System.Int32, mscorlib">
+    <value>229</value>
+  </data>
+  <data name="&gt;&gt;cboCuaHangDXG.Name" xml:space="preserve">
+    <value>cboCuaHangDXG</value>
+  </data>
+  <data name="&gt;&gt;cboCuaHangDXG.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2ComboBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;cboCuaHangDXG.Parent" xml:space="preserve">
+    <value>guna2Panel5</value>
+  </data>
+  <data name="&gt;&gt;cboCuaHangDXG.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lblTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9.75pt, style=Bold</value>
+  </data>
+  <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 6</value>
+  </data>
+  <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 23</value>
+  </data>
+  <data name="lblTime.TabIndex" type="System.Int32, mscorlib">
+    <value>228</value>
+  </data>
+  <data name="lblTime.Text" xml:space="preserve">
+    <value>Cửa hàng:</value>
+  </data>
+  <data name="&gt;&gt;lblTime.Name" xml:space="preserve">
+    <value>lblTime</value>
+  </data>
+  <data name="&gt;&gt;lblTime.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblTime.Parent" xml:space="preserve">
+    <value>guna2Panel5</value>
+  </data>
+  <data name="&gt;&gt;lblTime.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnThemDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Right</value>
+  </data>
+  <data name="btnThemDXG.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="btnThemDXG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>332, 3</value>
+  </data>
+  <data name="btnThemDXG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>79, 26</value>
+  </data>
+  <data name="btnThemDXG.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnThemDXG.Text" xml:space="preserve">
+    <value>Thêm </value>
+  </data>
+  <data name="&gt;&gt;btnThemDXG.Name" xml:space="preserve">
+    <value>btnThemDXG</value>
+  </data>
+  <data name="&gt;&gt;btnThemDXG.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnThemDXG.Parent" xml:space="preserve">
+    <value>guna2Panel5</value>
+  </data>
+  <data name="&gt;&gt;btnThemDXG.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="guna2Panel5.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
   <data name="guna2Panel5.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="btnThemSP.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
+  <data name="guna2Panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 34</value>
   </data>
-  <data name="&gt;&gt;guna2Panel7.ZOrder" xml:space="preserve">
+  <data name="guna2Panel5.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel5.Name" xml:space="preserve">
+    <value>guna2Panel5</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel5.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel5.Parent" xml:space="preserve">
+    <value>tabDeXuatGia</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel5.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="ibtnThungRacPGG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 30</value>
+  <data name="txtSoTrangDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom</value>
+  </data>
+  <data name="txtSoTrangDXG.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="txtSoTrangDXG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>184, 3</value>
+  </data>
+  <data name="txtSoTrangDXG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 26</value>
+  </data>
+  <data name="txtSoTrangDXG.TabIndex" type="System.Int32, mscorlib">
+    <value>155</value>
+  </data>
+  <data name="&gt;&gt;txtSoTrangDXG.Name" xml:space="preserve">
+    <value>txtSoTrangDXG</value>
   </data>
   <data name="&gt;&gt;txtSoTrangDXG.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="cboCuaHangDXG.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 10pt</value>
-  </data>
-  <data name="btnThemSP.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="btnTrangSauSP.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel11.Name" xml:space="preserve">
-    <value>guna2Panel11</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel12.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="txtTrangLSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauSP.Name" xml:space="preserve">
-    <value>btnTrangSauSP</value>
-  </data>
-  <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacPGG.Parent" xml:space="preserve">
-    <value>guna2Panel8</value>
-  </data>
-  <data name="&gt;&gt;cboCuaHangDXG.Parent" xml:space="preserve">
-    <value>guna2Panel5</value>
-  </data>
-  <data name="&gt;&gt;txtTrangSP.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2TextBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel2.Name" xml:space="preserve">
-    <value>guna2Panel2</value>
-  </data>
-  <data name="dgvnhacungcap.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="txtSoTrangNCC.TabIndex" type="System.Int32, mscorlib">
-    <value>155</value>
-  </data>
-  <data name="guna2Panel7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="dgvnhacungcap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 34</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel2.Parent" xml:space="preserve">
-    <value>tabNhaCungCap</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel2.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="ibtnThungRacNCC.TabIndex" type="System.Int32, mscorlib">
-    <value>156</value>
-  </data>
-  <data name="&gt;&gt;tabControlSP.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;dgvDuLieuDXG.Parent" xml:space="preserve">
-    <value>tabDeXuatGia</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauPCT.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel4.Parent" xml:space="preserve">
-    <value>tabNhaCungCap</value>
-  </data>
-  <data name="guna2Panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 34</value>
-  </data>
-  <data name="ibtnThungRacNCC.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="tabControlSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnTrangTruocNCC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="dgvDuLieuDXG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 273</value>
-  </data>
-  <data name="&gt;&gt;cboCuaHangDXG.Name" xml:space="preserve">
-    <value>cboCuaHangDXG</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
-    <value>tabSanPham</value>
+  <data name="&gt;&gt;txtSoTrangDXG.Parent" xml:space="preserve">
+    <value>guna2Panel6</value>
   </data>
   <data name="&gt;&gt;txtSoTrangDXG.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;btnThemDXG.Parent" xml:space="preserve">
-    <value>guna2Panel5</value>
+  <data name="btnTrangSauDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom</value>
   </data>
-  <data name="&gt;&gt;guna2BorderlessForm1.Name" xml:space="preserve">
-    <value>guna2BorderlessForm1</value>
+  <data name="btnTrangSauDXG.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
   </data>
-  <data name="tabLoaiSanPham.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="btnTrangSauDXG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>238, 3</value>
+  </data>
+  <data name="btnTrangSauDXG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 26</value>
+  </data>
+  <data name="btnTrangSauDXG.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="btnTrangSauDXG.Text" xml:space="preserve">
+    <value>&gt;&gt;</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauDXG.Name" xml:space="preserve">
+    <value>btnTrangSauDXG</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauDXG.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauDXG.Parent" xml:space="preserve">
+    <value>guna2Panel6</value>
+  </data>
+  <data name="&gt;&gt;btnTrangSauDXG.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnTrangTruocDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom</value>
+  </data>
+  <data name="btnTrangTruocDXG.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="btnTrangTruocDXG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>135, 3</value>
+  </data>
+  <data name="btnTrangTruocDXG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 26</value>
+  </data>
+  <data name="btnTrangTruocDXG.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="btnTrangTruocDXG.Text" xml:space="preserve">
+    <value>&lt;&lt;</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocDXG.Name" xml:space="preserve">
+    <value>btnTrangTruocDXG</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocDXG.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocDXG.Parent" xml:space="preserve">
+    <value>guna2Panel6</value>
+  </data>
+  <data name="&gt;&gt;btnTrangTruocDXG.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="guna2Panel6.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="guna2Panel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 307</value>
+  </data>
+  <data name="guna2Panel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 34</value>
+  </data>
+  <data name="guna2Panel6.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel6.Name" xml:space="preserve">
+    <value>guna2Panel6</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel6.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel6.Parent" xml:space="preserve">
+    <value>tabDeXuatGia</value>
+  </data>
+  <data name="&gt;&gt;guna2Panel6.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabDeXuatGia.Location" type="System.Drawing.Point, System.Drawing">
+    <value>444, 4</value>
+  </data>
+  <data name="tabDeXuatGia.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 341</value>
+  </data>
+  <data name="tabDeXuatGia.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tabDeXuatGia.Text" xml:space="preserve">
+    <value>Đề xuất giá</value>
+  </data>
+  <data name="&gt;&gt;tabDeXuatGia.Name" xml:space="preserve">
+    <value>tabDeXuatGia</value>
+  </data>
+  <data name="&gt;&gt;tabDeXuatGia.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabDeXuatGia.Parent" xml:space="preserve">
+    <value>tabControlSP</value>
+  </data>
+  <data name="&gt;&gt;tabDeXuatGia.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tabControlSP.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="tabControlSP.ItemSize" type="System.Drawing.Size, System.Drawing">
+    <value>220, 100</value>
+  </data>
+  <data name="tabControlSP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="tabControlSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="tabControlSP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>867, 349</value>
+  </data>
+  <data name="tabControlSP.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;tabControlSP.Name" xml:space="preserve">
+    <value>tabControlSP</value>
+  </data>
+  <data name="&gt;&gt;tabControlSP.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2TabControl, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="&gt;&gt;tabControlSP.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tabControlSP.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
-  <data name="txtTrangKM.TabIndex" type="System.Int32, mscorlib">
-    <value>155</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Form2</value>
   </data>
-  <data name="guna2Panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="&gt;&gt;guna2BorderlessForm1.Name" xml:space="preserve">
+    <value>guna2BorderlessForm1</value>
   </data>
-  <data name="&gt;&gt;txtSoTrangDXG.Name" xml:space="preserve">
-    <value>txtSoTrangDXG</value>
+  <data name="&gt;&gt;guna2BorderlessForm1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2BorderlessForm, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="btnThem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>336, 4</value>
-  </data>
-  <data name="btnThemSP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 26</value>
-  </data>
-  <data name="guna2Panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 307</value>
-  </data>
-  <data name="tabControlSP.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="dgvnhacungcap.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="txtSoTrangDXG.TabIndex" type="System.Int32, mscorlib">
-    <value>155</value>
-  </data>
-  <data name="btnTrangTruocSP.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel1.Name" xml:space="preserve">
-    <value>guna2Panel1</value>
-  </data>
-  <data name="&gt;&gt;dgvSanPham.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnThemDXG.Text" xml:space="preserve">
-    <value>Thêm </value>
-  </data>
-  <data name="btnTrangTruocPCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="txtTrangSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauSP.Parent" xml:space="preserve">
-    <value>guna2Panel3</value>
-  </data>
-  <data name="btnTrangSauPCT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 26</value>
-  </data>
-  <data name="dgvloaisanpham.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="btnTrangSauKM.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 26</value>
-  </data>
-  <data name="&gt;&gt;ibtnDuLieuBiXoaPCT.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="txtTrangLSP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 4</value>
-  </data>
-  <data name="guna2Panel8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 307</value>
-  </data>
-  <data name="&gt;&gt;tabKhuyenMai.Name" xml:space="preserve">
-    <value>tabKhuyenMai</value>
-  </data>
-  <data name="dgvnhacungcap.ColumnHeadersHeight" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <data name="&gt;&gt;tabDeXuatGia.Parent" xml:space="preserve">
-    <value>tabControlSP</value>
-  </data>
-  <data name="&gt;&gt;ibtnThungRacNCC.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;btnThemDXG.Name" xml:space="preserve">
-    <value>btnThemDXG</value>
-  </data>
-  <data name="&gt;&gt;lblTime.Name" xml:space="preserve">
-    <value>lblTime</value>
-  </data>
-  <data name="btnTrangTruocNCC.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnTrangSauNCC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>238, 4</value>
-  </data>
-  <data name="dgvSanPham.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
-  <data name="ibtnThungRacSP.TabIndex" type="System.Int32, mscorlib">
-    <value>156</value>
-  </data>
-  <data name="&gt;&gt;cboCuaHangDXG.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2ComboBox, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="btnThemDXG.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="btnTrangTruocPCT.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="tabControlSP.ItemSize" type="System.Drawing.Size, System.Drawing">
-    <value>220, 100</value>
-  </data>
-  <data name="ibtnThungRacPGG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="tabKhuyenMai.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 4</value>
-  </data>
-  <data name="cboCuaHangDXG.TabIndex" type="System.Int32, mscorlib">
-    <value>229</value>
-  </data>
-  <data name="btnThemKM.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel5.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;txtTrangKM.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>frmHienThi_SanPham</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;guna2Panel7.Name" xml:space="preserve">
-    <value>guna2Panel7</value>
-  </data>
-  <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 34</value>
-  </data>
-  <data name="tabKhuyenMai.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 341</value>
-  </data>
-  <data name="guna2Panel11.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="&gt;&gt;guna2Panel4.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauKM.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="dgvloaisanpham.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="&gt;&gt;dgvnhacungcap.Parent" xml:space="preserve">
-    <value>tabNhaCungCap</value>
-  </data>
-  <data name="guna2Panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 34</value>
-  </data>
-  <data name="btnThemKM.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;btnThemDXG.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="cboCuaHangDXG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>79, 3</value>
-  </data>
-  <data name="guna2Panel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 34</value>
-  </data>
-  <data name="btnTrangSauKM.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="&gt;&gt;btnTrangSauDXG.Name" xml:space="preserve">
-    <value>btnTrangSauDXG</value>
-  </data>
-  <data name="tabLoaiSanPham.Text" xml:space="preserve">
-    <value>Quản lý loại sản phẩm</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocNCC.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="ibtnThungRacSP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>34, 30</value>
-  </data>
-  <data name="dgvDuLieuDXG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 34</value>
-  </data>
-  <data name="ibtnDuLieuBiXoaPCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>382, 2</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocPCT.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
-  <data name="dgvPGG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="txtSoTrangDXG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>48, 26</value>
-  </data>
-  <data name="btnTrangTruocNCC.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt, style=Bold</value>
-  </data>
-  <data name="guna2Panel12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 34</value>
-  </data>
-  <data name="&gt;&gt;tabDeXuatGia.Name" xml:space="preserve">
-    <value>tabDeXuatGia</value>
-  </data>
-  <data name="ibtnThungRacPGG.TabIndex" type="System.Int32, mscorlib">
-    <value>156</value>
-  </data>
-  <data name="btnThemDXG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>332, 3</value>
-  </data>
-  <data name="guna2Panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="btnTrangSauPCT.Text" xml:space="preserve">
-    <value>&gt;&gt;</value>
-  </data>
-  <data name="btnTrangSauDXG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>253, 3</value>
-  </data>
-  <data name="btnTrangTruocNCC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>134, 4</value>
-  </data>
-  <data name="txtTrangKM.Location" type="System.Drawing.Point, System.Drawing">
-    <value>183, 4</value>
-  </data>
-  <data name="&gt;&gt;tabDeXuatGia.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="ibtnThungRacSP.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
-  </data>
-  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 2</value>
-  </data>
-  <data name="&gt;&gt;btnTrangTruocNCC.Name" xml:space="preserve">
-    <value>btnTrangTruocNCC</value>
-  </data>
-  <data name="dgvnhacungcap.RowHeadersWidth" type="System.Int32, mscorlib">
-    <value>62</value>
-  </data>
-  <data name="txtTrangSP.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="txtTrangKM.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;tabSanPham.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>83</value>
-  </metadata>
-  <metadata name="guna2BorderlessForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>en</value>
-  </metadata>
 </root>

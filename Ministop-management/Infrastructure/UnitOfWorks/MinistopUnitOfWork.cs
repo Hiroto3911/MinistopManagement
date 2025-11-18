@@ -76,6 +76,7 @@ namespace Infrastructure.UnitOfWorks
             AbsenceRepository = absenceRepository;
             ReturnProductRepository = returnProductRepository;
             ReturnDetailRepository = returnDetailRepository;
+            PriceProposalRepository = priceProposalRepository;
 
         }
         public IStoreRepository StoreRepository { get; private set; }

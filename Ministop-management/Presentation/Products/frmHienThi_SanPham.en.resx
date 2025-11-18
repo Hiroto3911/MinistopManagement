@@ -142,13 +142,19 @@
   <data name="dgvDuLieuDXG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
+  <data name="cboCuaHangDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cboCuaHangDXG.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="cboCuaHangDXG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>70, 0</value>
+  </data>
   <data name="cboCuaHangDXG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>176, 36</value>
+    <value>184, 36</value>
   </data>
   <data name="lblTime.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -171,9 +177,6 @@
   <data name="lblTime.Text" xml:space="preserve">
     <value>Store:</value>
   </data>
-  <data name="btnThemDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
-  </data>
   <data name="btnThemDXG.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Bold</value>
   </data>
@@ -187,28 +190,37 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="txtSoTrangDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
+    <value>Top, Bottom</value>
   </data>
   <data name="txtSoTrangDXG.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="txtSoTrangDXG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>185, 4</value>
   </data>
   <data name="txtSoTrangDXG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 5, 4, 5</value>
   </data>
   <data name="btnTrangSauDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
+    <value>Top, Bottom</value>
   </data>
   <data name="btnTrangSauDXG.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangSauDXG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>239, 4</value>
   </data>
   <data name="btnTrangSauDXG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="btnTrangTruocDXG.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
+    <value>Top, Bottom</value>
   </data>
   <data name="btnTrangTruocDXG.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnTrangTruocDXG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 4</value>
   </data>
   <data name="btnTrangTruocDXG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>

@@ -25,26 +25,26 @@ namespace Presentation
         private readonly IProductService _productService;
         private readonly ISupplierService _supllierService;
         private readonly IPromotionService _promotionService;
+        private readonly IPriceProposalService _priceProposalService;
         private readonly IUnityContainer _container;
         private readonly IUserSession _userSession;
         private long _totalPagePCT = 1;
         private long _totalPageNCC = 1;
         private long _totalPageSP = 1;
         private long _totalPagePGG = 1;
+        private long _totalPageDXG;
 
-        public frmHienThi_SanPham(IProductCategoryService ProductCategoryService, IUnityContainer container, IUserSession userSession,IProductService ProductService, ISupplierService SupllierService, IPromotionService promotionService)
+        public frmHienThi_SanPham(IProductCategoryService ProductCategoryService, IPriceProposalService priceProposalService, IUnityContainer container, IUserSession userSession,IProductService ProductService, ISupplierService SupllierService, IPromotionService promotionService)
         {
             InitializeComponent();
             _productCategoryService = ProductCategoryService;
             _productService = ProductService;
             _supllierService = SupllierService;
             _promotionService = promotionService;
+            _priceProposalService = priceProposalService;
             _container = container;
             _userSession = userSession;
-            LoadDataPCT();
-            LoadDataNCC();
-            LoadDataSP();
-            LoadDataPGG();
+ 
         }
        
 
@@ -52,12 +52,15 @@ namespace Presentation
 
         private void frmHienThi_SanPham_Load(object sender, EventArgs e)
         {
+            LoadCboCuaHang();
             if (_userSession.Role == "Quản lý cửa hàng")
             {
                 tabControlSP.TabPages.Remove(tabSanPham);
                 tabControlSP.TabPages.Remove(tabLoaiSanPham);
                 tabControlSP.TabPages.Remove(tabNhaCungCap);
                 tabControlSP.TabPages.Remove(tabKhuyenMai);
+                cboCuaHangDXG.Enabled = false;
+                cboCuaHangDXG.SelectedValue = _userSession.IdStore;
             }
 
         }
@@ -217,7 +220,6 @@ namespace Presentation
         }
         #endregion
 
-        
         #region nha cung cap
         private void LoadDataNCC(int pageNumber = 1, int pageSize = 5)
         {
@@ -400,6 +402,7 @@ namespace Presentation
             }
         }
         #endregion
+
         #region san pham
         private void LoadDataSP(int pageNumber = 1, int pageSize = 10)
         {
@@ -487,8 +490,6 @@ namespace Presentation
             btnTrangSauSP.Enabled = pageNumber <= _totalPageSP;
 
         }
-        #endregion
-
         private void btnThemSP_Click(object sender, EventArgs e)
         {
             var frmChucNangSP = _container.Resolve<frmChucNang_SanPham>();
@@ -534,11 +535,13 @@ namespace Presentation
 
         private void dgvnhacungcap_DoubleClick(object sender, EventArgs e)
         {
-            int row=dgvnhacungcap.CurrentCell.RowIndex;
+            int row = dgvnhacungcap.CurrentCell.RowIndex;
             string supplierId = dgvnhacungcap.Rows[row].Cells["MaNhaCungCap"].Value.ToString();
             var frmChucNangLoaiSanPham = _container.Resolve<frmHienThi_NhaCungCapSanPham>(new ParameterOverride("supplierID", supplierId));
             frmChucNangLoaiSanPham.ShowDialog();
         }
+        #endregion
+
         #region PhieuGiamGia
         private void dgvPGG_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -711,24 +714,274 @@ namespace Presentation
 
         #endregion
 
-        private void btnThemDXG_Click(object sender, EventArgs e)
+     
+        private void cboCuaHang_SelectedValueChanged(object sender, EventArgs e)
         {
+            LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString());
+        }
+        private void LoadCboCuaHang()
+        {
+            using (var childContainer = _container.CreateChildContainer())
+            {
+                var storeServices = childContainer.Resolve<IStoreService>();
+                var list = storeServices.GetAll();
+                if (list.Succeeded == false && list.Data == null) { return; }
+                cboCuaHangDXG.DataSource = list.Data;
+                cboCuaHangDXG.ValueMember = "StoreID";
+                cboCuaHangDXG.DisplayMember = "StoreName";
+            }
 
         }
-
-        private void dgvDuLieuDXG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void LoadDataDXG(string storeId, int pageNumber = 1, int pageSize = 2)
         {
 
+            // ===== 1️⃣ Tạo DataTable cho danh sách cửa hàng =====
+            DataTable dt = new DataTable();
+            dt.Columns.Add("MaDeXuat");
+            dt.Columns.Add("MaSanPham");
+            dt.Columns.Add("TenSanPham");
+            dt.Columns.Add("GiaCu");
+            dt.Columns.Add("GiaMoi");
+            dt.Columns.Add("LyDo");
+            dt.Columns.Add("TrangThai");
+            using (var childContainer = _container.CreateChildContainer())
+            {
+                var expenseService = childContainer.Resolve<IPriceProposalService>();
+                var list = expenseService.GetpriceProposal(storeId, pageNumber, pageSize);
+                if (list.Succeeded == false && list.Data == null) { return; }
+                _totalPageDXG = (long)Math.Ceiling((double)(list.TotalCount / pageSize));
+                    foreach (var item in list.Data)
+                    {
+                        dt.Rows.Add(item.ProposalId, item.ProductId, item.ProductName, item.OldPrice, item.NewPrice, item.Reason, item.Status);
+                    }
+                
+            }
+            // ===== 2️⃣ Dữ liệu mẫu (có thể thay bằng dữ liệu trong DB sau này) =====
+            dgvDuLieuDXG.DataSource = dt;
+            dgvDuLieuDXG.AllowUserToAddRows = false;
+            dgvDuLieuDXG.ReadOnly = true;
+
+            // ===== 2️⃣ Thêm hai cột nút =====
+
+            //if (_isEditable == true)
+            //{
+
+            if (dgvDuLieuDXG.Columns["Edit"] == null)
+            {
+                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
+                {
+                    Name = "Edit",
+                    HeaderText = "Sửa",
+                    Text = "Edit",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvDuLieuDXG.Columns.Add(btnEdit);
+            }
+
+            if (dgvDuLieuDXG.Columns["Delete"] == null && _userSession.Role != "Admin")
+            {
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn
+                {
+                    Name = "Delete",
+                    HeaderText = "Xóa",
+                    Text = "Delete",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvDuLieuDXG.Columns.Add(btnDelete);
+
+                //ApplyGridStyle(dgvDuLieuDXG);
+            }
+            //}
+            //else
+            //{
+            // Nếu đã chốt phiếu thì ẩn (hoặc xóa) hai cột này nếu có
+            //if (dgvDuLieuCP.Columns["Edit"] != null)
+            //    dgvDuLieuCP.Columns.Remove("Edit");
+            //if (dgvDuLieuCP.Columns["Delete"] != null)
+            //    dgvDuLieuCP.Columns.Remove("Delete");
+            //}
+
+            // ===== 3️⃣ Chỉnh style chung cho bảng =====
+            dgvDuLieuDXG.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
+            dgvDuLieuDXG.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvDuLieuDXG.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvDuLieuDXG.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvDuLieuDXG.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
+            dgvDuLieuDXG.RowTemplate.Height = 40;
+
+            // ===== 4️⃣ Đổi màu nút Edit/Delete =====
+            dgvDuLieuDXG.RowPostPaint += (s, e) =>
+            {
+                if (e.RowIndex < 0) return;
+
+                var grid = (Guna2DataGridView)s;
+                var row = grid.Rows[e.RowIndex];
+                var status = row.Cells["TrangThai"].Value?.ToString();
+
+                if (status == "0") // bị từ chối
+                {
+                    using (Pen p = new Pen(Color.Red, 5)) // viền trái đỏ, dày 4px
+                    {
+                        int x = e.RowBounds.Left + 1;
+                        int y1 = e.RowBounds.Top + 1;
+                        int y2 = e.RowBounds.Bottom - 1;
+
+                        e.Graphics.DrawLine(p, x, y1, x, y2);
+                    }
+                }
+            };
+
+
+            dgvDuLieuDXG.CellPainting += (s, e) =>
+            {
+                if (e.RowIndex < 0) return;
+
+                var grid = (Guna2DataGridView)s;
+                var status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
+                bool allowEditDelete = status != "1";
+                // 👆 chỉ dòng cuối (dòng mới nhất) mới có nút
+
+                if ((grid.Columns[e.ColumnIndex].Name == "Edit" || grid.Columns[e.ColumnIndex].Name == "Delete"))
+                {
+                    e.PaintBackground(e.CellBounds, true);
+
+                    if (allowEditDelete)
+                    {
+                        // Chỉ vẽ nếu được phép
+                        Color backColor = grid.Columns[e.ColumnIndex].Name == "Edit"
+                            ? Color.SeaGreen
+                            : Color.IndianRed;
+
+                        using (Brush b = new SolidBrush(backColor))
+                            e.Graphics.FillRectangle(b, e.CellBounds);
+
+                        string text = grid.Columns[e.ColumnIndex].Name;
+                        TextRenderer.DrawText(
+                            e.Graphics,
+                            text,
+                            new Font("Segoe UI", 9, FontStyle.Bold),
+                            e.CellBounds,
+                            Color.White,
+                            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+                        );
+                    }
+
+                    e.Handled = true;
+                }
+            };
+
+            btnTrangTruocDXG.Enabled = pageNumber > 1;
+            btnTrangSauDXG.Enabled = pageNumber <= _totalPageDXG;
+
+
+        }
+        private void dgvDuLieuDXG_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            string status = dgvDuLieuDXG.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
+            string priceProposalID = dgvDuLieuDXG.Rows[e.RowIndex].Cells["MaDeXuat"].Value.ToString();
+            bool allowAction = status != "1";
+            if (!allowAction) return;
+
+            if (dgvDuLieuDXG.Columns[e.ColumnIndex].Name == "Edit")
+            {
+                //MessageBox.Show($"Edit sản phẩm: {productId}", "Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var frmChucNangCP = _container.Resolve<frmChucNang_DeXuatGia>(new ParameterOverride("priceProposalID", priceProposalID));
+                frmChucNangCP.dataChanged += (s, ev) =>
+                {
+  
+                    LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString());
+                };
+                frmChucNangCP.ShowDialog();
+
+
+
+            }
+            else if (dgvDuLieuDXG.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa phieu de xuat gia {priceProposalID}?",
+                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    _priceProposalService.RemovepriceProposalDto(priceProposalID);
+                    MessageBox.Show("Xóa thành công!");
+
+                    LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString()); // tải lại dữ liệu
+                }
+            }
         }
 
         private void btnTrangSauDXG_Click(object sender, EventArgs e)
         {
-
+            int number = Convert.ToInt32(txtSoTrangDXG.Text);
+            btnTrangTruocDXG.Enabled = true;
+            if (number <= _totalPageDXG)
+            {
+                var pageNumber = ++number;
+                txtSoTrangDXG.Text = pageNumber.ToString();
+                LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString(), pageNumber);
+            }
         }
 
         private void btnTrangTruocDXG_Click(object sender, EventArgs e)
         {
+            int number = Convert.ToInt32(txtSoTrangDXG.Text);
+            if (number > 1)
+            {
 
+                var pageNumber = --number;
+                txtSoTrangDXG.Text = pageNumber.ToString();
+                LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString(), pageNumber);
+
+            }
+            else
+            {
+                btnTrangTruocDXG.Enabled = false;
+            }
+        }
+
+        private void btnThemDXG_Click(object sender, EventArgs e)
+        {
+
+            var frmChucNang = _container.Resolve<frmChucNang_DeXuatGia>();
+            frmChucNang.dataChanged += (s, ev) => { LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString()); };
+            frmChucNang.ShowDialog();
+
+        }
+
+        private void tabControlSP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           var tab = tabControlSP.SelectedTab;
+            if(tab.Tag == null)
+            {
+                LoadTab(tab);
+                tab.Tag = "Loaded";
+            }
+        }
+
+        private void LoadTab(TabPage tab)
+        {
+            switch (tab.Name)
+            {
+                case "tabDeXuatGia":
+                    LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString());
+                    break;
+                case "tabNhaCungCap":
+                    LoadDataNCC();
+                    break;
+                case "tabKhuyenMai":
+                    LoadDataPGG();
+                    break;
+                case "tabLoaiSanPham":
+                    LoadDataPCT();
+                    break;
+                case "tabSanPham":
+                    LoadDataSP();
+                    break;
+               
+            }
         }
     }
 }
