@@ -423,11 +423,17 @@
   <data name="tabTinhLuong.Size" type="System.Drawing.Size, System.Drawing">
     <value>1072, 741</value>
   </data>
+  <data name="dgvDuLieu_CaLam.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="dgvDuLieu_CaLam.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
   <data name="dgvDuLieu_CaLam.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 52</value>
+    <value>0, 50</value>
   </data>
   <data name="dgvDuLieu_CaLam.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 637</value>
+    <value>1072, 639</value>
   </data>
   <data name="txtSoTrangCL.Location" type="System.Drawing.Point, System.Drawing">
     <value>555, 9</value>
@@ -519,8 +525,17 @@
   <data name="guna2Panel5.Size" type="System.Drawing.Size, System.Drawing">
     <value>1072, 52</value>
   </data>
+  <data name="dgvDuLieu_PhanCong.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="dgvDuLieu_PhanCong.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="dgvDuLieu_PhanCong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 54</value>
+  </data>
   <data name="dgvDuLieu_PhanCong.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 741</value>
+    <value>1068, 631</value>
   </data>
   <data name="tabPhanCongCa.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 4</value>
