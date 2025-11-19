@@ -59,6 +59,7 @@
             this.btnResize = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lblTime = new System.Windows.Forms.Label();
             this.panelContainer = new System.Windows.Forms.Panel();
+            this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -229,7 +230,8 @@
             this.phieuXuatToolStripMenuItem,
             this.xemHợpĐồngLươngNhânViênToolStripMenuItem,
             this.xuấtPhiếuLươngNhânViênToolStripMenuItem,
-            this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem});
+            this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem,
+            this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem});
             this.báoCáoToolStripMenuItem.Image = global::Presentation.Properties.Resources.report;
             this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
             // 
@@ -307,6 +309,11 @@
             this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(63)))), ((int)(((byte)(128)))));
             this.panelContainer.Name = "panelContainer";
             // 
+            // xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem
+            // 
+            resources.ApplyResources(this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem, "xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem");
+            this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem.Name = "xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem";
+            // 
             // frmMain
             // 
             resources.ApplyResources(this, "$this");
@@ -365,5 +372,6 @@
         private System.Windows.Forms.ToolStripMenuItem xemHợpĐồngLươngNhânViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xuấtPhiếuLươngNhânViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem;
     }
 }

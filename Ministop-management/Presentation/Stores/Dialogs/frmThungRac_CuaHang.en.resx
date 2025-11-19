@@ -128,10 +128,25 @@
   <data name="lblThungRac.Text" xml:space="preserve">
     <value>Trash Can - Store List</value>
   </data>
+  <data name="btnKhoiPhuc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>429, 2</value>
+  </data>
   <data name="btnKhoiPhuc.Text" xml:space="preserve">
     <value>Restore</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="btnXoaCung.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="btnXoaCung.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="btnXoaCung.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnXoaCung.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 29</value>
+  </data>
+  <data name="btnXoaCung.Text" xml:space="preserve">
+    <value>Remove</value>
   </data>
 </root>

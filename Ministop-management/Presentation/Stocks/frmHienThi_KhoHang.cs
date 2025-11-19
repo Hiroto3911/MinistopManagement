@@ -75,9 +75,7 @@ namespace Presentation
             switch (tab.Name)
             {
 
-                case "tabTimKiem":
-                    LoadDataStockDetail(_userSession.IdStore);
-                    break;
+             
                 case "tabKiemHang":
 
                     LoadDataStockCheck(cboCuaHangKH.SelectedValue.ToString());
@@ -102,6 +100,7 @@ namespace Presentation
             LoadCboCuaHang(cboCuaHangKH);
             LoadCboCuaHang(cboCuaHangXH);
             LoadCboCuaHang(cboCuaHangNH);
+            LoadCboCuaHang(cboCuaHang);
             if (_userSession.Role == "Nhân viên")
             {
                 tabControlKH.TabPages.Remove(tabChiTietKho);
@@ -109,6 +108,8 @@ namespace Presentation
                 cboCuaHangKH.SelectedValue = _userSession.IdStore;
                 cboCuaHangNH.SelectedValue = _userSession.IdStore;
                 cboCuaHangXH.SelectedValue = _userSession.IdStore;
+                cboCuaHang.Enabled = false; 
+                cboCuaHang.SelectedValue = _userSession.IdStore;
 
 
 
@@ -130,6 +131,8 @@ namespace Presentation
                 cboCuaHangXH.SelectedValue = _userSession.IdStore;
                 btnThemKH.Visible = false;
                 btnThemXH.Visible = false;
+                cboCuaHang.Enabled = false;
+                cboCuaHang.SelectedValue = _userSession.IdStore;
             }
 
 
@@ -812,7 +815,7 @@ namespace Presentation
             }
             dgvDuLieuXH.DataSource = dt;
             dgvDuLieuXH.AllowUserToAddRows = false;
-            dgvDuLieuXH.ReadOnly = true;
+            //dgvDuLieuXH.ReadOnly = true;
             if (_lang == "en-US")
             {
                 ApplyGridStyle(dgvDuLieuXH, "Permitted", "Admin");
@@ -833,14 +836,14 @@ namespace Presentation
             string exportID;
             if (_lang == "en-US")
             {
-                status = dgvDuLieuNH.Rows[e.RowIndex].Cells["Status"].Value.ToString();
-                exportID = dgvDuLieuNH.Rows[e.RowIndex].Cells["ExportID"].Value.ToString();
+                status = dgvDuLieuXH.Rows[e.RowIndex].Cells["Status"].Value.ToString();
+                exportID = dgvDuLieuXH.Rows[e.RowIndex].Cells["ExportID"].Value.ToString();
 
             }
             else
             {
-                status = dgvDuLieuNH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
-                exportID = dgvDuLieuNH.Rows[e.RowIndex].Cells["MaPhieuXuat"].Value.ToString();
+                status = dgvDuLieuXH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
+                exportID = dgvDuLieuXH.Rows[e.RowIndex].Cells["MaPhieuXuat"].Value.ToString();
             }
             var allowAction = status == "Duyệt"|| status =="Permitted";
             if (allowAction) return;
@@ -1151,9 +1154,9 @@ namespace Presentation
                 return;
             }
             string productName = txtSearch.Text;
-            LoadDataSearch(productName);
+            LoadDataSearch(productName,cboCuaHang.SelectedValue.ToString());
         }
-        public void LoadDataSearch(string nameProduct)
+        public void LoadDataSearch(string nameProduct,string storeID)
         {
             _totalCountWarming = 0;
             // ===== 1️⃣ Tạo dữ liệu mẫu =====
@@ -1167,7 +1170,7 @@ namespace Presentation
             using (var childContainer = _container.CreateChildContainer())
             {
                 var ProductService = childContainer.Resolve<IStockDetailService>();
-                var list = ProductService.GetStockDetailByProductName(nameProduct);
+                var list = ProductService.GetStockDetailByProductName(nameProduct, storeID);
                 if (list.Succeeded == false && list.Data == null) { return; }
                 foreach (var item in list.Data)
                 {
@@ -1177,7 +1180,6 @@ namespace Presentation
             lblSoLanCanhBao.Text = _totalCountWarming.ToString();
             dgvDuLieuTimKiem.DataSource = dt;
             dgvDuLieuTimKiem.AllowUserToAddRows = false;
-            dgvDuLieuTimKiem.ReadOnly = true;
             dgvDuLieuTimKiem.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
             dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
             dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.ForeColor = Color.White;

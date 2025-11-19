@@ -52,6 +52,7 @@ namespace Presentation
 
         private void frmHienThi_SanPham_Load(object sender, EventArgs e)
         {
+            LoadTab(tabControlSP.SelectedTab);
             LoadCboCuaHang();
             if (_userSession.Role == "Quản lý cửa hàng")
             {
@@ -967,6 +968,10 @@ namespace Presentation
             {
                 case "tabDeXuatGia":
                     LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString());
+                    if (_userSession.Role == "Admin")
+                    {
+                        btnThemDXG.Enabled = false;
+                    }
                     break;
                 case "tabNhaCungCap":
                     LoadDataNCC();
