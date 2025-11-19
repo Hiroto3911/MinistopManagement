@@ -123,19 +123,73 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblNguoiDung.Location" type="System.Drawing.Point, System.Drawing">
-    <value>58, 17</value>
+    <value>87, 26</value>
   </data>
   <data name="lblNguoiDung.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 13</value>
+    <value>176, 21</value>
   </data>
   <data name="lblNguoiDung.Text" xml:space="preserve">
     <value>Hello Nguyen Van Minh</value>
   </data>
+  <data name="guna2ImageButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1233, 9</value>
+  </data>
+  <data name="guna2ImageButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="guna2ImageButton3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1275, 9</value>
+  </data>
+  <data name="guna2ImageButton3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
   <data name="pictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>81, 54</value>
+  </data>
+  <data name="guna2ImageButton4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1317, 9</value>
+  </data>
+  <data name="guna2ImageButton4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 36</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1365, 54</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>144, 144</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1365, 768</value>
+  </data>
+  <data name="btnResize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1335, 0</value>
+  </data>
+  <data name="btnResize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 33</value>
+  </data>
   <data name="lblTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>194, 28</value>
+  </data>
+  <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 735</value>
+  </data>
+  <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1365, 33</value>
+  </data>
+  <data name="thôngTinNgườiDùngToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>289, 34</value>
+  </data>
+  <data name="mnDangXuat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>289, 34</value>
   </data>
   <data name="mnHeThong.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -495,46 +549,85 @@
         hPVn2J/l/aU/2wAjYaON/j+4ntwlIKm3VQAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="mnHeThong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>97, 29</value>
+  </data>
   <data name="mnCuaHang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 28</value>
+    <value>93, 29</value>
   </data>
   <data name="mnCuaHang.Text" xml:space="preserve">
     <value>Store</value>
   </data>
   <data name="mnNhanVien.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 28</value>
+    <value>130, 29</value>
   </data>
   <data name="mnNhanVien.Text" xml:space="preserve">
     <value>Employee</value>
   </data>
   <data name="mnKhoHang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 28</value>
+    <value>95, 29</value>
   </data>
   <data name="mnKhoHang.Text" xml:space="preserve">
     <value>Stock</value>
   </data>
   <data name="mnBanHang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 28</value>
+    <value>84, 29</value>
   </data>
   <data name="mnBanHang.Text" xml:space="preserve">
     <value>Sale</value>
   </data>
   <data name="mnSanPham.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 28</value>
+    <value>114, 29</value>
   </data>
   <data name="mnSanPham.Text" xml:space="preserve">
     <value>Product</value>
   </data>
   <data name="mnThongKe.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 28</value>
+    <value>120, 29</value>
   </data>
   <data name="mnThongKe.Text" xml:space="preserve">
     <value>Statistics</value>
   </data>
+  <data name="danhSáchCửaHàngTheoKhuVựcToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 34</value>
+  </data>
+  <data name="danhSáchNhânViênTheoCửaHàngToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 34</value>
+  </data>
+  <data name="phieuNhapToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 34</value>
+  </data>
+  <data name="phieuXuatToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 34</value>
+  </data>
+  <data name="xemHợpĐồngLươngNhânViênToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 34</value>
+  </data>
+  <data name="xuấtPhiếuLươngNhânViênToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 34</value>
+  </data>
+  <data name="xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>527, 34</value>
+  </data>
   <data name="báoCáoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 28</value>
+    <value>105, 29</value>
   </data>
   <data name="báoCáoToolStripMenuItem.Text" xml:space="preserve">
     <value>Report</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 54</value>
+  </data>
+  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 3, 0, 3</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1365, 35</value>
+  </data>
+  <data name="panelContainer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 90</value>
+  </data>
+  <data name="panelContainer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1365, 651</value>
   </data>
 </root>

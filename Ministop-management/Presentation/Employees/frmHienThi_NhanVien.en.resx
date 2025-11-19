@@ -1,8 +1,109 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- Microsoft ResX Schema ... (full comment block unchanged) -->
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <!-- full schema unchanged -->
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
   </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
@@ -16,161 +117,264 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-
-  <!-- All existing entries before the conflict -->
+  <data name="dgvDuLieu_TinhLuong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 52</value>
+  </data>
   <data name="dgvDuLieu_TinhLuong.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 556</value>
+    <value>1072, 479</value>
   </data>
   <data name="guna2TextBox4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>420, 6</value>
+    <value>361, 9</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="guna2TextBox4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 8, 6, 8</value>
+  </data>
+  <data name="guna2TextBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 40</value>
   </data>
   <data name="guna2Button7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>474, 6</value>
+    <value>443, 9</value>
+  </data>
+  <data name="guna2Button7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 40</value>
   </data>
   <data name="guna2Button8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>371, 6</value>
+    <value>288, 9</value>
+  </data>
+  <data name="guna2Button8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 40</value>
   </data>
   <data name="guna2Panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 662</value>
+    <value>0, 532</value>
   </data>
   <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 34</value>
+    <value>1072, 52</value>
   </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="dtpThangTinhLuong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>477, 6</value>
+  </data>
+  <data name="dtpThangTinhLuong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>262, 35</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>364, 9</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>104, 28</value>
+    <value>107, 28</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>DateTime</value>
-  </data>
-  <data name="lblTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 9</value>
   </data>
   <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 28</value>
+    <value>106, 28</value>
   </data>
-  <data name="lblTime.Text" xml:space="preserve">
-    <value>Store</value>
+  <data name="cboCuaHang_TinhLuong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>128, 6</value>
+  </data>
+  <data name="cboCuaHang_TinhLuong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 36</value>
   </data>
   <data name="guna2Button17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>751, 4</value>
+    <value>919, 6</value>
+  </data>
+  <data name="guna2Button17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 40</value>
   </data>
   <data name="guna2Panel9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 34</value>
+    <value>1072, 52</value>
   </data>
-  <data name="lblTongNhanVien.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblTongNhanVien.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 57</value>
+  </data>
+  <data name="lblTongNhanVien.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblTongNhanVien.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 28</value>
+    <value>193, 28</value>
   </data>
-  <data name="lblTongNhanVien.Text" xml:space="preserve">
-    <value>Total count Employee:</value>
+  <data name="lblTongChiPhiLuong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 102</value>
   </data>
-  <data name="lblTongChiPhiLuong.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblTongChiPhiLuong.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="lblTongChiPhiLuong.Size" type="System.Drawing.Size, System.Drawing">
-    <value>200, 28</value>
+    <value>190, 28</value>
   </data>
-  <data name="lblTongChiPhiLuong.Text" xml:space="preserve">
-    <value>Total Salary Amount:</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 12</value>
   </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 28</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Information:</value>
+    <value>234, 28</value>
   </data>
   <data name="guna2Panel13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 40</value>
+    <value>1072, 152</value>
   </data>
+  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 741</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>696</value>
+    <value>584</value>
   </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="splitContainer1.SplitterWidth" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>9, 20</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1300, 749</value>
+  </data>
+  <data name="ibtnThungRac_NV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1012, 3</value>
+  </data>
+  <data name="ibtnThungRac_NV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 46</value>
+  </data>
+  <data name="txtSoTrangNV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 8</value>
+  </data>
+  <data name="txtSoTrangNV.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 8, 6, 8</value>
+  </data>
+  <data name="txtSoTrangNV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 40</value>
+  </data>
+  <data name="btnTrangSauNV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>602, 8</value>
+  </data>
+  <data name="btnTrangSauNV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 40</value>
+  </data>
+  <data name="btnTrangTruocNV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>447, 8</value>
+  </data>
+  <data name="btnTrangTruocNV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 40</value>
+  </data>
+  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 686</value>
+  </data>
+  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 52</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 6</value>
+    <value>4, 9</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 28</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Store:</value>
+    <value>106, 28</value>
   </data>
   <data name="cboChonCuaHang_NV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 6</value>
+    <value>117, 6</value>
   </data>
-  <data name="guna2Button23.Text" xml:space="preserve">
-    <value>Add</value>
+  <data name="cboChonCuaHang_NV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 36</value>
   </data>
-  <data name="tabNhanVien.Text" xml:space="preserve">
-    <value>Employee Management</value>
+  <data name="guna2Button23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>942, 6</value>
+  </data>
+  <data name="guna2Button23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 40</value>
+  </data>
+  <data name="guna2Panel12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="guna2Panel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 52</value>
+  </data>
+  <data name="dgvDuLieu_NhanVien.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 54</value>
+  </data>
+  <data name="dgvDuLieu_NhanVien.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 635</value>
+  </data>
+  <data name="tabNhanVien.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 4</value>
+  </data>
+  <data name="tabNhanVien.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabNhanVien.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 741</value>
   </data>
   <data name="dgvDuLieu_HopDong.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 37</value>
+    <value>3, 55</value>
   </data>
   <data name="dgvDuLieu_HopDong.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 667</value>
+    <value>1066, 631</value>
   </data>
   <data name="guna2ImageButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>810, 2</value>
+    <value>682, 3</value>
+  </data>
+  <data name="guna2ImageButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 46</value>
   </data>
   <data name="txtSoTrangHD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>436, 6</value>
+    <value>387, 9</value>
+  </data>
+  <data name="txtSoTrangHD.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 8, 6, 8</value>
+  </data>
+  <data name="txtSoTrangHD.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 40</value>
   </data>
   <data name="btnTrangSauHD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>490, 6</value>
+    <value>468, 9</value>
+  </data>
+  <data name="btnTrangSauHD.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 40</value>
   </data>
   <data name="btnTrangTruocHD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>387, 6</value>
+    <value>313, 9</value>
+  </data>
+  <data name="btnTrangTruocHD.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 40</value>
   </data>
   <data name="guna2Panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 704</value>
+    <value>3, 686</value>
   </data>
   <data name="guna2Panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 34</value>
+    <value>1066, 52</value>
   </data>
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 6</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 28</value>
+    <value>106, 28</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>store</value>
+  <data name="cboChonCuaHang_HD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 6</value>
+  </data>
+  <data name="cboChonCuaHang_HD.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 36</value>
+  </data>
+  <data name="guna2Panel11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
   <data name="guna2Panel11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 34</value>
+    <value>1066, 52</value>
   </data>
-  <data name="tabHopDong.Text" xml:space="preserve">
-    <value>Contract Salary</value>
+  <data name="tabHopDong.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="tabPhuCap.Text" xml:space="preserve">
-    <value>Allowances Management</value>
+  <data name="tabHopDong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 741</value>
   </data>
-  <data name="tabTinhLuong.Text" xml:space="preserve">
-    <value>Caculate Salary</value>
+  <data name="dgvDuLieu_PhuCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 52</value>
   </data>
-  <data name="btnThemCaLam.Text" xml:space="preserve">
-    <value>Add</value>
+  <data name="dgvDuLieu_PhuCap.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 637</value>
   </data>
-  <data name="tabCaLam.Text" xml:space="preserve">
-    <value>Shift Management</value>
+  <data name="ibtnThungRac_PC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>686, 3</value>
   </data>
-
-  <!-- Correct final version (the one from the second branch) -->
   <data name="ibtnThungRac_PC.Size" type="System.Drawing.Size, System.Drawing">
     <value>52, 46</value>
   </data>
@@ -304,13 +508,16 @@
     <value>3, 18</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 28</value>
+    <value>106, 28</value>
   </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>store</value>
+  <data name="cboChonCuaHang_PC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 14</value>
   </data>
-  <data name="btnThemPC.Text" xml:space="preserve">
-    <value>Add</value>
+  <data name="cboChonCuaHang_PC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 36</value>
+  </data>
+  <data name="btnThemPC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>948, 6</value>
   </data>
   <data name="btnThemPC.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 40</value>
@@ -325,10 +532,10 @@
     <value>None</value>
   </data>
   <data name="dgvDuLieu_PhanCong.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 54</value>
+    <value>2, 56</value>
   </data>
   <data name="dgvDuLieu_PhanCong.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1068, 631</value>
+    <value>1068, 629</value>
   </data>
   <data name="tabPhanCongCa.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 4</value>
@@ -336,10 +543,6 @@
   <data name="tabPhanCongCa.Size" type="System.Drawing.Size, System.Drawing">
     <value>1072, 741</value>
   </data>
-  <data name="tabPhanCongCa.Text" xml:space="preserve">
-    <value>Shift Assignment</value>
-  </data>
-
   <data name="txtSoTrangVang.Location" type="System.Drawing.Point, System.Drawing">
     <value>552, 9</value>
   </data>
@@ -371,15 +574,48 @@
     <value>4, 14</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 28</value>
+    <value>106, 28</value>
   </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>store</value>
+  <data name="cboChonCuaHang_Vang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 9</value>
   </data>
-  <data name="guna2Button18.Text" xml:space="preserve">
-    <value>Add</value>
+  <data name="cboChonCuaHang_Vang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 36</value>
   </data>
-  <data name="tabChamCongVang.Text" xml:space="preserve">
-    <value>Absence</value>
+  <data name="guna2Button18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>942, 6</value>
+  </data>
+  <data name="guna2Button18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 40</value>
+  </data>
+  <data name="guna2Panel15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="guna2Panel15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 52</value>
+  </data>
+  <data name="dgvDuLieu_Vang.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="dgvDuLieu_Vang.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="dgvDuLieu_Vang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 53</value>
+  </data>
+  <data name="dgvDuLieu_Vang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 629</value>
+  </data>
+  <data name="tabChamCongVang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 4</value>
+  </data>
+  <data name="tabChamCongVang.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabChamCongVang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 741</value>
+  </data>
+  <data name="tabControlNV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1300, 749</value>
   </data>
 </root>

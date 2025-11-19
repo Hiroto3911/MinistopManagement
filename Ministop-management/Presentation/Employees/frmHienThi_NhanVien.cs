@@ -64,10 +64,11 @@ namespace Presentation
             LoadDanhSachCuaHang();
             LoadData_NhanVien();
 
-            // Tạm ngắt event để tránh gọi nhiều lần
+            // Tạm ngắt event để tránh gọi nhiều lần khi gán giá trị
             cboChonCuaHang_NV.SelectedIndexChanged -= cboChonCuaHang_NV_SelectedIndexChanged;
             cboChonCuaHang_PC.SelectedIndexChanged -= cboChonCuaHang_PC_SelectedIndexChanged;
-            cboChonCuaHang_HD.SelectedIndexChanged -= cboChonCuaHang_HD_SelectedIndexChanged; // THÊM
+            cboChonCuaHang_HD.SelectedIndexChanged -= cboChonCuaHang_HD_SelectedIndexChanged;
+            cboChonCuaHang_Vang.SelectedIndexChanged -= cboChonCuaHang_Vang_SelectedIndexChanged;
 
             string storeIdload = _userSession.Role == "Admin" ? null : _userSession.IdStore;
 
@@ -75,10 +76,12 @@ namespace Presentation
             {
                 tabControlNV.TabPages.Remove(tabCaLam);
                 tabControlNV.TabPages.Remove(tabPhuCap);
+
                 cboChonCuaHang_NV.SelectedValue = _userSession.IdStore;
                 cboChonCuaHang_NV.Enabled = false;
-                cboChonCuaHang_HD.SelectedValue = _userSession.IdStore; // THÊM
-                cboChonCuaHang_HD.Enabled = false; // THÊM
+                cboChonCuaHang_HD.SelectedValue = _userSession.IdStore;
+                cboChonCuaHang_HD.Enabled = false;
+
                 storeIdload = _userSession.IdStore;
                 LoadData_NhanVienTheoCuaHang(storeIdload);
             }
@@ -86,7 +89,9 @@ namespace Presentation
             {
                 cboChonCuaHang_NV.Enabled = true;
                 cboChonCuaHang_PC.Enabled = true;
-                cboChonCuaHang_HD.Enabled = true; // THÊM
+                cboChonCuaHang_HD.Enabled = true;
+                cboChonCuaHang_Vang.Enabled = true;
+
                 if (cboChonCuaHang_NV.SelectedValue != null)
                     storeIdload = cboChonCuaHang_NV.SelectedValue.ToString();
             }
@@ -98,57 +103,68 @@ namespace Presentation
                 tabControlNV.TabPages.Remove(tabHopDong);
                 tabControlNV.TabPages.Remove(tabChamCongVang);
                 tabControlNV.TabPages.Remove(tabNhanVien);
+
                 cboChonCuaHang_NV.SelectedValue = _userSession.IdStore;
                 cboChonCuaHang_NV.Enabled = false;
                 storeIdload = _userSession.IdStore;
                 LoadData_NhanVienTheoCuaHang(storeIdload);
             }
 
-            // Thiết lập combo PC
+            // === CẤU HÌNH COMBO CHO CÁC TAB ===
             cboChonCuaHang_PC.DataSource = cboChonCuaHang_NV.DataSource;
             cboChonCuaHang_PC.DisplayMember = "StoreName";
             cboChonCuaHang_PC.ValueMember = "StoreId";
 
-            // Thiết lập combo HD
             cboChonCuaHang_HD.DataSource = cboChonCuaHang_NV.DataSource;
             cboChonCuaHang_HD.DisplayMember = "StoreName";
             cboChonCuaHang_HD.ValueMember = "StoreId";
-            // Thiết lập combo Vang
+
             cboChonCuaHang_Vang.DataSource = cboChonCuaHang_NV.DataSource;
             cboChonCuaHang_Vang.DisplayMember = "StoreName";
             cboChonCuaHang_Vang.ValueMember = "StoreId";
 
+            // === GÁN GIÁ TRỊ MẶC ĐỊNH CHO COMBO SAU KHI ĐÃ CÓ DataSource ===
             if (_userSession.Role != "Admin")
             {
                 cboChonCuaHang_PC.SelectedValue = _userSession.IdStore;
                 cboChonCuaHang_PC.Enabled = false;
-                cboChonCuaHang_HD.SelectedValue = _userSession.IdStore; 
+
+                cboChonCuaHang_HD.SelectedValue = _userSession.IdStore;
                 cboChonCuaHang_HD.Enabled = false;
+
                 cboChonCuaHang_Vang.SelectedValue = _userSession.IdStore;
                 cboChonCuaHang_Vang.Enabled = false;
             }
             else
             {
+                // Admin: chọn cửa hàng đầu tiên
                 cboChonCuaHang_PC.SelectedIndex = 0;
-                cboChonCuaHang_HD.SelectedIndex = 0; 
+                cboChonCuaHang_HD.SelectedIndex = 0;
                 cboChonCuaHang_Vang.SelectedIndex = 0;
             }
 
-            // Khôi phục event
+            // Khôi phục sự kiện SelectedIndexChanged
             cboChonCuaHang_NV.SelectedIndexChanged += cboChonCuaHang_NV_SelectedIndexChanged;
             cboChonCuaHang_PC.SelectedIndexChanged += cboChonCuaHang_PC_SelectedIndexChanged;
             cboChonCuaHang_HD.SelectedIndexChanged += cboChonCuaHang_HD_SelectedIndexChanged;
-            cboChonCuaHang_Vang.SelectedIndexChanged -= cboChonCuaHang_Vang_SelectedIndexChanged;
             cboChonCuaHang_Vang.SelectedIndexChanged += cboChonCuaHang_Vang_SelectedIndexChanged;
-            // Lay thang
+
+            // Các load dữ liệu khác
             dtpThangTinhLuong.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             LoadCboCuaHang_TinhLuong();
-
             LoadData_PhuCap();
             LoadData_CaLam();
+
+            // === QUAN TRỌNG: GỌI CÁC LOAD DATA SAU KHI COMBO ĐÃ CÓ GIÁ TRỊ ===
             LoadData_PhanCong(GetCurrentStoreIdForPC());
-            LoadData_HopDong(GetCurrentStoreIdForHD()); // THÊM: LỌC THEO CỬA HÀNG
-            LoadData_ChamCongVang(GetCurrentStoreIdForVang());
+            LoadData_HopDong(GetCurrentStoreIdForHD());
+            LoadData_ChamCongVang(GetCurrentStoreIdForVang()); // Bây giờ mới gọi → có storeId thật!
+
+            // Nếu là Quản lý hoặc Nhân viên, load luôn danh sách nhân viên theo cửa hàng
+            if (_userSession.Role != "Admin" && !string.IsNullOrEmpty(_userSession.IdStore))
+            {
+                LoadData_NhanVienTheoCuaHang(_userSession.IdStore);
+            }
         }
 
         #region Lọc nhân viên theo cửa hàng
@@ -819,15 +835,19 @@ namespace Presentation
             DataTable dt = new DataTable();
             dt.Columns.Add("MaPhanCong");
             dt.Columns.Add("MaNhanVien");
-            dt.Columns.Add("HoTen");
-            dt.Columns.Add("CaLam");
+            dt.Columns.Add("TenNhanVien");
+            dt.Columns.Add("MaCa");
             dt.Columns.Add("NgayLam");
             dt.Columns.Add("GhiChu");
 
-            List<string> employeeIds = new List<string>();
             using (var childContainer = _container.CreateChildContainer())
             {
                 var empService = childContainer.Resolve<IEmployeeService>();
+                var shiftService = childContainer.Resolve<IShiftService>(); // Đảm bảo có service này
+                var assignmentService = _shiftAssignmentService;
+
+                // 1. Lấy danh sách EmployeeId theo cửa hàng (nếu có lọc)
+                List<string> employeeIds = new List<string>();
                 if (!string.IsNullOrEmpty(storeId))
                 {
                     var empResult = empService.GetEmployeeByStore(storeId, 1, 1000);
@@ -835,49 +855,92 @@ namespace Presentation
                         employeeIds = empResult.Data.Select(x => x.EmployeeId).ToList();
                 }
 
-                var allAssignments = _shiftAssignmentService.GetPaged(1, 10000);
-                if (!allAssignments.Succeeded || allAssignments.Data == null)
+                // 2. Lấy tất cả phân công (page lớn để lấy đủ)
+                var allAssignmentsResult = assignmentService.GetPaged(1, 10000);
+                if (!allAssignmentsResult.Succeeded || allAssignmentsResult.Data == null)
                 {
-                    MessageBox.Show("Không thể tải phân công ca làm!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Không thể tải danh sách phân công ca làm!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
+                // 3. Lọc theo cửa hàng nếu cần
                 var filtered = string.IsNullOrEmpty(storeId)
-                    ? allAssignments.Data
-                    : allAssignments.Data.Where(x => employeeIds.Contains(x.EmployeeId)).ToList();
+                    ? allAssignmentsResult.Data
+                    : allAssignmentsResult.Data.Where(x => employeeIds.Contains(x.EmployeeId)).ToList();
 
                 var total = filtered.Count;
                 var paged = filtered.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+
                 _totalPage_PhanCong = (long)Math.Ceiling((double)total / pageSize);
 
+                // 4. Duyệt từng bản ghi để lấy tên nhân viên + tên ca
                 foreach (var item in paged)
                 {
-                    var empNameProp = item.GetType().GetProperty("EmployeeName");
-                    var shiftNameProp = item.GetType().GetProperty("ShiftName");
-                    string empName = empNameProp?.GetValue(item)?.ToString() ?? "N/A";
-                    string shiftName = shiftNameProp?.GetValue(item)?.ToString() ?? "N/A";
-                    dt.Rows.Add(item.Id, item.EmployeeId, empName, shiftName,
-                        item.WorkDate.ToString("dd/MM/yyyy"), item.Note ?? "");
+                    string tenNhanVien = "N/A";
+                    string tenCa = "N/A";
+
+                    // Lấy tên nhân viên
+                    var empResult = empService.GetEmployeeByID(item.EmployeeId);
+                    if (empResult.Succeeded && empResult.Data != null)
+                        tenNhanVien = empResult.Data.FullName ?? "N/A";
+
+                    // Lấy tên ca làm việc
+                    if (!string.IsNullOrEmpty(item.ShiftId))
+                    {
+                        var shiftResult = shiftService.GetShiftByID(item.ShiftId); 
+                        if (shiftResult.Succeeded && shiftResult.Data != null)
+                            tenCa = shiftResult.Data.ShiftName ?? shiftResult.Data.ShiftName ?? "N/A";
+                    }
+
+                    dt.Rows.Add(
+                        item.Id,
+                        item.EmployeeId,
+                        tenNhanVien,
+                        tenCa,
+                        item.WorkDate.ToString("dd/MM/yyyy"),
+                        string.IsNullOrEmpty(item.Note) ? "Ca linh hoạt" : item.Note
+                    );
                 }
             }
 
+            // Gán dữ liệu vào grid
             dgvDuLieu_PhanCong.DataSource = dt;
             dgvDuLieu_PhanCong.AllowUserToAddRows = false;
             dgvDuLieu_PhanCong.ReadOnly = true;
             dgvDuLieu_PhanCong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            // Thêm cột Edit/Delete nếu chưa có
             if (dgvDuLieu_PhanCong.Columns["Edit"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn { Name = "Edit", HeaderText = "Edit", Text = "Edit", UseColumnTextForButtonValue = true };
+                var btnEdit = new DataGridViewButtonColumn
+                {
+                    Name = "Edit",
+                    HeaderText = "Edit",
+                    Text = "Edit",
+                    UseColumnTextForButtonValue = true
+                };
                 dgvDuLieu_PhanCong.Columns.Add(btnEdit);
             }
+
             if (dgvDuLieu_PhanCong.Columns["Delete"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn { Name = "Delete", HeaderText = "Delete", Text = "Delete", UseColumnTextForButtonValue = true };
+                var btnDelete = new DataGridViewButtonColumn
+                {
+                    Name = "Delete",
+                    HeaderText = "Delete",
+                    Text = "Delete",
+                    UseColumnTextForButtonValue = true
+                };
                 dgvDuLieu_PhanCong.Columns.Add(btnDelete);
             }
 
+            // Ẩn cột MaPhanCong nếu không muốn hiện
+            if (dgvDuLieu_PhanCong.Columns["MaPhanCong"] != null)
+                dgvDuLieu_PhanCong.Columns["MaPhanCong"].Visible = false;
+
+            // Áp dụng style + phân trang
             ApplyGridStyle(dgvDuLieu_PhanCong);
+
             btnTrangTruocPC.Enabled = pageNumber > 1;
             btnTrangSauPC.Enabled = pageNumber < _totalPage_PhanCong;
             txtSoTrangPC.Text = pageNumber.ToString();
@@ -991,10 +1054,13 @@ namespace Presentation
             dt.Columns.Add("LyDo");
             dt.Columns.Add("CoLuong");
 
-            List<string> employeeIds = new List<string>();
             using (var childContainer = _container.CreateChildContainer())
             {
                 var empService = childContainer.Resolve<IEmployeeService>();
+                var shiftService = childContainer.Resolve<IShiftService>();
+
+                // 1. Lấy danh sách EmployeeId theo cửa hàng (nếu có lọc)
+                List<string> employeeIds = new List<string>();
                 if (!string.IsNullOrEmpty(storeId))
                 {
                     var empResult = empService.GetEmployeeByStore(storeId, 1, 1000);
@@ -1002,26 +1068,55 @@ namespace Presentation
                         employeeIds = empResult.Data.Select(x => x.EmployeeId).ToList();
                 }
 
-                var allAbsences = _absenceService.GetAbsence(pageNumber, pageSize);
-                if (!allAbsences.Succeeded || allAbsences.Data == null)
+                // 2. LẤY HẾT DỮ LIỆU VẮNG MẶT (không phân trang ở service)
+                var allAbsencesResult = _absenceService.GetAbsence(1, 10000); // Lấy thật nhiều
+                if (!allAbsencesResult.Succeeded || allAbsencesResult.Data == null || !allAbsencesResult.Data.Any())
                 {
-                    MessageBox.Show("Không thể tải danh sách chấm công vắng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Không có dữ liệu → vẫn gán datasource để tránh lỗi
+                    dgvDuLieu_Vang.DataSource = dt;
+                    ApplyGridStyle(dgvDuLieu_Vang);
+                    _totalPage_Vang = 1;
+                    txtSoTrangVang.Text = "1";
+                    btnTrangTruocVang.Enabled = false;
+                    btnTrangSauVang.Enabled = false;
                     return;
                 }
 
+                var allAbsences = allAbsencesResult.Data;
+
+                // 3. Lọc theo cửa hàng (nếu có)
                 var filtered = string.IsNullOrEmpty(storeId)
-                    ? allAbsences.Data
-                    : allAbsences.Data.Where(x => employeeIds.Contains(x.EmployeeId)).ToList();
+                    ? allAbsences
+                    : allAbsences.Where(x => employeeIds.Contains(x.EmployeeId)).ToList();
 
-                _totalPage_Vang = (long)Math.Ceiling((double)allAbsences.TotalCount / pageSize);
+                // 4. Tính tổng trang và phân trang
+                var totalRecords = filtered.Count;
+                _totalPage_Vang = (long)Math.Ceiling(totalRecords / (double)pageSize);
 
-                foreach (var item in filtered)
+                var pagedData = filtered
+                    .OrderByDescending(x => x.WorkDate) // sắp xếp mới nhất trước
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+
+                // 5. Duyệt từng bản ghi để lấy tên nhân viên + tên ca
+                foreach (var item in pagedData)
                 {
-                    var empResult = empService.GetEmployeeByID(item.EmployeeId);
-                    string hoTen = empResult.Succeeded && empResult.Data != null ? empResult.Data.FullName : "N/A";
+                    string hoTen = "N/A";
+                    string caLam = "N/A";
 
-                    var shiftResult = _shiftService.GetShiftByID(item.ShiftId);
-                    string caLam = shiftResult.Succeeded && shiftResult.Data != null ? shiftResult.Data.ShiftName : "N/A";
+                    // Lấy tên nhân viên
+                    var empResult = empService.GetEmployeeByID(item.EmployeeId);
+                    if (empResult.Succeeded && empResult.Data != null)
+                        hoTen = empResult.Data.FullName ?? "N/A";
+
+                    // Lấy tên ca
+                    if (!string.IsNullOrEmpty(item.ShiftId))
+                    {
+                        var shiftResult = shiftService.GetShiftByID(item.ShiftId);
+                        if (shiftResult.Succeeded && shiftResult.Data != null)
+                            caLam = shiftResult.Data.ShiftName ?? shiftResult.Data.ShiftName ?? "N/A";
+                    }
 
                     dt.Rows.Add(
                         item.AbsenceId,
@@ -1029,33 +1124,54 @@ namespace Presentation
                         hoTen,
                         caLam,
                         item.WorkDate.ToString("dd/MM/yyyy"),
-                        item.IsLeaveOfAbsence ? "Có" : "Không",
-                        item.Reason ?? "",
+                        item.IsLeaveOfAbsence ? "Có phép" : "Không phép",
+                        item.Reason ?? "-",
                         item.IsPaid ? "Có lương" : "Không lương"
                     );
                 }
             }
 
+            // Gán dữ liệu
             dgvDuLieu_Vang.DataSource = dt;
             dgvDuLieu_Vang.AllowUserToAddRows = false;
             dgvDuLieu_Vang.ReadOnly = true;
             dgvDuLieu_Vang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+            // Thêm nút Edit / Delete
             if (dgvDuLieu_Vang.Columns["Edit"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn { Name = "Edit", HeaderText = "Edit", Text = "Edit", UseColumnTextForButtonValue = true };
-                dgvDuLieu_Vang.Columns.Add(btnEdit);
-            }
-            if (dgvDuLieu_Vang.Columns["Delete"] == null)
-            {
-                var btnDelete = new DataGridViewButtonColumn { Name = "Delete", HeaderText = "Delete", Text = "Delete", UseColumnTextForButtonValue = true };
-                dgvDuLieu_Vang.Columns.Add(btnDelete);
+                var colEdit = new DataGridViewButtonColumn
+                {
+                    Name = "Edit",
+                    HeaderText = "Edit",
+                    Text = "Edit",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvDuLieu_Vang.Columns.Add(colEdit);
             }
 
+            if (dgvDuLieu_Vang.Columns["Delete"] == null)
+            {
+                var colDelete = new DataGridViewButtonColumn
+                {
+                    Name = "Delete",
+                    HeaderText = "Delete",
+                    Text = "Delete",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvDuLieu_Vang.Columns.Add(colDelete);
+            }
+
+            // Ẩn cột ID nếu cần
+            if (dgvDuLieu_Vang.Columns["MaVang"] != null)
+                dgvDuLieu_Vang.Columns["MaVang"].Visible = false;
+
             ApplyGridStyle(dgvDuLieu_Vang);
+
+            // Cập nhật phân trang
             btnTrangTruocVang.Enabled = pageNumber > 1;
             btnTrangSauVang.Enabled = pageNumber < _totalPage_Vang;
-            txtSoTrangVang.Text = pageNumber.ToString();
+            txtSoTrangVang.Text = $"{pageNumber} / {_totalPage_Vang}";
         }
 
         private void dgvDuLieu_Vang_CellContentClick(object sender, DataGridViewCellEventArgs e)
