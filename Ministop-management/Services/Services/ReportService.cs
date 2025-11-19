@@ -216,6 +216,20 @@ namespace Services.Services
 
             return _ministopUnitOfWork.ReportRepository.GetSalaryListByStore(storeId, monthYear);
         }
-        
+
+        public List<Top3BestSellingStoreDto> GetTop3BestSellingStores(DateTime stardate, DateTime enddate)
+        {
+            var list = _ministopUnitOfWork.ReportRepository.GetTop3BestSellingStores(stardate,enddate);
+            return list.Select(x => new Top3BestSellingStoreDto
+            {
+                StoreID = x.StoreID,
+                StoreName = x.StoreName,
+                Address = x.Address,
+                Phone = x.Phone,
+                TotalRevenue = (decimal)x.TotalRevenue,
+                TotalProductsSold = (decimal)x.TotalProductsSold,
+                AverageInvoiceValue = (decimal)x.AverageInvoiceValue
+            }).ToList();
+        }
     }
 }

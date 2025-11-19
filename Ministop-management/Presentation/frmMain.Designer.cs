@@ -55,11 +55,11 @@
             this.xemHợpĐồngLươngNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtPhiếuLươngNhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnResize = new Guna.UI2.WinForms.Guna2ImageButton();
             this.lblTime = new System.Windows.Forms.Label();
             this.panelContainer = new System.Windows.Forms.Panel();
-            this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -274,6 +274,12 @@
             this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem.Name = "xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem";
             this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem.Click += new System.EventHandler(this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem_Click);
             // 
+            // xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem
+            // 
+            resources.ApplyResources(this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem, "xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem");
+            this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem.Name = "xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem";
+            this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem.Click += new System.EventHandler(this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem_Click);
+            // 
             // panel2
             // 
             resources.ApplyResources(this.panel2, "panel2");
@@ -307,11 +313,6 @@
             resources.ApplyResources(this.panelContainer, "panelContainer");
             this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(63)))), ((int)(((byte)(128)))));
             this.panelContainer.Name = "panelContainer";
-            // 
-            // xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem
-            // 
-            resources.ApplyResources(this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem, "xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem");
-            this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem.Name = "xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem";
             // 
             // frmMain
             // 
