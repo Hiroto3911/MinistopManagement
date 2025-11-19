@@ -66,6 +66,7 @@ namespace Infrastructure
             container.RegisterType<IAbsenceRepository, AbsenceRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IReturnProductRepository, ReturnProductRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IReturnDetailRepository, ReturnDetailRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IPriceProposalRepository, PriceProposalRepository>(new PerResolveLifetimeManager());
         }
     }
 }

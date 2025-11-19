@@ -96,6 +96,7 @@
     <Compile Include="Interfaces\IAllowanceRepository.cs" />
     <Compile Include="Interfaces\IInvoiceDetailRepository.cs" />
     <Compile Include="Interfaces\IInvoiceRepository.cs" />
+    <Compile Include="Interfaces\IPriceProposalRepository.cs" />
     <Compile Include="Interfaces\IProductCategoryRepository.cs" />
     <Compile Include="Interfaces\IProductRepository.cs" />
     <Compile Include="Interfaces\IPromotionProductRepository.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Repositories\AllowanceRepository.cs" />
     <Compile Include="Repositories\InvoiceDetailRepository.cs" />
     <Compile Include="Repositories\InvoiceRepository.cs" />
+    <Compile Include="Repositories\PriceProposalRepository.cs" />
     <Compile Include="Repositories\ProductCategoryRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\PromotionProductReponsitory.cs" />
