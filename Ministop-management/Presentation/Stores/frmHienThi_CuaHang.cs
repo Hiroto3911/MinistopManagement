@@ -332,7 +332,8 @@ namespace Presentation
                 {
                     foreach (var item in list.Data)
                     {
-                        dt.Rows.Add(item.ExpenseId, item.StoreName, item.RentCost, item.ElectricityCost, item.WaterCost, item.Note,item.Status);
+                        string status = GetStatus(item.Status);
+                        dt.Rows.Add(item.ExpenseId, item.StoreName, item.RentCost, item.ElectricityCost, item.WaterCost, item.Note, status);
                     }
                 }
             }

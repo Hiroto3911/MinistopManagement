@@ -179,6 +179,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Rpt_PhieuLuong_NhanVien.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="CrystalReport\Report\SaleReports\Rpt_InHoaDon.cs">
       <AutoGen>True</AutoGen>
@@ -575,10 +576,11 @@
       <LastGenOutput>Rpt_InPhieuXuat.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_PhieuLuong_NhanVien.rpt">
+    <Content Include="CrystalReport\Report\EmployeeReports\Rpt_PhieuLuong_NhanVien.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_PhieuLuong_NhanVien.cs</LastGenOutput>
-    </EmbeddedResource>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_CaLamViec.en.resx">
       <DependentUpon>frmChucNang_CaLamViec.cs</DependentUpon>
     </EmbeddedResource>
