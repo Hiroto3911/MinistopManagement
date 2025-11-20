@@ -221,6 +221,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Rpt_InTop3Store.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.cs">
       <SubType>Form</SubType>
@@ -598,10 +599,11 @@
       <LastGenOutput>Rpt_PhieuLuong_NhanVien.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="CrystalReport\Report\StoreReports\Rpt_InTop3Store.rpt">
+    <Content Include="CrystalReport\Report\StoreReports\Rpt_InTop3Store.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_InTop3Store.cs</LastGenOutput>
-    </EmbeddedResource>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_CaLamViec.en.resx">
       <DependentUpon>frmChucNang_CaLamViec.cs</DependentUpon>
     </EmbeddedResource>
@@ -976,9 +978,11 @@
     <None Include="Resources\Employeemanagement1.png" />
     <None Include="Resources\import-export.png" />
     <None Include="Resources\danger.png" />
+    <None Include="Resources\down.png" />
     <Content Include="Resources\in-stock.png" />
     <None Include="Resources\in-stock1.png" />
     <None Include="Resources\in-stock2.png" />
+    <None Include="Resources\increase.png" />
     <Content Include="Resources\invoice.png" />
     <None Include="Resources\invoice1.png" />
     <None Include="Resources\market.png" />
