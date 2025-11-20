@@ -45,7 +45,7 @@ namespace Infrastructure.Repositories
         {
             var startDate = new DateTime(year, month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
-            var products = _context.Products.Where(p => !p.IsDeleted && _context.StockDetails.Any(x=> x.ProductID == p.ProductID));
+            var products = _context.Products.Where(p => !p.IsDeleted && _context.StockDetails.Any(x=> x.StoreID == storeId&& x.ProductID == p.ProductID));
             var report = from p in products
                          let opening = (
                             from sd in _context.StockDetails
