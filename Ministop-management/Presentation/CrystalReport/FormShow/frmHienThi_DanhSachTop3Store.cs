@@ -26,23 +26,26 @@ namespace Presentation.CrystalReport.FormShow
 
         private void btnXem_Click(object sender, EventArgs e)
         {
-
-            DateTime timestar = DateTime.Parse(dtpMonthstar.Text);
-            DateTime timeend = DateTime.Parse(dtpMothend.Text);
-
-
-            // Validate ngày tháng
-            if (timestar > timeend)
+            try
             {
-                MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!",
-                    "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            var ds = new StoreReportDataset();
-                var import = _reportService.GetTop3BestSellingStores(timestar,timeend);
+
+
+                DateTime timestar = DateTime.Parse(dtpMonthstar.Text);
+                DateTime timeend = DateTime.Parse(dtpMothend.Text);
+
+
+                // Validate ngày tháng
+                if (timestar > timeend)
+                {
+                    MessageBox.Show("Ngày bắt đầu phải nhỏ hơn ngày kết thúc!",
+                        "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                var ds = new StoreReportDataset();
+                var import = _reportService.GetTop3BestSellingStores(timestar, timeend);
                 if (import == null)
                 {
-                    MessageBox.Show($"Hien khong co hoa don nao co ma so ");
+                    MessageBox.Show($"Hien khong co du lieu ");
                     return;
                 }
                 foreach (var item in import)
@@ -57,16 +60,21 @@ namespace Presentation.CrystalReport.FormShow
                        item.TotalProductsSold.ToString(),
                        item.AverageInvoiceValue.ToString()
                     );
-                
-                ReportDocument rpt = new ReportDocument();
-                string reportPath = Path.Combine(Application.StartupPath, "CrystalReport",
-        "Report",
-        "StoreReports",
-        "Rpt_InTop3Store.rpt");
-                rpt.Load(reportPath);
-                rpt.SetDataSource(ds);
-                crystalReportViewer1.ReportSource = rpt;
-                crystalReportViewer1.Refresh();
+
+                    ReportDocument rpt = new ReportDocument();
+                    string reportPath = Path.Combine(Application.StartupPath, "CrystalReport",
+    "Report",
+    "StoreReports",
+    "Rpt_InTop3Store.rpt");
+                    rpt.Load(reportPath);
+                    rpt.SetDataSource(ds);
+                    crystalReportViewer1.ReportSource = rpt;
+                    crystalReportViewer1.Refresh();
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show($"Loi:"+ex);
+                return;
             }
         }
 

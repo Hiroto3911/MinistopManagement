@@ -1,6 +1,7 @@
 ﻿using Domain.DTO;
 using Infrastructure.Data;
 using Infrastructure.Interfaces;
+using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -128,6 +129,7 @@ namespace Infrastructure.Repositories
 
             return report.ToList();
         }
+
         public List<SP_InvoiceReportResult> GetInvoiceProductReport(string invoiceID)
         {
             return _context.SP_InvoiceReport(invoiceID).ToList();
@@ -174,6 +176,44 @@ namespace Infrastructure.Repositories
 
             return result;
         }
+        public List<FrequentlyLostProductDto> GetFrequentlyLostProductsByStoreAndDateRange(
+     string storeId,
+     DateTime? fromDate = null,
+     DateTime? toDate = null,
+     int threshold = 2)
+        {
+            var query = _context.StockCheckDetails
+                .Where(detail => (detail.QuantityActual - detail.QuantitySystem) < 0
+                                 && detail.StockCheck.StoreID == storeId);
+
+            if (fromDate.HasValue)
+                query = query.Where(detail => detail.StockCheck.CheckDate >= fromDate.Value);
+
+            if (toDate.HasValue)
+                query = query.Where(detail => detail.StockCheck.CheckDate <= toDate.Value);
+
+            var result = query
+                .GroupBy(detail => new { detail.ProductID, detail.Product.ProductName })
+                .Select(g => new
+                {
+                    g.Key.ProductID,
+                    g.Key.ProductName,
+                    TimesLost = g.Count()
+                })
+                .Where(x => x.TimesLost >= threshold)
+                .OrderByDescending(x => x.TimesLost)
+                .ToList();
+
+            return result.Select(x => new FrequentlyLostProductDto
+            {
+                ProductID = x.ProductID,
+                ProductName = x.ProductName,
+                TimesLost = x.TimesLost
+            }).ToList();
+        }
+
+
+
 
         public SalarySlipMainDto GetSalarySlipMain(string employeeId, string monthYear)
         {

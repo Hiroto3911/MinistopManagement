@@ -103,6 +103,16 @@ namespace Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap down {
+            get {
+                object obj = ResourceManager.GetObject("down", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Employeemanagement {
             get {
                 object obj = ResourceManager.GetObject("Employeemanagement", resourceCulture);
@@ -146,6 +156,16 @@ namespace Presentation.Properties {
         internal static System.Drawing.Bitmap in_stock1 {
             get {
                 object obj = ResourceManager.GetObject("in-stock1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap increase {
+            get {
+                object obj = ResourceManager.GetObject("increase", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
