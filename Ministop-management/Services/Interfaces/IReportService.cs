@@ -26,6 +26,6 @@ namespace Services.Interfaces
         SalarySlipMainDto GetSalarySlipMain(string employeeId, string monthYear);
         List<SalarySlipAllowanceDto> GetSalarySlipAllowances(string employeeId);
         List<SalaryListDto> GetSalaryListByStore(string storeId, string monthYear);
-        //List<Top3BestSellingStoreDto> GetTop3BestSellingStores(DateTime stardate, DateTime enddate);
+        List<Top3BestSellingStoreDto> GetTop3BestSellingStores(DateTime stardate, DateTime enddate);
     }
 }

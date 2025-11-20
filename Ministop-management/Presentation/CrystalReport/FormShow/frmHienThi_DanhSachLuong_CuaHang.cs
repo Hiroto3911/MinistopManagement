@@ -85,7 +85,7 @@ namespace Presentation.CrystalReport.FormShow
                     ds.SalaryList.AddSalaryListRow(row);
                 }
 
-                string reportPath = Path.Combine(Application.StartupPath, "CrystalReport", "Report", "Rpt_DanhSachLuong_CuaHang.rpt");
+                string reportPath = Path.Combine(Application.StartupPath, "CrystalReport", "Report", "EmployeeReports", "Rpt_DanhSachLuong_CuaHang.rpt");
                 if (!File.Exists(reportPath))
                 {
                     MessageBox.Show("Không tìm thấy file báo cáo: " + reportPath);

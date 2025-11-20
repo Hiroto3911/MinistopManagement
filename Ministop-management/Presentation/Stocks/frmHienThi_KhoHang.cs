@@ -815,7 +815,7 @@ namespace Presentation
             }
             dgvDuLieuXH.DataSource = dt;
             dgvDuLieuXH.AllowUserToAddRows = false;
-            dgvDuLieuXH.ReadOnly = true;
+            //dgvDuLieuXH.ReadOnly = true;
             if (_lang == "en-US")
             {
                 ApplyGridStyle(dgvDuLieuXH, "Permitted", "Admin");
@@ -836,14 +836,14 @@ namespace Presentation
             string exportID;
             if (_lang == "en-US")
             {
-                status = dgvDuLieuNH.Rows[e.RowIndex].Cells["Status"].Value.ToString();
-                exportID = dgvDuLieuNH.Rows[e.RowIndex].Cells["ExportID"].Value.ToString();
+                status = dgvDuLieuXH.Rows[e.RowIndex].Cells["Status"].Value.ToString();
+                exportID = dgvDuLieuXH.Rows[e.RowIndex].Cells["ExportID"].Value.ToString();
 
             }
             else
             {
-                status = dgvDuLieuNH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
-                exportID = dgvDuLieuNH.Rows[e.RowIndex].Cells["MaPhieuXuat"].Value.ToString();
+                status = dgvDuLieuXH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
+                exportID = dgvDuLieuXH.Rows[e.RowIndex].Cells["MaPhieuXuat"].Value.ToString();
             }
             var allowAction = status == "Duyệt"|| status =="Permitted";
             if (allowAction) return;
