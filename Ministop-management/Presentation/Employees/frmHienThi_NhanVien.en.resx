@@ -124,6 +124,28 @@
   <data name="dgvDuLieu_TinhLuong.Size" type="System.Drawing.Size, System.Drawing">
     <value>1072, 479</value>
   </data>
+  <data name="guna2Panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 532</value>
+  </data>
+  <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 52</value>
+  </data>
+  <data name="guna2Panel9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 52</value>
+  </data>
+  <data name="guna2Panel13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 152</value>
+  </data>
+  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 741</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
+    <value>584</value>
+  </data>
+  <data name="splitContainer1.SplitterWidth" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
   <data name="guna2TextBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>361, 9</value>
   </data>
@@ -145,12 +167,6 @@
   </data>
   <data name="guna2Button8.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 40</value>
-  </data>
-  <data name="guna2Panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 532</value>
-  </data>
-  <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
   </data>
   <data name="dtpThangTinhLuong.Location" type="System.Drawing.Point, System.Drawing">
     <value>477, 6</value>
@@ -182,9 +198,6 @@
   <data name="guna2Button17.Size" type="System.Drawing.Size, System.Drawing">
     <value>146, 40</value>
   </data>
-  <data name="guna2Panel9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
-  </data>
   <data name="lblTongNhanVien.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 57</value>
   </data>
@@ -212,158 +225,142 @@
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>234, 28</value>
   </data>
-  <data name="guna2Panel13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 152</value>
-  </data>
-  <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 741</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>584</value>
-  </data>
-  <data name="splitContainer1.SplitterWidth" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>9, 20</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1300, 749</value>
   </data>
-  <data name="ibtnThungRac_NV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1012, 3</value>
+  <data name="tabControlNV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1300, 749</value>
   </data>
-  <data name="ibtnThungRac_NV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 46</value>
-  </data>
-  <data name="txtSoTrangNV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>520, 8</value>
-  </data>
-  <data name="txtSoTrangNV.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 8, 6, 8</value>
-  </data>
-  <data name="txtSoTrangNV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 40</value>
-  </data>
-  <data name="btnTrangSauNV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>602, 8</value>
-  </data>
-  <data name="btnTrangSauNV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="btnTrangTruocNV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>447, 8</value>
-  </data>
-  <data name="btnTrangTruocNV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 686</value>
-  </data>
-  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 52</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 9</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 28</value>
-  </data>
-  <data name="cboChonCuaHang_NV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 6</value>
-  </data>
-  <data name="cboChonCuaHang_NV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 36</value>
-  </data>
-  <data name="guna2Button23.Location" type="System.Drawing.Point, System.Drawing">
-    <value>942, 6</value>
-  </data>
-  <data name="guna2Button23.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 40</value>
-  </data>
-  <data name="guna2Panel12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="guna2Panel12.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 52</value>
-  </data>
-  <data name="dgvDuLieu_NhanVien.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 54</value>
-  </data>
-  <data name="dgvDuLieu_NhanVien.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 635</value>
-  </data>
-  <data name="tabNhanVien.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabPhanCongCa.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 4</value>
   </data>
-  <data name="tabNhanVien.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabNhanVien.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabPhanCongCa.Size" type="System.Drawing.Size, System.Drawing">
     <value>1072, 741</value>
   </data>
-  <data name="dgvDuLieu_HopDong.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 55</value>
+  <data name="guna2Panel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 689</value>
   </data>
-  <data name="dgvDuLieu_HopDong.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 631</value>
+  <data name="guna2Panel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 52</value>
   </data>
-  <data name="guna2ImageButton2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>682, 3</value>
+  <data name="txtSoTrangPC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 9</value>
   </data>
-  <data name="guna2ImageButton2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>52, 46</value>
-  </data>
-  <data name="txtSoTrangHD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>387, 9</value>
-  </data>
-  <data name="txtSoTrangHD.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="txtSoTrangPC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 8, 6, 8</value>
   </data>
-  <data name="txtSoTrangHD.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="txtSoTrangPC.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 40</value>
   </data>
-  <data name="btnTrangSauHD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>468, 9</value>
+  <data name="btnTrangSauPC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>636, 9</value>
   </data>
-  <data name="btnTrangSauHD.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnTrangSauPC.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 40</value>
   </data>
-  <data name="btnTrangTruocHD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>313, 9</value>
+  <data name="btnTrangTruocPC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>482, 9</value>
   </data>
-  <data name="btnTrangTruocHD.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnTrangTruocPC.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 40</value>
   </data>
-  <data name="guna2Panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 686</value>
+  <data name="guna2Panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 52</value>
   </data>
-  <data name="guna2Panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 52</value>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 18</value>
   </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 6</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 28</value>
   </data>
-  <data name="cboChonCuaHang_HD.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 6</value>
+  <data name="cboChonCuaHang_PC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 14</value>
   </data>
-  <data name="cboChonCuaHang_HD.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="cboChonCuaHang_PC.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 36</value>
   </data>
-  <data name="guna2Panel11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="btnThemPC.Location" type="System.Drawing.Point, System.Drawing">
+    <value>948, 6</value>
   </data>
-  <data name="guna2Panel11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 52</value>
+  <data name="btnThemPC.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 40</value>
   </data>
-  <data name="tabHopDong.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
+  <data name="dgvDuLieu_PhanCong.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="tabHopDong.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="dgvDuLieu_PhanCong.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="dgvDuLieu_PhanCong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 56</value>
+  </data>
+  <data name="dgvDuLieu_PhanCong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1068, 629</value>
+  </data>
+  <data name="tabCaLam.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 4</value>
+  </data>
+  <data name="tabCaLam.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 741</value>
+  </data>
+  <data name="dgvDuLieu_CaLam.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="dgvDuLieu_CaLam.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>None</value>
+  </data>
+  <data name="dgvDuLieu_CaLam.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 50</value>
+  </data>
+  <data name="dgvDuLieu_CaLam.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 639</value>
+  </data>
+  <data name="guna2Panel6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 689</value>
+  </data>
+  <data name="guna2Panel6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 52</value>
+  </data>
+  <data name="txtSoTrangCL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 9</value>
+  </data>
+  <data name="txtSoTrangCL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 8, 6, 8</value>
+  </data>
+  <data name="txtSoTrangCL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 40</value>
+  </data>
+  <data name="btnTrangSauCL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>636, 9</value>
+  </data>
+  <data name="btnTrangSauCL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 40</value>
+  </data>
+  <data name="btnTrangTruocCL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>482, 9</value>
+  </data>
+  <data name="btnTrangTruocCL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 40</value>
+  </data>
+  <data name="guna2Panel8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 52</value>
+  </data>
+  <data name="btnThemCaLam.Location" type="System.Drawing.Point, System.Drawing">
+    <value>948, 6</value>
+  </data>
+  <data name="btnThemCaLam.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 40</value>
+  </data>
+  <data name="tabTinhLuong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 741</value>
+  </data>
+  <data name="tabPhuCap.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 4</value>
+  </data>
+  <data name="tabPhuCap.Size" type="System.Drawing.Size, System.Drawing">
     <value>1072, 741</value>
   </data>
   <data name="dgvDuLieu_PhuCap.Location" type="System.Drawing.Point, System.Drawing">
@@ -371,6 +368,12 @@
   </data>
   <data name="dgvDuLieu_PhuCap.Size" type="System.Drawing.Size, System.Drawing">
     <value>1072, 637</value>
+  </data>
+  <data name="guna2Panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 689</value>
+  </data>
+  <data name="guna2Panel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 52</value>
   </data>
   <data name="ibtnThungRac_PC.Location" type="System.Drawing.Point, System.Drawing">
     <value>686, 3</value>
@@ -399,10 +402,7 @@
   <data name="btnTrangTruocPK.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 40</value>
   </data>
-  <data name="guna2Panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 689</value>
-  </data>
-  <data name="guna2Panel3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="guna2Panel10.Size" type="System.Drawing.Size, System.Drawing">
     <value>1072, 52</value>
   </data>
   <data name="btnThemPhuCap.Location" type="System.Drawing.Point, System.Drawing">
@@ -411,137 +411,155 @@
   <data name="btnThemPhuCap.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 40</value>
   </data>
-  <data name="guna2Panel10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
+  <data name="tabHopDong.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
   </data>
-  <data name="tabPhuCap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
-  </data>
-  <data name="tabPhuCap.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabHopDong.Size" type="System.Drawing.Size, System.Drawing">
     <value>1072, 741</value>
   </data>
-  <data name="tabTinhLuong.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 741</value>
+  <data name="dgvDuLieu_HopDong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 55</value>
   </data>
-  <data name="dgvDuLieu_CaLam.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
+  <data name="dgvDuLieu_HopDong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 631</value>
   </data>
-  <data name="dgvDuLieu_CaLam.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
+  <data name="guna2Panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 686</value>
   </data>
-  <data name="dgvDuLieu_CaLam.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 50</value>
+  <data name="guna2Panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 52</value>
   </data>
-  <data name="dgvDuLieu_CaLam.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 639</value>
+  <data name="guna2ImageButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>682, 3</value>
   </data>
-  <data name="txtSoTrangCL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 9</value>
+  <data name="guna2ImageButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 46</value>
   </data>
-  <data name="txtSoTrangCL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="txtSoTrangHD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>387, 9</value>
+  </data>
+  <data name="txtSoTrangHD.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>6, 8, 6, 8</value>
   </data>
-  <data name="txtSoTrangCL.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="txtSoTrangHD.Size" type="System.Drawing.Size, System.Drawing">
     <value>72, 40</value>
   </data>
-  <data name="btnTrangSauCL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>636, 9</value>
+  <data name="btnTrangSauHD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>468, 9</value>
   </data>
-  <data name="btnTrangSauCL.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnTrangSauHD.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 40</value>
   </data>
-  <data name="btnTrangTruocCL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>482, 9</value>
+  <data name="btnTrangTruocHD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>313, 9</value>
   </data>
-  <data name="btnTrangTruocCL.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnTrangTruocHD.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 40</value>
   </data>
-  <data name="guna2Panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 689</value>
+  <data name="guna2Panel11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <data name="guna2Panel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
+  <data name="guna2Panel11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 52</value>
   </data>
-  <data name="btnThemCaLam.Location" type="System.Drawing.Point, System.Drawing">
-    <value>948, 6</value>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 6</value>
   </data>
-  <data name="btnThemCaLam.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 40</value>
-  </data>
-  <data name="guna2Panel8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
-  </data>
-  <data name="tabCaLam.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
-  </data>
-  <data name="tabCaLam.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 741</value>
-  </data>
-  <data name="txtSoTrangPC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>555, 9</value>
-  </data>
-  <data name="txtSoTrangPC.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 8, 6, 8</value>
-  </data>
-  <data name="txtSoTrangPC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 40</value>
-  </data>
-  <data name="btnTrangSauPC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>636, 9</value>
-  </data>
-  <data name="btnTrangSauPC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="btnTrangTruocPC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>482, 9</value>
-  </data>
-  <data name="btnTrangTruocPC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="guna2Panel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 689</value>
-  </data>
-  <data name="guna2Panel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
-  </data>
-  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 18</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 28</value>
   </data>
-  <data name="cboChonCuaHang_PC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 14</value>
+  <data name="cboChonCuaHang_HD.Location" type="System.Drawing.Point, System.Drawing">
+    <value>116, 6</value>
   </data>
-  <data name="cboChonCuaHang_PC.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="cboChonCuaHang_HD.Size" type="System.Drawing.Size, System.Drawing">
     <value>210, 36</value>
   </data>
-  <data name="btnThemPC.Location" type="System.Drawing.Point, System.Drawing">
-    <value>948, 6</value>
-  </data>
-  <data name="btnThemPC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 40</value>
-  </data>
-  <data name="guna2Panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
-  </data>
-  <data name="dgvDuLieu_PhanCong.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
-  <data name="dgvDuLieu_PhanCong.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="dgvDuLieu_PhanCong.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 56</value>
-  </data>
-  <data name="dgvDuLieu_PhanCong.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1068, 629</value>
-  </data>
-  <data name="tabPhanCongCa.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="tabNhanVien.Location" type="System.Drawing.Point, System.Drawing">
     <value>224, 4</value>
   </data>
-  <data name="tabPhanCongCa.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="tabNhanVien.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabNhanVien.Size" type="System.Drawing.Size, System.Drawing">
     <value>1072, 741</value>
+  </data>
+  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 686</value>
+  </data>
+  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 52</value>
+  </data>
+  <data name="ibtnThungRac_NV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1012, 3</value>
+  </data>
+  <data name="ibtnThungRac_NV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 46</value>
+  </data>
+  <data name="txtSoTrangNV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>520, 8</value>
+  </data>
+  <data name="txtSoTrangNV.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 8, 6, 8</value>
+  </data>
+  <data name="txtSoTrangNV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 40</value>
+  </data>
+  <data name="btnTrangSauNV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>602, 8</value>
+  </data>
+  <data name="btnTrangSauNV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 40</value>
+  </data>
+  <data name="btnTrangTruocNV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>447, 8</value>
+  </data>
+  <data name="btnTrangTruocNV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 40</value>
+  </data>
+  <data name="guna2Panel12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="guna2Panel12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 52</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 9</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 28</value>
+  </data>
+  <data name="cboChonCuaHang_NV.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 6</value>
+  </data>
+  <data name="cboChonCuaHang_NV.Size" type="System.Drawing.Size, System.Drawing">
+    <value>210, 36</value>
+  </data>
+  <data name="guna2Button23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>942, 6</value>
+  </data>
+  <data name="guna2Button23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 40</value>
+  </data>
+  <data name="dgvDuLieu_NhanVien.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 54</value>
+  </data>
+  <data name="dgvDuLieu_NhanVien.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 635</value>
+  </data>
+  <data name="tabChamCongVang.Location" type="System.Drawing.Point, System.Drawing">
+    <value>224, 4</value>
+  </data>
+  <data name="tabChamCongVang.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="tabChamCongVang.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1072, 741</value>
+  </data>
+  <data name="guna2Panel14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 686</value>
+  </data>
+  <data name="guna2Panel14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1066, 52</value>
   </data>
   <data name="txtSoTrangVang.Location" type="System.Drawing.Point, System.Drawing">
     <value>552, 9</value>
@@ -564,10 +582,10 @@
   <data name="btnTrangTruocVang.Size" type="System.Drawing.Size, System.Drawing">
     <value>64, 40</value>
   </data>
-  <data name="guna2Panel14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 686</value>
+  <data name="guna2Panel15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
   </data>
-  <data name="guna2Panel14.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="guna2Panel15.Size" type="System.Drawing.Size, System.Drawing">
     <value>1066, 52</value>
   </data>
   <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
@@ -588,15 +606,6 @@
   <data name="guna2Button18.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 40</value>
   </data>
-  <data name="guna2Panel15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="guna2Panel15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 52</value>
-  </data>
-  <data name="dgvDuLieu_Vang.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left, Right</value>
-  </data>
   <data name="dgvDuLieu_Vang.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -605,17 +614,5 @@
   </data>
   <data name="dgvDuLieu_Vang.Size" type="System.Drawing.Size, System.Drawing">
     <value>1066, 629</value>
-  </data>
-  <data name="tabChamCongVang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
-  </data>
-  <data name="tabChamCongVang.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabChamCongVang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 741</value>
-  </data>
-  <data name="tabControlNV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1300, 749</value>
   </data>
 </root>
