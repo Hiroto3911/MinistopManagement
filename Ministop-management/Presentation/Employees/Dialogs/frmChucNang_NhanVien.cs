@@ -18,6 +18,7 @@ namespace Presentation
         private readonly string _currentUserRole;
         private readonly string _currentStoreId;
         public event EventHandler DataChanged;
+        public static bool IsOpeningContractForm = false;
         public frmChucNang_NhanVien(
             IEmployeeService employeeService,
             IStoreService storeService,
@@ -263,27 +264,36 @@ namespace Presentation
         private void btnLuu_Click(object sender, EventArgs e)
         {
             if (!ValidateInput()) return;
+
             try
             {
                 var employee = CreateEmployeeDto();
                 var result = string.IsNullOrEmpty(_employeeId)
                     ? _employeeService.CreateEmployee(employee)
                     : _employeeService.UpdateEmployee(employee);
+
                 if (result.Succeeded)
                 {
                     ShowSuccessMessage(string.IsNullOrEmpty(_employeeId)
                         ? "Thêm nhân viên thành công!"
                         : "Cập nhật nhân viên thành công!");
+
                     DataChanged?.Invoke(this, EventArgs.Empty);
-                    if (string.IsNullOrEmpty(_employeeId))
+
+                    if (string.IsNullOrEmpty(_employeeId) && !IsOpeningContractForm)
                     {
-                        // Chuyển sang tạo hợp đồng lương
+                        IsOpeningContractForm = true;
+
                         var frmHopDong = _container.Resolve<frmChucNang_HopDongLuong>(
                             new ParameterOverride("employeeId", employee.EmployeeId));
+
                         frmHopDong.DataChanged += (s, ev) => DataChanged?.Invoke(this, EventArgs.Empty);
+                        frmHopDong.FormClosed += (s, ev) => IsOpeningContractForm = false;
+
                         frmHopDong.ShowDialog();
                     }
-                    Close();
+
+                    this.Close();
                 }
                 else
                 {

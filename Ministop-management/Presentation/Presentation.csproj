@@ -253,6 +253,12 @@
     <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.Designer.cs">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employees\Dialogs\frmXemPhuCap_HopDongLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\Dialogs\frmXemPhuCap_HopDongLuong.Designer.cs">
+      <DependentUpon>frmXemPhuCap_HopDongLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Products\Dialogs\frmHienThi_GiamGiaSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -643,6 +649,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_PhuCap.en.resx">
       <DependentUpon>frmChucNang_PhuCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmXemPhuCap_HopDongLuong.resx">
+      <DependentUpon>frmXemPhuCap_HopDongLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmThungRac_NhanVien.en.resx">
       <DependentUpon>frmThungRac_NhanVien.cs</DependentUpon>

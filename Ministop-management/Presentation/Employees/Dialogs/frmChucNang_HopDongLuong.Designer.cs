@@ -46,6 +46,7 @@
             this.dtpNgayKetThuc = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.cboMaNhanVien = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.itbnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,9 +59,10 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
+            this.panel1.Controls.Add(this.itbnThoat);
             this.panel1.Controls.Add(this.label11);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // label11
@@ -71,7 +73,6 @@
             // 
             // txtDonGiaGio
             // 
-            resources.ApplyResources(this.txtDonGiaGio, "txtDonGiaGio");
             this.txtDonGiaGio.BorderRadius = 2;
             this.txtDonGiaGio.BorderThickness = 2;
             this.txtDonGiaGio.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -81,6 +82,7 @@
             this.txtDonGiaGio.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtDonGiaGio.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtDonGiaGio.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txtDonGiaGio, "txtDonGiaGio");
             this.txtDonGiaGio.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtDonGiaGio.Name = "txtDonGiaGio";
             this.txtDonGiaGio.PlaceholderText = "";
@@ -113,7 +115,6 @@
             // 
             // txtTenNhanVien
             // 
-            resources.ApplyResources(this.txtTenNhanVien, "txtTenNhanVien");
             this.txtTenNhanVien.BorderRadius = 2;
             this.txtTenNhanVien.BorderThickness = 2;
             this.txtTenNhanVien.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -122,6 +123,7 @@
             this.txtTenNhanVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtTenNhanVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtTenNhanVien.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            resources.ApplyResources(this.txtTenNhanVien, "txtTenNhanVien");
             this.txtTenNhanVien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenNhanVien.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtTenNhanVien.Name = "txtTenNhanVien";
@@ -135,7 +137,6 @@
             // 
             // txtLuongCoBan
             // 
-            resources.ApplyResources(this.txtLuongCoBan, "txtLuongCoBan");
             this.txtLuongCoBan.BorderRadius = 2;
             this.txtLuongCoBan.BorderThickness = 2;
             this.txtLuongCoBan.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -145,6 +146,7 @@
             this.txtLuongCoBan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtLuongCoBan.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtLuongCoBan.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.txtLuongCoBan, "txtLuongCoBan");
             this.txtLuongCoBan.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtLuongCoBan.Name = "txtLuongCoBan";
             this.txtLuongCoBan.PlaceholderText = "";
@@ -157,11 +159,11 @@
             // 
             // dtpNgayBatDau
             // 
-            resources.ApplyResources(this.dtpNgayBatDau, "dtpNgayBatDau");
             this.dtpNgayBatDau.BorderRadius = 2;
             this.dtpNgayBatDau.BorderThickness = 2;
             this.dtpNgayBatDau.Checked = true;
             this.dtpNgayBatDau.FillColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.dtpNgayBatDau, "dtpNgayBatDau");
             this.dtpNgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayBatDau.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpNgayBatDau.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -175,11 +177,11 @@
             // 
             // dtpNgayKetThuc
             // 
-            resources.ApplyResources(this.dtpNgayKetThuc, "dtpNgayKetThuc");
             this.dtpNgayKetThuc.BorderRadius = 2;
             this.dtpNgayKetThuc.BorderThickness = 2;
             this.dtpNgayKetThuc.Checked = true;
             this.dtpNgayKetThuc.FillColor = System.Drawing.Color.White;
+            resources.ApplyResources(this.dtpNgayKetThuc, "dtpNgayKetThuc");
             this.dtpNgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayKetThuc.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpNgayKetThuc.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
@@ -193,7 +195,6 @@
             // 
             // cboMaNhanVien
             // 
-            resources.ApplyResources(this.cboMaNhanVien, "cboMaNhanVien");
             this.cboMaNhanVien.BackColor = System.Drawing.Color.Transparent;
             this.cboMaNhanVien.BorderRadius = 2;
             this.cboMaNhanVien.BorderThickness = 2;
@@ -201,9 +202,24 @@
             this.cboMaNhanVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMaNhanVien.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cboMaNhanVien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            resources.ApplyResources(this.cboMaNhanVien, "cboMaNhanVien");
             this.cboMaNhanVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboMaNhanVien.Name = "cboMaNhanVien";
             this.cboMaNhanVien.SelectedIndexChanged += new System.EventHandler(this.cboMaNhanVien_SelectedIndexChanged);
+            // 
+            // itbnThoat
+            // 
+            resources.ApplyResources(this.itbnThoat, "itbnThoat");
+            this.itbnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.itbnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.itbnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.itbnThoat.ImageRotate = 0F;
+            this.itbnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.itbnThoat.Name = "itbnThoat";
+            this.itbnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.Click += new System.EventHandler(this.itbnThoat_Click);
             // 
             // frmChucNang_HopDongLuong
             // 
@@ -251,5 +267,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2ComboBox cboMaNhanVien;
+        private Guna.UI2.WinForms.Guna2ImageButton itbnThoat;
     }
 }
