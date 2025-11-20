@@ -32,43 +32,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <PlatformTarget>x64</PlatformTarget>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <PlatformTarget>x64</PlatformTarget>
-    <OutputPath>bin\x64\Release\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug x64|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug x64\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <Prefer32Bit>true</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug x64|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug x64\</OutputPath>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <Prefer32Bit>true</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <PlatformTarget>x86</PlatformTarget>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <PlatformTarget>x86</PlatformTarget>
-    <OutputPath>bin\x86\Release\</OutputPath>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug x64|x86'">
-    <PlatformTarget>x86</PlatformTarget>
-    <OutputPath>bin\x86\Debug x64\</OutputPath>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ActiproSoftware.Shared.Wpf, Version=25.1.1.0, Culture=neutral, PublicKeyToken=36ff2196ab5654b9, processorArchitecture=MSIL">
       <HintPath>..\packages\ActiproSoftware.Controls.WPF.Shared.25.1.1\lib\net462\ActiproSoftware.Shared.Wpf.dll</HintPath>
@@ -161,6 +124,12 @@
     <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachNhanVienTheoCuaHang.Designer.cs">
       <DependentUpon>frmHienThi_DanhSachNhanVienTheoCuaHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachTop3Store.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReport\FormShow\frmHienThi_DanhSachTop3Store.Designer.cs">
+      <DependentUpon>frmHienThi_DanhSachTop3Store.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrystalReport\FormShow\frmHienThi_HoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,17 +216,18 @@
       <SubType>Component</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="CrystalReport\Report\StoreReports\Rpt_InTop3Store.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Rpt_InTop3Store.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.Designer.cs">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Employees\Dialogs\frmXemPhuCap_HopDongLuong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Employees\Dialogs\frmXemPhuCap_HopDongLuong.Designer.cs">
-      <DependentUpon>frmXemPhuCap_HopDongLuong.cs</DependentUpon>
     </Compile>
     <Compile Include="Products\Dialogs\frmHienThi_GiamGiaSanPham.cs">
       <SubType>Form</SubType>
@@ -576,6 +546,9 @@
     <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_DanhSachNhanVienTheoCuaHang.resx">
       <DependentUpon>frmHienThi_DanhSachNhanVienTheoCuaHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_DanhSachTop3Store.resx">
+      <DependentUpon>frmHienThi_DanhSachTop3Store.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_HoaDon.resx">
       <DependentUpon>frmHienThi_HoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -591,11 +564,11 @@
     <EmbeddedResource Include="CrystalReport\FormShow\frmHienThi_PhieuXuat.resx">
       <DependentUpon>frmHienThi_PhieuXuat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachLuong_CuaHang.rpt">
+    <Content Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachLuong_CuaHang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_DanhSachLuong_CuaHang.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachNhanVienTheoCuaHang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_DanhSachNhanVienTheoCuaHang.cs</LastGenOutput>
@@ -626,6 +599,11 @@
       <LastGenOutput>Rpt_PhieuLuong_NhanVien.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="CrystalReport\Report\StoreReports\Rpt_InTop3Store.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Rpt_InTop3Store.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_CaLamViec.en.resx">
       <DependentUpon>frmChucNang_CaLamViec.cs</DependentUpon>
     </EmbeddedResource>
@@ -649,9 +627,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_PhuCap.en.resx">
       <DependentUpon>frmChucNang_PhuCap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Employees\Dialogs\frmXemPhuCap_HopDongLuong.resx">
-      <DependentUpon>frmXemPhuCap_HopDongLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmThungRac_NhanVien.en.resx">
       <DependentUpon>frmThungRac_NhanVien.cs</DependentUpon>
@@ -1003,9 +978,11 @@
     <None Include="Resources\Employeemanagement1.png" />
     <None Include="Resources\import-export.png" />
     <None Include="Resources\danger.png" />
+    <None Include="Resources\down.png" />
     <Content Include="Resources\in-stock.png" />
     <None Include="Resources\in-stock1.png" />
     <None Include="Resources\in-stock2.png" />
+    <None Include="Resources\increase.png" />
     <Content Include="Resources\invoice.png" />
     <None Include="Resources\invoice1.png" />
     <None Include="Resources\market.png" />

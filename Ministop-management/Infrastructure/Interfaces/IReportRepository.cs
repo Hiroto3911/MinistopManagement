@@ -1,5 +1,6 @@
 ﻿using Domain.DTO;
 using Infrastructure.Data;
+using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,5 +25,6 @@ namespace Infrastructure.Interfaces
         List<SalarySlipAllowanceDto> GetSalarySlipAllowances(string employeeId);
         List<SalaryListDto> GetSalaryListByStore(string storeId, string monthYear);
         List<sp_GetTop3BestSellingStoresResult> GetTop3BestSellingStores(DateTime stardate, DateTime enddate);
+        List<FrequentlyLostProductDto> GetFrequentlyLostProductsByStoreAndDateRange(string storeId, DateTime? fromDate = null, DateTime? toDate = null, int threshold = 2);
     }
 }

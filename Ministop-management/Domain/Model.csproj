@@ -81,6 +81,7 @@
     <Compile Include="DTO\BaseAuditLog.cs" />
     <Compile Include="DTO\EmployeeDto.cs" />
     <Compile Include="DTO\ExportReportDto.cs" />
+    <Compile Include="DTO\FrequentlyLostProductDto.cs" />
     <Compile Include="DTO\ImportProductDto.cs" />
     <Compile Include="DTO\InventoryReportDto.cs" />
     <Compile Include="DTO\InvoiceDto.cs" />

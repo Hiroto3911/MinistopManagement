@@ -105,7 +105,10 @@ namespace Services.Services
                 Quantity = x.Quantity,
                 UnitPrice = x.UnitPrice,
                 Total = x.Total,
-                TotalAmount = x.totalAmount
+                TotalAmount = x.totalAmount,
+                TypeExport = x.TypeExport,
+                Reason = x.Reason,
+                Status = x.Status
             });
 
             return result.ToList();
@@ -155,6 +158,7 @@ namespace Services.Services
                 Revenue = x.Revenue ?? 0,
                 Financial = x.Financial ?? 0,
                 FixedExpense = x.FixedExpense ?? 0,
+                SalaryExpense = x.SalaryExpense ?? 0,
            
             }).ToList();
         }
@@ -230,6 +234,13 @@ namespace Services.Services
                 TotalProductsSold = (decimal)x.TotalProductsSold,
                 AverageInvoiceValue = (decimal)x.AverageInvoiceValue
             }).ToList();
+        }
+        public List<FrequentlyLostProductDto> GetFrequentlyLostProductsByStoreAndDateRange(string storeId,
+     DateTime? fromDate = null,
+     DateTime? toDate = null,
+     int threshold = 2)
+        {
+            return _ministopUnitOfWork.ReportRepository.GetFrequentlyLostProductsByStoreAndDateRange(storeId, fromDate, toDate, threshold);
         }
     }
 }

@@ -120,7 +120,7 @@ namespace Infrastructure.Data
     #endregion
 		
 		public MinistopDataContextDataContext() : 
-				base(global::Infrastructure.Properties.Settings.Default.MinistopManagementConnectionString5, mappingSource)
+				base(global::Infrastructure.Properties.Settings.Default.MinistopManagementConnectionString2, mappingSource)
 		{
 			OnCreated();
 		}
@@ -402,13 +402,6 @@ namespace Infrastructure.Data
 			return ((ISingleResult<SP_ReturnReportResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_StockExport")]
-		public ISingleResult<SP_StockExportResult> SP_StockExport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ExportID", DbType="NVarChar(200)")] string exportID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), exportID);
-			return ((ISingleResult<SP_StockExportResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_StockImportReport")]
 		public ISingleResult<SP_StockImportReportResult> SP_StockImportReport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ImportID", DbType="NVarChar(200)")] string importID)
 		{
@@ -437,13 +430,6 @@ namespace Infrastructure.Data
 			return ((ISingleResult<sp_GetSalaryContractReportResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_StoreFinancialReportByMonth")]
-		public ISingleResult<SP_StoreFinancialReportByMonthResult> SP_StoreFinancialReportByMonth([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StoreID", DbType="NVarChar(200)")] string storeID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), storeID);
-			return ((ISingleResult<SP_StoreFinancialReportByMonthResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetSalaryList_ByStore")]
 		public ISingleResult<sp_GetSalaryList_ByStoreResult> sp_GetSalaryList_ByStore([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StoreID", DbType="NVarChar(200)")] string storeID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MonthYear", DbType="Char(7)")] string monthYear)
 		{
@@ -463,6 +449,20 @@ namespace Infrastructure.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), invoiceID);
 			return ((ISingleResult<SP_InvoiceReportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_StockExport")]
+		public ISingleResult<SP_StockExportResult> SP_StockExport([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ExportID", DbType="NVarChar(200)")] string exportID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), exportID);
+			return ((ISingleResult<SP_StockExportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_StoreFinancialReportByMonth")]
+		public ISingleResult<SP_StoreFinancialReportByMonthResult> SP_StoreFinancialReportByMonth([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StoreID", DbType="NVarChar(200)")] string storeID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), storeID);
+			return ((ISingleResult<SP_StoreFinancialReportByMonthResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_GetTop3BestSellingStores")]
@@ -10386,230 +10386,6 @@ namespace Infrastructure.Data
 		}
 	}
 	
-	public partial class SP_StockExportResult
-	{
-		
-		private string _ExportID;
-		
-		private System.DateTime _ExportDate;
-		
-		private string _StoreID;
-		
-		private string _StoreName;
-		
-		private string _Address;
-		
-		private string _EmployeeID;
-		
-		private string _FullName;
-		
-		private string _ProductName;
-		
-		private int _Quantity;
-		
-		private decimal _UnitPrice;
-		
-		private System.Nullable<decimal> _Total;
-		
-		private System.Nullable<decimal> _totalAmount;
-		
-		public SP_StockExportResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExportID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string ExportID
-		{
-			get
-			{
-				return this._ExportID;
-			}
-			set
-			{
-				if ((this._ExportID != value))
-				{
-					this._ExportID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExportDate", DbType="DateTime NOT NULL")]
-		public System.DateTime ExportDate
-		{
-			get
-			{
-				return this._ExportDate;
-			}
-			set
-			{
-				if ((this._ExportDate != value))
-				{
-					this._ExportDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string StoreID
-		{
-			get
-			{
-				return this._StoreID;
-			}
-			set
-			{
-				if ((this._StoreID != value))
-				{
-					this._StoreID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string StoreName
-		{
-			get
-			{
-				return this._StoreName;
-			}
-			set
-			{
-				if ((this._StoreName != value))
-				{
-					this._StoreName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this._Address = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string EmployeeID
-		{
-			get
-			{
-				return this._EmployeeID;
-			}
-			set
-			{
-				if ((this._EmployeeID != value))
-				{
-					this._EmployeeID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string FullName
-		{
-			get
-			{
-				return this._FullName;
-			}
-			set
-			{
-				if ((this._FullName != value))
-				{
-					this._FullName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string ProductName
-		{
-			get
-			{
-				return this._ProductName;
-			}
-			set
-			{
-				if ((this._ProductName != value))
-				{
-					this._ProductName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
-		public int Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitPrice", DbType="Decimal(18,2) NOT NULL")]
-		public decimal UnitPrice
-		{
-			get
-			{
-				return this._UnitPrice;
-			}
-			set
-			{
-				if ((this._UnitPrice != value))
-				{
-					this._UnitPrice = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(29,2)")]
-		public System.Nullable<decimal> Total
-		{
-			get
-			{
-				return this._Total;
-			}
-			set
-			{
-				if ((this._Total != value))
-				{
-					this._Total = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalAmount", DbType="Decimal(38,2)")]
-		public System.Nullable<decimal> totalAmount
-		{
-			get
-			{
-				return this._totalAmount;
-			}
-			set
-			{
-				if ((this._totalAmount != value))
-				{
-					this._totalAmount = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SP_StockImportReportResult
 	{
 		
@@ -11285,158 +11061,6 @@ namespace Infrastructure.Data
 				if ((this._EstimatedTotalIncome != value))
 				{
 					this._EstimatedTotalIncome = value;
-				}
-			}
-		}
-	}
-	
-	public partial class SP_StoreFinancialReportByMonthResult
-	{
-		
-		private System.Nullable<int> _Year;
-		
-		private System.Nullable<int> _Month;
-		
-		private string _StoreID;
-		
-		private string _StoreName;
-		
-		private System.Nullable<decimal> _Revenue;
-		
-		private System.Nullable<decimal> _FixedExpense;
-		
-		private int _SalaryExpense;
-		
-		private System.Nullable<decimal> _Financial;
-		
-		public SP_StoreFinancialReportByMonthResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="Int")]
-		public System.Nullable<int> Year
-		{
-			get
-			{
-				return this._Year;
-			}
-			set
-			{
-				if ((this._Year != value))
-				{
-					this._Year = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Month", DbType="Int")]
-		public System.Nullable<int> Month
-		{
-			get
-			{
-				return this._Month;
-			}
-			set
-			{
-				if ((this._Month != value))
-				{
-					this._Month = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
-		public string StoreID
-		{
-			get
-			{
-				return this._StoreID;
-			}
-			set
-			{
-				if ((this._StoreID != value))
-				{
-					this._StoreID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string StoreName
-		{
-			get
-			{
-				return this._StoreName;
-			}
-			set
-			{
-				if ((this._StoreName != value))
-				{
-					this._StoreName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Revenue", DbType="Decimal(38,2)")]
-		public System.Nullable<decimal> Revenue
-		{
-			get
-			{
-				return this._Revenue;
-			}
-			set
-			{
-				if ((this._Revenue != value))
-				{
-					this._Revenue = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FixedExpense", DbType="Decimal(38,2)")]
-		public System.Nullable<decimal> FixedExpense
-		{
-			get
-			{
-				return this._FixedExpense;
-			}
-			set
-			{
-				if ((this._FixedExpense != value))
-				{
-					this._FixedExpense = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaryExpense", DbType="Int NOT NULL")]
-		public int SalaryExpense
-		{
-			get
-			{
-				return this._SalaryExpense;
-			}
-			set
-			{
-				if ((this._SalaryExpense != value))
-				{
-					this._SalaryExpense = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Financial", DbType="Decimal(38,2)")]
-		public System.Nullable<decimal> Financial
-		{
-			get
-			{
-				return this._Financial;
-			}
-			set
-			{
-				if ((this._Financial != value))
-				{
-					this._Financial = value;
 				}
 			}
 		}
@@ -12163,6 +11787,436 @@ namespace Infrastructure.Data
 				if ((this._TotalAmount != value))
 				{
 					this._TotalAmount = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_StockExportResult
+	{
+		
+		private string _ExportID;
+		
+		private System.DateTime _ExportDate;
+		
+		private string _StoreID;
+		
+		private string _Reason;
+		
+		private string _TypeExport;
+		
+		private byte _Status;
+		
+		private string _StoreName;
+		
+		private string _Address;
+		
+		private string _EmployeeID;
+		
+		private string _FullName;
+		
+		private string _ProductName;
+		
+		private int _Quantity;
+		
+		private decimal _UnitPrice;
+		
+		private System.Nullable<decimal> _Total;
+		
+		private System.Nullable<decimal> _totalAmount;
+		
+		public SP_StockExportResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExportID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string ExportID
+		{
+			get
+			{
+				return this._ExportID;
+			}
+			set
+			{
+				if ((this._ExportID != value))
+				{
+					this._ExportID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExportDate", DbType="DateTime NOT NULL")]
+		public System.DateTime ExportDate
+		{
+			get
+			{
+				return this._ExportDate;
+			}
+			set
+			{
+				if ((this._ExportDate != value))
+				{
+					this._ExportDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string StoreID
+		{
+			get
+			{
+				return this._StoreID;
+			}
+			set
+			{
+				if ((this._StoreID != value))
+				{
+					this._StoreID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Reason", DbType="NVarChar(100)")]
+		public string Reason
+		{
+			get
+			{
+				return this._Reason;
+			}
+			set
+			{
+				if ((this._Reason != value))
+				{
+					this._Reason = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeExport", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string TypeExport
+		{
+			get
+			{
+				return this._TypeExport;
+			}
+			set
+			{
+				if ((this._TypeExport != value))
+				{
+					this._TypeExport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="TinyInt NOT NULL")]
+		public byte Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string StoreName
+		{
+			get
+			{
+				return this._StoreName;
+			}
+			set
+			{
+				if ((this._StoreName != value))
+				{
+					this._StoreName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string EmployeeID
+		{
+			get
+			{
+				return this._EmployeeID;
+			}
+			set
+			{
+				if ((this._EmployeeID != value))
+				{
+					this._EmployeeID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this._FullName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductName", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string ProductName
+		{
+			get
+			{
+				return this._ProductName;
+			}
+			set
+			{
+				if ((this._ProductName != value))
+				{
+					this._ProductName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
+		public int Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitPrice", DbType="Decimal(18,2) NOT NULL")]
+		public decimal UnitPrice
+		{
+			get
+			{
+				return this._UnitPrice;
+			}
+			set
+			{
+				if ((this._UnitPrice != value))
+				{
+					this._UnitPrice = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(29,2)")]
+		public System.Nullable<decimal> Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this._Total = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_totalAmount", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> totalAmount
+		{
+			get
+			{
+				return this._totalAmount;
+			}
+			set
+			{
+				if ((this._totalAmount != value))
+				{
+					this._totalAmount = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_StoreFinancialReportByMonthResult
+	{
+		
+		private System.Nullable<int> _Year;
+		
+		private System.Nullable<int> _Month;
+		
+		private string _StoreID;
+		
+		private string _StoreName;
+		
+		private System.Nullable<decimal> _Revenue;
+		
+		private System.Nullable<decimal> _FixedExpense;
+		
+		private System.Nullable<decimal> _SalaryExpense;
+		
+		private System.Nullable<decimal> _Financial;
+		
+		public SP_StoreFinancialReportByMonthResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Year", DbType="Int")]
+		public System.Nullable<int> Year
+		{
+			get
+			{
+				return this._Year;
+			}
+			set
+			{
+				if ((this._Year != value))
+				{
+					this._Year = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Month", DbType="Int")]
+		public System.Nullable<int> Month
+		{
+			get
+			{
+				return this._Month;
+			}
+			set
+			{
+				if ((this._Month != value))
+				{
+					this._Month = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreID", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string StoreID
+		{
+			get
+			{
+				return this._StoreID;
+			}
+			set
+			{
+				if ((this._StoreID != value))
+				{
+					this._StoreID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string StoreName
+		{
+			get
+			{
+				return this._StoreName;
+			}
+			set
+			{
+				if ((this._StoreName != value))
+				{
+					this._StoreName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Revenue", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> Revenue
+		{
+			get
+			{
+				return this._Revenue;
+			}
+			set
+			{
+				if ((this._Revenue != value))
+				{
+					this._Revenue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FixedExpense", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> FixedExpense
+		{
+			get
+			{
+				return this._FixedExpense;
+			}
+			set
+			{
+				if ((this._FixedExpense != value))
+				{
+					this._FixedExpense = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SalaryExpense", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> SalaryExpense
+		{
+			get
+			{
+				return this._SalaryExpense;
+			}
+			set
+			{
+				if ((this._SalaryExpense != value))
+				{
+					this._SalaryExpense = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Financial", DbType="Decimal(38,2)")]
+		public System.Nullable<decimal> Financial
+		{
+			get
+			{
+				return this._Financial;
+			}
+			set
+			{
+				if ((this._Financial != value))
+				{
+					this._Financial = value;
 				}
 			}
 		}
