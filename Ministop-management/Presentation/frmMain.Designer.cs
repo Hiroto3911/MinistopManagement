@@ -74,13 +74,13 @@
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
             this.panel1.Controls.Add(this.guna2ImageButton1);
             this.panel1.Controls.Add(this.guna2ImageButton3);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.lblNguoiDung);
             this.panel1.Controls.Add(this.guna2ImageButton4);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -116,8 +116,8 @@
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Image = global::Presentation.Properties.Resources.ministop_logo;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
@@ -144,7 +144,6 @@
             // 
             // menuStrip1
             // 
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -156,73 +155,73 @@
             this.mnSanPham,
             this.mnThongKe,
             this.báoCáoToolStripMenuItem});
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Stretch = false;
             // 
             // mnHeThong
             // 
-            resources.ApplyResources(this.mnHeThong, "mnHeThong");
             this.mnHeThong.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.thôngTinNgườiDùngToolStripMenuItem,
             this.mnDangXuat});
+            resources.ApplyResources(this.mnHeThong, "mnHeThong");
             this.mnHeThong.Name = "mnHeThong";
             // 
             // thôngTinNgườiDùngToolStripMenuItem
             // 
-            resources.ApplyResources(this.thôngTinNgườiDùngToolStripMenuItem, "thôngTinNgườiDùngToolStripMenuItem");
             this.thôngTinNgườiDùngToolStripMenuItem.Name = "thôngTinNgườiDùngToolStripMenuItem";
+            resources.ApplyResources(this.thôngTinNgườiDùngToolStripMenuItem, "thôngTinNgườiDùngToolStripMenuItem");
             // 
             // mnDangXuat
             // 
-            resources.ApplyResources(this.mnDangXuat, "mnDangXuat");
             this.mnDangXuat.Name = "mnDangXuat";
+            resources.ApplyResources(this.mnDangXuat, "mnDangXuat");
             this.mnDangXuat.Click += new System.EventHandler(this.mnDangXuat_Click);
             // 
             // mnCuaHang
             // 
-            resources.ApplyResources(this.mnCuaHang, "mnCuaHang");
             this.mnCuaHang.Image = global::Presentation.Properties.Resources.market;
             this.mnCuaHang.Name = "mnCuaHang";
+            resources.ApplyResources(this.mnCuaHang, "mnCuaHang");
             this.mnCuaHang.Click += new System.EventHandler(this.mnCuaHang_Click);
             // 
             // mnNhanVien
             // 
-            resources.ApplyResources(this.mnNhanVien, "mnNhanVien");
             this.mnNhanVien.Image = global::Presentation.Properties.Resources.Employeemanagement1;
             this.mnNhanVien.Name = "mnNhanVien";
+            resources.ApplyResources(this.mnNhanVien, "mnNhanVien");
             this.mnNhanVien.Click += new System.EventHandler(this.mnNhanVien_Click);
             // 
             // mnKhoHang
             // 
-            resources.ApplyResources(this.mnKhoHang, "mnKhoHang");
             this.mnKhoHang.Image = global::Presentation.Properties.Resources.in_stock;
             this.mnKhoHang.Name = "mnKhoHang";
+            resources.ApplyResources(this.mnKhoHang, "mnKhoHang");
             this.mnKhoHang.Click += new System.EventHandler(this.mnKhoHang_Click);
             // 
             // mnBanHang
             // 
-            resources.ApplyResources(this.mnBanHang, "mnBanHang");
             this.mnBanHang.Image = global::Presentation.Properties.Resources.invoice;
             this.mnBanHang.Name = "mnBanHang";
+            resources.ApplyResources(this.mnBanHang, "mnBanHang");
             this.mnBanHang.Click += new System.EventHandler(this.mnBanHang_Click);
             // 
             // mnSanPham
             // 
-            resources.ApplyResources(this.mnSanPham, "mnSanPham");
             this.mnSanPham.Image = global::Presentation.Properties.Resources.Product1;
             this.mnSanPham.Name = "mnSanPham";
+            resources.ApplyResources(this.mnSanPham, "mnSanPham");
             this.mnSanPham.Click += new System.EventHandler(this.mnSanPham_Click);
             // 
             // mnThongKe
             // 
-            resources.ApplyResources(this.mnThongKe, "mnThongKe");
             this.mnThongKe.Image = global::Presentation.Properties.Resources.monitor;
             this.mnThongKe.Name = "mnThongKe";
+            resources.ApplyResources(this.mnThongKe, "mnThongKe");
             this.mnThongKe.Click += new System.EventHandler(this.mnThongKe_Click);
             // 
             // báoCáoToolStripMenuItem
             // 
-            resources.ApplyResources(this.báoCáoToolStripMenuItem, "báoCáoToolStripMenuItem");
             this.báoCáoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.danhSáchCửaHàngTheoKhuVựcToolStripMenuItem,
             this.danhSáchNhânViênTheoCửaHàngToolStripMenuItem,
@@ -234,58 +233,60 @@
             this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem});
             this.báoCáoToolStripMenuItem.Image = global::Presentation.Properties.Resources.report;
             this.báoCáoToolStripMenuItem.Name = "báoCáoToolStripMenuItem";
+            resources.ApplyResources(this.báoCáoToolStripMenuItem, "báoCáoToolStripMenuItem");
             // 
             // danhSáchCửaHàngTheoKhuVựcToolStripMenuItem
             // 
-            resources.ApplyResources(this.danhSáchCửaHàngTheoKhuVựcToolStripMenuItem, "danhSáchCửaHàngTheoKhuVựcToolStripMenuItem");
             this.danhSáchCửaHàngTheoKhuVựcToolStripMenuItem.Name = "danhSáchCửaHàngTheoKhuVựcToolStripMenuItem";
+            resources.ApplyResources(this.danhSáchCửaHàngTheoKhuVựcToolStripMenuItem, "danhSáchCửaHàngTheoKhuVựcToolStripMenuItem");
             this.danhSáchCửaHàngTheoKhuVựcToolStripMenuItem.Click += new System.EventHandler(this.danhSáchCửaHàngTheoKhuVựcToolStripMenuItem_Click);
             // 
             // danhSáchNhânViênTheoCửaHàngToolStripMenuItem
             // 
-            resources.ApplyResources(this.danhSáchNhânViênTheoCửaHàngToolStripMenuItem, "danhSáchNhânViênTheoCửaHàngToolStripMenuItem");
             this.danhSáchNhânViênTheoCửaHàngToolStripMenuItem.Name = "danhSáchNhânViênTheoCửaHàngToolStripMenuItem";
+            resources.ApplyResources(this.danhSáchNhânViênTheoCửaHàngToolStripMenuItem, "danhSáchNhânViênTheoCửaHàngToolStripMenuItem");
             this.danhSáchNhânViênTheoCửaHàngToolStripMenuItem.Click += new System.EventHandler(this.danhSáchNhânViênTheoCửaHàngToolStripMenuItem_Click);
             // 
             // phieuNhapToolStripMenuItem
             // 
-            resources.ApplyResources(this.phieuNhapToolStripMenuItem, "phieuNhapToolStripMenuItem");
             this.phieuNhapToolStripMenuItem.Name = "phieuNhapToolStripMenuItem";
+            resources.ApplyResources(this.phieuNhapToolStripMenuItem, "phieuNhapToolStripMenuItem");
             // 
             // phieuXuatToolStripMenuItem
             // 
-            resources.ApplyResources(this.phieuXuatToolStripMenuItem, "phieuXuatToolStripMenuItem");
             this.phieuXuatToolStripMenuItem.Name = "phieuXuatToolStripMenuItem";
+            resources.ApplyResources(this.phieuXuatToolStripMenuItem, "phieuXuatToolStripMenuItem");
             // 
             // xemHợpĐồngLươngNhânViênToolStripMenuItem
             // 
-            resources.ApplyResources(this.xemHợpĐồngLươngNhânViênToolStripMenuItem, "xemHợpĐồngLươngNhânViênToolStripMenuItem");
             this.xemHợpĐồngLươngNhânViênToolStripMenuItem.Name = "xemHợpĐồngLươngNhânViênToolStripMenuItem";
+            resources.ApplyResources(this.xemHợpĐồngLươngNhânViênToolStripMenuItem, "xemHợpĐồngLươngNhânViênToolStripMenuItem");
             this.xemHợpĐồngLươngNhânViênToolStripMenuItem.Click += new System.EventHandler(this.xemHợpĐồngLươngNhânViênToolStripMenuItem_Click);
             // 
             // xuấtPhiếuLươngNhânViênToolStripMenuItem
             // 
-            resources.ApplyResources(this.xuấtPhiếuLươngNhânViênToolStripMenuItem, "xuấtPhiếuLươngNhânViênToolStripMenuItem");
             this.xuấtPhiếuLươngNhânViênToolStripMenuItem.Name = "xuấtPhiếuLươngNhânViênToolStripMenuItem";
+            resources.ApplyResources(this.xuấtPhiếuLươngNhânViênToolStripMenuItem, "xuấtPhiếuLươngNhânViênToolStripMenuItem");
             this.xuấtPhiếuLươngNhânViênToolStripMenuItem.Click += new System.EventHandler(this.xuấtPhiếuLươngNhânViênToolStripMenuItem_Click);
             // 
             // xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem
             // 
-            resources.ApplyResources(this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem, "xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem");
             this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem.Name = "xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem";
+            resources.ApplyResources(this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem, "xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem");
             this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem.Click += new System.EventHandler(this.xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem_Click);
             // 
             // xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem
             // 
-            resources.ApplyResources(this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem, "xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem");
             this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem.Name = "xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem";
+            resources.ApplyResources(this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem, "xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem");
+            this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem.Click += new System.EventHandler(this.xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem_Click);
             // 
             // panel2
             // 
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.SystemColors.Menu;
             this.panel2.Controls.Add(this.btnResize);
             this.panel2.Controls.Add(this.lblTime);
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
             // btnResize

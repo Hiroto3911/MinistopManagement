@@ -81,7 +81,7 @@ namespace Presentation.CrystalReport.FormShow
                     row.HourlyRate = item.HourlyRate.HasValue ? item.HourlyRate.Value.ToString("N0") : "0";
                     row.Bonus = item.Bonus.ToString("N0");
                     row.Deduction = item.Deduction.ToString("N0");
-                    row.TotalIncome = item.TotalIncome; // decimal → đã fix Sum trong .rpt
+                    row.TotalIncome = item.TotalIncome;
                     ds.SalaryList.AddSalaryListRow(row);
                 }
 

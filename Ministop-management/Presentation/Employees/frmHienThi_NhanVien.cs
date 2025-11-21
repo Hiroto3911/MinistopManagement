@@ -254,27 +254,27 @@ namespace Presentation
             dgvDuLieu_NhanVien.ReadOnly = true;
             dgvDuLieu_NhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_NhanVien.Columns["Edit"] == null)
+            if (dgvDuLieu_NhanVien.Columns["Sửa"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn
+                var btnSửa = new DataGridViewButtonColumn
                 {
-                    Name = "Edit",
-                    HeaderText = "Edit",
-                    Text = "Edit",
+                    Name = "Sửa",
+                    HeaderText = "Sửa",
+                    Text = "Sửa",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_NhanVien.Columns.Add(btnEdit);
+                dgvDuLieu_NhanVien.Columns.Add(btnSửa);
             }
-            if (dgvDuLieu_NhanVien.Columns["Delete"] == null)
+            if (dgvDuLieu_NhanVien.Columns["Xoá"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn
+                var btnXoá = new DataGridViewButtonColumn
                 {
-                    Name = "Delete",
-                    HeaderText = "Delete",
-                    Text = "Delete",
+                    Name = "Xoá",
+                    HeaderText = "Xoá",
+                    Text = "Xoá",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_NhanVien.Columns.Add(btnDelete);
+                dgvDuLieu_NhanVien.Columns.Add(btnXoá);
             }
 
             ApplyGridStyle(dgvDuLieu_NhanVien);
@@ -287,7 +287,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string employeeId = dgvDuLieu_NhanVien.Rows[e.RowIndex].Cells["MaNhanVien"].Value.ToString();
 
-            if (dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frmChucNangNhanVien = _container.Resolve<frmChucNang_NhanVien>(
                     new ParameterOverride("employeeId", employeeId),
@@ -300,7 +300,7 @@ namespace Presentation
                 };
                 frmChucNangNhanVien.ShowDialog();
             }
-            else if (dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 var result = MessageBox.Show($"Bạn có chắc muốn xóa nhân viên {employeeId}?", "Xác nhận",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -382,6 +382,11 @@ namespace Presentation
                 ReloadEmployeeData(currentPage);
             };
             frmThungRac.ShowDialog();
+        }
+
+        private void ibtnLamMoiNV_Click(object sender, EventArgs e)
+        {
+            LoadData_NhanVienTheoCuaHang(_userSession.IdStore);
         }
         #endregion
 
@@ -493,27 +498,27 @@ namespace Presentation
             dgvDuLieu_HopDong.ReadOnly = true;
             dgvDuLieu_HopDong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_HopDong.Columns["Edit"] == null)
+            if (dgvDuLieu_HopDong.Columns["Sửa"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn
+                var btnSửa = new DataGridViewButtonColumn
                 {
-                    Name = "Edit",
-                    HeaderText = "Edit",
-                    Text = "Edit",
+                    Name = "Sửa",
+                    HeaderText = "Sửa",
+                    Text = "Sửa",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_HopDong.Columns.Add(btnEdit);
+                dgvDuLieu_HopDong.Columns.Add(btnSửa);
             }
-            if (dgvDuLieu_HopDong.Columns["Delete"] == null)
+            if (dgvDuLieu_HopDong.Columns["Xoá"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn
+                var btnXoá = new DataGridViewButtonColumn
                 {
-                    Name = "Delete",
-                    HeaderText = "Delete",
-                    Text = "Delete",
+                    Name = "Xoá",
+                    HeaderText = "Xoá",
+                    Text = "Xoá",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_HopDong.Columns.Add(btnDelete);
+                dgvDuLieu_HopDong.Columns.Add(btnXoá);
             }
 
             ApplyGridStyle(dgvDuLieu_HopDong);
@@ -527,7 +532,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string contractId = dgvDuLieu_HopDong.Rows[e.RowIndex].Cells["MaHopDong"].Value.ToString();
 
-            if (dgvDuLieu_HopDong.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_HopDong.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frmChucNang = _container.Resolve<frmChucNang_HopDongLuong>(
                     new ParameterOverride("contractId", contractId));
@@ -538,7 +543,7 @@ namespace Presentation
                 };
                 frmChucNang.ShowDialog();
             }
-            else if (dgvDuLieu_HopDong.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_HopDong.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 if (MessageBox.Show($"Bạn có chắc muốn xóa hợp đồng {contractId}?", "Xác nhận",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -601,6 +606,11 @@ namespace Presentation
             frmHopDong.DataChanged += (s, ev) => { /* load lại data */ };
             frmHopDong.ShowDialog();
         }
+
+        private void ibtnThungRacHDL_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         #region Quản lý phụ cấp
@@ -630,15 +640,15 @@ namespace Presentation
             dgvDuLieu_PhuCap.ReadOnly = true;
             dgvDuLieu_PhuCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_PhuCap.Columns["Edit"] == null)
+            if (dgvDuLieu_PhuCap.Columns["Sửa"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn { Name = "Edit", HeaderText = "Edit", Text = "Edit", UseColumnTextForButtonValue = true };
-                dgvDuLieu_PhuCap.Columns.Add(btnEdit);
+                var btnSửa = new DataGridViewButtonColumn { Name = "Sửa", HeaderText = "Sửa", Text = "Sửa", UseColumnTextForButtonValue = true };
+                dgvDuLieu_PhuCap.Columns.Add(btnSửa);
             }
-            if (dgvDuLieu_PhuCap.Columns["Delete"] == null)
+            if (dgvDuLieu_PhuCap.Columns["Xoá"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn { Name = "Delete", HeaderText = "Delete", Text = "Delete", UseColumnTextForButtonValue = true };
-                dgvDuLieu_PhuCap.Columns.Add(btnDelete);
+                var btnXoá = new DataGridViewButtonColumn { Name = "Xoá", HeaderText = "Xoá", Text = "Xoá", UseColumnTextForButtonValue = true };
+                dgvDuLieu_PhuCap.Columns.Add(btnXoá);
             }
 
             ApplyGridStyle(dgvDuLieu_PhuCap);
@@ -646,12 +656,17 @@ namespace Presentation
             btnTrangSauPK.Enabled = pageNumber < _totalPage_PC;
         }
 
+        private void ibtnLamMoiPC_Click(object sender, EventArgs e)
+        {
+            LoadData_PhuCap();
+        }
+
         private void dgvDuLieu_PhuCap_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
             string allowanceId = dgvDuLieu_PhuCap.Rows[e.RowIndex].Cells["MaPhuCap"].Value.ToString();
 
-            if (dgvDuLieu_PhuCap.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_PhuCap.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frmChucNangPhuCap = _container.Resolve<frmChucNang_PhuCap>(
                     new ParameterOverride("allowanceId", allowanceId));
@@ -662,7 +677,7 @@ namespace Presentation
                 };
                 frmChucNangPhuCap.ShowDialog();
             }
-            else if (dgvDuLieu_PhuCap.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_PhuCap.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 if (MessageBox.Show($"Bạn có chắc muốn xóa phụ cấp {allowanceId}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
@@ -754,15 +769,15 @@ namespace Presentation
             dgvDuLieu_CaLam.ReadOnly = true;
             dgvDuLieu_CaLam.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_CaLam.Columns["Edit"] == null)
+            if (dgvDuLieu_CaLam.Columns["Sửa"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn { Name = "Edit", HeaderText = "Edit", Text = "Edit", UseColumnTextForButtonValue = true };
-                dgvDuLieu_CaLam.Columns.Add(btnEdit);
+                var btnSửa = new DataGridViewButtonColumn { Name = "Sửa", HeaderText = "Sửa", Text = "Sửa", UseColumnTextForButtonValue = true };
+                dgvDuLieu_CaLam.Columns.Add(btnSửa);
             }
-            if (dgvDuLieu_CaLam.Columns["Delete"] == null)
+            if (dgvDuLieu_CaLam.Columns["Xoá"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn { Name = "Delete", HeaderText = "Delete", Text = "Delete", UseColumnTextForButtonValue = true };
-                dgvDuLieu_CaLam.Columns.Add(btnDelete);
+                var btnXoá = new DataGridViewButtonColumn { Name = "Xoá", HeaderText = "Xoá", Text = "Xoá", UseColumnTextForButtonValue = true };
+                dgvDuLieu_CaLam.Columns.Add(btnXoá);
             }
 
             ApplyGridStyle(dgvDuLieu_CaLam);
@@ -775,7 +790,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string shiftId = dgvDuLieu_CaLam.Rows[e.RowIndex].Cells["MaCaLam"].Value.ToString();
 
-            if (dgvDuLieu_CaLam.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_CaLam.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frmChucNangCaLam = _container.Resolve<frmChucNang_CaLamViec>(
                     new ParameterOverride("shiftId", shiftId));
@@ -786,7 +801,7 @@ namespace Presentation
                 };
                 frmChucNangCaLam.ShowDialog();
             }
-            else if (dgvDuLieu_CaLam.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_CaLam.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 if (MessageBox.Show($"Bạn có chắc muốn xóa ca làm {shiftId}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
@@ -918,27 +933,27 @@ namespace Presentation
             dgvDuLieu_PhanCong.ReadOnly = true;
             dgvDuLieu_PhanCong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_PhanCong.Columns["Edit"] == null)
+            if (dgvDuLieu_PhanCong.Columns["Sửa"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn
+                var btnSửa = new DataGridViewButtonColumn
                 {
-                    Name = "Edit",
-                    HeaderText = "Edit",
-                    Text = "Edit",
+                    Name = "Sửa",
+                    HeaderText = "Sửa",
+                    Text = "Sửa",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_PhanCong.Columns.Add(btnEdit);
+                dgvDuLieu_PhanCong.Columns.Add(btnSửa);
             }
-            if (dgvDuLieu_PhanCong.Columns["Delete"] == null)
+            if (dgvDuLieu_PhanCong.Columns["Xoá"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn
+                var btnXoá = new DataGridViewButtonColumn
                 {
-                    Name = "Delete",
-                    HeaderText = "Delete",
-                    Text = "Delete",
+                    Name = "Xoá",
+                    HeaderText = "Xoá",
+                    Text = "Xoá",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_PhanCong.Columns.Add(btnDelete);
+                dgvDuLieu_PhanCong.Columns.Add(btnXoá);
             }
 
             if (dgvDuLieu_PhanCong.Columns["MaPhanCong"] != null)
@@ -955,7 +970,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string assignmentId = dgvDuLieu_PhanCong.Rows[e.RowIndex].Cells["MaPhanCong"].Value.ToString();
 
-            if (dgvDuLieu_PhanCong.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_PhanCong.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frm = _container.Resolve<frmChucNang_PhanCaLam>(
                     new ParameterOverride("assignmentId", assignmentId));
@@ -967,7 +982,7 @@ namespace Presentation
                 };
                 frm.ShowDialog();
             }
-            else if (dgvDuLieu_PhanCong.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_PhanCong.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 if (MessageBox.Show($"Xóa phân công {assignmentId}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
@@ -1123,27 +1138,27 @@ namespace Presentation
             dgvDuLieu_Vang.ReadOnly = true;
             dgvDuLieu_Vang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_Vang.Columns["Edit"] == null)
+            if (dgvDuLieu_Vang.Columns["Sửa"] == null)
             {
-                var colEdit = new DataGridViewButtonColumn
+                var colSửa = new DataGridViewButtonColumn
                 {
-                    Name = "Edit",
-                    HeaderText = "Edit",
-                    Text = "Edit",
+                    Name = "Sửa",
+                    HeaderText = "Sửa",
+                    Text = "Sửa",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_Vang.Columns.Add(colEdit);
+                dgvDuLieu_Vang.Columns.Add(colSửa);
             }
-            if (dgvDuLieu_Vang.Columns["Delete"] == null)
+            if (dgvDuLieu_Vang.Columns["Xoá"] == null)
             {
-                var colDelete = new DataGridViewButtonColumn
+                var colXoá = new DataGridViewButtonColumn
                 {
-                    Name = "Delete",
-                    HeaderText = "Delete",
-                    Text = "Delete",
+                    Name = "Xoá",
+                    HeaderText = "Xoá",
+                    Text = "Xoá",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_Vang.Columns.Add(colDelete);
+                dgvDuLieu_Vang.Columns.Add(colXoá);
             }
 
             if (dgvDuLieu_Vang.Columns["MaVang"] != null)
@@ -1160,7 +1175,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string absenceId = dgvDuLieu_Vang.Rows[e.RowIndex].Cells["MaVang"].Value.ToString();
 
-            if (dgvDuLieu_Vang.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_Vang.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frm = _container.Resolve<frmChucNang_ChamCongVang>(
                     new ParameterOverride("absenceId", absenceId),
@@ -1172,7 +1187,7 @@ namespace Presentation
                 };
                 frm.ShowDialog();
             }
-            else if (dgvDuLieu_Vang.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_Vang.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 if (MessageBox.Show($"Xóa chấm công vắng {absenceId}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
@@ -1402,11 +1417,11 @@ namespace Presentation
 
             dgvDuLieu.CellPainting += (s, e) =>
             {
-                if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
-                                        dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
+                if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Sửa" ||
+                                        dgvDuLieu.Columns[e.ColumnIndex].Name == "Xoá"))
                 {
                     e.PaintBackground(e.CellBounds, true);
-                    Color backColor = dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ? Color.SeaGreen : Color.IndianRed;
+                    Color backColor = dgvDuLieu.Columns[e.ColumnIndex].Name == "Sửa" ? Color.SeaGreen : Color.IndianRed;
                     using (Brush b = new SolidBrush(backColor))
                         e.Graphics.FillRectangle(b, e.CellBounds);
                     string text = dgvDuLieu.Columns[e.ColumnIndex].Name;
@@ -1416,6 +1431,10 @@ namespace Presentation
                 }
             };
         }
+
+
         #endregion
+
+        
     }
 }

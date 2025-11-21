@@ -334,6 +334,10 @@ namespace Presentation
             report.Show();
         }
 
-       
+        private void xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_DanhSachTop3Store>();
+            report.Show();
+        }
     }
 }

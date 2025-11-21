@@ -30,8 +30,8 @@ namespace Presentation.CrystalReport.FormShow
             {
 
 
-                DateTime timestar = DateTime.Parse(dtpMonthstar.Text);
-                DateTime timeend = DateTime.Parse(dtpMothend.Text);
+                DateTime timestar = dtpMonthstar.Value;
+                DateTime timeend = dtpMothend.Value;
 
 
                 // Validate ngày tháng

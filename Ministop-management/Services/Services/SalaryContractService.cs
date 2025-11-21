@@ -231,5 +231,25 @@ namespace Services.Services
                 throw ex;
             }
         }
+
+        public Result<bool> HardDelete(string contractId)
+        {
+            _unitOfWork.BeginTransaction();
+            try
+            {
+                var entity = _unitOfWork.SalaryContractRepository.Find(x => x.ContractID == contractId);
+                if (entity == null)
+                    return new Result<bool>(ErrorCodeEnum.SAL_ERR_001);
+
+                _unitOfWork.SalaryContractRepository.Delete(entity, true);
+                _unitOfWork.Commit();
+                return new Result<bool>(true);
+            }
+            catch (Exception)
+            {
+                _unitOfWork.Rollback();
+                throw;
+            }
+        }
     }
 }

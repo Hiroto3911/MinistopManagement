@@ -229,6 +229,18 @@
     <Compile Include="Employees\Dialogs\frmChucNang_HopDongLuong_PhuCap.Designer.cs">
       <DependentUpon>frmChucNang_HopDongLuong_PhuCap.cs</DependentUpon>
     </Compile>
+    <Compile Include="Employees\Dialogs\frmThungRac_HopDongLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\Dialogs\frmThungRac_HopDongLuong.Designer.cs">
+      <DependentUpon>frmThungRac_HopDongLuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Employees\Dialogs\frmXemPhuCap_HopDongLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Employees\Dialogs\frmXemPhuCap_HopDongLuong.Designer.cs">
+      <DependentUpon>frmXemPhuCap_HopDongLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Products\Dialogs\frmHienThi_GiamGiaSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -569,16 +581,16 @@
       <LastGenOutput>Rpt_DanhSachLuong_CuaHang.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachNhanVienTheoCuaHang.rpt">
+    <Content Include="CrystalReport\Report\EmployeeReports\Rpt_DanhSachNhanVienTheoCuaHang.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_DanhSachNhanVienTheoCuaHang.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport\Report\EmployeeReports\Rpt_HopDonLuongCuaMotNhanVien.rpt">
+    </Content>
+    <Content Include="CrystalReport\Report\EmployeeReports\Rpt_HopDonLuongCuaMotNhanVien.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_HopDonLuongCuaMotNhanVien.cs</LastGenOutput>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
+    </Content>
     <Content Include="CrystalReport\Report\SaleReports\Rpt_InHoaDon.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Rpt_InHoaDon.cs</LastGenOutput>
@@ -628,11 +640,17 @@
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_PhuCap.en.resx">
       <DependentUpon>frmChucNang_PhuCap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmThungRac_HopDongLuong.resx">
+      <DependentUpon>frmThungRac_HopDongLuong.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmThungRac_NhanVien.en.resx">
       <DependentUpon>frmThungRac_NhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmThungRac_PhuCap.en.resx">
       <DependentUpon>frmThungRac_PhuCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmXemPhuCap_HopDongLuong.resx">
+      <DependentUpon>frmXemPhuCap_HopDongLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Employees\frmHienThi_NhanVien.en.resx">
       <DependentUpon>frmHienThi_NhanVien.cs</DependentUpon>

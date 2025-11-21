@@ -21,5 +21,7 @@ namespace Services.Interfaces
         Result<bool> SoftDelete(string contractId);
         Result<bool> Restore(List<string> contractIds);
         Result<bool> AnyContractForEmployee(string employeeId);
+
+        Result<bool> HardDelete(string contractId);
     }
 }
