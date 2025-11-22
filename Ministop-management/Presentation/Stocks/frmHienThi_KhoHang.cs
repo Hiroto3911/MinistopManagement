@@ -75,7 +75,7 @@ namespace Presentation
             switch (tab.Name)
             {
 
-             
+
                 case "tabKiemHang":
 
                     LoadDataStockCheck(cboCuaHangKH.SelectedValue.ToString());
@@ -108,7 +108,7 @@ namespace Presentation
                 cboCuaHangKH.SelectedValue = _userSession.IdStore;
                 cboCuaHangNH.SelectedValue = _userSession.IdStore;
                 cboCuaHangXH.SelectedValue = _userSession.IdStore;
-                cboCuaHang.Enabled = false; 
+                cboCuaHang.Enabled = false;
                 cboCuaHang.SelectedValue = _userSession.IdStore;
 
 
@@ -151,6 +151,7 @@ namespace Presentation
             }
 
         }
+
         //private void ApplyGridStyle(Guna2DataGridView dgvDuLieu, string statusNotAllowed = "Duyệt", string roleNotAllowed = "")
         //{
 
@@ -248,26 +249,15 @@ namespace Presentation
             if (e.RowIndex < 0) return;
 
             var grid = (Guna2DataGridView)sender;
-            string status;
-            if (_lang == "en-US")
-            {
-                status = grid.Rows[e.RowIndex].Cells["Status"].Value?.ToString();
 
-            }
-            else
-            {
-                status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
-            }
-      
+            string status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
 
-            if (status == "Không duyệt"|| status == "Không duyệt")
+            using (Pen p = new Pen(Color.Red, 5))
             {
-                using (Pen p = new Pen(Color.Red, 5))
-                {
-                    int x = e.RowBounds.Left + 1;
-                    e.Graphics.DrawLine(p, x, e.RowBounds.Top + 1, x, e.RowBounds.Bottom - 1);
-                }
+                int x = e.RowBounds.Left + 1;
+                e.Graphics.DrawLine(p, x, e.RowBounds.Top + 1, x, e.RowBounds.Bottom - 1);
             }
+
         }
 
         // 2️⃣ Hàm vẽ nút Edit/Delete
@@ -277,15 +267,7 @@ namespace Presentation
 
             var grid = (Guna2DataGridView)sender;
             string status;
-            if (_lang == "en-US")
-            {
-                status = grid.Rows[e.RowIndex].Cells["Status"].Value?.ToString();
-
-            }
-            else
-            {
-                 status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
-            }
+            status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
             bool allowEditDelete = status != statusNotAllowed;
 
             if (grid.Columns[e.ColumnIndex].Name == "Edit" || grid.Columns[e.ColumnIndex].Name == "Delete")
@@ -366,26 +348,40 @@ namespace Presentation
         {
             LoadDataStockDetail(_userSession.IdStore);
         }
+        private string GetStatus(byte status)
+        {
+
+            switch (status)
+            {
+                case 0:
+                    return Properties.Resources.Status_NotPermitted;
+
+                case 1:
+                    return Properties.Resources.Status_Permitted;
+
+
+                case 3:
+                    return Properties.Resources.Status_Pending;
+
+                case 4:
+                    return Properties.Resources.Status_Imported;
+
+                default:
+                    return Properties.Resources.Status_Draft;
+
+
+            }
+
+        }
         public void LoadDataStockDetail(string storeId, int pageNumber = 1, int pageSize = 20, int quantitywarming = 50)
         {
             _totalCountWarming = 0;
             DataTable dt = new DataTable();
-            if (_lang == "en-US")
-            {
-                dt.Columns.Add("StockDetailID");
-                dt.Columns.Add("Product");
-                dt.Columns.Add("Quantity");
-                dt.Columns.Add("Price");
-                dt.Columns.Add("LastUpdated");
-            }
-            else
-            {
-                dt.Columns.Add("MaChiTietKho");
-                dt.Columns.Add("SanPham");
-                dt.Columns.Add("SoLuong");
-                dt.Columns.Add("GiaBan");
-                dt.Columns.Add("LanCuoiCapNhap");
-            }
+            dt.Columns.Add("MaChiTietKho");
+            dt.Columns.Add("SanPham");
+            dt.Columns.Add("SoLuong");
+            dt.Columns.Add("GiaBan");
+            dt.Columns.Add("LanCuoiCapNhap");
             using (var childContaner = _container.CreateChildContainer())
             {
                 var stockDetailService = childContaner.Resolve<IStockDetailService>();
@@ -405,6 +401,11 @@ namespace Presentation
             dgvDuLieuCT.DataSource = dt;
             dgvDuLieuCT.AllowUserToAddRows = false;
             dgvDuLieuCT.ReadOnly = true;
+            dgvDuLieuNH.Columns["MaChiTietKho"].HeaderText = Properties.Resources.Grid_StockDetailID;
+            dgvDuLieuNH.Columns["SanPham"].HeaderText = Properties.Resources.Grid_ProductName;
+            dgvDuLieuNH.Columns["SoLuong"].HeaderText = Properties.Resources.Grid_Quantity;
+            dgvDuLieuNH.Columns["GiaBan"].HeaderText = Properties.Resources.Grid_Price;
+            dgvDuLieuNH.Columns["LanCuoiCapNhap"].HeaderText = Properties.Resources.Grid_LastUpdated;
             dgvDuLieuCT.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
             dgvDuLieuCT.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
             dgvDuLieuCT.ThemeStyle.HeaderStyle.ForeColor = Color.White;
@@ -416,24 +417,9 @@ namespace Presentation
                 if (e.RowIndex < 0) return;
                 var grid = (Guna2DataGridView)s;
                 var row = grid.Rows[e.RowIndex];
-                long quantity;
-                if (_lang == "en-US")
-                {
-                    quantity = Convert.ToInt64(row.Cells["Quantity"].Value.ToString());
-                }
-                else
-                {
-                    quantity = Convert.ToInt64(row.Cells["SoLuong"].Value.ToString());
-                }
+                long quantity = Convert.ToInt64(row.Cells["SoLuong"].Value.ToString());
                 if (quantity < quantitywarming)
                 {
-                    //using (Pen p = new Pen(Color.Red, 4))
-                    //{
-                    //    int x = e.RowBounds.Left + 1;
-                    //    int y = e.RowBounds.Top + 1;
-                    //    int y2 = e.RowBounds.Bottom - 1;
-                    //    e.Graphics.DrawLine(p,x,y,x,y2);
-                    //}
 
                     row.DefaultCellStyle.BackColor = Color.IndianRed;
                     row.DefaultCellStyle.ForeColor = Color.White;
@@ -501,15 +487,7 @@ namespace Presentation
         {
             if (dgvDuLieuCT.CurrentCell == null || dgvDuLieuCT.Rows.Count == 0) return;
             int row = dgvDuLieuCT.CurrentCell.RowIndex;
-            string stockDetailID;
-            if (_lang == "en-US")
-            {
-                stockDetailID = dgvDuLieuCT.Rows[row].Cells["StockDetailID"].Value.ToString();
-            }
-            else
-            {
-                stockDetailID = dgvDuLieuCT.Rows[row].Cells["MaChiTietKho"].Value.ToString();
-            }
+            string stockDetailID= dgvDuLieuCT.Rows[row].Cells["MaChiTietKho"].Value.ToString();
             var frmChucNang = _container.Resolve<frmHienThi_LichSuKhoHang>(new ParameterOverride("stockDetailID", stockDetailID));
             frmChucNang.ShowDialog();
         }
@@ -544,26 +522,14 @@ namespace Presentation
         public void LoadDataStockImport(string storeId, int pageNumber = 1, int pageSize = 20)
         {
             DataTable dt = new DataTable();
-            if (_lang == "en-US")
-            {
-                dt.Columns.Add("ImportID");
-                dt.Columns.Add("SupplierID");
-                dt.Columns.Add("SupplierName");
-                dt.Columns.Add("Creater");
-                dt.Columns.Add("Status");
-                dt.Columns.Add("Note");
-                dt.Columns.Add("ImportDay");
-            }
-            else
-            {
-                dt.Columns.Add("MaPhieuNhap");
-                dt.Columns.Add("MaNhaCungCap");
-                dt.Columns.Add("NhaCungCap");
-                dt.Columns.Add("NguoiLapPhieu");
-                dt.Columns.Add("TrangThai");
-                dt.Columns.Add("GhiChu");
-                dt.Columns.Add("NgayNhap");
-            }
+            dt.Columns.Add("MaPhieuNhap");
+            dt.Columns.Add("MaNhaCungCap");
+            dt.Columns.Add("NhaCungCap");
+            dt.Columns.Add("NguoiLapPhieu");
+            dt.Columns.Add("TrangThai");
+            dt.Columns.Add("GhiChu");
+            dt.Columns.Add("NgayNhap");
+
             using (var childContaner = _container.CreateChildContainer())
             {
                 var stockDetailService = childContaner.Resolve<IStockImportService>();
@@ -577,9 +543,18 @@ namespace Presentation
                     dt.Rows.Add(item.ImportID, item.SupplierId, item.SupplierName, item.EmployeeName, status, item.Note, item.ImportDate.ToShortDateString());
                 }
             }
+
             dgvDuLieuNH.DataSource = dt;
             dgvDuLieuNH.AllowUserToAddRows = false;
             dgvDuLieuNH.ReadOnly = true;
+            dgvDuLieuNH.Columns["MaPhieuNhap"].HeaderText = Properties.Resources.Grid_ImportID;
+            dgvDuLieuNH.Columns["MaNhaCungCap"].HeaderText = Properties.Resources.Grid_SupplierID;
+            dgvDuLieuNH.Columns["NhaCungCap"].HeaderText = Properties.Resources.Grid_SupplierName;
+            dgvDuLieuNH.Columns["NguoiLapPhieu"].HeaderText = Properties.Resources.Grid_CreateBy;
+            dgvDuLieuNH.Columns["TrangThai"].HeaderText = Properties.Resources.Grid_Status;
+            dgvDuLieuNH.Columns["GhiChu"].HeaderText = Properties.Resources.Grid_Note;
+            dgvDuLieuNH.Columns["NgayNhap"].HeaderText = Properties.Resources.Grid_ImportDay;
+
             if (_lang == "en-US")
             {
                 ApplyGridStyle(dgvDuLieuNH, "Imported");
@@ -589,60 +564,11 @@ namespace Presentation
             {
                 ApplyGridStyle(dgvDuLieuNH, "Đã nhập hàng");
             }
-          
+
             btnTrangTruocNH.Enabled = pageNumber > 1;
             btnTrangSauNH.Enabled = pageNumber <= _totalPageStockImport;
         }
-        private string GetStatus(byte status)
-        {
-            if (_lang == "en-US")
-            {
-                switch (status)
-                {
-                    case 0:
-                        return "Not permitted";
-
-                    case 1:
-                        return "Permitted";
-
-
-                    case 3:
-                        return "Pending";
-
-                    case 4:
-                        return "Imported";
-
-                    default:
-                        return "Draft";
-
-
-                }
-            }
-            else
-            {
-                switch (status)
-                {
-                    case 0:
-                        return "Không duyệt";
-
-                    case 1:
-                        return "Duyệt";
-
-
-                    case 3:
-                        return "Chờ duyệt";
-
-                    case 4:
-                        return "Đã nhập hàng";
-
-                    default:
-                        return "Đang soạn";
-
-
-                }
-            }
-            ;
-        }
+      
         private void dgvDuLieuNH_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return; string status;
@@ -658,8 +584,8 @@ namespace Presentation
                 status = dgvDuLieuNH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
                 importID = dgvDuLieuNH.Rows[e.RowIndex].Cells["MaPhieuNhap"].Value.ToString();
             }
-            
-            var allowAction = (status == "Đã nhập hàng"|| status == "Not permitted");
+
+            var allowAction = (status == "Đã nhập hàng" || status == "Not permitted");
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrangNH.Text);
             if (dgvDuLieuNH.Columns[e.ColumnIndex].Name == "Edit")
@@ -707,7 +633,7 @@ namespace Presentation
             if (dgvDuLieuNH.CurrentCell == null || dgvDuLieuNH.Rows.Count == 0) return;
             var row = dgvDuLieuNH.CurrentCell.RowIndex;
             string importID;
-            string status ;
+            string status;
             string supllierID;
             if (_lang == "en-US")
             {
@@ -809,7 +735,7 @@ namespace Presentation
                 _totalPageStockExport = (long)Math.Ceiling((double)list.TotalCount / pageSize);
                 foreach (var item in list.Data)
                 {
-                     status =  GetStatus(item.Status);
+                    status = GetStatus(item.Status);
                     dt.Rows.Add(item.ExportId, item.EmployeeName, item.TypeExport, status, item.ExportDate.ToShortDateString(), item.Reason);
                 }
             }
@@ -825,7 +751,7 @@ namespace Presentation
             {
                 ApplyGridStyle(dgvDuLieuXH, "Duyệt", "Admin");
             }
-           
+
             btnTrangTruocXH.Enabled = pageNumber > 1;
             btnTrangSauXH.Enabled = pageNumber <= _totalPageStockExport;
         }
@@ -845,7 +771,7 @@ namespace Presentation
                 status = dgvDuLieuXH.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
                 exportID = dgvDuLieuXH.Rows[e.RowIndex].Cells["MaPhieuXuat"].Value.ToString();
             }
-            var allowAction = status == "Duyệt"|| status =="Permitted";
+            var allowAction = status == "Duyệt" || status == "Permitted";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrangNH.Text);
             if (dgvDuLieuXH.Columns[e.ColumnIndex].Name == "Edit")
@@ -897,7 +823,7 @@ namespace Presentation
             string exportID;
             if (_lang == "en-US")
             {
-      
+
                 status = dgvDuLieuXH.Rows[row].Cells["Status"].Value.ToString();
                 exportID = dgvDuLieuXH.Rows[row].Cells["ExportID"].Value.ToString();
 
@@ -906,7 +832,7 @@ namespace Presentation
             {
                 status = dgvDuLieuXH.Rows[row].Cells["TrangThai"].Value.ToString();
                 exportID = dgvDuLieuXH.Rows[row].Cells["MaPhieuXuat"].Value.ToString();
-         
+
             }
             var frmHienThi = _container.Resolve<frmHienThi_ChiTietXuatHang>(new ParameterOverride("ExportID", exportID), new ParameterOverride("Status", status));
             frmHienThi.ShowDialog();
@@ -965,7 +891,7 @@ namespace Presentation
         public void LoadDataStockCheck(string storeId, int pageNumber = 1, int pageSize = 20)
         {
             DataTable dt = new DataTable();
-           
+
             if (_lang == "en-US")
             {
 
@@ -983,7 +909,7 @@ namespace Presentation
                 dt.Columns.Add("NgayKiem");
 
             }
-           
+
 
             using (var childContaner = _container.CreateChildContainer())
             {
@@ -1154,9 +1080,9 @@ namespace Presentation
                 return;
             }
             string productName = txtSearch.Text;
-            LoadDataSearch(productName,cboCuaHang.SelectedValue.ToString());
+            LoadDataSearch(productName, cboCuaHang.SelectedValue.ToString());
         }
-        public void LoadDataSearch(string nameProduct,string storeID)
+        public void LoadDataSearch(string nameProduct, string storeID)
         {
             _totalCountWarming = 0;
             // ===== 1️⃣ Tạo dữ liệu mẫu =====

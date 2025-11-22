@@ -202,4 +202,58 @@
   <data name="down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Grid_ImportID" xml:space="preserve">
+    <value>Mã phiếu nhập</value>
+  </data>
+  <data name="Grid_SupplierName" xml:space="preserve">
+    <value>Nhà cung cấp</value>
+  </data>
+  <data name="Grid_Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Grid_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="Grid_ImportDay" xml:space="preserve">
+    <value>Ngày nhập</value>
+  </data>
+  <data name="Status_Imported" xml:space="preserve">
+    <value>Đã nhập hàng</value>
+  </data>
+  <data name="Status_Pending" xml:space="preserve">
+    <value>Chờ duyệt</value>
+  </data>
+  <data name="Status_Draft" xml:space="preserve">
+    <value>Đang Soạn</value>
+  </data>
+  <data name="Status_Permitted" xml:space="preserve">
+    <value>Duyệt</value>
+  </data>
+  <data name="Status_NotPermitted" xml:space="preserve">
+    <value>Không Duyệt</value>
+  </data>
+  <data name="Grid_SupplierID" xml:space="preserve">
+    <value>Mã nhà cung cấp</value>
+  </data>
+  <data name="Grid_CreateBy" xml:space="preserve">
+    <value>Người tạo</value>
+  </data>
+  <data name="Grid_StockDetailID" xml:space="preserve">
+    <value>Mã Chi Tiết Kho</value>
+  </data>
+  <data name="Grid_ProductID" xml:space="preserve">
+    <value>Mã sản phẩm</value>
+  </data>
+  <data name="Grid_ProductName" xml:space="preserve">
+    <value>Tên sản phẩm</value>
+  </data>
+  <data name="Grid_Quantity" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="Grid_Price" xml:space="preserve">
+    <value>Giá</value>
+  </data>
+  <data name="Grid_LastUpdated" xml:space="preserve">
+    <value>Lần cuối cập nhập</value>
+  </data>
 </root>

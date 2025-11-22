@@ -117,68 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="tabChiTietKho.Text" xml:space="preserve">
-    <value>Stock Details</value>
+  <data name="Grid_ImportID" xml:space="preserve">
+    <value>Import ID</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dgvDuLieuNH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>635, 270</value>
+  <data name="Grid_SupplierName" xml:space="preserve">
+    <value>Supplier Name</value>
   </data>
-  <data name="btnInPhieuNhap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>470, 2</value>
+  <data name="Grid_Status" xml:space="preserve">
+    <value>Status</value>
   </data>
-  <data name="btnThemNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>553, 2</value>
+  <data name="Grid_Note" xml:space="preserve">
+    <value>Note</value>
   </data>
-  <data name="guna2Panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>635, 34</value>
+  <data name="Grid_ImportDay" xml:space="preserve">
+    <value>Import Day</value>
   </data>
-  <data name="txtSoTrangNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 4</value>
+  <data name="Status_Imported" xml:space="preserve">
+    <value>Imported</value>
   </data>
-  <data name="btnTrangSauNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>347, 4</value>
+  <data name="Status_Pending" xml:space="preserve">
+    <value>Pending</value>
   </data>
-  <data name="btnTrangTruocNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>244, 4</value>
+  <data name="Status_Draft" xml:space="preserve">
+    <value>Draft</value>
   </data>
-  <data name="guna2Panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>635, 34</value>
+  <data name="Status_Permitted" xml:space="preserve">
+    <value>Permitted</value>
   </data>
-  <data name="tabNhapHang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
+  <data name="Status_NotPermitted" xml:space="preserve">
+    <value>Not Permitted</value>
   </data>
-  <data name="tabNhapHang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 342</value>
+  <data name="Grid_SupplierID" xml:space="preserve">
+    <value>Supplier ID</value>
   </data>
-  <data name="dgvDuLieuXH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 274</value>
+  <data name="Grid_CreateBy" xml:space="preserve">
+    <value>Create By</value>
   </data>
-  <data name="btnInPhieuXuat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>466, 2</value>
+  <data name="Grid_StockDetailID" xml:space="preserve">
+    <value>Stock Detail ID</value>
   </data>
-  <data name="btnThemXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>556, 2</value>
+  <data name="Grid_ProductID" xml:space="preserve">
+    <value>Product ID</value>
   </data>
-  <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 34</value>
+  <data name="Grid_ProductName" xml:space="preserve">
+    <value>Product Name</value>
   </data>
-  <data name="txtSoTrangXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 4</value>
+  <data name="Grid_Quantity" xml:space="preserve">
+    <value>Quantity</value>
   </data>
-  <data name="btnTrangSauXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 4</value>
+  <data name="Grid_Price" xml:space="preserve">
+    <value>Price</value>
   </data>
-  <data name="btnTrangTruocXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 4</value>
-  </data>
-  <data name="guna2Panel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 34</value>
-  </data>
-  <data name="tabXuatHang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
-  </data>
-  <data name="tabXuatHang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 342</value>
+  <data name="Grid_LastUpdated" xml:space="preserve">
+    <value>Last Update</value>
   </data>
 </root>
