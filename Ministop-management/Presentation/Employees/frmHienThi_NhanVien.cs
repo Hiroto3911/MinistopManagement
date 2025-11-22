@@ -23,9 +23,10 @@ namespace Presentation
         private readonly ISalaryContractService _salaryContractService;
         private readonly ISalaryService _salaryService;
         private readonly ISalaryContractAllowanceService _salaryContractAllowanceService;
+        private readonly IAbsenceService _absenceService;
+        private readonly IStoreService _storeService;
         private readonly IUnityContainer _container;
         private readonly IUserSession _userSession;
-        private readonly IAbsenceService _absenceService;
 
         private long _totalPage_NV = 1;
         private long _totalPage_HD = 1;
@@ -43,6 +44,7 @@ namespace Presentation
             IAbsenceService absenceService,
             ISalaryService salaryService,
             ISalaryContractAllowanceService salaryContractAllowanceService,
+            IStoreService storeService,
             IUnityContainer container,
             IUserSession userSession)
         {
@@ -55,6 +57,7 @@ namespace Presentation
             _absenceService = absenceService;
             _salaryService = salaryService;
             _salaryContractAllowanceService = salaryContractAllowanceService;
+            _storeService = storeService;
             _container = container;
             _userSession = userSession;
         }
@@ -64,10 +67,10 @@ namespace Presentation
             LoadDanhSachCuaHang();
             LoadData_NhanVien();
 
-            // Tạm ngắt event để tránh gọi nhiều lần
             cboChonCuaHang_NV.SelectedIndexChanged -= cboChonCuaHang_NV_SelectedIndexChanged;
             cboChonCuaHang_PC.SelectedIndexChanged -= cboChonCuaHang_PC_SelectedIndexChanged;
-            cboChonCuaHang_HD.SelectedIndexChanged -= cboChonCuaHang_HD_SelectedIndexChanged; // THÊM
+            cboChonCuaHang_HD.SelectedIndexChanged -= cboChonCuaHang_HD_SelectedIndexChanged;
+            cboChonCuaHang_Vang.SelectedIndexChanged -= cboChonCuaHang_Vang_SelectedIndexChanged;
 
             string storeIdload = _userSession.Role == "Admin" ? null : _userSession.IdStore;
 
@@ -77,8 +80,8 @@ namespace Presentation
                 tabControlNV.TabPages.Remove(tabPhuCap);
                 cboChonCuaHang_NV.SelectedValue = _userSession.IdStore;
                 cboChonCuaHang_NV.Enabled = false;
-                cboChonCuaHang_HD.SelectedValue = _userSession.IdStore; // THÊM
-                cboChonCuaHang_HD.Enabled = false; // THÊM
+                cboChonCuaHang_HD.SelectedValue = _userSession.IdStore;
+                cboChonCuaHang_HD.Enabled = false;
                 storeIdload = _userSession.IdStore;
                 LoadData_NhanVienTheoCuaHang(storeIdload);
             }
@@ -86,9 +89,12 @@ namespace Presentation
             {
                 cboChonCuaHang_NV.Enabled = true;
                 cboChonCuaHang_PC.Enabled = true;
-                cboChonCuaHang_HD.Enabled = true; // THÊM
+                cboChonCuaHang_HD.Enabled = true;
+                cboChonCuaHang_Vang.Enabled = true;
                 if (cboChonCuaHang_NV.SelectedValue != null)
                     storeIdload = cboChonCuaHang_NV.SelectedValue.ToString();
+                btnTaoHopDongMoi.Visible = true;
+                btnTaoHopDongMoi.Click += BtnTaoHopDongMoi_Click;
             }
             else if (_userSession.Role == "Nhân viên")
             {
@@ -104,16 +110,12 @@ namespace Presentation
                 LoadData_NhanVienTheoCuaHang(storeIdload);
             }
 
-            // Thiết lập combo PC
             cboChonCuaHang_PC.DataSource = cboChonCuaHang_NV.DataSource;
             cboChonCuaHang_PC.DisplayMember = "StoreName";
             cboChonCuaHang_PC.ValueMember = "StoreId";
-
-            // Thiết lập combo HD
             cboChonCuaHang_HD.DataSource = cboChonCuaHang_NV.DataSource;
             cboChonCuaHang_HD.DisplayMember = "StoreName";
             cboChonCuaHang_HD.ValueMember = "StoreId";
-            // Thiết lập combo Vang
             cboChonCuaHang_Vang.DataSource = cboChonCuaHang_NV.DataSource;
             cboChonCuaHang_Vang.DisplayMember = "StoreName";
             cboChonCuaHang_Vang.ValueMember = "StoreId";
@@ -122,7 +124,7 @@ namespace Presentation
             {
                 cboChonCuaHang_PC.SelectedValue = _userSession.IdStore;
                 cboChonCuaHang_PC.Enabled = false;
-                cboChonCuaHang_HD.SelectedValue = _userSession.IdStore; 
+                cboChonCuaHang_HD.SelectedValue = _userSession.IdStore;
                 cboChonCuaHang_HD.Enabled = false;
                 cboChonCuaHang_Vang.SelectedValue = _userSession.IdStore;
                 cboChonCuaHang_Vang.Enabled = false;
@@ -130,25 +132,28 @@ namespace Presentation
             else
             {
                 cboChonCuaHang_PC.SelectedIndex = 0;
-                cboChonCuaHang_HD.SelectedIndex = 0; 
+                cboChonCuaHang_HD.SelectedIndex = 0;
                 cboChonCuaHang_Vang.SelectedIndex = 0;
             }
 
-            // Khôi phục event
             cboChonCuaHang_NV.SelectedIndexChanged += cboChonCuaHang_NV_SelectedIndexChanged;
             cboChonCuaHang_PC.SelectedIndexChanged += cboChonCuaHang_PC_SelectedIndexChanged;
             cboChonCuaHang_HD.SelectedIndexChanged += cboChonCuaHang_HD_SelectedIndexChanged;
-            cboChonCuaHang_Vang.SelectedIndexChanged -= cboChonCuaHang_Vang_SelectedIndexChanged;
             cboChonCuaHang_Vang.SelectedIndexChanged += cboChonCuaHang_Vang_SelectedIndexChanged;
-            // Lay thang
+
             dtpThangTinhLuong.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             LoadCboCuaHang_TinhLuong();
-
             LoadData_PhuCap();
             LoadData_CaLam();
             LoadData_PhanCong(GetCurrentStoreIdForPC());
-            LoadData_HopDong(GetCurrentStoreIdForHD()); // THÊM: LỌC THEO CỬA HÀNG
+            LoadData_HopDong(GetCurrentStoreIdForHD());
+            InitializeContractContextMenu();
             LoadData_ChamCongVang(GetCurrentStoreIdForVang());
+
+            if (_userSession.Role != "Admin" && !string.IsNullOrEmpty(_userSession.IdStore))
+            {
+                LoadData_NhanVienTheoCuaHang(_userSession.IdStore);
+            }
         }
 
         #region Lọc nhân viên theo cửa hàng
@@ -156,23 +161,18 @@ namespace Presentation
         {
             try
             {
-                using (var childContainer = _container.CreateChildContainer())
+                var result = _storeService.GetAll();
+                if (result != null && result.Succeeded && result.Data != null)
                 {
-                    var storeService = childContainer.Resolve<IStoreService>();
-                    var result = storeService.GetAll();
-                    if (result != null && result.Succeeded && result.Data != null)
-                    {
-                        cboChonCuaHang_NV.DataSource = result.Data.ToList();
-                        cboChonCuaHang_NV.DisplayMember = "StoreName";
-                        cboChonCuaHang_NV.ValueMember = "StoreId";
-                    }
-                    else
-                    {
-                        MessageBox.Show("Không thể tải danh sách cửa hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        cboChonCuaHang_NV.DataSource = null;
-                    }
+                    cboChonCuaHang_NV.DataSource = result.Data.ToList();
+                    cboChonCuaHang_NV.DisplayMember = "StoreName";
+                    cboChonCuaHang_NV.ValueMember = "StoreId";
                 }
-                cboChonCuaHang_NV.SelectedIndexChanged += cboChonCuaHang_NV_SelectedIndexChanged;
+                else
+                {
+                    MessageBox.Show("Không thể tải danh sách cửa hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboChonCuaHang_NV.DataSource = null;
+                }
             }
             catch (Exception ex)
             {
@@ -199,23 +199,22 @@ namespace Presentation
             dt.Columns.Add("ChucVu");
             dt.Columns.Add("LoaiNhanVien");
 
-            using (var childContainer = _container.CreateChildContainer())
+            var list = _employeeService.GetEmployeeByStore(storeId, pageNumber, pageSize);
+            if (!list.Succeeded || list.Data == null)
             {
-                var employeeService = childContainer.Resolve<IEmployeeService>();
-                var list = employeeService.GetEmployeeByStore(storeId, pageNumber, pageSize);
-                if (!list.Succeeded || list.Data == null)
-                {
-                    MessageBox.Show("Không thể tải danh sách nhân viên theo cửa hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                _totalPage_NV = (long)Math.Ceiling((double)list.TotalCount / pageSize);
-                foreach (var item in list.Data)
-                {
-                    string genderText = item.Gender ? "Nam" : "Nữ";
-                    dt.Rows.Add(item.EmployeeId, item.StoreId, item.FullName, genderText,
-                                item.BirthDate.ToString("dd/MM/yyyy"), item.Phone, item.Position, item.EmploymentType);
-                }
+                MessageBox.Show("Không thể tải danh sách nhân viên theo cửa hàng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            _totalPage_NV = (long)Math.Ceiling((double)list.TotalCount / pageSize);
+
+            foreach (var item in list.Data)
+            {
+                string genderText = item.Gender ? "Nam" : "Nữ";
+                dt.Rows.Add(item.EmployeeId, item.StoreId, item.FullName, genderText,
+                            item.BirthDate.ToString("dd/MM/yyyy"), item.Phone, item.Position, item.EmploymentType);
+            }
+
             dgvDuLieu_NhanVien.DataSource = dt;
             ApplyGridStyle(dgvDuLieu_NhanVien);
         }
@@ -234,50 +233,50 @@ namespace Presentation
             dt.Columns.Add("ChucVu");
             dt.Columns.Add("LoaiNhanVien");
 
-            using (var childContainer = _container.CreateChildContainer())
+            var list = _employeeService.GetEmployee(pageNumber, pageSize);
+            if (!list.Succeeded || list.Data == null)
             {
-                var employeeService = childContainer.Resolve<IEmployeeService>();
-                var list = employeeService.GetEmployee(pageNumber, pageSize);
-                if (!list.Succeeded || list.Data == null)
-                {
-                    MessageBox.Show("Không thể tải danh sách nhân viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                _totalPage_NV = (long)Math.Ceiling((double)list.TotalCount / pageSize);
-                foreach (var item in list.Data)
-                {
-                    string genderText = item.Gender ? "Nam" : "Nữ";
-                    dt.Rows.Add(item.EmployeeId, item.StoreId, item.FullName, genderText,
-                                item.BirthDate.ToString("dd/MM/yyyy"), item.Phone, item.Position, item.EmploymentType);
-                }
+                MessageBox.Show("Không thể tải danh sách nhân viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            _totalPage_NV = (long)Math.Ceiling((double)list.TotalCount / pageSize);
+
+            foreach (var item in list.Data)
+            {
+                string genderText = item.Gender ? "Nam" : "Nữ";
+                dt.Rows.Add(item.EmployeeId, item.StoreId, item.FullName, genderText,
+                            item.BirthDate.ToString("dd/MM/yyyy"), item.Phone, item.Position, item.EmploymentType);
+            }
+
             dgvDuLieu_NhanVien.DataSource = dt;
             dgvDuLieu_NhanVien.AllowUserToAddRows = false;
             dgvDuLieu_NhanVien.ReadOnly = true;
             dgvDuLieu_NhanVien.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_NhanVien.Columns["Edit"] == null)
+            if (dgvDuLieu_NhanVien.Columns["Sửa"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn
+                var btnSửa = new DataGridViewButtonColumn
                 {
-                    Name = "Edit",
-                    HeaderText = "Edit",
-                    Text = "Edit",
+                    Name = "Sửa",
+                    HeaderText = "Sửa",
+                    Text = "Sửa",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_NhanVien.Columns.Add(btnEdit);
+                dgvDuLieu_NhanVien.Columns.Add(btnSửa);
             }
-            if (dgvDuLieu_NhanVien.Columns["Delete"] == null)
+            if (dgvDuLieu_NhanVien.Columns["Xoá"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn
+                var btnXoá = new DataGridViewButtonColumn
                 {
-                    Name = "Delete",
-                    HeaderText = "Delete",
-                    Text = "Delete",
+                    Name = "Xoá",
+                    HeaderText = "Xoá",
+                    Text = "Xoá",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_NhanVien.Columns.Add(btnDelete);
+                dgvDuLieu_NhanVien.Columns.Add(btnXoá);
             }
+
             ApplyGridStyle(dgvDuLieu_NhanVien);
             btnTrangTruocNV.Enabled = pageNumber > 1;
             btnTrangSauNV.Enabled = pageNumber < _totalPage_NV;
@@ -288,7 +287,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string employeeId = dgvDuLieu_NhanVien.Rows[e.RowIndex].Cells["MaNhanVien"].Value.ToString();
 
-            if (dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frmChucNangNhanVien = _container.Resolve<frmChucNang_NhanVien>(
                     new ParameterOverride("employeeId", employeeId),
@@ -301,7 +300,7 @@ namespace Presentation
                 };
                 frmChucNangNhanVien.ShowDialog();
             }
-            else if (dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_NhanVien.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 var result = MessageBox.Show($"Bạn có chắc muốn xóa nhân viên {employeeId}?", "Xác nhận",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -384,9 +383,50 @@ namespace Presentation
             };
             frmThungRac.ShowDialog();
         }
+
+        private void ibtnLamMoiNV_Click(object sender, EventArgs e)
+        {
+            LoadData_NhanVienTheoCuaHang(_userSession.IdStore);
+        }
         #endregion
 
         #region Quản lý hợp đồng lương
+
+        private void InitializeContractContextMenu()
+        {
+            ContextMenuStrip contextMenu = new ContextMenuStrip();
+            ToolStripMenuItem menuViewAllowances = new ToolStripMenuItem("Xem phụ cấp");
+            menuViewAllowances.Click += MenuViewAllowances_Click;
+            contextMenu.Items.Add(menuViewAllowances);
+            dgvDuLieu_HopDong.ContextMenuStrip = contextMenu;
+        }
+
+        private void MenuViewAllowances_Click(object sender, EventArgs e)
+        {
+            if (dgvDuLieu_HopDong.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một hợp đồng để xem phụ cấp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var row = dgvDuLieu_HopDong.SelectedRows[0];
+            string contractId = row.Cells["MaHopDong"].Value.ToString();
+            string employeeId = row.Cells["MaNhanVien"].Value.ToString();
+
+            // Kiểm tra nhân viên có phải Fulltime không
+            var empResult = _employeeService.GetEmployeeByID(employeeId);
+            if (!empResult.Succeeded || empResult.Data == null || empResult.Data.EmploymentType != "Fulltime")
+            {
+                MessageBox.Show("Chỉ nhân viên Fulltime mới có phụ cấp!", "Thông tin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            // Mở form xem phụ cấp (chế độ chỉ xem)
+            var frmXemPhuCap = _container.Resolve<frmXemPhuCap_HopDongLuong>(
+                new ParameterOverride("contractId", contractId));
+
+            frmXemPhuCap.ShowDialog();
+        }
         private string GetCurrentStoreIdForHD()
         {
             return _userSession.Role == "Admin"
@@ -412,53 +452,45 @@ namespace Presentation
             dt.Columns.Add("NgayBatDau");
             dt.Columns.Add("NgayKetThuc");
 
-            using (var childContainer = _container.CreateChildContainer())
+            List<string> employeeIds = new List<string>();
+            if (!string.IsNullOrEmpty(storeId))
             {
-                var contractService = childContainer.Resolve<ISalaryContractService>();
-                var employeeService = childContainer.Resolve<IEmployeeService>();
+                var empResult = _employeeService.GetEmployeeByStore(storeId, 1, 1000);
+                if (empResult.Succeeded && empResult.Data != null)
+                    employeeIds = empResult.Data.Select(x => x.EmployeeId).ToList();
+            }
 
-                // Lấy danh sách nhân viên theo cửa hàng
-                List<string> employeeIds = new List<string>();
-                if (!string.IsNullOrEmpty(storeId))
-                {
-                    var empResult = employeeService.GetEmployeeByStore(storeId, 1, 1000);
-                    if (empResult.Succeeded && empResult.Data != null)
-                        employeeIds = empResult.Data.Select(x => x.EmployeeId).ToList();
-                }
+            var allContracts = _salaryContractService.GetPaged(1, 10000);
+            if (!allContracts.Succeeded || allContracts.Data == null)
+            {
+                MessageBox.Show("Không thể tải danh sách hợp đồng lương!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                // Lấy tất cả hợp đồng
-                var allContracts = contractService.GetPaged(1, 10000);
-                if (!allContracts.Succeeded || allContracts.Data == null)
-                {
-                    MessageBox.Show("Không thể tải danh sách hợp đồng lương!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+            var filtered = string.IsNullOrEmpty(storeId)
+                ? allContracts.Data
+                : allContracts.Data.Where(x => employeeIds.Contains(x.EmployeeId)).ToList();
 
-                var filtered = string.IsNullOrEmpty(storeId)
-                    ? allContracts.Data
-                    : allContracts.Data.Where(x => employeeIds.Contains(x.EmployeeId)).ToList();
+            var total = filtered.Count;
+            var paged = filtered.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+            _totalPage_HD = (long)Math.Ceiling((double)total / pageSize);
 
-                var total = filtered.Count;
-                var paged = filtered.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-                _totalPage_HD = (long)Math.Ceiling((double)total / pageSize);
+            foreach (var item in paged)
+            {
+                string hoTen = "N/A";
+                var empResult = _employeeService.GetEmployeeByID(item.EmployeeId);
+                if (empResult.Succeeded && empResult.Data != null)
+                    hoTen = empResult.Data.FullName;
 
-                foreach (var item in paged)
-                {
-                    string hoTen = "N/A";
-                    var empResult = employeeService.GetEmployeeByID(item.EmployeeId);
-                    if (empResult.Succeeded && empResult.Data != null)
-                        hoTen = empResult.Data.FullName;
-
-                    dt.Rows.Add(
-                        item.ContractId,
-                        item.EmployeeId,
-                        hoTen,
-                        item.BasicSalary?.ToString("N0") ?? "-",
-                        item.HourlyRate?.ToString("N0") ?? "-",
-                        item.StartDate.ToString("dd/MM/yyyy"),
-                        item.EndDate?.ToString("dd/MM/yyyy") ?? "Đang hiệu lực"
-                    );
-                }
+                dt.Rows.Add(
+                    item.ContractId,
+                    item.EmployeeId,
+                    hoTen,
+                    item.BasicSalary?.ToString("N0") ?? "-",
+                    item.HourlyRate?.ToString("N0") ?? "-",
+                    item.StartDate.ToString("dd/MM/yyyy"),
+                    item.EndDate?.ToString("dd/MM/yyyy") ?? "Đang hiệu lực"
+                );
             }
 
             dgvDuLieu_HopDong.DataSource = dt;
@@ -466,31 +498,30 @@ namespace Presentation
             dgvDuLieu_HopDong.ReadOnly = true;
             dgvDuLieu_HopDong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_HopDong.Columns["Edit"] == null)
+            if (dgvDuLieu_HopDong.Columns["Sửa"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn
+                var btnSửa = new DataGridViewButtonColumn
                 {
-                    Name = "Edit",
-                    HeaderText = "Edit",
-                    Text = "Edit",
+                    Name = "Sửa",
+                    HeaderText = "Sửa",
+                    Text = "Sửa",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_HopDong.Columns.Add(btnEdit);
+                dgvDuLieu_HopDong.Columns.Add(btnSửa);
             }
-            if (dgvDuLieu_HopDong.Columns["Delete"] == null)
+            if (dgvDuLieu_HopDong.Columns["Xoá"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn
+                var btnXoá = new DataGridViewButtonColumn
                 {
-                    Name = "Delete",
-                    HeaderText = "Delete",
-                    Text = "Delete",
+                    Name = "Xoá",
+                    HeaderText = "Xoá",
+                    Text = "Xoá",
                     UseColumnTextForButtonValue = true
                 };
-                dgvDuLieu_HopDong.Columns.Add(btnDelete);
+                dgvDuLieu_HopDong.Columns.Add(btnXoá);
             }
 
             ApplyGridStyle(dgvDuLieu_HopDong);
-
             btnTrangTruocHD.Enabled = pageNumber > 1;
             btnTrangSauHD.Enabled = pageNumber < _totalPage_HD;
             txtSoTrangHD.Text = pageNumber.ToString();
@@ -501,7 +532,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string contractId = dgvDuLieu_HopDong.Rows[e.RowIndex].Cells["MaHopDong"].Value.ToString();
 
-            if (dgvDuLieu_HopDong.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_HopDong.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frmChucNang = _container.Resolve<frmChucNang_HopDongLuong>(
                     new ParameterOverride("contractId", contractId));
@@ -512,25 +543,21 @@ namespace Presentation
                 };
                 frmChucNang.ShowDialog();
             }
-            else if (dgvDuLieu_HopDong.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_HopDong.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 if (MessageBox.Show($"Bạn có chắc muốn xóa hợp đồng {contractId}?", "Xác nhận",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
-                    using (var childContainer = _container.CreateChildContainer())
+                    var result = _salaryContractService.SoftDelete(contractId);
+                    if (result.Succeeded)
                     {
-                        var contractService = childContainer.Resolve<ISalaryContractService>();
-                        var result = contractService.SoftDelete(contractId);
-                        if (result.Succeeded)
-                        {
-                            MessageBox.Show("Xóa hợp đồng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            int currentPage = int.TryParse(txtSoTrangHD.Text, out int page) ? page : 1;
-                            LoadData_HopDong(GetCurrentStoreIdForHD(), currentPage);
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Xóa thất bại: {result.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show("Xóa hợp đồng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        int currentPage = int.TryParse(txtSoTrangHD.Text, out int page) ? page : 1;
+                        LoadData_HopDong(GetCurrentStoreIdForHD(), currentPage);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Xóa thất bại: {result.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -557,6 +584,33 @@ namespace Presentation
                 LoadData_HopDong(GetCurrentStoreIdForHD(), pageNumber);
             }
         }
+
+        private bool HasValidCurrentContract(string employeeId)
+        {
+            var result = _salaryContractService.GetCurrentContractByEmployeeId(employeeId);
+            if (!result.Succeeded || result.Data == null) return false;
+
+            var contract = result.Data;
+            return contract.EndDate == null || contract.EndDate >= DateTime.Today;
+        }
+
+        private void BtnTaoHopDongMoi_Click(object sender, EventArgs e)
+        {
+            // NGĂN MỞ KHI ĐANG TẠO HỢP ĐỒNG TỪ NHÂN VIÊN
+            if (frmChucNang_HopDongLuong._isProcessingEmployeeContract)
+                return;
+
+            var frmHopDong = _container.Resolve<frmChucNang_HopDongLuong>(
+                new ParameterOverride("isFromRenewButton", true));
+
+            frmHopDong.DataChanged += (s, ev) => { /* load lại data */ };
+            frmHopDong.ShowDialog();
+        }
+
+        private void ibtnThungRacHDL_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         #region Quản lý phụ cấp
@@ -567,20 +621,18 @@ namespace Presentation
             dt.Columns.Add("TenPhuCap");
             dt.Columns.Add("MucMacDinh");
 
-            using (var childContainer = _container.CreateChildContainer())
+            var list = _allowanceService.GetAllowance(pageNumber, pageSize);
+            if (!list.Succeeded || list.Data == null)
             {
-                var allowanceService = childContainer.Resolve<IAllowanceService>();
-                var list = allowanceService.GetAllowance(pageNumber, pageSize);
-                if (!list.Succeeded || list.Data == null)
-                {
-                    MessageBox.Show("Không thể tải danh sách phụ cấp!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                _totalPage_PC = (long)Math.Ceiling((double)list.TotalCount / pageSize);
-                foreach (var item in list.Data)
-                {
-                    dt.Rows.Add(item.AllowanceId, item.AllowanceName, item.DefaultAmount);
-                }
+                MessageBox.Show("Không thể tải danh sách phụ cấp!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _totalPage_PC = (long)Math.Ceiling((double)list.TotalCount / pageSize);
+
+            foreach (var item in list.Data)
+            {
+                dt.Rows.Add(item.AllowanceId, item.AllowanceName, item.DefaultAmount);
             }
 
             dgvDuLieu_PhuCap.DataSource = dt;
@@ -588,15 +640,15 @@ namespace Presentation
             dgvDuLieu_PhuCap.ReadOnly = true;
             dgvDuLieu_PhuCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_PhuCap.Columns["Edit"] == null)
+            if (dgvDuLieu_PhuCap.Columns["Sửa"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn { Name = "Edit", HeaderText = "Edit", Text = "Edit", UseColumnTextForButtonValue = true };
-                dgvDuLieu_PhuCap.Columns.Add(btnEdit);
+                var btnSửa = new DataGridViewButtonColumn { Name = "Sửa", HeaderText = "Sửa", Text = "Sửa", UseColumnTextForButtonValue = true };
+                dgvDuLieu_PhuCap.Columns.Add(btnSửa);
             }
-            if (dgvDuLieu_PhuCap.Columns["Delete"] == null)
+            if (dgvDuLieu_PhuCap.Columns["Xoá"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn { Name = "Delete", HeaderText = "Delete", Text = "Delete", UseColumnTextForButtonValue = true };
-                dgvDuLieu_PhuCap.Columns.Add(btnDelete);
+                var btnXoá = new DataGridViewButtonColumn { Name = "Xoá", HeaderText = "Xoá", Text = "Xoá", UseColumnTextForButtonValue = true };
+                dgvDuLieu_PhuCap.Columns.Add(btnXoá);
             }
 
             ApplyGridStyle(dgvDuLieu_PhuCap);
@@ -604,12 +656,17 @@ namespace Presentation
             btnTrangSauPK.Enabled = pageNumber < _totalPage_PC;
         }
 
+        private void ibtnLamMoiPC_Click(object sender, EventArgs e)
+        {
+            LoadData_PhuCap();
+        }
+
         private void dgvDuLieu_PhuCap_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
             string allowanceId = dgvDuLieu_PhuCap.Rows[e.RowIndex].Cells["MaPhuCap"].Value.ToString();
 
-            if (dgvDuLieu_PhuCap.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_PhuCap.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frmChucNangPhuCap = _container.Resolve<frmChucNang_PhuCap>(
                     new ParameterOverride("allowanceId", allowanceId));
@@ -620,7 +677,7 @@ namespace Presentation
                 };
                 frmChucNangPhuCap.ShowDialog();
             }
-            else if (dgvDuLieu_PhuCap.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_PhuCap.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 if (MessageBox.Show($"Bạn có chắc muốn xóa phụ cấp {allowanceId}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
@@ -693,20 +750,18 @@ namespace Presentation
             dt.Columns.Add("GioBatDau");
             dt.Columns.Add("GioKetThuc");
 
-            using (var childContainer = _container.CreateChildContainer())
+            var list = _shiftService.GetShift(pageNumber, pageSize);
+            if (!list.Succeeded || list.Data == null)
             {
-                var shiftService = childContainer.Resolve<IShiftService>();
-                var list = shiftService.GetShift(pageNumber, pageSize);
-                if (!list.Succeeded || list.Data == null)
-                {
-                    MessageBox.Show("Không thể tải danh sách ca làm!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                _totalPage_CL = (long)Math.Ceiling((double)list.TotalCount / pageSize);
-                foreach (var item in list.Data)
-                {
-                    dt.Rows.Add(item.ShiftId, item.ShiftName, item.StartTime, item.EndTime);
-                }
+                MessageBox.Show("Không thể tải danh sách ca làm!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _totalPage_CL = (long)Math.Ceiling((double)list.TotalCount / pageSize);
+
+            foreach (var item in list.Data)
+            {
+                dt.Rows.Add(item.ShiftId, item.ShiftName, item.StartTime, item.EndTime);
             }
 
             dgvDuLieu_CaLam.DataSource = dt;
@@ -714,15 +769,15 @@ namespace Presentation
             dgvDuLieu_CaLam.ReadOnly = true;
             dgvDuLieu_CaLam.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_CaLam.Columns["Edit"] == null)
+            if (dgvDuLieu_CaLam.Columns["Sửa"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn { Name = "Edit", HeaderText = "Edit", Text = "Edit", UseColumnTextForButtonValue = true };
-                dgvDuLieu_CaLam.Columns.Add(btnEdit);
+                var btnSửa = new DataGridViewButtonColumn { Name = "Sửa", HeaderText = "Sửa", Text = "Sửa", UseColumnTextForButtonValue = true };
+                dgvDuLieu_CaLam.Columns.Add(btnSửa);
             }
-            if (dgvDuLieu_CaLam.Columns["Delete"] == null)
+            if (dgvDuLieu_CaLam.Columns["Xoá"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn { Name = "Delete", HeaderText = "Delete", Text = "Delete", UseColumnTextForButtonValue = true };
-                dgvDuLieu_CaLam.Columns.Add(btnDelete);
+                var btnXoá = new DataGridViewButtonColumn { Name = "Xoá", HeaderText = "Xoá", Text = "Xoá", UseColumnTextForButtonValue = true };
+                dgvDuLieu_CaLam.Columns.Add(btnXoá);
             }
 
             ApplyGridStyle(dgvDuLieu_CaLam);
@@ -735,7 +790,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string shiftId = dgvDuLieu_CaLam.Rows[e.RowIndex].Cells["MaCaLam"].Value.ToString();
 
-            if (dgvDuLieu_CaLam.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_CaLam.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frmChucNangCaLam = _container.Resolve<frmChucNang_CaLamViec>(
                     new ParameterOverride("shiftId", shiftId));
@@ -746,7 +801,7 @@ namespace Presentation
                 };
                 frmChucNangCaLam.ShowDialog();
             }
-            else if (dgvDuLieu_CaLam.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_CaLam.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 if (MessageBox.Show($"Bạn có chắc muốn xóa ca làm {shiftId}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
@@ -819,46 +874,58 @@ namespace Presentation
             DataTable dt = new DataTable();
             dt.Columns.Add("MaPhanCong");
             dt.Columns.Add("MaNhanVien");
-            dt.Columns.Add("HoTen");
-            dt.Columns.Add("CaLam");
+            dt.Columns.Add("TenNhanVien");
+            dt.Columns.Add("MaCa");
             dt.Columns.Add("NgayLam");
             dt.Columns.Add("GhiChu");
 
             List<string> employeeIds = new List<string>();
-            using (var childContainer = _container.CreateChildContainer())
+            if (!string.IsNullOrEmpty(storeId))
             {
-                var empService = childContainer.Resolve<IEmployeeService>();
-                if (!string.IsNullOrEmpty(storeId))
+                var empResult = _employeeService.GetEmployeeByStore(storeId, 1, 1000);
+                if (empResult.Succeeded && empResult.Data != null)
+                    employeeIds = empResult.Data.Select(x => x.EmployeeId).ToList();
+            }
+
+            var allAssignmentsResult = _shiftAssignmentService.GetPaged(1, 10000);
+            if (!allAssignmentsResult.Succeeded || allAssignmentsResult.Data == null)
+            {
+                MessageBox.Show("Không thể tải danh sách phân công ca làm!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var filtered = string.IsNullOrEmpty(storeId)
+                ? allAssignmentsResult.Data
+                : allAssignmentsResult.Data.Where(x => employeeIds.Contains(x.EmployeeId)).ToList();
+
+            var total = filtered.Count;
+            var paged = filtered.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+            _totalPage_PhanCong = (long)Math.Ceiling((double)total / pageSize);
+
+            foreach (var item in paged)
+            {
+                string tenNhanVien = "N/A";
+                string tenCa = "N/A";
+
+                var empResult = _employeeService.GetEmployeeByID(item.EmployeeId);
+                if (empResult.Succeeded && empResult.Data != null)
+                    tenNhanVien = empResult.Data.FullName ?? "N/A";
+
+                if (!string.IsNullOrEmpty(item.ShiftId))
                 {
-                    var empResult = empService.GetEmployeeByStore(storeId, 1, 1000);
-                    if (empResult.Succeeded && empResult.Data != null)
-                        employeeIds = empResult.Data.Select(x => x.EmployeeId).ToList();
+                    var shiftResult = _shiftService.GetShiftByID(item.ShiftId);
+                    if (shiftResult.Succeeded && shiftResult.Data != null)
+                        tenCa = shiftResult.Data.ShiftName ?? "N/A";
                 }
 
-                var allAssignments = _shiftAssignmentService.GetPaged(1, 10000);
-                if (!allAssignments.Succeeded || allAssignments.Data == null)
-                {
-                    MessageBox.Show("Không thể tải phân công ca làm!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var filtered = string.IsNullOrEmpty(storeId)
-                    ? allAssignments.Data
-                    : allAssignments.Data.Where(x => employeeIds.Contains(x.EmployeeId)).ToList();
-
-                var total = filtered.Count;
-                var paged = filtered.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
-                _totalPage_PhanCong = (long)Math.Ceiling((double)total / pageSize);
-
-                foreach (var item in paged)
-                {
-                    var empNameProp = item.GetType().GetProperty("EmployeeName");
-                    var shiftNameProp = item.GetType().GetProperty("ShiftName");
-                    string empName = empNameProp?.GetValue(item)?.ToString() ?? "N/A";
-                    string shiftName = shiftNameProp?.GetValue(item)?.ToString() ?? "N/A";
-                    dt.Rows.Add(item.Id, item.EmployeeId, empName, shiftName,
-                        item.WorkDate.ToString("dd/MM/yyyy"), item.Note ?? "");
-                }
+                dt.Rows.Add(
+                    item.Id,
+                    item.EmployeeId,
+                    tenNhanVien,
+                    tenCa,
+                    item.WorkDate.ToString("dd/MM/yyyy"),
+                    string.IsNullOrEmpty(item.Note) ? "Ca linh hoạt" : item.Note
+                );
             }
 
             dgvDuLieu_PhanCong.DataSource = dt;
@@ -866,16 +933,31 @@ namespace Presentation
             dgvDuLieu_PhanCong.ReadOnly = true;
             dgvDuLieu_PhanCong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_PhanCong.Columns["Edit"] == null)
+            if (dgvDuLieu_PhanCong.Columns["Sửa"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn { Name = "Edit", HeaderText = "Edit", Text = "Edit", UseColumnTextForButtonValue = true };
-                dgvDuLieu_PhanCong.Columns.Add(btnEdit);
+                var btnSửa = new DataGridViewButtonColumn
+                {
+                    Name = "Sửa",
+                    HeaderText = "Sửa",
+                    Text = "Sửa",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvDuLieu_PhanCong.Columns.Add(btnSửa);
             }
-            if (dgvDuLieu_PhanCong.Columns["Delete"] == null)
+            if (dgvDuLieu_PhanCong.Columns["Xoá"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn { Name = "Delete", HeaderText = "Delete", Text = "Delete", UseColumnTextForButtonValue = true };
-                dgvDuLieu_PhanCong.Columns.Add(btnDelete);
+                var btnXoá = new DataGridViewButtonColumn
+                {
+                    Name = "Xoá",
+                    HeaderText = "Xoá",
+                    Text = "Xoá",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvDuLieu_PhanCong.Columns.Add(btnXoá);
             }
+
+            if (dgvDuLieu_PhanCong.Columns["MaPhanCong"] != null)
+                dgvDuLieu_PhanCong.Columns["MaPhanCong"].Visible = false;
 
             ApplyGridStyle(dgvDuLieu_PhanCong);
             btnTrangTruocPC.Enabled = pageNumber > 1;
@@ -888,7 +970,7 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string assignmentId = dgvDuLieu_PhanCong.Rows[e.RowIndex].Cells["MaPhanCong"].Value.ToString();
 
-            if (dgvDuLieu_PhanCong.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_PhanCong.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frm = _container.Resolve<frmChucNang_PhanCaLam>(
                     new ParameterOverride("assignmentId", assignmentId));
@@ -900,7 +982,7 @@ namespace Presentation
                 };
                 frm.ShowDialog();
             }
-            else if (dgvDuLieu_PhanCong.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_PhanCong.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 if (MessageBox.Show($"Xóa phân công {assignmentId}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
@@ -927,7 +1009,7 @@ namespace Presentation
                 var frm = childContainer.Resolve<frmChucNang_PhanCaLam>(
                     new ParameterOverride("assignmentId", null),
                     new ParameterOverride("currentUserRole", _userSession.Role),
-                    new ParameterOverride("currentStoreId", _userSession.IdStore)
+                    new ParameterOverride("currentStoreId", GetCurrentStoreIdForPC())
                 );
                 frm.DataChanged += (s, ev) =>
                 {
@@ -964,7 +1046,6 @@ namespace Presentation
         #endregion
 
         #region Chấm công vắng
-
         private string GetCurrentStoreIdForVang()
         {
             return _userSession.Role == "Admin"
@@ -992,48 +1073,64 @@ namespace Presentation
             dt.Columns.Add("CoLuong");
 
             List<string> employeeIds = new List<string>();
-            using (var childContainer = _container.CreateChildContainer())
+            if (!string.IsNullOrEmpty(storeId))
             {
-                var empService = childContainer.Resolve<IEmployeeService>();
-                if (!string.IsNullOrEmpty(storeId))
+                var empResult = _employeeService.GetEmployeeByStore(storeId, 1, 1000);
+                if (empResult.Succeeded && empResult.Data != null)
+                    employeeIds = empResult.Data.Select(x => x.EmployeeId).ToList();
+            }
+
+            var allAbsencesResult = _absenceService.GetAbsence(1, 10000);
+            if (!allAbsencesResult.Succeeded || allAbsencesResult.Data == null || !allAbsencesResult.Data.Any())
+            {
+                dgvDuLieu_Vang.DataSource = dt;
+                ApplyGridStyle(dgvDuLieu_Vang);
+                _totalPage_Vang = 1;
+                txtSoTrangVang.Text = "1";
+                btnTrangTruocVang.Enabled = false;
+                btnTrangSauVang.Enabled = false;
+                return;
+            }
+
+            var allAbsences = allAbsencesResult.Data;
+            var filtered = string.IsNullOrEmpty(storeId)
+                ? allAbsences
+                : allAbsences.Where(x => employeeIds.Contains(x.EmployeeId)).ToList();
+
+            var totalRecords = filtered.Count;
+            _totalPage_Vang = (long)Math.Ceiling(totalRecords / (double)pageSize);
+            var pagedData = filtered
+                .OrderByDescending(x => x.WorkDate)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToList();
+
+            foreach (var item in pagedData)
+            {
+                string hoTen = "N/A";
+                string caLam = "N/A";
+
+                var empResult = _employeeService.GetEmployeeByID(item.EmployeeId);
+                if (empResult.Succeeded && empResult.Data != null)
+                    hoTen = empResult.Data.FullName ?? "N/A";
+
+                if (!string.IsNullOrEmpty(item.ShiftId))
                 {
-                    var empResult = empService.GetEmployeeByStore(storeId, 1, 1000);
-                    if (empResult.Succeeded && empResult.Data != null)
-                        employeeIds = empResult.Data.Select(x => x.EmployeeId).ToList();
-                }
-
-                var allAbsences = _absenceService.GetAbsence(pageNumber, pageSize);
-                if (!allAbsences.Succeeded || allAbsences.Data == null)
-                {
-                    MessageBox.Show("Không thể tải danh sách chấm công vắng!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                var filtered = string.IsNullOrEmpty(storeId)
-                    ? allAbsences.Data
-                    : allAbsences.Data.Where(x => employeeIds.Contains(x.EmployeeId)).ToList();
-
-                _totalPage_Vang = (long)Math.Ceiling((double)allAbsences.TotalCount / pageSize);
-
-                foreach (var item in filtered)
-                {
-                    var empResult = empService.GetEmployeeByID(item.EmployeeId);
-                    string hoTen = empResult.Succeeded && empResult.Data != null ? empResult.Data.FullName : "N/A";
-
                     var shiftResult = _shiftService.GetShiftByID(item.ShiftId);
-                    string caLam = shiftResult.Succeeded && shiftResult.Data != null ? shiftResult.Data.ShiftName : "N/A";
-
-                    dt.Rows.Add(
-                        item.AbsenceId,
-                        item.EmployeeId,
-                        hoTen,
-                        caLam,
-                        item.WorkDate.ToString("dd/MM/yyyy"),
-                        item.IsLeaveOfAbsence ? "Có" : "Không",
-                        item.Reason ?? "",
-                        item.IsPaid ? "Có lương" : "Không lương"
-                    );
+                    if (shiftResult.Succeeded && shiftResult.Data != null)
+                        caLam = shiftResult.Data.ShiftName ?? "N/A";
                 }
+
+                dt.Rows.Add(
+                    item.AbsenceId,
+                    item.EmployeeId,
+                    hoTen,
+                    caLam,
+                    item.WorkDate.ToString("dd/MM/yyyy"),
+                    item.IsLeaveOfAbsence ? "Có phép" : "Không phép",
+                    item.Reason ?? "-",
+                    item.IsPaid ? "Có lương" : "Không lương"
+                );
             }
 
             dgvDuLieu_Vang.DataSource = dt;
@@ -1041,21 +1138,36 @@ namespace Presentation
             dgvDuLieu_Vang.ReadOnly = true;
             dgvDuLieu_Vang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            if (dgvDuLieu_Vang.Columns["Edit"] == null)
+            if (dgvDuLieu_Vang.Columns["Sửa"] == null)
             {
-                var btnEdit = new DataGridViewButtonColumn { Name = "Edit", HeaderText = "Edit", Text = "Edit", UseColumnTextForButtonValue = true };
-                dgvDuLieu_Vang.Columns.Add(btnEdit);
+                var colSửa = new DataGridViewButtonColumn
+                {
+                    Name = "Sửa",
+                    HeaderText = "Sửa",
+                    Text = "Sửa",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvDuLieu_Vang.Columns.Add(colSửa);
             }
-            if (dgvDuLieu_Vang.Columns["Delete"] == null)
+            if (dgvDuLieu_Vang.Columns["Xoá"] == null)
             {
-                var btnDelete = new DataGridViewButtonColumn { Name = "Delete", HeaderText = "Delete", Text = "Delete", UseColumnTextForButtonValue = true };
-                dgvDuLieu_Vang.Columns.Add(btnDelete);
+                var colXoá = new DataGridViewButtonColumn
+                {
+                    Name = "Xoá",
+                    HeaderText = "Xoá",
+                    Text = "Xoá",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvDuLieu_Vang.Columns.Add(colXoá);
             }
+
+            if (dgvDuLieu_Vang.Columns["MaVang"] != null)
+                dgvDuLieu_Vang.Columns["MaVang"].Visible = false;
 
             ApplyGridStyle(dgvDuLieu_Vang);
             btnTrangTruocVang.Enabled = pageNumber > 1;
             btnTrangSauVang.Enabled = pageNumber < _totalPage_Vang;
-            txtSoTrangVang.Text = pageNumber.ToString();
+            txtSoTrangVang.Text = $"{pageNumber} / {_totalPage_Vang}";
         }
 
         private void dgvDuLieu_Vang_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1063,19 +1175,19 @@ namespace Presentation
             if (e.RowIndex < 0) return;
             string absenceId = dgvDuLieu_Vang.Rows[e.RowIndex].Cells["MaVang"].Value.ToString();
 
-            if (dgvDuLieu_Vang.Columns[e.ColumnIndex].Name == "Edit")
+            if (dgvDuLieu_Vang.Columns[e.ColumnIndex].Name == "Sửa")
             {
                 var frm = _container.Resolve<frmChucNang_ChamCongVang>(
                     new ParameterOverride("absenceId", absenceId),
                     new ParameterOverride("currentStoreId", GetCurrentStoreIdForVang()));
                 frm.DataChanged += (s, ev) =>
                 {
-                    int page = int.TryParse(txtSoTrangVang.Text, out int p) ? p : 1;
+                    int page = int.TryParse(txtSoTrangVang.Text.Split('/')[0].Trim(), out int p) ? p : 1;
                     LoadData_ChamCongVang(GetCurrentStoreIdForVang(), page);
                 };
                 frm.ShowDialog();
             }
-            else if (dgvDuLieu_Vang.Columns[e.ColumnIndex].Name == "Delete")
+            else if (dgvDuLieu_Vang.Columns[e.ColumnIndex].Name == "Xoá")
             {
                 if (MessageBox.Show($"Xóa chấm công vắng {absenceId}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
@@ -1083,7 +1195,7 @@ namespace Presentation
                     if (result.Succeeded)
                     {
                         MessageBox.Show("Xóa thành công!");
-                        int page = int.TryParse(txtSoTrangVang.Text, out int p) ? p : 1;
+                        int page = int.TryParse(txtSoTrangVang.Text.Split('/')[0].Trim(), out int p) ? p : 1;
                         LoadData_ChamCongVang(GetCurrentStoreIdForVang(), page);
                     }
                     else
@@ -1108,36 +1220,29 @@ namespace Presentation
 
         private void btnTrangSauVang_Click(object sender, EventArgs e)
         {
-            int currentPage = Convert.ToInt32(txtSoTrangVang.Text);
+            int currentPage = int.TryParse(txtSoTrangVang.Text.Split('/')[0].Trim(), out int p) ? p : 1;
             if (currentPage < _totalPage_Vang)
             {
-                int pageNumber = currentPage + 1;
-                txtSoTrangVang.Text = pageNumber.ToString();
-                LoadData_ChamCongVang(GetCurrentStoreIdForVang(), pageNumber);
+                LoadData_ChamCongVang(GetCurrentStoreIdForVang(), currentPage + 1);
             }
         }
 
         private void btnTrangTruocVang_Click(object sender, EventArgs e)
         {
-            int currentPage = Convert.ToInt32(txtSoTrangVang.Text);
+            int currentPage = int.TryParse(txtSoTrangVang.Text.Split('/')[0].Trim(), out int p) ? p : 1;
             if (currentPage > 1)
             {
-                int pageNumber = currentPage - 1;
-                txtSoTrangVang.Text = pageNumber.ToString();
-                LoadData_ChamCongVang(GetCurrentStoreIdForVang(), pageNumber);
+                LoadData_ChamCongVang(GetCurrentStoreIdForVang(), currentPage - 1);
             }
         }
-
         #endregion
 
         #region Tính lương
-
         private void LoadCboCuaHang_TinhLuong()
         {
             cboCuaHang_TinhLuong.DataSource = cboChonCuaHang_NV.DataSource;
             cboCuaHang_TinhLuong.DisplayMember = "StoreName";
             cboCuaHang_TinhLuong.ValueMember = "StoreId";
-
             if (_userSession.Role != "Admin")
             {
                 cboCuaHang_TinhLuong.SelectedValue = _userSession.IdStore;
@@ -1150,7 +1255,6 @@ namespace Presentation
             string storeId = _userSession.Role == "Admin"
                 ? cboCuaHang_TinhLuong.SelectedValue?.ToString()
                 : _userSession.IdStore;
-
             string monthYear = dtpThangTinhLuong.Value.ToString("yyyy-MM");
 
             if (string.IsNullOrEmpty(storeId))
@@ -1164,162 +1268,140 @@ namespace Presentation
 
         private void TinhLuongVaHienThi(string storeId, string monthYear)
         {
-            using (var childContainer = _container.CreateChildContainer())
+            var empResult = _employeeService.GetEmployeeByStore(storeId, 1, 1000);
+            if (!empResult.Succeeded || empResult.Data == null || !empResult.Data.Any())
             {
-                var empService = childContainer.Resolve<IEmployeeService>();
-                var contractService = childContainer.Resolve<ISalaryContractService>();
-                var allowanceService = childContainer.Resolve<ISalaryContractAllowanceService>();
-                var assignmentService = childContainer.Resolve<IShiftAssignmentService>();
-                var absenceService = childContainer.Resolve<IAbsenceService>();
-                var shiftService = childContainer.Resolve<IShiftService>();
-                var salaryService = childContainer.Resolve<ISalaryService>();
-
-                // Lấy nhân viên theo cửa hàng
-                var empResult = empService.GetEmployeeByStore(storeId, 1, 1000);
-                if (!empResult.Succeeded || empResult.Data == null || !empResult.Data.Any())
-                {
-                    MessageBox.Show("Không có nhân viên nào ở cửa hàng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dgvDuLieu_TinhLuong.DataSource = null;
-                    lblTongNhanVien.Text = "Tổng số nhân viên: 0";
-                    lblTongChiPhiLuong.Text = "Tổng chi phí lương: 0 ₫";
-                    return;
-                }
-
-                var employees = empResult.Data;
-                var dt = new DataTable();
-                dt.Columns.Add("STT", typeof(int));
-                dt.Columns.Add("Mã NV");
-                dt.Columns.Add("Họ tên");
-                dt.Columns.Add("Loại NV");
-                dt.Columns.Add("Lương cơ bản", typeof(decimal));
-                dt.Columns.Add("Giờ làm", typeof(int));
-                dt.Columns.Add("Phụ cấp", typeof(decimal));
-                dt.Columns.Add("Thưởng", typeof(decimal));
-                dt.Columns.Add("Khấu trừ (vắng)", typeof(decimal));
-                dt.Columns.Add("Thực lãnh", typeof(decimal));
-
-                decimal tongQuyLuong = 0;
-                int stt = 1;
-
-                foreach (var emp in employees)
-                {
-                    // Lấy hợp đồng hiện tại
-                    var contractResult = contractService.GetCurrentContractByEmployeeId(emp.EmployeeId);
-                    if (!contractResult.Succeeded || contractResult.Data == null) continue;
-
-                    var contract = contractResult.Data;
-
-                    // Tính giờ làm (Part-time)
-                    int totalHours = 0;
-                    decimal luongGio = 0;
-                    if (emp.EmploymentType == "Parttime")
-                    {
-                        var assignments = assignmentService.GetByEmployeeAndMonth(emp.EmployeeId, monthYear);
-                        if (assignments.Succeeded && assignments.Data != null)
-                        {
-                            foreach (var ass in assignments.Data)
-                            {
-                                var shift = shiftService.GetShiftByID(ass.ShiftId);
-                                if (shift.Succeeded && shift.Data != null)
-                                {
-                                    TimeSpan duration = shift.Data.EndTime - shift.Data.StartTime;
-                                    totalHours += (int)Math.Ceiling(duration.TotalHours);
-                                }
-                            }
-                            luongGio = (contract.HourlyRate ?? 0) * totalHours;
-                        }
-                    }
-
-                    // Tính phụ cấp
-                    decimal phuCap = 0;
-                    var allowances = allowanceService.GetByContractId(contract.ContractId);
-                    if (allowances.Succeeded && allowances.Data != null)
-                    {
-                        phuCap = allowances.Data.Sum(a => a.CustomAmount ?? 0);
-                    }
-
-                    // Lấy bảng lương (thưởng + khấu trừ thủ công)
-                    decimal bonus = 0, manualDeduction = 0;
-                    var salaryResult = salaryService.GetByContract(contract.ContractId);
-                    if (salaryResult.Succeeded && salaryResult.Data != null)
-                    {
-                        var salaryThisMonth = salaryResult.Data.FirstOrDefault(s => s.MonthYear == monthYear);
-                        if (salaryThisMonth != null)
-                        {
-                            bonus = salaryThisMonth.Bonus;
-                            manualDeduction = salaryThisMonth.Deduction;
-                        }
-                    }
-
-                    // Tính khấu trừ do vắng (nghỉ không lương)
-                    decimal truVang = 0;
-                    var absences = absenceService.GetAll();
-                    if (absences.Succeeded && absences.Data != null)
-                    {
-                        var vangKhongLuong = absences.Data
-                            .Where(a => a.EmployeeId == emp.EmployeeId &&
-                                       a.WorkDate.Year == dtpThangTinhLuong.Value.Year &&
-                                       a.WorkDate.Month == dtpThangTinhLuong.Value.Month &&
-                                       !a.IsPaid)
-                            .ToList();
-
-                        foreach (var v in vangKhongLuong)
-                        {
-                            var ass = assignmentService.GetById(v.ShiftId);
-                            if (ass.Succeeded && ass.Data != null)
-                            {
-                                var shift = shiftService.GetShiftByID(ass.Data.ShiftId);
-                                if (shift.Succeeded && shift.Data != null)
-                                {
-                                    TimeSpan duration = shift.Data.EndTime - shift.Data.StartTime;
-                                    int hours = (int)Math.Ceiling(duration.TotalHours);
-                                    decimal luongCa = (contract.HourlyRate ?? 0) * hours;
-                                    truVang += luongCa;
-                                }
-                            }
-                        }
-                    }
-
-                    // Tính thực lãnh
-                    decimal luongCoBan = emp.EmploymentType == "Fulltime" ? (contract.BasicSalary ?? 0) : 0;
-                    decimal thucLanh = luongCoBan + luongGio + phuCap + bonus - manualDeduction - truVang;
-
-                    tongQuyLuong += thucLanh;
-
-                    dt.Rows.Add(
-                        stt++,
-                        emp.EmployeeId,
-                        emp.FullName,
-                        emp.EmploymentType,
-                        luongCoBan,
-                        totalHours,
-                        phuCap,
-                        bonus,
-                        truVang + manualDeduction,
-                        thucLanh
-                    );
-                }
-                ApplyGridStyle(dgvDuLieu_TinhLuong);
-                dgvDuLieu_TinhLuong.DataSource = dt;
-                ApplyGridStyle(dgvDuLieu_TinhLuong);
-                ApplyGridStyle(dgvDuLieu_TinhLuong);
-
-                // Định dạng tiền + màu
-                foreach (DataGridViewColumn col in dgvDuLieu_TinhLuong.Columns)
-                {
-                    if (col.ValueType == typeof(decimal))
-                    {
-                        col.DefaultCellStyle.Format = "N0";
-                        col.DefaultCellStyle.ForeColor = Color.DarkBlue;
-                    }
-                }
-                dgvDuLieu_TinhLuong.Columns["Thực lãnh"].DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                dgvDuLieu_TinhLuong.Columns["Thực lãnh"].DefaultCellStyle.ForeColor = Color.DarkGreen;
-
-                // Tổng hợp
-                lblTongNhanVien.Text = $"Tổng số nhân viên: {employees.Count()} người";
-                lblTongChiPhiLuong.Text = $"Tổng chi phí lương: {tongQuyLuong:N0} ₫";
+                MessageBox.Show("Không có nhân viên nào ở cửa hàng này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dgvDuLieu_TinhLuong.DataSource = null;
+                lblTongNhanVien.Text = "Tổng số nhân viên: 0";
+                lblTongChiPhiLuong.Text = "Tổng chi phí lương: 0 ₫";
+                return;
             }
+
+            var employees = empResult.Data;
+            var dt = new DataTable();
+            dt.Columns.Add("STT", typeof(int));
+            dt.Columns.Add("Mã NV");
+            dt.Columns.Add("Họ tên");
+            dt.Columns.Add("Loại NV");
+            dt.Columns.Add("Lương cơ bản", typeof(decimal));
+            dt.Columns.Add("Giờ làm", typeof(int));
+            dt.Columns.Add("Phụ cấp", typeof(decimal));
+            dt.Columns.Add("Thưởng", typeof(decimal));
+            dt.Columns.Add("Khấu trừ (vắng)", typeof(decimal));
+            dt.Columns.Add("Thực lãnh", typeof(decimal));
+
+            decimal tongQuyLuong = 0;
+            int stt = 1;
+
+            foreach (var emp in employees)
+            {
+                var contractResult = _salaryContractService.GetCurrentContractByEmployeeId(emp.EmployeeId);
+                if (!contractResult.Succeeded || contractResult.Data == null) continue;
+                var contract = contractResult.Data;
+
+                int totalHours = 0;
+                decimal luongGio = 0;
+                if (emp.EmploymentType == "Parttime")
+                {
+                    var assignments = _shiftAssignmentService.GetByEmployeeAndMonth(emp.EmployeeId, monthYear);
+                    if (assignments.Succeeded && assignments.Data != null)
+                    {
+                        foreach (var ass in assignments.Data)
+                        {
+                            var shift = _shiftService.GetShiftByID(ass.ShiftId);
+                            if (shift.Succeeded && shift.Data != null)
+                            {
+                                TimeSpan duration = shift.Data.EndTime - shift.Data.StartTime;
+                                totalHours += (int)Math.Ceiling(duration.TotalHours);
+                            }
+                        }
+                        luongGio = (contract.HourlyRate ?? 0) * totalHours;
+                    }
+                }
+
+                decimal phuCap = 0;
+                var allowances = _salaryContractAllowanceService.GetByContractId(contract.ContractId);
+                if (allowances.Succeeded && allowances.Data != null)
+                {
+                    phuCap = allowances.Data.Sum(a => a.CustomAmount ?? 0);
+                }
+
+                decimal bonus = 0, manualDeduction = 0;
+                var salaryResult = _salaryService.GetByContract(contract.ContractId);
+                if (salaryResult.Succeeded && salaryResult.Data != null)
+                {
+                    var salaryThisMonth = salaryResult.Data.FirstOrDefault(s => s.MonthYear == monthYear);
+                    if (salaryThisMonth != null)
+                    {
+                        bonus = salaryThisMonth.Bonus;
+                        manualDeduction = salaryThisMonth.Deduction;
+                    }
+                }
+
+                decimal truVang = 0;
+                var absences = _absenceService.GetAll();
+                if (absences.Succeeded && absences.Data != null)
+                {
+                    var vangKhongLuong = absences.Data
+                        .Where(a => a.EmployeeId == emp.EmployeeId &&
+                                   a.WorkDate.Year == dtpThangTinhLuong.Value.Year &&
+                                   a.WorkDate.Month == dtpThangTinhLuong.Value.Month &&
+                                   !a.IsPaid)
+                        .ToList();
+
+                    foreach (var v in vangKhongLuong)
+                    {
+                        var ass = _shiftAssignmentService.GetById(v.ShiftId);
+                        if (ass.Succeeded && ass.Data != null)
+                        {
+                            var shift = _shiftService.GetShiftByID(ass.Data.ShiftId);
+                            if (shift.Succeeded && shift.Data != null)
+                            {
+                                TimeSpan duration = shift.Data.EndTime - shift.Data.StartTime;
+                                int hours = (int)Math.Ceiling(duration.TotalHours);
+                                decimal luongCa = (contract.HourlyRate ?? 0) * hours;
+                                truVang += luongCa;
+                            }
+                        }
+                    }
+                }
+
+                decimal luongCoBan = emp.EmploymentType == "Fulltime" ? (contract.BasicSalary ?? 0) : 0;
+                decimal thucLanh = luongCoBan + luongGio + phuCap + bonus - manualDeduction - truVang;
+                tongQuyLuong += thucLanh;
+
+                dt.Rows.Add(
+                    stt++,
+                    emp.EmployeeId,
+                    emp.FullName,
+                    emp.EmploymentType,
+                    luongCoBan,
+                    totalHours,
+                    phuCap,
+                    bonus,
+                    truVang + manualDeduction,
+                    thucLanh
+                );
+            }
+
+            dgvDuLieu_TinhLuong.DataSource = dt;
+            ApplyGridStyle(dgvDuLieu_TinhLuong);
+
+            foreach (DataGridViewColumn col in dgvDuLieu_TinhLuong.Columns)
+            {
+                if (col.ValueType == typeof(decimal))
+                {
+                    col.DefaultCellStyle.Format = "N0";
+                    col.DefaultCellStyle.ForeColor = Color.DarkBlue;
+                }
+            }
+
+            dgvDuLieu_TinhLuong.Columns["Thực lãnh"].DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvDuLieu_TinhLuong.Columns["Thực lãnh"].DefaultCellStyle.ForeColor = Color.DarkGreen;
+
+            lblTongNhanVien.Text = $"Tổng số nhân viên: {employees.Count()} người";
+            lblTongChiPhiLuong.Text = $"Tổng chi phí lương: {tongQuyLuong:N0} ₫";
         }
         #endregion
 
@@ -1335,11 +1417,11 @@ namespace Presentation
 
             dgvDuLieu.CellPainting += (s, e) =>
             {
-                if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
-                                        dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
+                if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Sửa" ||
+                                        dgvDuLieu.Columns[e.ColumnIndex].Name == "Xoá"))
                 {
                     e.PaintBackground(e.CellBounds, true);
-                    Color backColor = dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ? Color.SeaGreen : Color.IndianRed;
+                    Color backColor = dgvDuLieu.Columns[e.ColumnIndex].Name == "Sửa" ? Color.SeaGreen : Color.IndianRed;
                     using (Brush b = new SolidBrush(backColor))
                         e.Graphics.FillRectangle(b, e.CellBounds);
                     string text = dgvDuLieu.Columns[e.ColumnIndex].Name;
@@ -1349,7 +1431,10 @@ namespace Presentation
                 }
             };
         }
+
+
         #endregion
 
+        
     }
 }

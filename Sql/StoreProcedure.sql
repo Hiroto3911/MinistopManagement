@@ -581,6 +581,8 @@ BEGIN
       AND sc.IsDeleted = 0
     ORDER BY e.FullName;
 END
+GO
+-- EXEC sp_GetSalaryList_ByStore 'STR20251026202700739', '2025-11';
 CREATE PROCEDURE sp_GetTop3BestSellingStores
     @StartDate DATETIME = NULL,
     @EndDate DATETIME = NULL
