@@ -41,8 +41,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.chartBieuDo = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panelMid = new Guna.UI2.WinForms.Guna2Panel();
+            this.ibtnIncrease = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.ibtnDecrease = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.lblDanhGia = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panelBottom = new Guna.UI2.WinForms.Guna2Panel();
             this.label12 = new System.Windows.Forms.Label();
+            this.ibtnLamMoiDT = new Guna.UI2.WinForms.Guna2ImageButton();
             this.dgvDuLieuDT = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panelTop = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -62,6 +68,7 @@
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.ibtnLoadDuLieuTK = new Guna.UI2.WinForms.Guna2ImageButton();
             this.dgvDuLieuTK = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtNam = new Guna.UI2.WinForms.Guna2TextBox();
@@ -73,18 +80,12 @@
             this.btnXemTK = new Guna.UI2.WinForms.Guna2Button();
             this.tabDoanhThu = new System.Windows.Forms.TabPage();
             this.tabControlTK = new Guna.UI2.WinForms.Guna2TabControl();
-            this.panelMid = new Guna.UI2.WinForms.Guna2Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblDanhGia = new System.Windows.Forms.Label();
-            this.ibtnDecrease = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.ibtnLamMoiDT = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.ibtnLoadDuLieuTK = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.ibtnIncrease = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartBieuDo)).BeginInit();
+            this.panelMid.SuspendLayout();
             this.panelBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieuDT)).BeginInit();
             this.panelTop.SuspendLayout();
@@ -98,7 +99,6 @@
             this.guna2Panel3.SuspendLayout();
             this.tabDoanhThu.SuspendLayout();
             this.tabControlTK.SuspendLayout();
-            this.panelMid.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer2
@@ -130,6 +130,51 @@
             series1.Name = "Series1";
             this.chartBieuDo.Series.Add(series1);
             // 
+            // panelMid
+            // 
+            this.panelMid.Controls.Add(this.ibtnIncrease);
+            this.panelMid.Controls.Add(this.ibtnDecrease);
+            this.panelMid.Controls.Add(this.lblDanhGia);
+            this.panelMid.Controls.Add(this.label3);
+            resources.ApplyResources(this.panelMid, "panelMid");
+            this.panelMid.Name = "panelMid";
+            // 
+            // ibtnIncrease
+            // 
+            resources.ApplyResources(this.ibtnIncrease, "ibtnIncrease");
+            this.ibtnIncrease.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnIncrease.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnIncrease.Image = global::Presentation.Properties.Resources.increase;
+            this.ibtnIncrease.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnIncrease.ImageRotate = 0F;
+            this.ibtnIncrease.ImageSize = new System.Drawing.Size(30, 30);
+            this.ibtnIncrease.Name = "ibtnIncrease";
+            this.ibtnIncrease.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            // 
+            // ibtnDecrease
+            // 
+            resources.ApplyResources(this.ibtnDecrease, "ibtnDecrease");
+            this.ibtnDecrease.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnDecrease.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnDecrease.Image = global::Presentation.Properties.Resources.down;
+            this.ibtnDecrease.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnDecrease.ImageRotate = 0F;
+            this.ibtnDecrease.ImageSize = new System.Drawing.Size(30, 30);
+            this.ibtnDecrease.Name = "ibtnDecrease";
+            this.ibtnDecrease.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            // 
+            // lblDanhGia
+            // 
+            resources.ApplyResources(this.lblDanhGia, "lblDanhGia");
+            this.lblDanhGia.ForeColor = System.Drawing.Color.DimGray;
+            this.lblDanhGia.Name = "lblDanhGia";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Name = "label3";
+            // 
             // panelBottom
             // 
             this.panelBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -144,6 +189,19 @@
             this.label12.ForeColor = System.Drawing.Color.DimGray;
             this.label12.Name = "label12";
             this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // ibtnLamMoiDT
+            // 
+            resources.ApplyResources(this.ibtnLamMoiDT, "ibtnLamMoiDT");
+            this.ibtnLamMoiDT.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLamMoiDT.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLamMoiDT.Image = global::Presentation.Properties.Resources.loading_arrow;
+            this.ibtnLamMoiDT.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnLamMoiDT.ImageRotate = 0F;
+            this.ibtnLamMoiDT.ImageSize = new System.Drawing.Size(30, 30);
+            this.ibtnLamMoiDT.Name = "ibtnLamMoiDT";
+            this.ibtnLamMoiDT.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLamMoiDT.Click += new System.EventHandler(this.ibtnLamMoiDT_Click);
             // 
             // dgvDuLieuDT
             // 
@@ -381,11 +439,23 @@
             this.label11.ForeColor = System.Drawing.Color.DimGray;
             this.label11.Name = "label11";
             // 
+            // ibtnLoadDuLieuTK
+            // 
+            resources.ApplyResources(this.ibtnLoadDuLieuTK, "ibtnLoadDuLieuTK");
+            this.ibtnLoadDuLieuTK.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLoadDuLieuTK.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLoadDuLieuTK.Image = global::Presentation.Properties.Resources.loading_arrow;
+            this.ibtnLoadDuLieuTK.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnLoadDuLieuTK.ImageRotate = 0F;
+            this.ibtnLoadDuLieuTK.ImageSize = new System.Drawing.Size(30, 30);
+            this.ibtnLoadDuLieuTK.Name = "ibtnLoadDuLieuTK";
+            this.ibtnLoadDuLieuTK.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLoadDuLieuTK.Click += new System.EventHandler(this.ibtnLoadDuLieuTK_Click);
+            // 
             // dgvDuLieuTK
             // 
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dgvDuLieuTK.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            resources.ApplyResources(this.dgvDuLieuTK, "dgvDuLieuTK");
             this.dgvDuLieuTK.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDuLieuTK.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDuLieuTK.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -397,6 +467,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDuLieuTK.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            resources.ApplyResources(this.dgvDuLieuTK, "dgvDuLieuTK");
             this.dgvDuLieuTK.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
@@ -553,77 +624,6 @@
             this.tabControlTK.TabButtonSize = new System.Drawing.Size(220, 100);
             this.tabControlTK.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
             // 
-            // panelMid
-            // 
-            this.panelMid.Controls.Add(this.ibtnIncrease);
-            this.panelMid.Controls.Add(this.ibtnDecrease);
-            this.panelMid.Controls.Add(this.lblDanhGia);
-            this.panelMid.Controls.Add(this.label3);
-            resources.ApplyResources(this.panelMid, "panelMid");
-            this.panelMid.Name = "panelMid";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Name = "label3";
-            // 
-            // lblDanhGia
-            // 
-            resources.ApplyResources(this.lblDanhGia, "lblDanhGia");
-            this.lblDanhGia.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDanhGia.Name = "lblDanhGia";
-            // 
-            // ibtnDecrease
-            // 
-            resources.ApplyResources(this.ibtnDecrease, "ibtnDecrease");
-            this.ibtnDecrease.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnDecrease.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnDecrease.Image = global::Presentation.Properties.Resources.down;
-            this.ibtnDecrease.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnDecrease.ImageRotate = 0F;
-            this.ibtnDecrease.ImageSize = new System.Drawing.Size(30, 30);
-            this.ibtnDecrease.Name = "ibtnDecrease";
-            this.ibtnDecrease.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            // 
-            // ibtnLamMoiDT
-            // 
-            resources.ApplyResources(this.ibtnLamMoiDT, "ibtnLamMoiDT");
-            this.ibtnLamMoiDT.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnLamMoiDT.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnLamMoiDT.Image = global::Presentation.Properties.Resources.loading_arrow;
-            this.ibtnLamMoiDT.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnLamMoiDT.ImageRotate = 0F;
-            this.ibtnLamMoiDT.ImageSize = new System.Drawing.Size(30, 30);
-            this.ibtnLamMoiDT.Name = "ibtnLamMoiDT";
-            this.ibtnLamMoiDT.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnLamMoiDT.Click += new System.EventHandler(this.ibtnLamMoiDT_Click);
-            // 
-            // ibtnLoadDuLieuTK
-            // 
-            resources.ApplyResources(this.ibtnLoadDuLieuTK, "ibtnLoadDuLieuTK");
-            this.ibtnLoadDuLieuTK.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnLoadDuLieuTK.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnLoadDuLieuTK.Image = global::Presentation.Properties.Resources.loading_arrow;
-            this.ibtnLoadDuLieuTK.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnLoadDuLieuTK.ImageRotate = 0F;
-            this.ibtnLoadDuLieuTK.ImageSize = new System.Drawing.Size(30, 30);
-            this.ibtnLoadDuLieuTK.Name = "ibtnLoadDuLieuTK";
-            this.ibtnLoadDuLieuTK.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnLoadDuLieuTK.Click += new System.EventHandler(this.ibtnLoadDuLieuTK_Click);
-            // 
-            // ibtnIncrease
-            // 
-            resources.ApplyResources(this.ibtnIncrease, "ibtnIncrease");
-            this.ibtnIncrease.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnIncrease.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnIncrease.Image = global::Presentation.Properties.Resources.increase;
-            this.ibtnIncrease.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnIncrease.ImageRotate = 0F;
-            this.ibtnIncrease.ImageSize = new System.Drawing.Size(30, 30);
-            this.ibtnIncrease.Name = "ibtnIncrease";
-            this.ibtnIncrease.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            // 
             // frmHienThi_ThongKe
             // 
             resources.ApplyResources(this, "$this");
@@ -637,6 +637,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartBieuDo)).EndInit();
+            this.panelMid.ResumeLayout(false);
+            this.panelMid.PerformLayout();
             this.panelBottom.ResumeLayout(false);
             this.panelBottom.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieuDT)).EndInit();
@@ -656,8 +658,6 @@
             this.guna2Panel3.PerformLayout();
             this.tabDoanhThu.ResumeLayout(false);
             this.tabControlTK.ResumeLayout(false);
-            this.panelMid.ResumeLayout(false);
-            this.panelMid.PerformLayout();
             this.ResumeLayout(false);
 
         }
