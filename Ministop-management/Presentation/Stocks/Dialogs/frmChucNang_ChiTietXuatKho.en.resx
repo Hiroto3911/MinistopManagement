@@ -134,13 +134,10 @@
   <data name="label3.Text" xml:space="preserve">
     <value>ProductName:</value>
   </data>
-  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblProductID.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 19</value>
   </data>
-  <data name="label4.Text" xml:space="preserve">
+  <data name="lblProductID.Text" xml:space="preserve">
     <value>ProductID:</value>
   </data>
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -164,16 +161,10 @@
   <data name="btnLuu.Text" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblQuantity.Size" type="System.Drawing.Size, System.Drawing">
     <value>67, 19</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
+  <data name="lblQuantity.Text" xml:space="preserve">
     <value>Quantity:</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>

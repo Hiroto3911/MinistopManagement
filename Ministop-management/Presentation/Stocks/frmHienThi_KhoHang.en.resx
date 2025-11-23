@@ -117,68 +117,86 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="guna2GroupBox2.Text" xml:space="preserve">
+    <value>Low inventory warning</value>
+  </data>
+  <data name="guna2GroupBox1.Text" xml:space="preserve">
+    <value>Total number of stock export in month</value>
+  </data>
+  <data name="guna2GroupBox3.Text" xml:space="preserve">
+    <value>Total number of stock entries in month </value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 19</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
   <data name="tabChiTietKho.Text" xml:space="preserve">
     <value>Stock Details</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="dgvDuLieuNH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>635, 270</value>
+  <data name="btnInPhieuNhap.Text" xml:space="preserve">
+    <value>Print</value>
   </data>
-  <data name="btnInPhieuNhap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>470, 2</value>
+  <data name="cboCuaHangNH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>49, 0</value>
   </data>
-  <data name="btnThemNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>553, 2</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
   </data>
-  <data name="guna2Panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>635, 34</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
-  <data name="txtSoTrangNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>293, 4</value>
+  <data name="btnThemNH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
-  <data name="btnTrangSauNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>347, 4</value>
+  <data name="tabNhapHang.Text" xml:space="preserve">
+    <value>Stock Import</value>
   </data>
-  <data name="btnTrangTruocNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>244, 4</value>
+  <data name="btnInPhieuXuat.Text" xml:space="preserve">
+    <value>Print</value>
   </data>
-  <data name="guna2Panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>635, 34</value>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
   </data>
-  <data name="tabNhapHang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
-  <data name="tabNhapHang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 342</value>
+  <data name="btnThemXH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
-  <data name="dgvDuLieuXH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 274</value>
+  <data name="tabXuatHang.Text" xml:space="preserve">
+    <value>Stock Export</value>
   </data>
-  <data name="btnInPhieuXuat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>466, 2</value>
+  <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
   </data>
-  <data name="btnThemXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>556, 2</value>
+  <data name="lblTime.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
-  <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 34</value>
+  <data name="btnThemKH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
-  <data name="txtSoTrangXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>296, 4</value>
+  <data name="tabKiemHang.Text" xml:space="preserve">
+    <value>Stock Check</value>
   </data>
-  <data name="btnTrangSauXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 4</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
   </data>
-  <data name="btnTrangTruocXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 4</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
-  <data name="guna2Panel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 34</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 19</value>
   </data>
-  <data name="tabXuatHang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Find:</value>
   </data>
-  <data name="tabXuatHang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>639, 342</value>
+  <data name="btnTimKiem.Text" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="tabTimKiem.Text" xml:space="preserve">
+    <value>Search</value>
   </data>
 </root>

@@ -61,7 +61,7 @@ namespace Presentation
             string productID = txtMaSP.Text.Trim();
             if (string.IsNullOrEmpty(txtSLHeThong.Text.Trim()))
             {
-                MessageBox.Show("Sản phẩm này không tồn tại trong kho hàng. Vui lòng nhập lại mã!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{Properties.Messages.Message_ProductNotInStock}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtMaSP.Focus();
                 return;
             }
@@ -69,13 +69,13 @@ namespace Presentation
             if (string.IsNullOrWhiteSpace(txtSLThucTe.Text) ||
                !int.TryParse(txtSLThucTe.Text, out int quantityActual) || quantityActual <= 0)
             {
-                MessageBox.Show("So luong thuc te phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{lblQuantityActual.Text} {Properties.Messages.Message_ValidNumber}!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSLThucTe.Focus();
                 return;
             }
             if (Regex.IsMatch(rtxtGhiChu.Text.Trim(), @"[^a-zA-Z0-9\s\u00C0-\u1EF9,./-]"))
             {
-                MessageBox.Show("Ghi chú không được chứa ký tự đặc biệt lạ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"{lblNote.Text} {Properties.Messages.Message_SpecialCharacter}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 rtxtGhiChu.Focus();
                 return;
             }

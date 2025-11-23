@@ -117,17 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblNote.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 19</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
+  <data name="lblNote.Text" xml:space="preserve">
     <value>Note:</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -137,13 +134,10 @@
   <data name="label4.Text" xml:space="preserve">
     <value>StockCheckDetailID :</value>
   </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblProductID.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 19</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
+  <data name="lblProductID.Text" xml:space="preserve">
     <value>ProductID:</value>
   </data>
   <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
@@ -155,14 +149,11 @@
   <data name="label11.Text" xml:space="preserve">
     <value>Stock Check Detail Information</value>
   </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblQuantityActual.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 19</value>
   </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>107, 19</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>QuantityActual:</value>
+  <data name="lblQuantityActual.Text" xml:space="preserve">
+    <value>Quantity Actual:</value>
   </data>
   <data name="btnLuu.Text" xml:space="preserve">
     <value>Save</value>
@@ -181,8 +172,5 @@
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>QuantitySystem:</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>

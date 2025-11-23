@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -61,7 +62,7 @@ namespace Presentation.Stocks.Dialogs
             if (string.IsNullOrWhiteSpace(txtSoluong.Text) ||
               !int.TryParse(txtSoluong.Text, out int quantity) || quantity <= 0)
             {
-                MessageBox.Show("So luong phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{lblQuantity.Text} {Properties.Messages.Message_ValidNumber}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSoluong.Focus();
                 return;
             }

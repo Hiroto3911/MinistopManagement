@@ -117,27 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="Message_ProductNotInStock" xml:space="preserve">
+    <value>Sản phẩm này không tồn tại trong kho hàng. Vui lòng nhập lại mã</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 21</value>
+  <data name="Message_QuantityProductNotEnough" xml:space="preserve">
+    <value>Số lượng trong kho không đủ đế đáp ứng số lượng xuất của bạn vui lòng điều chỉnh lại số lượng!</value>
   </data>
-  <data name="label11.Text" xml:space="preserve">
-    <value>Product List from Stock Import</value>
+  <data name="Message_SpecialCharacter" xml:space="preserve">
+    <value>Không được chứa ký tự đặc biệt !</value>
   </data>
-  <data name="lblTongTienNhap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblTongTienNhap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 21</value>
-  </data>
-  <data name="lblTongTienNhap.Text" xml:space="preserve">
-    <value>Total Amount:</value>
-  </data>
-  <data name="btnThem.Text" xml:space="preserve">
-    <value>Add</value>
+  <data name="Message_ValidNumber" xml:space="preserve">
+    <value>phải là số hợp lệ và không được để trống hoặc bằng 0</value>
   </data>
 </root>

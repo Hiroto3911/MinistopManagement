@@ -171,4 +171,46 @@
   <data name="Grid_LastUpdated" xml:space="preserve">
     <value>Last Update</value>
   </data>
+  <data name="Grid_ExportID" xml:space="preserve">
+    <value>Export ID</value>
+  </data>
+  <data name="Grid_TypeExport" xml:space="preserve">
+    <value>Type Export</value>
+  </data>
+  <data name="Grid_ExportDay" xml:space="preserve">
+    <value>Export Day</value>
+  </data>
+  <data name="Grid_Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="Grid_CheckID" xml:space="preserve">
+    <value>Check ID</value>
+  </data>
+  <data name="Grid_CheckDay" xml:space="preserve">
+    <value>Check Day</value>
+  </data>
+  <data name="ExportType_Damaged" xml:space="preserve">
+    <value>Damaged</value>
+  </data>
+  <data name="ExportType_Expired" xml:space="preserve">
+    <value>Expired</value>
+  </data>
+  <data name="ExportType_Lost" xml:space="preserve">
+    <value>Lost</value>
+  </data>
+  <data name="ExportType_CancelOrder" xml:space="preserve">
+    <value>Cancel Order</value>
+  </data>
+  <data name="Grid_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Grid_Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Label_TotalAmount" xml:space="preserve">
+    <value>Total Amount:</value>
+  </data>
+  <data name="Label_Money" xml:space="preserve">
+    <value>USD</value>
+  </data>
 </root>

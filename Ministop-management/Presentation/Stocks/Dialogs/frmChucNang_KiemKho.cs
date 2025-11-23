@@ -76,7 +76,7 @@ namespace Presentation.Stocks.Dialogs
             MessageBox.Show("Lưu phiếu kiểm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
-      
+
         private void LoadDataCboTrangThai()
         {
 
@@ -87,8 +87,8 @@ namespace Presentation.Stocks.Dialogs
                 cboTrangThai.Enabled = true;
                 status = new Dictionary<string, byte>()
                 {
-                    {"Duyệt",1 },
-                    { "Không duyệt",0 }
+                  {Properties.Resources.Status_Permitted,1 },
+                  {Properties.Resources.Status_NotPermitted,0 }
                 };
             }
             else
@@ -96,8 +96,8 @@ namespace Presentation.Stocks.Dialogs
 
                 status = new Dictionary<string, byte>()
                 {
-                  {"Đang soạn",2 },
-                  {"Chờ duyệt",3 }
+                 {Properties.Resources.Status_Draft,2 },
+                  {Properties.Resources.Status_Pending,3 }
                 };
             }
             cboTrangThai.DataSource = status.ToList();
@@ -107,7 +107,7 @@ namespace Presentation.Stocks.Dialogs
         private void frmChucNang_KiemKho_Load(object sender, EventArgs e)
         {
             LoadDataCboTrangThai();
-           
+
             if (!string.IsNullOrEmpty(_checkID))
             {
                 var entity = _stockCheckService.GetStockCheckByID(_checkID);
@@ -127,6 +127,6 @@ namespace Presentation.Stocks.Dialogs
             }
         }
 
-      
+
     }
 }
