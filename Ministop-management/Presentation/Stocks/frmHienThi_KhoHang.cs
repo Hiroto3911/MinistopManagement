@@ -406,7 +406,7 @@ namespace Presentation
             dgvDuLieuNH.Columns["SanPham"].HeaderText = Properties.Resources.Grid_ProductName;
             dgvDuLieuNH.Columns["SoLuong"].HeaderText = Properties.Resources.Grid_Quantity;
             dgvDuLieuNH.Columns["GiaBan"].HeaderText = Properties.Resources.Grid_Price;
-            dgvDuLieuNH.Columns["LanCuoiCapNhap"].HeaderText = Properties.Resources.Grid_LastUpdated;
+            dgvDuLieuNH.Columns["LanCuoiCapNhap"].HeaderText = Properties.Resources.Grid_LastModified;
             dgvDuLieuCT.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
             dgvDuLieuCT.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
             dgvDuLieuCT.ThemeStyle.HeaderStyle.ForeColor = Color.White;
@@ -1019,10 +1019,11 @@ namespace Presentation
             dgvDuLieuTimKiem.DataSource = dt;
             dgvDuLieuTimKiem.AllowUserToAddRows = false;
             dgvDuLieuTimKiem.Columns["MaChiTietKho"].HeaderText = Properties.Resources.Grid_StockDetailID;
-            dgvDuLieuTimKiem.Columns["SanPham"].HeaderText = Properties.Resources.Grid_ProductName;
+            dgvDuLieuTimKiem.Columns["TenSanPham"].HeaderText = Properties.Resources.Grid_ProductName;
+            dgvDuLieuTimKiem.Columns["MaSanPham"].HeaderText = Properties.Resources.Grid_ProductID;
             dgvDuLieuTimKiem.Columns["SoLuong"].HeaderText = Properties.Resources.Grid_Quantity;
             dgvDuLieuTimKiem.Columns["GiaBan"].HeaderText = Properties.Resources.Grid_Price;
-            dgvDuLieuTimKiem.Columns["LanCuoiCapNhap"].HeaderText = Properties.Resources.Grid_LastUpdated;
+            dgvDuLieuTimKiem.Columns["LanCuoiCapNhap"].HeaderText = Properties.Resources.Grid_LastModified;
             dgvDuLieuTimKiem.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
             dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
             dgvDuLieuTimKiem.ThemeStyle.HeaderStyle.ForeColor = Color.White;

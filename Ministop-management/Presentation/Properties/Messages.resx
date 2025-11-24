@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Message_ChooseAtLeastOneProduct" xml:space="preserve">
+    <value>Chọn ít nhất 1 sản phẩm!</value>
+  </data>
   <data name="Message_ProductNotInStock" xml:space="preserve">
     <value>Sản phẩm này không tồn tại trong kho hàng. Vui lòng nhập lại mã</value>
   </data>
   <data name="Message_QuantityProductNotEnough" xml:space="preserve">
     <value>Số lượng trong kho không đủ đế đáp ứng số lượng xuất của bạn vui lòng điều chỉnh lại số lượng!</value>
+  </data>
+  <data name="Message_QuantityVariance" xml:space="preserve">
+    <value>Số lượng thực tế không thể lớn hơn số lượng hệ thống. Vui lòng kiểm lại!</value>
   </data>
   <data name="Message_SpecialCharacter" xml:space="preserve">
     <value>Không được chứa ký tự đặc biệt !</value>

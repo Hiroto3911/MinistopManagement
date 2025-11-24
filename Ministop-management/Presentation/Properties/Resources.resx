@@ -253,9 +253,6 @@
   <data name="Grid_Price" xml:space="preserve">
     <value>Giá</value>
   </data>
-  <data name="Grid_LastUpdated" xml:space="preserve">
-    <value>Lần cuối cập nhập</value>
-  </data>
   <data name="Grid_ExportID" xml:space="preserve">
     <value>Mã phiếu xuất</value>
   </data>
@@ -297,5 +294,38 @@
   </data>
   <data name="Label_Money" xml:space="preserve">
     <value>VND</value>
+  </data>
+  <data name="Grid_SupplierPrice" xml:space="preserve">
+    <value>Giá từ nhà cung cấp</value>
+  </data>
+  <data name="Grid_Choose" xml:space="preserve">
+    <value>Chọn</value>
+  </data>
+  <data name="Grid_HistoryID" xml:space="preserve">
+    <value>Mã lịch sử</value>
+  </data>
+  <data name="Grid_LastModified" xml:space="preserve">
+    <value>Cập nhập lần cuối</value>
+  </data>
+  <data name="Grid_TypeOfChange" xml:space="preserve">
+    <value>Loại thay đổi</value>
+  </data>
+  <data name="Grid_RefID" xml:space="preserve">
+    <value>Mã tham chiếu</value>
+  </data>
+  <data name="Title_ThongBaoNhap" xml:space="preserve">
+    <value>Danh Sách Sản Phẩm Nhập Trong Tháng Này</value>
+  </data>
+  <data name="Title_ThongBaoXuat" xml:space="preserve">
+    <value>Danh Sách Sản Phẩm Xuất Trong Tháng Này</value>
+  </data>
+  <data name="Grid_QuantityActual" xml:space="preserve">
+    <value>Số lượng thực tế</value>
+  </data>
+  <data name="Grid_QuantitySystem" xml:space="preserve">
+    <value>Số lượng hệ thống</value>
+  </data>
+  <data name="Grid_QuantityVariance" xml:space="preserve">
+    <value>Chênh lệch</value>
   </data>
 </root>

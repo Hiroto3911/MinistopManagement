@@ -145,8 +145,8 @@
             // tabKiemHang
             // 
             resources.ApplyResources(this.tabKiemHang, "tabKiemHang");
-            this.tabKiemHang.Controls.Add(this.guna2Panel7);
             this.tabKiemHang.Controls.Add(this.dgvDuLieuKH);
+            this.tabKiemHang.Controls.Add(this.guna2Panel7);
             this.tabKiemHang.Controls.Add(this.guna2Panel8);
             this.tabKiemHang.Name = "tabKiemHang";
             this.tabKiemHang.UseVisualStyleBackColor = true;

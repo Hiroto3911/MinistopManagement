@@ -77,16 +77,20 @@ namespace Presentation.Stocks.Dialogs
             dgvDuLieu.DataSource = dt;
             dgvDuLieu.AllowUserToAddRows = false;
             dgvDuLieu.ReadOnly = true;
-            dgvDuLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDuLieu.Columns["MaPhieuChiTiet"].HeaderText = Properties.Resources.Grid_ID;
+            dgvDuLieu.Columns["SanPham"].HeaderText = Properties.Resources.Grid_ProductName;
+            dgvDuLieu.Columns["SoLuong"].HeaderText = Properties.Resources.Grid_Quantity;
+            dgvDuLieu.Columns["DonGia"].HeaderText = Properties.Resources.Grid_Price;
+            dgvDuLieu.Columns["ThanhTien"].HeaderText = Properties.Resources.Grid_Total;
             ApplyGridStyle(dgvDuLieu);
-            lblTongTienXuat.Text =$"Tổng tiền xuất: {_totalAmount} VND" ;
+            lblTongTienXuat.Text = $"{Properties.Resources.Label_TotalAmount} {_totalAmount} {Properties.Resources.Label_Money}";
             btnTrangTruoc.Enabled = pageNumber > 1;
             btnTrangSau.Enabled = pageNumber <= _totalPage;
 
         }
         private void ApplyGridStyle(Guna2DataGridView dgvDuLieu)
         {
-            if (_userSession.Role == "Admin" || _status == "Duyệt") return;
+            if (_userSession.Role == "Admin" || _status == "Duyệt" || _status != "Imported") return;
             // ===== 2️⃣ Thêm hai cột nút =====
             if (dgvDuLieu.Columns["Edit"] == null)
             {
@@ -120,7 +124,7 @@ namespace Presentation.Stocks.Dialogs
             dgvDuLieu.CellPainting += (s, e) =>
             {
 
-                bool allowEditDelete = _status != "Duyệt";
+                bool allowEditDelete = _status != "Duyệt" || _status != "Imported";
                 if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
                                         dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
                 {
@@ -192,7 +196,7 @@ namespace Presentation.Stocks.Dialogs
         {
             if (e.RowIndex < 0) return;
             string id = dgvDuLieu.Rows[e.RowIndex].Cells["MaPhieuChiTiet"].Value.ToString();
-            var allowAction = _status == "Duyệt";
+            var allowAction = _status == "Duyệt" || _status != "Imported";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrang.Text);
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")

@@ -241,6 +241,11 @@
     <Compile Include="Employees\Dialogs\frmXemPhuCap_HopDongLuong.Designer.cs">
       <DependentUpon>frmXemPhuCap_HopDongLuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDangNhap.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>frmDangNhap.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Products\Dialogs\frmHienThi_GiamGiaSanPham.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +311,11 @@
     <Compile Include="Stocks\Dialogs\frmHienThiChiTietKiemHang.Designer.cs">
       <DependentUpon>frmHienThiChiTietKiemHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThiChiTietKiemHang.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>frmHienThiChiTietKiemHang.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Stocks\Dialogs\frmHienThi_ChiTietNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -330,11 +340,21 @@
     <Compile Include="Stocks\Dialogs\frmHienThi_ThongBao.Designer.cs">
       <DependentUpon>frmHienThi_ThongBao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stocks\Dialogs\frmHienThi_ThongBao.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>frmHienThi_ThongBao.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Stocks\frmChucNang_CaiDat.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Stocks\frmChucNang_CaiDat.Designer.cs">
       <DependentUpon>frmChucNang_CaiDat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\frmHienThi_KhoHang.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>frmHienThi_KhoHang.en.resx</DependentUpon>
     </Compile>
     <Compile Include="Stores\frmHienThi_CuaHang.cs">
       <SubType>Form</SubType>
@@ -662,6 +682,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.en.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>frmDangNhap.en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.en.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -767,6 +789,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmHienThiChiTietKiemHang.en.resx">
       <DependentUpon>frmHienThiChiTietKiemHang.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>frmHienThiChiTietKiemHang.en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmHienThiChiTietKiemHang.resx">
       <DependentUpon>frmHienThiChiTietKiemHang.cs</DependentUpon>
@@ -797,6 +821,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_ThongBao.en.resx">
       <DependentUpon>frmHienThi_ThongBao.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>frmHienThi_ThongBao.en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmHienThi_ThongBao.resx">
       <DependentUpon>frmHienThi_ThongBao.cs</DependentUpon>
@@ -806,6 +832,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\frmHienThi_KhoHang.en.resx">
       <DependentUpon>frmHienThi_KhoHang.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>frmHienThi_KhoHang.en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Stores\Dialogs\frmChucNang_ChiPhiCuaHang.en.resx">
       <DependentUpon>frmChucNang_ChiPhiCuaHang.cs</DependentUpon>

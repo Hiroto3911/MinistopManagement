@@ -168,9 +168,6 @@
   <data name="Grid_Price" xml:space="preserve">
     <value>Price</value>
   </data>
-  <data name="Grid_LastUpdated" xml:space="preserve">
-    <value>Last Update</value>
-  </data>
   <data name="Grid_ExportID" xml:space="preserve">
     <value>Export ID</value>
   </data>
@@ -212,5 +209,38 @@
   </data>
   <data name="Label_Money" xml:space="preserve">
     <value>USD</value>
+  </data>
+  <data name="Grid_SupplierPrice" xml:space="preserve">
+    <value>Supplier Price</value>
+  </data>
+  <data name="Grid_Choose" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="Grid_HistoryID" xml:space="preserve">
+    <value>History ID</value>
+  </data>
+  <data name="Grid_LastModified" xml:space="preserve">
+    <value>Last Modified</value>
+  </data>
+  <data name="Grid_TypeOfChange" xml:space="preserve">
+    <value>Type Of Change</value>
+  </data>
+  <data name="Grid_RefID" xml:space="preserve">
+    <value>Reference ID</value>
+  </data>
+  <data name="Title_ThongBaoNhap" xml:space="preserve">
+    <value>List Of Product Imported This Month</value>
+  </data>
+  <data name="Title_ThongBaoXuat" xml:space="preserve">
+    <value>List Of Product Exported This Month</value>
+  </data>
+  <data name="Grid_QuantityActual" xml:space="preserve">
+    <value>Quantity Actual</value>
+  </data>
+  <data name="Grid_QuantitySystem" xml:space="preserve">
+    <value>Quantity System</value>
+  </data>
+  <data name="Grid_QuantityVariance" xml:space="preserve">
+    <value>Quantity Variance</value>
   </data>
 </root>

@@ -61,6 +61,15 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chọn ít nhất 1 sản phẩm!.
+        /// </summary>
+        internal static string Message_ChooseAtLeastOneProduct {
+            get {
+                return ResourceManager.GetString("Message_ChooseAtLeastOneProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sản phẩm này không tồn tại trong kho hàng. Vui lòng nhập lại mã.
         /// </summary>
         internal static string Message_ProductNotInStock {
@@ -75,6 +84,15 @@ namespace Presentation.Properties {
         internal static string Message_QuantityProductNotEnough {
             get {
                 return ResourceManager.GetString("Message_QuantityProductNotEnough", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số lượng thực tế không thể lớn hơn số lượng hệ thống. Vui lòng kiểm lại!.
+        /// </summary>
+        internal static string Message_QuantityVariance {
+            get {
+                return ResourceManager.GetString("Message_QuantityVariance", resourceCulture);
             }
         }
         

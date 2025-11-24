@@ -36,6 +36,7 @@
             this.dgvDuLieu = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTongTienXuat = new System.Windows.Forms.Label();
             this.txtSoTrang = new Guna.UI2.WinForms.Guna2TextBox();
@@ -43,7 +44,6 @@
             this.btnTrangTruoc = new Guna.UI2.WinForms.Guna2Button();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -54,7 +54,6 @@
             resources.ApplyResources(this.dgvDuLieu, "dgvDuLieu");
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvDuLieu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDuLieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDuLieu.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDuLieu.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -114,6 +113,20 @@
             resources.ApplyResources(this.label11, "label11");
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Name = "label11";
+            // 
+            // ibtnThoat
+            // 
+            resources.ApplyResources(this.ibtnThoat, "ibtnThoat");
+            this.ibtnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.ibtnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.ibtnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnThoat.ImageRotate = 0F;
+            this.ibtnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.ibtnThoat.Name = "ibtnThoat";
+            this.ibtnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Click += new System.EventHandler(this.ibtnThoat_Click);
             // 
             // guna2Panel3
             // 
@@ -202,20 +215,6 @@
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
-            // ibtnThoat
-            // 
-            resources.ApplyResources(this.ibtnThoat, "ibtnThoat");
-            this.ibtnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.ibtnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.ibtnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnThoat.ImageRotate = 0F;
-            this.ibtnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.ibtnThoat.Name = "ibtnThoat";
-            this.ibtnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.Click += new System.EventHandler(this.ibtnThoat_Click);
             // 
             // frmHienThi_ChiTietXuatHang
             // 

@@ -79,6 +79,12 @@ namespace Presentation
                 rtxtGhiChu.Focus();
                 return;
             }
+            if(quantityActual >= quantitySystem)
+            {
+                MessageBox.Show($"{lblQuantityActual.Text} {Properties.Messages.Message_QuantityVariance}!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSLThucTe.Focus();
+                return;
+            }
             string note = rtxtGhiChu.Text.Trim();
 
             var detailDto = new StockCheckDetailDto()

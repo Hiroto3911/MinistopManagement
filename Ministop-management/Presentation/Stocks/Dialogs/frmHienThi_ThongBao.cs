@@ -37,8 +37,8 @@ namespace Presentation.Stocks.Dialogs
         private void LoadData(int pageNumber = 1, int pageSize = 20)
         {
             lblTieuDe.Text = _type == "IMPORT"
-    ? "Danh sách hàng NHẬP trong tháng"
-    : "Danh sách hàng XUẤT trong tháng";
+    ? Properties.Resources.Title_ThongBaoNhap
+    : Properties.Resources.Title_ThongBaoNhap;
 
             using (var scope = _container.CreateChildContainer())
             {

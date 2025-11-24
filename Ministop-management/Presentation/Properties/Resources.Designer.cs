@@ -185,6 +185,15 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chọn.
+        /// </summary>
+        internal static string Grid_Choose {
+            get {
+                return ResourceManager.GetString("Grid_Choose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Người tạo.
         /// </summary>
         internal static string Grid_CreateBy {
@@ -208,6 +217,15 @@ namespace Presentation.Properties {
         internal static string Grid_ExportID {
             get {
                 return ResourceManager.GetString("Grid_ExportID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã lịch sử.
+        /// </summary>
+        internal static string Grid_HistoryID {
+            get {
+                return ResourceManager.GetString("Grid_HistoryID", resourceCulture);
             }
         }
         
@@ -239,11 +257,11 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lần cuối cập nhập.
+        ///   Looks up a localized string similar to Cập nhập lần cuối.
         /// </summary>
-        internal static string Grid_LastUpdated {
+        internal static string Grid_LastModified {
             get {
-                return ResourceManager.GetString("Grid_LastUpdated", resourceCulture);
+                return ResourceManager.GetString("Grid_LastModified", resourceCulture);
             }
         }
         
@@ -293,11 +311,47 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Số lượng thực tế.
+        /// </summary>
+        internal static string Grid_QuantityActual {
+            get {
+                return ResourceManager.GetString("Grid_QuantityActual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số lượng hệ thống.
+        /// </summary>
+        internal static string Grid_QuantitySystem {
+            get {
+                return ResourceManager.GetString("Grid_QuantitySystem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chênh lệch.
+        /// </summary>
+        internal static string Grid_QuantityVariance {
+            get {
+                return ResourceManager.GetString("Grid_QuantityVariance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lý do.
         /// </summary>
         internal static string Grid_Reason {
             get {
                 return ResourceManager.GetString("Grid_Reason", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã tham chiếu.
+        /// </summary>
+        internal static string Grid_RefID {
+            get {
+                return ResourceManager.GetString("Grid_RefID", resourceCulture);
             }
         }
         
@@ -338,6 +392,15 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Giá từ nhà cung cấp.
+        /// </summary>
+        internal static string Grid_SupplierPrice {
+            get {
+                return ResourceManager.GetString("Grid_SupplierPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thành tiền.
         /// </summary>
         internal static string Grid_Total {
@@ -352,6 +415,15 @@ namespace Presentation.Properties {
         internal static string Grid_TypeExport {
             get {
                 return ResourceManager.GetString("Grid_TypeExport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loại thay đổi.
+        /// </summary>
+        internal static string Grid_TypeOfChange {
+            get {
+                return ResourceManager.GetString("Grid_TypeOfChange", resourceCulture);
             }
         }
         
@@ -625,6 +697,24 @@ namespace Presentation.Properties {
         internal static string Status_Permitted {
             get {
                 return ResourceManager.GetString("Status_Permitted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Danh Sách Sản Phẩm Nhập Trong Tháng Này.
+        /// </summary>
+        internal static string Title_ThongBaoNhap {
+            get {
+                return ResourceManager.GetString("Title_ThongBaoNhap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Danh Sách Sản Phẩm Xuất Trong Tháng Này.
+        /// </summary>
+        internal static string Title_ThongBaoXuat {
+            get {
+                return ResourceManager.GetString("Title_ThongBaoXuat", resourceCulture);
             }
         }
     }

@@ -117,11 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Message_ChooseAtLeastOneProduct" xml:space="preserve">
+    <value>Select At Least 1 Product</value>
+  </data>
   <data name="Message_ProductNotInStock" xml:space="preserve">
     <value>This product not in stock. Please re enter the product id</value>
   </data>
   <data name="Message_QuantityProductNotEnough" xml:space="preserve">
     <value>The quantity in stock is not enough to meet your order quantity, please adjust the quantity!</value>
+  </data>
+  <data name="Message_QuantityVariance" xml:space="preserve">
+    <value>Quantity actual should not exceed quantity system. Please check thoroughtly!</value>
   </data>
   <data name="Message_SpecialCharacter" xml:space="preserve">
     <value>No Special Character</value>
