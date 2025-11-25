@@ -61,7 +61,7 @@ namespace Presentation
             string productID = txtMaSP.Text.Trim();
             if (string.IsNullOrEmpty(txtSLHeThong.Text.Trim()))
             {
-                MessageBox.Show($"{Properties.Messages.Message_ProductNotInStock}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{Properties.Messages.Message_ProductNotInStock}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtMaSP.Focus();
                 return;
             }
@@ -69,19 +69,19 @@ namespace Presentation
             if (string.IsNullOrWhiteSpace(txtSLThucTe.Text) ||
                !int.TryParse(txtSLThucTe.Text, out int quantityActual) || quantityActual <= 0)
             {
-                MessageBox.Show($"{lblQuantityActual.Text} {Properties.Messages.Message_ValidNumber}!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{lblQuantityActual.Text} {Properties.Messages.Message_ValidNumber}!", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSLThucTe.Focus();
                 return;
             }
             if (Regex.IsMatch(rtxtGhiChu.Text.Trim(), @"[^a-zA-Z0-9\s\u00C0-\u1EF9,./-]"))
             {
-                MessageBox.Show($"{lblNote.Text} {Properties.Messages.Message_SpecialCharacter}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"{lblNote.Text} {Properties.Messages.Message_SpecialCharacter}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 rtxtGhiChu.Focus();
                 return;
             }
             if(quantityActual >= quantitySystem)
             {
-                MessageBox.Show($"{lblQuantityActual.Text} {Properties.Messages.Message_QuantityVariance}!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{lblQuantityActual.Text} {Properties.Messages.Message_QuantityVariance}!", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSLThucTe.Focus();
                 return;
             }
@@ -115,11 +115,11 @@ namespace Presentation
 
             if (!result.Succeeded)
             {
-                MessageBox.Show(result.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.Message, $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("Lưu phiếu kiem thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
         private void txtMaSP_TextChanged(object sender, EventArgs e)

@@ -111,6 +111,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0DABDC0F10E3468B8B8271ADF5B97657"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_0F9522BF5E59FEF2E92B7436141DB2E9"
         "OwnerKey" = "8:_6DB513F639A136A3A80A9BFCBDC87EB4"
         "MsmSig" = "8:_UNDEFINED"
@@ -153,6 +159,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_194F37DFEFA847D18E8EE532B0B3CA4E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_1AE9D451BC6C18E63530E9DFE5E4DC3A"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
         "MsmSig" = "8:_UNDEFINED"
@@ -191,6 +203,12 @@
         {
         "MsmKey" = "8:_20D30C0671456F64643D8D1B76FD82BD"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2159E454182E4C23BAB9AD2173A02985"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -279,7 +297,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_330C4C7C0DE14E27913DAA21E0D913CB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_33ADEDAF35834E89ADBA68EB548F6931"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_33DA98C172934422A8BCFF824D54F755"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -315,6 +345,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_3B5B3EDBD50546ECB69F580DA3ED42C9"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3D003E0345244009A7DAF4F6EC94E4D3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_3DB309F8CEA638B032A3F7EBAFA777CC"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
         "MsmSig" = "8:_UNDEFINED"
@@ -323,6 +365,18 @@
         {
         "MsmKey" = "8:_3DF64C3BC6B8F6A1E6DD8D65E4908CFD"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3E7F4CE9C61549C29BC6916BC0BD1A55"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_452DB8FD1DE84F669D59A3A2927BE8A2"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -405,6 +459,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_572637F9A50E4AFDA63448906956852A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5C9EC75AE253A23528AFB58BF72E21E3"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
         "MsmSig" = "8:_UNDEFINED"
@@ -483,6 +543,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_7F10014A087948CEAB67E5920FFF9D8A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7F10A1A4B8384E60AC9FCE64B25A0B91"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
         "MsmSig" = "8:_UNDEFINED"
@@ -497,6 +563,12 @@
         {
         "MsmKey" = "8:_802D358889DFB9B1BFD66D10908552A7"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_847076B6C559471BA631DDBB20607992"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -621,6 +693,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A23FE03E562E41E7A5906503EA64074A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A29E5F13A14C268BA0EED04F0D0058CE"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
         "MsmSig" = "8:_UNDEFINED"
@@ -641,6 +719,12 @@
         {
         "MsmKey" = "8:_A4E55481445A2D0EA2F4554D494209A7"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A82FC3C415444047A678E07B7C028C3E"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -687,8 +771,20 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B011F1BC26B14BD8BEB5C06CFA154E29"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B39D74662FE72ED863C1469E8ADB2A8A"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B53BDAC3AB8E4A108B450C735EA80CEF"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -783,6 +879,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_DF40B58155AF44E79BCA7DC1D7E261DA"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_DFF8DFE30C61936114D9522B307A18E3"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
         "MsmSig" = "8:_UNDEFINED"
@@ -809,6 +911,12 @@
         {
         "MsmKey" = "8:_E5326F059215E736B49514F49F06C05C"
         "OwnerKey" = "8:_E04E6E3EB02546749FA8906D17D781CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E565043BD5FF42E3A18A297A1CD1F315"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -869,12 +977,6 @@
         {
         "MsmKey" = "8:_FF770382420885E6DE186187894AFCD3"
         "OwnerKey" = "8:_D93A1A24DA68128FD6C7E3A826D5727D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FC07A81EC091E94F780CBE50A6364749"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1633,6 +1735,12 @@
         "OwnerKey" = "8:_A3629E5A2423BC0F0CBE48B99065E557"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FC07A81EC091E94F780CBE50A6364749"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -2163,6 +2271,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0DABDC0F10E3468B8B8271ADF5B97657"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\EmployeeReports\\Rpt_DanhSachNhanVienTheoCuaHang.rpt"
+            "TargetName" = "8:Rpt_DanhSachNhanVienTheoCuaHang.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_DC3FFBE706584607A3AAF01969BB3575"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0F9522BF5E59FEF2E92B7436141DB2E9"
             {
             "AssemblyRegister" = "3:1"
@@ -2349,6 +2477,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_194F37DFEFA847D18E8EE532B0B3CA4E"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\EmployeeReports\\Rpt_DanhSachLuong_CuaHang.cs"
+            "TargetName" = "8:Rpt_DanhSachLuong_CuaHang.cs"
+            "Tag" = "8:"
+            "Folder" = "8:_DC3FFBE706584607A3AAF01969BB3575"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_1AE9D451BC6C18E63530E9DFE5E4DC3A"
             {
             "AssemblyRegister" = "3:1"
@@ -2471,6 +2619,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2159E454182E4C23BAB9AD2173A02985"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\EmployeeReports\\Rpt_HopDonLuongCuaMotNhanVien.rpt"
+            "TargetName" = "8:Rpt_HopDonLuongCuaMotNhanVien.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_DC3FFBE706584607A3AAF01969BB3575"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_2424E4C07689C63D0C0D52FD73EC6F75"
@@ -2814,6 +2982,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_330C4C7C0DE14E27913DAA21E0D913CB"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\StockReports\\Rpt_InPhieuNhap.rpt"
+            "TargetName" = "8:Rpt_InPhieuNhap.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_D725FC8422E943F7BB181CF1A795A1F9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_33ADEDAF35834E89ADBA68EB548F6931"
             {
             "AssemblyRegister" = "3:1"
@@ -2831,6 +3019,26 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_AED62D33F0A747D8A8766D8763CDB202"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_33DA98C172934422A8BCFF824D54F755"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\StockReports\\Rpt_InPhieuXuat.rpt"
+            "TargetName" = "8:Rpt_InPhieuXuat.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_D725FC8422E943F7BB181CF1A795A1F9"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3000,6 +3208,46 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3B5B3EDBD50546ECB69F580DA3ED42C9"
+            {
+            "SourcePath" = "8:..\\presentation\\crystalreport\\report\\storereports\\Rpt_InTop3Store.rpt"
+            "TargetName" = "8:Rpt_InTop3Store.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_BA1A79A5372D48D0A562C2E7C4A07D7C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3D003E0345244009A7DAF4F6EC94E4D3"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\EmployeeReports\\Rpt_PhieuLuong_NhanVien.cs"
+            "TargetName" = "8:Rpt_PhieuLuong_NhanVien.cs"
+            "Tag" = "8:"
+            "Folder" = "8:_DC3FFBE706584607A3AAF01969BB3575"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3DB309F8CEA638B032A3F7EBAFA777CC"
             {
             "AssemblyRegister" = "3:1"
@@ -3060,6 +3308,46 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3E7F4CE9C61549C29BC6916BC0BD1A55"
+            {
+            "SourcePath" = "8:..\\presentation\\crystalreport\\report\\storereports\\Rpt_InTop3Store.cs"
+            "TargetName" = "8:Rpt_InTop3Store.cs"
+            "Tag" = "8:"
+            "Folder" = "8:_BA1A79A5372D48D0A562C2E7C4A07D7C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_452DB8FD1DE84F669D59A3A2927BE8A2"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\EmployeeReports\\Rpt_DanhSachNhanVienTheoCuaHang.cs"
+            "TargetName" = "8:Rpt_DanhSachNhanVienTheoCuaHang.cs"
+            "Tag" = "8:"
+            "Folder" = "8:_DC3FFBE706584607A3AAF01969BB3575"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_47B2DD70C799569B21B43489ED912F36"
@@ -3401,6 +3689,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_572637F9A50E4AFDA63448906956852A"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\SaleReports\\Rpt_InHoaDon.cs"
+            "TargetName" = "8:Rpt_InHoaDon.cs"
+            "Tag" = "8:"
+            "Folder" = "8:_9B7BF63A8EC7426EB8B975649C937CA6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5C9EC75AE253A23528AFB58BF72E21E3"
@@ -3806,6 +4114,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7F10014A087948CEAB67E5920FFF9D8A"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\StockReports\\Rpt_InPhieuXuat.cs"
+            "TargetName" = "8:Rpt_InPhieuXuat.cs"
+            "Tag" = "8:"
+            "Folder" = "8:_D725FC8422E943F7BB181CF1A795A1F9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7F10A1A4B8384E60AC9FCE64B25A0B91"
             {
             "AssemblyRegister" = "3:1"
@@ -3897,6 +4225,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_847076B6C559471BA631DDBB20607992"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\EmployeeReports\\Rpt_DanhSachLuong_CuaHang.rpt"
+            "TargetName" = "8:Rpt_DanhSachLuong_CuaHang.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_DC3FFBE706584607A3AAF01969BB3575"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8804262EB675D4749FFF12FDB64DC941"
@@ -4488,6 +4836,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A23FE03E562E41E7A5906503EA64074A"
+            {
+            "SourcePath" = "8:..\\presentation\\crystalreport\\report\\storereports\\Rpt_DanhSachCuaHangTheoKhuVuc.rpt"
+            "TargetName" = "8:Rpt_DanhSachCuaHangTheoKhuVuc.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_BA1A79A5372D48D0A562C2E7C4A07D7C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A29E5F13A14C268BA0EED04F0D0058CE"
             {
             "AssemblyRegister" = "3:1"
@@ -4599,6 +4967,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A82FC3C415444047A678E07B7C028C3E"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\EmployeeReports\\Rpt_HopDonLuongCuaMotNhanVien.cs"
+            "TargetName" = "8:Rpt_HopDonLuongCuaMotNhanVien.cs"
+            "Tag" = "8:"
+            "Folder" = "8:_DC3FFBE706584607A3AAF01969BB3575"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A9B808A22A5315CA7B0D20D4B09ADABD"
@@ -4818,6 +5206,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B011F1BC26B14BD8BEB5C06CFA154E29"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\EmployeeReports\\Rpt_PhieuLuong_NhanVien.rpt"
+            "TargetName" = "8:Rpt_PhieuLuong_NhanVien.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_DC3FFBE706584607A3AAF01969BB3575"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B39D74662FE72ED863C1469E8ADB2A8A"
             {
             "AssemblyRegister" = "3:1"
@@ -4847,6 +5255,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B53BDAC3AB8E4A108B450C735EA80CEF"
+            {
+            "SourcePath" = "8:..\\presentation\\crystalreport\\report\\storereports\\Rpt_DanhSachCuaHangTheoKhuVuc.cs"
+            "TargetName" = "8:Rpt_DanhSachCuaHangTheoKhuVuc.cs"
+            "Tag" = "8:"
+            "Folder" = "8:_BA1A79A5372D48D0A562C2E7C4A07D7C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B55C65BB5D26E3D383D92F2565A8B412"
@@ -5314,6 +5742,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DF40B58155AF44E79BCA7DC1D7E261DA"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\SaleReports\\Rpt_InHoaDon.rpt"
+            "TargetName" = "8:Rpt_InHoaDon.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_9B7BF63A8EC7426EB8B975649C937CA6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DFF8DFE30C61936114D9522B307A18E3"
             {
             "AssemblyRegister" = "3:1"
@@ -5436,6 +5884,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E565043BD5FF42E3A18A297A1CD1F315"
+            {
+            "SourcePath" = "8:..\\Presentation\\CrystalReport\\Report\\StockReports\\Rpt_InPhieuNhap.cs"
+            "TargetName" = "8:Rpt_InPhieuNhap.cs"
+            "Tag" = "8:"
+            "Folder" = "8:_D725FC8422E943F7BB181CF1A795A1F9"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_E5F5B8A91E038C5EB13D289C36156AE7"
@@ -5755,6 +6223,72 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_73A64060DA854354B9DAFF61A716884B"
+                    {
+                    "Name" = "8:Report"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_9835C5FCC66647D0A896FAB17D7881BE"
+                        "Folders"
+                        {
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_9B7BF63A8EC7426EB8B975649C937CA6"
+                            {
+                            "Name" = "8:SaleReports"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_10DF70678C404E0F8C331FEFB177C8FF"
+                                "Folders"
+                                {
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_B4456E763F4E4C0B9B299BD9AB066FF6"
+                            {
+                            "Name" = "8:ProductReports"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_EA2A310A6A254D4E84964FFC886EEC02"
+                                "Folders"
+                                {
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_BA1A79A5372D48D0A562C2E7C4A07D7C"
+                            {
+                            "Name" = "8:StoreReports"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_2C740815E8284848807515A5FE1035AC"
+                                "Folders"
+                                {
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_D725FC8422E943F7BB181CF1A795A1F9"
+                            {
+                            "Name" = "8:StockReports"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_0F3DFB94F20D494CB593F8FB90E67202"
+                                "Folders"
+                                {
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_DC3FFBE706584607A3AAF01969BB3575"
+                            {
+                            "Name" = "8:EmployeeReports"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_9C24072F7B8D42638C07B3AC75F1400B"
+                                "Folders"
+                                {
+                                }
+                            }
+                        }
+                    }
                     "{9EF0B969-E518-4E46-987F-47570745A589}:_AED62D33F0A747D8A8766D8763CDB202"
                     {
                     "Name" = "8:en"
@@ -5785,7 +6319,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Ministop Management Setup"
         "ProductCode" = "8:{EA57EFC2-FC9B-487C-A834-0947AEA24071}"
-        "PackageCode" = "8:{EF86EB6D-17F1-4123-B507-E9C86559066F}"
+        "PackageCode" = "8:{1CE06779-EF60-44E8-BB92-9FE4CA033EB6}"
         "UpgradeCode" = "8:{C25FBB51-C87D-4B48-9F9D-93093E11A235}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

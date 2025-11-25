@@ -123,6 +123,9 @@
   <data name="tabSanPham.Text" xml:space="preserve">
     <value>Product Management</value>
   </data>
+  <data name="btnthemPCT.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="tabLoaiSanPham.Text" xml:space="preserve">
     <value>Category Management</value>
   </data>

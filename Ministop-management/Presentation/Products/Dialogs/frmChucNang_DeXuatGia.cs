@@ -43,18 +43,17 @@ namespace Presentation
             {
                 status = new Dictionary<string, byte>()
                 {
-                    {"Duyệt",1 },
-                    { "Không duyệt",0 }
+                 {Properties.Resources.Status_Permitted,1 },
+                 {Properties.Resources.Status_NotPermitted,0 }
                 };
             }
             else
             {
                 status = new Dictionary<string, byte>()
-                {
-                  {"Đang soạn",2 },
-                  {"Chờ duyệt",3 },
-
-                };
+               {
+                {Properties.Resources.Status_Draft,2 },
+                 {Properties.Resources.Status_Pending,3 }
+               };
             }
             cboTrangThai.DataSource = status.ToList();
             cboTrangThai.DisplayMember = "Key";
@@ -69,7 +68,7 @@ namespace Presentation
                 var entity = _priceProposalService.GetpriceProposaByID(_priceProposalID);
                 if (entity.Succeeded == false && entity.Data == null)
                 {
-                    MessageBox.Show($"{entity.Message}", "Lỗi");
+                    MessageBox.Show($"{entity.Message}", $"{Properties.Messages.Message_Error}");
                     return;
                 }
                 txtCuaHang.Text = entity.Data.StoreId;
@@ -101,7 +100,7 @@ namespace Presentation
                 var entity = _priceProposalService.GetpriceProposaByID(_priceProposalID);
                 if (entity.Succeeded == false || entity.Data == null)
                 {
-                    MessageBox.Show($"{entity.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"{entity.Message}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                     return;
                 }
@@ -259,7 +258,7 @@ namespace Presentation
             }
             else
             {
-                MessageBox.Show(result.Message ?? "Đã xảy ra lỗi không xác định.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.Message ?? "Đã xảy ra lỗi không xác định.", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void loadData(string productID)

@@ -92,7 +92,7 @@ namespace Presentation.Stocks.Dialogs
         }
         private void ApplyGridStyle(Guna2DataGridView dgvDuLieu)
         {
-            if (_userSession.Role == "Admin" || _status == "Đã nhập hàng" || _status != "Imported") return; 
+            if (_userSession.Role == "Admin" || _status == "Đã nhập hàng" || _status == "Imported") return; 
             // ===== 2️⃣ Thêm hai cột nút =====
             if (dgvDuLieu.Columns["Edit"] == null)
             {
@@ -189,7 +189,7 @@ namespace Presentation.Stocks.Dialogs
         {
             if (e.RowIndex < 0) return;
             string id = dgvDuLieu.Rows[e.RowIndex].Cells["MaPhieuChiTiet"].Value.ToString();
-            var allowAction = _status == "Đã nhập hàng" || _status != "Imported";
+            var allowAction = _status == "Đã nhập hàng" || _status == "Imported";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrang.Text);
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")
@@ -205,13 +205,13 @@ namespace Presentation.Stocks.Dialogs
             }
             else if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa phieu chi tiet {id}?",
-                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {id}?",
+                    $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
                     _stockImportDetailSerivce.RemoveStockImportDetail(id);
-                    MessageBox.Show("Xóa thành công!");
+                     MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadData(_importID, pageNumber); // tải lại dữ liệu
                 }
             }

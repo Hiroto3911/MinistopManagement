@@ -400,4 +400,37 @@
   <data name="Grid_OpeningStock" xml:space="preserve">
     <value>Tồn đầu kỳ</value>
   </data>
+  <data name="Grid_ProductCategoryName" xml:space="preserve">
+    <value>Tên loại sản phẩm</value>
+  </data>
+  <data name="Grid_describe" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="Grid_StandardPrice" xml:space="preserve">
+    <value>Giá tiêu chuẩn</value>
+  </data>
+  <data name="Grid_PromotionName" xml:space="preserve">
+    <value>Tên khuyến mãi</value>
+  </data>
+  <data name="Grid_StartDay" xml:space="preserve">
+    <value>Ngày bắt đầu</value>
+  </data>
+  <data name="Grid_EndDay" xml:space="preserve">
+    <value>Ngày kết thúc</value>
+  </data>
+  <data name="Grid_Priority" xml:space="preserve">
+    <value>Mức độ ưu tiên</value>
+  </data>
+  <data name="Grid_NewPrice" xml:space="preserve">
+    <value>Giá mới</value>
+  </data>
+  <data name="Grid_OldPrice" xml:space="preserve">
+    <value>Giá cũ</value>
+  </data>
+  <data name="Status_Active" xml:space="preserve">
+    <value>Đang hoạt động</value>
+  </data>
+  <data name="Status_Deactive" xml:space="preserve">
+    <value>Ngưng hoạt đông</value>
+  </data>
 </root>

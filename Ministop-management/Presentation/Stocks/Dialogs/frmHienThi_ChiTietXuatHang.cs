@@ -47,7 +47,7 @@ namespace Presentation.Stocks.Dialogs
         private void frmHienThi_ChiTietXuatHang_Load(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(_exportID)) return;
-            if (_status == "Duyệt" || _userSession.Role == "Admin")
+            if ( _status == "Duyệt" || _status == "Permitted" || _userSession.Role == "Admin")
             {
                 btnThem.Enabled = false;
             }
@@ -90,7 +90,7 @@ namespace Presentation.Stocks.Dialogs
         }
         private void ApplyGridStyle(Guna2DataGridView dgvDuLieu)
         {
-            if (_userSession.Role == "Admin" || _status == "Duyệt" || _status != "Imported") return;
+            if (_userSession.Role == "Admin" || _status == "Duyệt" || _status == "Permitted") return;
             // ===== 2️⃣ Thêm hai cột nút =====
             if (dgvDuLieu.Columns["Edit"] == null)
             {
@@ -124,12 +124,12 @@ namespace Presentation.Stocks.Dialogs
             dgvDuLieu.CellPainting += (s, e) =>
             {
 
-                bool allowEditDelete = _status != "Duyệt" || _status != "Imported";
+                bool allowEditDelete = _status == "Duyệt" || _status == "Permitted";
                 if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
                                         dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
                 {
                     e.PaintBackground(e.CellBounds, true);
-                    if (allowEditDelete)
+                    if (!allowEditDelete)
                     {
                         Color backColor = dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit"
                         ? Color.SeaGreen
@@ -196,7 +196,7 @@ namespace Presentation.Stocks.Dialogs
         {
             if (e.RowIndex < 0) return;
             string id = dgvDuLieu.Rows[e.RowIndex].Cells["MaPhieuChiTiet"].Value.ToString();
-            var allowAction = _status == "Duyệt" || _status != "Imported";
+            var allowAction = _status == "Duyệt" || _status == "Permitted";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrang.Text);
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")
@@ -212,13 +212,13 @@ namespace Presentation.Stocks.Dialogs
             }
             else if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa phieu chi tiet {id}?",
-                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {id}?",
+                    $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
                     _stockExportDetailService.RemoveStockExportDetail(id);
-                    MessageBox.Show("Xóa thành công!");
+                     MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadData(_exportID, pageNumber); // tải lại dữ liệu
                 }
             }

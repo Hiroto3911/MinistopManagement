@@ -73,7 +73,7 @@ namespace Presentation.Stocks.Dialogs
                 return;
             }
 
-            MessageBox.Show("Lưu phiếu kiểm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 

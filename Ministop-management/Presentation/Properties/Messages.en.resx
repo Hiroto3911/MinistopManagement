@@ -123,8 +123,26 @@
   <data name="Message_ChooseAtLeastOneProduct" xml:space="preserve">
     <value>Select At Least 1 Product</value>
   </data>
+  <data name="Message_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Message_DeleteData" xml:space="preserve">
+    <value>Are you sure you want to delete</value>
+  </data>
+  <data name="Message_DeletedSuccessfully" xml:space="preserve">
+    <value>Deleted successfully</value>
+  </data>
+  <data name="Message_DeleteHaveData" xml:space="preserve">
+    <value>There is still data.\n If you confirm deletion, the system will delete the detailed data in the ballot! Please consider before pressing the confirm button.</value>
+  </data>
   <data name="Message_DeleteStore" xml:space="preserve">
     <value>Note that the system currently only supports deleting one store, so please select the correct store to perform the operation!</value>
+  </data>
+  <data name="Message_DeleteStoreHaveData" xml:space="preserve">
+    <value>The store currently has data and an active account.\n If you confirm deletion, the system will deactivate the store and related data, instead of permanently deleting it.</value>
+  </data>
+  <data name="Message_EnterNameProductToFind" xml:space="preserve">
+    <value>Please enter product name to search warehouse data</value>
   </data>
   <data name="Message_Error" xml:space="preserve">
     <value>Error</value>

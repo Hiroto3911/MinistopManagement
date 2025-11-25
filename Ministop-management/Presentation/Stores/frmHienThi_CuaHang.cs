@@ -74,25 +74,25 @@ namespace Presentation
             }
             else if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa cửa hàng {storeId}?",
-                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {storeId}?",
+                    $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
                     var isChecked = _employeeService.AnyStore(storeId);
                     if (isChecked.Data == true)
                     {
-                        DialogResult resultCon = MessageBox.Show($"Cửa hàng {storeId} hiện đang còn dữ liệu và tài khoản hoạt động.\n Nếu bạn xác nhận xoá, hệ thống sẽ ngưng kích hoạt cửa hàng và các dữ liệu liên quan, thay vì xoá vĩnh viễn.",
-                        "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult resultCon = MessageBox.Show($"{Properties.Messages.Message_DeleteStoreHaveData}",
+                         $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (resultCon != DialogResult.Yes) return;
                         _storeService.RemoveSoftStore(storeId);
-                        MessageBox.Show("Xóa thành công!");
+                        MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                         LoadDataCH(); // tải lại dữ liệu
                         return;
 
                     }
                     _storeService.RemoveSoftStore(storeId);
-                    MessageBox.Show("Xóa thành công!");
+                    MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadDataCH(); // tải lại dữ liệu
                 }
             }
@@ -486,13 +486,13 @@ namespace Presentation
             }
             else if (dgvDuLieuCP.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa phieu chi phi cửa hàng {expenseID}?",
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {expenseID}?",
                     "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
                     _storeFixedExpenseServices.RemoveStoreFixedExpense(expenseID);
-                    MessageBox.Show("Xóa thành công!");
+                    MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
 
                     LoadDataCP(cboCuaHang.SelectedValue.ToString()); // tải lại dữ liệu
                 }

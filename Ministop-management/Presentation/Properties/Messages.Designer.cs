@@ -79,11 +79,65 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Xác nhận.
+        /// </summary>
+        internal static string Message_Confirm {
+            get {
+                return ResourceManager.GetString("Message_Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bạn có chắc muốn xóa.
+        /// </summary>
+        internal static string Message_DeleteData {
+            get {
+                return ResourceManager.GetString("Message_DeleteData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Xóa thành công.
+        /// </summary>
+        internal static string Message_DeletedSuccessfully {
+            get {
+                return ResourceManager.GetString("Message_DeletedSuccessfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Phiếu hiện đang còn dữ liệu.\n Nếu bạn xác nhận xoá, hệ thống sẽ xóa các dữ liệu chi tiết bên trong phiếu ! Xin vui lòng cân nhăc trước khi ấn nút xác nhận..
+        /// </summary>
+        internal static string Message_DeleteHaveData {
+            get {
+                return ResourceManager.GetString("Message_DeleteHaveData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lưu ý hiện tại hệ thống chỉ hỗ trợ xóa một cửa hàng nên vui lòng chọn đúng một cửa hàng để thực hiện thao tác !.
         /// </summary>
         internal static string Message_DeleteStore {
             get {
                 return ResourceManager.GetString("Message_DeleteStore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cửa hàng  hiện đang còn dữ liệu và tài khoản hoạt động.\n Nếu bạn xác nhận xoá, hệ thống sẽ ngưng kích hoạt cửa hàng và các dữ liệu liên quan, thay vì xoá vĩnh viễn..
+        /// </summary>
+        internal static string Message_DeleteStoreHaveData {
+            get {
+                return ResourceManager.GetString("Message_DeleteStoreHaveData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vui lòng nhập tên sản phẩm để có thể tìm kiếm dữ liệu trong kho.
+        /// </summary>
+        internal static string Message_EnterNameProductToFind {
+            get {
+                return ResourceManager.GetString("Message_EnterNameProductToFind", resourceCulture);
             }
         }
         

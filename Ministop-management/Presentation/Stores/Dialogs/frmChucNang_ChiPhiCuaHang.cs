@@ -69,7 +69,7 @@ namespace Presentation
                 var entity = _storeFixedExpenseServices.GetStoreFixedExpenseByID(_expenseID);
                 if (entity.Succeeded == false && entity.Data == null)
                 {
-                    MessageBox.Show($"{entity.Message}", "Lỗi");
+                    MessageBox.Show($"{entity.Message}", $"{Properties.Messages.Message_Error}");
                     return;
                 }
                 txtTenCuaHang.Text = entity.Data.StoreId;
@@ -163,7 +163,7 @@ namespace Presentation
                 return;
             }
 
-            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 

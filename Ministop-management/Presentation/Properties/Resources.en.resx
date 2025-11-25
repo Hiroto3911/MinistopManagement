@@ -315,4 +315,37 @@
   <data name="Grid_OpeningStock" xml:space="preserve">
     <value>OpeningStock</value>
   </data>
+  <data name="Grid_ProductCategoryName" xml:space="preserve">
+    <value>Product Category Name</value>
+  </data>
+  <data name="Grid_describe" xml:space="preserve">
+    <value>Describe</value>
+  </data>
+  <data name="Grid_StandardPrice" xml:space="preserve">
+    <value>Standard Price</value>
+  </data>
+  <data name="Grid_PromotionName" xml:space="preserve">
+    <value>Promotion Name</value>
+  </data>
+  <data name="Grid_StartDay" xml:space="preserve">
+    <value>Start Day</value>
+  </data>
+  <data name="Grid_EndDay" xml:space="preserve">
+    <value>End Day</value>
+  </data>
+  <data name="Grid_Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="Grid_NewPrice" xml:space="preserve">
+    <value>New Price</value>
+  </data>
+  <data name="Grid_OldPrice" xml:space="preserve">
+    <value>Old Price</value>
+  </data>
+  <data name="Status_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Status_Deactive" xml:space="preserve">
+    <value>Deactive</value>
+  </data>
 </root>

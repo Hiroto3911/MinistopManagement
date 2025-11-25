@@ -311,11 +311,29 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mô tả.
+        /// </summary>
+        internal static string Grid_describe {
+            get {
+                return ResourceManager.GetString("Grid_describe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tiền điện.
         /// </summary>
         internal static string Grid_ElectricityCost {
             get {
                 return ResourceManager.GetString("Grid_ElectricityCost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ngày kết thúc.
+        /// </summary>
+        internal static string Grid_EndDay {
+            get {
+                return ResourceManager.GetString("Grid_EndDay", resourceCulture);
             }
         }
         
@@ -410,11 +428,29 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Giá mới.
+        /// </summary>
+        internal static string Grid_NewPrice {
+            get {
+                return ResourceManager.GetString("Grid_NewPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ghi chú.
         /// </summary>
         internal static string Grid_Note {
             get {
                 return ResourceManager.GetString("Grid_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Giá cũ.
+        /// </summary>
+        internal static string Grid_OldPrice {
+            get {
+                return ResourceManager.GetString("Grid_OldPrice", resourceCulture);
             }
         }
         
@@ -446,6 +482,24 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mức độ ưu tiên.
+        /// </summary>
+        internal static string Grid_Priority {
+            get {
+                return ResourceManager.GetString("Grid_Priority", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên loại sản phẩm.
+        /// </summary>
+        internal static string Grid_ProductCategoryName {
+            get {
+                return ResourceManager.GetString("Grid_ProductCategoryName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mã sản phẩm.
         /// </summary>
         internal static string Grid_ProductID {
@@ -460,6 +514,15 @@ namespace Presentation.Properties {
         internal static string Grid_ProductName {
             get {
                 return ResourceManager.GetString("Grid_ProductName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên khuyến mãi.
+        /// </summary>
+        internal static string Grid_PromotionName {
+            get {
+                return ResourceManager.GetString("Grid_PromotionName", resourceCulture);
             }
         }
         
@@ -532,6 +595,24 @@ namespace Presentation.Properties {
         internal static string Grid_SaleInPeriod {
             get {
                 return ResourceManager.GetString("Grid_SaleInPeriod", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Giá tiêu chuẩn.
+        /// </summary>
+        internal static string Grid_StandardPrice {
+            get {
+                return ResourceManager.GetString("Grid_StandardPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ngày bắt đầu.
+        /// </summary>
+        internal static string Grid_StartDay {
+            get {
+                return ResourceManager.GetString("Grid_StartDay", resourceCulture);
             }
         }
         
@@ -868,6 +949,24 @@ namespace Presentation.Properties {
             get {
                 object obj = ResourceManager.GetObject("settings1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Đang hoạt động.
+        /// </summary>
+        internal static string Status_Active {
+            get {
+                return ResourceManager.GetString("Status_Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ngưng hoạt đông.
+        /// </summary>
+        internal static string Status_Deactive {
+            get {
+                return ResourceManager.GetString("Status_Deactive", resourceCulture);
             }
         }
         

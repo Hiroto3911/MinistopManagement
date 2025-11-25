@@ -123,8 +123,26 @@
   <data name="Message_ChooseAtLeastOneProduct" xml:space="preserve">
     <value>Chọn ít nhất 1 sản phẩm!</value>
   </data>
+  <data name="Message_Confirm" xml:space="preserve">
+    <value>Xác nhận</value>
+  </data>
+  <data name="Message_DeleteData" xml:space="preserve">
+    <value>Bạn có chắc muốn xóa</value>
+  </data>
+  <data name="Message_DeletedSuccessfully" xml:space="preserve">
+    <value>Xóa thành công</value>
+  </data>
+  <data name="Message_DeleteHaveData" xml:space="preserve">
+    <value>Phiếu hiện đang còn dữ liệu.\n Nếu bạn xác nhận xoá, hệ thống sẽ xóa các dữ liệu chi tiết bên trong phiếu ! Xin vui lòng cân nhăc trước khi ấn nút xác nhận.</value>
+  </data>
   <data name="Message_DeleteStore" xml:space="preserve">
     <value>Lưu ý hiện tại hệ thống chỉ hỗ trợ xóa một cửa hàng nên vui lòng chọn đúng một cửa hàng để thực hiện thao tác !</value>
+  </data>
+  <data name="Message_DeleteStoreHaveData" xml:space="preserve">
+    <value>Cửa hàng  hiện đang còn dữ liệu và tài khoản hoạt động.\n Nếu bạn xác nhận xoá, hệ thống sẽ ngưng kích hoạt cửa hàng và các dữ liệu liên quan, thay vì xoá vĩnh viễn.</value>
+  </data>
+  <data name="Message_EnterNameProductToFind" xml:space="preserve">
+    <value>Vui lòng nhập tên sản phẩm để có thể tìm kiếm dữ liệu trong kho</value>
   </data>
   <data name="Message_Error" xml:space="preserve">
     <value>Lỗi</value>

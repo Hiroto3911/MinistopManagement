@@ -313,7 +313,7 @@ namespace Presentation
                 return;
             }
 
-            MessageBox.Show($"Luu thanh cong", "Thong bao");
+            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 

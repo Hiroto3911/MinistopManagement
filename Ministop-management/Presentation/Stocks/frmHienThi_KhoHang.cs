@@ -593,26 +593,26 @@ namespace Presentation
             }
             else if (dgvDuLieuNH.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa phieu {importID}?",
-                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {importID}?",
+                   $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
                     var check = _stockImportDetailSerivce.Any(importID);
                     if (check.Data)
                     {
-                        DialogResult resultCon = MessageBox.Show($"Phiếu {importID} hiện đang còn dữ liệu.\n Nếu bạn xác nhận xoá, hệ thống sẽ xóa các dữ liệu chi tiết bên trong phiếu ! Xin vui lòng cân nhăc trước khi ấn nút xác nhận.",
-                        "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult resultCon = MessageBox.Show($"{importID} {Properties.Messages.Message_DeleteHaveData}",
+ $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (resultCon != DialogResult.Yes) return;
                         var isSucceeded = _stockImportDetailSerivce.RemoveRangeStockImportDetailByImportID(importID);
-                        if (!isSucceeded.Succeeded) { MessageBox.Show("Việc xóa các phiếu chi tiết đã xảy ra sự cố !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+                        if (!isSucceeded.Succeeded) { MessageBox.Show($"{Properties.Messages.Message_Fail}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
                         _stockImportService.RemoveStockImport(importID);
-                        MessageBox.Show("Xóa thành công!");
+                         MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                         LoadDataStockImport(cboCuaHangNH.SelectedValue.ToString(), pageNumber);
                         return;
                     }
                     _stockImportService.RemoveStockImport(importID);
-                    MessageBox.Show("Xóa thành công!");
+                     MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadDataStockImport(cboCuaHangNH.SelectedValue.ToString(), pageNumber); // tải lại dữ liệu
                 }
             }
@@ -747,8 +747,8 @@ namespace Presentation
             }
             else if (dgvDuLieuXH.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa phieu xuat {exportID}?",
-                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {exportID}?",
+                    $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
@@ -756,18 +756,18 @@ namespace Presentation
                     var check = _stockExportDetailService.Any(exportID);
                     if (check.Data)
                     {
-                        DialogResult resultCon = MessageBox.Show($"Phiếu {exportID} hiện đang còn dữ liệu.\n Nếu bạn xác nhận xoá, hệ thống sẽ xóa các dữ liệu chi tiết bên trong phiếu ! Xin vui lòng cân nhăc trước khi ấn nút xác nhận.",
-                        "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult resultCon = MessageBox.Show($"{exportID} {Properties.Messages.Message_DeleteHaveData}",
+                        $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (resultCon != DialogResult.Yes) return;
                         var isSucceeded = _stockExportDetailService.RemoveRangeStockExportDetailByExportID(exportID);
-                        if (!isSucceeded.Succeeded) { MessageBox.Show("Việc xóa các phiếu chi tiết đã xảy ra sự cố !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+                        if (!isSucceeded.Succeeded) { MessageBox.Show($"{Properties.Messages.Message_Fail}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
                         _stockExportService.RemoveStockExport(exportID);
-                        MessageBox.Show("Xóa thành công!");
+                         MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                         LoadDataStockExport(cboCuaHangXH.SelectedValue.ToString(), pageNumber); // tải lại dữ liệu
                         return;
                     }
                     _stockExportService.RemoveStockExport(exportID);
-                    MessageBox.Show("Xóa thành công!");
+                     MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadDataStockExport(cboCuaHangXH.SelectedValue.ToString(), pageNumber); // tải lại dữ liệu
 
 
@@ -896,26 +896,26 @@ namespace Presentation
             }
             else if (dgvDuLieuKH.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa phieu kiem {CheckID}?",
-                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {CheckID}?",
+    $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
                     var check = _stockCheckDetailService.Any(CheckID);
                     if (check.Data)
                     {
-                        DialogResult resultCon = MessageBox.Show($"Phiếu {CheckID} hiện đang còn dữ liệu.\n Nếu bạn xác nhận xoá, hệ thống sẽ xóa các dữ liệu chi tiết bên trong phiếu ! Xin vui lòng cân nhăc trước khi ấn nút xác nhận.",
-                        "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult resultCon = MessageBox.Show($"{CheckID} {Properties.Messages.Message_DeleteHaveData}",
+                        $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (resultCon != DialogResult.Yes) return;
                         var isSucceeded = _stockCheckDetailService.RemoveRangeStockCheckDetailByCheckID(CheckID);
-                        if (!isSucceeded.Succeeded) { MessageBox.Show("Việc xóa các phiếu chi tiết đã xảy ra sự cố !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+                        if (!isSucceeded.Succeeded) { MessageBox.Show($"{Properties.Messages.Message_Fail}",$"{ Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
                         _stockCheckService.RemoveStockCheck(CheckID);
-                        MessageBox.Show("Xóa thành công!");
+                         MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                         LoadDataStockCheck(cboCuaHangKH.SelectedValue.ToString(), pageNumber);// tải lại dữ liệu
                         return;
                     }
                     _stockCheckService.RemoveStockCheck(CheckID);
-                    MessageBox.Show("Xóa thành công!");
+                     MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadDataStockCheck(cboCuaHangKH.SelectedValue.ToString(), pageNumber);// tải lại dữ liệu
 
                 }
@@ -987,7 +987,7 @@ namespace Presentation
         {
             if (string.IsNullOrWhiteSpace(txtSearch.Text))
             {
-                MessageBox.Show("Vui long nhap ten san pham can tim!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"{Properties.Messages.Message_EnterNameProductToFind}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSearch.Focus();
                 return;
             }
