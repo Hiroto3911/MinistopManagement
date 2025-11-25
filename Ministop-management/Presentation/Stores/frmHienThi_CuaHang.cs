@@ -2,6 +2,7 @@
 using Services.Interfaces;
 using Shared.Security;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -53,15 +54,8 @@ namespace Presentation
         private void dgvDuLieu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            string storeId;
-            if (_lang == "en-US")
-            {
-                storeId = dgvDuLieu.Rows[e.RowIndex].Cells["StoreID"].Value.ToString();
-            }
-            else
-            {
-                storeId = dgvDuLieu.Rows[e.RowIndex].Cells["MaCuaHang"].Value.ToString();
-            }
+            string storeId = dgvDuLieu.Rows[e.RowIndex].Cells["MaCuaHang"].Value.ToString();
+            
 
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")
             {
@@ -106,37 +100,32 @@ namespace Presentation
         {
             // ===== 1️⃣ Tạo DataTable cho danh sách cửa hàng =====
             DataTable dt = new DataTable();
-            if(_lang == "en-US")
-            {
-                dt.Columns.Add("StoreID");
-                dt.Columns.Add("StoreName");
-                dt.Columns.Add("Address");
-                dt.Columns.Add("PhoneNumber");
-            }
-            else
-            {
+           
                 dt.Columns.Add("MaCuaHang");
                 dt.Columns.Add("TenCuaHang");
                 dt.Columns.Add("DiaChi");
                 dt.Columns.Add("SoDienThoai");
-            }
+            
 
-                using (var childContainer = _container.CreateChildContainer())
+            using (var childContainer = _container.CreateChildContainer())
+            {
+                var storeService = childContainer.Resolve<IStoreService>();
+                var list = storeService.GetStore(pageNumber, pageSize);
+                if (list.Succeeded == false && list.Data == null) { return; }
+                _totalPageCH = (long)Math.Ceiling((double)(list.TotalCount / pageSize));
+                foreach (var item in list.Data)
                 {
-                    var storeService = childContainer.Resolve<IStoreService>();
-                    var list = storeService.GetStore(pageNumber, pageSize);
-                    if (list.Succeeded == false && list.Data == null) { return; }
-                    _totalPageCH = (long)Math.Ceiling((double)(list.TotalCount / pageSize));
-                    foreach (var item in list.Data)
-                    {
-                        dt.Rows.Add(item.StoreId, item.StoreName, item.Address, item.Phone);
-                    }
+                    dt.Rows.Add(item.StoreId, item.StoreName, item.Address, item.Phone);
                 }
+            }
             // ===== 2️⃣ Dữ liệu mẫu (có thể thay bằng dữ liệu trong DB sau này) =====
             dgvDuLieu.DataSource = dt;
             dgvDuLieu.AllowUserToAddRows = false;
             dgvDuLieu.ReadOnly = true;
-
+            dgvDuLieu.Columns["MaCuaHang"].HeaderText = Properties.Resources.Grid_ID;
+            dgvDuLieu.Columns["TenCuaHang"].HeaderText = Properties.Resources.Grid_StoreName;
+            dgvDuLieu.Columns["DiaChi"].HeaderText = Properties.Resources.Grid_Adrress;
+            dgvDuLieu.Columns["SoDienThoai"].HeaderText = Properties.Resources.Grid_PhoneNumber;
             // ===== 2️⃣ Thêm hai cột nút =====
 
             if (dgvDuLieu.Columns["Edit"] == null)
@@ -283,27 +272,13 @@ namespace Presentation
 
             // ===== 1️⃣ Tạo DataTable cho danh sách cửa hàng =====
             DataTable dt = new DataTable();
-            if (_lang == "en-US")
-            {
-                dt.Columns.Add("ExpenseID");
-                dt.Columns.Add("Store");
-                dt.Columns.Add("RentCost");
-                dt.Columns.Add("ElectricityCost");
-                dt.Columns.Add("WaterCost");
-                dt.Columns.Add("Note");
-                dt.Columns.Add("Status");
-            }
-            else
-            {
-                dt.Columns.Add("MaChiPhi");
-                dt.Columns.Add("CuaHang");
-                dt.Columns.Add("TienThueMatBang");
-                dt.Columns.Add("TienDien");
-                dt.Columns.Add("TienNuoc");
-                dt.Columns.Add("GhiChu");
-                dt.Columns.Add("TrangThai");
-            }
-
+            dt.Columns.Add("MaChiPhi");
+            dt.Columns.Add("CuaHang");
+            dt.Columns.Add("TienThueMatBang");
+            dt.Columns.Add("TienDien");
+            dt.Columns.Add("TienNuoc");
+            dt.Columns.Add("GhiChu");
+            dt.Columns.Add("TrangThai");
             using (var childContainer = _container.CreateChildContainer())
             {
                 var expenseService = childContainer.Resolve<IStoreFixedExpenseServices>();
@@ -312,20 +287,14 @@ namespace Presentation
                 _totalPageCP = (long)Math.Ceiling((double)(list.TotalCount / pageSize));
                 if (_userSession.Role == "Admin")
                 {
-                    if (_lang == "en-US")
-                    {
-                        dt.Columns.Add("LastModifiedBy");
-                        dt.Columns.Add("LastModified");
-                    }
-                    else
-                    {
+                   
                         dt.Columns.Add("NguoiSuaDoiLanCuoi");
                         dt.Columns.Add("NgaySuaDoiLanCuoi");
-                    }
+                    
                     foreach (var item in list.Data)
                     {
                         string status = GetStatus(item.Status);
-                        dt.Rows.Add(item.ExpenseId, item.StoreName, item.RentCost, item.ElectricityCost, item.WaterCost, item.Note, status, item.LastModifiedBy , item.LastModified.ToString());
+                        dt.Rows.Add(item.ExpenseId, item.StoreName, item.RentCost, item.ElectricityCost, item.WaterCost, item.Note, status, item.LastModifiedBy, item.LastModified.ToString());
                     }
                 }
                 else
@@ -339,46 +308,59 @@ namespace Presentation
             }
             // ===== 2️⃣ Dữ liệu mẫu (có thể thay bằng dữ liệu trong DB sau này) =====
             dgvDuLieuCP.DataSource = dt;
+            dgvDuLieuCP.Columns["MaChiPhi"].HeaderText = Properties.Resources.Grid_ID;
+            dgvDuLieuCP.Columns["CuaHang"].HeaderText = Properties.Resources.Grid_StoreName;
+            dgvDuLieuCP.Columns["TienThueMatBang"].HeaderText = Properties.Resources.Grid_RentCost;
+            dgvDuLieuCP.Columns["TienDien"].HeaderText = Properties.Resources.Grid_ElectricityCost;
+            dgvDuLieuCP.Columns["TienNuoc"].HeaderText = Properties.Resources.Grid_WaterCost;
+            dgvDuLieuCP.Columns["GhiChu"].HeaderText = Properties.Resources.Grid_Note;
+            dgvDuLieuCP.Columns["TrangThai"].HeaderText = Properties.Resources.Grid_Status;
+            if (_userSession.Role == "Admin")
+            {
+
+                dgvDuLieuCP.Columns["NguoiSuaDoiLanCuoi"].HeaderText = Properties.Resources.Grid_LastModifiedBy;
+                dgvDuLieuCP.Columns["NgaySuaDoiLanCuoi"].HeaderText = Properties.Resources.Grid_LastModified;
+            }
             dgvDuLieuCP.AllowUserToAddRows = false;
             dgvDuLieuCP.ReadOnly = true;
-    
+
 
             // ===== 2️⃣ Thêm hai cột nút =====
 
             //if (_isEditable == true)
             //{
 
-                if (dgvDuLieuCP.Columns["Edit"] == null)
+            if (dgvDuLieuCP.Columns["Edit"] == null)
+            {
+                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
                 {
-                    DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
-                    {
-                        Name = "Edit",
-                        HeaderText = "Edit",
-                        Text = "Edit",
-                        UseColumnTextForButtonValue = true
-                    };
-                    dgvDuLieuCP.Columns.Add(btnEdit);
-                }
+                    Name = "Edit",
+                    HeaderText = "Edit",
+                    Text = "Edit",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvDuLieuCP.Columns.Add(btnEdit);
+            }
 
-                if (dgvDuLieuCP.Columns["Delete"] == null && _userSession.Role != "Admin")
+            if (dgvDuLieuCP.Columns["Delete"] == null && _userSession.Role != "Admin")
+            {
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn
                 {
-                    DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn
-                    {
-                        Name = "Delete",
-                        HeaderText = "Delete",
-                        Text = "Delete",
-                        UseColumnTextForButtonValue = true
-                    };
-                    dgvDuLieuCP.Columns.Add(btnDelete);
-                }
+                    Name = "Delete",
+                    HeaderText = "Delete",
+                    Text = "Delete",
+                    UseColumnTextForButtonValue = true
+                };
+                dgvDuLieuCP.Columns.Add(btnDelete);
+            }
             //}
             //else
             //{
-                // Nếu đã chốt phiếu thì ẩn (hoặc xóa) hai cột này nếu có
-                //if (dgvDuLieuCP.Columns["Edit"] != null)
-                //    dgvDuLieuCP.Columns.Remove("Edit");
-                //if (dgvDuLieuCP.Columns["Delete"] != null)
-                //    dgvDuLieuCP.Columns.Remove("Delete");
+            // Nếu đã chốt phiếu thì ẩn (hoặc xóa) hai cột này nếu có
+            //if (dgvDuLieuCP.Columns["Edit"] != null)
+            //    dgvDuLieuCP.Columns.Remove("Edit");
+            //if (dgvDuLieuCP.Columns["Delete"] != null)
+            //    dgvDuLieuCP.Columns.Remove("Delete");
             //}
 
 
@@ -391,15 +373,8 @@ namespace Presentation
 
                 var row = grid.Rows[e.RowIndex];
                 string status;
-                if (_lang == "en-US")
-                {
-                    status = row.Cells["Status"].Value?.ToString();
-                }
-                else
-                {
-                   status  = row.Cells["TrangThai"].Value?.ToString();
-                }
-                    
+
+                status = row.Cells["TrangThai"].Value?.ToString();
 
                 if (status == "Không duyệt" || status == "Not permitted") // bị từ chối
                 {
@@ -422,19 +397,14 @@ namespace Presentation
                 var grid = (Guna2DataGridView)s;
                 string status;
                 bool allowEditDelete;
-                if (_lang == "en-US")
-                {
-                    status = grid.Rows[e.RowIndex].Cells["Status"].Value?.ToString();
-                    allowEditDelete = status != "Permitted";
-                }
-                else
-                {
-                    status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
-                    allowEditDelete = status != "Duyệt" ;
-                }
-             
-                // 👆 chỉ dòng cuối (dòng mới nhất) mới có nút
                
+               
+                    status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
+                    allowEditDelete = status != "Duyệt" || status != "Permitted";
+              
+
+                // 👆 chỉ dòng cuối (dòng mới nhất) mới có nút
+
                 if ((grid.Columns[e.ColumnIndex].Name == "Edit" || grid.Columns[e.ColumnIndex].Name == "Delete"))
                 {
                     e.PaintBackground(e.CellBounds, true);
@@ -471,68 +441,32 @@ namespace Presentation
         }
         private string GetStatus(byte status)
         {
-            if (_lang == "en-US")
+
+            switch (status)
             {
-                switch (status)
-                {
-                    case 0:
-                        return "Not permitted";
+                case 0:
+                    return Properties.Resources.Status_NotPermitted;
 
-                    case 1:
-                        return "Permitted";
+                case 1:
+                    return Properties.Resources.Status_Permitted;
 
 
-                    case 3:
-                        return "Pending";
+                case 3:
+                    return Properties.Resources.Status_Pending;
 
+                default:
+                    return Properties.Resources.Status_Draft;
 
-                    default:
-                        return "Draft";
-
-
-                }
             }
-            else
-            {
-                switch (status)
-                {
-                    case 0:
-                        return "Không duyệt";
 
-                    case 1:
-                        return "Duyệt";
-
-
-                    case 3:
-                        return "Chờ duyệt";
-
-
-                    default:
-                        return "Đang soạn";
-
-
-                }
-            }
-          ;
         }
         private void dgvDuLieuCP_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            string status;
-            string expenseID;
-            bool allowAction;
-            if (_lang == "en-US")
-            {
-                status = dgvDuLieuCP.Rows[e.RowIndex].Cells["Status"].Value?.ToString();
-                expenseID = dgvDuLieuCP.Rows[e.RowIndex].Cells["ExpenseID"].Value.ToString();
-                allowAction = status != "Permitted";
-            }
-            else
-            {
-                status = dgvDuLieuCP.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
-                expenseID = dgvDuLieuCP.Rows[e.RowIndex].Cells["MaChiPhi"].Value.ToString();
-                allowAction = status != "Duyệt";
-            }
+            string status = dgvDuLieuCP.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
+            string expenseID = dgvDuLieuCP.Rows[e.RowIndex].Cells["MaChiPhi"].Value.ToString();
+            bool allowAction= status != "Duyệt" || status != "Permitted";
+           
             if (!allowAction) return;
 
             if (dgvDuLieuCP.Columns[e.ColumnIndex].Name == "Edit")
@@ -541,7 +475,7 @@ namespace Presentation
                 var frmChucNangCP = _container.Resolve<frmChucNang_ChiPhiCuaHang>(new ParameterOverride("expenseID", expenseID));
                 frmChucNangCP.dataChanged += (s, ev) =>
                 {
-                  
+
                     LoadDataCP(cboCuaHang.SelectedValue.ToString());
                 };
                 frmChucNangCP.ShowDialog();
@@ -558,7 +492,7 @@ namespace Presentation
                 {
                     _storeFixedExpenseServices.RemoveStoreFixedExpense(expenseID);
                     MessageBox.Show("Xóa thành công!");
-                   
+
                     LoadDataCP(cboCuaHang.SelectedValue.ToString()); // tải lại dữ liệu
                 }
             }
@@ -595,13 +529,13 @@ namespace Presentation
 
         private void btnThemCP_Click(object sender, EventArgs e)
         {
-            
+
             var frmChucNang = _container.Resolve<frmChucNang_ChiPhiCuaHang>();
             frmChucNang.dataChanged += (s, ev) => { LoadDataCP(cboCuaHang.SelectedValue.ToString()); };
             frmChucNang.ShowDialog();
-            
+
         }
-        
+
         #endregion
 
 

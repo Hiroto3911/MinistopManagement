@@ -33,10 +33,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblRentCost = new System.Windows.Forms.Label();
+            this.lblNote = new System.Windows.Forms.Label();
+            this.lblWaterCost = new System.Windows.Forms.Label();
+            this.lblElectricityCost = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
@@ -80,25 +80,25 @@
             this.ibtnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.ibtnThoat.Click += new System.EventHandler(this.ibtnThoat_Click);
             // 
-            // label7
+            // lblRentCost
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.lblRentCost, "lblRentCost");
+            this.lblRentCost.Name = "lblRentCost";
             // 
-            // label6
+            // lblNote
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
+            resources.ApplyResources(this.lblNote, "lblNote");
+            this.lblNote.Name = "lblNote";
             // 
-            // label4
+            // lblWaterCost
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.lblWaterCost, "lblWaterCost");
+            this.lblWaterCost.Name = "lblWaterCost";
             // 
-            // label5
+            // lblElectricityCost
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(this.lblElectricityCost, "lblElectricityCost");
+            this.lblElectricityCost.Name = "lblElectricityCost";
             // 
             // label1
             // 
@@ -256,10 +256,10 @@
             this.Controls.Add(this.txtTienNuoc);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblRentCost);
+            this.Controls.Add(this.lblNote);
+            this.Controls.Add(this.lblWaterCost);
+            this.Controls.Add(this.lblElectricityCost);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -277,10 +277,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2ImageButton ibtnThoat;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblRentCost;
+        private System.Windows.Forms.Label lblNote;
+        private System.Windows.Forms.Label lblWaterCost;
+        private System.Windows.Forms.Label lblElectricityCost;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;

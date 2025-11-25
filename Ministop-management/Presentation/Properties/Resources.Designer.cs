@@ -71,6 +71,60 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trung Quốc (+86).
+        /// </summary>
+        internal static string Cbo_Chinese {
+            get {
+                return ResourceManager.GetString("Cbo_Chinese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nhật Bản (+81).
+        /// </summary>
+        internal static string Cbo_JP {
+            get {
+                return ResourceManager.GetString("Cbo_JP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hàn quốc (+82).
+        /// </summary>
+        internal static string Cbo_Korea {
+            get {
+                return ResourceManager.GetString("Cbo_Korea", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Khác (nhập thủ công).
+        /// </summary>
+        internal static string Cbo_Others {
+            get {
+                return ResourceManager.GetString("Cbo_Others", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mỹ (+1).
+        /// </summary>
+        internal static string Cbo_US {
+            get {
+                return ResourceManager.GetString("Cbo_US", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Việt Nam (+84).
+        /// </summary>
+        internal static string Cbo_VN {
+            get {
+                return ResourceManager.GetString("Cbo_VN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap close_dark {
@@ -167,6 +221,15 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Địa chỉ.
+        /// </summary>
+        internal static string Grid_Adrress {
+            get {
+                return ResourceManager.GetString("Grid_Adrress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ngày kiểm.
         /// </summary>
         internal static string Grid_CheckDay {
@@ -199,6 +262,15 @@ namespace Presentation.Properties {
         internal static string Grid_CreateBy {
             get {
                 return ResourceManager.GetString("Grid_CreateBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tiền điện.
+        /// </summary>
+        internal static string Grid_ElectricityCost {
+            get {
+                return ResourceManager.GetString("Grid_ElectricityCost", resourceCulture);
             }
         }
         
@@ -266,11 +338,29 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Người sửa lần cuối.
+        /// </summary>
+        internal static string Grid_LastModifiedBy {
+            get {
+                return ResourceManager.GetString("Grid_LastModifiedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ghi chú.
         /// </summary>
         internal static string Grid_Note {
             get {
                 return ResourceManager.GetString("Grid_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số điện thoại.
+        /// </summary>
+        internal static string Grid_PhoneNumber {
+            get {
+                return ResourceManager.GetString("Grid_PhoneNumber", resourceCulture);
             }
         }
         
@@ -356,6 +446,15 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tiền thuê mặt bằng.
+        /// </summary>
+        internal static string Grid_RentCost {
+            get {
+                return ResourceManager.GetString("Grid_RentCost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Trạng thái.
         /// </summary>
         internal static string Grid_Status {
@@ -370,6 +469,15 @@ namespace Presentation.Properties {
         internal static string Grid_StockDetailID {
             get {
                 return ResourceManager.GetString("Grid_StockDetailID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tên cửa hàng.
+        /// </summary>
+        internal static string Grid_StoreName {
+            get {
+                return ResourceManager.GetString("Grid_StoreName", resourceCulture);
             }
         }
         
@@ -424,6 +532,15 @@ namespace Presentation.Properties {
         internal static string Grid_TypeOfChange {
             get {
                 return ResourceManager.GetString("Grid_TypeOfChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tiền nước.
+        /// </summary>
+        internal static string Grid_WaterCost {
+            get {
+                return ResourceManager.GetString("Grid_WaterCost", resourceCulture);
             }
         }
         

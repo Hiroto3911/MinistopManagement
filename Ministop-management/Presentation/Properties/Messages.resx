@@ -117,8 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Message_ChooseAtLeastOneData" xml:space="preserve">
+    <value>Vui lòng chọn ít nhật một dữ liệu để thực hiện hành động</value>
+  </data>
   <data name="Message_ChooseAtLeastOneProduct" xml:space="preserve">
     <value>Chọn ít nhất 1 sản phẩm!</value>
+  </data>
+  <data name="Message_DeleteStore" xml:space="preserve">
+    <value>Lưu ý hiện tại hệ thống chỉ hỗ trợ xóa một cửa hàng nên vui lòng chọn đúng một cửa hàng để thực hiện thao tác !</value>
+  </data>
+  <data name="Message_Error" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="Message_Fail" xml:space="preserve">
+    <value>Thất Bại</value>
+  </data>
+  <data name="Message_InvalidChineseNumber" xml:space="preserve">
+    <value>Số điện thoại Trung Quốc không hợp lệ. VD: +8613712345678 hoặc 13712345678</value>
+  </data>
+  <data name="Message_InvalidJapaneseNumber" xml:space="preserve">
+    <value>Số điện thoại Nhật Bản không hợp lệ. VD: +819012345678 hoặc 09012345678</value>
+  </data>
+  <data name="Message_InvalidKoreanNumber" xml:space="preserve">
+    <value>Số điện thoại Hàn Quốc không hợp lệ. VD: +821012345678 hoặc 01012345678</value>
+  </data>
+  <data name="Message_InvalidPhoneNumber" xml:space="preserve">
+    <value>Số điện thoại không hợp lệ. Vui lòng kiểm tra lại định dạng!</value>
+  </data>
+  <data name="Message_InvalidUSNumber" xml:space="preserve">
+    <value>Số điện thoại Mỹ không hợp lệ. VD: +11234567890 hoặc 1234567890</value>
+  </data>
+  <data name="Message_InvalidVietnameseNumber" xml:space="preserve">
+    <value>Số điện thoại Việt Nam không hợp lệ VD: +84912345678 hoặc 0912345678"</value>
+  </data>
+  <data name="Message_Notification" xml:space="preserve">
+    <value>Thông Báo</value>
+  </data>
+  <data name="Message_NotNull" xml:space="preserve">
+    <value>Không được để trống</value>
   </data>
   <data name="Message_ProductNotInStock" xml:space="preserve">
     <value>Sản phẩm này không tồn tại trong kho hàng. Vui lòng nhập lại mã</value>
@@ -129,8 +165,17 @@
   <data name="Message_QuantityVariance" xml:space="preserve">
     <value>Số lượng thực tế không thể lớn hơn số lượng hệ thống. Vui lòng kiểm lại!</value>
   </data>
+  <data name="Message_SavedSuccessfullLy" xml:space="preserve">
+    <value>Lưu thành công </value>
+  </data>
+  <data name="Message_SelectNation" xml:space="preserve">
+    <value>Vui lòng chọn quốc gia/vùng miền.</value>
+  </data>
   <data name="Message_SpecialCharacter" xml:space="preserve">
     <value>Không được chứa ký tự đặc biệt !</value>
+  </data>
+  <data name="Message_Successfull" xml:space="preserve">
+    <value>Thành Công</value>
   </data>
   <data name="Message_ValidNumber" xml:space="preserve">
     <value>phải là số hợp lệ và không được để trống hoặc bằng 0</value>

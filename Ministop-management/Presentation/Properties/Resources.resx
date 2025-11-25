@@ -328,4 +328,43 @@
   <data name="Grid_QuantityVariance" xml:space="preserve">
     <value>Chênh lệch</value>
   </data>
+  <data name="Cbo_VN" xml:space="preserve">
+    <value>Việt Nam (+84)</value>
+  </data>
+  <data name="Cbo_US" xml:space="preserve">
+    <value>Mỹ (+1)</value>
+  </data>
+  <data name="Cbo_JP" xml:space="preserve">
+    <value>Nhật Bản (+81)</value>
+  </data>
+  <data name="Cbo_Chinese" xml:space="preserve">
+    <value>Trung Quốc (+86)</value>
+  </data>
+  <data name="Cbo_Others" xml:space="preserve">
+    <value>Khác (nhập thủ công)</value>
+  </data>
+  <data name="Cbo_Korea" xml:space="preserve">
+    <value>Hàn quốc (+82)</value>
+  </data>
+  <data name="Grid_StoreName" xml:space="preserve">
+    <value>Tên cửa hàng</value>
+  </data>
+  <data name="Grid_Adrress" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="Grid_PhoneNumber" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="Grid_RentCost" xml:space="preserve">
+    <value>Tiền thuê mặt bằng</value>
+  </data>
+  <data name="Grid_ElectricityCost" xml:space="preserve">
+    <value>Tiền điện</value>
+  </data>
+  <data name="Grid_WaterCost" xml:space="preserve">
+    <value>Tiền nước</value>
+  </data>
+  <data name="Grid_LastModifiedBy" xml:space="preserve">
+    <value>Người sửa lần cuối</value>
+  </data>
 </root>

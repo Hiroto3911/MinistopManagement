@@ -117,8 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Message_ChooseAtLeastOneData" xml:space="preserve">
+    <value>Select At Least 1 Data To Perform Action</value>
+  </data>
   <data name="Message_ChooseAtLeastOneProduct" xml:space="preserve">
     <value>Select At Least 1 Product</value>
+  </data>
+  <data name="Message_DeleteStore" xml:space="preserve">
+    <value>Note that the system currently only supports deleting one store, so please select the correct store to perform the operation!</value>
+  </data>
+  <data name="Message_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Message_Fail" xml:space="preserve">
+    <value>Fail</value>
+  </data>
+  <data name="Message_InvalidChineseNumber" xml:space="preserve">
+    <value>Invalid Chinese phone number EX:  +8613712345678 or13712345678"</value>
+  </data>
+  <data name="Message_InvalidJapaneseNumber" xml:space="preserve">
+    <value>Invalid Japanese phone number EX:   +821012345678 or01012345678"</value>
+  </data>
+  <data name="Message_InvalidKoreanNumber" xml:space="preserve">
+    <value>Invalid Korean phone number EX:  +819012345678 or 09012345678"</value>
+  </data>
+  <data name="Message_InvalidPhoneNumber" xml:space="preserve">
+    <value>Invalid Phone Number. Please check  the  format againt !</value>
+  </data>
+  <data name="Message_InvalidUSNumber" xml:space="preserve">
+    <value>Invalid US phone number EX:  +11234567890 or1234567890"</value>
+  </data>
+  <data name="Message_InvalidVietnameseNumber" xml:space="preserve">
+    <value>Invalid Vietnamese phone number EX: +84912345678 or 0912345678"</value>
+  </data>
+  <data name="Message_Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="Message_NotNull" xml:space="preserve">
+    <value>Cannot be left blank </value>
   </data>
   <data name="Message_ProductNotInStock" xml:space="preserve">
     <value>This product not in stock. Please re enter the product id</value>
@@ -129,8 +165,17 @@
   <data name="Message_QuantityVariance" xml:space="preserve">
     <value>Quantity actual should not exceed quantity system. Please check thoroughtly!</value>
   </data>
+  <data name="Message_SavedSuccessfullLy" xml:space="preserve">
+    <value>Saved Successfully</value>
+  </data>
+  <data name="Message_SelectNation" xml:space="preserve">
+    <value>Please select nation/region </value>
+  </data>
   <data name="Message_SpecialCharacter" xml:space="preserve">
     <value>No Special Character</value>
+  </data>
+  <data name="Message_Successfull" xml:space="preserve">
+    <value>Successfull</value>
   </data>
   <data name="Message_ValidNumber" xml:space="preserve">
     <value>Must be a valid number and cannot be blank  or 0 </value>

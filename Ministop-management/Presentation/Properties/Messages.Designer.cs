@@ -61,11 +61,119 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vui lòng chọn ít nhật một dữ liệu để thực hiện hành động.
+        /// </summary>
+        internal static string Message_ChooseAtLeastOneData {
+            get {
+                return ResourceManager.GetString("Message_ChooseAtLeastOneData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chọn ít nhất 1 sản phẩm!.
         /// </summary>
         internal static string Message_ChooseAtLeastOneProduct {
             get {
                 return ResourceManager.GetString("Message_ChooseAtLeastOneProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lưu ý hiện tại hệ thống chỉ hỗ trợ xóa một cửa hàng nên vui lòng chọn đúng một cửa hàng để thực hiện thao tác !.
+        /// </summary>
+        internal static string Message_DeleteStore {
+            get {
+                return ResourceManager.GetString("Message_DeleteStore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lỗi.
+        /// </summary>
+        internal static string Message_Error {
+            get {
+                return ResourceManager.GetString("Message_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thất Bại.
+        /// </summary>
+        internal static string Message_Fail {
+            get {
+                return ResourceManager.GetString("Message_Fail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số điện thoại Trung Quốc không hợp lệ. VD: +8613712345678 hoặc 13712345678.
+        /// </summary>
+        internal static string Message_InvalidChineseNumber {
+            get {
+                return ResourceManager.GetString("Message_InvalidChineseNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số điện thoại Nhật Bản không hợp lệ. VD: +819012345678 hoặc 09012345678.
+        /// </summary>
+        internal static string Message_InvalidJapaneseNumber {
+            get {
+                return ResourceManager.GetString("Message_InvalidJapaneseNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số điện thoại Hàn Quốc không hợp lệ. VD: +821012345678 hoặc 01012345678.
+        /// </summary>
+        internal static string Message_InvalidKoreanNumber {
+            get {
+                return ResourceManager.GetString("Message_InvalidKoreanNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số điện thoại không hợp lệ. Vui lòng kiểm tra lại định dạng!.
+        /// </summary>
+        internal static string Message_InvalidPhoneNumber {
+            get {
+                return ResourceManager.GetString("Message_InvalidPhoneNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số điện thoại Mỹ không hợp lệ. VD: +11234567890 hoặc 1234567890.
+        /// </summary>
+        internal static string Message_InvalidUSNumber {
+            get {
+                return ResourceManager.GetString("Message_InvalidUSNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Số điện thoại Việt Nam không hợp lệ VD: +84912345678 hoặc 0912345678&quot;.
+        /// </summary>
+        internal static string Message_InvalidVietnameseNumber {
+            get {
+                return ResourceManager.GetString("Message_InvalidVietnameseNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thông Báo.
+        /// </summary>
+        internal static string Message_Notification {
+            get {
+                return ResourceManager.GetString("Message_Notification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không được để trống.
+        /// </summary>
+        internal static string Message_NotNull {
+            get {
+                return ResourceManager.GetString("Message_NotNull", resourceCulture);
             }
         }
         
@@ -97,11 +205,38 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lưu thành công .
+        /// </summary>
+        internal static string Message_SavedSuccessfullLy {
+            get {
+                return ResourceManager.GetString("Message_SavedSuccessfullLy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vui lòng chọn quốc gia/vùng miền..
+        /// </summary>
+        internal static string Message_SelectNation {
+            get {
+                return ResourceManager.GetString("Message_SelectNation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Không được chứa ký tự đặc biệt !.
         /// </summary>
         internal static string Message_SpecialCharacter {
             get {
                 return ResourceManager.GetString("Message_SpecialCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thành Công.
+        /// </summary>
+        internal static string Message_Successfull {
+            get {
+                return ResourceManager.GetString("Message_Successfull", resourceCulture);
             }
         }
         
