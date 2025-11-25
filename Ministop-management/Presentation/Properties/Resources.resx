@@ -367,4 +367,37 @@
   <data name="Grid_LastModifiedBy" xml:space="preserve">
     <value>Người sửa lần cuối</value>
   </data>
+  <data name="Chart_Revenue" xml:space="preserve">
+    <value>Doanh Thu</value>
+  </data>
+  <data name="Chart_Financial" xml:space="preserve">
+    <value>Tài chính</value>
+  </data>
+  <data name="Chart_MonthYear" xml:space="preserve">
+    <value>Tháng/Năm</value>
+  </data>
+  <data name="Grid_ImportInPeriod" xml:space="preserve">
+    <value>nhập trong kỳ</value>
+  </data>
+  <data name="Grid_ExportInPeriod" xml:space="preserve">
+    <value>Xuất trong kỳ</value>
+  </data>
+  <data name="Grid_SaleInPeriod" xml:space="preserve">
+    <value>Bán trong kỳ</value>
+  </data>
+  <data name="Grid_CheckDecrease" xml:space="preserve">
+    <value>Kiểm thiếu trong kỳ</value>
+  </data>
+  <data name="Grid_TotalExport" xml:space="preserve">
+    <value>Tổng số lần xuất</value>
+  </data>
+  <data name="Grid_ClosingStock" xml:space="preserve">
+    <value>Tồn cuối kỳ</value>
+  </data>
+  <data name="Grid_Unit" xml:space="preserve">
+    <value>Đơn vị</value>
+  </data>
+  <data name="Grid_OpeningStock" xml:space="preserve">
+    <value>Tồn đầu kỳ</value>
+  </data>
 </root>

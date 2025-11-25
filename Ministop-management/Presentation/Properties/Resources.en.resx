@@ -282,4 +282,37 @@
   <data name="Grid_LastModifiedBy" xml:space="preserve">
     <value>Last Modified By</value>
   </data>
+  <data name="Chart_Revenue" xml:space="preserve">
+    <value>Revenue</value>
+  </data>
+  <data name="Chart_Financial" xml:space="preserve">
+    <value>Financial</value>
+  </data>
+  <data name="Chart_MonthYear" xml:space="preserve">
+    <value>Month/Year</value>
+  </data>
+  <data name="Grid_ImportInPeriod" xml:space="preserve">
+    <value>ImportInPeriod</value>
+  </data>
+  <data name="Grid_ExportInPeriod" xml:space="preserve">
+    <value>ExportIn Period</value>
+  </data>
+  <data name="Grid_SaleInPeriod" xml:space="preserve">
+    <value>SaleInPeriod</value>
+  </data>
+  <data name="Grid_CheckDecrease" xml:space="preserve">
+    <value>CheckDecrease</value>
+  </data>
+  <data name="Grid_TotalExport" xml:space="preserve">
+    <value>TotalExport</value>
+  </data>
+  <data name="Grid_ClosingStock" xml:space="preserve">
+    <value>ClosingStock</value>
+  </data>
+  <data name="Grid_Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="Grid_OpeningStock" xml:space="preserve">
+    <value>OpeningStock</value>
+  </data>
 </root>

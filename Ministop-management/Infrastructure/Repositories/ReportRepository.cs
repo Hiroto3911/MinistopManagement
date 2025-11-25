@@ -87,17 +87,6 @@ namespace Infrastructure.Repositories
                             select (int?)id.Quantity
                          ).Sum() ?? 0
 
-                         let checkPlus = (
-                            from sc in _context.StockChecks
-                            join scd in _context.StockCheckDetails on sc.CheckID equals scd.CheckID
-                            where sc.StoreID == storeId
-                              && scd.ProductID == p.ProductID
-                              && sc.CheckDate >= startDate
-                              && sc.CheckDate <= endDate
-                              && scd.QuantityActual > scd.QuantitySystem
-                            select (int?)(scd.QuantityActual - scd.QuantitySystem)
-                         ).Sum() ?? 0
-
                          let checkMinus = (
                             from sc in _context.StockChecks
                             join scd in _context.StockCheckDetails on sc.CheckID equals scd.CheckID
@@ -110,7 +99,7 @@ namespace Infrastructure.Repositories
                          ).Sum() ?? 0
 
                          let totalOut = exportInPeriod + saleInPeriod
-                         let finalStock = opening + importInPeriod - totalOut + (checkPlus + checkMinus)
+                         let finalStock = opening + importInPeriod - totalOut +  checkMinus
 
                          select new InventoryReportDto
                          {
@@ -122,7 +111,6 @@ namespace Infrastructure.Repositories
                              ExportInPeriod = exportInPeriod,
                              SaleInPeriod = saleInPeriod,
                              TotalExport = totalOut,
-                             CheckIncrease = checkPlus,
                              CheckDecrease = checkMinus,
                              ClosingStock = finalStock
                          };

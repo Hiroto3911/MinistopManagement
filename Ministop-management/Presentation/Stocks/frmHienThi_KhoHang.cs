@@ -251,12 +251,12 @@ namespace Presentation
             var grid = (Guna2DataGridView)sender;
 
             string status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
-            if(status == "Không Duyệt" || status == "Not Permitted")
-            using (Pen p = new Pen(Color.Red, 5))
-            {
-                int x = e.RowBounds.Left + 1;
-                e.Graphics.DrawLine(p, x, e.RowBounds.Top + 1, x, e.RowBounds.Bottom - 1);
-            }
+            if (status == "Không Duyệt" || status == "Not Permitted")
+                using (Pen p = new Pen(Color.Red, 5))
+                {
+                    int x = e.RowBounds.Left + 1;
+                    e.Graphics.DrawLine(p, x, e.RowBounds.Top + 1, x, e.RowBounds.Bottom - 1);
+                }
 
         }
 
@@ -373,7 +373,7 @@ namespace Presentation
         {
             LoadDataStockDetail(_userSession.IdStore);
         }
-      
+
         public void LoadDataStockDetail(string storeId, int pageNumber = 1, int pageSize = 20, int quantitywarming = 50)
         {
             _totalCountWarming = 0;
@@ -402,11 +402,11 @@ namespace Presentation
             dgvDuLieuCT.DataSource = dt;
             dgvDuLieuCT.AllowUserToAddRows = false;
             dgvDuLieuCT.ReadOnly = true;
-            dgvDuLieuNH.Columns["MaChiTietKho"].HeaderText = Properties.Resources.Grid_StockDetailID;
-            dgvDuLieuNH.Columns["SanPham"].HeaderText = Properties.Resources.Grid_ProductName;
-            dgvDuLieuNH.Columns["SoLuong"].HeaderText = Properties.Resources.Grid_Quantity;
-            dgvDuLieuNH.Columns["GiaBan"].HeaderText = Properties.Resources.Grid_Price;
-            dgvDuLieuNH.Columns["LanCuoiCapNhap"].HeaderText = Properties.Resources.Grid_LastModified;
+            dgvDuLieuCT.Columns["MaChiTietKho"].HeaderText = Properties.Resources.Grid_StockDetailID;
+            dgvDuLieuCT.Columns["SanPham"].HeaderText = Properties.Resources.Grid_ProductName;
+            dgvDuLieuCT.Columns["SoLuong"].HeaderText = Properties.Resources.Grid_Quantity;
+            dgvDuLieuCT.Columns["GiaBan"].HeaderText = Properties.Resources.Grid_Price;
+            dgvDuLieuCT.Columns["LanCuoiCapNhap"].HeaderText = Properties.Resources.Grid_LastModified;
             dgvDuLieuCT.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
             dgvDuLieuCT.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
             dgvDuLieuCT.ThemeStyle.HeaderStyle.ForeColor = Color.White;

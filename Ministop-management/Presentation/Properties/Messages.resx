@@ -141,6 +141,9 @@
   <data name="Message_InvalidKoreanNumber" xml:space="preserve">
     <value>Số điện thoại Hàn Quốc không hợp lệ. VD: +821012345678 hoặc 01012345678</value>
   </data>
+  <data name="Message_InvalidMonth" xml:space="preserve">
+    <value>Tháng không hợp lệ </value>
+  </data>
   <data name="Message_InvalidPhoneNumber" xml:space="preserve">
     <value>Số điện thoại không hợp lệ. Vui lòng kiểm tra lại định dạng!</value>
   </data>
@@ -149,6 +152,15 @@
   </data>
   <data name="Message_InvalidVietnameseNumber" xml:space="preserve">
     <value>Số điện thoại Việt Nam không hợp lệ VD: +84912345678 hoặc 0912345678"</value>
+  </data>
+  <data name="Message_InvalidYear" xml:space="preserve">
+    <value>Năm không hợp lệ</value>
+  </data>
+  <data name="Message_NoData" xml:space="preserve">
+    <value>Không có dữ liệu</value>
+  </data>
+  <data name="Message_NotDataAtThisTime" xml:space="preserve">
+    <value>Không có dữ liệu trong khoảng thời gian này </value>
   </data>
   <data name="Message_Notification" xml:space="preserve">
     <value>Thông Báo</value>
@@ -171,11 +183,17 @@
   <data name="Message_SelectNation" xml:space="preserve">
     <value>Vui lòng chọn quốc gia/vùng miền.</value>
   </data>
+  <data name="Message_SelectStore" xml:space="preserve">
+    <value>Vui lòng chọn cửa hàng</value>
+  </data>
   <data name="Message_SpecialCharacter" xml:space="preserve">
     <value>Không được chứa ký tự đặc biệt !</value>
   </data>
   <data name="Message_Successfull" xml:space="preserve">
     <value>Thành Công</value>
+  </data>
+  <data name="Message_ToDayMoreThanFromDay" xml:space="preserve">
+    <value>Từ ngày phải nhỏ hơn đến ngày </value>
   </data>
   <data name="Message_ValidNumber" xml:space="preserve">
     <value>phải là số hợp lệ và không được để trống hoặc bằng 0</value>

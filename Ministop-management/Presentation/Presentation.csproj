@@ -763,6 +763,9 @@
     <EmbeddedResource Include="Settings\frmChucNang_KetNoiChuoi.resx">
       <DependentUpon>frmChucNang_KetNoiChuoi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Statistics\frmHienThi_ThongKe.en.resx">
+      <DependentUpon>frmHienThi_ThongKe.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stocks\Dialogs\frmChucNang_ChiTietKiemKho.en.resx">
       <DependentUpon>frmChucNang_ChiTietKiemKho.cs</DependentUpon>
     </EmbeddedResource>

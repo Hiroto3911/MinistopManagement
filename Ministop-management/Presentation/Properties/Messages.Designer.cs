@@ -133,6 +133,15 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tháng không hợp lệ .
+        /// </summary>
+        internal static string Message_InvalidMonth {
+            get {
+                return ResourceManager.GetString("Message_InvalidMonth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Số điện thoại không hợp lệ. Vui lòng kiểm tra lại định dạng!.
         /// </summary>
         internal static string Message_InvalidPhoneNumber {
@@ -156,6 +165,33 @@ namespace Presentation.Properties {
         internal static string Message_InvalidVietnameseNumber {
             get {
                 return ResourceManager.GetString("Message_InvalidVietnameseNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Năm không hợp lệ.
+        /// </summary>
+        internal static string Message_InvalidYear {
+            get {
+                return ResourceManager.GetString("Message_InvalidYear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không có dữ liệu.
+        /// </summary>
+        internal static string Message_NoData {
+            get {
+                return ResourceManager.GetString("Message_NoData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không có dữ liệu trong khoảng thời gian này .
+        /// </summary>
+        internal static string Message_NotDataAtThisTime {
+            get {
+                return ResourceManager.GetString("Message_NotDataAtThisTime", resourceCulture);
             }
         }
         
@@ -223,6 +259,15 @@ namespace Presentation.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Vui lòng chọn cửa hàng.
+        /// </summary>
+        internal static string Message_SelectStore {
+            get {
+                return ResourceManager.GetString("Message_SelectStore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Không được chứa ký tự đặc biệt !.
         /// </summary>
         internal static string Message_SpecialCharacter {
@@ -237,6 +282,15 @@ namespace Presentation.Properties {
         internal static string Message_Successfull {
             get {
                 return ResourceManager.GetString("Message_Successfull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Từ ngày phải nhỏ hơn đến ngày .
+        /// </summary>
+        internal static string Message_ToDayMoreThanFromDay {
+            get {
+                return ResourceManager.GetString("Message_ToDayMoreThanFromDay", resourceCulture);
             }
         }
         

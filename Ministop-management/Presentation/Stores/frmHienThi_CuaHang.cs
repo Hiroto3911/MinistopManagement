@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Unity;
 using Unity.Resolution;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace Presentation
@@ -326,119 +327,22 @@ namespace Presentation
 
 
             // ===== 2️⃣ Thêm hai cột nút =====
-
-            //if (_isEditable == true)
-            //{
-
-            if (dgvDuLieuCP.Columns["Edit"] == null)
+            if (_lang == "en-US")
             {
-                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
-                {
-                    Name = "Edit",
-                    HeaderText = "Edit",
-                    Text = "Edit",
-                    UseColumnTextForButtonValue = true
-                };
-                dgvDuLieuCP.Columns.Add(btnEdit);
+                ApplyGridStyle(dgvDuLieuCP, "Permitted");
+
             }
-
-            if (dgvDuLieuCP.Columns["Delete"] == null && _userSession.Role != "Admin")
+            else
             {
-                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn
-                {
-                    Name = "Delete",
-                    HeaderText = "Delete",
-                    Text = "Delete",
-                    UseColumnTextForButtonValue = true
-                };
-                dgvDuLieuCP.Columns.Add(btnDelete);
+                ApplyGridStyle(dgvDuLieuCP,  "Duyệt");
             }
-            //}
-            //else
-            //{
-            // Nếu đã chốt phiếu thì ẩn (hoặc xóa) hai cột này nếu có
-            //if (dgvDuLieuCP.Columns["Edit"] != null)
-            //    dgvDuLieuCP.Columns.Remove("Edit");
-            //if (dgvDuLieuCP.Columns["Delete"] != null)
-            //    dgvDuLieuCP.Columns.Remove("Delete");
-            //}
-
-
-            // ===== 4️⃣ Đổi màu nút Edit/Delete =====
-            dgvDuLieuCP.RowPostPaint += (s, e) =>
-            {
-                if (e.RowIndex < 0) return;
-
-                var grid = (Guna2DataGridView)s;
-
-                var row = grid.Rows[e.RowIndex];
-                string status;
-
-                status = row.Cells["TrangThai"].Value?.ToString();
-
-                if (status == "Không duyệt" || status == "Not permitted") // bị từ chối
-                {
-                    using (Pen p = new Pen(Color.Red, 5)) // viền trái đỏ, dày 4px
-                    {
-                        int x = e.RowBounds.Left + 1;
-                        int y1 = e.RowBounds.Top + 1;
-                        int y2 = e.RowBounds.Bottom - 1;
-
-                        e.Graphics.DrawLine(p, x, y1, x, y2);
-                    }
-                }
-            };
-
-
-            dgvDuLieuCP.CellPainting += (s, e) =>
-            {
-                if (e.RowIndex < 0) return;
-
-                var grid = (Guna2DataGridView)s;
-                string status;
-                bool allowEditDelete;
-               
-               
-                    status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
-                    allowEditDelete = status != "Duyệt" || status != "Permitted";
-              
-
-                // 👆 chỉ dòng cuối (dòng mới nhất) mới có nút
-
-                if ((grid.Columns[e.ColumnIndex].Name == "Edit" || grid.Columns[e.ColumnIndex].Name == "Delete"))
-                {
-                    e.PaintBackground(e.CellBounds, true);
-
-                    if (allowEditDelete)
-                    {
-                        // Chỉ vẽ nếu được phép
-                        Color backColor = grid.Columns[e.ColumnIndex].Name == "Edit"
-                            ? Color.SeaGreen
-                            : Color.IndianRed;
-
-                        using (Brush b = new SolidBrush(backColor))
-                            e.Graphics.FillRectangle(b, e.CellBounds);
-
-                        string text = grid.Columns[e.ColumnIndex].Name;
-                        TextRenderer.DrawText(
-                            e.Graphics,
-                            text,
-                            new Font("Segoe UI", 9, FontStyle.Bold),
-                            e.CellBounds,
-                            Color.White,
-                            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-                        );
-                    }
-
-                    e.Handled = true;
-                }
-            };
 
             btnTrangTruocCP.Enabled = pageNumber > 1;
             btnTrangSauCP.Enabled = pageNumber <= _totalPageCP;
 
 
         }
+
         private string GetStatus(byte status)
         {
 
@@ -460,14 +364,111 @@ namespace Presentation
             }
 
         }
+        private void DgvDuLieu_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            var grid = (Guna2DataGridView)sender;
+
+            string status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
+            if (status == "Không Duyệt" || status == "Not Permitted")
+            {
+                using (Pen p = new Pen(Color.Red, 5))
+                {
+                    int x = e.RowBounds.Left + 1;
+                    e.Graphics.DrawLine(p, x, e.RowBounds.Top + 1, x, e.RowBounds.Bottom - 1);
+                }
+            }
+
+        }
+        private void ApplyGridStyle(Guna2DataGridView dgvDuLieu, string statusNotAllowed = "Duyệt", string roleNotAllowed = "")
+        {
+            // ===== 2️⃣ Thêm hai cột nút =====
+            if (!dgvDuLieu.Columns.Contains("Edit") || !dgvDuLieu.Columns.Contains("Delete"))
+            {
+                // add column
+
+                if (dgvDuLieu.Columns["Edit"] == null && _userSession.Role != roleNotAllowed)
+                {
+
+                    DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+                    btnEdit.Name = "Edit";
+                    btnEdit.HeaderText = "Edit";
+                    btnEdit.Text = "Edit";
+                    btnEdit.UseColumnTextForButtonValue = true;
+                    dgvDuLieu.Columns.Add(btnEdit);
+                }
+                if (dgvDuLieu.Columns["Delete"] == null && _userSession.Role != "Admin")
+                {
+                    DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                    btnDelete.Name = "Delete";
+                    btnDelete.HeaderText = "Delete";
+                    btnDelete.Text = "Delete";
+                    btnDelete.UseColumnTextForButtonValue = true;
+                    dgvDuLieu.Columns.Add(btnDelete);
+                }
+            }
+            // ===== 3️⃣ Chỉnh style chung cho bảng =====
+            dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
+            dgvDuLieu.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvDuLieu.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvDuLieu.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvDuLieu.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
+            dgvDuLieu.RowTemplate.Height = 40;
+            // Gỡ event trước khi đăng ký
+            dgvDuLieu.RowPostPaint -= DgvDuLieu_RowPostPaint;
+            dgvDuLieu.RowPostPaint += DgvDuLieu_RowPostPaint;
+
+            dgvDuLieu.CellPainting -= DgvDuLieu_CellPaintingWrapper;
+            dgvDuLieu.CellPainting += DgvDuLieu_CellPaintingWrapper;
+
+            // Wrapper để truyền parameter
+            void DgvDuLieu_CellPaintingWrapper(object s, DataGridViewCellPaintingEventArgs e)
+            {
+                DgvDuLieu_CellPainting(s, e, statusNotAllowed);
+            }
+        }
+        // 2️⃣ Hàm vẽ nút Edit/Delete
+        private void DgvDuLieu_CellPainting(object sender, DataGridViewCellPaintingEventArgs e, string statusNotAllowed)
+        {
+            if (e.RowIndex < 0) return;
+
+            var grid = (Guna2DataGridView)sender;
+            string status;
+            status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
+            bool allowEditDelete = status != statusNotAllowed;
+
+            if (grid.Columns[e.ColumnIndex].Name == "Edit" || grid.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                e.PaintBackground(e.CellBounds, true);
+
+                if (allowEditDelete)
+                {
+                    Color backColor = grid.Columns[e.ColumnIndex].Name == "Edit" ? Color.SeaGreen : Color.IndianRed;
+                    using (Brush b = new SolidBrush(backColor))
+                        e.Graphics.FillRectangle(b, e.CellBounds);
+
+                    TextRenderer.DrawText(
+                        e.Graphics,
+                        grid.Columns[e.ColumnIndex].Name,
+                        new Font("Segoe UI", 9, FontStyle.Bold),
+                        e.CellBounds,
+                        Color.White,
+                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+                    );
+                }
+
+                e.Handled = true;
+            }
+        }
         private void dgvDuLieuCP_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
             string status = dgvDuLieuCP.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
             string expenseID = dgvDuLieuCP.Rows[e.RowIndex].Cells["MaChiPhi"].Value.ToString();
-            bool allowAction= status != "Duyệt" || status != "Permitted";
+            bool allowAction= status == "Duyệt" || status == "Permitted";
            
-            if (!allowAction) return;
+            if (allowAction) return;
 
             if (dgvDuLieuCP.Columns[e.ColumnIndex].Name == "Edit")
             {
