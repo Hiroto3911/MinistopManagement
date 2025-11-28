@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChucNang_HopDongLuong));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.itbnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.label11 = new System.Windows.Forms.Label();
             this.txtDonGiaGio = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.dtpNgayKetThuc = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.cboMaNhanVien = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.itbnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,20 @@
             this.panel1.Controls.Add(this.label11);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
+            // 
+            // itbnThoat
+            // 
+            resources.ApplyResources(this.itbnThoat, "itbnThoat");
+            this.itbnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.itbnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.itbnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.itbnThoat.ImageRotate = 0F;
+            this.itbnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.itbnThoat.Name = "itbnThoat";
+            this.itbnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.Click += new System.EventHandler(this.itbnThoat_Click);
             // 
             // label11
             // 
@@ -206,20 +220,6 @@
             this.cboMaNhanVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboMaNhanVien.Name = "cboMaNhanVien";
             this.cboMaNhanVien.SelectedIndexChanged += new System.EventHandler(this.cboMaNhanVien_SelectedIndexChanged);
-            // 
-            // itbnThoat
-            // 
-            resources.ApplyResources(this.itbnThoat, "itbnThoat");
-            this.itbnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.itbnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.itbnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.itbnThoat.ImageRotate = 0F;
-            this.itbnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.itbnThoat.Name = "itbnThoat";
-            this.itbnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.Click += new System.EventHandler(this.itbnThoat_Click);
             // 
             // frmChucNang_HopDongLuong
             // 

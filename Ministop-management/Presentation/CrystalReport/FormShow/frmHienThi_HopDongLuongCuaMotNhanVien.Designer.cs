@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnMini = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.btnMax = new Guna.UI2.WinForms.Guna2ImageButton();
             this.cboEmployee = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -39,8 +41,6 @@
             this.cboStore = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblTime = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.btnMini = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.btnMax = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,40 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1200, 133);
             this.guna2Panel1.TabIndex = 4;
+            // 
+            // btnMini
+            // 
+            this.btnMini.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnMini.BackColor = System.Drawing.Color.Transparent;
+            this.btnMini.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnMini.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnMini.Image = global::Presentation.Properties.Resources.minimize;
+            this.btnMini.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnMini.ImageRotate = 0F;
+            this.btnMini.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnMini.Location = new System.Drawing.Point(1084, 3);
+            this.btnMini.Name = "btnMini";
+            this.btnMini.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnMini.Size = new System.Drawing.Size(36, 36);
+            this.btnMini.TabIndex = 244;
+            this.btnMini.Click += new System.EventHandler(this.btnMini_Click);
+            // 
+            // btnMax
+            // 
+            this.btnMax.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnMax.BackColor = System.Drawing.Color.Transparent;
+            this.btnMax.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnMax.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnMax.Image = global::Presentation.Properties.Resources.maximize;
+            this.btnMax.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnMax.ImageRotate = 0F;
+            this.btnMax.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnMax.Location = new System.Drawing.Point(1126, 3);
+            this.btnMax.Name = "btnMax";
+            this.btnMax.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnMax.Size = new System.Drawing.Size(36, 36);
+            this.btnMax.TabIndex = 243;
+            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
             // 
             // cboEmployee
             // 
@@ -189,40 +223,6 @@
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
-            // btnMini
-            // 
-            this.btnMini.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnMini.BackColor = System.Drawing.Color.Transparent;
-            this.btnMini.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnMini.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnMini.Image = global::Presentation.Properties.Resources.minimize;
-            this.btnMini.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnMini.ImageRotate = 0F;
-            this.btnMini.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnMini.Location = new System.Drawing.Point(1084, 3);
-            this.btnMini.Name = "btnMini";
-            this.btnMini.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnMini.Size = new System.Drawing.Size(36, 36);
-            this.btnMini.TabIndex = 244;
-            this.btnMini.Click += new System.EventHandler(this.btnMini_Click);
-            // 
-            // btnMax
-            // 
-            this.btnMax.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnMax.BackColor = System.Drawing.Color.Transparent;
-            this.btnMax.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnMax.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnMax.Image = global::Presentation.Properties.Resources.maximize;
-            this.btnMax.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnMax.ImageRotate = 0F;
-            this.btnMax.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnMax.Location = new System.Drawing.Point(1126, 3);
-            this.btnMax.Name = "btnMax";
-            this.btnMax.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnMax.Size = new System.Drawing.Size(36, 36);
-            this.btnMax.TabIndex = 243;
-            this.btnMax.Click += new System.EventHandler(this.btnMax_Click);
             // 
             // frmHienThi_HopDongLuongCuaMotNhanVien
             // 

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MinistopManagement" Class="MinistopDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-3M1QM2P;Initial Catalog=MinistopManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Infrastructure.Properties.Settings" SettingsPropertyName="MinistopManagementConnectionString2" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LATI7480\SQLEXPRESS;Initial Catalog=MinistopManagement;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Infrastructure.Properties.Settings" SettingsPropertyName="MinistopManagementConnectionString4" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Absence" Member="Absences">
     <Type Name="Absence">
       <Column Name="AbsenceID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -10,17 +10,6 @@
       <Column Name="Reason" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="IsPaid" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="ShiftAssignment_Absence" Member="ShiftAssignment" ThisKey="EmployeeID,ShiftID,WorkDate" OtherKey="EmployeeID,ShiftID,WorkDate" Type="ShiftAssignment" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.SupplierProduct" Member="SupplierProducts">
-    <Type Name="SupplierProduct">
-      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SupplierID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="SupplyPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
-      <Association Name="Product_SupplierProduct" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
-      <Association Name="Supplier_SupplierProduct" Member="Supplier" ThisKey="SupplierID" OtherKey="SupplierID" Type="Supplier" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Allowances" Member="Allowances">
@@ -47,6 +36,8 @@
       <Column Name="Position" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="EmploymentType" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
       <Column Name="PasswordHash" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="IdentityNumber" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
@@ -136,7 +127,6 @@
       <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Product_SupplierProduct" Member="SupplierProducts" ThisKey="ProductID" OtherKey="ProductID" Type="SupplierProduct" />
       <Association Name="Product_InvoiceDetail" Member="InvoiceDetails" ThisKey="ProductID" OtherKey="ProductID" Type="InvoiceDetail" />
       <Association Name="Product_PriceProposal" Member="PriceProposals" ThisKey="ProductID" OtherKey="ProductID" Type="PriceProposal" />
       <Association Name="Product_Promotion_Product" Member="Promotion_Products" ThisKey="ProductID" OtherKey="ProductID" Type="Promotion_Product" />
@@ -145,23 +135,8 @@
       <Association Name="Product_StockDetail" Member="StockDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockDetail" />
       <Association Name="Product_StockExportDetail" Member="StockExportDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockExportDetail" />
       <Association Name="Product_StockImportDetail" Member="StockImportDetails" ThisKey="ProductID" OtherKey="ProductID" Type="StockImportDetail" />
+      <Association Name="Product_SupplierProduct" Member="SupplierProducts" ThisKey="ProductID" OtherKey="ProductID" Type="SupplierProduct" />
       <Association Name="ProductCategory_Product" Member="ProductCategory" ThisKey="CategoryID" OtherKey="CategoryID" Type="ProductCategory" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Promotion" Member="Promotions">
-    <Type Name="Promotion">
-      <Column Name="PromotionID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PromotionName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="EndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Promotion_Promotion_Product" Member="Promotion_Products" ThisKey="PromotionID" OtherKey="PromotionID" Type="Promotion_Product" />
     </Type>
   </Table>
   <Table Name="dbo.Promotion_Products" Member="Promotion_Products">
@@ -185,6 +160,22 @@
       <Column Name="RefundAmount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
       <Association Name="Product_ReturnDetail" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
       <Association Name="ReturnProduct_ReturnDetail" Member="ReturnProduct" ThisKey="ReturnID" OtherKey="ReturnID" Type="ReturnProduct" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Promotion" Member="Promotions">
+    <Type Name="Promotion">
+      <Column Name="PromotionID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PromotionName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IsDeleted" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Promotion_Promotion_Product" Member="Promotion_Products" ThisKey="PromotionID" OtherKey="PromotionID" Type="Promotion_Product" />
     </Type>
   </Table>
   <Table Name="dbo.ReturnProduct" Member="ReturnProducts">
@@ -212,6 +203,16 @@
       <Association Name="SalaryContract_Salary" Member="SalaryContract" ThisKey="ContractID" OtherKey="ContractID" Type="SalaryContract" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.SalaryContract_Allowances" Member="SalaryContract_Allowances">
+    <Type Name="SalaryContract_Allowance">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ContractID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="AllowanceID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="CustomAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="Allowance_SalaryContract_Allowance" Member="Allowance" ThisKey="AllowanceID" OtherKey="AllowanceID" Type="Allowance" IsForeignKey="true" />
+      <Association Name="SalaryContract_SalaryContract_Allowance" Member="SalaryContract" ThisKey="ContractID" OtherKey="ContractID" Type="SalaryContract" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.SalaryContract" Member="SalaryContracts">
     <Type Name="SalaryContract">
       <Column Name="ContractID" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -228,16 +229,6 @@
       <Association Name="SalaryContract_Salary" Member="Salaries" ThisKey="ContractID" OtherKey="ContractID" Type="Salary" />
       <Association Name="SalaryContract_SalaryContract_Allowance" Member="SalaryContract_Allowances" ThisKey="ContractID" OtherKey="ContractID" Type="SalaryContract_Allowance" />
       <Association Name="Employee_SalaryContract" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.SalaryContract_Allowances" Member="SalaryContract_Allowances">
-    <Type Name="SalaryContract_Allowance">
-      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ContractID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="AllowanceID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="CustomAmount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Association Name="Allowance_SalaryContract_Allowance" Member="Allowance" ThisKey="AllowanceID" OtherKey="AllowanceID" Type="Allowance" IsForeignKey="true" />
-      <Association Name="SalaryContract_SalaryContract_Allowance" Member="SalaryContract" ThisKey="ContractID" OtherKey="ContractID" Type="SalaryContract" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ShiftAssignment" Member="ShiftAssignments">
@@ -416,8 +407,19 @@
       <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="LastModifiedBy" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="LastModified" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Supplier_SupplierProduct" Member="SupplierProducts" ThisKey="SupplierID" OtherKey="SupplierID" Type="SupplierProduct" />
       <Association Name="Supplier_StockImport" Member="StockImports" ThisKey="SupplierID" OtherKey="SupplierID" Type="StockImport" />
+      <Association Name="Supplier_SupplierProduct" Member="SupplierProducts" ThisKey="SupplierID" OtherKey="SupplierID" Type="SupplierProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SupplierProduct" Member="SupplierProducts">
+    <Type Name="SupplierProduct">
+      <Column Name="Id" Type="System.String" DbType="NVarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="SupplyPrice" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="Product_SupplierProduct" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="Supplier_SupplierProduct" Member="Supplier" ThisKey="SupplierID" OtherKey="SupplierID" Type="Supplier" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.SP_DanhSachCuaHangTheoThanhPho" Method="SP_DanhSachCuaHangTheoThanhPho">

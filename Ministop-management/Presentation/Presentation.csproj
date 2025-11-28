@@ -659,6 +659,9 @@
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_NhanVien.en.resx">
       <DependentUpon>frmChucNang_NhanVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Employees\Dialogs\frmChucNang_PhanCaLam.en-AS.resx">
+      <DependentUpon>frmChucNang_PhanCaLam.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Employees\Dialogs\frmChucNang_PhanCaLam.en.resx">
       <DependentUpon>frmChucNang_PhanCaLam.cs</DependentUpon>
     </EmbeddedResource>
