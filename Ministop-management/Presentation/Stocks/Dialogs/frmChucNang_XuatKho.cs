@@ -1,32 +1,151 @@
-﻿using System;
+﻿using Domain.DTO;
+using Services.Interfaces;
+using Services.Services;
+using Shared.Security;
+using Shared.Wrappers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Unity.Storage.RegistrationSet;
 
 namespace Presentation
 {
     public partial class frmChucNang_XuatKho : Form
     {
-        public frmChucNang_XuatKho()
+        public event EventHandler dataChanged;
+        private readonly IStockExportService _stockExportService;
+        private readonly IUserSession _userSession;
+        private string _exportID;
+        public frmChucNang_XuatKho(IStockExportService stockExportService, IUserSession userSession, string ExportID = null)
         {
             InitializeComponent();
+            _stockExportService = stockExportService;
+            _userSession = userSession;
+            _exportID = ExportID;
         }
 
-        private void guna2ImageButton4_Click(object sender, EventArgs e)
+
+
+        private void ibtnThoat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close();   
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void btnLuu_Click(object sender, EventArgs e)
         {
-            frmChucNang_ChiTietXuatKho chucNang = new frmChucNang_ChiTietXuatKho();
-            chucNang.Show();
+            string storeId = txtMaCH.Text.Trim();
+            string employeeId = txtMaNV.Text.Trim();
+            DateTime exportDate = dtpNgayXuat.Value;
+            string typeExport = cboLoaiXuat.Text.Trim();
+            if (Regex.IsMatch(rtxtLyDo.Text.Trim(), @"[^a-zA-Z0-9\s\u00C0-\u1EF9,./-]"))
+            {
+                MessageBox.Show($"{lblReason.Text} {Properties.Messages.Message_SpecialCharacter}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                rtxtLyDo.Focus();
+                return;
+            }
+            string reason = rtxtLyDo.Text.Trim();
+            byte status = Convert.ToByte(cboTrangThai.SelectedValue.ToString());
+        
+            var exportDto = new StockExportDto()
+            {
+
+                StoreId = storeId,
+                EmployeeId = employeeId,
+                ExportDate = exportDate,
+                TypeExport = typeExport,
+                Reason = reason,
+                Status = status
+            };
+
+            Result<bool> result;
+
+            if (string.IsNullOrEmpty(_exportID))
+            {
+                result = _stockExportService.CreatestockExport(exportDto);
+                dataChanged?.Invoke(this, EventArgs.Empty);
+            }
+            else
+            {
+                exportDto.ExportId = _exportID;
+                result = _stockExportService.UpdateStockExport(exportDto);
+                dataChanged?.Invoke(this, EventArgs.Empty);
+            }
+
+            if (!result.Succeeded)
+            {
+                MessageBox.Show(result.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+        private void LoadCboTypeExport()
+        {
+            List<string> typeExport = new List<string>() { Properties.Resources.ExportType_Damaged, Properties.Resources.ExportType_Expired, Properties.Resources.ExportType_Lost, Properties.Resources.ExportType_CancelOrder };
+            cboLoaiXuat.DataSource = typeExport;
+
+        }
+        private void LoadDataCboTrangThai()
+        {
+          
+            cboTrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
+            Dictionary<string, byte> status;
+            if (_userSession.Role == "Quản lý cửa hàng")
+            {
+                cboLoaiXuat.Enabled = false;
+                cboTrangThai.Enabled = true;
+                status = new Dictionary<string, byte>()
+                {
+                    {Properties.Resources.Status_Permitted,1 },
+                    {Properties.Resources.Status_NotPermitted,0 }
+                };
+            }
+            else
+            {
+
+                status = new Dictionary<string, byte>()
+                {
+                 {Properties.Resources.Status_Draft,2 },
+                  {Properties.Resources.Status_Pending,3 }
+                };
+            }
+            cboTrangThai.DataSource = status.ToList();
+            cboTrangThai.DisplayMember = "Key";
+            cboTrangThai.ValueMember = "Value";
+        }
+        private void frmChucNang_XuatKho_Load(object sender, EventArgs e)
+        {
+
+            LoadCboTypeExport();
+            LoadDataCboTrangThai();
+            dtpNgayXuat.Value = DateTime.UtcNow.ToLocalTime();
+            if (!string.IsNullOrEmpty(_exportID))
+            {
+                var entity = _stockExportService.GetStockExportByID(_exportID);
+                if (!entity.Succeeded && entity.Data == null) return;
+                txtPhieuXuat.Text = entity.Data.ExportId;
+                txtMaCH.Text = entity.Data.StoreId;
+                txtMaNV.Text = entity.Data.EmployeeId;
+                cboLoaiXuat.SelectedItem = entity.Data.TypeExport;
+                dtpNgayXuat.Value = entity.Data.ExportDate;
+                rtxtLyDo.Text = entity.Data.Reason;
+                cboLoaiXuat.Enabled = false;
+
+            }
+            else
+            {
+                
+                txtMaCH.Text = _userSession.IdStore;
+                txtMaNV.Text = _userSession.UserId;
+            }
         }
     }
 }

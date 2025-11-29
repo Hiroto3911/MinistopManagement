@@ -1,21 +1,15 @@
 ﻿using Guna.UI2.WinForms;
 using Services.Interfaces;
-using Services.Services;
 using Shared.Security;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using Unity;
-using Unity.Lifetime;
 using Unity.Resolution;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace Presentation
 {
@@ -28,7 +22,7 @@ namespace Presentation
         private readonly IEmployeeService _employeeService;
         private long _totalPageCH = 1;
         private long _totalPageCP = 1;
-        private bool _isEditable = false;
+        private string _lang = Properties.Settings.Default.Language;
         private string _expenseId;
 
         public frmHienThi_CuaHang(IStoreService storeService, IStoreFixedExpenseServices storeFixedExpenseServices, IUnityContainer container, IEmployeeService employeeService, IUserSession userSession)
@@ -46,14 +40,12 @@ namespace Presentation
             LoadCboCuaHang();
             if (_userSession.Role == "Quản lý cửa hàng")
             {
-
                 tabControlCH.TabPages.Remove(tabCuaHang);
                 cboCuaHang.SelectedValue = _userSession.IdStore;
             }
             else if (_userSession.Role == "Admin")
             {
                 cboCuaHang.Enabled = true;
-                btnHoanTatCP.Visible = false;
                 btnThemCP.Visible = false;
             }
             LoadDataCP(cboCuaHang.SelectedValue.ToString());
@@ -63,8 +55,8 @@ namespace Presentation
         private void dgvDuLieu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-
             string storeId = dgvDuLieu.Rows[e.RowIndex].Cells["MaCuaHang"].Value.ToString();
+            
 
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")
             {
@@ -82,37 +74,40 @@ namespace Presentation
             }
             else if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa cửa hàng {storeId}?",
-                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {storeId}?",
+                    $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
                     var isChecked = _employeeService.AnyStore(storeId);
                     if (isChecked.Data == true)
                     {
-                        DialogResult resultCon = MessageBox.Show($"Cửa hàng {storeId} hiện đang còn dữ liệu và tài khoản hoạt động.\n Nếu bạn xác nhận xoá, hệ thống sẽ ngưng kích hoạt cửa hàng và các dữ liệu liên quan, thay vì xoá vĩnh viễn.",
-                        "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult resultCon = MessageBox.Show($"{Properties.Messages.Message_DeleteStoreHaveData}",
+                         $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (resultCon != DialogResult.Yes) return;
-                        _storeService.RemoveStore(storeId);
-                        MessageBox.Show("Xóa thành công!");
+                        _storeService.RemoveSoftStore(storeId);
+                        MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                         LoadDataCH(); // tải lại dữ liệu
                         return;
 
                     }
-                    _storeService.RemoveStore(storeId);
-                    MessageBox.Show("Xóa thành công!");
+                    _storeService.RemoveSoftStore(storeId);
+                    MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadDataCH(); // tải lại dữ liệu
                 }
             }
         }
-        private void LoadDataCH(int pageNumber = 1, int pageSize = 2)
+        private void LoadDataCH(int pageNumber = 1, int pageSize = 20)
         {
             // ===== 1️⃣ Tạo DataTable cho danh sách cửa hàng =====
             DataTable dt = new DataTable();
-            dt.Columns.Add("MaCuaHang");
-            dt.Columns.Add("TenCuaHang");
-            dt.Columns.Add("DiaChi");
-            dt.Columns.Add("SoDienThoai");
+           
+                dt.Columns.Add("MaCuaHang");
+                dt.Columns.Add("TenCuaHang");
+                dt.Columns.Add("DiaChi");
+                dt.Columns.Add("SoDienThoai");
+            
+
             using (var childContainer = _container.CreateChildContainer())
             {
                 var storeService = childContainer.Resolve<IStoreService>();
@@ -128,8 +123,10 @@ namespace Presentation
             dgvDuLieu.DataSource = dt;
             dgvDuLieu.AllowUserToAddRows = false;
             dgvDuLieu.ReadOnly = true;
-            dgvDuLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
+            dgvDuLieu.Columns["MaCuaHang"].HeaderText = Properties.Resources.Grid_ID;
+            dgvDuLieu.Columns["TenCuaHang"].HeaderText = Properties.Resources.Grid_StoreName;
+            dgvDuLieu.Columns["DiaChi"].HeaderText = Properties.Resources.Grid_Adrress;
+            dgvDuLieu.Columns["SoDienThoai"].HeaderText = Properties.Resources.Grid_PhoneNumber;
             // ===== 2️⃣ Thêm hai cột nút =====
 
             if (dgvDuLieu.Columns["Edit"] == null)
@@ -271,75 +268,146 @@ namespace Presentation
             }
 
         }
-        private void LoadDataCP(string storeId, int pageNumber = 1, int pageSize = 2)
+        private void LoadDataCP(string storeId, int pageNumber = 1, int pageSize = 20)
         {
 
             // ===== 1️⃣ Tạo DataTable cho danh sách cửa hàng =====
             DataTable dt = new DataTable();
             dt.Columns.Add("MaChiPhi");
-            dt.Columns.Add("MaCuaHang");
+            dt.Columns.Add("CuaHang");
             dt.Columns.Add("TienThueMatBang");
             dt.Columns.Add("TienDien");
             dt.Columns.Add("TienNuoc");
             dt.Columns.Add("GhiChu");
-
+            dt.Columns.Add("TrangThai");
             using (var childContainer = _container.CreateChildContainer())
             {
                 var expenseService = childContainer.Resolve<IStoreFixedExpenseServices>();
                 var list = expenseService.GetStoreFixedExpense(storeId, pageNumber, pageSize);
                 if (list.Succeeded == false && list.Data == null) { return; }
                 _totalPageCP = (long)Math.Ceiling((double)(list.TotalCount / pageSize));
-                foreach (var item in list.Data)
+                if (_userSession.Role == "Admin")
                 {
-                    dt.Rows.Add(item.ExpenseId, item.StoreId, item.RentCost, item.ElectricityCost, item.WaterCost,item.Note);
+                   
+                        dt.Columns.Add("NguoiSuaDoiLanCuoi");
+                        dt.Columns.Add("NgaySuaDoiLanCuoi");
+                    
+                    foreach (var item in list.Data)
+                    {
+                        string status = GetStatus(item.Status);
+                        dt.Rows.Add(item.ExpenseId, item.StoreName, item.RentCost, item.ElectricityCost, item.WaterCost, item.Note, status, item.LastModifiedBy, item.LastModified.ToString());
+                    }
+                }
+                else
+                {
+                    foreach (var item in list.Data)
+                    {
+                        string status = GetStatus(item.Status);
+                        dt.Rows.Add(item.ExpenseId, item.StoreName, item.RentCost, item.ElectricityCost, item.WaterCost, item.Note, status);
+                    }
                 }
             }
             // ===== 2️⃣ Dữ liệu mẫu (có thể thay bằng dữ liệu trong DB sau này) =====
             dgvDuLieuCP.DataSource = dt;
-            dgvDuLieuCP.AllowUserToAddRows = false;
-            dgvDuLieuCP.ReadOnly = true;
-            dgvDuLieuCP.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // ===== 2️⃣ Thêm hai cột nút =====
-
-            if (_isEditable == true)
+            dgvDuLieuCP.Columns["MaChiPhi"].HeaderText = Properties.Resources.Grid_ID;
+            dgvDuLieuCP.Columns["CuaHang"].HeaderText = Properties.Resources.Grid_StoreName;
+            dgvDuLieuCP.Columns["TienThueMatBang"].HeaderText = Properties.Resources.Grid_RentCost;
+            dgvDuLieuCP.Columns["TienDien"].HeaderText = Properties.Resources.Grid_ElectricityCost;
+            dgvDuLieuCP.Columns["TienNuoc"].HeaderText = Properties.Resources.Grid_WaterCost;
+            dgvDuLieuCP.Columns["GhiChu"].HeaderText = Properties.Resources.Grid_Note;
+            dgvDuLieuCP.Columns["TrangThai"].HeaderText = Properties.Resources.Grid_Status;
+            if (_userSession.Role == "Admin")
             {
 
-                if (dgvDuLieuCP.Columns["Edit"] == null)
-                {
-                    DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
-                    {
-                        Name = "Edit",
-                        HeaderText = "Sửa",
-                        Text = "Edit",
-                        UseColumnTextForButtonValue = true
-                    };
-                    dgvDuLieuCP.Columns.Add(btnEdit);
-                }
+                dgvDuLieuCP.Columns["NguoiSuaDoiLanCuoi"].HeaderText = Properties.Resources.Grid_LastModifiedBy;
+                dgvDuLieuCP.Columns["NgaySuaDoiLanCuoi"].HeaderText = Properties.Resources.Grid_LastModified;
+            }
+            dgvDuLieuCP.AllowUserToAddRows = false;
+            dgvDuLieuCP.ReadOnly = true;
 
-                if (dgvDuLieuCP.Columns["Delete"] == null)
-                {
-                    DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn
-                    {
-                        Name = "Delete",
-                        HeaderText = "Xóa",
-                        Text = "Delete",
-                        UseColumnTextForButtonValue = true
-                    };
-                    dgvDuLieuCP.Columns.Add(btnDelete);
 
-                    ApplyGridStyle(dgvDuLieuCP);
-                }
+            // ===== 2️⃣ Thêm hai cột nút =====
+            if (_lang == "en-US")
+            {
+                ApplyGridStyle(dgvDuLieuCP, "Permitted");
+
             }
             else
             {
-                // Nếu đã chốt phiếu thì ẩn (hoặc xóa) hai cột này nếu có
-                if (dgvDuLieuCP.Columns["Edit"] != null)
-                    dgvDuLieuCP.Columns.Remove("Edit");
-                if (dgvDuLieuCP.Columns["Delete"] != null)
-                    dgvDuLieuCP.Columns.Remove("Delete");
+                ApplyGridStyle(dgvDuLieuCP,  "Duyệt");
             }
 
+            btnTrangTruocCP.Enabled = pageNumber > 1;
+            btnTrangSauCP.Enabled = pageNumber <= _totalPageCP;
+
+
+        }
+
+        private string GetStatus(byte status)
+        {
+
+            switch (status)
+            {
+                case 0:
+                    return Properties.Resources.Status_NotPermitted;
+
+                case 1:
+                    return Properties.Resources.Status_Permitted;
+
+
+                case 3:
+                    return Properties.Resources.Status_Pending;
+
+                default:
+                    return Properties.Resources.Status_Draft;
+
+            }
+
+        }
+        private void DgvDuLieu_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            var grid = (Guna2DataGridView)sender;
+
+            string status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
+            if (status == "Không Duyệt" || status == "Not Permitted")
+            {
+                using (Pen p = new Pen(Color.Red, 5))
+                {
+                    int x = e.RowBounds.Left + 1;
+                    e.Graphics.DrawLine(p, x, e.RowBounds.Top + 1, x, e.RowBounds.Bottom - 1);
+                }
+            }
+
+        }
+        private void ApplyGridStyle(Guna2DataGridView dgvDuLieu, string statusNotAllowed = "Duyệt", string roleNotAllowed = "")
+        {
+            // ===== 2️⃣ Thêm hai cột nút =====
+            if (!dgvDuLieu.Columns.Contains("Edit") || !dgvDuLieu.Columns.Contains("Delete"))
+            {
+                // add column
+
+                if (dgvDuLieu.Columns["Edit"] == null && _userSession.Role != roleNotAllowed)
+                {
+
+                    DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+                    btnEdit.Name = "Edit";
+                    btnEdit.HeaderText = "Edit";
+                    btnEdit.Text = "Edit";
+                    btnEdit.UseColumnTextForButtonValue = true;
+                    dgvDuLieu.Columns.Add(btnEdit);
+                }
+                if (dgvDuLieu.Columns["Delete"] == null && _userSession.Role != "Admin")
+                {
+                    DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                    btnDelete.Name = "Delete";
+                    btnDelete.HeaderText = "Delete";
+                    btnDelete.Text = "Delete";
+                    btnDelete.UseColumnTextForButtonValue = true;
+                    dgvDuLieu.Columns.Add(btnDelete);
+                }
+            }
             // ===== 3️⃣ Chỉnh style chung cho bảng =====
             dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
             dgvDuLieu.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
@@ -347,59 +415,60 @@ namespace Presentation
             dgvDuLieu.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             dgvDuLieu.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
             dgvDuLieu.RowTemplate.Height = 40;
+            // Gỡ event trước khi đăng ký
+            dgvDuLieu.RowPostPaint -= DgvDuLieu_RowPostPaint;
+            dgvDuLieu.RowPostPaint += DgvDuLieu_RowPostPaint;
 
-            // ===== 4️⃣ Đổi màu nút Edit/Delete =====
+            dgvDuLieu.CellPainting -= DgvDuLieu_CellPaintingWrapper;
+            dgvDuLieu.CellPainting += DgvDuLieu_CellPaintingWrapper;
 
-            dgvDuLieuCP.CellPainting += (s, e) =>
+            // Wrapper để truyền parameter
+            void DgvDuLieu_CellPaintingWrapper(object s, DataGridViewCellPaintingEventArgs e)
             {
-                if (e.RowIndex < 0) return;
+                DgvDuLieu_CellPainting(s, e, statusNotAllowed);
+            }
+        }
+        // 2️⃣ Hàm vẽ nút Edit/Delete
+        private void DgvDuLieu_CellPainting(object sender, DataGridViewCellPaintingEventArgs e, string statusNotAllowed)
+        {
+            if (e.RowIndex < 0) return;
 
-                var grid = (Guna2DataGridView)s;
-                var expenseId = grid.Rows[e.RowIndex].Cells["MaChiPhi"].Value.ToString();
-                bool allowEditDelete = _isEditable && expenseId == _expenseId;
-                // 👆 chỉ dòng cuối (dòng mới nhất) mới có nút
+            var grid = (Guna2DataGridView)sender;
+            string status;
+            status = grid.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
+            bool allowEditDelete = status != statusNotAllowed;
 
-                if ((grid.Columns[e.ColumnIndex].Name == "Edit" || grid.Columns[e.ColumnIndex].Name == "Delete"))
+            if (grid.Columns[e.ColumnIndex].Name == "Edit" || grid.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                e.PaintBackground(e.CellBounds, true);
+
+                if (allowEditDelete)
                 {
-                    e.PaintBackground(e.CellBounds, true);
+                    Color backColor = grid.Columns[e.ColumnIndex].Name == "Edit" ? Color.SeaGreen : Color.IndianRed;
+                    using (Brush b = new SolidBrush(backColor))
+                        e.Graphics.FillRectangle(b, e.CellBounds);
 
-                    if (allowEditDelete)
-                    {
-                        // Chỉ vẽ nếu được phép
-                        Color backColor = grid.Columns[e.ColumnIndex].Name == "Edit"
-                            ? Color.SeaGreen
-                            : Color.IndianRed;
-
-                        using (Brush b = new SolidBrush(backColor))
-                            e.Graphics.FillRectangle(b, e.CellBounds);
-
-                        string text = grid.Columns[e.ColumnIndex].Name;
-                        TextRenderer.DrawText(
-                            e.Graphics,
-                            text,
-                            new Font("Segoe UI", 9, FontStyle.Bold),
-                            e.CellBounds,
-                            Color.White,
-                            TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-                        );
-                    }
-
-                    e.Handled = true;
+                    TextRenderer.DrawText(
+                        e.Graphics,
+                        grid.Columns[e.ColumnIndex].Name,
+                        new Font("Segoe UI", 9, FontStyle.Bold),
+                        e.CellBounds,
+                        Color.White,
+                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+                    );
                 }
-            };
 
-            btnTrangTruocCP.Enabled = pageNumber > 1;
-            btnTrangSauCP.Enabled = pageNumber <= _totalPageCP;
-
-
+                e.Handled = true;
+            }
         }
         private void dgvDuLieuCP_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-
+            string status = dgvDuLieuCP.Rows[e.RowIndex].Cells["TrangThai"].Value?.ToString();
             string expenseID = dgvDuLieuCP.Rows[e.RowIndex].Cells["MaChiPhi"].Value.ToString();
-            var allowAction = _isEditable && expenseID == _expenseId;
-            if (!allowAction) return;
+            bool allowAction= status == "Duyệt" || status == "Permitted";
+           
+            if (allowAction) return;
 
             if (dgvDuLieuCP.Columns[e.ColumnIndex].Name == "Edit")
             {
@@ -407,7 +476,7 @@ namespace Presentation
                 var frmChucNangCP = _container.Resolve<frmChucNang_ChiPhiCuaHang>(new ParameterOverride("expenseID", expenseID));
                 frmChucNangCP.dataChanged += (s, ev) =>
                 {
-                    ChildCP_DataSent(s, ev);
+
                     LoadDataCP(cboCuaHang.SelectedValue.ToString());
                 };
                 frmChucNangCP.ShowDialog();
@@ -417,15 +486,14 @@ namespace Presentation
             }
             else if (dgvDuLieuCP.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa phieu chi phi cửa hàng {expenseID}?",
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {expenseID}?",
                     "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
                     _storeFixedExpenseServices.RemoveStoreFixedExpense(expenseID);
-                    MessageBox.Show("Xóa thành công!");
-                    _isEditable = false;
-                    btnHoanTatCP.Enabled = false;
+                    MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
+
                     LoadDataCP(cboCuaHang.SelectedValue.ToString()); // tải lại dữ liệu
                 }
             }
@@ -462,27 +530,13 @@ namespace Presentation
 
         private void btnThemCP_Click(object sender, EventArgs e)
         {
-            btnHoanTatCP.Enabled = true;
+
             var frmChucNang = _container.Resolve<frmChucNang_ChiPhiCuaHang>();
-            frmChucNang.dataChanged += (s, ev) => { _isEditable = true; ChildCP_DataSent(s, ev); LoadDataCP(cboCuaHang.SelectedValue.ToString()); };
+            frmChucNang.dataChanged += (s, ev) => { LoadDataCP(cboCuaHang.SelectedValue.ToString()); };
             frmChucNang.ShowDialog();
+
         }
-        private void ChildCP_DataSent(object sender, string data)
-        {
-            _expenseId = data;
-        }
-        private void btnHoanTatCP_Click(object sender, EventArgs e)
-        {
-            DialogResult result = MessageBox.Show($"Bạn có chắc muốn hoàn tất  phiếu chi phi cửa hàng {_expenseId}?\n Cảnh báo nếu hoàn tất thì bạn sẽ không được phép chỉnh sửa nữa !",
-                   "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result == DialogResult.Yes)
-            {
-                _isEditable = false;
-                _expenseId = null;
-                btnHoanTatCP.Enabled = false;
-                LoadDataCP(cboCuaHang.SelectedValue.ToString());
-            }
-        }
+
         #endregion
 
 

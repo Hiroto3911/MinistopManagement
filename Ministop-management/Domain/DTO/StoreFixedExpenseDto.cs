@@ -11,10 +11,12 @@ namespace Domain.DTO
     {
         public string ExpenseId { get; set; }
         public string StoreId { get; set; }
+        public string StoreName { get; set; }
         public string MonthYear { get; set; }
         public decimal? RentCost { get; set; }
         public decimal ElectricityCost { get; set; }
         public decimal WaterCost { get; set; }
+        public byte  Status { get; set; }
         public string Note { get; set; }
     }
 }

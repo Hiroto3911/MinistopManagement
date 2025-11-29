@@ -12,7 +12,7 @@ namespace Infrastructure.Interfaces
     public interface IStoreFixedExpenseRepository : IGenericRepository<StoreFixedExpense>
     {
         IReadOnlyList<StoreFixedExpense> GetAllIsDelete();
-        IReadOnlyList<StoreFixedExpense> GetPagedResponse(Expression<Func<StoreFixedExpense, bool>> predicate, int pageNumber, int pageSize);
+        IReadOnlyList<StoreFixedExpenseDto> GetPagedResponse(Expression<Func<StoreFixedExpense, bool>> predicate, int pageNumber, int pageSize);
         void SoftDelete(StoreFixedExpense entity, bool hasTransaction = false);
         void SoftDeleteRange(IList<StoreFixedExpense> entities, bool hasTransaction = false);
     }

@@ -30,23 +30,58 @@ namespace Presentation
             _expenseID = expenseID;
         }
 
+        private void LoadDataCboTrangThai()
+        {
+            dtpNgayLap.Value = DateTime.UtcNow.ToLocalTime();
+            cboTrangThai.Enabled = true;
+            cboTrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
+            Dictionary<string, byte> status;
+            if (_userSession.Role == "Admin")
+            {
+                txtTienDien.Enabled = false;
+                txtTienNuoc.Enabled = false;
+                txtTienMatBang.Enabled = false;
+
+                status = new Dictionary<string, byte>()
+                {
+                 {Properties.Resources.Status_Permitted,1 },
+                 {Properties.Resources.Status_NotPermitted,0 }
+                };
+            }
+            else
+            {
+
+                status = new Dictionary<string, byte>()
+               {
+                {Properties.Resources.Status_Draft,2 },
+                 {Properties.Resources.Status_Pending,3 }
+               };
+            }
+            cboTrangThai.DataSource = status.ToList();
+            cboTrangThai.DisplayMember = "Key";
+            cboTrangThai.ValueMember = "Value";
+        }
         private void frmChucNang_ChiPhiCuaHang_Load(object sender, EventArgs e)
         {
-            //cboTrangThai.DropDownStyle = ComboBoxStyle.DropDownList;
+            LoadDataCboTrangThai();
             if (!string.IsNullOrEmpty(_expenseID))
             {
                 var entity = _storeFixedExpenseServices.GetStoreFixedExpenseByID(_expenseID);
                 if (entity.Succeeded == false && entity.Data == null)
                 {
-                    MessageBox.Show($"{entity.Message}", "Lỗi");
+                    MessageBox.Show($"{entity.Message}", $"{Properties.Messages.Message_Error}");
                     return;
                 }
                 txtTenCuaHang.Text = entity.Data.StoreId;
-                txtTienMatBang.Text = entity.Data.RentCost.ToString()??"0.0";
+                txtTienMatBang.Text = entity.Data.RentCost.ToString() ?? "0.0";
                 txtTienDien.Text = entity.Data.ElectricityCost.ToString() ?? "0.0";
                 txtTienNuoc.Text = entity.Data.WaterCost.ToString() ?? "0.0";
-                rtxtGhiChu.Text = entity.Data.Note ??"";
+                rtxtGhiChu.Text = entity.Data.Note ?? "";
 
+            }
+            else
+            {
+                cboTrangThai.Enabled = false;
             }
         }
 
@@ -62,7 +97,7 @@ namespace Presentation
             {
                 if (!decimal.TryParse(txtTienMatBang.Text, out rentCost) || rentCost < 0)
                 {
-                    MessageBox.Show("Tiền mặt bằng phải là số hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"{lblRentCost.Text} {Properties.Messages.Message_ValidNumber}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtTienMatBang.Focus();
                     return;
                 }
@@ -72,7 +107,7 @@ namespace Presentation
             if (string.IsNullOrWhiteSpace(txtTienDien.Text) ||
                 !decimal.TryParse(txtTienDien.Text, out decimal electricityCost) || electricityCost <= 0)
             {
-                MessageBox.Show("Tiền điện phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{lblElectricityCost.Text} {Properties.Messages.Message_ValidNumber}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTienDien.Focus();
                 return;
             }
@@ -81,29 +116,30 @@ namespace Presentation
             if (string.IsNullOrWhiteSpace(txtTienNuoc.Text) ||
                 !decimal.TryParse(txtTienNuoc.Text, out decimal waterCost) || waterCost <= 0)
             {
-                MessageBox.Show("Tiền nước phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{lblWaterCost.Text} {Properties.Messages.Message_ValidNumber}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTienNuoc.Focus();
                 return;
             }
             if (Regex.IsMatch(rtxtGhiChu.Text.Trim(), @"[^a-zA-Z0-9\s\u00C0-\u1EF9,./-]"))
             {
-                MessageBox.Show("Ghi chú không được chứa ký tự đặc biệt lạ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"{lblNote.Text} {Properties.Messages.Message_SpecialCharacter}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 rtxtGhiChu.Focus();
                 return;
             }
             var storeId = _userSession.IdStore;
             var note = rtxtGhiChu.Text.Trim();
             string monthYear = dtpNgayLap.Text;
-
+            byte status = Convert.ToByte(cboTrangThai.SelectedValue.ToString()); 
             var expenseDto = new StoreFixedExpenseDto()
             {
-          
+
                 StoreId = storeId,
                 RentCost = rentCost,          // giá trị có thể là 0 nếu trống
                 WaterCost = waterCost,
                 ElectricityCost = electricityCost,
                 MonthYear = monthYear,
-                Note = note
+                Note = note,
+                Status = status
             };
 
             Result<string> result;
@@ -115,6 +151,7 @@ namespace Presentation
             }
             else
             {
+                
                 expenseDto.ExpenseId = _expenseID;
                 result = _storeFixedExpenseServices.UpdateStoreFixedExpense(expenseDto);
                 dataChanged?.Invoke(this, result.Data);
@@ -122,11 +159,11 @@ namespace Presentation
 
             if (!result.Succeeded)
             {
-                MessageBox.Show(result.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.Message, $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("Lưu chi phí cửa hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 
@@ -161,7 +198,7 @@ namespace Presentation
         private void rtxtGhiChu_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Up) { txtTienNuoc.Focus(); }
-            else if ( e.KeyCode == Keys.Enter) { btnLuu_Click(sender, e); }
+            else if (e.KeyCode == Keys.Enter) { btnLuu_Click(sender, e); }
             else return;
             e.Handled = true;
             e.SuppressKeyPress = true;

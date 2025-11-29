@@ -1,8 +1,13 @@
 ﻿using Presentation.CrystalReport.FormShow;
+using Presentation.Settings;
+using Presentation.Stocks;
 using Services;
+using Shared.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Web.Services.Description;
 using System.Windows.Forms;
@@ -43,13 +48,42 @@ namespace Presentation
             // frm chuc nang
             container.RegisterType<frmChucNang_CuaHang>();
             container.RegisterType<frmChucNang_PhuCap>();
+            container.RegisterType<frmChucNang_NhaCungCapSanPham>();
+            container.RegisterType<frmChucNang_PhieuGiamGia>();
+            container.RegisterType<frmChucNang_GiamGiaSP>();
             //frm Report 
             container.RegisterType<frmHienThi_DanhSachCuaHangTheoKhuVuc>();
             // frm dang nhap 
             container.RegisterType<frmDangNhap>();
             #endregion
-            var frmDangNhap = container.Resolve<frmDangNhap>();
-            Application.Run(frmDangNhap);
+            var config = ConnectionConfigHelper.Load();
+            if (string.IsNullOrEmpty(config.ConnectionString))
+            {
+                MessageBox.Show("Chưa cấu hình kết nối CSDL. Vui lòng thiết lập.");
+                var frmKetNoi = new frmChucNang_KetNoiChuoi();
+                frmKetNoi.ShowDialog();
+                config = ConnectionConfigHelper.Load();
+                if (string.IsNullOrEmpty(config.ConnectionString))
+                {
+                    MessageBox.Show("Chưa có chuỗi kết nối. Thoát ứng dụng!");
+                    return;
+                }
+
+            }
+           
+                string lang = Properties.Settings.Default.Language;
+
+                if (string.IsNullOrEmpty(lang))
+                {
+                    var frmCaiDat = new frmChucNang_CaiDatCaNhan();
+                    Application.Run(frmCaiDat);
+                    return;
+                }
+                Thread.CurrentThread.CurrentCulture = new CultureInfo(lang);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(lang);
+                var frmDangNhap = container.Resolve<frmDangNhap>();
+                Application.Run(frmDangNhap);
+            
         }
         //Thêm Dll để hiện thị chương trình full DPI
         [System.Runtime.InteropServices.DllImport("user32.dll")]

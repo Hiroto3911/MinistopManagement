@@ -79,9 +79,7 @@ namespace Services.Services
         public PagedResult<IReadOnlyList<StoreFixedExpenseDto>> GetStoreFixedExpense(string storeId, int pageNumber, int pageSize)
         {
             var totalCount = _ministopUnitOfWork.FixedExpenseRepository.GetCount(x => x.StoreID == storeId && !x.IsDeleted);
-            var storesEntity = _ministopUnitOfWork.FixedExpenseRepository.GetPagedResponse((x => x.StoreID == storeId && !x.IsDeleted), pageNumber, pageSize);
-            var storesDto = _mapper.Map<IReadOnlyList<StoreFixedExpenseDto>>(storesEntity);
-
+            var storesDto = _ministopUnitOfWork.FixedExpenseRepository.GetPagedResponse((x => x.StoreID == storeId && !x.IsDeleted), pageNumber, pageSize);
             return new PagedResult<IReadOnlyList<StoreFixedExpenseDto>>(storesDto, pageNumber, pageSize, totalCount);
         }
         public Result<string> CreateStoreFixedExpense(StoreFixedExpenseDto expenseDto)
@@ -162,6 +160,7 @@ namespace Services.Services
                 expenseEntity.ElectricityCost = expenseEdit.ElectricityCost;
                 expenseEntity.WaterCost = expenseEdit.WaterCost;
                 expenseEntity.Note  = expenseEdit.Note;
+                expenseEntity.Status = expenseEdit.Status;
                 expenseEntity.LastModified = _dateTimeService.NowUtc;
                 expenseEntity.LastModifiedBy = currentUserId;
                 _ministopUnitOfWork.FixedExpenseRepository.Update(expenseEntity, true);
