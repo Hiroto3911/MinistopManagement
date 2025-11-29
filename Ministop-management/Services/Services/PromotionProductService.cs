@@ -92,11 +92,11 @@ namespace Services.Services
                     join pp in _ministopUnitOfWork.PromotionProductRepository.GetAll()
                         on p.PromotionID equals pp.PromotionID
                     where
-                        pp.ProductID == PromotionProductDto.ProductId &&  // cùng sản phẩm
-                        p.PromotionID != promotion.PromotionID &&         // không trùng khuyến mãi hiện tại
-                        !p.IsDeleted &&                                   // chưa xoá
-                        p.Status == false &&                              // đang hoạt động (Status=0)
-                        p.Priority == promotion.Priority                  // cùng độ ưu tiên
+                        pp.ProductID == PromotionProductDto.ProductId &&  
+                        p.PromotionID != promotion.PromotionID &&         
+                        !p.IsDeleted &&                                   
+                        p.Status == false &&                              
+                        p.Priority == promotion.Priority                  
                     select p
                 ).Any();
 

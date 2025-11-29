@@ -159,18 +159,18 @@
             // 
             // tabSanPham
             // 
+            resources.ApplyResources(this.tabSanPham, "tabSanPham");
             this.tabSanPham.Controls.Add(this.dgvSanPham);
             this.tabSanPham.Controls.Add(this.guna2Panel1);
             this.tabSanPham.Controls.Add(this.guna2Panel3);
-            resources.ApplyResources(this.tabSanPham, "tabSanPham");
             this.tabSanPham.Name = "tabSanPham";
             this.tabSanPham.UseVisualStyleBackColor = true;
             // 
             // dgvSanPham
             // 
+            resources.ApplyResources(this.dgvSanPham, "dgvSanPham");
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvSanPham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvSanPham.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSanPham.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -181,7 +181,6 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvSanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            resources.ApplyResources(this.dgvSanPham, "dgvSanPham");
             this.dgvSanPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -220,9 +219,9 @@
             // 
             // guna2Panel1
             // 
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
             this.guna2Panel1.Controls.Add(this.btnThemSP);
-            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
             // 
             // btnThemSP
@@ -242,12 +241,12 @@
             // 
             // guna2Panel3
             // 
+            resources.ApplyResources(this.guna2Panel3, "guna2Panel3");
             this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel3.Controls.Add(this.ibtnThungRacSP);
             this.guna2Panel3.Controls.Add(this.txtTrangSP);
             this.guna2Panel3.Controls.Add(this.btnTrangSauSP);
             this.guna2Panel3.Controls.Add(this.btnTrangTruocSP);
-            resources.ApplyResources(this.guna2Panel3, "guna2Panel3");
             this.guna2Panel3.Name = "guna2Panel3";
             // 
             // ibtnThungRacSP
@@ -314,18 +313,18 @@
             // 
             // tabLoaiSanPham
             // 
+            resources.ApplyResources(this.tabLoaiSanPham, "tabLoaiSanPham");
             this.tabLoaiSanPham.Controls.Add(this.dgvloaisanpham);
             this.tabLoaiSanPham.Controls.Add(this.guna2Panel11);
             this.tabLoaiSanPham.Controls.Add(this.guna2Panel12);
-            resources.ApplyResources(this.tabLoaiSanPham, "tabLoaiSanPham");
             this.tabLoaiSanPham.Name = "tabLoaiSanPham";
             this.tabLoaiSanPham.UseVisualStyleBackColor = true;
             // 
             // dgvloaisanpham
             // 
+            resources.ApplyResources(this.dgvloaisanpham, "dgvloaisanpham");
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dgvloaisanpham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvloaisanpham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvloaisanpham.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvloaisanpham.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -336,7 +335,6 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvloaisanpham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            resources.ApplyResources(this.dgvloaisanpham, "dgvloaisanpham");
             this.dgvloaisanpham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
@@ -375,9 +373,9 @@
             // 
             // guna2Panel11
             // 
+            resources.ApplyResources(this.guna2Panel11, "guna2Panel11");
             this.guna2Panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
             this.guna2Panel11.Controls.Add(this.btnthemPCT);
-            resources.ApplyResources(this.guna2Panel11, "guna2Panel11");
             this.guna2Panel11.Name = "guna2Panel11";
             // 
             // btnthemPCT
@@ -397,12 +395,12 @@
             // 
             // guna2Panel12
             // 
+            resources.ApplyResources(this.guna2Panel12, "guna2Panel12");
             this.guna2Panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel12.Controls.Add(this.ibtnDuLieuBiXoaPCT);
             this.guna2Panel12.Controls.Add(this.txtTrangLSP);
             this.guna2Panel12.Controls.Add(this.btnTrangSauPCT);
             this.guna2Panel12.Controls.Add(this.btnTrangTruocPCT);
-            resources.ApplyResources(this.guna2Panel12, "guna2Panel12");
             this.guna2Panel12.Name = "guna2Panel12";
             // 
             // ibtnDuLieuBiXoaPCT
@@ -469,19 +467,19 @@
             // 
             // tabKhuyenMai
             // 
+            resources.ApplyResources(this.tabKhuyenMai, "tabKhuyenMai");
             this.tabKhuyenMai.Controls.Add(this.dgvPGG);
             this.tabKhuyenMai.Controls.Add(this.guna2Panel7);
             this.tabKhuyenMai.Controls.Add(this.guna2Panel8);
             this.tabKhuyenMai.Controls.Add(this.guna2DataGridView1);
-            resources.ApplyResources(this.tabKhuyenMai, "tabKhuyenMai");
             this.tabKhuyenMai.Name = "tabKhuyenMai";
             this.tabKhuyenMai.UseVisualStyleBackColor = true;
             // 
             // dgvPGG
             // 
+            resources.ApplyResources(this.dgvPGG, "dgvPGG");
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             this.dgvPGG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvPGG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPGG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPGG.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -492,7 +490,6 @@
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPGG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            resources.ApplyResources(this.dgvPGG, "dgvPGG");
             this.dgvPGG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
@@ -532,9 +529,9 @@
             // 
             // guna2Panel7
             // 
+            resources.ApplyResources(this.guna2Panel7, "guna2Panel7");
             this.guna2Panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
             this.guna2Panel7.Controls.Add(this.btnThemKM);
-            resources.ApplyResources(this.guna2Panel7, "guna2Panel7");
             this.guna2Panel7.Name = "guna2Panel7";
             // 
             // btnThemKM
@@ -554,12 +551,12 @@
             // 
             // guna2Panel8
             // 
+            resources.ApplyResources(this.guna2Panel8, "guna2Panel8");
             this.guna2Panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel8.Controls.Add(this.ibtnThungRacPGG);
             this.guna2Panel8.Controls.Add(this.txtTrangKM);
             this.guna2Panel8.Controls.Add(this.btnTrangSauKM);
             this.guna2Panel8.Controls.Add(this.btnTrangTruocKM);
-            resources.ApplyResources(this.guna2Panel8, "guna2Panel8");
             this.guna2Panel8.Name = "guna2Panel8";
             // 
             // ibtnThungRacPGG
@@ -626,6 +623,7 @@
             // 
             // guna2DataGridView1
             // 
+            resources.ApplyResources(this.guna2DataGridView1, "guna2DataGridView1");
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.guna2DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -639,7 +637,6 @@
             dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            resources.ApplyResources(this.guna2DataGridView1, "guna2DataGridView1");
             this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
@@ -677,18 +674,18 @@
             // 
             // tabNhaCungCap
             // 
+            resources.ApplyResources(this.tabNhaCungCap, "tabNhaCungCap");
             this.tabNhaCungCap.Controls.Add(this.dgvnhacungcap);
             this.tabNhaCungCap.Controls.Add(this.guna2Panel2);
             this.tabNhaCungCap.Controls.Add(this.guna2Panel4);
-            resources.ApplyResources(this.tabNhaCungCap, "tabNhaCungCap");
             this.tabNhaCungCap.Name = "tabNhaCungCap";
             this.tabNhaCungCap.UseVisualStyleBackColor = true;
             // 
             // dgvnhacungcap
             // 
+            resources.ApplyResources(this.dgvnhacungcap, "dgvnhacungcap");
             dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
             this.dgvnhacungcap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvnhacungcap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvnhacungcap.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvnhacungcap.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -699,7 +696,6 @@
             dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvnhacungcap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            resources.ApplyResources(this.dgvnhacungcap, "dgvnhacungcap");
             this.dgvnhacungcap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
@@ -739,9 +735,9 @@
             // 
             // guna2Panel2
             // 
+            resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
             this.guna2Panel2.Controls.Add(this.btnThem);
-            resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.Name = "guna2Panel2";
             // 
             // btnThem
@@ -761,12 +757,12 @@
             // 
             // guna2Panel4
             // 
+            resources.ApplyResources(this.guna2Panel4, "guna2Panel4");
             this.guna2Panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel4.Controls.Add(this.ibtnThungRacNCC);
             this.guna2Panel4.Controls.Add(this.txtSoTrangNCC);
             this.guna2Panel4.Controls.Add(this.btnTrangSauNCC);
             this.guna2Panel4.Controls.Add(this.btnTrangTruocNCC);
-            resources.ApplyResources(this.guna2Panel4, "guna2Panel4");
             this.guna2Panel4.Name = "guna2Panel4";
             // 
             // ibtnThungRacNCC
@@ -833,15 +829,16 @@
             // 
             // tabDeXuatGia
             // 
+            resources.ApplyResources(this.tabDeXuatGia, "tabDeXuatGia");
             this.tabDeXuatGia.Controls.Add(this.dgvDuLieuDXG);
             this.tabDeXuatGia.Controls.Add(this.guna2Panel5);
             this.tabDeXuatGia.Controls.Add(this.guna2Panel6);
-            resources.ApplyResources(this.tabDeXuatGia, "tabDeXuatGia");
             this.tabDeXuatGia.Name = "tabDeXuatGia";
             this.tabDeXuatGia.UseVisualStyleBackColor = true;
             // 
             // dgvDuLieuDXG
             // 
+            resources.ApplyResources(this.dgvDuLieuDXG, "dgvDuLieuDXG");
             dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
             this.dgvDuLieuDXG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvDuLieuDXG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -854,7 +851,6 @@
             dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDuLieuDXG.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            resources.ApplyResources(this.dgvDuLieuDXG, "dgvDuLieuDXG");
             this.dgvDuLieuDXG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle18.BackColor = System.Drawing.Color.White;
@@ -893,21 +889,21 @@
             // 
             // guna2Panel5
             // 
+            resources.ApplyResources(this.guna2Panel5, "guna2Panel5");
             this.guna2Panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
             this.guna2Panel5.Controls.Add(this.cboCuaHangDXG);
             this.guna2Panel5.Controls.Add(this.lblTime);
             this.guna2Panel5.Controls.Add(this.btnThemDXG);
-            resources.ApplyResources(this.guna2Panel5, "guna2Panel5");
             this.guna2Panel5.Name = "guna2Panel5";
             // 
             // cboCuaHangDXG
             // 
+            resources.ApplyResources(this.cboCuaHangDXG, "cboCuaHangDXG");
             this.cboCuaHangDXG.BackColor = System.Drawing.Color.Transparent;
             this.cboCuaHangDXG.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cboCuaHangDXG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCuaHangDXG.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cboCuaHangDXG.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            resources.ApplyResources(this.cboCuaHangDXG, "cboCuaHangDXG");
             this.cboCuaHangDXG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboCuaHangDXG.Name = "cboCuaHangDXG";
             // 
@@ -934,11 +930,11 @@
             // 
             // guna2Panel6
             // 
+            resources.ApplyResources(this.guna2Panel6, "guna2Panel6");
             this.guna2Panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel6.Controls.Add(this.txtSoTrangDXG);
             this.guna2Panel6.Controls.Add(this.btnTrangSauDXG);
             this.guna2Panel6.Controls.Add(this.btnTrangTruocDXG);
-            resources.ApplyResources(this.guna2Panel6, "guna2Panel6");
             this.guna2Panel6.Name = "guna2Panel6";
             // 
             // txtSoTrangDXG
@@ -1020,6 +1016,7 @@
             this.tabDeXuatGia.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieuDXG)).EndInit();
             this.guna2Panel5.ResumeLayout(false);
+            this.guna2Panel5.PerformLayout();
             this.guna2Panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -36,10 +36,11 @@
             this.dgvDuLieu = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblThungRac = new System.Windows.Forms.Label();
+            this.itbnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnXoaCung = new Guna.UI2.WinForms.Guna2Button();
             this.btnKhoiPhuc = new Guna.UI2.WinForms.Guna2Button();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.itbnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -50,7 +51,6 @@
             resources.ApplyResources(this.dgvDuLieu, "dgvDuLieu");
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvDuLieu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDuLieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDuLieu.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDuLieu.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -111,12 +111,42 @@
             this.lblThungRac.ForeColor = System.Drawing.Color.White;
             this.lblThungRac.Name = "lblThungRac";
             // 
+            // itbnThoat
+            // 
+            resources.ApplyResources(this.itbnThoat, "itbnThoat");
+            this.itbnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.itbnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.itbnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.itbnThoat.ImageRotate = 0F;
+            this.itbnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.itbnThoat.Name = "itbnThoat";
+            this.itbnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.itbnThoat.Click += new System.EventHandler(this.itbnThoat_Click);
+            // 
             // guna2Panel3
             // 
             resources.ApplyResources(this.guna2Panel3, "guna2Panel3");
             this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2Panel3.Controls.Add(this.btnXoaCung);
             this.guna2Panel3.Controls.Add(this.btnKhoiPhuc);
             this.guna2Panel3.Name = "guna2Panel3";
+            // 
+            // btnXoaCung
+            // 
+            resources.ApplyResources(this.btnXoaCung, "btnXoaCung");
+            this.btnXoaCung.BorderColor = System.Drawing.Color.DimGray;
+            this.btnXoaCung.BorderRadius = 10;
+            this.btnXoaCung.BorderThickness = 3;
+            this.btnXoaCung.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoaCung.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnXoaCung.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnXoaCung.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXoaCung.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnXoaCung.ForeColor = System.Drawing.Color.White;
+            this.btnXoaCung.Name = "btnXoaCung";
+            this.btnXoaCung.Click += new System.EventHandler(this.btnXoaCung_Click);
             // 
             // btnKhoiPhuc
             // 
@@ -139,20 +169,6 @@
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
-            // itbnThoat
-            // 
-            resources.ApplyResources(this.itbnThoat, "itbnThoat");
-            this.itbnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.itbnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.itbnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.itbnThoat.ImageRotate = 0F;
-            this.itbnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.itbnThoat.Name = "itbnThoat";
-            this.itbnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.Click += new System.EventHandler(this.itbnThoat_Click);
             // 
             // frmThungRac_CuaHang
             // 
@@ -180,5 +196,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Button btnKhoiPhuc;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private Guna.UI2.WinForms.Guna2Button btnXoaCung;
     }
 }

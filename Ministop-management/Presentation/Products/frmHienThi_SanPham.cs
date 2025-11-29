@@ -34,7 +34,7 @@ namespace Presentation
         private long _totalPagePGG = 1;
         private long _totalPageDXG;
 
-        public frmHienThi_SanPham(IProductCategoryService ProductCategoryService, IPriceProposalService priceProposalService, IUnityContainer container, IUserSession userSession,IProductService ProductService, ISupplierService SupllierService, IPromotionService promotionService)
+        public frmHienThi_SanPham(IProductCategoryService ProductCategoryService, IPriceProposalService priceProposalService, IUnityContainer container, IUserSession userSession, IProductService ProductService, ISupplierService SupllierService, IPromotionService promotionService)
         {
             InitializeComponent();
             _productCategoryService = ProductCategoryService;
@@ -44,14 +44,15 @@ namespace Presentation
             _priceProposalService = priceProposalService;
             _container = container;
             _userSession = userSession;
- 
+
         }
-       
+
 
 
 
         private void frmHienThi_SanPham_Load(object sender, EventArgs e)
         {
+            LoadTab(tabControlSP.SelectedTab);
             LoadCboCuaHang();
             if (_userSession.Role == "Quản lý cửa hàng")
             {
@@ -65,6 +66,96 @@ namespace Presentation
 
         }
 
+        private void ApplyGridStyle(Guna2DataGridView dgvDuLieu)
+        {
+            // ===== 2️⃣ Thêm hai cột nút =====
+            if (!dgvDuLieu.Columns.Contains("Edit") || !dgvDuLieu.Columns.Contains("Delete"))
+            {
+                // add column
+
+                if (dgvDuLieu.Columns["Edit"] == null)
+                {
+
+                    DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
+                    btnEdit.Name = "Edit";
+                    btnEdit.HeaderText = "Edit";
+                    btnEdit.Text = "Edit";
+                    btnEdit.UseColumnTextForButtonValue = true;
+                    dgvDuLieu.Columns.Add(btnEdit);
+                }
+                if (dgvDuLieu.Columns["Delete"] == null)
+                {
+                    DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
+                    btnDelete.Name = "Delete";
+                    btnDelete.HeaderText = "Delete";
+                    btnDelete.Text = "Delete";
+                    btnDelete.UseColumnTextForButtonValue = true;
+                    dgvDuLieu.Columns.Add(btnDelete);
+                }
+            }
+            // ===== 3️⃣ Chỉnh style chung cho bảng =====
+            dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
+            dgvDuLieu.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
+            dgvDuLieu.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvDuLieu.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            dgvDuLieu.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
+            dgvDuLieu.RowTemplate.Height = 40;
+            // Gỡ event trước khi đăng ký
+            dgvDuLieu.CellPainting -= DgvDuLieu_CellPaintingWrapper;
+            dgvDuLieu.CellPainting += DgvDuLieu_CellPaintingWrapper;
+            void DgvDuLieu_CellPaintingWrapper(object s, DataGridViewCellPaintingEventArgs e)
+            {
+                DgvDuLieu_CellPainting(s, e);
+            }
+        }
+        private void DgvDuLieu_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+
+            var grid = (Guna2DataGridView)sender;
+
+            if (grid.Columns[e.ColumnIndex].Name == "Edit" || grid.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                e.PaintBackground(e.CellBounds, true);
+
+                Color backColor = grid.Columns[e.ColumnIndex].Name == "Edit" ? Color.SeaGreen : Color.IndianRed;
+                using (Brush b = new SolidBrush(backColor))
+                    e.Graphics.FillRectangle(b, e.CellBounds);
+
+                TextRenderer.DrawText(
+                    e.Graphics,
+                    grid.Columns[e.ColumnIndex].Name,
+                    new Font("Segoe UI", 9, FontStyle.Bold),
+                    e.CellBounds,
+                    Color.White,
+                    TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+                );
+
+                e.Handled = true;
+            }
+        }
+        private string GetStatus(byte status)
+        {
+
+            switch (status)
+            {
+                case 0:
+                    return Properties.Resources.Status_NotPermitted;
+
+                case 1:
+                    return Properties.Resources.Status_Permitted;
+
+
+                case 3:
+                    return Properties.Resources.Status_Pending;
+
+                default:
+                    return Properties.Resources.Status_Draft;
+
+
+            }
+
+        }
         #region loai san pham
         private void LoadDataPCT(int pageNumber = 1, int pageSize = 5)
         {
@@ -87,65 +178,11 @@ namespace Presentation
             dgvloaisanpham.DataSource = dt;
             dgvloaisanpham.AllowUserToAddRows = false;
             dgvloaisanpham.ReadOnly = true;
-            dgvloaisanpham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvloaisanpham.Columns["MaLoaiSanPham"].HeaderText = Properties.Resources.Grid_ID;
+            dgvloaisanpham.Columns["TenLoaiSanPham"].HeaderText = Properties.Resources.Grid_ProductCategoryName;
+            dgvloaisanpham.Columns["MoTa"].HeaderText = Properties.Resources.Grid_describe;
 
-            // ===== 2️⃣ Thêm hai cột nút =====
-            if (dgvloaisanpham.Columns["Edit"] == null)
-            {
-                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                btnEdit.Name = "Edit";
-                btnEdit.HeaderText = "Edit";
-                btnEdit.Text = "Edit";
-                btnEdit.UseColumnTextForButtonValue = true;
-                dgvloaisanpham.Columns.Add(btnEdit);
-            }
-
-            if (dgvloaisanpham.Columns["Delete"] == null)
-            {
-                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Delete";
-                btnDelete.HeaderText = "Delete";
-                btnDelete.Text = "Delete";
-                btnDelete.UseColumnTextForButtonValue = true;
-                dgvloaisanpham.Columns.Add(btnDelete);
-            }
-
-            // ===== 3️⃣ Chỉnh style chung cho bảng =====
-            dgvloaisanpham.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
-            dgvloaisanpham.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
-            dgvloaisanpham.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvloaisanpham.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvloaisanpham.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
-            dgvloaisanpham.RowTemplate.Height = 40;
-
-            // ===== 4️⃣ Đổi màu nút Edit/Delete =====
-            dgvloaisanpham.CellPainting += (s, e) =>
-            {
-                if (e.RowIndex >= 0 && (dgvloaisanpham.Columns[e.ColumnIndex].Name == "Edit" ||
-                                        dgvloaisanpham.Columns[e.ColumnIndex].Name == "Delete"))
-                {
-                    e.PaintBackground(e.CellBounds, true);
-
-                    Color backColor = dgvloaisanpham.Columns[e.ColumnIndex].Name == "Edit"
-                        ? Color.SeaGreen
-                        : Color.IndianRed;
-
-                    using (Brush b = new SolidBrush(backColor))
-                        e.Graphics.FillRectangle(b, e.CellBounds);
-
-                    string text = dgvloaisanpham.Columns[e.ColumnIndex].Name;
-                    TextRenderer.DrawText(
-                        e.Graphics,
-                        text,
-                        new Font("Segoe UI", 9, FontStyle.Bold),
-                        e.CellBounds,
-                        Color.White,
-                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-                    );
-
-                    e.Handled = true;
-                }
-            };
+            ApplyGridStyle(dgvloaisanpham);
             btnTrangTruocPCT.Enabled = pageNumber > 1;
             btnTrangSauPCT.Enabled = pageNumber <= _totalPagePCT;
 
@@ -185,7 +222,7 @@ namespace Presentation
             frmThungRac.datachanged += (s, ev) => LoadDataPCT();
             frmThungRac.ShowDialog();
         }
-       
+
         //xong
         private void dgvloaisanpham_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -202,16 +239,17 @@ namespace Presentation
             }
             else if (dgvloaisanpham.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa loại sản phẩm {ProductCategoryId}?","Xác nhận",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-                if(result == DialogResult.Yes)
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {ProductCategoryId}?", $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (result == DialogResult.Yes)
                 {
+
                     _productCategoryService.RemoveProductCategory(ProductCategoryId);
-                    MessageBox.Show("Xóa thành công");
+                    MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadDataPCT();
                 }
             }
         }
-      
+
         private void btnthemPCT_Click(object sender, EventArgs e)
         {
             var frmChucNangLoaiSanPham = _container.Resolve<frmChucNang_LoaiSanPham>();
@@ -231,77 +269,24 @@ namespace Presentation
             dt.Columns.Add("DiaChi");
             using (var childContainer = _container.CreateChildContainer())
             {
-                var SupplierService  = childContainer.Resolve<ISupplierService>();
+                var SupplierService = childContainer.Resolve<ISupplierService>();
                 var list = SupplierService.GetSupplier(pageNumber, pageSize);
                 if (list.Succeeded == false && list.Data == null) { return; }
                 _totalPageNCC = (long)Math.Ceiling((double)(list.TotalCount / pageSize));
                 foreach (var item in list.Data)
                 {
-                    dt.Rows.Add(item.SupplierId, item.SupplierName, item.Phone,item.Address);
+                    dt.Rows.Add(item.SupplierId, item.SupplierName, item.Phone, item.Address);
                 }
             }
             dgvnhacungcap.DataSource = dt;
             dgvnhacungcap.AllowUserToAddRows = false;
             dgvnhacungcap.ReadOnly = true;
-            dgvnhacungcap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvnhacungcap.Columns["MaNhaCungCap"].HeaderText = Properties.Resources.Grid_SupplierID;
+            dgvnhacungcap.Columns["TenNhaCungCap"].HeaderText = Properties.Resources.Grid_SupplierName;
+            dgvnhacungcap.Columns["SoDienThoai"].HeaderText = Properties.Resources.Grid_PhoneNumber;
+            dgvnhacungcap.Columns["DiaChi"].HeaderText = Properties.Resources.Grid_Adrress;
 
-            // ===== 2️⃣ Thêm hai cột nút =====
-            if (dgvnhacungcap.Columns["Edit"] == null)
-            {
-                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                btnEdit.Name = "Edit";
-                btnEdit.HeaderText = "Edit";
-                btnEdit.Text = "Edit";
-                btnEdit.UseColumnTextForButtonValue = true;
-                dgvnhacungcap.Columns.Add(btnEdit);
-            }
-
-            if (dgvnhacungcap.Columns["Delete"] == null)
-            {
-                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Delete";
-                btnDelete.HeaderText = "Delete";
-                btnDelete.Text = "Delete";
-                btnDelete.UseColumnTextForButtonValue = true;
-                dgvnhacungcap.Columns.Add(btnDelete);
-            }
-
-            // ===== 3️⃣ Chỉnh style chung cho bảng =====
-            dgvnhacungcap.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
-            dgvnhacungcap.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
-            dgvnhacungcap.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvnhacungcap.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvnhacungcap.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
-            dgvnhacungcap.RowTemplate.Height = 40;
-
-            // ===== 4️⃣ Đổi màu nút Edit/Delete =====
-            dgvnhacungcap.CellPainting += (s, e) =>
-            {
-                if (e.RowIndex >= 0 && (dgvnhacungcap.Columns[e.ColumnIndex].Name == "Edit" ||
-                                        dgvnhacungcap.Columns[e.ColumnIndex].Name == "Delete"))
-                {
-                    e.PaintBackground(e.CellBounds, true);
-
-                    Color backColor = dgvnhacungcap.Columns[e.ColumnIndex].Name == "Edit"
-                        ? Color.SeaGreen
-                        : Color.IndianRed;
-
-                    using (Brush b = new SolidBrush(backColor))
-                        e.Graphics.FillRectangle(b, e.CellBounds);
-
-                    string text = dgvnhacungcap.Columns[e.ColumnIndex].Name;
-                    TextRenderer.DrawText(
-                        e.Graphics,
-                        text,
-                        new Font("Segoe UI", 9, FontStyle.Bold),
-                        e.CellBounds,
-                        Color.White,
-                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-                    );
-
-                    e.Handled = true;
-                }
-            };
+            ApplyGridStyle(dgvnhacungcap);
             btnTrangTruocNCC.Enabled = pageNumber > 1;
             btnTrangSauNCC.Enabled = pageNumber <= _totalPageNCC;
 
@@ -322,16 +307,16 @@ namespace Presentation
             }
             else if (dgvnhacungcap.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa loại sản phẩm {suppplierid}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {suppplierid}?", $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
                     _supllierService.RemoveSupplier(suppplierid);
-                    MessageBox.Show("Xóa thành công");
+                    MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadDataNCC();
                 }
             }
         }
-        
+
 
         private void dgvSanPham_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -349,11 +334,11 @@ namespace Presentation
             }
             else if (dgvSanPham.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa sản phẩm {productid}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {productid}?", $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
                     _productService.RemoveProduct(productid);
-                    MessageBox.Show("Xóa thành công");
+                    MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadDataSP();
                 }
             }
@@ -397,7 +382,7 @@ namespace Presentation
             if (number <= _totalPageNCC)
             {
                 var pageNumber = ++number;
-                 txtSoTrangNCC.Text = pageNumber.ToString();
+                txtSoTrangNCC.Text = pageNumber.ToString();
                 LoadDataNCC(pageNumber);
             }
         }
@@ -421,71 +406,19 @@ namespace Presentation
                 _totalPageSP = (long)Math.Ceiling((double)(list.TotalCount / pageSize));
                 foreach (var item in list.Data)
                 {
-                    dt.Rows.Add(item.ProductId, item.CategoryId, item.ProductName,item.Unit,item.StandardPrice);
+                    dt.Rows.Add(item.ProductId, item.CategoryId, item.ProductName, item.Unit, item.StandardPrice);
                 }
             }
             dgvSanPham.DataSource = dt;
             dgvSanPham.AllowUserToAddRows = false;
             dgvSanPham.ReadOnly = true;
-            dgvSanPham.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSanPham.Columns["MaSanPham"].HeaderText = Properties.Resources.Grid_ProductID;
+            dgvSanPham.Columns["TenLoaiSanPham"].HeaderText = Properties.Resources.Grid_ProductCategoryName;
+            dgvSanPham.Columns["TenSanPham"].HeaderText = Properties.Resources.Grid_ProductName;
+            dgvSanPham.Columns["DonVi"].HeaderText = Properties.Resources.Grid_Unit;
+            dgvSanPham.Columns["GiaTieuChuan"].HeaderText = Properties.Resources.Grid_StandardPrice;
 
-            // ===== 2️⃣ Thêm hai cột nút =====
-            if (dgvSanPham.Columns["Edit"] == null)
-            {
-                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                btnEdit.Name = "Edit";
-                btnEdit.HeaderText = "Edit";
-                btnEdit.Text = "Edit";
-                btnEdit.UseColumnTextForButtonValue = true;
-                dgvSanPham.Columns.Add(btnEdit);
-            }
-
-            if (dgvSanPham.Columns["Delete"] == null)
-            {
-                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Delete";
-                btnDelete.HeaderText = "Delete";
-                btnDelete.Text = "Delete";
-                btnDelete.UseColumnTextForButtonValue = true;
-                dgvSanPham.Columns.Add(btnDelete);
-            }
-
-            // ===== 3️⃣ Chỉnh style chung cho bảng =====
-            dgvSanPham.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
-            dgvSanPham.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
-            dgvSanPham.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvSanPham.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvSanPham.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
-            dgvSanPham.RowTemplate.Height = 40;
-
-            // ===== 4️⃣ Đổi màu nút Edit/Delete =====
-            dgvSanPham.CellPainting += (s, e) =>
-            {
-                if (e.RowIndex >= 0 && (dgvSanPham.Columns[e.ColumnIndex].Name == "Edit" ||
-                                        dgvSanPham.Columns[e.ColumnIndex].Name == "Delete"))
-                {
-                    e.PaintBackground(e.CellBounds, true);
-
-                    Color backColor = dgvSanPham.Columns[e.ColumnIndex].Name == "Edit"
-                        ? Color.SeaGreen
-                        : Color.IndianRed;
-
-                    using (Brush b = new SolidBrush(backColor))
-                        e.Graphics.FillRectangle(b, e.CellBounds);
-
-                    string text = dgvSanPham.Columns[e.ColumnIndex].Name;
-                    TextRenderer.DrawText(
-                        e.Graphics,
-                        text,
-                        new Font("Segoe UI", 9, FontStyle.Bold),
-                        e.CellBounds,
-                        Color.White,
-                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-                    );
-
-                    e.Handled = true;
-                }
-            };
+            ApplyGridStyle(dgvSanPham);
             btnTrangTruocSP.Enabled = pageNumber > 1;
             btnTrangSauSP.Enabled = pageNumber <= _totalPageSP;
 
@@ -546,7 +479,7 @@ namespace Presentation
         private void dgvPGG_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            string promotionId = dgvPGG.Rows[e.RowIndex].Cells["MaPhieuGiamGia"].Value.ToString(); 
+            string promotionId = dgvPGG.Rows[e.RowIndex].Cells["MaPhieuGiamGia"].Value.ToString();
             if (dgvPGG.Columns[e.ColumnIndex].Name == "Edit")
             {
                 var frmChucNangPhieuGiamGia = _container.Resolve<frmChucNang_PhieuGiamGia>(new ParameterOverride("promotionId", promotionId));
@@ -558,11 +491,11 @@ namespace Presentation
             }
             else if (dgvPGG.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc chắn muốn xóa loại sản phẩm {promotionId}?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {promotionId}?", $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == DialogResult.Yes)
                 {
                     _promotionService.RemovePromotion(promotionId);
-                    MessageBox.Show("Xóa thành công");
+                    MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadDataPGG();
                 }
             }
@@ -585,71 +518,19 @@ namespace Presentation
                 _totalPagePGG = (long)Math.Ceiling((double)(list.TotalCount / pageSize));
                 foreach (var item in list.Data)
                 {
-                    dt.Rows.Add(item.PromotionId, item.PromotionName, item.StartDate, item.EndDate,item.Priority,item.Status);
+                    dt.Rows.Add(item.PromotionId, item.PromotionName, item.StartDate, item.EndDate, item.Priority, item.Status);
                 }
             }
             dgvPGG.DataSource = dt;
             dgvPGG.AllowUserToAddRows = false;
             dgvPGG.ReadOnly = true;
-            dgvPGG.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // ===== 2️⃣ Thêm hai cột nút =====
-            if (dgvPGG.Columns["Edit"] == null)
-            {
-                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn();
-                btnEdit.Name = "Edit";
-                btnEdit.HeaderText = "Edit";
-                btnEdit.Text = "Edit";
-                btnEdit.UseColumnTextForButtonValue = true;
-                dgvPGG.Columns.Add(btnEdit);
-            }
-
-            if (dgvPGG.Columns["Delete"] == null)
-            {
-                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn();
-                btnDelete.Name = "Delete";
-                btnDelete.HeaderText = "Delete";
-                btnDelete.Text = "Delete";
-                btnDelete.UseColumnTextForButtonValue = true;
-                dgvPGG.Columns.Add(btnDelete);
-            }
-
-            // ===== 3️⃣ Chỉnh style chung cho bảng =====
-            dgvPGG.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
-            dgvPGG.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
-            dgvPGG.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            dgvPGG.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-            dgvPGG.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9);
-            dgvPGG.RowTemplate.Height = 40;
-
-            // ===== 4️⃣ Đổi màu nút Edit/Delete =====
-            dgvPGG.CellPainting += (s, e) =>
-            {
-                if (e.RowIndex >= 0 && (dgvPGG.Columns[e.ColumnIndex].Name == "Edit" ||
-                                        dgvPGG.Columns[e.ColumnIndex].Name == "Delete"))
-                {
-                    e.PaintBackground(e.CellBounds, true);
-
-                    Color backColor = dgvPGG.Columns[e.ColumnIndex].Name == "Edit"
-                        ? Color.SeaGreen
-                        : Color.IndianRed;
-
-                    using (Brush b = new SolidBrush(backColor))
-                        e.Graphics.FillRectangle(b, e.CellBounds);
-
-                    string text = dgvPGG.Columns[e.ColumnIndex].Name;
-                    TextRenderer.DrawText(
-                        e.Graphics,
-                        text,
-                        new Font("Segoe UI", 9, FontStyle.Bold),
-                        e.CellBounds,
-                        Color.White,
-                        TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
-                    );
-
-                    e.Handled = true;
-                }
-            };
+            dgvPGG.Columns["MaPhieuGiamGia"].HeaderText = Properties.Resources.Grid_ID;
+            dgvPGG.Columns["TenPhieuGiamGia"].HeaderText = Properties.Resources.Grid_PromotionName;
+            dgvPGG.Columns["NgayBatDau"].HeaderText = Properties.Resources.Grid_StartDay;
+            dgvPGG.Columns["NgayKetThuc"].HeaderText = Properties.Resources.Grid_EndDay;
+            dgvPGG.Columns["MucDoUuTien"].HeaderText = Properties.Resources.Grid_Priority;
+            dgvPGG.Columns["TrangThai"].HeaderText = Properties.Resources.Grid_Status;
+            ApplyGridStyle(dgvPGG);
             btnTrangTruocKM.Enabled = pageNumber > 1;
             btnTrangSauKM.Enabled = pageNumber <= _totalPageNCC;
 
@@ -712,9 +593,9 @@ namespace Presentation
 
         #region DeXuatGia
 
-        #endregion
 
-     
+
+
         private void cboCuaHang_SelectedValueChanged(object sender, EventArgs e)
         {
             LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString());
@@ -750,16 +631,23 @@ namespace Presentation
                 var list = expenseService.GetpriceProposal(storeId, pageNumber, pageSize);
                 if (list.Succeeded == false && list.Data == null) { return; }
                 _totalPageDXG = (long)Math.Ceiling((double)(list.TotalCount / pageSize));
-                    foreach (var item in list.Data)
-                    {
-                        dt.Rows.Add(item.ProposalId, item.ProductId, item.ProductName, item.OldPrice, item.NewPrice, item.Reason, item.Status);
-                    }
-                
+                foreach (var item in list.Data)
+                {
+                    dt.Rows.Add(item.ProposalId, item.ProductId, item.ProductName, item.OldPrice, item.NewPrice, item.Reason, item.Status);
+                }
+
             }
             // ===== 2️⃣ Dữ liệu mẫu (có thể thay bằng dữ liệu trong DB sau này) =====
             dgvDuLieuDXG.DataSource = dt;
             dgvDuLieuDXG.AllowUserToAddRows = false;
             dgvDuLieuDXG.ReadOnly = true;
+            dgvDuLieuDXG.Columns["MaDeXuat"].HeaderText = Properties.Resources.Grid_ID;
+            dgvDuLieuDXG.Columns["MaSanPham"].HeaderText = Properties.Resources.Grid_ProductID;
+            dgvDuLieuDXG.Columns["TenSanPham"].HeaderText = Properties.Resources.Grid_ProductName;
+            dgvDuLieuDXG.Columns["GiaCu"].HeaderText = Properties.Resources.Grid_NewPrice;
+            dgvDuLieuDXG.Columns["GiaMoi"].HeaderText = Properties.Resources.Grid_OldPrice;
+            dgvDuLieuDXG.Columns["LyDo"].HeaderText = Properties.Resources.Grid_Reason;
+            dgvDuLieuDXG.Columns["TrangThai"].HeaderText = Properties.Resources.Grid_Status;
 
             // ===== 2️⃣ Thêm hai cột nút =====
 
@@ -890,7 +778,7 @@ namespace Presentation
                 var frmChucNangCP = _container.Resolve<frmChucNang_DeXuatGia>(new ParameterOverride("priceProposalID", priceProposalID));
                 frmChucNangCP.dataChanged += (s, ev) =>
                 {
-  
+
                     LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString());
                 };
                 frmChucNangCP.ShowDialog();
@@ -900,13 +788,13 @@ namespace Presentation
             }
             else if (dgvDuLieuDXG.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa phieu de xuat gia {priceProposalID}?",
-                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {priceProposalID}?",
+                   $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
                     _priceProposalService.RemovepriceProposalDto(priceProposalID);
-                    MessageBox.Show("Xóa thành công!");
+                    MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
 
                     LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString()); // tải lại dữ liệu
                 }
@@ -950,11 +838,11 @@ namespace Presentation
             frmChucNang.ShowDialog();
 
         }
-
+        #endregion
         private void tabControlSP_SelectedIndexChanged(object sender, EventArgs e)
         {
-           var tab = tabControlSP.SelectedTab;
-            if(tab.Tag == null)
+            var tab = tabControlSP.SelectedTab;
+            if (tab.Tag == null)
             {
                 LoadTab(tab);
                 tab.Tag = "Loaded";
@@ -967,6 +855,10 @@ namespace Presentation
             {
                 case "tabDeXuatGia":
                     LoadDataDXG(cboCuaHangDXG.SelectedValue.ToString());
+                    if (_userSession.Role == "Admin")
+                    {
+                        btnThemDXG.Enabled = false;
+                    }
                     break;
                 case "tabNhaCungCap":
                     LoadDataNCC();
@@ -980,7 +872,7 @@ namespace Presentation
                 case "tabSanPham":
                     LoadDataSP();
                     break;
-               
+
             }
         }
     }

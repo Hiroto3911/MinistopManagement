@@ -117,468 +117,99 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>9, 20</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1300, 538</value>
-  </data>
-  <data name="dgvDuLieuCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 171</value>
-  </data>
-  <data name="dgvDuLieuCT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 304</value>
-  </data>
-  <data name="ibtnCanhBaoTonKho.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 46</value>
-  </data>
-  <data name="ibtnCanhBaoTonKho.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 100</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblSoLanCanhBao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblSoLanCanhBao.Location" type="System.Drawing.Point, System.Drawing">
-    <value>230, 68</value>
-  </data>
-  <data name="lblSoLanCanhBao.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 60</value>
-  </data>
-  <data name="guna2GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>713, 3</value>
-  </data>
-  <data name="guna2GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>350, 162</value>
-  </data>
   <data name="guna2GroupBox2.Text" xml:space="preserve">
-    <value>Low Inventory Warming </value>
-  </data>
-  <data name="ibtnSoLanXuat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 46</value>
-  </data>
-  <data name="ibtnSoLanXuat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 100</value>
-  </data>
-  <data name="lblSoLanXuat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblSoLanXuat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 68</value>
-  </data>
-  <data name="lblSoLanXuat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 60</value>
-  </data>
-  <data name="guna2GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>358, 3</value>
-  </data>
-  <data name="guna2GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>349, 162</value>
+    <value>Low inventory warning</value>
   </data>
   <data name="guna2GroupBox1.Text" xml:space="preserve">
-    <value>Total export volume  in the Month</value>
-  </data>
-  <data name="ibtnSoLanNhap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 46</value>
-  </data>
-  <data name="ibtnSoLanNhap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 100</value>
-  </data>
-  <data name="lblSoLanNhap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblSoLanNhap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>208, 68</value>
-  </data>
-  <data name="lblSoLanNhap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 60</value>
-  </data>
-  <data name="guna2GroupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="guna2GroupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>349, 162</value>
+    <value>Total number of stock export in month</value>
   </data>
   <data name="guna2GroupBox3.Text" xml:space="preserve">
-    <value>Total import volume in the month</value>
+    <value>Total number of stock entries in month </value>
   </data>
-  <data name="tableLayoutPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 168</value>
-  </data>
-  <data name="pnlDetail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="pnlDetail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 168</value>
-  </data>
-  <data name="ibtnSetting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 49</value>
-  </data>
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>902, 8</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 28</value>
+    <value>59, 19</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Refresh</value>
   </data>
-  <data name="ibtnLoadDuLieu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1008, 3</value>
-  </data>
-  <data name="ibtnLoadDuLieu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 49</value>
-  </data>
-  <data name="txtSoTrangCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>506, 8</value>
-  </data>
-  <data name="txtSoTrangCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 8, 6, 8</value>
-  </data>
-  <data name="txtSoTrangCT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 40</value>
-  </data>
-  <data name="btnTrangSauCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>586, 8</value>
-  </data>
-  <data name="btnTrangSauCT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="btnTrangTruocCT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>432, 6</value>
-  </data>
-  <data name="btnTrangTruocCT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="guna2Panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 475</value>
-  </data>
-  <data name="guna2Panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 52</value>
-  </data>
-  <data name="tabChiTietKho.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
-  </data>
-  <data name="tabChiTietKho.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabChiTietKho.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 530</value>
-  </data>
   <data name="tabChiTietKho.Text" xml:space="preserve">
-    <value>Inventory</value>
+    <value>Stock Details</value>
   </data>
-  <data name="btnInPhieuNhap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>818, 5</value>
-  </data>
-  <data name="btnInPhieuNhap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 40</value>
-  </data>
-  <data name="cboCuaHangNH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="cboCuaHangNH.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
+  <data name="btnInPhieuNhap.Text" xml:space="preserve">
+    <value>Print</value>
   </data>
   <data name="cboCuaHangNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 7</value>
-  </data>
-  <data name="cboCuaHangNH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="cboCuaHangNH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 36</value>
-  </data>
-  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="label3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
-  </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 7</value>
+    <value>49, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 28</value>
+    <value>49, 19</value>
   </data>
-  <data name="btnThemNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>942, 5</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
-  <data name="btnThemNH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 40</value>
-  </data>
-  <data name="guna2Panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="guna2Panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 52</value>
-  </data>
-  <data name="dgvDuLieuNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 52</value>
-  </data>
-  <data name="dgvDuLieuNH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 423</value>
-  </data>
-  <data name="txtSoTrangNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>496, 6</value>
-  </data>
-  <data name="txtSoTrangNH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 8, 6, 8</value>
-  </data>
-  <data name="txtSoTrangNH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 40</value>
-  </data>
-  <data name="btnTrangSauNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>578, 6</value>
-  </data>
-  <data name="btnTrangSauNH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="btnTrangTruocNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>423, 6</value>
-  </data>
-  <data name="btnTrangTruocNH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="guna2Panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 475</value>
-  </data>
-  <data name="guna2Panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1066, 52</value>
-  </data>
-  <data name="tabNhapHang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
-  </data>
-  <data name="tabNhapHang.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="tabNhapHang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 530</value>
+  <data name="btnThemNH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="tabNhapHang.Text" xml:space="preserve">
-    <value>Import</value>
+    <value>Stock Import</value>
   </data>
-  <data name="dgvDuLieuXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 52</value>
-  </data>
-  <data name="dgvDuLieuXH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 426</value>
-  </data>
-  <data name="btnInPhieuXuat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>810, 6</value>
-  </data>
-  <data name="btnInPhieuXuat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 40</value>
-  </data>
-  <data name="cboCuaHangXH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="cboCuaHangXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>115, 6</value>
-  </data>
-  <data name="cboCuaHangXH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="cboCuaHangXH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 36</value>
-  </data>
-  <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 9</value>
+  <data name="btnInPhieuXuat.Text" xml:space="preserve">
+    <value>Print</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 28</value>
+    <value>49, 19</value>
   </data>
-  <data name="btnThemXH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Right</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
-  <data name="btnThemXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>946, 6</value>
-  </data>
-  <data name="btnThemXH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 40</value>
-  </data>
-  <data name="guna2Panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
-  </data>
-  <data name="txtSoTrangXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>500, 6</value>
-  </data>
-  <data name="txtSoTrangXH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 8, 6, 8</value>
-  </data>
-  <data name="txtSoTrangXH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 40</value>
-  </data>
-  <data name="btnTrangSauXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>580, 6</value>
-  </data>
-  <data name="btnTrangSauXH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="btnTrangTruocXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>426, 6</value>
-  </data>
-  <data name="btnTrangTruocXH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="guna2Panel6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 478</value>
-  </data>
-  <data name="guna2Panel6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
-  </data>
-  <data name="tabXuatHang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
-  </data>
-  <data name="tabXuatHang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 530</value>
+  <data name="btnThemXH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="tabXuatHang.Text" xml:space="preserve">
-    <value>Export</value>
+    <value>Stock Export</value>
   </data>
-  <data name="cboCuaHangKH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dgvDuLieuKH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
   </data>
-  <data name="cboCuaHangKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 9</value>
-  </data>
-  <data name="cboCuaHangKH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="cboCuaHangKH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>262, 36</value>
-  </data>
-  <data name="lblTime.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="lblTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 9</value>
-  </data>
-  <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>106, 28</value>
-  </data>
-  <data name="btnThemKH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Right</value>
-  </data>
-  <data name="btnThemKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>946, 7</value>
-  </data>
-  <data name="btnThemKH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 40</value>
-  </data>
-  <data name="guna2Panel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
+  <data name="dgvDuLieuKH.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="dgvDuLieuKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 53</value>
+    <value>0, 34</value>
   </data>
   <data name="dgvDuLieuKH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1070, 425</value>
+    <value>419, 274</value>
   </data>
-  <data name="txtSoTrangKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>500, 6</value>
+  <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
   </data>
-  <data name="txtSoTrangKH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 8, 6, 8</value>
+  <data name="lblTime.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
-  <data name="txtSoTrangKH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 40</value>
-  </data>
-  <data name="btnTrangSauKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>580, 6</value>
-  </data>
-  <data name="btnTrangSauKH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="btnTrangTruocKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>426, 6</value>
-  </data>
-  <data name="btnTrangTruocKH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>64, 40</value>
-  </data>
-  <data name="guna2Panel8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 478</value>
-  </data>
-  <data name="guna2Panel8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
-  </data>
-  <data name="tabKiemHang.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
-  </data>
-  <data name="tabKiemHang.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 530</value>
+  <data name="btnThemKH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="tabKiemHang.Text" xml:space="preserve">
-    <value>Check</value>
+    <value>Stock Check</value>
   </data>
-  <data name="dgvDuLieuTimKiem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 49</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
   </data>
-  <data name="dgvDuLieuTimKiem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1070, 425</value>
-  </data>
-  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 478</value>
-  </data>
-  <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
-  </data>
-  <data name="txtSearch.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 5</value>
-  </data>
-  <data name="txtSearch.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 8, 6, 8</value>
-  </data>
-  <data name="txtSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 40</value>
-  </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 9</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
+    <value>41, 19</value>
   </data>
-  <data name="btnTimKiem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>948, 3</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Find:</value>
   </data>
-  <data name="btnTimKiem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 40</value>
-  </data>
-  <data name="guna2Panel9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 52</value>
-  </data>
-  <data name="tabTimKiem.Location" type="System.Drawing.Point, System.Drawing">
-    <value>224, 4</value>
-  </data>
-  <data name="tabTimKiem.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="tabTimKiem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1072, 530</value>
+  <data name="btnTimKiem.Text" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="tabTimKiem.Text" xml:space="preserve">
     <value>Search</value>
-  </data>
-  <data name="tabControlKH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1300, 538</value>
   </data>
 </root>

@@ -128,70 +128,46 @@
   <data name="label11.Text" xml:space="preserve">
     <value>Stock Export Information</value>
   </data>
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 19</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
+  <data name="lblStatus.Text" xml:space="preserve">
     <value>Status:</value>
   </data>
-  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 19</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>StockExportID:</value>
-  </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblExportID.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 19</value>
   </data>
-  <data name="label1.Text" xml:space="preserve">
+  <data name="lblExportID.Text" xml:space="preserve">
     <value>StoreID:</value>
   </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="lblStoreID.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 19</value>
   </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblStoreID.Text" xml:space="preserve">
+    <value>StoreID:</value>
+  </data>
+  <data name="lblEmployeeID.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 19</value>
   </data>
-  <data name="label2.Text" xml:space="preserve">
+  <data name="lblEmployeeID.Text" xml:space="preserve">
     <value>EmployeeID:</value>
   </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblReason.Size" type="System.Drawing.Size, System.Drawing">
     <value>57, 19</value>
   </data>
-  <data name="label5.Text" xml:space="preserve">
+  <data name="lblReason.Text" xml:space="preserve">
     <value>Reason:</value>
   </data>
   <data name="btnLuu.Text" xml:space="preserve">
     <value>Save</value>
   </data>
-  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
+  <data name="lblExportDay.Text" xml:space="preserve">
     <value>ExportDay:</value>
   </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblExportType.Size" type="System.Drawing.Size, System.Drawing">
     <value>81, 19</value>
   </data>
-  <data name="label3.Text" xml:space="preserve">
+  <data name="lblExportType.Text" xml:space="preserve">
     <value>ExportType:</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>

@@ -32,23 +32,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChucNang_XuatKho));
             this.label11 = new System.Windows.Forms.Label();
             this.cboTrangThai = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.rtxtLyDo = new System.Windows.Forms.RichTextBox();
             this.txtPhieuXuat = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblExportID = new System.Windows.Forms.Label();
             this.txtMaCH = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtMaNV = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblStoreID = new System.Windows.Forms.Label();
+            this.lblEmployeeID = new System.Windows.Forms.Label();
+            this.lblReason = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.dtpNgayXuat = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.cboLoaiXuat = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.lblExportDay = new System.Windows.Forms.Label();
+            this.lblExportType = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,10 +72,10 @@
             this.cboTrangThai.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboTrangThai.Name = "cboTrangThai";
             // 
-            // label6
+            // lblStatus
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
+            resources.ApplyResources(this.lblStatus, "lblStatus");
+            this.lblStatus.Name = "lblStatus";
             // 
             // guna2BorderlessForm1
             // 
@@ -106,10 +106,10 @@
             this.txtPhieuXuat.PlaceholderText = "";
             this.txtPhieuXuat.SelectedText = "";
             // 
-            // label7
+            // lblExportID
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.lblExportID, "lblExportID");
+            this.lblExportID.Name = "lblExportID";
             // 
             // txtMaCH
             // 
@@ -145,20 +145,20 @@
             this.txtMaNV.PlaceholderText = "";
             this.txtMaNV.SelectedText = "";
             // 
-            // label1
+            // lblStoreID
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.lblStoreID, "lblStoreID");
+            this.lblStoreID.Name = "lblStoreID";
             // 
-            // label2
+            // lblEmployeeID
             // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
+            resources.ApplyResources(this.lblEmployeeID, "lblEmployeeID");
+            this.lblEmployeeID.Name = "lblEmployeeID";
             // 
-            // label5
+            // lblReason
             // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
+            resources.ApplyResources(this.lblReason, "lblReason");
+            this.lblReason.Name = "lblReason";
             // 
             // panel1
             // 
@@ -167,6 +167,20 @@
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.ibtnThoat);
             this.panel1.Name = "panel1";
+            // 
+            // ibtnThoat
+            // 
+            resources.ApplyResources(this.ibtnThoat, "ibtnThoat");
+            this.ibtnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.ibtnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.ibtnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnThoat.ImageRotate = 0F;
+            this.ibtnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.ibtnThoat.Name = "ibtnThoat";
+            this.ibtnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Click += new System.EventHandler(this.ibtnThoat_Click);
             // 
             // dtpNgayXuat
             // 
@@ -210,50 +224,36 @@
             this.cboLoaiXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboLoaiXuat.Name = "cboLoaiXuat";
             // 
-            // label4
+            // lblExportDay
             // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
+            resources.ApplyResources(this.lblExportDay, "lblExportDay");
+            this.lblExportDay.Name = "lblExportDay";
             // 
-            // label3
+            // lblExportType
             // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // ibtnThoat
-            // 
-            resources.ApplyResources(this.ibtnThoat, "ibtnThoat");
-            this.ibtnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.ibtnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.ibtnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnThoat.ImageRotate = 0F;
-            this.ibtnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.ibtnThoat.Name = "ibtnThoat";
-            this.ibtnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.Click += new System.EventHandler(this.ibtnThoat_Click);
+            resources.ApplyResources(this.lblExportType, "lblExportType");
+            this.lblExportType.Name = "lblExportType";
             // 
             // frmChucNang_XuatKho
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.cboTrangThai);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.rtxtLyDo);
             this.Controls.Add(this.txtPhieuXuat);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.lblExportID);
             this.Controls.Add(this.txtMaCH);
             this.Controls.Add(this.txtMaNV);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblStoreID);
+            this.Controls.Add(this.lblEmployeeID);
+            this.Controls.Add(this.lblReason);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dtpNgayXuat);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.cboLoaiXuat);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblExportDay);
+            this.Controls.Add(this.lblExportType);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmChucNang_XuatKho";
             this.Load += new System.EventHandler(this.frmChucNang_XuatKho_Load);
@@ -270,22 +270,22 @@
         private Guna.UI2.WinForms.Guna2ImageButton ibtnThoat;
 
         private Guna.UI2.WinForms.Guna2ComboBox cboTrangThai;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblStatus;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private System.Windows.Forms.RichTextBox rtxtLyDo;
         private Guna.UI2.WinForms.Guna2TextBox txtPhieuXuat;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblExportID;
         private Guna.UI2.WinForms.Guna2TextBox txtMaCH;
         private Guna.UI2.WinForms.Guna2TextBox txtMaNV;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblStoreID;
+        private System.Windows.Forms.Label lblEmployeeID;
 
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblReason;
         private System.Windows.Forms.Panel panel1;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgayXuat;
         private Guna.UI2.WinForms.Guna2Button btnLuu;
         private Guna.UI2.WinForms.Guna2ComboBox cboLoaiXuat;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblExportDay;
+        private System.Windows.Forms.Label lblExportType;
     }
 }

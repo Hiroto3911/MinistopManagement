@@ -13,7 +13,6 @@ namespace Domain.DTO
         public int ImportInPeriod { get; set; }
         public int ExportInPeriod { get; set; }
         public int SaleInPeriod { get; set; }
-        public int CheckIncrease { get; set; }
         public int CheckDecrease { get; set; }
         public int TotalExport { get; set; }
         public int ClosingStock { get; set; }
@@ -21,3 +20,4 @@ namespace Domain.DTO
         public string Unit { get; set; }
     }
 }
+

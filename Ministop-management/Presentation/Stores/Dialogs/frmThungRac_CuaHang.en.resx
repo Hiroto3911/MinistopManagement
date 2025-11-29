@@ -128,10 +128,13 @@
   <data name="lblThungRac.Text" xml:space="preserve">
     <value>Trash Can - Store List</value>
   </data>
+  <data name="btnXoaCung.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="btnKhoiPhuc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>429, 2</value>
+  </data>
   <data name="btnKhoiPhuc.Text" xml:space="preserve">
     <value>Restore</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>

@@ -74,6 +74,11 @@
             this.btnTrangSauPC = new Guna.UI2.WinForms.Guna2Button();
             this.btnTrangTruocPC = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblTongBanGhi_PC = new System.Windows.Forms.Label();
+            this.lblDenNgay_PC = new System.Windows.Forms.Label();
+            this.lblTuNgay_PC = new System.Windows.Forms.Label();
+            this.dtpTuNgay_PC = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label7 = new System.Windows.Forms.Label();
             this.cboChonCuaHang_PC = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnThemPC = new Guna.UI2.WinForms.Guna2Button();
@@ -90,6 +95,7 @@
             this.tabPhuCap = new System.Windows.Forms.TabPage();
             this.dgvDuLieu_PhuCap = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ibtnLamMoiPC = new Guna.UI2.WinForms.Guna2ImageButton();
             this.ibtnThungRac_PC = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtSoTrangPK = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTrangSauPK = new Guna.UI2.WinForms.Guna2Button();
@@ -99,15 +105,19 @@
             this.tabHopDong = new System.Windows.Forms.TabPage();
             this.dgvDuLieu_HopDong = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ImageButton2 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.ibtnLoadDuLieuHDL = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.ibtnThungRacHDL = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtSoTrangHD = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTrangSauHD = new Guna.UI2.WinForms.Guna2Button();
             this.btnTrangTruocHD = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnTaoHopDongMoi = new Guna.UI2.WinForms.Guna2Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cboChonCuaHang_HD = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.tabControlNV = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabNhanVien = new System.Windows.Forms.TabPage();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.ibtnLamMoiNV = new Guna.UI2.WinForms.Guna2ImageButton();
             this.ibtnThungRac_NV = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtSoTrangNV = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTrangSauNV = new Guna.UI2.WinForms.Guna2Button();
@@ -117,13 +127,13 @@
             this.cboChonCuaHang_NV = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Button23 = new Guna.UI2.WinForms.Guna2Button();
             this.dgvDuLieu_NhanVien = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.tabControlNV = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabChamCongVang = new System.Windows.Forms.TabPage();
             this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtSoTrangVang = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTrangSauVang = new Guna.UI2.WinForms.Guna2Button();
             this.btnTrangTruocVang = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel15 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnThemVang = new Guna.UI2.WinForms.Guna2Button();
             this.label8 = new System.Windows.Forms.Label();
             this.cboChonCuaHang_Vang = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2Button18 = new Guna.UI2.WinForms.Guna2Button();
@@ -153,11 +163,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu_HopDong)).BeginInit();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel11.SuspendLayout();
+            this.tabControlNV.SuspendLayout();
             this.tabNhanVien.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu_NhanVien)).BeginInit();
-            this.tabControlNV.SuspendLayout();
             this.tabChamCongVang.SuspendLayout();
             this.guna2Panel14.SuspendLayout();
             this.guna2Panel15.SuspendLayout();
@@ -454,10 +464,53 @@
             // 
             resources.ApplyResources(this.guna2Panel5, "guna2Panel5");
             this.guna2Panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
+            this.guna2Panel5.Controls.Add(this.label4);
+            this.guna2Panel5.Controls.Add(this.lblTongBanGhi_PC);
+            this.guna2Panel5.Controls.Add(this.lblDenNgay_PC);
+            this.guna2Panel5.Controls.Add(this.lblTuNgay_PC);
+            this.guna2Panel5.Controls.Add(this.dtpTuNgay_PC);
             this.guna2Panel5.Controls.Add(this.label7);
             this.guna2Panel5.Controls.Add(this.cboChonCuaHang_PC);
             this.guna2Panel5.Controls.Add(this.btnThemPC);
             this.guna2Panel5.Name = "guna2Panel5";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Name = "label4";
+            // 
+            // lblTongBanGhi_PC
+            // 
+            resources.ApplyResources(this.lblTongBanGhi_PC, "lblTongBanGhi_PC");
+            this.lblTongBanGhi_PC.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTongBanGhi_PC.Name = "lblTongBanGhi_PC";
+            // 
+            // lblDenNgay_PC
+            // 
+            resources.ApplyResources(this.lblDenNgay_PC, "lblDenNgay_PC");
+            this.lblDenNgay_PC.ForeColor = System.Drawing.Color.DimGray;
+            this.lblDenNgay_PC.Name = "lblDenNgay_PC";
+            // 
+            // lblTuNgay_PC
+            // 
+            resources.ApplyResources(this.lblTuNgay_PC, "lblTuNgay_PC");
+            this.lblTuNgay_PC.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTuNgay_PC.Name = "lblTuNgay_PC";
+            // 
+            // dtpTuNgay_PC
+            // 
+            resources.ApplyResources(this.dtpTuNgay_PC, "dtpTuNgay_PC");
+            this.dtpTuNgay_PC.BorderRadius = 2;
+            this.dtpTuNgay_PC.BorderThickness = 2;
+            this.dtpTuNgay_PC.Checked = true;
+            this.dtpTuNgay_PC.FillColor = System.Drawing.Color.White;
+            this.dtpTuNgay_PC.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTuNgay_PC.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpTuNgay_PC.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpTuNgay_PC.Name = "dtpTuNgay_PC";
+            this.dtpTuNgay_PC.Value = new System.DateTime(2025, 10, 1, 8, 48, 24, 373);
+            this.dtpTuNgay_PC.ValueChanged += new System.EventHandler(this.dtpTuNgay_PC_ValueChanged);
             // 
             // label7
             // 
@@ -759,11 +812,25 @@
             // 
             resources.ApplyResources(this.guna2Panel3, "guna2Panel3");
             this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2Panel3.Controls.Add(this.ibtnLamMoiPC);
             this.guna2Panel3.Controls.Add(this.ibtnThungRac_PC);
             this.guna2Panel3.Controls.Add(this.txtSoTrangPK);
             this.guna2Panel3.Controls.Add(this.btnTrangSauPK);
             this.guna2Panel3.Controls.Add(this.btnTrangTruocPK);
             this.guna2Panel3.Name = "guna2Panel3";
+            // 
+            // ibtnLamMoiPC
+            // 
+            resources.ApplyResources(this.ibtnLamMoiPC, "ibtnLamMoiPC");
+            this.ibtnLamMoiPC.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLamMoiPC.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLamMoiPC.Image = global::Presentation.Properties.Resources.loading_arrow;
+            this.ibtnLamMoiPC.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnLamMoiPC.ImageRotate = 0F;
+            this.ibtnLamMoiPC.ImageSize = new System.Drawing.Size(30, 30);
+            this.ibtnLamMoiPC.Name = "ibtnLamMoiPC";
+            this.ibtnLamMoiPC.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLamMoiPC.Click += new System.EventHandler(this.ibtnLamMoiPC_Click);
             // 
             // ibtnThungRac_PC
             // 
@@ -914,23 +981,36 @@
             // 
             resources.ApplyResources(this.guna2Panel2, "guna2Panel2");
             this.guna2Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.guna2Panel2.Controls.Add(this.guna2ImageButton2);
+            this.guna2Panel2.Controls.Add(this.ibtnLoadDuLieuHDL);
+            this.guna2Panel2.Controls.Add(this.ibtnThungRacHDL);
             this.guna2Panel2.Controls.Add(this.txtSoTrangHD);
             this.guna2Panel2.Controls.Add(this.btnTrangSauHD);
             this.guna2Panel2.Controls.Add(this.btnTrangTruocHD);
             this.guna2Panel2.Name = "guna2Panel2";
             // 
-            // guna2ImageButton2
+            // ibtnLoadDuLieuHDL
             // 
-            resources.ApplyResources(this.guna2ImageButton2, "guna2ImageButton2");
-            this.guna2ImageButton2.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.guna2ImageButton2.Image = global::Presentation.Properties.Resources.recycle_bin;
-            this.guna2ImageButton2.ImageOffset = new System.Drawing.Point(0, 0);
-            this.guna2ImageButton2.ImageRotate = 0F;
-            this.guna2ImageButton2.ImageSize = new System.Drawing.Size(42, 42);
-            this.guna2ImageButton2.Name = "guna2ImageButton2";
-            this.guna2ImageButton2.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            resources.ApplyResources(this.ibtnLoadDuLieuHDL, "ibtnLoadDuLieuHDL");
+            this.ibtnLoadDuLieuHDL.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLoadDuLieuHDL.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLoadDuLieuHDL.Image = global::Presentation.Properties.Resources.loading_arrow;
+            this.ibtnLoadDuLieuHDL.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnLoadDuLieuHDL.ImageRotate = 0F;
+            this.ibtnLoadDuLieuHDL.ImageSize = new System.Drawing.Size(30, 30);
+            this.ibtnLoadDuLieuHDL.Name = "ibtnLoadDuLieuHDL";
+            this.ibtnLoadDuLieuHDL.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            // 
+            // ibtnThungRacHDL
+            // 
+            resources.ApplyResources(this.ibtnThungRacHDL, "ibtnThungRacHDL");
+            this.ibtnThungRacHDL.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThungRacHDL.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThungRacHDL.Image = global::Presentation.Properties.Resources.recycle_bin;
+            this.ibtnThungRacHDL.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnThungRacHDL.ImageRotate = 0F;
+            this.ibtnThungRacHDL.ImageSize = new System.Drawing.Size(42, 42);
+            this.ibtnThungRacHDL.Name = "ibtnThungRacHDL";
+            this.ibtnThungRacHDL.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             // 
             // txtSoTrangHD
             // 
@@ -949,6 +1029,7 @@
             this.txtSoTrangHD.Name = "txtSoTrangHD";
             this.txtSoTrangHD.PlaceholderText = "";
             this.txtSoTrangHD.SelectedText = "";
+            this.txtSoTrangHD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnTrangSauHD
             // 
@@ -982,9 +1063,25 @@
             // 
             resources.ApplyResources(this.guna2Panel11, "guna2Panel11");
             this.guna2Panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
+            this.guna2Panel11.Controls.Add(this.btnTaoHopDongMoi);
             this.guna2Panel11.Controls.Add(this.label6);
             this.guna2Panel11.Controls.Add(this.cboChonCuaHang_HD);
             this.guna2Panel11.Name = "guna2Panel11";
+            // 
+            // btnTaoHopDongMoi
+            // 
+            resources.ApplyResources(this.btnTaoHopDongMoi, "btnTaoHopDongMoi");
+            this.btnTaoHopDongMoi.BorderColor = System.Drawing.Color.DimGray;
+            this.btnTaoHopDongMoi.BorderRadius = 10;
+            this.btnTaoHopDongMoi.BorderThickness = 2;
+            this.btnTaoHopDongMoi.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTaoHopDongMoi.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTaoHopDongMoi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTaoHopDongMoi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTaoHopDongMoi.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnTaoHopDongMoi.ForeColor = System.Drawing.Color.White;
+            this.btnTaoHopDongMoi.Name = "btnTaoHopDongMoi";
+            this.btnTaoHopDongMoi.Click += new System.EventHandler(this.BtnTaoHopDongMoi_Click);
             // 
             // label6
             // 
@@ -1006,6 +1103,36 @@
             this.cboChonCuaHang_HD.Name = "cboChonCuaHang_HD";
             this.cboChonCuaHang_HD.SelectedIndexChanged += new System.EventHandler(this.cboChonCuaHang_HD_SelectedIndexChanged);
             // 
+            // tabControlNV
+            // 
+            resources.ApplyResources(this.tabControlNV, "tabControlNV");
+            this.tabControlNV.Controls.Add(this.tabNhanVien);
+            this.tabControlNV.Controls.Add(this.tabHopDong);
+            this.tabControlNV.Controls.Add(this.tabPhuCap);
+            this.tabControlNV.Controls.Add(this.tabTinhLuong);
+            this.tabControlNV.Controls.Add(this.tabCaLam);
+            this.tabControlNV.Controls.Add(this.tabPhanCongCa);
+            this.tabControlNV.Controls.Add(this.tabChamCongVang);
+            this.tabControlNV.Name = "tabControlNV";
+            this.tabControlNV.SelectedIndex = 0;
+            this.tabControlNV.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
+            this.tabControlNV.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.tabControlNV.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.tabControlNV.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
+            this.tabControlNV.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.tabControlNV.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
+            this.tabControlNV.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
+            this.tabControlNV.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.tabControlNV.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tabControlNV.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
+            this.tabControlNV.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
+            this.tabControlNV.TabButtonSelectedState.FillColor = System.Drawing.Color.White;
+            this.tabControlNV.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.tabControlNV.TabButtonSelectedState.ForeColor = System.Drawing.Color.Black;
+            this.tabControlNV.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
+            this.tabControlNV.TabButtonSize = new System.Drawing.Size(220, 100);
+            this.tabControlNV.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
+            // 
             // tabNhanVien
             // 
             resources.ApplyResources(this.tabNhanVien, "tabNhanVien");
@@ -1019,11 +1146,25 @@
             // 
             resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.guna2Panel1.Controls.Add(this.ibtnLamMoiNV);
             this.guna2Panel1.Controls.Add(this.ibtnThungRac_NV);
             this.guna2Panel1.Controls.Add(this.txtSoTrangNV);
             this.guna2Panel1.Controls.Add(this.btnTrangSauNV);
             this.guna2Panel1.Controls.Add(this.btnTrangTruocNV);
             this.guna2Panel1.Name = "guna2Panel1";
+            // 
+            // ibtnLamMoiNV
+            // 
+            resources.ApplyResources(this.ibtnLamMoiNV, "ibtnLamMoiNV");
+            this.ibtnLamMoiNV.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLamMoiNV.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLamMoiNV.Image = global::Presentation.Properties.Resources.loading_arrow;
+            this.ibtnLamMoiNV.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnLamMoiNV.ImageRotate = 0F;
+            this.ibtnLamMoiNV.ImageSize = new System.Drawing.Size(30, 30);
+            this.ibtnLamMoiNV.Name = "ibtnLamMoiNV";
+            this.ibtnLamMoiNV.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnLamMoiNV.Click += new System.EventHandler(this.ibtnLamMoiNV_Click);
             // 
             // ibtnThungRac_NV
             // 
@@ -1183,36 +1324,6 @@
             this.dgvDuLieu_NhanVien.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvDuLieu_NhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDuLieu_NhanVien_CellContentClick);
             // 
-            // tabControlNV
-            // 
-            resources.ApplyResources(this.tabControlNV, "tabControlNV");
-            this.tabControlNV.Controls.Add(this.tabNhanVien);
-            this.tabControlNV.Controls.Add(this.tabHopDong);
-            this.tabControlNV.Controls.Add(this.tabPhuCap);
-            this.tabControlNV.Controls.Add(this.tabTinhLuong);
-            this.tabControlNV.Controls.Add(this.tabCaLam);
-            this.tabControlNV.Controls.Add(this.tabPhanCongCa);
-            this.tabControlNV.Controls.Add(this.tabChamCongVang);
-            this.tabControlNV.Name = "tabControlNV";
-            this.tabControlNV.SelectedIndex = 0;
-            this.tabControlNV.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
-            this.tabControlNV.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
-            this.tabControlNV.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.tabControlNV.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
-            this.tabControlNV.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
-            this.tabControlNV.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
-            this.tabControlNV.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
-            this.tabControlNV.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.tabControlNV.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tabControlNV.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
-            this.tabControlNV.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
-            this.tabControlNV.TabButtonSelectedState.FillColor = System.Drawing.Color.White;
-            this.tabControlNV.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
-            this.tabControlNV.TabButtonSelectedState.ForeColor = System.Drawing.Color.Black;
-            this.tabControlNV.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
-            this.tabControlNV.TabButtonSize = new System.Drawing.Size(220, 100);
-            this.tabControlNV.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
-            // 
             // tabChamCongVang
             // 
             resources.ApplyResources(this.tabChamCongVang, "tabChamCongVang");
@@ -1284,10 +1395,26 @@
             // 
             resources.ApplyResources(this.guna2Panel15, "guna2Panel15");
             this.guna2Panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
+            this.guna2Panel15.Controls.Add(this.btnThemVang);
             this.guna2Panel15.Controls.Add(this.label8);
             this.guna2Panel15.Controls.Add(this.cboChonCuaHang_Vang);
             this.guna2Panel15.Controls.Add(this.guna2Button18);
             this.guna2Panel15.Name = "guna2Panel15";
+            // 
+            // btnThemVang
+            // 
+            resources.ApplyResources(this.btnThemVang, "btnThemVang");
+            this.btnThemVang.BorderColor = System.Drawing.Color.DimGray;
+            this.btnThemVang.BorderRadius = 10;
+            this.btnThemVang.BorderThickness = 2;
+            this.btnThemVang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemVang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemVang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemVang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemVang.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnThemVang.ForeColor = System.Drawing.Color.White;
+            this.btnThemVang.Name = "btnThemVang";
+            this.btnThemVang.Click += new System.EventHandler(this.btnThemVang_Click);
             // 
             // label8
             // 
@@ -1374,6 +1501,7 @@
             this.dgvDuLieu_Vang.ThemeStyle.RowsStyle.Height = 28;
             this.dgvDuLieu_Vang.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dgvDuLieu_Vang.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dgvDuLieu_Vang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDuLieu_Vang_CellContentClick);
             // 
             // frmHienThi_NhanVien
             // 
@@ -1412,12 +1540,12 @@
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel11.ResumeLayout(false);
             this.guna2Panel11.PerformLayout();
+            this.tabControlNV.ResumeLayout(false);
             this.tabNhanVien.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel12.ResumeLayout(false);
             this.guna2Panel12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu_NhanVien)).EndInit();
-            this.tabControlNV.ResumeLayout(false);
             this.tabChamCongVang.ResumeLayout(false);
             this.guna2Panel14.ResumeLayout(false);
             this.guna2Panel15.ResumeLayout(false);
@@ -1430,14 +1558,6 @@
         #endregion
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
         private Guna.UI2.WinForms.Guna2TabControl tabControlNV;
-        private System.Windows.Forms.TabPage tabNhanVien;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2TextBox txtSoTrangNV;
-        private Guna.UI2.WinForms.Guna2Button btnTrangSauNV;
-        private Guna.UI2.WinForms.Guna2Button btnTrangTruocNV;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
-        private Guna.UI2.WinForms.Guna2Button guna2Button23;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieu_NhanVien;
         private System.Windows.Forms.TabPage tabHopDong;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2TextBox txtSoTrangHD;
@@ -1446,10 +1566,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieu_HopDong;
         private System.Windows.Forms.TabPage tabPhuCap;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2TextBox txtSoTrangPK;
-        private Guna.UI2.WinForms.Guna2Button btnTrangSauPK;
-        private Guna.UI2.WinForms.Guna2Button btnTrangTruocPK;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private Guna.UI2.WinForms.Guna2Button btnThemPhuCap;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieu_PhuCap;
@@ -1470,7 +1586,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2Button btnThemPC;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieu_PhanCong;
-        private Guna.UI2.WinForms.Guna2ImageButton ibtnThungRac_NV;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox4;
@@ -1486,8 +1601,7 @@
         private System.Windows.Forms.Label lblTongNhanVien;
         private System.Windows.Forms.Label lblTongChiPhiLuong;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton2;
-        private Guna.UI2.WinForms.Guna2ImageButton ibtnThungRac_PC;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnThungRacHDL;
         private System.Windows.Forms.TabPage tabChamCongVang;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel14;
         private Guna.UI2.WinForms.Guna2TextBox txtSoTrangVang;
@@ -1496,8 +1610,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel15;
         private Guna.UI2.WinForms.Guna2Button guna2Button18;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieu_Vang;
-        private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2ComboBox cboChonCuaHang_NV;
         private System.Windows.Forms.Label label6;
         private Guna.UI2.WinForms.Guna2ComboBox cboChonCuaHang_HD;
         private System.Windows.Forms.Label label7;
@@ -1505,5 +1617,31 @@
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2ComboBox cboChonCuaHang_Vang;
         private Guna.UI2.WinForms.Guna2DateTimePicker dtpThangTinhLuong;
+        private Guna.UI2.WinForms.Guna2Button btnTaoHopDongMoi;
+        private System.Windows.Forms.TabPage tabNhanVien;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnThungRac_NV;
+        private Guna.UI2.WinForms.Guna2TextBox txtSoTrangNV;
+        private Guna.UI2.WinForms.Guna2Button btnTrangSauNV;
+        private Guna.UI2.WinForms.Guna2Button btnTrangTruocNV;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
+        private System.Windows.Forms.Label label3;
+        private Guna.UI2.WinForms.Guna2ComboBox cboChonCuaHang_NV;
+        private Guna.UI2.WinForms.Guna2Button guna2Button23;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvDuLieu_NhanVien;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnLoadDuLieuHDL;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnLamMoiNV;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnLamMoiPC;
+        private Guna.UI2.WinForms.Guna2ImageButton ibtnThungRac_PC;
+        private Guna.UI2.WinForms.Guna2TextBox txtSoTrangPK;
+        private Guna.UI2.WinForms.Guna2Button btnTrangSauPK;
+        private Guna.UI2.WinForms.Guna2Button btnTrangTruocPK;
+        private Guna.UI2.WinForms.Guna2DateTimePicker dtpTuNgay_PC;
+        private System.Windows.Forms.Label lblTuNgay_PC;
+        private System.Windows.Forms.Label lblDenNgay_PC;
+        private System.Windows.Forms.Label lblTongBanGhi_PC;
+        private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2Button btnThemVang;
     }
 }

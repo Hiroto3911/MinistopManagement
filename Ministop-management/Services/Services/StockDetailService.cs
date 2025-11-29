@@ -53,7 +53,7 @@ namespace Services.Services
                 throw ex;
             }
         }
-        public Result<IReadOnlyList<StockDetailDto>> GetStockDetailByProductName(string productName)
+        public Result<IReadOnlyList<StockDetailDto>> GetStockDetailByProductName(string productName, string storeID)
         {
             try
             {
@@ -71,7 +71,7 @@ namespace Services.Services
 
                 // Lấy StockDetail tương ứng với các ProductId đó
                 var stockDetails = _ministopUnitOfWork.StockDetailRepository
-                    .GetAll(x => x.StoreID == _userSession.IdStore && productIds.Contains(x.ProductID))
+                    .GetAll(x => x.StoreID == storeID && productIds.Contains(x.ProductID))
                     .Select(x => new StockDetailDto
                     {
                         StoreId = x.StoreID,

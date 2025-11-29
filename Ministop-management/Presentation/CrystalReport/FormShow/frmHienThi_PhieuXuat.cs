@@ -52,7 +52,11 @@ namespace Presentation.CrystalReport.FormShow
                     item.Quantity.ToString(),
                     item.UnitPrice.ToString(),
                     item.Total.ToString(),
-                    item.TotalAmount.ToString()
+                    item.TotalAmount.ToString(),
+                    item.Reason,
+                    item.TypeExport,
+                    item.Status.ToString()
+
 
                 );
             }

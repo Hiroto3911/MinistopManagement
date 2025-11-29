@@ -83,7 +83,7 @@
             resources.ApplyResources(this.btnThoat, "btnThoat");
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.Click += new System.EventHandler(this.guna2ImageButton4_Click);
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // label7
             // 

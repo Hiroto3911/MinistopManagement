@@ -65,6 +65,11 @@ namespace Presentation.Stocks.Dialogs
                 }
             }
             dgvDuLieu.DataSource = dt;
+            dgvDuLieu.Columns["MaLichSu"].HeaderText = Properties.Resources.Grid_ID;
+            dgvDuLieu.Columns["NgayThayDoi"].HeaderText = Properties.Resources.Grid_LastModified;
+            dgvDuLieu.Columns["LoaiThayDoi"].HeaderText = Properties.Resources.Grid_TypeOfChange;
+            dgvDuLieu.Columns["SoLuong"].HeaderText = Properties.Resources.Grid_Quantity;
+            dgvDuLieu.Columns["MaThamChieu"].HeaderText = Properties.Resources.Grid_RefID;
             dgvDuLieu.AllowUserToAddRows = false;
             dgvDuLieu.ReadOnly = true;
             dgvDuLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;

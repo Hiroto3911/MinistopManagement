@@ -43,31 +43,32 @@ namespace Presentation
             {
                 status = new Dictionary<string, byte>()
                 {
-                    {"Duyệt",1 },
-                    { "Không duyệt",0 }
+                 {Properties.Resources.Status_Permitted,1 },
+                 {Properties.Resources.Status_NotPermitted,0 }
                 };
             }
             else
             {
                 status = new Dictionary<string, byte>()
-                {
-                  {"Đang soạn",2 },
-                  {"Chờ duyệt",3 },
-
-                };
+               {
+                {Properties.Resources.Status_Draft,2 },
+                 {Properties.Resources.Status_Pending,3 }
+               };
             }
             cboTrangThai.DataSource = status.ToList();
             cboTrangThai.DisplayMember = "Key";
             cboTrangThai.ValueMember = "Value";
+            
         }
         private void frmChucNang_ChiPhiCuaHang_Load(object sender, EventArgs e)
         {
+
             if (!string.IsNullOrEmpty(_priceProposalID))
             {
                 var entity = _priceProposalService.GetpriceProposaByID(_priceProposalID);
                 if (entity.Succeeded == false && entity.Data == null)
                 {
-                    MessageBox.Show($"{entity.Message}", "Lỗi");
+                    MessageBox.Show($"{entity.Message}", $"{Properties.Messages.Message_Error}");
                     return;
                 }
                 txtCuaHang.Text = entity.Data.StoreId;
@@ -90,12 +91,16 @@ namespace Presentation
         private void frmChucNang_DeXuatGia_Load(object sender, EventArgs e)
         {
             LoadDataCboTrangThai();
+            if (_userSession.Role == "Admin")
+            {
+                cboTrangThai.SelectedIndex = 0;
+            }
             if (!string.IsNullOrEmpty(_priceProposalID))
             {
                 var entity = _priceProposalService.GetpriceProposaByID(_priceProposalID);
                 if (entity.Succeeded == false || entity.Data == null)
                 {
-                    MessageBox.Show($"{entity.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"{entity.Message}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                     return;
                 }
@@ -108,8 +113,16 @@ namespace Presentation
                 txtGiaMoi.Text = entity.Data.NewPrice.ToString();
                 rtbLyDo.Text = entity.Data.Reason ?? "";
 
-                // Set trạng thái
-                cboTrangThai.SelectedValue = entity.Data.Status;
+                if (_userSession.Role == "Admin")
+                {
+                    // Admin: Luôn chọn "Duyệt" (item đầu tiên), bỏ qua status từ DB
+                    cboTrangThai.SelectedIndex = 0;
+                }
+                else
+                {
+                    // Quản lý: Set theo status từ DB
+                    cboTrangThai.SelectedValue = entity.Data.Status;
+                }
 
                 // Load tên sản phẩm
                 if (!string.IsNullOrEmpty(entity.Data.ProductId))
@@ -245,7 +258,7 @@ namespace Presentation
             }
             else
             {
-                MessageBox.Show(result.Message ?? "Đã xảy ra lỗi không xác định.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.Message ?? "Đã xảy ra lỗi không xác định.", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         public void loadData(string productID)
