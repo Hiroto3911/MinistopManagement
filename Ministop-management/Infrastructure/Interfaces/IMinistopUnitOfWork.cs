@@ -38,5 +38,6 @@ namespace Infrastructure.Interfaces
         IAbsenceRepository AbsenceRepository { get; }
         IReturnProductRepository ReturnProductRepository { get; }
         IReturnDetailRepository ReturnDetailRepository { get; }
+        IPriceProposalRepository PriceProposalRepository { get; }
     }
 }

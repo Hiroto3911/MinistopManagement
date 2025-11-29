@@ -767,6 +767,12 @@ namespace Presentation.CrystalReport.DataSets {
             
             private global::System.Data.DataColumn columnTotalAmount;
             
+            private global::System.Data.DataColumn columnReason;
+            
+            private global::System.Data.DataColumn columnTypeExport;
+            
+            private global::System.Data.DataColumn columnStatus;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public StockExportDataTable() {
@@ -898,6 +904,30 @@ namespace Presentation.CrystalReport.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ReasonColumn {
+                get {
+                    return this.columnReason;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TypeExportColumn {
+                get {
+                    return this.columnTypeExport;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn StatusColumn {
+                get {
+                    return this.columnStatus;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -933,7 +963,7 @@ namespace Presentation.CrystalReport.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public StockExportRow AddStockExportRow(string ExportID, string ExportDate, string StoreID, string StoreName, string Address, string EmployeeID_, string FullName, string ProductName, string Quantity, string UnitPrice, string Total, string TotalAmount) {
+            public StockExportRow AddStockExportRow(string ExportID, string ExportDate, string StoreID, string StoreName, string Address, string EmployeeID_, string FullName, string ProductName, string Quantity, string UnitPrice, string Total, string TotalAmount, string Reason, string TypeExport, string Status) {
                 StockExportRow rowStockExportRow = ((StockExportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ExportID,
@@ -947,7 +977,10 @@ namespace Presentation.CrystalReport.DataSets {
                         Quantity,
                         UnitPrice,
                         Total,
-                        TotalAmount};
+                        TotalAmount,
+                        Reason,
+                        TypeExport,
+                        Status};
                 rowStockExportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStockExportRow);
                 return rowStockExportRow;
@@ -982,6 +1015,9 @@ namespace Presentation.CrystalReport.DataSets {
                 this.columnUnitPrice = base.Columns["UnitPrice"];
                 this.columnTotal = base.Columns["Total"];
                 this.columnTotalAmount = base.Columns["TotalAmount"];
+                this.columnReason = base.Columns["Reason"];
+                this.columnTypeExport = base.Columns["TypeExport"];
+                this.columnStatus = base.Columns["Status"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1011,6 +1047,12 @@ namespace Presentation.CrystalReport.DataSets {
                 base.Columns.Add(this.columnTotal);
                 this.columnTotalAmount = new global::System.Data.DataColumn("TotalAmount", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalAmount);
+                this.columnReason = new global::System.Data.DataColumn("Reason", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReason);
+                this.columnTypeExport = new global::System.Data.DataColumn("TypeExport", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTypeExport);
+                this.columnStatus = new global::System.Data.DataColumn("Status", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStatus);
                 this.columnExportID.Caption = "ImportID";
                 this.columnExportDate.Caption = "ImportDate";
             }
@@ -1754,6 +1796,54 @@ namespace Presentation.CrystalReport.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Reason {
+                get {
+                    try {
+                        return ((string)(this[this.tableStockExport.ReasonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Reason\' in table \'StockExport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStockExport.ReasonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string TypeExport {
+                get {
+                    try {
+                        return ((string)(this[this.tableStockExport.TypeExportColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TypeExport\' in table \'StockExport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStockExport.TypeExportColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Status {
+                get {
+                    try {
+                        return ((string)(this[this.tableStockExport.StatusColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Status\' in table \'StockExport\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableStockExport.StatusColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsExportIDNull() {
                 return this.IsNull(this.tableStockExport.ExportIDColumn);
             }
@@ -1894,6 +1984,42 @@ namespace Presentation.CrystalReport.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetTotalAmountNull() {
                 this[this.tableStockExport.TotalAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsReasonNull() {
+                return this.IsNull(this.tableStockExport.ReasonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetReasonNull() {
+                this[this.tableStockExport.ReasonColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsTypeExportNull() {
+                return this.IsNull(this.tableStockExport.TypeExportColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetTypeExportNull() {
+                this[this.tableStockExport.TypeExportColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsStatusNull() {
+                return this.IsNull(this.tableStockExport.StatusColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetStatusNull() {
+                this[this.tableStockExport.StatusColumn] = global::System.Convert.DBNull;
             }
         }
         

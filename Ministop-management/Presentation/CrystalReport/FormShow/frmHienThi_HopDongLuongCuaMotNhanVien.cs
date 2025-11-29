@@ -87,31 +87,41 @@ namespace Presentation.CrystalReport.FormShow
 
                 if (main == null)
                 {
-                    MessageBox.Show("Không tìm thấy hợp đồng lương cho nhân viên này!");
+                    MessageBox.Show("Không tìm thấy hợp đồng lương cho nhân viên này!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
                 var ds = new EmployeeReportDataset();
 
-                // === BẢNG CHÍNH ===
+                // === BẢNG CHÍNH - SalaryContractMain ===
                 var rowMain = ds.SalaryContractMain.NewSalaryContractMainRow();
+
                 rowMain.ContractID = main.ContractID ?? "";
                 rowMain.EmployeeID = main.EmployeeID ?? "";
                 rowMain.FullName = main.FullName ?? "";
                 rowMain.Position = main.Position ?? "";
+                rowMain.Phone = main.Phone ?? "";                          
                 rowMain.EmploymentType = main.EmploymentType ?? "";
+                rowMain.Gender = main.Gender == true ? "Nam" : (main.Gender == false ? "Nữ" : ""); 
+                rowMain.Address = main.Address ?? "";                      
+                rowMain.IdentityNumber = main.IdentityNumber ?? "";        
+                rowMain.Birthdate = main.BirthDate.ToString("dd/MM/yyyy") ?? ""; 
                 rowMain.StoreName = main.StoreName ?? "Chưa xác định";
-
-                rowMain.BasicSalary = main.BasicSalary.HasValue ? main.BasicSalary.Value.ToString("N0") : "0";
-                rowMain.HourlyRate = main.HourlyRate.HasValue ? main.HourlyRate.Value.ToString("N0") : "0";
-                rowMain.StartDate = main.StartDate.ToLongDateString();
-                rowMain.EndDate = main.EndDate.ToString();
+                rowMain.BasicSalary = main.BasicSalary.HasValue
+                    ? main.BasicSalary.Value.ToString("N0")
+                    : "0";
+                rowMain.HourlyRate = main.HourlyRate.HasValue
+                    ? main.HourlyRate.Value.ToString("N0")
+                    : "0";
+                rowMain.StartDate = main.StartDate.ToString("dd/MM/yyyy");
+                rowMain.EndDate = main.EndDate?.ToString("dd/MM/yyyy") ?? "Không xác định";
                 rowMain.TotalAllowance = main.TotalAllowance.ToString("N0");
                 rowMain.EstimatedTotalIncome = main.EstimatedTotalIncome.ToString("N0");
 
                 ds.SalaryContractMain.AddSalaryContractMainRow(rowMain);
 
-                // === BẢNG PHỤ CẤP ===
+                // === BẢNG PHỤ CẤP - AllowanceDetail ===
                 foreach (var item in allowances)
                 {
                     var row = ds.AllowanceDetail.NewAllowanceDetailRow();
@@ -120,13 +130,15 @@ namespace Presentation.CrystalReport.FormShow
                     ds.AllowanceDetail.AddAllowanceDetailRow(row);
                 }
 
+                // Đường dẫn báo cáo
                 string reportPath = Path.Combine(Application.StartupPath,
-                "CrystalReport",
-                "Report",
-                "EmployeeReports", "Rpt_HopDonLuongCuaMotNhanVien.rpt");
+                    "CrystalReport", "Report", "EmployeeReports",
+                    "Rpt_HopDonLuongCuaMotNhanVien.rpt");
+
                 if (!File.Exists(reportPath))
                 {
-                    MessageBox.Show("Không tìm thấy file báo cáo: " + reportPath);
+                    MessageBox.Show("Không tìm thấy file báo cáo:\n" + reportPath, "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -139,13 +151,31 @@ namespace Presentation.CrystalReport.FormShow
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message + "\n" + ex.StackTrace);
+                MessageBox.Show("Lỗi khi hiển thị báo cáo:\n" + ex.Message, "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnMax_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void btnMini_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

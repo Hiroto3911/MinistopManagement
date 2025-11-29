@@ -45,10 +45,10 @@ namespace Presentation.CrystalReport.FormShow
                 ds.StockImport.AddStockImportRow(
                   item.ImportID,
                   item.ImportDate.ToShortDateString(),
-                  item.StoreID,
+                    item.StoreID,
+                  item.SupplierID,
                   item.StoreName,
                   item.Address,
-                  item.SupplierID,
                   item.SupplierName,
                   item.EmployeeID,
                   item.FullName,
@@ -57,6 +57,7 @@ namespace Presentation.CrystalReport.FormShow
                   item.UnitPrice.ToString(),
                   item.Total.ToString(),
                   item.TotalAmount.ToString()
+                
                 );
             }
             ReportDocument rpt = new ReportDocument();

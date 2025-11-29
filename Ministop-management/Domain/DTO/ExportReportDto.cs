@@ -20,6 +20,9 @@ namespace Domain.DTO
         public decimal UnitPrice { get; set; }
         public decimal? Total { get; set; }
         public decimal? TotalAmount { get; set; }
+        public string Reason { get; set; }
+        public string TypeExport { get; set; }
+        public byte Status { get; set; }
     }
 
 }

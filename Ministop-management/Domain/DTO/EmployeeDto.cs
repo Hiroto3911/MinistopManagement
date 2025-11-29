@@ -17,6 +17,8 @@ namespace Domain.DTO
         public string Phone { get; set; } 
         public string Position { get; set; } 
         public string EmploymentType { get; set; } 
-        public string PasswordHash { get; set; } 
+        public string PasswordHash { get; set; }
+        public string Address { get; set; }           
+        public string IdentityNumber { get; set; }
     }
 }

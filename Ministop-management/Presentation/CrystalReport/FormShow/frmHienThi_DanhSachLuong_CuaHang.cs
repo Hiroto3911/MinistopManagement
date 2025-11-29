@@ -81,11 +81,11 @@ namespace Presentation.CrystalReport.FormShow
                     row.HourlyRate = item.HourlyRate.HasValue ? item.HourlyRate.Value.ToString("N0") : "0";
                     row.Bonus = item.Bonus.ToString("N0");
                     row.Deduction = item.Deduction.ToString("N0");
-                    row.TotalIncome = item.TotalIncome; // decimal → đã fix Sum trong .rpt
+                    row.TotalIncome = item.TotalIncome;
                     ds.SalaryList.AddSalaryListRow(row);
                 }
 
-                string reportPath = Path.Combine(Application.StartupPath, "CrystalReport", "Report", "Rpt_DanhSachLuong_CuaHang.rpt");
+                string reportPath = Path.Combine(Application.StartupPath, "CrystalReport", "Report", "EmployeeReports", "Rpt_DanhSachLuong_CuaHang.rpt");
                 if (!File.Exists(reportPath))
                 {
                     MessageBox.Show("Không tìm thấy file báo cáo: " + reportPath);
@@ -98,8 +98,7 @@ namespace Presentation.CrystalReport.FormShow
 
                 // Truyền tên cửa hàng vào Parameter
                 var storeName = cboStore.Text;
-                rpt.SetParameterValue("Parameter_StoreName", storeName);
-                rpt.SetParameterValue("Parameter_MonthYear", "Tháng " + dtpMonth.Value.ToString("MM/yyyy"));
+                rpt.SetParameterValue(0, storeName);
 
                 crystalReportViewer1.ReportSource = rpt;
                 crystalReportViewer1.Refresh();
@@ -113,6 +112,23 @@ namespace Presentation.CrystalReport.FormShow
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnMax_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void btnMini_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

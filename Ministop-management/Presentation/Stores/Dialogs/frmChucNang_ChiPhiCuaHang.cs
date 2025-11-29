@@ -41,22 +41,21 @@ namespace Presentation
                 txtTienDien.Enabled = false;
                 txtTienNuoc.Enabled = false;
                 txtTienMatBang.Enabled = false;
-                
+
                 status = new Dictionary<string, byte>()
                 {
-                    {"Duyệt",1 },
-                    { "Không duyệt",0 }
+                 {Properties.Resources.Status_Permitted,1 },
+                 {Properties.Resources.Status_NotPermitted,0 }
                 };
             }
             else
             {
-                
-                status = new Dictionary<string, byte>()
-                {
-                  {"Đang soạn",2 },
-                  {"Chờ duyệt",3 },
 
-                };
+                status = new Dictionary<string, byte>()
+               {
+                {Properties.Resources.Status_Draft,2 },
+                 {Properties.Resources.Status_Pending,3 }
+               };
             }
             cboTrangThai.DataSource = status.ToList();
             cboTrangThai.DisplayMember = "Key";
@@ -70,7 +69,7 @@ namespace Presentation
                 var entity = _storeFixedExpenseServices.GetStoreFixedExpenseByID(_expenseID);
                 if (entity.Succeeded == false && entity.Data == null)
                 {
-                    MessageBox.Show($"{entity.Message}", "Lỗi");
+                    MessageBox.Show($"{entity.Message}", $"{Properties.Messages.Message_Error}");
                     return;
                 }
                 txtTenCuaHang.Text = entity.Data.StoreId;
@@ -98,7 +97,7 @@ namespace Presentation
             {
                 if (!decimal.TryParse(txtTienMatBang.Text, out rentCost) || rentCost < 0)
                 {
-                    MessageBox.Show("Tiền mặt bằng phải là số hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"{lblRentCost.Text} {Properties.Messages.Message_ValidNumber}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     txtTienMatBang.Focus();
                     return;
                 }
@@ -108,7 +107,7 @@ namespace Presentation
             if (string.IsNullOrWhiteSpace(txtTienDien.Text) ||
                 !decimal.TryParse(txtTienDien.Text, out decimal electricityCost) || electricityCost <= 0)
             {
-                MessageBox.Show("Tiền điện phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{lblElectricityCost.Text} {Properties.Messages.Message_ValidNumber}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTienDien.Focus();
                 return;
             }
@@ -117,13 +116,13 @@ namespace Presentation
             if (string.IsNullOrWhiteSpace(txtTienNuoc.Text) ||
                 !decimal.TryParse(txtTienNuoc.Text, out decimal waterCost) || waterCost <= 0)
             {
-                MessageBox.Show("Tiền nước phải là số hợp lệ và không được để trống hoặc bằng 0!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{lblWaterCost.Text} {Properties.Messages.Message_ValidNumber}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTienNuoc.Focus();
                 return;
             }
             if (Regex.IsMatch(rtxtGhiChu.Text.Trim(), @"[^a-zA-Z0-9\s\u00C0-\u1EF9,./-]"))
             {
-                MessageBox.Show("Ghi chú không được chứa ký tự đặc biệt lạ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"{lblNote.Text} {Properties.Messages.Message_SpecialCharacter}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 rtxtGhiChu.Focus();
                 return;
             }
@@ -160,11 +159,11 @@ namespace Presentation
 
             if (!result.Succeeded)
             {
-                MessageBox.Show(result.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.Message, $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show("Lưu chi phí cửa hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 
