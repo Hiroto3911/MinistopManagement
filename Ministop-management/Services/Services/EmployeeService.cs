@@ -177,12 +177,13 @@ namespace Services.Services
                 EmployeeEntity.Position = EmployeeEdit.Position;
                 EmployeeEntity.EmploymentType = EmployeeEdit.EmploymentType;
                 EmployeeEntity.PasswordHash = EmployeeEdit.PasswordHash;
+                EmployeeEntity.Address = EmployeeEdit.Address;          
+                EmployeeEntity.IdentityNumber = EmployeeEdit.IdentityNumber; 
                 EmployeeEntity.LastModified = _dateTimeService.NowUtc;
                 EmployeeEntity.LastModifiedBy = currentUserId;
                 _ministopUnitOfWork.EmployeeRepository.Update(EmployeeEntity, true);
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);
-
             }
             catch (Exception ex)
             {
