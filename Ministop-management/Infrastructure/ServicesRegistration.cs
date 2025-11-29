@@ -3,6 +3,7 @@ using Infrastructure.Interfaces;
 using Infrastructure.Repositories;
 using Infrastructure.Security;
 using Infrastructure.UnitOfWorks;
+using Shared.Helpers;
 using Shared.Security;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,10 @@ namespace Infrastructure
             // DBML DataContext (Transient)
             container.RegisterFactory<MinistopDataContextDataContext>(c =>
             {
-                string serverName = $"LATI7480\\SQLEXPRESS";
-                var connectionString = $"Data Source={serverName};Initial Catalog=MinistopManagement;Integrated Security=True;";
-                return new MinistopDataContextDataContext(connectionString);
+                var config = ConnectionConfigHelper.Load();
+                if (string.IsNullOrEmpty(config.ConnectionString))
+                    throw new Exception("Chưa thiết lập chuỗi kết nối.");
+                return new MinistopDataContextDataContext(config.ConnectionString);
             },new PerResolveLifetimeManager() );
 
 
@@ -64,6 +66,7 @@ namespace Infrastructure
             container.RegisterType<IAbsenceRepository, AbsenceRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IReturnProductRepository, ReturnProductRepository>(new PerResolveLifetimeManager());
             container.RegisterType<IReturnDetailRepository, ReturnDetailRepository>(new PerResolveLifetimeManager());
+            container.RegisterType<IPriceProposalRepository, PriceProposalRepository>(new PerResolveLifetimeManager());
         }
     }
 }

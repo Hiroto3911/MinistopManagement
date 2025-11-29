@@ -1,4 +1,5 @@
 ﻿using Presentation.CrystalReport.FormShow;
+using Presentation.Settings;
 using Services.Interfaces;
 using Services.Services;
 using Shared.Security;
@@ -330,6 +331,12 @@ namespace Presentation
         private void xuấtDanhSáchLươngCủaNhânViênTrongCửaHàngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var report = _container.Resolve<frmHienThi_DanhSachLuong_CuaHang>();
+            report.Show();
+        }
+
+        private void xuấtDanhSáchTop3CửaHàngBánChạyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var report = _container.Resolve<frmHienThi_DanhSachTop3Store>();
             report.Show();
         }
     }

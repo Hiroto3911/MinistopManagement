@@ -55,7 +55,11 @@ namespace Presentation
             dgvDuLieu.DataSource = dt;
             dgvDuLieu.AllowUserToAddRows = false;
             dgvDuLieu.ReadOnly = false;
-            dgvDuLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDuLieu.Columns["MaCuaHang"].HeaderText = Properties.Resources.Grid_ID;
+            dgvDuLieu.Columns["TenCuaHang"].HeaderText = Properties.Resources.Grid_StoreName;
+            dgvDuLieu.Columns["DiaChi"].HeaderText = Properties.Resources.Grid_Adrress;
+            dgvDuLieu.Columns["SoDienThoai"].HeaderText = Properties.Resources.Grid_PhoneNumber;
+
 
             // ===== 2️⃣ Thêm hai cột nút =====
             if (dgvDuLieu.Columns["chkSelect"] == null)
@@ -73,6 +77,7 @@ namespace Presentation
                 if (col.Name != "chkSelect")
                     col.ReadOnly = true;
             }
+            dgvDuLieu.Columns["chkSelect"].HeaderText = Properties.Resources.Grid_Choose;
             // ===== 3️⃣ Chỉnh style chung cho bảng =====
             dgvDuLieu.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
             dgvDuLieu.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
@@ -118,19 +123,45 @@ namespace Presentation
             var list = GetSelectedStore();
             if (list == null || list.Count == 0)
             {
-                MessageBox.Show("Vui lòng chọn ít nhất một cửa hàng để khôi phục.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"{Properties.Messages.Message_ChooseAtLeastOneData} {btnKhoiPhuc.Text}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             var result =  _storeService.RestoreStore(list);
             if (result.Succeeded == false)
             {
-                MessageBox.Show($"Khôi phục thất bại: {result.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{btnKhoiPhuc.Text} {Properties.Messages.Message_Fail}: {result.Message}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{btnKhoiPhuc.Text} {Properties.Messages.Message_Successfull}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             datachanged?.Invoke(this, EventArgs.Empty);
             this.Close();
 
         }
+
+        private void btnXoaCung_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedStore();
+            if (list == null || list.Count == 0)
+            {
+                MessageBox.Show($"{Properties.Messages.Message_ChooseAtLeastOneData} {btnXoaCung.Text}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (list.Count > 1)
+            {
+                MessageBox.Show($"{Properties.Messages.Message_DeleteStore}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            string storeID = list.FirstOrDefault();
+            var result = _storeService.RemoveStore(storeID);
+            if (result.Succeeded == false)
+            {
+                MessageBox.Show($"{btnXoaCung.Text} {Properties.Messages.Message_Fail}: {result.Message}", $"{ Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show($"{btnXoaCung.Text} {Properties.Messages.Message_Successfull}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            LoadData();
+        }
+
+      
     }
 }

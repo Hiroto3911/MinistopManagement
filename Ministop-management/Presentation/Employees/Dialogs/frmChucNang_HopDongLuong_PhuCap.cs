@@ -16,6 +16,7 @@ namespace Presentation
         private readonly IAllowanceService _allowanceService;
         private readonly ISalaryContractAllowanceService _salaryContractAllowanceService;
         private readonly string _contractId;
+        private readonly string _lang = Properties.Settings.Default.Language;
 
         public frmChucNang_HopDongLuong_PhuCap(
             IAllowanceService allowanceService,
@@ -26,7 +27,16 @@ namespace Presentation
             _allowanceService = allowanceService;
             _salaryContractAllowanceService = salaryContractAllowanceService;
             _contractId = contractId;
+            ApplyLanguage();
             LoadAllowances();
+        }
+
+        private void ApplyLanguage()
+        {
+            if (_lang != "en-US") return;
+
+            this.Text = "Add Allowances to Contract";
+            btnThem.Text = "Add Selected";
         }
 
         private void LoadAllowances()
@@ -36,7 +46,7 @@ namespace Presentation
             {
                 DataTable dt = new DataTable();
                 dt.Columns.Add("AllowanceID", typeof(string));
-                dt.Columns.Add("AllowanceName", typeof(string));
+                dt.Columns.Add(_lang == "en-US" ? "Allowance Name" : "Tên Phụ Cấp", typeof(string));
                 dt.Columns.Add("chkSelect", typeof(bool));
 
                 foreach (var item in allowances.Data)
@@ -50,6 +60,9 @@ namespace Presentation
                 dgvDuLieu_PhuCap.Columns["chkSelect"].ReadOnly = false;
                 dgvDuLieu_PhuCap.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+                // Header text
+                dgvDuLieu_PhuCap.Columns["chkSelect"].HeaderText = _lang == "en-US" ? "Select" : "Chọn";
+
                 // Style
                 dgvDuLieu_PhuCap.ThemeStyle.AlternatingRowsStyle.BackColor = Color.FromArgb(250, 250, 250);
                 dgvDuLieu_PhuCap.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(33, 150, 243);
@@ -60,7 +73,11 @@ namespace Presentation
             }
             else
             {
-                MessageBox.Show("Không thể tải danh sách phụ cấp!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    _lang == "en-US" ? "Cannot load allowance list!" : "Không thể tải danh sách phụ cấp!",
+                    _lang == "en-US" ? "Error" : "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
@@ -73,7 +90,11 @@ namespace Presentation
 
             if (!selectedRows.Any())
             {
-                MessageBox.Show("Vui lòng chọn ít nhất một phụ cấp!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    _lang == "en-US" ? "Please select at least one allowance!" : "Vui lòng chọn ít nhất một phụ cấp!",
+                    _lang == "en-US" ? "Warning" : "Cảnh báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
                 return;
             }
 
@@ -98,32 +119,45 @@ namespace Presentation
                     if (!result.Succeeded)
                     {
                         success = false;
-                        errorMsg += $"Phụ cấp {allowanceId}: {result.Message}\n";
+                        errorMsg += $"{(_lang == "en-US" ? "Allowance" : "Phụ cấp")} {allowanceId}: {result.Message}\n";
                     }
                 }
 
                 if (success)
                 {
                     _salaryContractAllowanceService.Commit();
-                    MessageBox.Show("Thêm phụ cấp thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(
+                        _lang == "en-US" ? "Allowances added successfully!" : "Thêm phụ cấp thành công!",
+                        _lang == "en-US" ? "Notification" : "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                     this.Close();
                 }
                 else
                 {
                     _salaryContractAllowanceService.Rollback();
-                    MessageBox.Show($"Một số phụ cấp không được thêm:\n{errorMsg}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(
+                        $"{(_lang == "en-US" ? "Some allowances were not added:\n" : "Một số phụ cấp không được thêm:\n")}{errorMsg}",
+                        _lang == "en-US" ? "Error" : "Lỗi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
                 _salaryContractAllowanceService.Rollback();
-                MessageBox.Show($"Lỗi hệ thống: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    $"{(_lang == "en-US" ? "System error: " : "Lỗi hệ thống: ")}{ex.Message}",
+                    _lang == "en-US" ? "Error" : "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
         private void dgvDuLieu_PhuCap_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+
             var col = dgvDuLieu_PhuCap.Columns["chkSelect"];
             if (col != null && e.ColumnIndex == col.Index)
             {

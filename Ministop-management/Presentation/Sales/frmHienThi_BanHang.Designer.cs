@@ -67,7 +67,7 @@
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(639, 342);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Hoá đơn";
+            this.tabPage3.Text = "Invoice";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dgvDuLieuHD
@@ -161,7 +161,7 @@
             this.btnHoanTat.Name = "btnHoanTat";
             this.btnHoanTat.Size = new System.Drawing.Size(79, 26);
             this.btnHoanTat.TabIndex = 225;
-            this.btnHoanTat.Text = "Hoàn tất";
+            this.btnHoanTat.Text = "Finish";
             this.btnHoanTat.Click += new System.EventHandler(this.btnHoanTat_Click);
             // 
             // btnThemHD
@@ -182,7 +182,7 @@
             this.btnThemHD.Name = "btnThemHD";
             this.btnThemHD.Size = new System.Drawing.Size(79, 26);
             this.btnThemHD.TabIndex = 6;
-            this.btnThemHD.Text = "Thêm";
+            this.btnThemHD.Text = "Add";
             this.btnThemHD.Click += new System.EventHandler(this.btnThemHD_Click);
             // 
             // guna2Panel8

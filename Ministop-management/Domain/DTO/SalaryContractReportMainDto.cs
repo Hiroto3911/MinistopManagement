@@ -20,5 +20,10 @@ namespace Domain.DTO
         public DateTime? EndDate { get; set; }
         public decimal TotalAllowance { get; set; }
         public decimal EstimatedTotalIncome { get; set; }
+        public bool Gender { get; set; }              
+        public DateTime BirthDate { get; set; }      
+        public string Phone { get; set; }
+        public string Address { get; set; }                 
+        public string IdentityNumber { get; set; }
     }
 }

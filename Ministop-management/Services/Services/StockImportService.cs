@@ -112,7 +112,7 @@ namespace Services.Services
                     if (list == null || list.Count < 0) return new Result<bool>(ErrorCodeEnum.SET_ERR_005);
                     foreach (var item in list)
                     {
-                        var result = _ministopUnitOfWork.StockDetailRepository.FindByID(x => x.ProductID == item.ProductID);
+                        var result = _ministopUnitOfWork.StockDetailRepository.FindByID(x =>x.StoreID == stockImportEdit.StoreId && x.ProductID == item.ProductID);
                         string detailID;
                         if (result == null) {
                             detailID = IdGenerator.CreateID("SDD");

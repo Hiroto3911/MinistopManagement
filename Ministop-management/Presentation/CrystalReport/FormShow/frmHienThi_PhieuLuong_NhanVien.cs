@@ -124,7 +124,7 @@ namespace Presentation.CrystalReport.FormShow
                     ds.SalarySlipAllowance.AddSalarySlipAllowanceRow(row);
                 }
 
-                string reportPath = Path.Combine(Application.StartupPath, "CrystalReport", "Report", "Rpt_PhieuLuong_NhanVien.rpt");
+                string reportPath = Path.Combine(Application.StartupPath, "CrystalReport", "Report", "EmployeeReports", "Rpt_PhieuLuong_NhanVien.rpt");
                 if (!File.Exists(reportPath))
                 {
                     MessageBox.Show("Không tìm thấy file báo cáo: " + reportPath);

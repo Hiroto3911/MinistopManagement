@@ -29,21 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChucNang_PhanCaLam));
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.btnClose = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.txtGhiChu = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dtpNgayLamViec = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.cbCaLam = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbNhanVien = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbCuaHang = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.chkThu2 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkThu3 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkThu4 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkThu5 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkThu6 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkThu7 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chkChuNhat = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,29 +63,21 @@
             // 
             // panel1
             // 
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 54);
-            this.panel1.TabIndex = 147;
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.label11, "label11");
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(26, 9);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(160, 32);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Phân Ca Làm";
             // 
             // btnClose
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnClose, "btnClose");
             this.btnClose.BackColor = System.Drawing.Color.Transparent;
             this.btnClose.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnClose.HoverState.ImageSize = new System.Drawing.Size(64, 64);
@@ -86,16 +85,13 @@
             this.btnClose.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnClose.ImageRotate = 0F;
             this.btnClose.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnClose.Location = new System.Drawing.Point(492, 9);
             this.btnClose.Name = "btnClose";
             this.btnClose.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnClose.Size = new System.Drawing.Size(36, 35);
-            this.btnClose.TabIndex = 1;
             this.btnClose.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // btnLuu
             // 
-            this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnLuu, "btnLuu");
             this.btnLuu.BorderColor = System.Drawing.Color.DimGray;
             this.btnLuu.BorderRadius = 10;
             this.btnLuu.BorderThickness = 3;
@@ -104,17 +100,13 @@
             this.btnLuu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnLuu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnLuu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
-            this.btnLuu.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(371, 388);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(140, 45);
-            this.btnLuu.TabIndex = 157;
-            this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // txtGhiChu
             // 
+            resources.ApplyResources(this.txtGhiChu, "txtGhiChu");
             this.txtGhiChu.BorderRadius = 2;
             this.txtGhiChu.BorderThickness = 2;
             this.txtGhiChu.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -124,79 +116,29 @@
             this.txtGhiChu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtGhiChu.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtGhiChu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGhiChu.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtGhiChu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtGhiChu.Location = new System.Drawing.Point(195, 314);
-            this.txtGhiChu.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.PlaceholderText = "";
             this.txtGhiChu.SelectedText = "";
-            this.txtGhiChu.Size = new System.Drawing.Size(328, 55);
-            this.txtGhiChu.TabIndex = 152;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 247);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 28);
-            this.label1.TabIndex = 150;
-            this.label1.Text = "Ngày làm việc:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(14, 314);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(87, 28);
-            this.label3.TabIndex = 149;
-            this.label3.Text = "Ghi chú:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 142);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 28);
-            this.label2.TabIndex = 148;
-            this.label2.Text = "Nhân viên:";
-            // 
-            // dtpNgayLamViec
-            // 
-            this.dtpNgayLamViec.BorderRadius = 2;
-            this.dtpNgayLamViec.BorderThickness = 2;
-            this.dtpNgayLamViec.Checked = true;
-            this.dtpNgayLamViec.FillColor = System.Drawing.Color.White;
-            this.dtpNgayLamViec.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtpNgayLamViec.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgayLamViec.Location = new System.Drawing.Point(196, 247);
-            this.dtpNgayLamViec.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dtpNgayLamViec.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpNgayLamViec.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpNgayLamViec.Name = "dtpNgayLamViec";
-            this.dtpNgayLamViec.Size = new System.Drawing.Size(327, 55);
-            this.dtpNgayLamViec.TabIndex = 184;
-            this.dtpNgayLamViec.Value = new System.DateTime(2025, 10, 1, 8, 48, 24, 373);
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(14, 86);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(103, 28);
-            this.label4.TabIndex = 185;
-            this.label4.Text = "Cửa hàng:";
             // 
             // cbCaLam
             // 
+            resources.ApplyResources(this.cbCaLam, "cbCaLam");
             this.cbCaLam.BackColor = System.Drawing.Color.Transparent;
             this.cbCaLam.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cbCaLam.BorderRadius = 2;
@@ -205,27 +147,17 @@
             this.cbCaLam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCaLam.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbCaLam.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbCaLam.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbCaLam.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbCaLam.ItemHeight = 30;
-            this.cbCaLam.Location = new System.Drawing.Point(196, 199);
             this.cbCaLam.Name = "cbCaLam";
-            this.cbCaLam.Size = new System.Drawing.Size(326, 36);
-            this.cbCaLam.TabIndex = 188;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(13, 199);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 28);
-            this.label5.TabIndex = 187;
-            this.label5.Text = "Ca làm:";
             // 
             // cbNhanVien
             // 
+            resources.ApplyResources(this.cbNhanVien, "cbNhanVien");
             this.cbNhanVien.BackColor = System.Drawing.Color.Transparent;
             this.cbNhanVien.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cbNhanVien.BorderRadius = 2;
@@ -234,16 +166,12 @@
             this.cbNhanVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNhanVien.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbNhanVien.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbNhanVien.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbNhanVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbNhanVien.ItemHeight = 30;
-            this.cbNhanVien.Location = new System.Drawing.Point(195, 142);
             this.cbNhanVien.Name = "cbNhanVien";
-            this.cbNhanVien.Size = new System.Drawing.Size(326, 36);
-            this.cbNhanVien.TabIndex = 189;
             // 
             // cbCuaHang
             // 
+            resources.ApplyResources(this.cbCuaHang, "cbCuaHang");
             this.cbCuaHang.BackColor = System.Drawing.Color.Transparent;
             this.cbCuaHang.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
             this.cbCuaHang.BorderRadius = 2;
@@ -252,37 +180,129 @@
             this.cbCuaHang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCuaHang.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.cbCuaHang.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbCuaHang.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cbCuaHang.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbCuaHang.ItemHeight = 30;
-            this.cbCuaHang.Location = new System.Drawing.Point(195, 86);
             this.cbCuaHang.Name = "cbCuaHang";
-            this.cbCuaHang.Size = new System.Drawing.Size(326, 36);
-            this.cbCuaHang.TabIndex = 190;
-            this.cbCuaHang.SelectedIndexChanged += new System.EventHandler(this.CuaHang_SelectedIndexChanged);
+            // 
+            // chkThu2
+            // 
+            resources.ApplyResources(this.chkThu2, "chkThu2");
+            this.chkThu2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu2.CheckedState.BorderRadius = 0;
+            this.chkThu2.CheckedState.BorderThickness = 0;
+            this.chkThu2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu2.Name = "chkThu2";
+            this.chkThu2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkThu2.UncheckedState.BorderRadius = 0;
+            this.chkThu2.UncheckedState.BorderThickness = 0;
+            this.chkThu2.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chkThu3
+            // 
+            resources.ApplyResources(this.chkThu3, "chkThu3");
+            this.chkThu3.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu3.CheckedState.BorderRadius = 0;
+            this.chkThu3.CheckedState.BorderThickness = 0;
+            this.chkThu3.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu3.Name = "chkThu3";
+            this.chkThu3.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkThu3.UncheckedState.BorderRadius = 0;
+            this.chkThu3.UncheckedState.BorderThickness = 0;
+            this.chkThu3.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chkThu4
+            // 
+            resources.ApplyResources(this.chkThu4, "chkThu4");
+            this.chkThu4.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu4.CheckedState.BorderRadius = 0;
+            this.chkThu4.CheckedState.BorderThickness = 0;
+            this.chkThu4.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu4.Name = "chkThu4";
+            this.chkThu4.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkThu4.UncheckedState.BorderRadius = 0;
+            this.chkThu4.UncheckedState.BorderThickness = 0;
+            this.chkThu4.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chkThu5
+            // 
+            resources.ApplyResources(this.chkThu5, "chkThu5");
+            this.chkThu5.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu5.CheckedState.BorderRadius = 0;
+            this.chkThu5.CheckedState.BorderThickness = 0;
+            this.chkThu5.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu5.Name = "chkThu5";
+            this.chkThu5.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkThu5.UncheckedState.BorderRadius = 0;
+            this.chkThu5.UncheckedState.BorderThickness = 0;
+            this.chkThu5.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chkThu6
+            // 
+            resources.ApplyResources(this.chkThu6, "chkThu6");
+            this.chkThu6.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu6.CheckedState.BorderRadius = 0;
+            this.chkThu6.CheckedState.BorderThickness = 0;
+            this.chkThu6.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu6.Name = "chkThu6";
+            this.chkThu6.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkThu6.UncheckedState.BorderRadius = 0;
+            this.chkThu6.UncheckedState.BorderThickness = 0;
+            this.chkThu6.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chkThu7
+            // 
+            resources.ApplyResources(this.chkThu7, "chkThu7");
+            this.chkThu7.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu7.CheckedState.BorderRadius = 0;
+            this.chkThu7.CheckedState.BorderThickness = 0;
+            this.chkThu7.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkThu7.Name = "chkThu7";
+            this.chkThu7.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkThu7.UncheckedState.BorderRadius = 0;
+            this.chkThu7.UncheckedState.BorderThickness = 0;
+            this.chkThu7.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // chkChuNhat
+            // 
+            resources.ApplyResources(this.chkChuNhat, "chkChuNhat");
+            this.chkChuNhat.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkChuNhat.CheckedState.BorderRadius = 0;
+            this.chkChuNhat.CheckedState.BorderThickness = 0;
+            this.chkChuNhat.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chkChuNhat.Name = "chkChuNhat";
+            this.chkChuNhat.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chkChuNhat.UncheckedState.BorderRadius = 0;
+            this.chkChuNhat.UncheckedState.BorderThickness = 0;
+            this.chkChuNhat.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            // 
+            // label1
+            // 
+            resources.ApplyResources(this.label1, "label1");
+            this.label1.Name = "label1";
             // 
             // frmChucNang_PhanCaLam
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(540, 445);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chkChuNhat);
+            this.Controls.Add(this.chkThu7);
+            this.Controls.Add(this.chkThu6);
+            this.Controls.Add(this.chkThu5);
+            this.Controls.Add(this.chkThu4);
+            this.Controls.Add(this.chkThu3);
+            this.Controls.Add(this.chkThu2);
             this.Controls.Add(this.cbCuaHang);
             this.Controls.Add(this.cbNhanVien);
             this.Controls.Add(this.cbCaLam);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dtpNgayLamViec);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.txtGhiChu);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmChucNang_PhanCaLam";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmChucNang_PhanCaLam";
             this.Load += new System.EventHandler(this.frmChucNang_PhanCaLam_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -299,14 +319,20 @@
         private Guna.UI2.WinForms.Guna2ImageButton btnClose;
         private Guna.UI2.WinForms.Guna2Button btnLuu;
         private Guna.UI2.WinForms.Guna2TextBox txtGhiChu;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2DateTimePicker dtpNgayLamViec;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2ComboBox cbCaLam;
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2ComboBox cbNhanVien;
         private Guna.UI2.WinForms.Guna2ComboBox cbCuaHang;
+        private Guna.UI2.WinForms.Guna2CheckBox chkThu2;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2CheckBox chkChuNhat;
+        private Guna.UI2.WinForms.Guna2CheckBox chkThu7;
+        private Guna.UI2.WinForms.Guna2CheckBox chkThu6;
+        private Guna.UI2.WinForms.Guna2CheckBox chkThu5;
+        private Guna.UI2.WinForms.Guna2CheckBox chkThu4;
+        private Guna.UI2.WinForms.Guna2CheckBox chkThu3;
     }
 }

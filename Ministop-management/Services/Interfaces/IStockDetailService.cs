@@ -11,7 +11,7 @@ namespace Services.Interfaces
     public interface IStockDetailService
     {
         Result<StockDetailDto> GetStockDetailByProductID(string id);
-        Result<IReadOnlyList<StockDetailDto>> GetStockDetailByProductName(string productName);
+        Result<IReadOnlyList<StockDetailDto>> GetStockDetailByProductName(string productName, string storeID);
         PagedResult<IReadOnlyList<StockDetailDto>> GetStockDetails(string storeId, int pageNumber = 1, int pageSize = 20);
     }
 }
