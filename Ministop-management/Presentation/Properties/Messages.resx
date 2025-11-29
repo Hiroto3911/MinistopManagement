@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Message_ChooseAtLeastOneData" xml:space="preserve">
+    <value>Vui lòng chọn ít nhật một dữ liệu để thực hiện hành động</value>
+  </data>
+  <data name="Message_ChooseAtLeastOneProduct" xml:space="preserve">
+    <value>Chọn ít nhất 1 sản phẩm!</value>
+  </data>
+  <data name="Message_Confirm" xml:space="preserve">
+    <value>Xác nhận</value>
+  </data>
+  <data name="Message_DeleteData" xml:space="preserve">
+    <value>Bạn có chắc muốn xóa</value>
+  </data>
+  <data name="Message_DeletedSuccessfully" xml:space="preserve">
+    <value>Xóa thành công</value>
+  </data>
+  <data name="Message_DeleteHaveData" xml:space="preserve">
+    <value>Phiếu hiện đang còn dữ liệu.\n Nếu bạn xác nhận xoá, hệ thống sẽ xóa các dữ liệu chi tiết bên trong phiếu ! Xin vui lòng cân nhăc trước khi ấn nút xác nhận.</value>
+  </data>
+  <data name="Message_DeleteStore" xml:space="preserve">
+    <value>Lưu ý hiện tại hệ thống chỉ hỗ trợ xóa một cửa hàng nên vui lòng chọn đúng một cửa hàng để thực hiện thao tác !</value>
+  </data>
+  <data name="Message_DeleteStoreHaveData" xml:space="preserve">
+    <value>Cửa hàng  hiện đang còn dữ liệu và tài khoản hoạt động.\n Nếu bạn xác nhận xoá, hệ thống sẽ ngưng kích hoạt cửa hàng và các dữ liệu liên quan, thay vì xoá vĩnh viễn.</value>
+  </data>
+  <data name="Message_EnterNameProductToFind" xml:space="preserve">
+    <value>Vui lòng nhập tên sản phẩm để có thể tìm kiếm dữ liệu trong kho</value>
+  </data>
+  <data name="Message_Error" xml:space="preserve">
+    <value>Lỗi</value>
+  </data>
+  <data name="Message_Fail" xml:space="preserve">
+    <value>Thất Bại</value>
+  </data>
+  <data name="Message_InvalidChineseNumber" xml:space="preserve">
+    <value>Số điện thoại Trung Quốc không hợp lệ. VD: +8613712345678 hoặc 13712345678</value>
+  </data>
+  <data name="Message_InvalidJapaneseNumber" xml:space="preserve">
+    <value>Số điện thoại Nhật Bản không hợp lệ. VD: +819012345678 hoặc 09012345678</value>
+  </data>
+  <data name="Message_InvalidKoreanNumber" xml:space="preserve">
+    <value>Số điện thoại Hàn Quốc không hợp lệ. VD: +821012345678 hoặc 01012345678</value>
+  </data>
+  <data name="Message_InvalidMonth" xml:space="preserve">
+    <value>Tháng không hợp lệ </value>
+  </data>
+  <data name="Message_InvalidPhoneNumber" xml:space="preserve">
+    <value>Số điện thoại không hợp lệ. Vui lòng kiểm tra lại định dạng!</value>
+  </data>
+  <data name="Message_InvalidUSNumber" xml:space="preserve">
+    <value>Số điện thoại Mỹ không hợp lệ. VD: +11234567890 hoặc 1234567890</value>
+  </data>
+  <data name="Message_InvalidVietnameseNumber" xml:space="preserve">
+    <value>Số điện thoại Việt Nam không hợp lệ VD: +84912345678 hoặc 0912345678"</value>
+  </data>
+  <data name="Message_InvalidYear" xml:space="preserve">
+    <value>Năm không hợp lệ</value>
+  </data>
+  <data name="Message_NoData" xml:space="preserve">
+    <value>Không có dữ liệu</value>
+  </data>
+  <data name="Message_NotDataAtThisTime" xml:space="preserve">
+    <value>Không có dữ liệu trong khoảng thời gian này </value>
+  </data>
+  <data name="Message_Notification" xml:space="preserve">
+    <value>Thông Báo</value>
+  </data>
+  <data name="Message_NotNull" xml:space="preserve">
+    <value>Không được để trống</value>
+  </data>
+  <data name="Message_ProductNotInStock" xml:space="preserve">
+    <value>Sản phẩm này không tồn tại trong kho hàng. Vui lòng nhập lại mã</value>
+  </data>
+  <data name="Message_QuantityProductNotEnough" xml:space="preserve">
+    <value>Số lượng trong kho không đủ đế đáp ứng số lượng xuất của bạn vui lòng điều chỉnh lại số lượng!</value>
+  </data>
+  <data name="Message_QuantityVariance" xml:space="preserve">
+    <value>Số lượng thực tế không thể lớn hơn số lượng hệ thống. Vui lòng kiểm lại!</value>
+  </data>
+  <data name="Message_SavedSuccessfullLy" xml:space="preserve">
+    <value>Lưu thành công </value>
+  </data>
+  <data name="Message_SelectNation" xml:space="preserve">
+    <value>Vui lòng chọn quốc gia/vùng miền.</value>
+  </data>
+  <data name="Message_SelectStore" xml:space="preserve">
+    <value>Vui lòng chọn cửa hàng</value>
+  </data>
+  <data name="Message_SpecialCharacter" xml:space="preserve">
+    <value>Không được chứa ký tự đặc biệt !</value>
+  </data>
+  <data name="Message_Successfull" xml:space="preserve">
+    <value>Thành Công</value>
+  </data>
+  <data name="Message_ToDayMoreThanFromDay" xml:space="preserve">
+    <value>Từ ngày phải nhỏ hơn đến ngày </value>
+  </data>
+  <data name="Message_ValidNumber" xml:space="preserve">
+    <value>phải là số hợp lệ và không được để trống hoặc bằng 0</value>
+  </data>
+</root>

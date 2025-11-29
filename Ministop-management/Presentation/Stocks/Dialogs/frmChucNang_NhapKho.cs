@@ -81,7 +81,7 @@ namespace Presentation
                 return;
             }
 
-            MessageBox.Show("Lưu phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
         private void LoadDataCboTrangThai()
@@ -93,8 +93,8 @@ namespace Presentation
                 cboTrangThai.Enabled = true;
                 status = new Dictionary<string, byte>()
                 {
-                    {"Duyệt",1 },
-                    { "Không duyệt",0 }
+                 {Properties.Resources.Status_Permitted,1 },
+                 {Properties.Resources.Status_NotPermitted,0 }
                 };
             }
             else
@@ -102,8 +102,8 @@ namespace Presentation
 
                 status = new Dictionary<string, byte>()
                 {
-                  {"Đang soạn",2 },
-                  {"Chờ duyệt",3 }
+                 {Properties.Resources.Status_Draft,2 },
+                  {Properties.Resources.Status_Pending,3 }
                 };
             }
             cboTrangThai.DataSource = status.ToList();

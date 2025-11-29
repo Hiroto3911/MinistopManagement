@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmXemPhuCap_HopDongLuong));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvPhuCap = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
@@ -57,7 +58,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvPhuCap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvPhuCap.ColumnHeadersHeight = 36;
+            resources.ApplyResources(this.dgvPhuCap, "dgvPhuCap");
             this.dgvPhuCap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -67,15 +68,10 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvPhuCap.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvPhuCap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvPhuCap.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvPhuCap.Location = new System.Drawing.Point(0, 54);
             this.dgvPhuCap.Name = "dgvPhuCap";
             this.dgvPhuCap.RowHeadersVisible = false;
-            this.dgvPhuCap.RowHeadersWidth = 62;
             this.dgvPhuCap.RowTemplate.Height = 28;
-            this.dgvPhuCap.Size = new System.Drawing.Size(800, 351);
-            this.dgvPhuCap.TabIndex = 229;
             this.dgvPhuCap.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dgvPhuCap.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.dgvPhuCap.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
@@ -110,16 +106,12 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
             this.panel1.Controls.Add(this.itbnThoat);
             this.panel1.Controls.Add(this.label11);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 54);
-            this.panel1.TabIndex = 228;
             // 
             // itbnThoat
             // 
-            this.itbnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.itbnThoat, "itbnThoat");
             this.itbnThoat.BackColor = System.Drawing.Color.Transparent;
             this.itbnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.itbnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
@@ -127,24 +119,15 @@
             this.itbnThoat.ImageOffset = new System.Drawing.Point(0, 0);
             this.itbnThoat.ImageRotate = 0F;
             this.itbnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.itbnThoat.Location = new System.Drawing.Point(752, 9);
             this.itbnThoat.Name = "itbnThoat";
             this.itbnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.itbnThoat.Size = new System.Drawing.Size(36, 35);
-            this.itbnThoat.TabIndex = 8;
             this.itbnThoat.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            resources.ApplyResources(this.label11, "label11");
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(26, 9);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(425, 32);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Xem phụ cấp của nhân viên fulltime";
             // 
             // btnThem
             // 
@@ -154,29 +137,21 @@
             this.btnThem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnThem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnThem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnThem.Dock = System.Windows.Forms.DockStyle.Bottom;
+            resources.ApplyResources(this.btnThem, "btnThem");
             this.btnThem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
-            this.btnThem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnThem.ForeColor = System.Drawing.Color.White;
-            this.btnThem.Location = new System.Drawing.Point(0, 405);
             this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(800, 45);
-            this.btnThem.TabIndex = 230;
-            this.btnThem.Text = "Cập nhật";
             this.btnThem.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // frmXemPhuCap_HopDongLuong
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dgvPhuCap);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnThem);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmXemPhuCap_HopDongLuong";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmHienThi_HopDongLuong_PhuCap";
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhuCap)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -3,6 +3,7 @@ using Domain.Entity;
 using Services.Interfaces;
 using Shared.Helpers;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -16,324 +17,210 @@ namespace Presentation
         private readonly IShiftAssignmentService _shiftAssignmentService;
         private readonly string _currentUserRole;
         private readonly string _currentStoreId;
-        private readonly string _assignmentId;
-        public event EventHandler DataChanged;
 
-        private bool _isLoading = false;
+        // Nhận tuần hiện tại từ form chính
+        public DateTime WeekStartDate { get; set; }  // Thứ 2
+        public DateTime WeekEndDate { get; set; }    // Chủ nhật
+
+        public event EventHandler DataChanged;
 
         public frmChucNang_PhanCaLam(
             IStoreService storeService,
             IEmployeeService employeeService,
             IShiftService shiftService,
             IShiftAssignmentService shiftAssignmentService,
-            string assignmentId = null,
+            DateTime weekStart,
+            DateTime weekEnd,
             string currentUserRole = "Admin",
             string currentStoreId = null)
         {
             InitializeComponent();
-            _storeService = storeService ?? throw new ArgumentNullException(nameof(storeService));
-            _employeeService = employeeService ?? throw new ArgumentNullException(nameof(employeeService));
-            _shiftService = shiftService ?? throw new ArgumentNullException(nameof(shiftService));
-            _shiftAssignmentService = shiftAssignmentService ?? throw new ArgumentNullException(nameof(shiftAssignmentService));
-            _assignmentId = assignmentId;
+
+            _storeService = storeService;
+            _employeeService = employeeService;
+            _shiftService = shiftService;
+            _shiftAssignmentService = shiftAssignmentService;
             _currentUserRole = currentUserRole;
             _currentStoreId = currentStoreId;
+
+            WeekStartDate = weekStart.Date;
+            WeekEndDate = weekEnd.Date;
         }
 
-        #region Form Load
         private void frmChucNang_PhanCaLam_Load(object sender, EventArgs e)
         {
-            try
-            {
-                _isLoading = true;
-                InitializeFormControls();
-
-                if (!string.IsNullOrEmpty(_assignmentId))
-                {
-                    LoadAssignmentData();
-                }
-                else
-                {
-                    SetDefaultControlValues();
-                }
-            }
-            catch (Exception ex)
-            {
-                ShowErrorMessage($"Lỗi khi tải dữ liệu: {ex.Message}");
-            }
-            finally
-            {
-                _isLoading = false;
-            }
+            InitializeFormControls();
+            UpdateWeekDayLabels(); // Cập nhật ngày thực tế lên 7 checkbox
         }
-        #endregion
 
-        #region Initialize Controls
         private void InitializeFormControls()
         {
             LoadStoreComboBox();
             LoadShiftComboBox();
             ConfigureRoleBasedRestrictions();
-            AttachEventHandlers();
+
+            // Gắn sự kiện đổi cửa hàng
+            cbCuaHang.SelectedIndexChanged += cbCuaHang_SelectedIndexChanged;
         }
 
         private void LoadStoreComboBox()
         {
             var result = _storeService.GetAll();
-            if (result.Succeeded && result.Data != null && result.Data.Any())
+            if (result.Succeeded && result.Data?.Any() == true)
             {
-                var storeList = result.Data.ToList();
-                cbCuaHang.DataSource = storeList;
+                var list = result.Data.ToList();
+                cbCuaHang.DataSource = list;
                 cbCuaHang.DisplayMember = "StoreName";
                 cbCuaHang.ValueMember = "StoreId";
 
                 if (_currentUserRole == "Quản lý cửa hàng" && !string.IsNullOrEmpty(_currentStoreId))
                 {
-                    // TÌM CỬA HÀNG THEO ID
-                    var store = storeList.FirstOrDefault(s => s.StoreId == _currentStoreId);
+                    var store = list.FirstOrDefault(s => s.StoreId == _currentStoreId);
                     if (store != null)
                     {
-                        cbCuaHang.SelectedItem = store; // DÙNG SelectedItem ĐỂ CHẮC CHẮN
-                        cbCuaHang.Enabled = false;      // DISABLE NGAY
-                    }
-                    else
-                    {
-                        // Nếu không tìm thấy (lỗi dữ liệu), vẫn disable + chọn đầu
-                        cbCuaHang.SelectedIndex = 0;
+                        cbCuaHang.SelectedItem = store;
                         cbCuaHang.Enabled = false;
                     }
                 }
-                else if (_currentUserRole == "Admin")
-                {
-                    cbCuaHang.SelectedIndex = 0;
-                }
-            }
-            else
-            {
-                ShowErrorMessage("Không thể tải danh sách cửa hàng!");
-                cbCuaHang.DataSource = null;
-                btnLuu.Enabled = false;
+                else cbCuaHang.SelectedIndex = 0;
             }
         }
 
         private void LoadShiftComboBox()
         {
             var result = _shiftService.GetAll();
-            if (result.Succeeded && result.Data != null && result.Data.Any())
+            if (result.Succeeded && result.Data?.Any() == true)
             {
                 cbCaLam.DataSource = result.Data.ToList();
                 cbCaLam.DisplayMember = "ShiftName";
                 cbCaLam.ValueMember = "ShiftId";
-            }
-            else
-            {
-                ShowErrorMessage("Không thể tải danh sách ca làm!");
-                cbCaLam.DataSource = null;
-                btnLuu.Enabled = false;
-            }
-        }
-
-        private void LoadEmployeeComboBox(string storeId)
-        {
-            cbNhanVien.DataSource = null;
-            if (string.IsNullOrEmpty(storeId)) return;
-
-            var result = _employeeService.GetEmployeeByStore(storeId, 1, 1000);
-            if (result.Succeeded && result.Data != null && result.Data.Any())
-            {
-                cbNhanVien.DataSource = result.Data.ToList();
-                cbNhanVien.DisplayMember = "FullName";
-                cbNhanVien.ValueMember = "EmployeeId";
-            }
-            else
-            {
-                cbNhanVien.DataSource = null;
-                if (!_isLoading)
-                    ShowWarningMessage("Không có nhân viên nào trong cửa hàng này!");
             }
         }
 
         private void ConfigureRoleBasedRestrictions()
         {
             if (_currentUserRole == "Nhân viên")
-            {
                 btnLuu.Enabled = false;
-            }
         }
 
-        private void AttachEventHandlers()
+        // CẬP NHẬT NGÀY THỰC TẾ LÊN 7 CHECKBOX (từ Designer)
+        private void UpdateWeekDayLabels()
         {
-            cbCuaHang.SelectedIndexChanged -= CuaHang_SelectedIndexChanged;
-            cbCuaHang.SelectedIndexChanged += CuaHang_SelectedIndexChanged;
-        }
-
-        private void CuaHang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (_isLoading) return;
-            if (cbCuaHang.SelectedValue == null) return;
-
-            string storeId = cbCuaHang.SelectedValue.ToString();
-            LoadEmployeeComboBox(storeId);
-        }
-
-        private void SetDefaultControlValues()
-        {
-            dtpNgayLamViec.Value = DateTime.Today;
-
-            if (cbCuaHang.SelectedValue != null)
+            var checkboxes = new[]
             {
-                LoadEmployeeComboBox(cbCuaHang.SelectedValue.ToString());
-            }
-        }
-        #endregion
+                chkThu2, chkThu3, chkThu4, chkThu5, chkThu6, chkThu7, chkChuNhat
+            };
 
-        #region Load Assignment Data
-        private void LoadAssignmentData()
-        {
-            if (string.IsNullOrEmpty(_assignmentId)) return;
-
-            var result = _shiftAssignmentService.GetById(_assignmentId);
-            if (!result.Succeeded || result.Data == null)
+            for (int i = 0; i < 7; i++)
             {
-                ShowWarningMessage("Không tìm thấy dữ liệu phân ca!");
-                return;
-            }
-
-            var dto = result.Data;
-
-            var empResult = _employeeService.GetEmployeeByID(dto.EmployeeId);
-            string storeId = empResult.Succeeded && empResult.Data != null ? empResult.Data.StoreId : null;
-
-            if (!string.IsNullOrEmpty(storeId))
-            {
-                cbCuaHang.SelectedValue = storeId;
-            }
-
-            if (cbCuaHang.SelectedValue != null)
-            {
-                LoadEmployeeComboBox(cbCuaHang.SelectedValue.ToString());
-                if (cbNhanVien.Items.Count > 0)
+                DateTime date = WeekStartDate.AddDays(i);
+                if (checkboxes[i] != null)
                 {
-                    cbNhanVien.SelectedValue = dto.EmployeeId;
+                    checkboxes[i].Text = checkboxes[i].Text.Split('\n').First() + $"\n{date:dd/MM}";
+                    checkboxes[i].Tag = date; // Lưu ngày vào Tag để dùng khi lưu
+                    checkboxes[i].Checked = true; // Tích sẵn
                 }
             }
-
-            cbCaLam.SelectedValue = dto.ShiftId;
-            dtpNgayLamViec.Value = dto.WorkDate;
-            txtGhiChu.Text = dto.Note ?? "";
         }
-        #endregion
 
-        #region Input Validation
-        private bool ValidateInput()
+        private void cbCuaHang_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbCuaHang.SelectedValue == null) return;
+            LoadEmployeeComboBox(cbCuaHang.SelectedValue.ToString());
+        }
+
+        private void LoadEmployeeComboBox(string storeId)
+        {
+            cbNhanVien.DataSource = null;
+            var result = _employeeService.GetEmployeeByStore(storeId, 1, 1000);
+            if (result.Succeeded && result.Data?.Any() == true)
+            {
+                var parttimeOnly = result.Data.Where(x => x.EmploymentType == "Parttime").ToList();
+                if (!parttimeOnly.Any())
+                {
+                    cbNhanVien.Items.Add("(Không có nhân viên Part-time)");
+                    cbNhanVien.Enabled = false;
+                    return;
+                }
+                cbNhanVien.DataSource = parttimeOnly;
+                cbNhanVien.DisplayMember = "FullName";
+                cbNhanVien.ValueMember = "EmployeeId";
+                cbNhanVien.Enabled = true;
+            }
+            else
+            {
+                cbNhanVien.Items.Add("(Không có nhân viên)");
+                cbNhanVien.Enabled = false;
+            }
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
         {
             if (cbCuaHang.SelectedValue == null)
             {
-                ShowWarningMessage("Vui lòng chọn cửa hàng!");
-                return false;
+                MessageBox.Show("Vui lòng chọn cửa hàng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-
-            if (cbNhanVien.SelectedValue == null)
+            if (cbNhanVien.SelectedValue == null || !cbNhanVien.Enabled)
             {
-                ShowWarningMessage("Vui lòng chọn nhân viên!");
-                return false;
+                MessageBox.Show("Vui lòng chọn nhân viên Part-time!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-
             if (cbCaLam.SelectedValue == null)
             {
-                ShowWarningMessage("Vui lòng chọn ca làm!");
-                return false;
+                MessageBox.Show("Vui lòng chọn ca làm!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            if (dtpNgayLamViec.Value < DateTime.Today.AddDays(-30))
+            var employeeId = cbNhanVien.SelectedValue.ToString();
+            var shiftId = cbCaLam.SelectedValue.ToString();
+            var note = txtGhiChu.Text.Trim();
+
+            var assignments = new List<ShiftAssignmentDto>();
+            int successCount = 0;
+
+            var dayCheckboxes = new[] { chkThu2, chkThu3, chkThu4, chkThu5, chkThu6, chkThu7, chkChuNhat };
+
+            foreach (var chk in dayCheckboxes)
             {
-                ShowWarningMessage("Ngày làm việc không được quá 30 ngày trong quá khứ!");
-                return false;
-            }
+                if (chk == null || !chk.Checked) continue;
 
-            if (dtpNgayLamViec.Value > DateTime.Today.AddMonths(3))
-            {
-                ShowWarningMessage("Chỉ được phân ca tối đa 3 tháng tới!");
-                return false;
-            }
+                var workDate = (DateTime)chk.Tag;
 
-            var checkDuplicate = _shiftAssignmentService.CheckDuplicate(
-                employeeId: cbNhanVien.SelectedValue.ToString(),
-                shiftId: cbCaLam.SelectedValue.ToString(),
-                workDate: dtpNgayLamViec.Value.Date,
-                excludeId: _assignmentId
-            );
+                var dup = _shiftAssignmentService.CheckDuplicate(employeeId, shiftId, workDate);
+                if (dup.Succeeded && dup.Data) continue; // Bỏ qua ngày trùng
 
-            if (checkDuplicate.Succeeded && checkDuplicate.Data)
-            {
-                ShowWarningMessage("Nhân viên này đã được phân ca này vào ngày đã chọn!");
-                return false;
-            }
-
-            return true;
-        }
-        #endregion
-
-        #region Button Handlers
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-            if (!ValidateInput()) return;
-
-            try
-            {
-                var dto = new ShiftAssignmentDto
+                assignments.Add(new ShiftAssignmentDto
                 {
-                    Id = _assignmentId,
-                    EmployeeId = cbNhanVien.SelectedValue.ToString(),
-                    ShiftId = cbCaLam.SelectedValue.ToString(),
-                    WorkDate = dtpNgayLamViec.Value.Date,
-                    Note = txtGhiChu.Text.Trim()
-                };
-
-                var result = string.IsNullOrEmpty(_assignmentId)
-                    ? _shiftAssignmentService.Create(dto)
-                    : _shiftAssignmentService.Update(dto);
-
-                if (result.Succeeded)
-                {
-                    ShowSuccessMessage(string.IsNullOrEmpty(_assignmentId)
-                        ? "Phân ca thành công!"
-                        : "Cập nhật phân ca thành công!");
-                    DataChanged?.Invoke(this, EventArgs.Empty);
-                    Close();
-                }
-                else
-                {
-                    ShowErrorMessage($"Lỗi: {result.Message}");
-                }
+                    EmployeeId = employeeId,
+                    ShiftId = shiftId,
+                    WorkDate = workDate,
+                    Note = note
+                });
+                successCount++;
             }
-            catch (Exception ex)
+
+            if (assignments.Count == 0)
             {
-                ShowErrorMessage($"Đã xảy ra lỗi: {ex.Message}");
+                MessageBox.Show("Không có ngày nào được lưu (toàn bộ ngày đã có ca hoặc bị bỏ chọn).", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var result = _shiftAssignmentService.CreateBatch(assignments);
+            if (result.Succeeded)
+            {
+                MessageBox.Show($"Đã phân công thành công {successCount} ngày!", "Thành công",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataChanged?.Invoke(this, EventArgs.Empty);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Lỗi: " + result.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btnDong_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-        #endregion
-
-        #region Message Helpers
-        private void ShowErrorMessage(string message)
-        {
-            MessageBox.Show(message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        private void ShowWarningMessage(string message)
-        {
-            MessageBox.Show(message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void ShowSuccessMessage(string message)
-        {
-            MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        #endregion
+        private void btnDong_Click(object sender, EventArgs e) => this.Close();
     }
 }

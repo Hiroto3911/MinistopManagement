@@ -74,6 +74,11 @@ namespace Presentation
             dt.Columns.Add("Chon", typeof(bool));
             dt.Columns.Add("SoLuong", typeof(int));
             dgvDuLieu.DataSource = dt;
+            dgvDuLieu.Columns["MaSanPham"].HeaderText = Properties.Resources.Grid_ProductID;
+            dgvDuLieu.Columns["TenSanPham"].HeaderText = Properties.Resources.Grid_ProductName;
+            dgvDuLieu.Columns["GiaTuNhaCungCap"].HeaderText = Properties.Resources.Grid_SupplierPrice;
+            dgvDuLieu.Columns["Chon"].HeaderText = Properties.Resources.Grid_Choose;
+            dgvDuLieu.Columns["SoLuong"].HeaderText = Properties.Resources.Grid_Quantity;
             dgvDuLieu.Columns["MaSanPham"].ReadOnly = true;
             dgvDuLieu.Columns["TenSanPham"].ReadOnly = true;
             dgvDuLieu.Columns["GiaTuNhaCungCap"].ReadOnly = true;
@@ -94,8 +99,6 @@ namespace Presentation
             dgvDuLieu.Controls.Add(checkboxHeader);
 
             dgvDuLieu.AllowUserToAddRows = false;
-            dgvDuLieu.ReadOnly = false;
-            dgvDuLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             // Giao diện đẹp
             btnTrangTruoc.Enabled = pageNumber > 1;
@@ -170,7 +173,7 @@ namespace Presentation
                 if (!int.TryParse(row.Cells["SoLuong"].Value?.ToString(), out int qty) || qty <= 0)
                 {
                     row.Cells["SoLuong"].Style.BackColor = Color.LightCoral;
-                    MessageBox.Show($"Số lượng không hợp lệ: {row.Cells["TenSanPham"].Value}");
+                    MessageBox.Show($"{Properties.Messages.Message_ValidNumber}: {row.Cells["TenSanPham"].Value}");
                     return null;
                 }
                 row.Cells["SoLuong"].Style.BackColor = Color.White;
@@ -185,7 +188,7 @@ namespace Presentation
 
             if (result.Count == 0)
             {
-                MessageBox.Show("Chọn ít nhất 1 sản phẩm!");
+                MessageBox.Show($"{Properties.Messages.Message_ChooseAtLeastOneProduct}");
                 return null;
             }
 
@@ -217,7 +220,7 @@ namespace Presentation
                 }
             }
             dataChanged?.Invoke(this, EventArgs.Empty);
-            MessageBox.Show("Lưu phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 

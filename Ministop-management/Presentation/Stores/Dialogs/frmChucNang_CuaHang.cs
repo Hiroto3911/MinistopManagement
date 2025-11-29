@@ -39,7 +39,7 @@ namespace Presentation
                 var entity = _storeService.GetStoreByID(_storeId);
                 if (entity.Succeeded == false && entity.Data == null)
                 {
-                    MessageBox.Show($"{entity.Message}", "Lỗi");
+                    MessageBox.Show($"{entity.Message}", $"{Properties.Messages.Message_Error}");
                     return;
                 }
                 txtMaCH.Text = entity.Data.StoreId;
@@ -47,8 +47,8 @@ namespace Presentation
                 rtxtDiaChi.Text = entity.Data.Address;
                 txtSDT.Text = entity.Data.Phone;
                 string phone = entity.Data.Phone ?? "";
-                string quocGia = XacDinhQuocGiaTuSoDienThoai(phone);
-                cboLoaiSDT.SelectedItem = quocGia;
+                XacDinhQuocGiaTuSoDienThoai(phone);
+      
 
             }
         }
@@ -58,31 +58,58 @@ namespace Presentation
         {
             cboLoaiSDT.DropDownStyle = ComboBoxStyle.DropDownList;
             cboLoaiSDT.Items.Clear();
-            cboLoaiSDT.Items.Add("Việt Nam (+84)");
-            cboLoaiSDT.Items.Add("Mỹ (+1)");
-            cboLoaiSDT.Items.Add("Nhật Bản (+81)");
-            cboLoaiSDT.Items.Add("Hàn Quốc (+82)");
-            cboLoaiSDT.Items.Add("Trung Quốc (+86)");
-            cboLoaiSDT.Items.Add("Khác (nhập thủ công)");
-            cboLoaiSDT.SelectedIndex = 0;
+            Dictionary<string,int> nation = new Dictionary<string, int>()
+            {
+                { $"{Properties.Resources.Cbo_Others}",0},
+                { $"{Properties.Resources.Cbo_VN}",1},
+                { $"{Properties.Resources.Cbo_US}",2},
+                { $"{Properties.Resources.Cbo_JP}",3},
+                { $"{Properties.Resources.Cbo_Korea}",4},
+                { $"{Properties.Resources.Cbo_Chinese}",5}
+          
+
+            };
+            cboLoaiSDT.DataSource = nation.ToList();
+            cboLoaiSDT.ValueMember = "Value";
+            cboLoaiSDT.DisplayMember = "Key";
         }
-        private string XacDinhQuocGiaTuSoDienThoai(string phone)
+        private void XacDinhQuocGiaTuSoDienThoai(string phone)
         {
             if (string.IsNullOrWhiteSpace(phone))
-                return "Khác (nhập thủ công)";
-
+            {
+                cboLoaiSDT.SelectedValue = 0;
+                return;
+            }
             if (LaSoDienThoaiVietNam(phone))
-                return "Việt Nam (+84)";
+            {
+                cboLoaiSDT.SelectedValue = 1;
+                return;
+            }
             else if (LaSoDienThoaiMy(phone))
-                return "Mỹ (+1)";
+            {
+                cboLoaiSDT.SelectedValue = 2;
+                return;
+            }
             else if (LaSoDienThoaiNhatBan(phone))
-                return "Nhật Bản (+81)";
+            {
+                cboLoaiSDT.SelectedValue = 3;
+                return;
+            }
             else if (LaSoDienThoaiHanQuoc(phone))
-                return "Hàn Quốc (+82)";
+            {
+                cboLoaiSDT.SelectedValue = 4;
+                return;
+            }
             else if (LaSoDienThoaiTrungQuoc(phone))
-                return "Trung Quốc (+86)";
+            {
+                cboLoaiSDT.SelectedValue = 5;
+                return;
+            }
             else
-                return "Khác (nhập thủ công)";
+            {
+                cboLoaiSDT.SelectedValue = 0;
+                return;
+            }
         }
         private bool LaSoDienThoaiVietNam(string phone)
         {
@@ -112,12 +139,13 @@ namespace Presentation
         {
             this.Close();
         }
-        private string KiemTraSoDienThoaiTheoQuocGia(string soDienThoai, string quocGia)
+        private string KiemTraSoDienThoaiTheoQuocGia(string soDienThoai)
         {
             soDienThoai = soDienThoai.Trim();
+            int quocGia = Convert.ToInt32(cboLoaiSDT.SelectedValue);
 
             // --- Việt Nam (+84) ---
-            if (quocGia == "Việt Nam (+84)")
+            if (quocGia == 1)
             {
                 if (Regex.IsMatch(soDienThoai, @"^(\+84|0)[0-9]{9}$"))
                 {
@@ -127,13 +155,13 @@ namespace Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Số điện thoại Việt Nam không hợp lệ. VD: +84912345678 hoặc 0912345678", "Lỗi");
+                    MessageBox.Show($"{Properties.Messages.Message_InvalidVietnameseNumber}", $"{Properties.Messages.Message_Error}");
                     return null;
                 }
             }
 
             // --- Mỹ (+1) ---
-            else if (quocGia == "Mỹ (+1)")
+            else if (quocGia == 2)
             {
                 if (Regex.IsMatch(soDienThoai, @"^(\+1)?[0-9]{10}$"))
                 {
@@ -143,13 +171,13 @@ namespace Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Số điện thoại Mỹ không hợp lệ. VD: +11234567890 hoặc 1234567890", "Lỗi");
+                    MessageBox.Show($"{Properties.Messages.Message_InvalidUSNumber}", $"{Properties.Messages.Message_Error}");
                     return null;
                 }
             }
 
             // --- Nhật Bản (+81) ---
-            else if (quocGia == "Nhật Bản (+81)")
+            else if (quocGia == 3)
             {
                 if (Regex.IsMatch(soDienThoai, @"^(\+81|0)[0-9]{9,10}$"))
                 {
@@ -159,13 +187,13 @@ namespace Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Số điện thoại Nhật Bản không hợp lệ. VD: +819012345678 hoặc 09012345678", "Lỗi");
+                    MessageBox.Show($"{Properties.Messages.Message_InvalidJapaneseNumber}", $"{Properties.Messages.Message_Error}");
                     return null;
                 }
             }
 
             // --- Hàn Quốc (+82) ---
-            else if (quocGia == "Hàn Quốc (+82)")
+            else if (quocGia ==4)
             {
                 if (Regex.IsMatch(soDienThoai, @"^(\+82|0)[0-9]{9,10}$"))
                 {
@@ -175,13 +203,13 @@ namespace Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Số điện thoại Hàn Quốc không hợp lệ. VD: +821012345678 hoặc 01012345678", "Lỗi");
+                    MessageBox.Show($"{Properties.Messages.Message_InvalidKoreanNumber}", $"{Properties.Messages.Message_Error}");
                     return null;
                 }
             }
 
             // --- Trung Quốc (+86) ---
-            else if (quocGia == "Trung Quốc (+86)")
+            else if (quocGia ==5)
             {
                 if (Regex.IsMatch(soDienThoai, @"^(\+86|1)[0-9]{10}$"))
                 {
@@ -191,7 +219,7 @@ namespace Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Số điện thoại Trung Quốc không hợp lệ. VD: +8613712345678 hoặc 13712345678", "Lỗi");
+                    MessageBox.Show($"{Properties.Messages.Message_InvalidChineseNumber}", $"{Properties.Messages.Message_Error}");
                     return null;
                 }
             }
@@ -207,7 +235,7 @@ namespace Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Số điện thoại không hợp lệ. Vui lòng kiểm tra lại định dạng.", "Lỗi");
+                    MessageBox.Show($"{Properties.Messages.Message_InvalidPhoneNumber}", $"{Properties.Messages.Message_Error}");
                     return null;
                 }
             }
@@ -221,14 +249,14 @@ namespace Presentation
             string quocGia = cboLoaiSDT.SelectedItem?.ToString();
             if (string.IsNullOrWhiteSpace(tenCH))
             {
-                MessageBox.Show("Tên cửa hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"{lblStoreName.Text} {Properties.Messages.Message_NotNull}!", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTenCH.Focus();
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(diaChi))
             {
-                MessageBox.Show("Địa chỉ không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"{lblAddress.Text} {Properties.Messages.Message_NotNull}!", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 rtxtDiaChi.Focus();
                 return;
             }
@@ -236,33 +264,33 @@ namespace Presentation
             // Kiểm tra số điện thoại
             if (string.IsNullOrWhiteSpace(soDT))
             {
-                MessageBox.Show("Số điện thoại không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"{lblPhone.Text} {Properties.Messages.Message_NotNull}!", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSDT.Focus();
                 return;
             }
             if (string.IsNullOrEmpty(quocGia))
             {
-                MessageBox.Show("Vui lòng chọn quốc gia/vùng miền.", "Thiếu thông tin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"{Properties.Messages.Message_SelectNation}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cboLoaiSDT.Focus();
                 return;
             }
 
             // 3️⃣ Chuẩn hóa số điện thoại theo quốc gia
-            string sdtChuanHoa = KiemTraSoDienThoaiTheoQuocGia(soDT, quocGia);
+            string sdtChuanHoa = KiemTraSoDienThoaiTheoQuocGia(soDT);
             if (sdtChuanHoa == null)
                 return;
             soDT = sdtChuanHoa;
            
             if (Regex.IsMatch(tenCH, @"[^a-zA-Z0-9\s\u00C0-\u1EF9]"))
             {
-                MessageBox.Show("Tên cửa hàng không được chứa ký tự đặc biệt!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"{lblStoreName.Text} {Properties.Messages.Message_SpecialCharacter}!", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtTenCH.Focus();
                 return;
             }
 
             if (Regex.IsMatch(diaChi, @"[^a-zA-Z0-9\s\u00C0-\u1EF9,./-]"))
             {
-                MessageBox.Show("Địa chỉ không được chứa ký tự đặc biệt lạ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"{lblAddress.Text} {Properties.Messages.Message_SpecialCharacter}", $"{Properties.Messages.Message_Error}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 rtxtDiaChi.Focus();
                 return;
             }
@@ -281,11 +309,11 @@ namespace Presentation
             }
             if (result.Succeeded == false)
             {
-                MessageBox.Show($"{result.Message}", "Lỗi");
+                MessageBox.Show($"{result.Message}", $"{Properties.Messages.Message_Error}");
                 return;
             }
 
-            MessageBox.Show($"Luu thanh cong", "Thong bao");
+            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
 

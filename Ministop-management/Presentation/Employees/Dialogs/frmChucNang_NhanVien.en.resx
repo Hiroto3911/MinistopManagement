@@ -122,8 +122,8 @@
     <value>NoControl</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 19</value>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>615, 274</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Position:</value>
@@ -131,8 +131,11 @@
   <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>614, 78</value>
+  </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>103, 19</value>
+    <value>152, 28</value>
   </data>
   <data name="label5.Text" xml:space="preserve">
     <value>PhoneNumber:</value>
@@ -141,16 +144,28 @@
     <value>NoControl</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 21</value>
+    <value>270, 32</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>Employee Information</value>
   </data>
+  <data name="btnLuu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1014, 488</value>
+  </data>
   <data name="btnLuu.Text" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="txtMatKhau.Location" type="System.Drawing.Point, System.Drawing">
+    <value>802, 400</value>
+  </data>
   <data name="label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>615, 400</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 28</value>
   </data>
   <data name="label8.Text" xml:space="preserve">
     <value>Password:</value>
@@ -159,7 +174,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>66, 19</value>
+    <value>95, 28</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>BirthDay:</value>
@@ -168,7 +183,7 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 19</value>
+    <value>118, 28</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>StoreName:</value>
@@ -176,8 +191,11 @@
   <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>614, 337</value>
+  </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 19</value>
+    <value>149, 28</value>
   </data>
   <data name="label7.Text" xml:space="preserve">
     <value>EmployeeType:</value>
@@ -186,16 +204,34 @@
     <value>NoControl</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>109, 19</value>
+    <value>160, 28</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
     <value>EmployeeName:</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1166, 545</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>614, 155</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>166, 28</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Identity number:</value>
+  </data>
+  <data name="label12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 28</value>
+  </data>
+  <data name="label12.Text" xml:space="preserve">
+    <value>Address:</value>
   </data>
   <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>53, 19</value>
+    <value>77, 28</value>
   </data>
   <data name="label10.Text" xml:space="preserve">
     <value>Female</value>
@@ -204,7 +240,7 @@
     <value>NoControl</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 19</value>
+    <value>56, 28</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
     <value>Male</value>
@@ -213,10 +249,10 @@
     <value>NoControl</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 174</value>
+    <value>27, 268</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 19</value>
+    <value>85, 28</value>
   </data>
   <data name="label4.Text" xml:space="preserve">
     <value>Gender:</value>
@@ -225,12 +261,18 @@
     <value>NoControl</value>
   </data>
   <data name="label13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 19</value>
+    <value>126, 28</value>
   </data>
   <data name="label13.Text" xml:space="preserve">
     <value>EmployeeID:</value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="cbLoaiNhanVien.Location" type="System.Drawing.Point, System.Drawing">
+    <value>802, 337</value>
+  </data>
+  <data name="cbChucVu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>802, 274</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
 </root>

@@ -117,318 +117,99 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="dgvDuLieuCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ibtnCanhBaoTonKho.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 30</value>
-  </data>
-  <data name="ibtnCanhBaoTonKho.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="ibtnCanhBaoTonKho.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 66</value>
-  </data>
-  <data name="lblSoLanCanhBao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblSoLanCanhBao.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 1, 0</value>
-  </data>
-  <data name="guna2GroupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>277, 1</value>
-  </data>
-  <data name="guna2GroupBox2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="guna2GroupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 107</value>
-  </data>
   <data name="guna2GroupBox2.Text" xml:space="preserve">
-    <value>Low Inventory Warming </value>
-  </data>
-  <data name="ibtnSoLanXuat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 30</value>
-  </data>
-  <data name="ibtnSoLanXuat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="ibtnSoLanXuat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 66</value>
-  </data>
-  <data name="lblSoLanXuat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblSoLanXuat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 1, 0</value>
-  </data>
-  <data name="guna2GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>139, 1</value>
-  </data>
-  <data name="guna2GroupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="guna2GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 107</value>
+    <value>Low inventory warning</value>
   </data>
   <data name="guna2GroupBox1.Text" xml:space="preserve">
-    <value>Total export volume  in the Month</value>
-  </data>
-  <data name="ibtnSoLanNhap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 30</value>
-  </data>
-  <data name="ibtnSoLanNhap.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="ibtnSoLanNhap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 66</value>
-  </data>
-  <data name="lblSoLanNhap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblSoLanNhap.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 1, 0</value>
-  </data>
-  <data name="guna2GroupBox3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 1</value>
-  </data>
-  <data name="guna2GroupBox3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="guna2GroupBox3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>136, 107</value>
+    <value>Total number of stock export in month</value>
   </data>
   <data name="guna2GroupBox3.Text" xml:space="preserve">
-    <value>Total import volume in the month</value>
+    <value>Total number of stock entries in month </value>
   </data>
-  <data name="tableLayoutPanel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="pnlDetail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="ibtnSetting.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 1, 0</value>
-  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>59, 19</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Refresh</value>
   </data>
-  <data name="ibtnLoadDuLieu.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="btnTrangSauCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="btnTrangTruocCT.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="guna2Panel5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="tabChiTietKho.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
   <data name="tabChiTietKho.Text" xml:space="preserve">
-    <value>Inventory</value>
+    <value>Stock Details</value>
   </data>
-  <data name="btnInPhieuNhap.Location" type="System.Drawing.Point, System.Drawing">
-    <value>249, 3</value>
-  </data>
-  <data name="btnInPhieuNhap.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="cboCuaHangNH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="cboCuaHangNH.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
+  <data name="btnInPhieuNhap.Text" xml:space="preserve">
+    <value>Print</value>
   </data>
   <data name="cboCuaHangNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 5</value>
+    <value>49, 0</value>
   </data>
-  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
   </data>
-  <data name="label3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>None</value>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 5</value>
-  </data>
-  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 1, 0</value>
-  </data>
-  <data name="btnThemNH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>332, 3</value>
-  </data>
-  <data name="btnThemNH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="guna2Panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="dgvDuLieuNH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="dgvDuLieuNH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>711, 275</value>
-  </data>
-  <data name="btnTrangSauNH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="btnTrangTruocNH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="guna2Panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="tabNhapHang.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="btnThemNH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="tabNhapHang.Text" xml:space="preserve">
-    <value>Import</value>
+    <value>Stock Import</value>
   </data>
-  <data name="dgvDuLieuXH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="btnInPhieuXuat.Text" xml:space="preserve">
+    <value>Print</value>
   </data>
-  <data name="btnInPhieuXuat.Location" type="System.Drawing.Point, System.Drawing">
-    <value>244, 4</value>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
   </data>
-  <data name="btnInPhieuXuat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
-  <data name="cboCuaHangXH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="cboCuaHangXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 4</value>
-  </data>
-  <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 1, 0</value>
-  </data>
-  <data name="btnThemXH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Right</value>
-  </data>
-  <data name="btnThemXH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>335, 4</value>
-  </data>
-  <data name="btnThemXH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="guna2Panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="btnTrangSauXH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="btnTrangTruocXH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="guna2Panel6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="tabXuatHang.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="btnThemXH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="tabXuatHang.Text" xml:space="preserve">
-    <value>Export</value>
+    <value>Stock Export</value>
   </data>
-  <data name="cboCuaHangKH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dgvDuLieuKH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
   </data>
-  <data name="cboCuaHangKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>77, 6</value>
-  </data>
-  <data name="lblTime.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Left</value>
-  </data>
-  <data name="lblTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 6</value>
-  </data>
-  <data name="lblTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 1, 0</value>
-  </data>
-  <data name="btnThemKH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom, Right</value>
-  </data>
-  <data name="btnThemKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>335, 5</value>
-  </data>
-  <data name="btnThemKH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="guna2Panel7.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="dgvDuLieuKH.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
   </data>
   <data name="dgvDuLieuKH.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 34</value>
+    <value>0, 34</value>
   </data>
-  <data name="dgvDuLieuKH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="dgvDuLieuKH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 274</value>
   </data>
-  <data name="btnTrangSauKH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
   </data>
-  <data name="btnTrangTruocKH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="lblTime.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
-  <data name="guna2Panel8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="tabKiemHang.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="btnThemKH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="tabKiemHang.Text" xml:space="preserve">
-    <value>Check</value>
+    <value>Stock Check</value>
   </data>
-  <data name="dgvDuLieuTimKiem.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
   </data>
-  <data name="guna2Panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Store:</value>
   </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 19</value>
   </data>
-  <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 0, 1, 0</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Find:</value>
   </data>
-  <data name="btnTimKiem.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="guna2Panel9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
+  <data name="btnTimKiem.Text" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="tabTimKiem.Text" xml:space="preserve">
     <value>Search</value>
-  </data>
-  <data name="tabControlKH.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>1, 1, 1, 1</value>
   </data>
 </root>

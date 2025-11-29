@@ -237,6 +237,11 @@ BEGIN
         e.FullName,
         e.Position,
         e.EmploymentType,
+		e.Phone,
+		e.Gender,
+		e.BirthDate,
+		e.Address,
+		e.IdentityNumber,
         s.StoreName,
         sc.BasicSalary,
         sc.HourlyRate,
@@ -251,7 +256,8 @@ BEGIN
         LEFT JOIN Allowances a ON sca.AllowanceID = a.AllowanceID
     WHERE sc.EmployeeID = @EmployeeID AND sc.IsDeleted = 0
     GROUP BY 
-        sc.ContractID, e.EmployeeID, e.FullName, e.Position, e.EmploymentType,
+        sc.ContractID, e.EmployeeID, e.FullName, e.Position, e.EmploymentType, e.Phone, e.Address, e.IdentityNumber, e.Gender,
+		e.BirthDate,
         s.StoreName, sc.BasicSalary, sc.HourlyRate, sc.StartDate, sc.EndDate;
 	SELECT 
         a.AllowanceName,
@@ -262,7 +268,7 @@ BEGIN
     WHERE sc.EmployeeID = @EmployeeID AND sc.IsDeleted = 0
 END
 GO
--- DROP PROCEDURE sp_GetSalaryContractReport @EmployeeID = 'EMP20251026200001c2c'
+-- DROP procedure exec sp_GetSalaryContractReport @EmployeeID = 'EMP20251026200001c2c'
 
 CREATE PROC SP_StoreFinancialReportByMonth
     @StoreID NVARCHAR(200) = NULL

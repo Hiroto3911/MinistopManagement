@@ -34,6 +34,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.cbTenCuaHang = new Guna.UI2.WinForms.Guna2ComboBox();
             this.txtTenNhanVien = new Guna.UI2.WinForms.Guna2TextBox();
@@ -55,7 +56,10 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtDiaChi = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtCCCD = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +86,20 @@
             resources.ApplyResources(this.label11, "label11");
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Name = "label11";
+            // 
+            // btnThoat
+            // 
+            resources.ApplyResources(this.btnThoat, "btnThoat");
+            this.btnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.btnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.btnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnThoat.ImageRotate = 0F;
+            this.btnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // btnLuu
             // 
@@ -189,7 +207,7 @@
             this.dtpNgaySinh.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpNgaySinh.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
-            this.dtpNgaySinh.Value = new System.DateTime(2025, 10, 1, 8, 48, 24, 373);
+            this.dtpNgaySinh.Value = new System.DateTime(2025, 12, 25, 23, 59, 59, 0);
             // 
             // txtSoDienThoai
             // 
@@ -299,24 +317,60 @@
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // btnThoat
+            // label12
             // 
-            resources.ApplyResources(this.btnThoat, "btnThoat");
-            this.btnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.btnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.btnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnThoat.ImageRotate = 0F;
-            this.btnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.Click += new System.EventHandler(this.btnDong_Click);
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
+            // txtDiaChi
+            // 
+            resources.ApplyResources(this.txtDiaChi, "txtDiaChi");
+            this.txtDiaChi.BorderRadius = 2;
+            this.txtDiaChi.BorderThickness = 2;
+            this.txtDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtDiaChi.DefaultText = "";
+            this.txtDiaChi.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtDiaChi.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtDiaChi.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDiaChi.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtDiaChi.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDiaChi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.PlaceholderText = "";
+            this.txtDiaChi.SelectedText = "";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
+            // txtCCCD
+            // 
+            resources.ApplyResources(this.txtCCCD, "txtCCCD");
+            this.txtCCCD.BorderRadius = 2;
+            this.txtCCCD.BorderThickness = 2;
+            this.txtCCCD.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCCCD.DefaultText = "";
+            this.txtCCCD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtCCCD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtCCCD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCCCD.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtCCCD.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCCCD.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtCCCD.Name = "txtCCCD";
+            this.txtCCCD.PlaceholderText = "";
+            this.txtCCCD.SelectedText = "";
+            this.txtCCCD.TextChanged += new System.EventHandler(this.guna2TextBox2_TextChanged);
             // 
             // frmChucNang_NhanVien
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.txtCCCD);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.rdNu);
             this.Controls.Add(this.rdNam);
             this.Controls.Add(this.label10);
@@ -378,5 +432,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label12;
+        private Guna.UI2.WinForms.Guna2TextBox txtDiaChi;
+        private System.Windows.Forms.Label label14;
+        private Guna.UI2.WinForms.Guna2TextBox txtCCCD;
     }
 }

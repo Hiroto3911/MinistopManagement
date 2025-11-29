@@ -64,7 +64,7 @@ namespace Presentation
                 return;
             }
 
-            MessageBox.Show("Lưu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"{Properties.Messages.Message_SavedSuccessfullLy}", $"{Properties.Messages.Message_Notification}", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DataChanged?.Invoke(this, EventArgs.Empty);
             this.Close();
         }
@@ -125,8 +125,8 @@ namespace Presentation
 
             var statusList = new Dictionary<string, int>()
     {
-        { "Đang hoạt động", 1 },
-        { "Tạm ngưng hoạt động", 0 }
+        { $"{Properties.Resources.Status_Active}", 1 },
+        { $"{Properties.Resources.Status_Deactive}", 0 }
     };
 
             cboTrangThai.DataSource = statusList.ToList();

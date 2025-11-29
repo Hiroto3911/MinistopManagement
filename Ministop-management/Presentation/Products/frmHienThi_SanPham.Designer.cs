@@ -171,7 +171,6 @@
             resources.ApplyResources(this.dgvSanPham, "dgvSanPham");
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvSanPham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSanPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvSanPham.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvSanPham.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -326,7 +325,6 @@
             resources.ApplyResources(this.dgvloaisanpham, "dgvloaisanpham");
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dgvloaisanpham.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvloaisanpham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvloaisanpham.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvloaisanpham.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -482,7 +480,6 @@
             resources.ApplyResources(this.dgvPGG, "dgvPGG");
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             this.dgvPGG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvPGG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPGG.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPGG.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -689,7 +686,6 @@
             resources.ApplyResources(this.dgvnhacungcap, "dgvnhacungcap");
             dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
             this.dgvnhacungcap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvnhacungcap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvnhacungcap.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvnhacungcap.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;

@@ -158,6 +158,8 @@ namespace Presentation
             txtMatKhau.PlaceholderText = "*";
             rdNam.Checked = employee.Gender;
             rdNu.Checked = !employee.Gender;
+            txtDiaChi.Text = employee.Address;           
+            txtCCCD.Text = employee.IdentityNumber;      
             RoleChanged_DisableEmploymentType(null, null);
         }
         #endregion
@@ -226,6 +228,25 @@ namespace Presentation
                 ShowWarningMessage("Vui lòng nhập mật khẩu!");
                 return false;
             }
+
+            // VALIDATE MỚI: Địa chỉ không được để trống
+            if (string.IsNullOrWhiteSpace(txtDiaChi.Text))
+            {
+                ShowWarningMessage("Vui lòng nhập địa chỉ nhân viên!");
+                txtDiaChi.Focus();
+                return false;
+            }
+
+            // VALIDATE MỚI: CCCD phải đúng 12 số (chuẩn Việt Nam 2025)
+            if (string.IsNullOrWhiteSpace(txtCCCD.Text) ||
+                txtCCCD.Text.Length != 12 ||
+                !long.TryParse(txtCCCD.Text, out _))
+            {
+                ShowWarningMessage("Số CCCD phải đúng 12 chữ số!");
+                txtCCCD.Focus();
+                return false;
+            }
+
             return true;
         }
         private int GetRoleLevel(string role)
@@ -316,7 +337,9 @@ namespace Presentation
                 BirthDate = dtpNgaySinh.Value,
                 Phone = txtSoDienThoai.Text.Trim(),
                 Position = cbChucVu.Text,
-                EmploymentType = cbLoaiNhanVien.Text
+                EmploymentType = cbLoaiNhanVien.Text,
+                Address = txtDiaChi.Text.Trim(),           
+                IdentityNumber = txtCCCD.Text.Trim()       
             };
             if (!string.IsNullOrWhiteSpace(txtMatKhau.Text))
             {
@@ -351,5 +374,15 @@ namespace Presentation
             MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
+
+        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

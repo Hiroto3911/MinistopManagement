@@ -202,4 +202,235 @@
   <data name="down" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\down.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Grid_ImportID" xml:space="preserve">
+    <value>Mã phiếu nhập</value>
+  </data>
+  <data name="Grid_SupplierName" xml:space="preserve">
+    <value>Nhà cung cấp</value>
+  </data>
+  <data name="Grid_Status" xml:space="preserve">
+    <value>Trạng thái</value>
+  </data>
+  <data name="Grid_Note" xml:space="preserve">
+    <value>Ghi chú</value>
+  </data>
+  <data name="Grid_ImportDay" xml:space="preserve">
+    <value>Ngày nhập</value>
+  </data>
+  <data name="Status_Imported" xml:space="preserve">
+    <value>Đã nhập hàng</value>
+  </data>
+  <data name="Status_Pending" xml:space="preserve">
+    <value>Chờ duyệt</value>
+  </data>
+  <data name="Status_Draft" xml:space="preserve">
+    <value>Đang Soạn</value>
+  </data>
+  <data name="Status_Permitted" xml:space="preserve">
+    <value>Duyệt</value>
+  </data>
+  <data name="Status_NotPermitted" xml:space="preserve">
+    <value>Không Duyệt</value>
+  </data>
+  <data name="Grid_SupplierID" xml:space="preserve">
+    <value>Mã nhà cung cấp</value>
+  </data>
+  <data name="Grid_CreateBy" xml:space="preserve">
+    <value>Người tạo</value>
+  </data>
+  <data name="Grid_StockDetailID" xml:space="preserve">
+    <value>Mã Chi Tiết Kho</value>
+  </data>
+  <data name="Grid_ProductID" xml:space="preserve">
+    <value>Mã sản phẩm</value>
+  </data>
+  <data name="Grid_ProductName" xml:space="preserve">
+    <value>Tên sản phẩm</value>
+  </data>
+  <data name="Grid_Quantity" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="Grid_Price" xml:space="preserve">
+    <value>Giá</value>
+  </data>
+  <data name="Grid_ExportID" xml:space="preserve">
+    <value>Mã phiếu xuất</value>
+  </data>
+  <data name="Grid_TypeExport" xml:space="preserve">
+    <value>Loại xuất</value>
+  </data>
+  <data name="Grid_ExportDay" xml:space="preserve">
+    <value>Ngày xuất</value>
+  </data>
+  <data name="Grid_Reason" xml:space="preserve">
+    <value>Lý do</value>
+  </data>
+  <data name="Grid_CheckID" xml:space="preserve">
+    <value>Mã phiếu kiểm</value>
+  </data>
+  <data name="Grid_CheckDay" xml:space="preserve">
+    <value>Ngày kiểm</value>
+  </data>
+  <data name="ExportType_Damaged" xml:space="preserve">
+    <value>Hư hỏng</value>
+  </data>
+  <data name="ExportType_Expired" xml:space="preserve">
+    <value>Hết Hạn</value>
+  </data>
+  <data name="ExportType_Lost" xml:space="preserve">
+    <value>Thất thoát</value>
+  </data>
+  <data name="ExportType_CancelOrder" xml:space="preserve">
+    <value>Hủy hàng</value>
+  </data>
+  <data name="Grid_ID" xml:space="preserve">
+    <value>Mã phiếu chi tiết</value>
+  </data>
+  <data name="Grid_Total" xml:space="preserve">
+    <value>Thành tiền</value>
+  </data>
+  <data name="Label_TotalAmount" xml:space="preserve">
+    <value>Tổng tiền:</value>
+  </data>
+  <data name="Label_Money" xml:space="preserve">
+    <value>VND</value>
+  </data>
+  <data name="Grid_SupplierPrice" xml:space="preserve">
+    <value>Giá từ nhà cung cấp</value>
+  </data>
+  <data name="Grid_Choose" xml:space="preserve">
+    <value>Chọn</value>
+  </data>
+  <data name="Grid_HistoryID" xml:space="preserve">
+    <value>Mã lịch sử</value>
+  </data>
+  <data name="Grid_LastModified" xml:space="preserve">
+    <value>Cập nhập lần cuối</value>
+  </data>
+  <data name="Grid_TypeOfChange" xml:space="preserve">
+    <value>Loại thay đổi</value>
+  </data>
+  <data name="Grid_RefID" xml:space="preserve">
+    <value>Mã tham chiếu</value>
+  </data>
+  <data name="Title_ThongBaoNhap" xml:space="preserve">
+    <value>Danh Sách Sản Phẩm Nhập Trong Tháng Này</value>
+  </data>
+  <data name="Title_ThongBaoXuat" xml:space="preserve">
+    <value>Danh Sách Sản Phẩm Xuất Trong Tháng Này</value>
+  </data>
+  <data name="Grid_QuantityActual" xml:space="preserve">
+    <value>Số lượng thực tế</value>
+  </data>
+  <data name="Grid_QuantitySystem" xml:space="preserve">
+    <value>Số lượng hệ thống</value>
+  </data>
+  <data name="Grid_QuantityVariance" xml:space="preserve">
+    <value>Chênh lệch</value>
+  </data>
+  <data name="Cbo_VN" xml:space="preserve">
+    <value>Việt Nam (+84)</value>
+  </data>
+  <data name="Cbo_US" xml:space="preserve">
+    <value>Mỹ (+1)</value>
+  </data>
+  <data name="Cbo_JP" xml:space="preserve">
+    <value>Nhật Bản (+81)</value>
+  </data>
+  <data name="Cbo_Chinese" xml:space="preserve">
+    <value>Trung Quốc (+86)</value>
+  </data>
+  <data name="Cbo_Others" xml:space="preserve">
+    <value>Khác (nhập thủ công)</value>
+  </data>
+  <data name="Cbo_Korea" xml:space="preserve">
+    <value>Hàn quốc (+82)</value>
+  </data>
+  <data name="Grid_StoreName" xml:space="preserve">
+    <value>Tên cửa hàng</value>
+  </data>
+  <data name="Grid_Adrress" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="Grid_PhoneNumber" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="Grid_RentCost" xml:space="preserve">
+    <value>Tiền thuê mặt bằng</value>
+  </data>
+  <data name="Grid_ElectricityCost" xml:space="preserve">
+    <value>Tiền điện</value>
+  </data>
+  <data name="Grid_WaterCost" xml:space="preserve">
+    <value>Tiền nước</value>
+  </data>
+  <data name="Grid_LastModifiedBy" xml:space="preserve">
+    <value>Người sửa lần cuối</value>
+  </data>
+  <data name="Chart_Revenue" xml:space="preserve">
+    <value>Doanh Thu</value>
+  </data>
+  <data name="Chart_Financial" xml:space="preserve">
+    <value>Tài chính</value>
+  </data>
+  <data name="Chart_MonthYear" xml:space="preserve">
+    <value>Tháng/Năm</value>
+  </data>
+  <data name="Grid_ImportInPeriod" xml:space="preserve">
+    <value>nhập trong kỳ</value>
+  </data>
+  <data name="Grid_ExportInPeriod" xml:space="preserve">
+    <value>Xuất trong kỳ</value>
+  </data>
+  <data name="Grid_SaleInPeriod" xml:space="preserve">
+    <value>Bán trong kỳ</value>
+  </data>
+  <data name="Grid_CheckDecrease" xml:space="preserve">
+    <value>Kiểm thiếu trong kỳ</value>
+  </data>
+  <data name="Grid_TotalExport" xml:space="preserve">
+    <value>Tổng số lần xuất</value>
+  </data>
+  <data name="Grid_ClosingStock" xml:space="preserve">
+    <value>Tồn cuối kỳ</value>
+  </data>
+  <data name="Grid_Unit" xml:space="preserve">
+    <value>Đơn vị</value>
+  </data>
+  <data name="Grid_OpeningStock" xml:space="preserve">
+    <value>Tồn đầu kỳ</value>
+  </data>
+  <data name="Grid_ProductCategoryName" xml:space="preserve">
+    <value>Tên loại sản phẩm</value>
+  </data>
+  <data name="Grid_describe" xml:space="preserve">
+    <value>Mô tả</value>
+  </data>
+  <data name="Grid_StandardPrice" xml:space="preserve">
+    <value>Giá tiêu chuẩn</value>
+  </data>
+  <data name="Grid_PromotionName" xml:space="preserve">
+    <value>Tên khuyến mãi</value>
+  </data>
+  <data name="Grid_StartDay" xml:space="preserve">
+    <value>Ngày bắt đầu</value>
+  </data>
+  <data name="Grid_EndDay" xml:space="preserve">
+    <value>Ngày kết thúc</value>
+  </data>
+  <data name="Grid_Priority" xml:space="preserve">
+    <value>Mức độ ưu tiên</value>
+  </data>
+  <data name="Grid_NewPrice" xml:space="preserve">
+    <value>Giá mới</value>
+  </data>
+  <data name="Grid_OldPrice" xml:space="preserve">
+    <value>Giá cũ</value>
+  </data>
+  <data name="Status_Active" xml:space="preserve">
+    <value>Đang hoạt động</value>
+  </data>
+  <data name="Status_Deactive" xml:space="preserve">
+    <value>Ngưng hoạt đông</value>
+  </data>
 </root>

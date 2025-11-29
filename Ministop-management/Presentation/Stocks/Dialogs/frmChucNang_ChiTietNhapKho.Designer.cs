@@ -34,15 +34,15 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtMaChiTiet = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnLuu = new Guna.UI2.WinForms.Guna2Button();
             this.txtSoluong = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtDonGia = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblQuantity = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtMaSP = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,6 +71,20 @@
             resources.ApplyResources(this.label11, "label11");
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Name = "label11";
+            // 
+            // ibtnThoat
+            // 
+            resources.ApplyResources(this.ibtnThoat, "ibtnThoat");
+            this.ibtnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.ibtnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.ibtnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnThoat.ImageRotate = 0F;
+            this.ibtnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.ibtnThoat.Name = "ibtnThoat";
+            this.ibtnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Click += new System.EventHandler(this.ibtnThoat_Click);
             // 
             // txtMaChiTiet
             // 
@@ -143,10 +157,10 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
-            // label1
+            // lblQuantity
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.lblQuantity, "lblQuantity");
+            this.lblQuantity.Name = "lblQuantity";
             // 
             // label3
             // 
@@ -170,20 +184,6 @@
             this.txtMaSP.PlaceholderText = "";
             this.txtMaSP.SelectedText = "";
             // 
-            // ibtnThoat
-            // 
-            resources.ApplyResources(this.ibtnThoat, "ibtnThoat");
-            this.ibtnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.ibtnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.ibtnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnThoat.ImageRotate = 0F;
-            this.ibtnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.ibtnThoat.Name = "ibtnThoat";
-            this.ibtnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.Click += new System.EventHandler(this.ibtnThoat_Click);
-            // 
             // frmChucNang_ChiTietNhapKho
             // 
             resources.ApplyResources(this, "$this");
@@ -196,7 +196,7 @@
             this.Controls.Add(this.txtSoluong);
             this.Controls.Add(this.txtDonGia);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmChucNang_ChiTietNhapKho";
@@ -220,7 +220,7 @@
         private Guna.UI2.WinForms.Guna2TextBox txtSoluong;
         private Guna.UI2.WinForms.Guna2TextBox txtDonGia;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox txtMaSP;
     }

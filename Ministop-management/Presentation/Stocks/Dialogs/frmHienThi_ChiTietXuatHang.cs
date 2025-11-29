@@ -47,7 +47,7 @@ namespace Presentation.Stocks.Dialogs
         private void frmHienThi_ChiTietXuatHang_Load(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(_exportID)) return;
-            if (_status == "Duyệt" || _userSession.Role == "Admin")
+            if ( _status == "Duyệt" || _status == "Permitted" || _userSession.Role == "Admin")
             {
                 btnThem.Enabled = false;
             }
@@ -77,16 +77,20 @@ namespace Presentation.Stocks.Dialogs
             dgvDuLieu.DataSource = dt;
             dgvDuLieu.AllowUserToAddRows = false;
             dgvDuLieu.ReadOnly = true;
-            dgvDuLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDuLieu.Columns["MaPhieuChiTiet"].HeaderText = Properties.Resources.Grid_ID;
+            dgvDuLieu.Columns["SanPham"].HeaderText = Properties.Resources.Grid_ProductName;
+            dgvDuLieu.Columns["SoLuong"].HeaderText = Properties.Resources.Grid_Quantity;
+            dgvDuLieu.Columns["DonGia"].HeaderText = Properties.Resources.Grid_Price;
+            dgvDuLieu.Columns["ThanhTien"].HeaderText = Properties.Resources.Grid_Total;
             ApplyGridStyle(dgvDuLieu);
-            lblTongTienXuat.Text =$"Tổng tiền xuất: {_totalAmount} VND" ;
+            lblTongTienXuat.Text = $"{Properties.Resources.Label_TotalAmount} {_totalAmount} {Properties.Resources.Label_Money}";
             btnTrangTruoc.Enabled = pageNumber > 1;
             btnTrangSau.Enabled = pageNumber <= _totalPage;
 
         }
         private void ApplyGridStyle(Guna2DataGridView dgvDuLieu)
         {
-            if (_userSession.Role == "Admin" || _status == "Duyệt") return;
+            if (_userSession.Role == "Admin" || _status == "Duyệt" || _status == "Permitted") return;
             // ===== 2️⃣ Thêm hai cột nút =====
             if (dgvDuLieu.Columns["Edit"] == null)
             {
@@ -120,12 +124,12 @@ namespace Presentation.Stocks.Dialogs
             dgvDuLieu.CellPainting += (s, e) =>
             {
 
-                bool allowEditDelete = _status != "Duyệt";
+                bool allowEditDelete = _status == "Duyệt" || _status == "Permitted";
                 if (e.RowIndex >= 0 && (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit" ||
                                         dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete"))
                 {
                     e.PaintBackground(e.CellBounds, true);
-                    if (allowEditDelete)
+                    if (!allowEditDelete)
                     {
                         Color backColor = dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit"
                         ? Color.SeaGreen
@@ -192,7 +196,7 @@ namespace Presentation.Stocks.Dialogs
         {
             if (e.RowIndex < 0) return;
             string id = dgvDuLieu.Rows[e.RowIndex].Cells["MaPhieuChiTiet"].Value.ToString();
-            var allowAction = _status == "Duyệt";
+            var allowAction = _status == "Duyệt" || _status == "Permitted";
             if (allowAction) return;
             var pageNumber = Convert.ToInt32(txtSoTrang.Text);
             if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Edit")
@@ -208,13 +212,13 @@ namespace Presentation.Stocks.Dialogs
             }
             else if (dgvDuLieu.Columns[e.ColumnIndex].Name == "Delete")
             {
-                DialogResult result = MessageBox.Show($"Bạn có chắc muốn xóa phieu chi tiet {id}?",
-                    "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"{Properties.Messages.Message_DeleteData} {id}?",
+                    $"{Properties.Messages.Message_Confirm}", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
                 {
                     _stockExportDetailService.RemoveStockExportDetail(id);
-                    MessageBox.Show("Xóa thành công!");
+                     MessageBox.Show($"{Properties.Messages.Message_DeletedSuccessfully}");
                     LoadData(_exportID, pageNumber); // tải lại dữ liệu
                 }
             }
