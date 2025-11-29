@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Grid_ImportID" xml:space="preserve">
+    <value>Import ID</value>
+  </data>
+  <data name="Grid_SupplierName" xml:space="preserve">
+    <value>Supplier Name</value>
+  </data>
+  <data name="Grid_Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Grid_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Grid_ImportDay" xml:space="preserve">
+    <value>Import Day</value>
+  </data>
+  <data name="Status_Imported" xml:space="preserve">
+    <value>Imported</value>
+  </data>
+  <data name="Status_Pending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="Status_Draft" xml:space="preserve">
+    <value>Draft</value>
+  </data>
+  <data name="Status_Permitted" xml:space="preserve">
+    <value>Permitted</value>
+  </data>
+  <data name="Status_NotPermitted" xml:space="preserve">
+    <value>Not Permitted</value>
+  </data>
+  <data name="Grid_SupplierID" xml:space="preserve">
+    <value>Supplier ID</value>
+  </data>
+  <data name="Grid_CreateBy" xml:space="preserve">
+    <value>Create By</value>
+  </data>
+  <data name="Grid_StockDetailID" xml:space="preserve">
+    <value>Stock Detail ID</value>
+  </data>
+  <data name="Grid_ProductID" xml:space="preserve">
+    <value>Product ID</value>
+  </data>
+  <data name="Grid_ProductName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="Grid_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Grid_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Grid_ExportID" xml:space="preserve">
+    <value>Export ID</value>
+  </data>
+  <data name="Grid_TypeExport" xml:space="preserve">
+    <value>Type Export</value>
+  </data>
+  <data name="Grid_ExportDay" xml:space="preserve">
+    <value>Export Day</value>
+  </data>
+  <data name="Grid_Reason" xml:space="preserve">
+    <value>Reason</value>
+  </data>
+  <data name="Grid_CheckID" xml:space="preserve">
+    <value>Check ID</value>
+  </data>
+  <data name="Grid_CheckDay" xml:space="preserve">
+    <value>Check Day</value>
+  </data>
+  <data name="ExportType_Damaged" xml:space="preserve">
+    <value>Damaged</value>
+  </data>
+  <data name="ExportType_Expired" xml:space="preserve">
+    <value>Expired</value>
+  </data>
+  <data name="ExportType_Lost" xml:space="preserve">
+    <value>Lost</value>
+  </data>
+  <data name="ExportType_CancelOrder" xml:space="preserve">
+    <value>Cancel Order</value>
+  </data>
+  <data name="Grid_ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Grid_Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="Label_TotalAmount" xml:space="preserve">
+    <value>Total Amount:</value>
+  </data>
+  <data name="Label_Money" xml:space="preserve">
+    <value>USD</value>
+  </data>
+  <data name="Grid_SupplierPrice" xml:space="preserve">
+    <value>Supplier Price</value>
+  </data>
+  <data name="Grid_Choose" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="Grid_HistoryID" xml:space="preserve">
+    <value>History ID</value>
+  </data>
+  <data name="Grid_LastModified" xml:space="preserve">
+    <value>Last Modified</value>
+  </data>
+  <data name="Grid_TypeOfChange" xml:space="preserve">
+    <value>Type Of Change</value>
+  </data>
+  <data name="Grid_RefID" xml:space="preserve">
+    <value>Reference ID</value>
+  </data>
+  <data name="Title_ThongBaoNhap" xml:space="preserve">
+    <value>List Of Product Imported This Month</value>
+  </data>
+  <data name="Title_ThongBaoXuat" xml:space="preserve">
+    <value>List Of Product Exported This Month</value>
+  </data>
+  <data name="Grid_QuantityActual" xml:space="preserve">
+    <value>Quantity Actual</value>
+  </data>
+  <data name="Grid_QuantitySystem" xml:space="preserve">
+    <value>Quantity System</value>
+  </data>
+  <data name="Grid_QuantityVariance" xml:space="preserve">
+    <value>Quantity Variance</value>
+  </data>
+  <data name="Cbo_VN" xml:space="preserve">
+    <value>Vietnam (+84)</value>
+  </data>
+  <data name="Cbo_US" xml:space="preserve">
+    <value>US (+1)</value>
+  </data>
+  <data name="Cbo_JP" xml:space="preserve">
+    <value>Japan (+81)</value>
+  </data>
+  <data name="Cbo_Chinese" xml:space="preserve">
+    <value>China (+86)</value>
+  </data>
+  <data name="Cbo_Others" xml:space="preserve">
+    <value>else (enter manually)</value>
+  </data>
+  <data name="Cbo_Korea" xml:space="preserve">
+    <value>Korean (+82)</value>
+  </data>
+  <data name="Grid_StoreName" xml:space="preserve">
+    <value>Store Name</value>
+  </data>
+  <data name="Grid_Adrress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Grid_PhoneNumber" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="Grid_RentCost" xml:space="preserve">
+    <value>Rent Cost</value>
+  </data>
+  <data name="Grid_ElectricityCost" xml:space="preserve">
+    <value>Electricity Cost</value>
+  </data>
+  <data name="Grid_WaterCost" xml:space="preserve">
+    <value>Water Cost</value>
+  </data>
+  <data name="Grid_LastModifiedBy" xml:space="preserve">
+    <value>Last Modified By</value>
+  </data>
+  <data name="Chart_Revenue" xml:space="preserve">
+    <value>Revenue</value>
+  </data>
+  <data name="Chart_Financial" xml:space="preserve">
+    <value>Financial</value>
+  </data>
+  <data name="Chart_MonthYear" xml:space="preserve">
+    <value>Month/Year</value>
+  </data>
+  <data name="Grid_ImportInPeriod" xml:space="preserve">
+    <value>ImportInPeriod</value>
+  </data>
+  <data name="Grid_ExportInPeriod" xml:space="preserve">
+    <value>ExportIn Period</value>
+  </data>
+  <data name="Grid_SaleInPeriod" xml:space="preserve">
+    <value>SaleInPeriod</value>
+  </data>
+  <data name="Grid_CheckDecrease" xml:space="preserve">
+    <value>CheckDecrease</value>
+  </data>
+  <data name="Grid_TotalExport" xml:space="preserve">
+    <value>TotalExport</value>
+  </data>
+  <data name="Grid_ClosingStock" xml:space="preserve">
+    <value>ClosingStock</value>
+  </data>
+  <data name="Grid_Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="Grid_OpeningStock" xml:space="preserve">
+    <value>OpeningStock</value>
+  </data>
+  <data name="Grid_ProductCategoryName" xml:space="preserve">
+    <value>Product Category Name</value>
+  </data>
+  <data name="Grid_describe" xml:space="preserve">
+    <value>Describe</value>
+  </data>
+  <data name="Grid_StandardPrice" xml:space="preserve">
+    <value>Standard Price</value>
+  </data>
+  <data name="Grid_PromotionName" xml:space="preserve">
+    <value>Promotion Name</value>
+  </data>
+  <data name="Grid_StartDay" xml:space="preserve">
+    <value>Start Day</value>
+  </data>
+  <data name="Grid_EndDay" xml:space="preserve">
+    <value>End Day</value>
+  </data>
+  <data name="Grid_Priority" xml:space="preserve">
+    <value>Priority</value>
+  </data>
+  <data name="Grid_NewPrice" xml:space="preserve">
+    <value>New Price</value>
+  </data>
+  <data name="Grid_OldPrice" xml:space="preserve">
+    <value>Old Price</value>
+  </data>
+  <data name="Status_Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="Status_Deactive" xml:space="preserve">
+    <value>Deactive</value>
+  </data>
+</root>

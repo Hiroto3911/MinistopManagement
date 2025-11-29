@@ -197,8 +197,8 @@
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="txtLyDo.Text" xml:space="preserve">
-    <value />
+  <data name="&gt;&gt;guna2Button1.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -366,9 +366,6 @@
   <data name="chkCoLuong.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 19</value>
-  </data>
   <data name="label4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 10pt, style=Bold</value>
   </data>
@@ -432,6 +429,9 @@
   <data name="Có.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI Semibold, 10pt, style=Bold</value>
   </data>
+  <data name="txtLyDo.Text" xml:space="preserve">
+    <value />
+  </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>141</value>
   </data>
@@ -455,6 +455,9 @@
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 19</value>
+  </data>
+  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Semibold, 10pt, style=Bold</value>
   </data>
   <data name="&gt;&gt;rdPhepKhong.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2CustomRadioButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
@@ -486,17 +489,20 @@
   <data name="cboMaNhanVien.TabIndex" type="System.Int32, mscorlib">
     <value>234</value>
   </data>
-  <data name="&gt;&gt;guna2Button1.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
-  </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="guna2ImageButton4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>312, 6</value>
   </data>
   <data name="&gt;&gt;Có.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>344, 35</value>
+  </data>
+  <data name="&gt;&gt;guna2ImageButton4.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 287</value>
@@ -527,9 +533,6 @@
   </data>
   <data name="txtLyDo.TabIndex" type="System.Int32, mscorlib">
     <value>189</value>
-  </data>
-  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>14</value>
   </data>
   <data name="cboCaLam.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
@@ -576,8 +579,8 @@
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;guna2ImageButton4.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 242</value>
@@ -593,6 +596,9 @@
   </data>
   <data name="&gt;&gt;txtLyDo.Parent" xml:space="preserve">
     <value>$this</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
   </data>
   <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -612,8 +618,8 @@
   <data name="&gt;&gt;label7.Name" xml:space="preserve">
     <value>label7</value>
   </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
+    <value>14</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
@@ -635,9 +641,6 @@
   </data>
   <data name="&gt;&gt;label11.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cboMaNhanVien.Parent" xml:space="preserve">
-    <value>$this</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
     <value>Mã nhân viên:</value>
@@ -678,8 +681,8 @@
   <data name="cboMaNhanVien.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 10pt</value>
   </data>
-  <data name="label1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI Semibold, 10pt, style=Bold</value>
+  <data name="&gt;&gt;rdPhepCo.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2CustomRadioButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
   <data name="rdPhepCo.TabIndex" type="System.Int32, mscorlib">
     <value>186</value>
@@ -714,8 +717,8 @@
   <data name="&gt;&gt;cboTenNhanVien.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="guna2ImageButton4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>312, 6</value>
+  <data name="&gt;&gt;rdPhepCo.Name" xml:space="preserve">
+    <value>rdPhepCo</value>
   </data>
   <data name="&gt;&gt;label8.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -723,14 +726,14 @@
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 346</value>
   </data>
-  <data name="&gt;&gt;rdPhepCo.Type" xml:space="preserve">
-    <value>Guna.UI2.WinForms.Guna2CustomRadioButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  <data name="&gt;&gt;cboMaNhanVien.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;label6.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;rdPhepCo.Name" xml:space="preserve">
-    <value>rdPhepCo</value>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 19</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 21</value>

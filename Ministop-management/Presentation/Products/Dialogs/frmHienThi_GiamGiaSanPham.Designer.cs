@@ -29,20 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHienThi_GiamGiaSanPham));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHienThi_GiamGiaSanPham));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDuLieu = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnTimKiem = new Guna.UI2.WinForms.Guna2Button();
+            this.txtTimkiem = new Guna.UI2.WinForms.Guna2TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.txtTrangGGSP = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTrangSauGGSP = new Guna.UI2.WinForms.Guna2Button();
             this.btnTrangTruocGGSP = new Guna.UI2.WinForms.Guna2Button();
             this.btnThem = new Guna.UI2.WinForms.Guna2Button();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.ibtnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -50,7 +52,6 @@
             // 
             // dgvDuLieu
             // 
-            resources.ApplyResources(this.dgvDuLieu, "dgvDuLieu");
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvDuLieu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDuLieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -64,6 +65,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDuLieu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.dgvDuLieu, "dgvDuLieu");
             this.dgvDuLieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -102,11 +104,39 @@
             // 
             // guna2Panel1
             // 
-            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(56)))), ((int)(((byte)(148)))));
+            this.guna2Panel1.Controls.Add(this.btnTimKiem);
+            this.guna2Panel1.Controls.Add(this.txtTimkiem);
             this.guna2Panel1.Controls.Add(this.label11);
             this.guna2Panel1.Controls.Add(this.ibtnThoat);
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
             this.guna2Panel1.Name = "guna2Panel1";
+            // 
+            // btnTimKiem
+            // 
+            resources.ApplyResources(this.btnTimKiem, "btnTimKiem");
+            this.btnTimKiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnTimKiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnTimKiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnTimKiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnTimKiem.FillColor = System.Drawing.Color.Green;
+            this.btnTimKiem.ForeColor = System.Drawing.Color.White;
+            this.btnTimKiem.Name = "btnTimKiem";
+            // 
+            // txtTimkiem
+            // 
+            resources.ApplyResources(this.txtTimkiem, "txtTimkiem");
+            this.txtTimkiem.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtTimkiem.DefaultText = "";
+            this.txtTimkiem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtTimkiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtTimkiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTimkiem.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtTimkiem.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTimkiem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtTimkiem.Name = "txtTimkiem";
+            this.txtTimkiem.PlaceholderText = "";
+            this.txtTimkiem.SelectedText = "";
             // 
             // label11
             // 
@@ -114,14 +144,28 @@
             this.label11.ForeColor = System.Drawing.Color.White;
             this.label11.Name = "label11";
             // 
+            // ibtnThoat
+            // 
+            resources.ApplyResources(this.ibtnThoat, "ibtnThoat");
+            this.ibtnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.ibtnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.ibtnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnThoat.ImageRotate = 0F;
+            this.ibtnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.ibtnThoat.Name = "ibtnThoat";
+            this.ibtnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnThoat.Click += new System.EventHandler(this.ibtnThoat_Click);
+            // 
             // guna2Panel3
             // 
-            resources.ApplyResources(this.guna2Panel3, "guna2Panel3");
             this.guna2Panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.guna2Panel3.Controls.Add(this.txtTrangGGSP);
             this.guna2Panel3.Controls.Add(this.btnTrangSauGGSP);
             this.guna2Panel3.Controls.Add(this.btnTrangTruocGGSP);
             this.guna2Panel3.Controls.Add(this.btnThem);
+            resources.ApplyResources(this.guna2Panel3, "guna2Panel3");
             this.guna2Panel3.Name = "guna2Panel3";
             // 
             // txtTrangGGSP
@@ -195,20 +239,6 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // ibtnThoat
-            // 
-            resources.ApplyResources(this.ibtnThoat, "ibtnThoat");
-            this.ibtnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.ibtnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.ibtnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnThoat.ImageRotate = 0F;
-            this.ibtnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.ibtnThoat.Name = "ibtnThoat";
-            this.ibtnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnThoat.Click += new System.EventHandler(this.ibtnThoat_Click);
-            // 
             // frmHienThi_GiamGiaSanPham
             // 
             resources.ApplyResources(this, "$this");
@@ -239,5 +269,7 @@
         private Guna.UI2.WinForms.Guna2Button btnTrangTruocGGSP;
         private Guna.UI2.WinForms.Guna2Button btnThem;
         private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
+        private Guna.UI2.WinForms.Guna2Button btnTimKiem;
+        private Guna.UI2.WinForms.Guna2TextBox txtTimkiem;
     }
 }

@@ -122,9 +122,9 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 21</value>
+    <value>411, 32</value>
   </data>
   <data name="label11.Text" xml:space="preserve">
-    <value>Allowances Employee FullTime</value>
+    <value>Allowances for Full-time Employee</value>
   </data>
 </root>

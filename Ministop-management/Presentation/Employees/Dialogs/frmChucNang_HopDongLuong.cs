@@ -1,16 +1,11 @@
 ﻿using Domain.DTO;
 using Services.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Unity;
 using Unity.Resolution;
+
 namespace Presentation
 {
     public partial class frmChucNang_HopDongLuong : Form
@@ -18,26 +13,66 @@ namespace Presentation
         private readonly ISalaryContractService _salaryContractService;
         private readonly IEmployeeService _employeeService;
         private readonly IUnityContainer _container;
-        private readonly string _employeeId; // Optional employeeId từ luồng tạo nhân viên
-        public event EventHandler DataChanged;
+        private readonly string _employeeId;
+        private readonly bool _isFromRenewButton;
+        public event EventHandler DataChanged;
+
+        // FLAG DUY NHẤT – DÙNG CHUNG CHO TẤT CẢ INSTANCE
+        public static bool _isProcessingEmployeeContract = false;
+
+        public frmChucNang_HopDongLuong()
+        {
+            InitializeComponent();
+        }
+
+        // Constructor 1: Từ luồng tạo nhân viên mới
         public frmChucNang_HopDongLuong(
-        ISalaryContractService salaryContractService,
-        IEmployeeService employeeService,
-        IUnityContainer container,
-        string employeeId = null)
+            ISalaryContractService salaryContractService,
+            IEmployeeService employeeService,
+            IUnityContainer container,
+            string employeeId)
+            : this(salaryContractService, employeeService, container, employeeId, false)
+        {
+        }
+
+        // Constructor 2: Từ nút "Tạo hợp đồng mới" (Admin)
+        public frmChucNang_HopDongLuong(
+            ISalaryContractService salaryContractService,
+            IEmployeeService employeeService,
+            IUnityContainer container,
+            string employeeId = null,
+            bool isFromRenewButton = false)
         {
             InitializeComponent();
             _salaryContractService = salaryContractService;
             _employeeService = employeeService;
             _container = container;
             _employeeId = employeeId;
+            _isFromRenewButton = isFromRenewButton;
+
+            // QUAN TRỌNG: Đánh dấu nếu là từ tạo nhân viên mới
+            if (!string.IsNullOrEmpty(employeeId))
+                _isProcessingEmployeeContract = true;
+
+
+
             LoadEmployees();
+
             if (!string.IsNullOrEmpty(_employeeId))
             {
                 cboMaNhanVien.SelectedValue = _employeeId;
-                cboMaNhanVien.Enabled = false; // Không cho thay đổi nếu từ luồng tạo
-            }
+                cboMaNhanVien.Enabled = false;
+            }
         }
+
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            // Reset flag khi form đóng – ĐẢM BẢO lần sau tạo nhân viên mới vẫn mở được phụ cấp
+            if (!string.IsNullOrEmpty(_employeeId))
+                _isProcessingEmployeeContract = false;
+        }
+
         private void LoadEmployees()
         {
             var employees = _employeeService.GetAll();
@@ -52,6 +87,7 @@ namespace Presentation
                 MessageBox.Show("Không thể tải danh sách nhân viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void cboMaNhanVien_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cboMaNhanVien.SelectedValue == null) return;
@@ -63,6 +99,7 @@ namespace Presentation
                 ConfigureSalaryFields(employee.Data.EmploymentType);
             }
         }
+
         private void ConfigureSalaryFields(string employmentType)
         {
             if (employmentType == "Fulltime")
@@ -78,36 +115,50 @@ namespace Presentation
                 txtLuongCoBan.Text = string.Empty;
             }
         }
-        private void guna2Button1_Click(object sender, EventArgs e) // Btn Lưu
-        {
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
             if (!ValidateInput()) return;
+
+            string employeeId = cboMaNhanVien.SelectedValue.ToString();
+
             var contract = new SalaryContractDto
             {
-                EmployeeId = cboMaNhanVien.SelectedValue.ToString(),
+                EmployeeId = employeeId,
                 StartDate = dtpNgayBatDau.Value,
-                EndDate = dtpNgayKetThuc.Value
+                EndDate = dtpNgayKetThuc.Value.Date == dtpNgayBatDau.Value.Date ? (DateTime?)null : dtpNgayKetThuc.Value
             };
+
             if (txtLuongCoBan.Enabled)
-                contract.BasicSalary = decimal.Parse(txtLuongCoBan.Text);
-            else
-                contract.BasicSalary = null;
+                contract.BasicSalary = decimal.Parse(txtLuongCoBan.Text.Replace(",", "").Replace(".", "").Trim());
             if (txtDonGiaGio.Enabled)
-                contract.HourlyRate = decimal.Parse(txtDonGiaGio.Text);
-            else
-                contract.HourlyRate = null;
+                contract.HourlyRate = decimal.Parse(txtDonGiaGio.Text.Replace(",", "").Replace(".", "").Trim());
+
             var result = _salaryContractService.Create(contract);
+
             if (result.Succeeded)
             {
                 MessageBox.Show("Tạo hợp đồng lương thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataChanged?.Invoke(this, EventArgs.Empty);
-                var employee = _employeeService.GetEmployeeByID(contract.EmployeeId);
-                if (employee.Succeeded && employee.Data.EmploymentType == "Fulltime")
+
+                // CHỈ MỞ FORM PHỤ CẤP KHI:
+                // 1. Là lần tạo từ nhân viên mới (có _employeeId)
+                // 2. Nhân viên là Fulltime
+                if (!string.IsNullOrEmpty(_employeeId) && !_isFromRenewButton)
                 {
-                    // Chuyển sang thêm phụ cấp
-                    var frmPhuCap = _container.Resolve<frmChucNang_HopDongLuong_PhuCap>(
-                    new ParameterOverride("contractId", contract.ContractId));
-                    frmPhuCap.ShowDialog();
+                    var emp = _employeeService.GetEmployeeByID(employeeId);
+                    if (emp.Succeeded && emp.Data?.EmploymentType == "Fulltime")
+                    {
+                        var curr = _salaryContractService.GetCurrentContractByEmployeeId(employeeId);
+                        if (curr.Succeeded && curr.Data != null)
+                        {
+                            var frmPhuCap = _container.Resolve<frmChucNang_HopDongLuong_PhuCap>(
+                                new ParameterOverride("contractId", curr.Data.ContractId));
+                            frmPhuCap.ShowDialog();
+                        }
+                    }
                 }
+
                 this.Close();
             }
             else
@@ -115,6 +166,8 @@ namespace Presentation
                 MessageBox.Show($"Lỗi: {result.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // ValidateInput() giữ nguyên như bạn đã viết – rất tốt!
         private bool ValidateInput()
         {
             // 1. Kiểm tra chọn nhân viên
@@ -206,7 +259,13 @@ namespace Presentation
 
             return true;
         }
+
         private void guna2ImageButton4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void itbnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
         }

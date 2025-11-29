@@ -31,16 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.dtpMonth = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.cboEmployee = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnXem = new Guna.UI2.WinForms.Guna2Button();
             this.cboStore = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblTime = new System.Windows.Forms.Label();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.btnThoat = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpMonth = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +75,36 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1200, 181);
             this.guna2Panel1.TabIndex = 6;
+            // 
+            // dtpMonth
+            // 
+            this.dtpMonth.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
+            this.dtpMonth.BorderRadius = 5;
+            this.dtpMonth.BorderThickness = 2;
+            this.dtpMonth.Checked = true;
+            this.dtpMonth.CustomFormat = "MM/yyyy";
+            this.dtpMonth.FillColor = System.Drawing.Color.White;
+            this.dtpMonth.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.dtpMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpMonth.Location = new System.Drawing.Point(181, 137);
+            this.dtpMonth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dtpMonth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dtpMonth.Name = "dtpMonth";
+            this.dtpMonth.ShowUpDown = true;
+            this.dtpMonth.Size = new System.Drawing.Size(262, 36);
+            this.dtpMonth.TabIndex = 240;
+            this.dtpMonth.Value = new System.DateTime(2025, 11, 10, 1, 33, 5, 589);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 136);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 32);
+            this.label2.TabIndex = 238;
+            this.label2.Text = "Tháng:";
             // 
             // cboEmployee
             // 
@@ -116,6 +146,23 @@
             this.label11.TabIndex = 234;
             this.label11.Text = "Xuất phiếu lương của nhân viên";
             // 
+            // btnThoat
+            // 
+            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnThoat.BackColor = System.Drawing.Color.Transparent;
+            this.btnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.Image = global::Presentation.Properties.Resources.cross;
+            this.btnThoat.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnThoat.ImageRotate = 0F;
+            this.btnThoat.ImageSize = new System.Drawing.Size(32, 32);
+            this.btnThoat.Location = new System.Drawing.Point(1161, 3);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnThoat.Size = new System.Drawing.Size(36, 35);
+            this.btnThoat.TabIndex = 233;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            // 
             // btnXem
             // 
             this.btnXem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -134,6 +181,7 @@
             this.btnXem.Size = new System.Drawing.Size(123, 44);
             this.btnXem.TabIndex = 232;
             this.btnXem.Text = "Xem";
+            this.btnXem.Click += new System.EventHandler(this.btnXem_Click);
             // 
             // cboStore
             // 
@@ -152,6 +200,7 @@
             this.cboStore.Name = "cboStore";
             this.cboStore.Size = new System.Drawing.Size(262, 36);
             this.cboStore.TabIndex = 231;
+            this.cboStore.SelectedIndexChanged += new System.EventHandler(this.cboStore_SelectedIndexChanged);
             // 
             // lblTime
             // 
@@ -171,52 +220,6 @@
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
-            // btnThoat
-            // 
-            this.btnThoat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThoat.BackColor = System.Drawing.Color.Transparent;
-            this.btnThoat.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.Image = global::Presentation.Properties.Resources.cross;
-            this.btnThoat.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnThoat.ImageRotate = 0F;
-            this.btnThoat.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnThoat.Location = new System.Drawing.Point(1161, 3);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnThoat.Size = new System.Drawing.Size(36, 35);
-            this.btnThoat.TabIndex = 233;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 136);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 32);
-            this.label2.TabIndex = 238;
-            this.label2.Text = "Tháng:";
-            // 
-            // dtpMonth
-            // 
-            this.dtpMonth.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(221)))), ((int)(((byte)(226)))));
-            this.dtpMonth.BorderRadius = 5;
-            this.dtpMonth.BorderThickness = 2;
-            this.dtpMonth.Checked = true;
-            this.dtpMonth.CustomFormat = "MM/yyyy";
-            this.dtpMonth.FillColor = System.Drawing.Color.White;
-            this.dtpMonth.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.dtpMonth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpMonth.Location = new System.Drawing.Point(181, 137);
-            this.dtpMonth.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dtpMonth.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dtpMonth.Name = "dtpMonth";
-            this.dtpMonth.ShowUpDown = true;
-            this.dtpMonth.Size = new System.Drawing.Size(262, 36);
-            this.dtpMonth.TabIndex = 240;
-            this.dtpMonth.Value = new System.DateTime(2025, 11, 10, 1, 33, 5, 589);
-            // 
             // frmHienThi_PhieuLuong_NhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -227,6 +230,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmHienThi_PhieuLuong_NhanVien";
             this.Text = "frmHienThi_PhieuLuong_NhanVien";
+            this.Load += new System.EventHandler(this.frmHienThi_PhieuLuong_NhanVien_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.ResumeLayout(false);

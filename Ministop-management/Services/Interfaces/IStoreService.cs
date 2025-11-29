@@ -15,6 +15,7 @@ namespace Services.Interfaces
         Result<IReadOnlyList<StoreDto>> GetAllStoreIsDelete();
         PagedResult<IReadOnlyList<StoreDto>> GetStore(int pageNumber, int pageSize);
         Result<StoreDto> GetStoreByID(string id);
+        Result<bool> RemoveSoftStore(string storeId);
         Result<bool> RemoveStore(string storeId);
         Result<bool> RestoreStore(List<string> listRestoreId);
         Result<bool> UpdateStore(StoreDto storeEdit);

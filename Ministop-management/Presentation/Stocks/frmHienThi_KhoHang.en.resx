@@ -117,27 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="lblSoLanCanhBao.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="guna2GroupBox2.Text" xml:space="preserve">
-    <value>Low Inventory Warming </value>
-  </data>
-  <data name="lblSoLanXuat.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Low inventory warning</value>
   </data>
   <data name="guna2GroupBox1.Text" xml:space="preserve">
-    <value>Total export volume  in the Month</value>
-  </data>
-  <data name="lblSoLanNhap.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Total number of stock export in month</value>
   </data>
   <data name="guna2GroupBox3.Text" xml:space="preserve">
-    <value>Total import volume in the month</value>
-  </data>
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>Total number of stock entries in month </value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
@@ -147,31 +134,80 @@
     <value>Refresh</value>
   </data>
   <data name="tabChiTietKho.Text" xml:space="preserve">
-    <value>Inventory</value>
+    <value>Stock Details</value>
   </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="btnInPhieuNhap.Text" xml:space="preserve">
+    <value>Print</value>
   </data>
-  <data name="dgvDuLieuNH.Size" type="System.Drawing.Size, System.Drawing">
-    <value>931, 272</value>
+  <data name="cboCuaHangNH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>49, 0</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Store:</value>
+  </data>
+  <data name="btnThemNH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="tabNhapHang.Text" xml:space="preserve">
-    <value>Import</value>
+    <value>Stock Import</value>
   </data>
-  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="btnInPhieuXuat.Text" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Store:</value>
+  </data>
+  <data name="btnThemXH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="tabXuatHang.Text" xml:space="preserve">
-    <value>Export</value>
+    <value>Stock Export</value>
   </data>
-  <data name="lblTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dgvDuLieuKH.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="dgvDuLieuKH.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="dgvDuLieuKH.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 34</value>
+  </data>
+  <data name="dgvDuLieuKH.Size" type="System.Drawing.Size, System.Drawing">
+    <value>419, 274</value>
+  </data>
+  <data name="lblTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
+  </data>
+  <data name="lblTime.Text" xml:space="preserve">
+    <value>Store:</value>
+  </data>
+  <data name="btnThemKH.Text" xml:space="preserve">
+    <value>Add</value>
   </data>
   <data name="tabKiemHang.Text" xml:space="preserve">
-    <value>Check</value>
+    <value>Stock Check</value>
   </data>
-  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Store:</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 19</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Find:</value>
+  </data>
+  <data name="btnTimKiem.Text" xml:space="preserve">
+    <value>Search</value>
   </data>
   <data name="tabTimKiem.Text" xml:space="preserve">
     <value>Search</value>

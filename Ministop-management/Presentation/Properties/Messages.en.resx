@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Message_ChooseAtLeastOneData" xml:space="preserve">
+    <value>Select At Least 1 Data To Perform Action</value>
+  </data>
+  <data name="Message_ChooseAtLeastOneProduct" xml:space="preserve">
+    <value>Select At Least 1 Product</value>
+  </data>
+  <data name="Message_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Message_DeleteData" xml:space="preserve">
+    <value>Are you sure you want to delete</value>
+  </data>
+  <data name="Message_DeletedSuccessfully" xml:space="preserve">
+    <value>Deleted successfully</value>
+  </data>
+  <data name="Message_DeleteHaveData" xml:space="preserve">
+    <value>There is still data.\n If you confirm deletion, the system will delete the detailed data in the ballot! Please consider before pressing the confirm button.</value>
+  </data>
+  <data name="Message_DeleteStore" xml:space="preserve">
+    <value>Note that the system currently only supports deleting one store, so please select the correct store to perform the operation!</value>
+  </data>
+  <data name="Message_DeleteStoreHaveData" xml:space="preserve">
+    <value>The store currently has data and an active account.\n If you confirm deletion, the system will deactivate the store and related data, instead of permanently deleting it.</value>
+  </data>
+  <data name="Message_EnterNameProductToFind" xml:space="preserve">
+    <value>Please enter product name to search warehouse data</value>
+  </data>
+  <data name="Message_Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Message_Fail" xml:space="preserve">
+    <value>Fail</value>
+  </data>
+  <data name="Message_InvalidChineseNumber" xml:space="preserve">
+    <value>Invalid Chinese phone number EX:  +8613712345678 or13712345678"</value>
+  </data>
+  <data name="Message_InvalidJapaneseNumber" xml:space="preserve">
+    <value>Invalid Japanese phone number EX:   +821012345678 or01012345678"</value>
+  </data>
+  <data name="Message_InvalidKoreanNumber" xml:space="preserve">
+    <value>Invalid Korean phone number EX:  +819012345678 or 09012345678"</value>
+  </data>
+  <data name="Message_InvalidMonth" xml:space="preserve">
+    <value>Invalid Month</value>
+  </data>
+  <data name="Message_InvalidPhoneNumber" xml:space="preserve">
+    <value>Invalid Phone Number. Please check  the  format againt !</value>
+  </data>
+  <data name="Message_InvalidUSNumber" xml:space="preserve">
+    <value>Invalid US phone number EX:  +11234567890 or1234567890"</value>
+  </data>
+  <data name="Message_InvalidVietnameseNumber" xml:space="preserve">
+    <value>Invalid Vietnamese phone number EX: +84912345678 or 0912345678"</value>
+  </data>
+  <data name="Message_InvalidYear" xml:space="preserve">
+    <value>Invalid Year</value>
+  </data>
+  <data name="Message_NoData" xml:space="preserve">
+    <value>No data available</value>
+  </data>
+  <data name="Message_NotDataAtThisTime" xml:space="preserve">
+    <value>No data at this time</value>
+  </data>
+  <data name="Message_Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="Message_NotNull" xml:space="preserve">
+    <value>Cannot be left blank </value>
+  </data>
+  <data name="Message_ProductNotInStock" xml:space="preserve">
+    <value>This product not in stock. Please re enter the product id</value>
+  </data>
+  <data name="Message_QuantityProductNotEnough" xml:space="preserve">
+    <value>The quantity in stock is not enough to meet your order quantity, please adjust the quantity!</value>
+  </data>
+  <data name="Message_QuantityVariance" xml:space="preserve">
+    <value>Quantity actual should not exceed quantity system. Please check thoroughtly!</value>
+  </data>
+  <data name="Message_SavedSuccessfullLy" xml:space="preserve">
+    <value>Saved Successfully</value>
+  </data>
+  <data name="Message_SelectNation" xml:space="preserve">
+    <value>Please select nation/region </value>
+  </data>
+  <data name="Message_SelectStore" xml:space="preserve">
+    <value>Please select store</value>
+  </data>
+  <data name="Message_SpecialCharacter" xml:space="preserve">
+    <value>No Special Character</value>
+  </data>
+  <data name="Message_Successfull" xml:space="preserve">
+    <value>Successfull</value>
+  </data>
+  <data name="Message_ToDayMoreThanFromDay" xml:space="preserve">
+    <value>From date must be less than to date</value>
+  </data>
+  <data name="Message_ValidNumber" xml:space="preserve">
+    <value>Must be a valid number and cannot be blank  or 0 </value>
+  </data>
+</root>

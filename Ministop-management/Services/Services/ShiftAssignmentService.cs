@@ -322,5 +322,35 @@ namespace Services.Services
             }
         }
 
+        public Result<bool> CreateBatch(List<ShiftAssignmentDto> dtos)
+        {
+            _unitOfWork.BeginTransaction();
+            try
+            {
+                foreach (var dto in dtos)
+                {
+                    // Kiểm duplicate cho từng cái
+                    var duplicate = CheckDuplicate(dto.EmployeeId, dto.ShiftId, dto.WorkDate);
+                    if (duplicate.Data)
+                        continue; // Bỏ qua ngày đã có
+
+                    dto.Id = IdGenerator.CreateID("SA");
+                    dto.Created = _dateTimeService.NowUtc;
+                    dto.CreatedBy = _userSession.UserId;
+
+                    var entity = _mapper.Map<ShiftAssignment>(dto);
+                    _unitOfWork.ShiftAssignmentRepository.Add(entity);
+                }
+
+                _unitOfWork.Commit();
+                return new Result<bool>(true);
+            }
+            catch (Exception)
+            {
+                _unitOfWork.Rollback();
+                throw;
+            }
+        }
+
     }
 }

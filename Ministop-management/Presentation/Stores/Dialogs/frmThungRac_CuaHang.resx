@@ -124,25 +124,34 @@
   <data name="&gt;&gt;itbnThoat.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnXoaCung.TabIndex" type="System.Int32, mscorlib">
+    <value>238</value>
+  </data>
+  <data name="itbnThoat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnXoaCung.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnKhoiPhuc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>436, 2</value>
+  <data name="btnKhoiPhuc.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnKhoiPhuc.TabIndex" type="System.Int32, mscorlib">
     <value>236</value>
   </data>
   <data name="&gt;&gt;guna2Panel3.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2Panel, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="btnKhoiPhuc.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Right</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnXoaCung.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 29</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -153,8 +162,11 @@
   <data name="&gt;&gt;guna2Panel3.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="guna2Panel3.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
+  <data name="btnXoaCung.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt, style=Bold</value>
+  </data>
+  <data name="guna2Panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
   </data>
   <data name="&gt;&gt;lblThungRac.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -167,6 +179,12 @@
   </data>
   <data name="&gt;&gt;dgvDuLieu.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="dgvDuLieu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="guna2Panel3.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
   </data>
   <data name="guna2Panel3.Size" type="System.Drawing.Size, System.Drawing">
     <value>533, 34</value>
@@ -195,8 +213,8 @@
   <data name="&gt;&gt;itbnThoat.Parent" xml:space="preserve">
     <value>guna2Panel1</value>
   </data>
-  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="&gt;&gt;btnXoaCung.Parent" xml:space="preserve">
+    <value>guna2Panel3</value>
   </data>
   <data name="guna2Panel1.Size" type="System.Drawing.Size, System.Drawing">
     <value>533, 34</value>
@@ -213,32 +231,41 @@
   <data name="btnKhoiPhuc.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt, style=Bold</value>
   </data>
+  <data name="guna2Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
   <data name="dgvDuLieu.Size" type="System.Drawing.Size, System.Drawing">
     <value>533, 224</value>
   </data>
   <data name="&gt;&gt;btnKhoiPhuc.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;guna2Panel1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;guna2BorderlessForm1.Name" xml:space="preserve">
-    <value>guna2BorderlessForm1</value>
+  <data name="&gt;&gt;btnXoaCung.Type" xml:space="preserve">
+    <value>Guna.UI2.WinForms.Guna2Button, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
+  </data>
+  <data name="btnXoaCung.Text" xml:space="preserve">
+    <value>Xóa</value>
   </data>
   <data name="&gt;&gt;itbnThoat.Name" xml:space="preserve">
     <value>itbnThoat</value>
   </data>
+  <data name="&gt;&gt;btnXoaCung.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="guna2Panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
+  </data>
+  <data name="btnXoaCung.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Right</value>
   </data>
   <data name="lblThungRac.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="lblThungRac.Text" xml:space="preserve">
     <value>Thùng rác - Danh sách cửa hàng</value>
-  </data>
-  <data name="lblThungRac.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
   </data>
   <data name="itbnThoat.Size" type="System.Drawing.Size, System.Drawing">
     <value>24, 23</value>
@@ -279,14 +306,14 @@
   <data name="&gt;&gt;itbnThoat.Type" xml:space="preserve">
     <value>Guna.UI2.WinForms.Guna2ImageButton, Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261</value>
   </data>
-  <data name="guna2Panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="guna2Panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
   <data name="lblThungRac.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
-  <data name="itbnThoat.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 2, 2, 2</value>
+  <data name="btnXoaCung.Location" type="System.Drawing.Point, System.Drawing">
+    <value>321, 2</value>
   </data>
   <data name="&gt;&gt;lblThungRac.Name" xml:space="preserve">
     <value>lblThungRac</value>
@@ -300,6 +327,9 @@
   <data name="&gt;&gt;guna2Panel1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="btnKhoiPhuc.Location" type="System.Drawing.Point, System.Drawing">
+    <value>436, 2</value>
+  </data>
   <data name="itbnThoat.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
@@ -309,8 +339,8 @@
   <data name="itbnThoat.Location" type="System.Drawing.Point, System.Drawing">
     <value>505, 3</value>
   </data>
-  <data name="guna2Panel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="&gt;&gt;btnXoaCung.Name" xml:space="preserve">
+    <value>btnXoaCung</value>
   </data>
   <data name="btnKhoiPhuc.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -324,8 +354,11 @@
   <data name="&gt;&gt;btnKhoiPhuc.Name" xml:space="preserve">
     <value>btnKhoiPhuc</value>
   </data>
-  <data name="dgvDuLieu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
+  <data name="lblThungRac.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;guna2BorderlessForm1.Name" xml:space="preserve">
+    <value>guna2BorderlessForm1</value>
   </data>
   <metadata name="guna2BorderlessForm1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

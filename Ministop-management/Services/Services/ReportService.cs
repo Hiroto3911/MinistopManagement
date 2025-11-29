@@ -2,9 +2,11 @@
 using Infrastructure.Data;
 using Infrastructure.Interfaces;
 using Infrastructure.UnitOfWorks;
+using Model.DTO;
 using Services.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -103,7 +105,10 @@ namespace Services.Services
                 Quantity = x.Quantity,
                 UnitPrice = x.UnitPrice,
                 Total = x.Total,
-                TotalAmount = x.totalAmount
+                TotalAmount = x.totalAmount,
+                TypeExport = x.TypeExport,
+                Reason = x.Reason,
+                Status = x.Status
             });
 
             return result.ToList();
@@ -153,6 +158,7 @@ namespace Services.Services
                 Revenue = x.Revenue ?? 0,
                 Financial = x.Financial ?? 0,
                 FixedExpense = x.FixedExpense ?? 0,
+                SalaryExpense = x.SalaryExpense ?? 0,
            
             }).ToList();
         }
@@ -213,6 +219,28 @@ namespace Services.Services
                 return new List<SalaryListDto>();
 
             return _ministopUnitOfWork.ReportRepository.GetSalaryListByStore(storeId, monthYear);
+        }
+
+        public List<Top3BestSellingStoreDto> GetTop3BestSellingStores(DateTime stardate, DateTime enddate)
+        {
+            var list = _ministopUnitOfWork.ReportRepository.GetTop3BestSellingStores(stardate,enddate);
+            return list.Select(x => new Top3BestSellingStoreDto
+            {
+                StoreID = x.StoreID,
+                StoreName = x.StoreName,
+                Address = x.Address,
+                Phone = x.Phone,
+                TotalRevenue = (decimal)x.TotalRevenue,
+                TotalProductsSold = (decimal)x.TotalProductsSold,
+                AverageInvoiceValue = (decimal)x.AverageInvoiceValue
+            }).ToList();
+        }
+        public List<FrequentlyLostProductDto> GetFrequentlyLostProductsByStoreAndDateRange(string storeId,
+     DateTime? fromDate = null,
+     DateTime? toDate = null,
+     int threshold = 2)
+        {
+            return _ministopUnitOfWork.ReportRepository.GetFrequentlyLostProductsByStoreAndDateRange(storeId, fromDate, toDate, threshold);
         }
     }
 }

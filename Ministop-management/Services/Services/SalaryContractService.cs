@@ -107,41 +107,32 @@ namespace Services.Services
             _unitOfWork.BeginTransaction();
             try
             {
-                // Kiểm tra nhân viên tồn tại
-                var employeeExists = _unitOfWork.EmployeeRepository.Any(x => x.EmployeeID == dto.EmployeeId && !x.IsDeleted);
+                bool employeeExists = _unitOfWork.EmployeeRepository.Any(x => x.EmployeeID == dto.EmployeeId && !x.IsDeleted);
                 if (!employeeExists)
                     return new Result<bool>(ErrorCodeEnum.EMP_ERR_001);
 
-                // Kiểm tra hợp đồng hiện tại còn hiệu lực không (nếu cần)
-                var hasActiveContract = _unitOfWork.SalaryContractRepository.Any(x =>
-                    x.EmployeeID == dto.EmployeeId &&
-                    !x.IsDeleted &&
-                    x.EndDate == null);
+                bool hasActiveContract = _unitOfWork.SalaryContractRepository.Any(x =>
+                    x.EmployeeID == dto.EmployeeId && !x.IsDeleted && x.EndDate == null);
 
                 if (hasActiveContract && dto.EndDate == null)
-                    return new Result<bool>(ErrorCodeEnum.SAL_ERR_006); // Đã có hợp đồng đang hiệu lực
+                    return new Result<bool>(ErrorCodeEnum.SAL_ERR_006);
 
-                // Tạo ID
                 dto.ContractId = IdGenerator.CreateID("SAL");
                 dto.Created = _dateTimeService.NowUtc;
                 dto.CreatedBy = _userSession.UserId;
 
                 var entity = _mapper.Map<SalaryContract>(dto);
                 var added = _unitOfWork.SalaryContractRepository.Add(entity);
-
                 if (added == null)
-                {
-                    _unitOfWork.Rollback();
-                    return new Result<bool>(ErrorCodeEnum.SAL_ERR_003); // Thêm thất bại
-                }
+                    return new Result<bool>(ErrorCodeEnum.SAL_ERR_003);
 
                 _unitOfWork.Commit();
                 return new Result<bool>(true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 _unitOfWork.Rollback();
-                throw ex;
+                throw;
             }
         }
 
@@ -152,12 +143,8 @@ namespace Services.Services
             {
                 var entity = _unitOfWork.SalaryContractRepository.Find(x => x.ContractID == dto.ContractId && !x.IsDeleted);
                 if (entity == null)
-                {
-                    _unitOfWork.Rollback();
                     return new Result<bool>(ErrorCodeEnum.SAL_ERR_001);
-                }
 
-                // Cập nhật các trường
                 entity.BasicSalary = dto.BasicSalary;
                 entity.HourlyRate = dto.HourlyRate;
                 entity.StartDate = dto.StartDate;
@@ -166,13 +153,14 @@ namespace Services.Services
                 entity.LastModifiedBy = _userSession.UserId;
 
                 _unitOfWork.SalaryContractRepository.Update(entity, true);
+
                 _unitOfWork.Commit();
                 return new Result<bool>(true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 _unitOfWork.Rollback();
-                throw ex;
+                throw;
             }
         }
 
@@ -183,23 +171,21 @@ namespace Services.Services
             {
                 var entity = _unitOfWork.SalaryContractRepository.Find(x => x.ContractID == contractId && !x.IsDeleted);
                 if (entity == null)
-                {
-                    _unitOfWork.Rollback();
                     return new Result<bool>(ErrorCodeEnum.SAL_ERR_001);
-                }
 
                 entity.IsDeleted = true;
                 entity.LastModified = _dateTimeService.NowUtc;
                 entity.LastModifiedBy = _userSession.UserId;
 
                 _unitOfWork.SalaryContractRepository.SoftDelete(entity, true);
+
                 _unitOfWork.Commit();
                 return new Result<bool>(true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 _unitOfWork.Rollback();
-                throw ex;
+                throw;
             }
         }
 
@@ -222,13 +208,14 @@ namespace Services.Services
                 }
 
                 _unitOfWork.SalaryContractRepository.UpdateRange(entities, true);
+
                 _unitOfWork.Commit();
                 return new Result<bool>(true);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 _unitOfWork.Rollback();
-                throw ex;
+                throw;
             }
         }
 
@@ -242,6 +229,26 @@ namespace Services.Services
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+
+        public Result<bool> HardDelete(string contractId)
+        {
+            _unitOfWork.BeginTransaction();
+            try
+            {
+                var entity = _unitOfWork.SalaryContractRepository.Find(x => x.ContractID == contractId);
+                if (entity == null)
+                    return new Result<bool>(ErrorCodeEnum.SAL_ERR_001);
+
+                _unitOfWork.SalaryContractRepository.Delete(entity, true);
+                _unitOfWork.Commit();
+                return new Result<bool>(true);
+            }
+            catch (Exception)
+            {
+                _unitOfWork.Rollback();
+                throw;
             }
         }
     }

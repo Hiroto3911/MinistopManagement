@@ -1,6 +1,7 @@
 ﻿using Domain.DTO;
 using Infrastructure.Data;
 using Infrastructure.Interfaces;
+using Model.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -45,7 +46,7 @@ namespace Infrastructure.Repositories
         {
             var startDate = new DateTime(year, month, 1);
             var endDate = startDate.AddMonths(1).AddDays(-1);
-            var products = _context.Products.Where(p => !p.IsDeleted && _context.StockDetails.Any(x=> x.ProductID == p.ProductID));
+            var products = _context.Products.Where(p => !p.IsDeleted && _context.StockDetails.Any(x=> x.StoreID == storeId&& x.ProductID == p.ProductID));
             var report = from p in products
                          let opening = (
                             from sd in _context.StockDetails
@@ -86,17 +87,6 @@ namespace Infrastructure.Repositories
                             select (int?)id.Quantity
                          ).Sum() ?? 0
 
-                         let checkPlus = (
-                            from sc in _context.StockChecks
-                            join scd in _context.StockCheckDetails on sc.CheckID equals scd.CheckID
-                            where sc.StoreID == storeId
-                              && scd.ProductID == p.ProductID
-                              && sc.CheckDate >= startDate
-                              && sc.CheckDate <= endDate
-                              && scd.QuantityActual > scd.QuantitySystem
-                            select (int?)(scd.QuantityActual - scd.QuantitySystem)
-                         ).Sum() ?? 0
-
                          let checkMinus = (
                             from sc in _context.StockChecks
                             join scd in _context.StockCheckDetails on sc.CheckID equals scd.CheckID
@@ -109,7 +99,7 @@ namespace Infrastructure.Repositories
                          ).Sum() ?? 0
 
                          let totalOut = exportInPeriod + saleInPeriod
-                         let finalStock = opening + importInPeriod - totalOut + (checkPlus + checkMinus)
+                         let finalStock = opening + importInPeriod - totalOut +  checkMinus
 
                          select new InventoryReportDto
                          {
@@ -121,13 +111,13 @@ namespace Infrastructure.Repositories
                              ExportInPeriod = exportInPeriod,
                              SaleInPeriod = saleInPeriod,
                              TotalExport = totalOut,
-                             CheckIncrease = checkPlus,
                              CheckDecrease = checkMinus,
                              ClosingStock = finalStock
                          };
 
             return report.ToList();
         }
+
         public List<SP_InvoiceReportResult> GetInvoiceProductReport(string invoiceID)
         {
             return _context.SP_InvoiceReport(invoiceID).ToList();
@@ -174,6 +164,44 @@ namespace Infrastructure.Repositories
 
             return result;
         }
+        public List<FrequentlyLostProductDto> GetFrequentlyLostProductsByStoreAndDateRange(
+     string storeId,
+     DateTime? fromDate = null,
+     DateTime? toDate = null,
+     int threshold = 2)
+        {
+            var query = _context.StockCheckDetails
+                .Where(detail => (detail.QuantityActual - detail.QuantitySystem) < 0
+                                 && detail.StockCheck.StoreID == storeId);
+
+            if (fromDate.HasValue)
+                query = query.Where(detail => detail.StockCheck.CheckDate >= fromDate.Value);
+
+            if (toDate.HasValue)
+                query = query.Where(detail => detail.StockCheck.CheckDate <= toDate.Value);
+
+            var result = query
+                .GroupBy(detail => new { detail.ProductID, detail.Product.ProductName })
+                .Select(g => new
+                {
+                    g.Key.ProductID,
+                    g.Key.ProductName,
+                    TimesLost = g.Count()
+                })
+                .Where(x => x.TimesLost >= threshold)
+                .OrderByDescending(x => x.TimesLost)
+                .ToList();
+
+            return result.Select(x => new FrequentlyLostProductDto
+            {
+                ProductID = x.ProductID,
+                ProductName = x.ProductName,
+                TimesLost = x.TimesLost
+            }).ToList();
+        }
+
+
+
 
         public SalarySlipMainDto GetSalarySlipMain(string employeeId, string monthYear)
         {
@@ -265,6 +293,10 @@ namespace Infrastructure.Repositories
                     Deduction = x.Deduction,
                     TotalIncome = x.TotalIncome ?? 0
                 }).ToList();
+        }
+        public List<sp_GetTop3BestSellingStoresResult> GetTop3BestSellingStores(DateTime stardate, DateTime enddate)
+        {
+            return _context.sp_GetTop3BestSellingStores(stardate,enddate).ToList();
         }
     }
 

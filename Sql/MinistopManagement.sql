@@ -70,18 +70,19 @@ CREATE TABLE Products (
     FOREIGN KEY (CategoryID) REFERENCES ProductCategory(CategoryID)
 ); 
 GO
-
 CREATE TABLE Employee (
     EmployeeID NVARCHAR(200) PRIMARY KEY,
     StoreID NVARCHAR(200) NULL,
     FullName NVARCHAR(100) NOT NULL,
-    Gender BIT NOT NULL ,
+    Gender BIT NOT NULL,
     BirthDate DATE NOT NULL,
     Phone NVARCHAR(20) NOT NULL,
     Position NVARCHAR(50) NOT NULL,
     EmploymentType NVARCHAR(20) NOT NULL,
     PasswordHash NVARCHAR(200) NOT NULL,
-    IsDeleted BIT NOT NULL DEFAULT 0 ,
+    Address NVARCHAR(500) NULL,           
+    IdentityNumber NVARCHAR(20) NULL,     
+    IsDeleted BIT NOT NULL DEFAULT 0,
     CreatedBy NVARCHAR(max) NULL,
     Created DATETIME NOT NULL,
     LastModifiedBy NVARCHAR(max) NULL,

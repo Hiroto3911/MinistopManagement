@@ -26,5 +26,7 @@ namespace Services.Interfaces
         Result<bool> Any(Expression<Func<ShiftAssignment, bool>> predicate);
         Result<bool> CheckDuplicate(string employeeId, string shiftId, DateTime workDate, string excludeId = null);
         Result<IReadOnlyList<ShiftAssignmentDto>> GetByEmployeeAndMonth(string employeeId, string monthYear);
+
+        Result<bool> CreateBatch(List<ShiftAssignmentDto> dtos);
     }
 }

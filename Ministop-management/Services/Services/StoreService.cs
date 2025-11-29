@@ -169,7 +169,7 @@ namespace Services.Services
                 throw ex;
             }
         }
-        public Result<bool> RemoveStore(string storeId)
+        public Result<bool> RemoveSoftStore(string storeId)
         {
             _ministopUnitOfWork.BeginTransaction();
             try
@@ -198,6 +198,33 @@ namespace Services.Services
 
                     _ministopUnitOfWork.EmployeeRepository.SoftDeleteRange(listEmp, true);
                 }
+                _ministopUnitOfWork.Commit();
+                return new Result<bool>(true);
+
+            }
+            catch (Exception ex)
+            {
+                _ministopUnitOfWork.Rollback();
+                throw ex;
+            }
+        }
+        public Result<bool> RemoveStore(string storeId)
+        {
+            _ministopUnitOfWork.BeginTransaction();
+            try
+            {
+                var storeEntity = _ministopUnitOfWork.StoreRepository.Find(x => x.StoreID == storeId && x.IsDeleted);
+                if (storeEntity == null)
+                {
+                    return new Result<bool>(ErrorCodeEnum.STR_ERR_001);
+                }
+                var HasValue = _ministopUnitOfWork.FixedExpenseRepository.Any(x => x.StoreID == storeId );
+                if (HasValue)
+                {
+                    return new Result<bool>(ErrorCodeEnum.STR_ERR_005);
+                }
+                 _ministopUnitOfWork.StoreRepository.Delete(storeEntity,true);
+
                 _ministopUnitOfWork.Commit();
                 return new Result<bool>(true);
 

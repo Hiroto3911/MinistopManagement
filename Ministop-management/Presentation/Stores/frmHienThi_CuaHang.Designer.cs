@@ -39,11 +39,12 @@
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.tabControlCH = new Guna.UI2.WinForms.Guna2TabControl();
             this.tabCuaHang = new System.Windows.Forms.TabPage();
+            this.dgvDuLieu = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnThemCuaHang = new Guna.UI2.WinForms.Guna2Button();
-            this.dgvDuLieu = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.ibtnDuLieuBiXoa = new Guna.UI2.WinForms.Guna2ImageButton();
             this.txtSoTrangCH = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTrangSauCH = new Guna.UI2.WinForms.Guna2Button();
             this.btnTrangTruocCH = new Guna.UI2.WinForms.Guna2Button();
@@ -57,11 +58,10 @@
             this.txtSoTrangCP = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnTrangSauCP = new Guna.UI2.WinForms.Guna2Button();
             this.btnTrangTruocCP = new Guna.UI2.WinForms.Guna2Button();
-            this.ibtnDuLieuBiXoa = new Guna.UI2.WinForms.Guna2ImageButton();
             this.tabControlCH.SuspendLayout();
             this.tabCuaHang.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.tabChiPhiCuaHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieuCP)).BeginInit();
@@ -104,40 +104,17 @@
             // tabCuaHang
             // 
             resources.ApplyResources(this.tabCuaHang, "tabCuaHang");
-            this.tabCuaHang.Controls.Add(this.guna2Panel1);
             this.tabCuaHang.Controls.Add(this.dgvDuLieu);
+            this.tabCuaHang.Controls.Add(this.guna2Panel1);
             this.tabCuaHang.Controls.Add(this.guna2Panel3);
             this.tabCuaHang.Name = "tabCuaHang";
             this.tabCuaHang.UseVisualStyleBackColor = true;
-            // 
-            // guna2Panel1
-            // 
-            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
-            this.guna2Panel1.Controls.Add(this.btnThemCuaHang);
-            this.guna2Panel1.Name = "guna2Panel1";
-            // 
-            // btnThemCuaHang
-            // 
-            resources.ApplyResources(this.btnThemCuaHang, "btnThemCuaHang");
-            this.btnThemCuaHang.BorderColor = System.Drawing.Color.DimGray;
-            this.btnThemCuaHang.BorderRadius = 10;
-            this.btnThemCuaHang.BorderThickness = 2;
-            this.btnThemCuaHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemCuaHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnThemCuaHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnThemCuaHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnThemCuaHang.FillColor = System.Drawing.Color.ForestGreen;
-            this.btnThemCuaHang.ForeColor = System.Drawing.Color.White;
-            this.btnThemCuaHang.Name = "btnThemCuaHang";
-            this.btnThemCuaHang.Click += new System.EventHandler(this.btnThemCuaHang_Click);
             // 
             // dgvDuLieu
             // 
             resources.ApplyResources(this.dgvDuLieu, "dgvDuLieu");
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dgvDuLieu.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvDuLieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDuLieu.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDuLieu.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -184,6 +161,28 @@
             this.dgvDuLieu.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dgvDuLieu.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDuLieu_CellContentClick);
             // 
+            // guna2Panel1
+            // 
+            resources.ApplyResources(this.guna2Panel1, "guna2Panel1");
+            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(12)))));
+            this.guna2Panel1.Controls.Add(this.btnThemCuaHang);
+            this.guna2Panel1.Name = "guna2Panel1";
+            // 
+            // btnThemCuaHang
+            // 
+            resources.ApplyResources(this.btnThemCuaHang, "btnThemCuaHang");
+            this.btnThemCuaHang.BorderColor = System.Drawing.Color.DimGray;
+            this.btnThemCuaHang.BorderRadius = 10;
+            this.btnThemCuaHang.BorderThickness = 2;
+            this.btnThemCuaHang.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemCuaHang.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThemCuaHang.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThemCuaHang.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThemCuaHang.FillColor = System.Drawing.Color.ForestGreen;
+            this.btnThemCuaHang.ForeColor = System.Drawing.Color.White;
+            this.btnThemCuaHang.Name = "btnThemCuaHang";
+            this.btnThemCuaHang.Click += new System.EventHandler(this.btnThemCuaHang_Click);
+            // 
             // guna2Panel3
             // 
             resources.ApplyResources(this.guna2Panel3, "guna2Panel3");
@@ -200,6 +199,19 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.ForeColor = System.Drawing.Color.DimGray;
             this.label1.Name = "label1";
+            // 
+            // ibtnDuLieuBiXoa
+            // 
+            resources.ApplyResources(this.ibtnDuLieuBiXoa, "ibtnDuLieuBiXoa");
+            this.ibtnDuLieuBiXoa.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnDuLieuBiXoa.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnDuLieuBiXoa.Image = global::Presentation.Properties.Resources.recycle_bin;
+            this.ibtnDuLieuBiXoa.ImageOffset = new System.Drawing.Point(0, 0);
+            this.ibtnDuLieuBiXoa.ImageRotate = 0F;
+            this.ibtnDuLieuBiXoa.ImageSize = new System.Drawing.Size(42, 42);
+            this.ibtnDuLieuBiXoa.Name = "ibtnDuLieuBiXoa";
+            this.ibtnDuLieuBiXoa.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.ibtnDuLieuBiXoa.Click += new System.EventHandler(this.ibtnDuLieuBiXoa_Click);
             // 
             // txtSoTrangCH
             // 
@@ -264,7 +276,6 @@
             resources.ApplyResources(this.dgvDuLieuCP, "dgvDuLieuCP");
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
             this.dgvDuLieuCP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvDuLieuCP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvDuLieuCP.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDuLieuCP.BackgroundColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -411,19 +422,6 @@
             this.btnTrangTruocCP.Name = "btnTrangTruocCP";
             this.btnTrangTruocCP.Click += new System.EventHandler(this.btnTrangTruocCP_Click);
             // 
-            // ibtnDuLieuBiXoa
-            // 
-            resources.ApplyResources(this.ibtnDuLieuBiXoa, "ibtnDuLieuBiXoa");
-            this.ibtnDuLieuBiXoa.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnDuLieuBiXoa.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnDuLieuBiXoa.Image = global::Presentation.Properties.Resources.recycle_bin;
-            this.ibtnDuLieuBiXoa.ImageOffset = new System.Drawing.Point(0, 0);
-            this.ibtnDuLieuBiXoa.ImageRotate = 0F;
-            this.ibtnDuLieuBiXoa.ImageSize = new System.Drawing.Size(42, 42);
-            this.ibtnDuLieuBiXoa.Name = "ibtnDuLieuBiXoa";
-            this.ibtnDuLieuBiXoa.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.ibtnDuLieuBiXoa.Click += new System.EventHandler(this.ibtnDuLieuBiXoa_Click);
-            // 
             // frmHienThi_CuaHang
             // 
             resources.ApplyResources(this, "$this");
@@ -434,8 +432,8 @@
             this.Load += new System.EventHandler(this.frmHienThi_CuaHang_Load);
             this.tabControlCH.ResumeLayout(false);
             this.tabCuaHang.ResumeLayout(false);
-            this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDuLieu)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             this.tabChiPhiCuaHang.ResumeLayout(false);
